@@ -501,92 +501,7 @@ img {
 	max-width: 500px;
 }
 
-/* MOBILE */
 
-@media (max-width: 720px) {
-	body {
-		font-size: 17px;
-	}
-
-	.header-inner {
-		flex-direction: column;
-		align-items: flex-start;
-		gap: 12px;
-		padding: 18px 24px;
-	}
-
-	.main-nav {
-		flex-wrap: wrap;
-		gap: 14px;
-	}
-
-	.lang-switch {
-		margin-left: 0;
-	}
-
-	main {
-		padding: 36px 24px;
-	}
-
-	.hero {
-		max-width: none;
-		padding: 24px 0;
-		border-bottom: 1px solid var(--line);
-	}
-
-	h1 {
-		max-width: 100%;
-		margin: 0 0 22px;
-		font-size: 2.7rem;
-	}
-
-	.lead {
-		font-size: 1.16rem;
-	}
-
-	.lead-principles {
-		font-size: 0.96rem;
-		margin-top: 20px;
-	}
-
-	.hero-text {
-		font-size: 1rem;
-	}
-
-	section {
-		padding: 18px 0;
-	}
-
-	.leadership-grid {
-		grid-template-columns: 1fr;
-	}
-
-	.books-grid {
-		grid-template-columns: 1fr;
-		gap: 36px;
-	}
-
-	.book-item .book-cover {
-		width: 220px;
-		height: 330px;
-	}
-
-	.about-layout {
-		grid-template-columns: 1fr;
-		gap: 20px;
-	}
-
-	.about-photo-wrapper {
-		justify-content: center;
-		order: -1;
-		padding-top: 0;
-		transform: none;
-	}
-
-	.about-photo {
-		max-width: 220px;
-	}
-}
 
 /* MEDIA PAGE */
 
@@ -715,6 +630,94 @@ img {
 
 .media-contact-link a:hover {
 	color: var(--blue);
+}
+
+
+/* MOBILE */
+
+@media (max-width: 720px) {
+	body {
+		font-size: 17px;
+	}
+
+	.header-inner {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 12px;
+		padding: 18px 24px;
+	}
+
+	.main-nav {
+		flex-wrap: wrap;
+		gap: 14px;
+	}
+
+	.lang-switch {
+		margin-left: 0;
+	}
+
+	main {
+		padding: 36px 24px;
+	}
+
+	.hero {
+		max-width: none;
+		padding: 24px 0;
+		border-bottom: 1px solid var(--line);
+	}
+
+	h1 {
+		max-width: 100%;
+		margin: 0 0 22px;
+		font-size: 2.7rem;
+	}
+
+	.lead {
+		font-size: 1.16rem;
+	}
+
+	.lead-principles {
+		font-size: 0.96rem;
+		margin-top: 20px;
+	}
+
+	.hero-text {
+		font-size: 1rem;
+	}
+
+	section {
+		padding: 18px 0;
+	}
+
+	.leadership-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.books-grid {
+		grid-template-columns: 1fr;
+		gap: 36px;
+	}
+
+	.book-item .book-cover {
+		width: 220px;
+		height: 330px;
+	}
+
+	.about-layout {
+		grid-template-columns: 1fr;
+		gap: 20px;
+	}
+
+	.about-photo-wrapper {
+		justify-content: center;
+		order: -1;
+		padding-top: 0;
+		transform: none;
+	}
+
+	.about-photo {
+		max-width: 220px;
+	}
 }
 
 /* MEDIA PAGE — MOBILE */
