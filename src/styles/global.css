@@ -622,7 +622,7 @@ img {
 .media-item {
 	display: grid;
 	grid-template-columns: 310px minmax(0, 1fr);
-	gap: 38px;
+	gap: 28px;
 	align-items: start;
 	padding: 34px 0;
 	border-bottom: 1px solid var(--line);
@@ -755,7 +755,7 @@ img {
 .media-image {
 	width: auto;
 	max-width: 100%;
-	max-height: 220px;
+	max-height: 230px;
 	height: auto;
 	object-fit: contain;
 }
