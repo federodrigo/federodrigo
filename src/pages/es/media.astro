@@ -3,7 +3,19 @@ import Header from '../../components/es/Header.astro';
 import Footer from '../../components/es/Footer.astro';
 import '../../styles/global.css';
 
-const mediaItems = [
+interface MediaItem {
+	type: string;
+	status: 'upcoming' | 'published';
+	title: string;
+	date: string;
+	image: string;
+	imageAlt: string;
+	description: string;
+	url?: string;
+	linkLabel?: string;
+}
+
+const mediaItems: MediaItem[] = [
 	{
 		type: 'Podcast',
 		status: 'upcoming',
@@ -151,7 +163,7 @@ const mediaItems = [
 				</p>
 
 				<p class="media-contact-link">
-					<a href="/#contact">Contactame →</a>
+					<a href="/es/#contact">Contactame →</a>
 				</p>
 			</section>
 		</main>
