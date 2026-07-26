@@ -12,7 +12,7 @@ const mediaItems = [
 		image: '/images/vanguard.jpg',
 		imageAlt: 'Fede Rodrigo appearing on The Technology Vanguard podcast',
 		description:
-			'An upcoming conversation exploring technology leadership, career development, AI, business strategy, and the personal journey behind today’s IT leaders',
+			'An upcoming conversation exploring technology leadership, career development, AI, business strategy, and the personal journey behind today’s IT leaders.',
 	},
 	{
 		type: 'Written Interview',
@@ -22,7 +22,7 @@ const mediaItems = [
 		image: '/images/cloud-interview.jpg',
 		imageAlt: 'Interview with Fede Rodrigo published by Nublit',
 		description:
-			'Interview with Nublit discussing cloud strategy, governance, business outcomes, and how organizations can avoid turning the cloud into just another expensive data center',
+			'Interview with Nublit discussing cloud strategy, governance, business outcomes, and how organizations can avoid turning the cloud into just another expensive data center.',
 		url: 'https://informe2026.nublit.com/',
 		linkLabel: 'Read Interview',
 	},
@@ -33,16 +33,17 @@ const mediaItems = [
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
+
 		<meta
 			name="viewport"
 			content="width=device-width, initial-scale=1"
 		/>
 
-		<title>Media | Fede Rodrigo</title>
+		<title>Media & Appearances | Fede Rodrigo</title>
 
 		<meta
 			name="description"
-			content="Interviews, podcasts, and public appearances featuring Fede Rodrigo"
+			content="Interviews, podcasts, professional recognitions, executive roundtables, and public appearances featuring Fede Rodrigo."
 		/>
 	</head>
 
@@ -57,13 +58,17 @@ const mediaItems = [
 				</h1>
 
 				<p class="lead">
-					A collection of interviews, podcast appearances, and public
-					conversations
+					A chronological collection of interviews, podcast
+					appearances, professional recognitions, executive
+					roundtables, and other public engagements.
 				</p>
 			</section>
 
-			<section class="media-list" aria-labelledby="media-list-title">
-				<h2 id="media-list-title">Featured</h2>
+			<section
+				class="media-list"
+				aria-labelledby="media-list-title"
+			>
+				<h2 id="media-list-title">Highlights</h2>
 
 				{
 					mediaItems.map((item) => (
