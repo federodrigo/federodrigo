@@ -16,6 +16,16 @@ const mediaItems = [
 		url: 'https://informe2026.nublit.com/',
 		linkLabel: 'Read Interview',
 	},
+	{
+		type: 'Podcast',
+		status: 'upcoming',
+		title: 'The Technology Vanguard',
+		date: 'Recording July 27, 2026',
+		image: '/images/fede.png',
+		imageAlt: 'Fede Rodrigo appearing on The Technology Vanguard podcast',
+		description:
+			'An upcoming conversation exploring technology leadership, career development, AI, business strategy, and the personal journey behind today’s IT leaders.',
+	},
 ];
 ---
 
@@ -82,15 +92,23 @@ const mediaItems = [
 									{item.description}
 								</p>
 
-								<p class="media-action">
-									<a
-										href={item.url}
-										target="_blank"
-										rel="noopener noreferrer"
-									>
-										{item.linkLabel} →
-									</a>
-								</p>
+								{
+									item.status === 'published' && item.url ? (
+										<p class="media-action">
+											<a
+												href={item.url}
+												target="_blank"
+												rel="noopener noreferrer"
+											>
+												{item.linkLabel} →
+											</a>
+										</p>
+									) : (
+										<p class="media-coming-soon">
+											Coming Soon
+										</p>
+									)
+								}
 							</div>
 						</article>
 					))
