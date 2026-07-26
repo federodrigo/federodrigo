@@ -540,8 +540,13 @@ img {
 	gap: 20px;
 	align-items: start;
 	padding: 34px 0;
+}
+
+
+.media-item:not(:last-child) {
 	border-bottom: 1px solid var(--line);
 }
+
 
 .media-item:first-of-type {
 	padding-top: 6px;
