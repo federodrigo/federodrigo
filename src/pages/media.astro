@@ -121,22 +121,25 @@ const mediaItems = [
 								</p>
 
 								{
-									item.status === 'published' && item.url ? (
-										<p class="media-action">
-											<a
-												href={item.url}
-												target="_blank"
-												rel="noopener noreferrer"
-											>
-												{item.linkLabel} →
-											</a>
-										</p>
-									) : (
-										<p class="media-coming-soon">
-											Coming Soon
-										</p>
-									)
-								}
+								{
+	item.url ? (
+		<p class="media-action">
+			<a
+				href={item.url}
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				{item.linkLabel} →
+			</a>
+		</p>
+	) : (
+		item.status === 'upcoming' && (
+			<p class="media-coming-soon">
+				Coming Soon
+			</p>
+		)
+	)
+}
 							</div>
 						</article>
 					))
