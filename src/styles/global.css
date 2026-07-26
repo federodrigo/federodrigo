@@ -616,9 +616,10 @@ img {
 .media-contact {
 	margin-top: 34px;
 	padding-top: 38px;
-	padding-bottom: 10px;
+	padding-bottom: 4px;
 	border-top: 1px solid var(--line);
 }
+
 
 .media-contact p {
 	max-width: 650px;
@@ -626,7 +627,7 @@ img {
 }
 
 .media-contact-link {
-	margin-top: 18px;
+	margin: 18px 0 0;
 }
 
 .media-contact-link a {
