@@ -745,11 +745,11 @@ img {
 		padding-top: 4px;
 	}
 
-	.media-image-wrapper {
-		display: flex;
-		justify-content: center;
-		width: 100%;
-	}
+.media-image-wrapper {
+	display: flex;
+	justify-content: flex-start;
+	width: 100%;
+}
 
 	.media-image {
 		width: auto;
