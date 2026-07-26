@@ -545,7 +545,7 @@ img {
 
 .media-item:last-child {
 	border-bottom: none;
-	padding-bottom: 16px; /* ajustalo a gusto */
+	padding-bottom: 12px; 
 }
 
 
