@@ -1,6 +1,16 @@
 ---
 const isSpanish = Astro.url.pathname.startsWith('/es');
 const base = isSpanish ? '/es' : '';
+
+const pathname = Astro.url.pathname;
+
+const enPath = isSpanish
+	? pathname.replace(/^\/es/, '') || '/'
+	: pathname;
+
+const esPath = isSpanish
+	? pathname
+	: `/es${pathname === '/' ? '/' : pathname}`;
 ---
 
 <header class="site-header">
@@ -20,25 +30,24 @@ const base = isSpanish ? '/es' : '';
 			<a href={`${base}/#leadership`}>
 				{isSpanish ? 'La Oficina del CIO' : 'The CIO Office'}
 			</a>
-<a href={`${base}/#books`}>
-	{isSpanish ? 'Libros' : 'Books'}
-</a>
 
+			<a href={`${base}/#books`}>
+				{isSpanish ? 'Libros' : 'Books'}
+			</a>
 
-<a href={`${base}/media`}>
-	{isSpanish ? 'Medios' : 'Media'}
-</a>
+			<a href={`${base}/media`}>
+				{isSpanish ? 'Medios' : 'Media'}
+			</a>
 
+			<a href={`${base}/#contact`} class="contact-link">
+				{isSpanish ? 'Contacto' : 'Contact'}
+			</a>
 
-<a href={`${base}/#contact`} class="contact-link">
-	{isSpanish ? 'Contacto' : 'Contact'}
-</a>
-
-<span class="lang-switch">
-	<a href="/" class={isSpanish ? "" : "active"}>EN</a>
-	<span>|</span>
-	<a href="/es/" class={isSpanish ? "active" : ""}>ES</a>
-</span>
-					</nav>
+			<span class="lang-switch">
+				<a href={enPath} class={isSpanish ? "" : "active"}>EN</a>
+				<span>|</span>
+				<a href={esPath} class={isSpanish ? "active" : ""}>ES</a>
+			</span>
+		</nav>
 	</div>
 </header>
