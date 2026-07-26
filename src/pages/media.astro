@@ -7,34 +7,14 @@ const mediaItems = [
 	{
 		type: 'Written Interview',
 		status: 'published',
-		title: 'Cloud Computing Interview',
+		title: 'Interview with Nublit',
 		date: '2026',
-		image: '/images/media/cloud-interview.jpg',
-		imageAlt: 'Cloud Computing Interview with Fede Rodrigo',
+		image: '/images/cloud-interview.jpg',
+		imageAlt: 'Interview with Fede Rodrigo published by Nublit',
 		description:
-			'An interview about cloud computing, technology strategy, and the role of the CIO in modern organizations',
+			'Interview with Nublit discussing cloud strategy, governance, business outcomes, and how organizations can avoid turning the cloud into just another expensive data center.',
 		url: 'https://informe2026.nublit.com/',
-		linkLabel: 'Read interview',
-	},
-	{
-		type: 'Podcast',
-		status: 'upcoming',
-		title: 'Upcoming Podcast',
-		date: 'Recording soon',
-		image: '/images/media/podcast-1.jpg',
-		imageAlt: 'Upcoming podcast featuring Fede Rodrigo',
-		description:
-			'A new podcast conversation will be recorded shortly. Episode details and publication links will be added once available',
-	},
-	{
-		type: 'Podcast',
-		status: 'upcoming',
-		title: 'Upcoming Podcast',
-		date: 'Coming soon',
-		image: '/images/media/podcast-2.jpg',
-		imageAlt: 'Upcoming podcast featuring Fede Rodrigo',
-		description:
-			'Another podcast appearance is currently being prepared. More information will be published after its release',
+		linkLabel: 'Read Interview',
 	},
 ];
 ---
@@ -52,7 +32,7 @@ const mediaItems = [
 
 		<meta
 			name="description"
-			content="Interviews, podcasts, and public conversations featuring Fede Rodrigo"
+			content="Interviews, podcasts, and public appearances featuring Fede Rodrigo."
 		/>
 	</head>
 
@@ -64,19 +44,18 @@ const mediaItems = [
 				<p class="section-intro">Media</p>
 
 				<h1>
-					Interviews, podcasts and
-					<span class="accent">conversations.</span>
+					Media &
+					<span class="accent">Appearances.</span>
 				</h1>
 
 				<p class="lead">
 					A collection of interviews, podcast appearances, and public
-					conversations about technology, leadership, business, and
-					other topics
+					conversations.
 				</p>
 			</section>
 
 			<section class="media-list" aria-labelledby="media-list-title">
-				<h2 id="media-list-title">Appearances</h2>
+				<h2 id="media-list-title">Featured</h2>
 
 				{
 					mediaItems.map((item) => (
@@ -103,23 +82,15 @@ const mediaItems = [
 									{item.description}
 								</p>
 
-								{
-									item.status === 'published' && item.url ? (
-										<p class="media-action">
-											<a
-												href={item.url}
-												target="_blank"
-												rel="noopener noreferrer"
-											>
-												{item.linkLabel} →
-											</a>
-										</p>
-									) : (
-										<p class="media-coming-soon">
-											Coming soon
-										</p>
-									)
-								}
+								<p class="media-action">
+									<a
+										href={item.url}
+										target="_blank"
+										rel="noopener noreferrer"
+									>
+										{item.linkLabel} →
+									</a>
+								</p>
 							</div>
 						</article>
 					))
@@ -127,15 +98,15 @@ const mediaItems = [
 			</section>
 
 			<section class="media-contact">
-				<h2>Media inquiries</h2>
+				<h2>Media Inquiries</h2>
 
 				<p>
-					For podcasts, interviews, speaking engagements, or other
-					media inquiries, please get in touch
+					For interviews, podcasts, speaking engagements, or other
+					media opportunities, please get in touch.
 				</p>
 
 				<p class="media-contact-link">
-					<a href="/#contact">Contact me →</a>
+					<a href="/#contact">Contact Me →</a>
 				</p>
 			</section>
 		</main>
