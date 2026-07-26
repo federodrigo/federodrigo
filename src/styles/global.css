@@ -633,8 +633,7 @@ img {
 .media-image {
 	display: block;
 	width: 100%;
-	aspect-ratio: 16 / 10;
-	object-fit: cover;
+	height: auto;
 	border-radius: 12px;
 	box-shadow: 0 14px 34px rgba(16, 42, 67, 0.1);
 }
