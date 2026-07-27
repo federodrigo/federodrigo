@@ -2,7 +2,7 @@
 const isSpanish = Astro.url.pathname.startsWith('/es');
 const base = isSpanish ? '/es' : '';
 
-const pathname = Astro.url.pathname;
+const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
 
 const enPath = isSpanish
 	? pathname.replace(/^\/es/, '') || '/'
@@ -11,42 +11,97 @@ const enPath = isSpanish
 const esPath = isSpanish
 	? pathname
 	: `/es${pathname === '/' ? '/' : pathname}`;
+
+const isActive = (path: string) => {
+	const normalizedPath = path.replace(/\/$/, '') || '/';
+	return pathname === normalizedPath;
+};
 ---
 
 <header class="site-header">
 	<div class="header-inner">
-		<a href={isSpanish ? "/es/" : "/"} class="brand">
+		<a
+			href={isSpanish ? '/es/' : '/'}
+			class="brand"
+			aria-label={isSpanish ? 'Página de inicio' : 'Home'}
+		>
 			<span class="brand-name">Fede Rodrigo</span>
+
 			<span class="brand-subtitle">
 				{isSpanish ? 'CIO · Autor' : 'CIO · Author'}
 			</span>
 		</a>
 
-		<nav class="main-nav">
-			<a href={`${base}/#about`}>
+		<nav
+			class="main-nav"
+			aria-label={isSpanish ? 'Navegación principal' : 'Main navigation'}
+		>
+			<a
+				href={`${base}/about`}
+				class:list={{ 'nav-active': isActive(`${base}/about`) }}
+				aria-current={isActive(`${base}/about`) ? 'page' : undefined}
+			>
 				{isSpanish ? 'Sobre mí' : 'About'}
 			</a>
 
-			<a href={`${base}/#leadership`}>
+			<a
+				href={`${base}/cio-office`}
+				class:list={{ 'nav-active': isActive(`${base}/cio-office`) }}
+				aria-current={isActive(`${base}/cio-office`) ? 'page' : undefined}
+			>
 				{isSpanish ? 'La Oficina del CIO' : 'The CIO Office'}
 			</a>
 
-			<a href={`${base}/#books`}>
+			<a
+				href={`${base}/books`}
+				class:list={{ 'nav-active': isActive(`${base}/books`) }}
+				aria-current={isActive(`${base}/books`) ? 'page' : undefined}
+			>
 				{isSpanish ? 'Libros' : 'Books'}
 			</a>
 
-			<a href={`${base}/media`}>
+			<a
+				href={`${base}/media`}
+				class:list={{ 'nav-active': isActive(`${base}/media`) }}
+				aria-current={isActive(`${base}/media`) ? 'page' : undefined}
+			>
 				{isSpanish ? 'Medios' : 'Media'}
 			</a>
 
-			<a href={`${base}/#contact`} class="contact-link">
+			<a
+				href={`${base}/contact`}
+				class:list={{
+					'contact-link': true,
+					'nav-active': isActive(`${base}/contact`),
+				}}
+				aria-current={isActive(`${base}/contact`) ? 'page' : undefined}
+			>
 				{isSpanish ? 'Contacto' : 'Contact'}
 			</a>
 
-			<span class="lang-switch">
-				<a href={enPath} class={isSpanish ? "" : "active"}>EN</a>
-				<span>|</span>
-				<a href={esPath} class={isSpanish ? "active" : ""}>ES</a>
+			<span
+				class="lang-switch"
+				aria-label={isSpanish ? 'Selector de idioma' : 'Language selector'}
+			>
+				<a
+					href={enPath}
+					class={isSpanish ? '' : 'active'}
+					lang="en"
+					aria-current={isSpanish ? undefined : 'page'}
+				>
+					EN
+				</a>
+
+				<span aria-hidden="true">|</span>
+
+				<a
+					href={esPath}
+					class={isSpanish ? 'active' : ''}
+					lang="es"
+					aria-current={isSpanish ? 'page' : undefined}
+				>
+					ES
+				</a>
 			</span>
 		</nav>
 	</div>
