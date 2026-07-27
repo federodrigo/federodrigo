@@ -206,7 +206,7 @@ h1 {
 
 .page-statement {
 	display: block;
-	margin: 22px 0 26px;
+	margin: 34px 0 12px;
 	padding: 10px 0;
 	border-top: 1px solid var(--line);
 	border-bottom: 1px solid var(--line);
