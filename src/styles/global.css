@@ -552,7 +552,6 @@ img {
 .media-hero {
 	max-width: 760px;
 	padding: 24px 0 38px;
-	border-bottom: 1px solid var(--line);
 }
 
 .media-hero .section-intro {
