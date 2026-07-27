@@ -13,8 +13,10 @@ const esPath = isSpanish
 	: `/es${pathname === '/' ? '/' : pathname}`;
 
 const isActive = (path: string) => {
-	const normalizedPath = path.replace(/\/$/, '') || '/';
-	return pathname === normalizedPath;
+	const normalizedCurrent = pathname.replace(/\/$/, '') || '/';
+	const normalizedTarget = path.replace(/\/$/, '') || '/';
+
+	return normalizedCurrent === normalizedTarget;
 };
 ---
 
@@ -36,6 +38,16 @@ const isActive = (path: string) => {
 			class="main-nav"
 			aria-label={isSpanish ? 'Navegación principal' : 'Main navigation'}
 		>
+			<a
+				href={isSpanish ? '/es/' : '/'}
+				class:list={{
+					'nav-active': isActive(isSpanish ? '/es' : '/'),
+				}}
+				aria-current={isActive(isSpanish ? '/es' : '/') ? 'page' : undefined}
+			>
+				{isSpanish ? 'INICIO' : 'HOME'}
+			</a>
+
 			<a
 				href={`${base}/about`}
 				class:list={{ 'nav-active': isActive(`${base}/about`) }}
