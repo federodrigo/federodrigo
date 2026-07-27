@@ -308,7 +308,7 @@ img {
 .about-photo {
 	display: block;
 	width: 100%;
-	max-width: 250px;
+	max-width: 240px;
 	height: auto;
 	object-fit: contain;
 	border-radius: 0;
