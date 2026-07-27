@@ -206,16 +206,17 @@ h1 {
 
 .page-statement {
 	display: block;
-	margin: 28px 0 8px;
-	padding: 12px 0;
+	margin: 40px 0 16px;
+	padding: 14px 0;
 	border-top: 1px solid var(--line);
 	border-bottom: 1px solid var(--line);
 	color: #586d84;
-	font-size: 0.93rem;
+	font-size: 1.12rem;
 	font-weight: 700;
-	letter-spacing: 0.15em;
+	letter-spacing: 0.08em;
 	text-transform: uppercase;
 	text-align: center;
+	line-height: 1.5;
 }
 
 
