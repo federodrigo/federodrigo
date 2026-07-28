@@ -206,7 +206,7 @@ h1 {
 
 .page-statement {
 	display: block;
-	margin: 40px 0 16px;
+	margin: 40px 0 6px;
 	padding: 14px 0;
 	border-top: 1px solid var(--line);
 	border-bottom: 1px solid var(--line);
@@ -437,19 +437,19 @@ img {
 
 
 .cio-office-capabilities {
-	padding-top: 12px;
+	padding-top: 0px;
 }
 
 .cio-office-capabilities-heading {
 	display: flex;
 	align-items: center;
-	gap: 22px;
+	gap: 12px;
 	margin-bottom: 18px;
 }
 
 .cio-office-capabilities-logo {
 	display: block;
-	width: 140px;
+	width: 160px;
 	height: auto;
 	flex-shrink: 0;
 	border-radius: 0;
