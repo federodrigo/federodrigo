@@ -33,7 +33,8 @@ import Footer from '../components/Footer.astro';
 					<h2>Get in Touch</h2>
 
 					<p class="contact-page-intro">
-						For advisory, speaking engagements, podcasts, media, or general inquiries
+						For advisory, speaking engagements, podcasts, media, or
+						general inquiries
 					</p>
 
 					<div class="contact-page-links">
@@ -93,6 +94,7 @@ import Footer from '../components/Footer.astro';
 
 				<div class="contact-page-form-wrapper">
 					<form
+						id="contact-form"
 						class="contact-page-form"
 						method="POST"
 						action="/api/contact"
@@ -202,18 +204,128 @@ import Footer from '../components/Footer.astro';
 							></textarea>
 						</div>
 
+						<div
+							class="contact-page-honeypot"
+							aria-hidden="true"
+						>
+							<label for="company-website">
+								Company Website
+							</label>
+
+							<input
+								id="company-website"
+								name="companyWebsite"
+								type="text"
+								tabindex="-1"
+								autocomplete="off"
+							/>
+						</div>
+
 						<button
+							id="contact-submit"
 							type="submit"
 							class="contact-page-submit"
 						>
-							Send Message
+							<span class="contact-page-submit-text">
+								Send Message
+							</span>
+
 							<span aria-hidden="true">→</span>
 						</button>
+
+						<p
+							id="contact-status"
+							class="contact-page-status"
+							role="status"
+							aria-live="polite"
+							hidden
+						></p>
 					</form>
 				</div>
 			</section>
 		</main>
 
 		<Footer />
+
+		<script>
+			const form = document.querySelector<HTMLFormElement>(
+				'#contact-form'
+			);
+
+			const submitButton =
+				document.querySelector<HTMLButtonElement>('#contact-submit');
+
+			const submitText = document.querySelector<HTMLElement>(
+				'.contact-page-submit-text'
+			);
+
+			const status =
+				document.querySelector<HTMLElement>('#contact-status');
+
+			if (form && submitButton && submitText && status) {
+				form.addEventListener('submit', async (event) => {
+					event.preventDefault();
+
+					if (!form.reportValidity()) {
+						return;
+					}
+
+					submitButton.disabled = true;
+					submitButton.setAttribute('aria-busy', 'true');
+					submitText.textContent = 'Sending...';
+
+					status.hidden = true;
+					status.textContent = '';
+					status.classList.remove(
+						'contact-page-status-success',
+						'contact-page-status-error'
+					);
+
+					try {
+						const response = await fetch(form.action, {
+							method: 'POST',
+							body: new FormData(form),
+							headers: {
+								Accept: 'application/json'
+							}
+						});
+
+						const result = await response
+							.json()
+							.catch(() => null);
+
+						if (!response.ok) {
+							throw new Error(
+								result?.message ||
+									'Your message could not be sent'
+							);
+						}
+
+						form.reset();
+
+						status.textContent =
+							'Thank you. Your message has been sent.';
+						status.classList.add(
+							'contact-page-status-success'
+						);
+						status.hidden = false;
+					} catch (error) {
+						status.textContent =
+							error instanceof Error
+								? error.message
+								: 'Your message could not be sent. Please try again.';
+
+						status.classList.add(
+							'contact-page-status-error'
+						);
+						status.hidden = false;
+					} finally {
+						submitButton.disabled = false;
+						submitButton.removeAttribute('aria-busy');
+						submitText.textContent = 'Send Message';
+					}
+				});
+			}
+		</script>
 	</body>
 </html>
