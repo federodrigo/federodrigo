@@ -773,12 +773,13 @@ img {
 }
 
 .featured-book-action a {
-	color: var(--navy);
+	color: var(--blue);
 	font-weight: 800;
+	border-bottom: none;
 }
 
 .featured-book-action a:hover {
-	color: var(--blue);
+	color: var(--red);
 }
 
 .other-books {
