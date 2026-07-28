@@ -5,10 +5,10 @@ import Footer from '../components/Footer.astro';
 
 const profileTags = [
 	'Global CIO',
-	'Technology Executive',
+	'Technology Strategy',
+	'Business Transformation',
+	'Operational Excellence',
 	'Author',
-	'MBA',
-	'Global Leadership',
 ];
 ---
 
@@ -18,7 +18,7 @@ const profileTags = [
 	<head>
 		<SEO
 			title="About | Fede Rodrigo"
-			description="Fede Rodrigo is a global technology executive, Chief Information Officer, MBA, and author with more than 25 years of experience leading teams, transformation, and technology strategy"
+			description="Learn more about Fede Rodrigo, Chief Information Officer, technology executive, MBA, and author."
 			lang="en"
 		/>
 	</head>
@@ -28,14 +28,10 @@ const profileTags = [
 
 		<main>
 			<section class="about-hero">
-				<h1>
-					About <span class="accent">Fede</span>
-				</h1>
+				<h1>About</h1>
 
 				<p class="lead">
-					Global technology executive, Chief Information Officer, MBA,
-					and author with more than 25 years of experience leading
-					organizations through transformation, growth, and change
+					I am a Chief Information Officer (CIO) with more than 25 years of experience in IT, helping global organizations transform.
 				</p>
 
 				<div class="page-statement">
@@ -43,32 +39,20 @@ const profileTags = [
 				</div>
 			</section>
 
-			<section
-				class="about-profile"
-				aria-labelledby="about-profile-title"
-			>
+			<section class="about-profile">
 				<div class="about-profile-layout">
+
 					<div class="about-profile-image-wrapper">
 						<img
 							src="/images/fede.png"
-							alt="Fede Rodrigo, global technology executive, CIO, and author"
+							alt="Fede Rodrigo"
 							class="about-profile-image"
 						/>
 					</div>
 
 					<div class="about-profile-content">
-						<p class="about-profile-eyebrow">
-							About Fede Rodrigo
-						</p>
 
-						<h2 id="about-profile-title">
-							Fede Rodrigo
-						</h2>
-
-						<div
-							class="about-profile-tags"
-							aria-label="Professional profile"
-						>
+						<div class="about-profile-tags">
 							{
 								profileTags.map((tag) => (
 									<span>{tag}</span>
@@ -77,43 +61,34 @@ const profileTags = [
 						</div>
 
 						<div class="about-profile-text">
+
 							<p>
-								Fede Rodrigo is a global technology executive,
-								Chief Information Officer, and author with more than
-								25 years of experience building teams, modernizing
-								organizations, and creating business value through
-								technology.
+								My approach is simple: create business value through technology.
+								Stay hands-on, think strategically, and build a culture of service,
+								operational excellence, and continuous improvement.
 							</p>
 
 							<p>
-								His career has spanned infrastructure, enterprise
-								applications, cybersecurity, cloud, operational
-								technology, and M&A across North America, Europe,
-								and Latin America. He has built global technology
-								functions from the ground up, led multicultural
-								teams, managed complex transformation programs, and
-								advised boards and executive leaders on strategy and
-								execution.
+								Throughout my career, I have led global technology organizations
+								across North America, Europe, and Latin America, building teams,
+								modernizing infrastructure, deploying enterprise platforms,
+								strengthening cybersecurity, and leading large-scale transformation
+								programs.
 							</p>
 
 							<p>
-								His approach is grounded in a simple principle:
-								technology is never the starting point. People come
-								first, business priorities define the direction,
-								and technology enables the outcome. He combines
-								strategic perspective with hands-on execution and a
-								culture centered on service and operational
-								excellence.
+								I have built technology organizations from the ground up,
+								led multicultural teams, advised executive leadership and boards,
+								and delivered initiatives spanning cloud, ERP, operational technology,
+								M&A integration, and digital transformation.
 							</p>
 
 							<p>
-								Fede holds an MBA from the University of Illinois
-								Urbana-Champaign and a degree in Computer Science
-								from the Catholic University of Uruguay. He is the
-								author of <em>How to Become CIO and Succeed</em> and
-								writes about technology leadership, institutions,
-								incentives, freedom, and complex systems.
+								Beyond my work, I write about freedom, incentives,
+								institutions, and why systems—technical or political—
+								fail when they ignore reality.
 							</p>
+
 						</div>
 
 						<p class="about-profile-action">
@@ -121,9 +96,12 @@ const profileTags = [
 								Explore My Books →
 							</a>
 						</p>
+
 					</div>
+
 				</div>
 			</section>
+
 		</main>
 
 		<Footer />
