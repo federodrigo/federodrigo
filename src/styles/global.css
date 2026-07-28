@@ -437,19 +437,19 @@ img {
 
 
 .cio-office-capabilities {
-	padding-top: 42px;
+	padding-top: 12px;
 }
 
 .cio-office-capabilities-heading {
 	display: flex;
 	align-items: center;
 	gap: 22px;
-	margin-bottom: 26px;
+	margin-bottom: 18px;
 }
 
 .cio-office-capabilities-logo {
 	display: block;
-	width: 105px;
+	width: 140px;
 	height: auto;
 	flex-shrink: 0;
 	border-radius: 0;
