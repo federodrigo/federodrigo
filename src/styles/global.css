@@ -678,11 +678,9 @@ img {
 
 .featured-book {
 	display: grid;
-	grid-template-columns: 270px minmax(0, 1fr);
-	gap: 54px;
+	grid-template-columns: 260px minmax(0, 1fr);
+	gap: 48px;
 	align-items: start;
-	padding-top: 42px;
-	padding-bottom: 46px;
 }
 
 .featured-book-cover-wrapper {
