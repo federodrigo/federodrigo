@@ -441,8 +441,8 @@ img {
 
 .cio-office-intro-layout {
 	display: grid;
-	grid-template-columns: 240px minmax(0, 1fr);
-	gap: 18px;
+	grid-template-columns: 175px minmax(0, 1fr);
+	gap: 20px;
 	align-items: center;
 }
 
@@ -450,12 +450,13 @@ img {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	padding-top: 10px;
 }
 
 .cio-office-logo {
 	display: block;
 	width: 100%;
-	max-width: 220px;
+	max-width: 155px;
 	height: auto;
 	border-radius: 0;
 }
@@ -881,7 +882,7 @@ img {
 	}
 
 	.cio-office-logo {
-		max-width: 110px;
+		max-width: 130px;
 	}
 
 	.cio-office-capabilities {
