@@ -1,90 +1,185 @@
 ---
+import '../styles/global.css';
+
 interface Props {
-  title: string;
-  description: string;
-  lang?: "en" | "es";
-  image?: string;
-  type?: "website" | "article";
+	title: string;
+	description: string;
+	lang?: 'en' | 'es';
+	image?: string;
+	type?: 'website' | 'article';
 }
 
 const {
-  title,
-  description,
-  lang = "en",
-  image = "/images/og-image.jpg",
-  type = "website",
+	title,
+	description,
+	lang = 'en',
+	image = '/blog-placeholder-1.jpg',
+	type = 'website',
 } = Astro.props;
 
-const siteUrl = "https://federodrigo.com";
+const siteUrl = Astro.site ?? new URL('https://federodrigo.com');
 
 const currentPath = Astro.url.pathname;
 
 const normalizedPath =
-  currentPath === "/"
-    ? "/"
-    : currentPath.endsWith("/")
-      ? currentPath
-      : `${currentPath}/`;
+	currentPath === '/'
+		? '/'
+		: currentPath.endsWith('/')
+			? currentPath
+			: `${currentPath}/`;
 
-const englishPath = normalizedPath.startsWith("/es/")
-  ? normalizedPath.replace(/^\/es/, "")
-  : normalizedPath === "/es/"
-    ? "/"
-    : normalizedPath;
+const englishPath = normalizedPath.startsWith('/es/')
+	? normalizedPath.replace(/^\/es/, '')
+	: normalizedPath === '/es/'
+		? '/'
+		: normalizedPath;
 
 const spanishPath =
-  englishPath === "/"
-    ? "/es/"
-    : `/es${englishPath}`;
+	englishPath === '/'
+		? '/es/'
+		: `/es${englishPath}`;
 
 const canonicalPath =
-  lang === "es"
-    ? spanishPath
-    : englishPath;
+	lang === 'es'
+		? spanishPath
+		: englishPath;
 
-const canonicalUrl = new URL(canonicalPath, siteUrl).toString();
-const englishUrl = new URL(englishPath, siteUrl).toString();
-const spanishUrl = new URL(spanishPath, siteUrl).toString();
-const imageUrl = new URL(image, siteUrl).toString();
+const canonicalURL = new URL(canonicalPath, siteUrl);
+const englishURL = new URL(englishPath, siteUrl);
+const spanishURL = new URL(spanishPath, siteUrl);
+const imageURL = new URL(image, siteUrl);
 ---
+
+<meta charset="utf-8" />
+
+<meta
+	name="viewport"
+	content="width=device-width, initial-scale=1"
+/>
+
+<link
+	rel="icon"
+	type="image/svg+xml"
+	href="/favicon.svg"
+/>
+
+<meta
+	name="generator"
+	content={Astro.generator}
+/>
+
+<link
+	rel="preload"
+	href="/fonts/atkinson-regular.woff"
+	as="font"
+	type="font/woff"
+	crossorigin
+/>
+
+<link
+	rel="preload"
+	href="/fonts/atkinson-bold.woff"
+	as="font"
+	type="font/woff"
+	crossorigin
+/>
 
 <title>{title}</title>
 
-<meta name="description" content={description} />
-
-<link rel="canonical" href={canonicalUrl} />
-
-<link
-  rel="alternate"
-  hreflang="en"
-  href={englishUrl}
-/>
-
-<link
-  rel="alternate"
-  hreflang="es"
-  href={spanishUrl}
-/>
-
-<link
-  rel="alternate"
-  hreflang="x-default"
-  href={englishUrl}
-/>
-
-<meta property="og:type" content={type} />
-<meta property="og:title" content={title} />
-<meta property="og:description" content={description} />
-<meta property="og:url" content={canonicalUrl} />
-<meta property="og:image" content={imageUrl} />
-<meta property="og:site_name" content="Federico Rodrigo" />
-<meta property="og:locale" content={lang === "es" ? "es_ES" : "en_US"} />
 <meta
-  property="og:locale:alternate"
-  content={lang === "es" ? "en_US" : "es_ES"}
+	name="title"
+	content={title}
 />
 
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content={title} />
-<meta name="twitter:description" content={description} />
-<meta name="twitter:image" content={imageUrl} />
+<meta
+	name="description"
+	content={description}
+/>
+
+<link
+	rel="canonical"
+	href={canonicalURL}
+/>
+
+<link
+	rel="alternate"
+	hreflang="en"
+	href={englishURL}
+/>
+
+<link
+	rel="alternate"
+	hreflang="es"
+	href={spanishURL}
+/>
+
+<link
+	rel="alternate"
+	hreflang="x-default"
+	href={englishURL}
+/>
+
+<meta
+	property="og:type"
+	content={type}
+/>
+
+<meta
+	property="og:url"
+	content={canonicalURL}
+/>
+
+<meta
+	property="og:title"
+	content={title}
+/>
+
+<meta
+	property="og:description"
+	content={description}
+/>
+
+<meta
+	property="og:image"
+	content={imageURL}
+/>
+
+<meta
+	property="og:site_name"
+	content="Fede Rodrigo"
+/>
+
+<meta
+	property="og:locale"
+	content={lang === 'es' ? 'es_ES' : 'en_US'}
+/>
+
+<meta
+	property="og:locale:alternate"
+	content={lang === 'es' ? 'en_US' : 'es_ES'}
+/>
+
+<meta
+	name="twitter:card"
+	content="summary_large_image"
+/>
+
+<meta
+	name="twitter:url"
+	content={canonicalURL}
+/>
+
+<meta
+	name="twitter:title"
+	content={title}
+/>
+
+<meta
+	name="twitter:description"
+	content={description}
+/>
+
+<meta
+	name="twitter:image"
+	content={imageURL}
+/>
