@@ -1049,7 +1049,7 @@ img {
 	grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
 	gap: 64px;
 	align-items: start;
-	padding-top: 42px;
+	padding-top: 28px;
 }
 
 .contact-page-info {
