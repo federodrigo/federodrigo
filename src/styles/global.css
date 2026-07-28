@@ -414,6 +414,91 @@ img {
 	color: var(--muted);
 }
 
+/* THE CIO OFFICE PAGE */
+
+.cio-office-hero {
+	max-width: 760px;
+	padding: 24px 0;
+}
+
+.cio-office-hero .section-intro {
+	margin-bottom: 14px;
+}
+
+.cio-office-hero h1 {
+	margin-bottom: 24px;
+}
+
+.cio-office-hero .lead {
+	max-width: 690px;
+	margin-bottom: 0;
+	font-weight: 600;
+	color: var(--muted);
+}
+
+.cio-office-overview {
+	padding-top: 22px;
+}
+
+.cio-office-intro-layout {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) 240px;
+	gap: 56px;
+	align-items: center;
+}
+
+.cio-office-intro-content p {
+	max-width: 620px;
+}
+
+.cio-office-logo-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.cio-office-logo {
+	display: block;
+	width: 100%;
+	max-width: 220px;
+	height: auto;
+	object-fit: contain;
+	border-radius: 0;
+}
+
+.cio-office-capabilities {
+	padding-top: 34px;
+}
+
+.cio-office-capabilities .leadership-grid {
+	margin-top: 26px;
+}
+
+.cio-office-contact {
+	margin-top: 34px;
+	padding-top: 38px;
+	padding-bottom: 4px;
+	border-top: 1px solid var(--line);
+}
+
+.cio-office-contact p {
+	max-width: 650px;
+	color: var(--muted);
+}
+
+.cio-office-contact-link {
+	margin: 18px 0 0;
+}
+
+.cio-office-contact-link a {
+	color: var(--navy);
+	font-weight: 800;
+}
+
+.cio-office-contact-link a:hover {
+	color: var(--blue);
+}
+
 /* BOOKS */
 
 .books-grid {
@@ -829,4 +914,37 @@ img {
 		margin-top: 24px;
 		padding-top: 32px;
 	}
+}
+
+/* THE CIO OFFICE PAGE — MOBILE */
+
+.cio-office-hero {
+	padding: 24px 0;
+}
+
+.cio-office-hero h1 {
+	font-size: 2.7rem;
+}
+
+.cio-office-intro-layout {
+	grid-template-columns: 1fr;
+	gap: 26px;
+}
+
+.cio-office-logo-wrapper {
+	justify-content: flex-start;
+	order: -1;
+}
+
+.cio-office-logo {
+	max-width: 190px;
+}
+
+.cio-office-capabilities {
+	padding-top: 26px;
+}
+
+.cio-office-contact {
+	margin-top: 24px;
+	padding-top: 32px;
 }
