@@ -1,15 +1,24 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
+import SEO from '../components/SEO.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 ---
 
 <!doctype html>
+
 <html lang="en">
 	<head>
-		<BaseHead
-			title="Fede Rodrigo | CIO · Author"
-			description="Chief Information Officer, author, and technology leader"
+		<meta charset="UTF-8" />
+
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+
+		<SEO
+			title="Fede Rodrigo | CIO, Author and Technology Leader"
+			description="Fede Rodrigo is a Chief Information Officer, author, and technology leader focused on business value, technology strategy, operational excellence, and transformation."
+			lang="en"
 		/>
 	</head>
 
@@ -30,90 +39,102 @@ import Footer from '../components/Footer.astro';
 				</div>
 			</section>
 
-		<section id="about">
-	<h2>About</h2>
+			<section id="about">
+				<h2>About</h2>
 
-	<div class="about-layout">
-		<div class="about-content">
-<p>
-I am a Chief Information Officer (CIO) with more than 25 years of experience in IT, helping global organizations transform
-</p>
+				<div class="about-layout">
+					<div class="about-content">
+						<p>
+							I am a Chief Information Officer (CIO) with more than
+							25 years of experience in IT, helping global
+							organizations transform
+						</p>
 
-<p>
-	<strong>My approach is simple:</strong> create business value through technology. Stay hands-on, think strategically, and build a culture of service, operational excellence, and continuous improvement</p>
+						<p>
+							<strong>My approach is simple:</strong> create business
+							value through technology. Stay hands-on, think
+							strategically, and build a culture of service,
+							operational excellence, and continuous improvement
+						</p>
 
-			<p>
-Beyond my work, I write about freedom, incentives, institutions,
-	and why systems—technical or political—fail when they ignore reality
-			</p>
-		</div>
+						<p>
+							Beyond my work, I write about freedom, incentives,
+							institutions, and why systems—technical or
+							political—fail when they ignore reality
+						</p>
+					</div>
 
-		<div class="about-photo-wrapper">
-			<img
-				src="/images/fede.png"
-				alt="Fede Rodrigo, Chief Information Officer and author"
-				class="about-photo"
-			/>
-		</div>
-	</div>
-</section>
+					<div class="about-photo-wrapper">
+						<img
+							src="/images/fede.png"
+							alt="Fede Rodrigo, Chief Information Officer and author"
+							class="about-photo"
+						/>
+					</div>
+				</div>
 			</section>
 
 			<section id="leadership">
 				<h2>The CIO Office</h2>
-<div class="leadership-grid">
-	<div class="leadership-card">
-		<h3>Executive Technology Leadership</h3>
-		<p>
-			Align technology strategy with business objectives, operating
-			models, governance, and long-term value creation
-		</p>
-	</div>
 
-	<div class="leadership-card">
-		<h3>Infrastructure, Cloud & Cybersecurity</h3>
-		<p>
-			Modernize infrastructure, cloud, networks, cybersecurity, and
-			end-user services
-		</p>
-	</div>
+				<div class="leadership-grid">
+					<div class="leadership-card">
+						<h3>Executive Technology Leadership</h3>
 
-	<div class="leadership-card">
-		<h3>Enterprise Applications & Data</h3>
-		<p>
-			Deliver ERP, enterprise applications, business intelligence, and
-			data initiatives that improve visibility, execution, and
-			decision-making
-		</p>
-	</div>
+						<p>
+							Align technology strategy with business objectives,
+							operating models, governance, and long-term value
+							creation
+						</p>
+					</div>
 
-	<div class="leadership-card">
-		<h3>M&A Technology Integration</h3>
-		<p>
-			Integrate systems, infrastructure, applications, data, and teams
-			during mergers and acquisitions
-		</p>
-	</div>
+					<div class="leadership-card">
+						<h3>Infrastructure, Cloud & Cybersecurity</h3>
 
-	<div class="leadership-card">
-		<h3>IT & Operational Technology</h3>
-		<p>
-			Connect IT and operational technology to improve resilience,
-			security, business continuity, and operational performance
-		</p>
-	</div>
+						<p>
+							Modernize infrastructure, cloud, networks,
+							cybersecurity, and end-user services
+						</p>
+					</div>
 
-	<div class="leadership-card">
-		<h3>Fractional CIO & Advisory</h3>
-		<p>
-			Support CEOs and executive teams with strategic technology
-			leadership, transformation, and execution
-		</p>
-	</div>
-</div>
+					<div class="leadership-card">
+						<h3>Enterprise Applications & Data</h3>
 
+						<p>
+							Deliver ERP, enterprise applications, business
+							intelligence, and data initiatives that improve
+							visibility, execution, and decision-making
+						</p>
+					</div>
 
-				
+					<div class="leadership-card">
+						<h3>M&A Technology Integration</h3>
+
+						<p>
+							Integrate systems, infrastructure, applications, data,
+							and teams during mergers and acquisitions
+						</p>
+					</div>
+
+					<div class="leadership-card">
+						<h3>IT & Operational Technology</h3>
+
+						<p>
+							Connect IT and operational technology to improve
+							resilience, security, business continuity, and
+							operational performance
+						</p>
+					</div>
+
+					<div class="leadership-card">
+						<h3>Fractional CIO & Advisory</h3>
+
+						<p>
+							Support CEOs and executive teams with strategic
+							technology leadership, transformation, and execution
+						</p>
+					</div>
+				</div>
 			</section>
 
 			<section id="books">
@@ -130,12 +151,14 @@ Beyond my work, I write about freedom, incentives, institutions,
 						<div class="book-content">
 							<h3>How to Become CIO and Succeed</h3>
 
-							<p class="book-subtitle">People, Business, Strategy</p>
+							<p class="book-subtitle">
+								People, Business, Strategy
+							</p>
 
 							<p class="book-description">
-								A practical guide for technology leaders who want to connect IT
-								with business value, build strong teams, and succeed in the CIO
-								role
+								A practical guide for technology leaders who want
+								to connect IT with business value, build strong
+								teams, and succeed in the CIO role
 							</p>
 						</div>
 
@@ -143,6 +166,7 @@ Beyond my work, I write about freedom, incentives, institutions,
 							<a
 								href="https://www.amazon.com/dp/B0F8MVPN4Q"
 								target="_blank"
+								rel="noopener noreferrer"
 							>
 								View on Amazon →
 							</a>
@@ -159,18 +183,21 @@ Beyond my work, I write about freedom, incentives, institutions,
 						<div class="book-content">
 							<h3>A Theory of Minimal Tolerance</h3>
 
-							<p class="book-subtitle">A Theory of Minimal Tolerance</p>
+							<p class="book-subtitle">
+								A Theory of Minimal Tolerance
+							</p>
 
 							<p class="book-description">
-								A forthcoming book exploring legitimacy, coercion,
-								institutional limits, and the conditions under which power can
-								be considered tolerable
+								A forthcoming book exploring legitimacy,
+								coercion, institutional limits, and the conditions
+								under which power can be considered tolerable
 							</p>
 
 							<p class="book-ssrn">
 								<a
 									href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5984574"
 									target="_blank"
+									rel="noopener noreferrer"
 								>
 									Based on The Minimal Tolerance Theorem (SSRN) →
 								</a>
@@ -180,58 +207,58 @@ Beyond my work, I write about freedom, incentives, institutions,
 				</div>
 			</section>
 
-<section id="contact" class="contact-section">
-	<h2>Contact</h2>
+			<section id="contact" class="contact-section">
+				<h2>Contact</h2>
 
-	<p class="contact-intro">
-		For executive leadership opportunities, speaking engagements,
-		podcasts, media inquiries, or general questions,
-		please reach out directly
-	</p>
-
-	<div class="contact-links">
-		<div class="contact-item">
-			<span class="contact-icon">✉</span>
-
-			<div>
-				<div class="contact-label">EMAIL</div>
-
-				<a href="mailto:contact@federodrigo.com">
-					contact@federodrigo.com
-				</a>
-			</div>
-		</div>
-
-		<div class="contact-item">
-			<span class="contact-icon">in</span>
-
-			<div>
-				<div class="contact-label">LINKEDIN</div>
-
-				<a
-					href="https://www.linkedin.com/in/fede-rodrigo/"
-					target="_blank"
-				>
-					linkedin.com/in/fede-rodrigo
-				</a>
-			</div>
-		</div>
-
-		<div class="contact-item">
-			<span class="contact-icon">→</span>
-
-			<div>
-				<div class="contact-label">RESPONSE</div>
-
-				<p>
-					I personally review all inquiries and respond when appropriate
+				<p class="contact-intro">
+					For executive leadership opportunities, speaking
+					engagements, podcasts, media inquiries, or general
+					questions, please reach out directly
 				</p>
-			</div>
-		</div>
-	</div>
-</section>
 
+				<div class="contact-links">
+					<div class="contact-item">
+						<span class="contact-icon">✉</span>
 
+						<div>
+							<div class="contact-label">EMAIL</div>
+
+							<a href="mailto:contact@federodrigo.com">
+								contact@federodrigo.com
+							</a>
+						</div>
+					</div>
+
+					<div class="contact-item">
+						<span class="contact-icon">in</span>
+
+						<div>
+							<div class="contact-label">LINKEDIN</div>
+
+							<a
+								href="https://www.linkedin.com/in/fede-rodrigo/"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								linkedin.com/in/fede-rodrigo
+							</a>
+						</div>
+					</div>
+
+					<div class="contact-item">
+						<span class="contact-icon">→</span>
+
+						<div>
+							<div class="contact-label">RESPONSE</div>
+
+							<p>
+								I personally review all inquiries and respond
+								when appropriate
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
 		</main>
 
 		<Footer />
