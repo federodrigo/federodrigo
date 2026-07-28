@@ -27,21 +27,11 @@ const profileTags = [
 		<Header />
 
 		<main>
-			<section class="about-hero">
-				<h1>About</h1>
-
-				<p class="lead">
-					I am a Chief Information Officer (CIO) with more than 25 years of experience in IT, helping global organizations transform.
-				</p>
-
-				<div class="page-statement">
-					People First. Business Driven. Technology Enabled.
-				</div>
-			</section>
-
-			<section class="about-profile">
+			<section
+				class="about-profile"
+				aria-labelledby="about-profile-title"
+			>
 				<div class="about-profile-layout">
-
 					<div class="about-profile-image-wrapper">
 						<img
 							src="/images/fede.png"
@@ -51,8 +41,18 @@ const profileTags = [
 					</div>
 
 					<div class="about-profile-content">
+						<p class="about-profile-eyebrow">
+							About Fede Rodrigo
+						</p>
 
-						<div class="about-profile-tags">
+						<h1 id="about-profile-title">
+							Fede Rodrigo
+						</h1>
+
+						<div
+							class="about-profile-tags"
+							aria-label="Professional profile"
+						>
 							{
 								profileTags.map((tag) => (
 									<span>{tag}</span>
@@ -61,34 +61,43 @@ const profileTags = [
 						</div>
 
 						<div class="about-profile-text">
-
-							<p>
-								My approach is simple: create business value through technology.
-								Stay hands-on, think strategically, and build a culture of service,
-								operational excellence, and continuous improvement.
+							<p class="about-profile-intro">
+								I am a Chief Information Officer (CIO) with more
+								than 25 years of experience in IT, helping global
+								organizations transform.
 							</p>
 
 							<p>
-								Throughout my career, I have led global technology organizations
-								across North America, Europe, and Latin America, building teams,
-								modernizing infrastructure, deploying enterprise platforms,
-								strengthening cybersecurity, and leading large-scale transformation
-								programs.
+								My approach is simple: create business value
+								through technology. Stay hands-on, think
+								strategically, and build a culture of service,
+								operational excellence, and continuous
+								improvement.
 							</p>
 
 							<p>
-								I have built technology organizations from the ground up,
-								led multicultural teams, advised executive leadership and boards,
-								and delivered initiatives spanning cloud, ERP, operational technology,
-								M&A integration, and digital transformation.
+								Throughout my career, I have led global
+								technology organizations across North America,
+								Europe, and Latin America, building teams,
+								modernizing infrastructure, deploying enterprise
+								platforms, strengthening cybersecurity, and
+								leading large-scale transformation programs.
 							</p>
 
 							<p>
-								Beyond my work, I write about freedom, incentives,
-								institutions, and why systems—technical or political—
-								fail when they ignore reality.
+								I have built technology organizations from the
+								ground up, led multicultural teams, advised
+								executive leadership and boards, and delivered
+								initiatives spanning cloud, ERP, operational
+								technology, M&A integration, and digital
+								transformation.
 							</p>
 
+							<p>
+								Beyond my work, I write about freedom,
+								incentives, institutions, and why systems—technical
+								or political—fail when they ignore reality.
+							</p>
 						</div>
 
 						<p class="about-profile-action">
@@ -96,12 +105,9 @@ const profileTags = [
 								Explore My Books →
 							</a>
 						</p>
-
 					</div>
-
 				</div>
 			</section>
-
 		</main>
 
 		<Footer />
