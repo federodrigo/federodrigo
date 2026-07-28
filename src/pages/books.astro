@@ -1,1 +1,159 @@
+---
+import SEO from '../components/SEO.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
 
+<!doctype html>
+
+<html lang="en">
+	<head>
+		<SEO
+			title="Books | Fede Rodrigo"
+			description="Books by Fede Rodrigo on technology leadership, the CIO role, institutions, incentives, freedom, and the limits of coercion."
+			lang="en"
+		/>
+	</head>
+
+	<body>
+		<Header />
+
+		<main>
+			<section class="books-hero">
+				<h1>
+					Books
+				</h1>
+
+				<p class="lead">
+					Practical ideas about technology leadership, business,
+					institutions, incentives, and the systems that shape how
+					people and organizations operate.
+				</p>
+
+				<div class="page-statement">
+					I Wrote the Book I Wish I Had Twenty Years Earlier
+				</div>
+			</section>
+
+			<section
+				class="featured-book"
+				aria-labelledby="featured-book-title"
+			>
+				<div class="featured-book-cover-wrapper">
+					<img
+						src="/images/cio-book-cover.jpg"
+						alt="Cover of How to Become CIO and Succeed"
+						class="featured-book-cover"
+					/>
+				</div>
+
+				<div class="featured-book-content">
+					<p class="featured-book-label">
+						Featured Book
+					</p>
+
+					<h2 id="featured-book-title">
+						How to Become CIO and Succeed
+					</h2>
+
+					<p class="featured-book-subtitle">
+						People, Business, Strategy
+					</p>
+
+					<p>
+						I wrote <strong><em>How to Become CIO and Succeed</em></strong>
+						because it was the book I wish I had when I began my
+						leadership journey.
+					</p>
+
+					<p>
+						Technology professionals are often promoted because of
+						their technical expertise. But succeeding as a CIO
+						requires much more than understanding technology. It
+						requires learning how to lead people, understand the
+						business, communicate with executives, define a clear
+						strategy, and turn that strategy into results.
+					</p>
+
+					<p>
+						This book brings together practical lessons from more
+						than two decades of experience to help current and
+						aspiring technology leaders build successful careers,
+						develop strong teams, and create lasting business value.
+					</p>
+
+					<div class="featured-book-principles">
+						<div>People First</div>
+						<div>Business Driven</div>
+						<div>Technology Enabled</div>
+					</div>
+
+					<p class="featured-book-action">
+						<a
+							href="https://www.amazon.com/dp/B0F8MVPN4Q"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							View on Amazon →
+						</a>
+					</p>
+				</div>
+			</section>
+
+			<section
+				class="other-books"
+				aria-labelledby="other-books-title"
+			>
+				<h2 id="other-books-title">
+					Other Work
+				</h2>
+
+				<article class="other-book">
+					<div class="other-book-cover-wrapper">
+						<img
+							src="/images/book-cover.jpg"
+							alt="Cover of A Theory of Minimal Tolerance"
+							class="other-book-cover"
+							loading="lazy"
+						/>
+					</div>
+
+					<div class="other-book-content">
+						<p class="other-book-label">
+							Forthcoming
+						</p>
+
+						<h3>
+							A Theory of Minimal Tolerance
+						</h3>
+
+						<p>
+							A work exploring freedom, coercion, incentives,
+							institutions, and the limits that should constrain
+							political power.
+						</p>
+
+						<p>
+							It develops a practical framework for examining the
+							conditions under which state coercion may be morally
+							tolerable, while recognizing that coercion never
+							becomes morally legitimate.
+						</p>
+
+						<p class="other-book-action">
+							<a
+								href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5984574"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								Read The Minimal Tolerance Theorem on SSRN →
+							</a>
+						</p>
+					</div>
+				</article>
+			</section>
+		</main>
+
+		<Footer />
+	</body>
+</html>
