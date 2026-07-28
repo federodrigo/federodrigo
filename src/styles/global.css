@@ -442,28 +442,30 @@ img {
 
 .cio-office-intro-layout {
 	display: grid;
-	grid-template-columns: minmax(0, 1fr) 240px;
-	gap: 56px;
-	align-items: center;
-}
-
-.cio-office-intro-content p {
-	max-width: 620px;
+	grid-template-columns: 170px minmax(0, 1fr);
+	gap: 42px;
+	align-items: start;
 }
 
 .cio-office-logo-wrapper {
 	display: flex;
-	align-items: center;
 	justify-content: center;
+	padding-top: 6px;
 }
 
 .cio-office-logo {
 	display: block;
 	width: 100%;
-	max-width: 220px;
+	max-width: 150px;
 	height: auto;
-	object-fit: contain;
-	border-radius: 0;
+}
+
+.cio-office-intro-content h2 {
+	margin-top: 0;
+}
+
+.cio-office-intro-content p {
+	max-width: 620px;
 }
 
 .cio-office-capabilities {
@@ -928,18 +930,17 @@ img {
 
 .cio-office-intro-layout {
 	grid-template-columns: 1fr;
-	gap: 26px;
+	gap: 22px;
 }
 
 .cio-office-logo-wrapper {
 	justify-content: flex-start;
-	order: -1;
+	padding-top: 0;
 }
 
 .cio-office-logo {
-	max-width: 190px;
+	max-width: 120px;
 }
-
 .cio-office-capabilities {
 	padding-top: 26px;
 }
