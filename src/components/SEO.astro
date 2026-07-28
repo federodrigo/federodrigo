@@ -28,16 +28,22 @@ const normalizedPath =
 			? currentPath
 			: `${currentPath}/`;
 
-const englishPath = normalizedPath.startsWith('/es/')
-	? normalizedPath.replace(/^\/es/, '')
-	: normalizedPath === '/es/'
-		? '/'
-		: normalizedPath;
+let englishPath: string;
+let spanishPath: string;
 
-const spanishPath =
-	englishPath === '/'
-		? '/es/'
-		: `/es${englishPath}`;
+if (normalizedPath === '/es/') {
+	englishPath = '/';
+	spanishPath = '/es/';
+} else if (normalizedPath.startsWith('/es/')) {
+	englishPath = normalizedPath.replace(/^\/es/, '');
+	spanishPath = normalizedPath;
+} else {
+	englishPath = normalizedPath;
+	spanishPath =
+		normalizedPath === '/'
+			? '/es/'
+			: `/es${normalizedPath}`;
+}
 
 const canonicalPath =
 	lang === 'es'
@@ -50,6 +56,7 @@ const spanishURL = new URL(spanishPath, siteUrl);
 const imageURL = new URL(image, siteUrl);
 ---
 
+<!-- Global metadata -->
 <meta charset="utf-8" />
 
 <meta
@@ -68,6 +75,7 @@ const imageURL = new URL(image, siteUrl);
 	content={Astro.generator}
 />
 
+<!-- Font preloads -->
 <link
 	rel="preload"
 	href="/fonts/atkinson-regular.woff"
@@ -84,6 +92,7 @@ const imageURL = new URL(image, siteUrl);
 	crossorigin
 />
 
+<!-- Primary metadata -->
 <title>{title}</title>
 
 <meta
@@ -96,6 +105,7 @@ const imageURL = new URL(image, siteUrl);
 	content={description}
 />
 
+<!-- Canonical and language alternatives -->
 <link
 	rel="canonical"
 	href={canonicalURL}
@@ -119,6 +129,7 @@ const imageURL = new URL(image, siteUrl);
 	href={englishURL}
 />
 
+<!-- Open Graph -->
 <meta
 	property="og:type"
 	content={type}
@@ -159,6 +170,7 @@ const imageURL = new URL(image, siteUrl);
 	content={lang === 'es' ? 'en_US' : 'es_ES'}
 />
 
+<!-- Twitter -->
 <meta
 	name="twitter:card"
 	content="summary_large_image"
