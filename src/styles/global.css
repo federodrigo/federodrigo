@@ -441,8 +441,8 @@ img {
 
 .cio-office-intro-layout {
 	display: grid;
-	grid-template-columns: 150px minmax(0, 1fr);
-	gap: 28px;
+	grid-template-columns: 240px minmax(0, 1fr);
+	gap: 18px;
 	align-items: center;
 }
 
@@ -455,7 +455,7 @@ img {
 .cio-office-logo {
 	display: block;
 	width: 100%;
-	max-width: 130px;
+	max-width: 220px;
 	height: auto;
 	border-radius: 0;
 }
