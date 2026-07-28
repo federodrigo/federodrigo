@@ -438,30 +438,22 @@ img {
 
 .cio-office-overview {
 	padding-top: 22px;
+	max-width: 760px;
 }
 
-.cio-office-intro-layout {
-	display: grid;
-	grid-template-columns: 170px minmax(0, 1fr);
-	gap: 42px;
-	align-items: start;
-}
-
-.cio-office-logo-wrapper {
+.cio-title {
 	display: flex;
-	justify-content: center;
-	padding-top: 6px;
+	align-items: center;
+	gap: 18px;
+	margin-top: 0;
+	margin-bottom: 20px;
 }
 
 .cio-office-logo {
 	display: block;
-	width: 100%;
-	max-width: 150px;
+	width: 82px;
 	height: auto;
-}
-
-.cio-office-intro-content h2 {
-	margin-top: 0;
+	flex-shrink: 0;
 }
 
 .cio-office-intro-content p {
@@ -500,6 +492,7 @@ img {
 .cio-office-contact-link a:hover {
 	color: var(--blue);
 }
+
 
 /* BOOKS */
 
