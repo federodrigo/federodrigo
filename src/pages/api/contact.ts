@@ -1,6 +1,6 @@
-interface Env {
-	RESEND_API_KEY: string;
-}
+import type { APIRoute } from 'astro';
+
+export const prerender = false;
 
 interface ContactFormData {
 	firstName: string;
@@ -45,9 +45,17 @@ function isValidEmail(email: string): boolean {
 	return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
-export const onRequestPost: PagesFunction<Env> = async (context) => {
+export const POST: APIRoute = async ({ request, locals }) => {
 	try {
-		if (!context.env.RESEND_API_KEY) {
+		const runtime = locals.runtime as {
+			env: {
+				RESEND_API_KEY?: string;
+			};
+		};
+
+		const resendApiKey = runtime.env.RESEND_API_KEY;
+
+		if (!resendApiKey) {
 			console.error('RESEND_API_KEY is missing');
 
 			return jsonResponse(
@@ -59,7 +67,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
 			);
 		}
 
-		const formData = await context.request.formData();
+		const formData = await request.formData();
 
 		const data: ContactFormData = {
 			firstName: String(formData.get('firstName') ?? '').trim(),
@@ -118,7 +126,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
 			{
 				method: 'POST',
 				headers: {
-					Authorization: `Bearer ${context.env.RESEND_API_KEY}`,
+					Authorization: `Bearer ${resendApiKey}`,
 					'Content-Type': 'application/json',
 					'User-Agent': 'federodrigo-contact-form/1.0'
 				},
@@ -203,15 +211,11 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
 	}
 };
 
-export const onRequest: PagesFunction<Env> = async (context) => {
-	if (context.request.method !== 'POST') {
-		return jsonResponse(
-			{
-				message: 'Method not allowed.'
-			},
-			405
-		);
-	}
-
-	return onRequestPost(context);
+export const ALL: APIRoute = async () => {
+	return jsonResponse(
+		{
+			message: 'Method not allowed.'
+		},
+		405
+	);
 };
