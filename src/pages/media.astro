@@ -76,20 +76,15 @@ const mediaItems = [
 		<Header />
 
 		<main>
-			<section class="media-hero">
+			<section class="hero">
 				<h1>
 					Media &
 					<span class="accent">Appearances</span>
 				</h1>
 
-				<p class="lead">
-					A chronological collection of interviews, podcasts,
-					recognitions, executive roundtables, and other public
-					engagements.
-				</p>
-
-				<div class="page-statement">
-					Technology Is Part of the Job. Leadership Is the Job
+				<div class="lead-principles">
+					<div>Technology Is Part of the Job</div>
+					<div>Leadership Is the Job</div>
 				</div>
 			</section>
 
@@ -97,7 +92,9 @@ const mediaItems = [
 				class="media-list"
 				aria-labelledby="media-list-title"
 			>
-				<h2 id="media-list-title">Highlights</h2>
+				<h2 id="media-list-title">
+					Highlights
+				</h2>
 
 				{
 					mediaItems.map((item) => (
