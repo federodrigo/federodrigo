@@ -1235,7 +1235,6 @@ img {
 		padding: 24px 0 30px;
 	}
 
-
 	.featured-book {
 		grid-template-columns: 1fr;
 		gap: 30px;
@@ -1244,47 +1243,13 @@ img {
 	}
 
 	.featured-book-cover-wrapper {
-		justify-content: flex-start;
+		width: 100%;
 	}
 
 	.featured-book-cover {
-		width: 220px;
-		max-width: 100%;
+		width: 200px;
 	}
 
 	.featured-book-content h2 {
 		font-size: 1.8rem;
-	}
-
-	.featured-book-content > p {
-		font-size: 0.96rem;
-		line-height: 1.6;
-		margin-bottom: 16px;
-	}
-
-	.featured-book-principles {
-		margin-top: 24px;
-	}
-
-	.other-books {
-		margin-top: 8px;
-		padding-top: 34px;
-	}
-
-	.other-books > h2 {
-		margin-bottom: 26px;
-	}
-
-	.other-book {
-		grid-template-columns: 1fr;
-		gap: 24px;
-	}
-
-	.other-book-cover {
-		width: 150px;
-		max-width: 100%;
-	}
-
-	.other-book-content h3 {
-		font-size: 1.28rem;
 	}
