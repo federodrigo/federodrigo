@@ -553,7 +553,7 @@ img {
 
 .media-hero {
 	max-width: 760px;
-	padding: 24px 0 38px;
+	padding: 24px 0;
 }
 
 .media-hero .section-intro {
@@ -569,10 +569,6 @@ img {
 	margin-bottom: 0;
 	font-weight: 600;
 	color: var(--muted);
-}
-
-.media-list {
-	padding-top: 16px;
 }
 
 .media-list > h2 {
@@ -681,6 +677,9 @@ img {
 .media-contact-link a:hover {
 	color: var(--blue);
 }
+
+
+
 
 /* MOBILE */
 
