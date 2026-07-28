@@ -3,151 +3,12 @@ import SEO from '../components/SEO.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
-const careerHighlights = [
-	{
-		value: '25+',
-		label: 'Years of Technology Leadership',
-	},
-	{
-		value: '13',
-		label: 'Countries Supported',
-	},
-	{
-		value: '150+',
-		label: 'Technology Professionals Led',
-	},
-	{
-		value: '$200M',
-		label: 'Technology Program Budget',
-	},
-];
-
-const selectedAchievements = [
-	'Built and led high-performing global technology teams across North America, Europe, and Latin America',
-	'Deployed infrastructure, ERP, operational technology, cybersecurity, business intelligence, and cloud platforms',
-	'Executed technology strategies for mergers, acquisitions, divestitures, integrations, and carve-outs',
-	'Built multiple technology organizations and operating models from the ground up',
-	'Implemented ITIL practices while maintaining customer satisfaction above 90%',
-	'Recognized as a 2024 CIO of the Year Finalist at the Central Texas ORBIE Awards',
-];
-
-const executiveExperience = [
-	{
-		company: 'Vida Produce Company',
-		location: 'Uruguay',
-		role: 'Chief Information Officer',
-		period: '2025–2026',
-		description:
-			'Global fruit supply chain and logistics company with operations in 13 countries. Stabilized technology operations with a focus on infrastructure, cybersecurity, enterprise applications, and organizational alignment.',
-		highlights: [
-			'Restructured the IT organization and hired key leadership roles',
-			'Built the cybersecurity function, policies, and risk management framework',
-			'Modernized infrastructure and led the migration from Google Workspace to Microsoft 365',
-			'Defined the ERP and application roadmap to consolidate platforms and reduce complexity',
-			'Served as the primary technology advisor to the Board of Shareholders',
-		],
-	},
-	{
-		company: 'Ferrovial',
-		location: 'Austin, Texas',
-		role: 'Global Head of IT and CIO, Airports & Energy',
-		period: '2022–2025',
-		description:
-			'Technology leadership for a $2 billion global portfolio spanning airports, energy, and services across the United States, United Kingdom, Spain, and Chile.',
-		highlights: [
-			'Led multicultural technology teams across multiple regions',
-			'Integrated teams, platforms, governance, and technology controls',
-			'Implemented NetSuite ERP and led the selection of Dynamics 365 and other enterprise platforms',
-			'Established and managed IT controls to support SOX compliance across multiple companies',
-		],
-	},
-	{
-		company: 'The New Terminal One at JFK',
-		location: 'New York, New York',
-		role: 'Chief Information Officer',
-		period: '2022–2024',
-		description:
-			'Technology leadership for the $9.5 billion project to develop the largest passenger terminal in the United States. Built the technology organization, strategy, and platforms required for launch.',
-		highlights: [
-			'Developed the 2022–2026 technology strategy and roadmap',
-			'Established the technology department and managed a $200 million program budget',
-			'Built a team of more than 150 professionals across cybersecurity, infrastructure, operations, applications, and governance',
-			'Designed and implemented core business systems including ERP, CRM, and HR platforms',
-			'Developed cybersecurity, cloud, high-availability, and resilience strategies',
-			'Advised the Board of Shareholders on technology strategy and execution',
-		],
-	},
-	{
-		company: 'Ferrovial Services',
-		location: 'Austin, Texas',
-		role: 'Global Vice President of IT and CIO',
-		period: '2018–2022',
-		description:
-			'Technology leadership for a $1.5 billion services division operating across the United States, Canada, Portugal, and Chile.',
-		highlights: [
-			'Replaced a fully outsourced model with an internal global technology organization',
-			'Built a team of more than 50 professionals across applications, infrastructure, cybersecurity, service desk, and governance',
-			'Completed a cloud transformation using Azure, AWS, Microsoft 365, and SaaS platforms',
-			'Implemented SAP ERP, Dynamics CRM, Power BI, HR, and asset management systems',
-			'Led technology work for a $200 million business divestiture and subsequent integration',
-			'Managed a $15 million budget with full P&L responsibility',
-		],
-	},
-	{
-		company: 'Abengoa',
-		location: 'Phoenix, Arizona',
-		role: 'Director of IT',
-		period: '2012–2018',
-		description:
-			'Technology leadership for energy, construction, and water businesses across the United States, Canada, Mexico, and Chile, supporting projects valued at more than $5 billion.',
-		highlights: [
-			'Aligned the regional technology strategy with corporate and divisional objectives',
-			'Completed cloud migrations using Microsoft 365, Azure, and SaaS applications',
-			'Delivered more than 30 technology mobilizations for offices, sites, and industrial plants',
-			'Led a team of more than 40 professionals across four countries',
-			'Managed a $15 million budget with full P&L responsibility',
-		],
-	},
-	{
-		company: 'J.P. Morgan & Chase',
-		location: 'Uruguay',
-		role: 'Director of IT',
-		period: '2011–2012',
-		description:
-			'Established the technology capabilities required to support the launch of a new corporate headquarters for a global call center and business process outsourcing operation.',
-		highlights: [
-			'Built the IT department from the ground up',
-			'Supported more than 1,000 computer users',
-			'Designed and deployed the headquarters infrastructure and data center',
-			'Ensured full technology service activation for the new operation',
-		],
-	},
-];
-
-const education = [
-	{
-		title: 'Master of Business Administration',
-		institution: 'University of Illinois Urbana-Champaign',
-		detail: 'GPA: 3.9 / 4.0',
-	},
-	{
-		title: 'Bachelor of Science in Computer Science',
-		institution: 'Catholic University of Uruguay',
-		detail: '',
-	},
-];
-
-const certifications = [
-	'Microsoft AI and Innovation Online Master',
-	'ITIL 4 Foundation',
-	'AWS Business Essentials',
-	'Microsoft Azure Fundamentals',
-	'Financial Management and Supply Chain Specialization — University of Illinois Urbana-Champaign',
-	'Applied Business Analytics — MIT Professional Education',
-	'Machine Learning: Data to Decisions — MIT Professional Education',
-	'Cybersecurity for Managers — MIT Sloan Executive Education',
-	'Strategic Leadership and Management Specialization — University of Illinois Urbana-Champaign',
-	'Cybersecurity Risk, Network and Forensics — Rochester Institute of Technology',
+const profileTags = [
+	'Global CIO',
+	'Technology Executive',
+	'Author',
+	'MBA',
+	'Global Leadership',
 ];
 ---
 
@@ -157,7 +18,7 @@ const certifications = [
 	<head>
 		<SEO
 			title="About | Fede Rodrigo"
-			description="Fede Rodrigo is a global technology executive, Chief Information Officer, MBA, and author with more than 25 years of experience building teams, leading transformation, and creating business value through technology."
+			description="Fede Rodrigo is a global technology executive, Chief Information Officer, MBA, and author with more than 25 years of experience leading teams, transformation, and technology strategy."
 			lang="en"
 		/>
 	</head>
@@ -166,7 +27,7 @@ const certifications = [
 		<Header />
 
 		<main>
-			<section class="about-page-hero">
+			<section class="about-hero">
 				<h1>
 					About <span class="accent">Fede</span>
 				</h1>
@@ -174,7 +35,7 @@ const certifications = [
 				<p class="lead">
 					Global technology executive, Chief Information Officer, MBA,
 					and author with more than 25 years of experience leading
-					organizations through growth, transformation, and change
+					organizations through transformation, growth, and change.
 				</p>
 
 				<div class="page-statement">
@@ -182,216 +43,86 @@ const certifications = [
 				</div>
 			</section>
 
-			<section class="about-page-profile">
-				<div class="about-page-profile-layout">
-					<div class="about-page-profile-photo-wrapper">
+			<section
+				class="about-profile"
+				aria-labelledby="about-profile-title"
+			>
+				<div class="about-profile-layout">
+					<div class="about-profile-image-wrapper">
 						<img
 							src="/images/fede.png"
-							alt="Fede Rodrigo, Chief Information Officer and author"
-							class="about-page-profile-photo"
+							alt="Fede Rodrigo, global technology executive, CIO, and author"
+							class="about-profile-image"
 						/>
 					</div>
 
-					<div class="about-page-profile-content">
-						<h2>Executive Profile</h2>
-
-						<p>
-							I am a Chief Information Officer and technology
-							executive with experience leading global organizations
-							across North America, Europe, and Latin America.
+					<div class="about-profile-content">
+						<p class="about-profile-eyebrow">
+							About Fede Rodrigo
 						</p>
 
-						<p>
-							Throughout my career, I have built technology
-							departments from the ground up, led multicultural
-							teams, modernized infrastructure and enterprise
-							platforms, managed complex transformation programs,
-							and aligned technology strategy with business
-							objectives.
-						</p>
+						<h2 id="about-profile-title">
+							Fede Rodrigo
+						</h2>
 
-						<p>
-							My approach is practical and hands-on. I combine
-							strategic thinking with execution, build cultures
-							centered on service and operational excellence, and
-							focus technology investments on measurable business
-							value.
-						</p>
-
-						<div class="about-page-profile-tags">
-							<span>Global CIO Leadership</span>
-							<span>Technology Strategy</span>
-							<span>Transformation</span>
-							<span>M&A Integration</span>
-							<span>Cybersecurity</span>
-							<span>Cloud & Infrastructure</span>
-							<span>ERP & Applications</span>
-							<span>Operational Technology</span>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<section
-				class="about-page-highlights"
-				aria-labelledby="career-highlights-title"
-			>
-				<h2 id="career-highlights-title">Career Highlights</h2>
-
-				<div class="about-page-metrics">
-					{
-						careerHighlights.map((item) => (
-							<div class="about-page-metric">
-								<p class="about-page-metric-value">{item.value}</p>
-								<p class="about-page-metric-label">{item.label}</p>
-							</div>
-						))
-					}
-				</div>
-
-				<div class="about-page-achievements">
-					{
-						selectedAchievements.map((achievement) => (
-							<div class="about-page-achievement">
-								<span
-									class="about-page-achievement-mark"
-									aria-hidden="true"
-								>
-									✓
-								</span>
-
-								<p>{achievement}</p>
-							</div>
-						))
-					}
-				</div>
-			</section>
-
-			<section
-				class="about-page-experience"
-				aria-labelledby="executive-experience-title"
-			>
-				<h2 id="executive-experience-title">Executive Experience</h2>
-
-				<div class="about-page-experience-list">
-					{
-						executiveExperience.map((experience) => (
-							<article class="about-page-experience-item">
-								<div class="about-page-experience-heading">
-									<div>
-										<h3>{experience.company}</h3>
-
-										<p class="about-page-experience-role">
-											{experience.role}
-										</p>
-									</div>
-
-									<div class="about-page-experience-meta">
-										<p>{experience.period}</p>
-										<p>{experience.location}</p>
-									</div>
-								</div>
-
-								<p class="about-page-experience-description">
-									{experience.description}
-								</p>
-
-								<ul class="about-page-experience-highlights">
-									{
-										experience.highlights.map((highlight) => (
-											<li>{highlight}</li>
-										))
-									}
-								</ul>
-							</article>
-						))
-					}
-				</div>
-			</section>
-
-			<section class="about-page-credentials">
-				<div class="about-page-credentials-grid">
-					<div class="about-page-education">
-						<h2>Education</h2>
-
-						<div class="about-page-education-list">
+						<div
+							class="about-profile-tags"
+							aria-label="Professional profile"
+						>
 							{
-								education.map((item) => (
-									<div class="about-page-education-item">
-										<h3>{item.title}</h3>
-
-										<p>{item.institution}</p>
-
-										{
-											item.detail && (
-												<p class="about-page-education-detail">
-													{item.detail}
-												</p>
-											)
-										}
-									</div>
+								profileTags.map((tag) => (
+									<span>{tag}</span>
 								))
 							}
 						</div>
 
-						<div class="about-page-languages">
-							<h3>Languages</h3>
+						<div class="about-profile-text">
+							<p>
+								Fede Rodrigo is a global technology executive,
+								Chief Information Officer, and author with more than
+								25 years of experience building teams, modernizing
+								organizations, and creating business value through
+								technology.
+							</p>
 
-							<p>Spanish — Native</p>
-							<p>English — Fluent</p>
+							<p>
+								His career has spanned infrastructure, enterprise
+								applications, cybersecurity, cloud, operational
+								technology, and M&A across North America, Europe,
+								and Latin America. He has built global technology
+								functions from the ground up, led multicultural
+								teams, managed complex transformation programs, and
+								advised boards and executive leaders on strategy and
+								execution.
+							</p>
+
+							<p>
+								His approach is grounded in a simple principle:
+								technology is never the starting point. People come
+								first, business priorities define the direction,
+								and technology enables the outcome. He combines
+								strategic perspective with hands-on execution and a
+								culture centered on service and operational
+								excellence.
+							</p>
+
+							<p>
+								Fede holds an MBA from the University of Illinois
+								Urbana-Champaign and a degree in Computer Science
+								from the Catholic University of Uruguay. He is the
+								author of <em>How to Become CIO and Succeed</em> and
+								writes about technology leadership, institutions,
+								incentives, freedom, and complex systems.
+							</p>
 						</div>
-					</div>
 
-					<div class="about-page-certifications">
-						<h2>Selected Certifications</h2>
-
-						<ul>
-							{
-								certifications.map((certification) => (
-									<li>{certification}</li>
-								))
-							}
-						</ul>
+						<p class="about-profile-action">
+							<a href="/books">
+								Explore My Books →
+							</a>
+						</p>
 					</div>
 				</div>
-			</section>
-
-			<section class="about-page-beyond">
-				<h2>Beyond Technology</h2>
-
-				<p>
-					Beyond my executive work, I write about leadership,
-					incentives, institutions, freedom, and the reasons complex
-					systems fail when they ignore human behavior and operational
-					reality.
-				</p>
-
-				<p>
-					I am the author of <em>How to Become CIO and Succeed</em> and
-					the forthcoming book <em>A Theory of Minimal Tolerance</em>.
-				</p>
-
-				<p class="about-page-beyond-link">
-					<a href="/books">
-						Explore My Books →
-					</a>
-				</p>
-			</section>
-
-			<section class="about-page-contact">
-				<h2>Leadership, Advisory & Media</h2>
-
-				<p>
-					For executive leadership opportunities, advisory work,
-					speaking engagements, podcasts, interviews, or other
-					professional inquiries, please get in touch
-				</p>
-
-				<p class="about-page-contact-link">
-					<a href="/contact">
-						Contact Me →
-					</a>
-				</p>
 			</section>
 		</main>
 
