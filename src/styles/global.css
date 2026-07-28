@@ -327,38 +327,128 @@ img {
 	border-radius: 12px;
 }
 
-/* ABOUT */
+/* ABOUT PAGE */
 
-.about-layout {
+.about-hero {
+	max-width: 760px;
+	padding: 24px 0;
+}
+
+.about-hero h1 {
+	margin-bottom: 24px;
+}
+
+.about-hero .lead {
+	max-width: 700px;
+	margin-bottom: 0;
+	font-weight: 600;
+	color: var(--muted);
+}
+
+.about-profile {
+	padding-top: 34px;
+	padding-bottom: 12px;
+}
+
+.about-profile-layout {
 	display: grid;
-	grid-template-columns: minmax(0, 1fr) 260px;
-	gap: 48px;
+	grid-template-columns: 330px minmax(0, 1fr);
+	gap: 54px;
 	align-items: start;
 }
 
-.about-content p {
-	max-width: none;
+.about-profile-image-wrapper {
+	width: 100%;
 }
 
-.about-content p:last-child {
+.about-profile-image {
+	display: block;
+	width: 100%;
+	max-width: 330px;
+	height: auto;
+	margin: 0;
+	object-fit: cover;
+	object-position: center top;
+	border-radius: 12px;
+	box-shadow: 0 16px 38px rgba(16, 42, 67, 0.12);
+}
+
+.about-profile-content {
+	min-width: 0;
+	padding-top: 2px;
+}
+
+.about-profile-eyebrow {
+	margin: 0 0 12px;
+	color: var(--red);
+	font-size: 0.72rem;
+	font-weight: 800;
+	letter-spacing: 0.13em;
+	text-transform: uppercase;
+}
+
+.about-profile-content h2 {
+	margin: 0 0 18px;
+	font-size: clamp(2rem, 3.5vw, 2.8rem);
+	font-weight: 800;
+	line-height: 1.05;
+	letter-spacing: -0.045em;
+	color: var(--navy);
+}
+
+.about-profile-content h2::after {
+	display: none;
+}
+
+.about-profile-tags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 9px;
+	margin: 0 0 28px;
+}
+
+.about-profile-tags span {
+	display: inline-flex;
+	align-items: center;
+	min-height: 30px;
+	padding: 5px 12px;
+	border: 1px solid var(--line);
+	border-radius: 999px;
+	background: rgba(255, 255, 255, 0.45);
+	color: #475569;
+	font-size: 0.75rem;
+	font-weight: 700;
+	line-height: 1.2;
+	white-space: nowrap;
+}
+
+.about-profile-text p {
+	max-width: none;
+	margin: 0 0 18px;
+	font-size: 0.97rem;
+	line-height: 1.62;
+	color: var(--text);
+}
+
+.about-profile-text p:last-child {
 	margin-bottom: 0;
 }
 
-.about-photo-wrapper {
-	display: flex;
-	justify-content: center;
-	align-self: start;
-	padding-top: 8px;
-	transform: translateY(-24px);
+.about-profile-text em {
+	color: inherit;
 }
 
-.about-photo {
-	display: block;
-	width: 100%;
-	max-width: 240px;
-	height: auto;
-	object-fit: contain;
-	border-radius: 0;
+.about-profile-action {
+	margin: 26px 0 0;
+}
+
+.about-profile-action a {
+	color: var(--navy);
+	font-weight: 800;
+}
+
+.about-profile-action a:hover {
+	color: var(--blue);
 }
 
 /* THE CIO OFFICE */
@@ -435,9 +525,8 @@ img {
 	color: var(--muted);
 }
 
-
 .cio-office-capabilities {
-	padding-top: 0px;
+	padding-top: 0;
 }
 
 .cio-office-capabilities-heading {
@@ -831,20 +920,60 @@ img {
 		height: 330px;
 	}
 
-	.about-layout {
+	/* ABOUT PAGE — MOBILE */
+
+	.about-hero {
+		padding: 24px 0;
+	}
+
+	.about-hero h1 {
+		font-size: 2.7rem;
+	}
+
+	.about-profile {
+		padding-top: 28px;
+	}
+
+	.about-profile-layout {
 		grid-template-columns: 1fr;
-		gap: 20px;
+		gap: 30px;
 	}
 
-	.about-photo-wrapper {
-		justify-content: center;
-		order: -1;
+	.about-profile-image-wrapper {
+		display: flex;
+		justify-content: flex-start;
+	}
+
+	.about-profile-image {
+		width: 280px;
+		max-width: 100%;
+	}
+
+	.about-profile-content {
 		padding-top: 0;
-		transform: none;
 	}
 
-	.about-photo {
-		max-width: 220px;
+	.about-profile-content h2 {
+		font-size: 2.2rem;
+	}
+
+	.about-profile-tags {
+		gap: 8px;
+		margin-bottom: 24px;
+	}
+
+	.about-profile-tags span {
+		font-size: 0.72rem;
+	}
+
+	.about-profile-text p {
+		font-size: 0.96rem;
+		line-height: 1.6;
+		margin-bottom: 17px;
+	}
+
+	.about-profile-action {
+		margin-top: 24px;
 	}
 
 	/* THE CIO OFFICE PAGE — MOBILE */
