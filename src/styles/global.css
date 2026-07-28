@@ -954,6 +954,24 @@ img {
 		height: 330px;
 	}
 
+		/* HOMEPAGE ABOUT — MOBILE */
+
+	.about-layout {
+		grid-template-columns: 1fr;
+		gap: 20px;
+	}
+
+	.about-photo-wrapper {
+		justify-content: center;
+		order: -1;
+		padding-top: 0;
+		transform: none;
+	}
+
+	.about-photo {
+		max-width: 220px;
+	}
+
 	/* ABOUT PAGE — MOBILE */
 
 	.about-hero {
