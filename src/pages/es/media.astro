@@ -1,7 +1,7 @@
 ---
+import SEO from '../../components/SEO.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import '../../styles/global.css';
 
 const mediaItems = [
 	{
@@ -52,20 +52,13 @@ const mediaItems = [
 ---
 
 <!doctype html>
+
 <html lang="es">
 	<head>
-		<meta charset="UTF-8" />
-
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1"
-		/>
-
-		<title>Medios y Participaciones | Fede Rodrigo</title>
-
-		<meta
-			name="description"
-			content="Entrevistas, podcasts, reconocimientos profesionales, mesas redondas ejecutivas y otras participaciones públicas de Fede Rodrigo"
+		<SEO
+			title="Medios y Participaciones | Fede Rodrigo"
+			description="Entrevistas, podcasts, reconocimientos profesionales, mesas redondas ejecutivas y otras participaciones públicas de Fede Rodrigo."
+			lang="es"
 		/>
 	</head>
 
@@ -80,7 +73,9 @@ const mediaItems = [
 				</h1>
 
 				<p class="lead">
-					Una recopilación cronológica de entrevistas, participaciones en podcasts, reconocimientos profesionales, mesas redondas ejecutivas y otras actividades públicas
+					Una recopilación cronológica de entrevistas, participaciones en
+					podcasts, reconocimientos profesionales, mesas redondas ejecutivas
+					y otras actividades públicas
 				</p>
 			</section>
 
@@ -144,11 +139,14 @@ const mediaItems = [
 				<h2>Contacto para medios</h2>
 
 				<p>
-					Para entrevistas, podcasts, conferencias u otras oportunidades en medios, no dudes en ponerte en contacto
+					Para entrevistas, podcasts, conferencias u otras oportunidades
+					en medios, no dudes en ponerte en contacto
 				</p>
 
 				<p class="media-contact-link">
-					<a href="/es/#contact">Contáctame →</a>
+					<a href="/es/#contact">
+						Contáctame →
+					</a>
 				</p>
 			</section>
 		</main>
