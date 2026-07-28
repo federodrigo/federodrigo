@@ -2,32 +2,87 @@
 interface Props {
   title: string;
   description: string;
+  lang?: "en" | "es";
   image?: string;
+  type?: "website" | "article";
 }
 
 const {
   title,
   description,
+  lang = "en",
   image = "/images/og-image.jpg",
+  type = "website",
 } = Astro.props;
 
-const site = "https://federodrigo.com";
-const url = new URL(Astro.url.pathname, site).toString();
-const imageUrl = new URL(image, site).toString();
+const siteUrl = "https://federodrigo.com";
+
+const currentPath = Astro.url.pathname;
+
+const normalizedPath =
+  currentPath === "/"
+    ? "/"
+    : currentPath.endsWith("/")
+      ? currentPath
+      : `${currentPath}/`;
+
+const englishPath = normalizedPath.startsWith("/es/")
+  ? normalizedPath.replace(/^\/es/, "")
+  : normalizedPath === "/es/"
+    ? "/"
+    : normalizedPath;
+
+const spanishPath =
+  englishPath === "/"
+    ? "/es/"
+    : `/es${englishPath}`;
+
+const canonicalPath =
+  lang === "es"
+    ? spanishPath
+    : englishPath;
+
+const canonicalUrl = new URL(canonicalPath, siteUrl).toString();
+const englishUrl = new URL(englishPath, siteUrl).toString();
+const spanishUrl = new URL(spanishPath, siteUrl).toString();
+const imageUrl = new URL(image, siteUrl).toString();
 ---
 
 <title>{title}</title>
 
 <meta name="description" content={description} />
 
-<link rel="canonical" href={url} />
+<link rel="canonical" href={canonicalUrl} />
 
-<meta property="og:type" content="website" />
+<link
+  rel="alternate"
+  hreflang="en"
+  href={englishUrl}
+/>
+
+<link
+  rel="alternate"
+  hreflang="es"
+  href={spanishUrl}
+/>
+
+<link
+  rel="alternate"
+  hreflang="x-default"
+  href={englishUrl}
+/>
+
+<meta property="og:type" content={type} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:url" content={url} />
+<meta property="og:url" content={canonicalUrl} />
 <meta property="og:image" content={imageUrl} />
 <meta property="og:site_name" content="Federico Rodrigo" />
+<meta property="og:locale" content={lang === "es" ? "es_ES" : "en_US"} />
+<meta
+  property="og:locale:alternate"
+  content={lang === "es" ? "en_US" : "es_ES"}
+/>
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
