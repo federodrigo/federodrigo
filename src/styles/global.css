@@ -710,8 +710,6 @@ img {
 	border-bottom: none;
 }
 
-}
-
 .books-page-content {
 	min-width: 0;
 	padding-top: 0;
@@ -1266,7 +1264,7 @@ img {
 		margin-top: 24px;
 		padding-top: 32px;
 	}
-}
+
 
 	/* BOOKS PAGE — MOBILE */
 
@@ -1333,4 +1331,6 @@ img {
 	.books-page-book-secondary .books-page-cover,
 	.books-page-book-secondary .books-page-cover-link {
 		width: 110px;
+	}
+
 	}
