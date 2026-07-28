@@ -214,7 +214,7 @@ h1 {
 	font-size: 1.3rem;
 	font-weight: 650;
 	letter-spacing: 0.03em;
-	text-transform: uppercase;
+	text-transform: none;
 	text-align: center;
 	line-height: 1.45;
 }
