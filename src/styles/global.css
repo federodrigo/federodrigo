@@ -211,14 +211,13 @@ h1 {
 	border-top: 1px solid var(--line);
 	border-bottom: 1px solid var(--line);
 	color: #444c58;
-	font-size: 1.30rem;
+	font-size: 1.3rem;
 	font-weight: 650;
 	letter-spacing: 0.03em;
 	text-transform: uppercase;
 	text-align: center;
 	line-height: 1.45;
 }
-
 
 .accent {
 	color: #60a5fa;
@@ -442,22 +441,23 @@ img {
 
 .cio-office-intro-layout {
 	display: grid;
-	grid-template-columns: 210px minmax(0, 1fr);
-	gap: 36px;
-	align-items: start;
+	grid-template-columns: 150px minmax(0, 1fr);
+	gap: 28px;
+	align-items: center;
 }
 
 .cio-office-logo-wrapper {
 	display: flex;
-	align-items: flex-start;
-	justify-content: flex-start;
+	align-items: center;
+	justify-content: center;
 }
 
 .cio-office-logo {
 	display: block;
 	width: 100%;
-	max-width: 200px;
+	max-width: 130px;
 	height: auto;
+	border-radius: 0;
 }
 
 .cio-office-intro-content h2 {
@@ -500,7 +500,6 @@ img {
 .cio-office-contact-link a:hover {
 	color: var(--blue);
 }
-
 
 /* BOOKS */
 
@@ -766,9 +765,6 @@ img {
 	color: var(--blue);
 }
 
-
-
-
 /* MOBILE */
 
 @media (max-width: 720px) {
@@ -825,6 +821,11 @@ img {
 		font-size: 1rem;
 	}
 
+	.page-statement {
+		font-size: 1.08rem;
+		line-height: 1.4;
+	}
+
 	section {
 		padding: 18px 0;
 	}
@@ -857,6 +858,39 @@ img {
 
 	.about-photo {
 		max-width: 220px;
+	}
+
+	/* THE CIO OFFICE PAGE — MOBILE */
+
+	.cio-office-hero {
+		padding: 24px 0;
+	}
+
+	.cio-office-hero h1 {
+		font-size: 2.7rem;
+	}
+
+	.cio-office-intro-layout {
+		grid-template-columns: 1fr;
+		gap: 20px;
+		align-items: start;
+	}
+
+	.cio-office-logo-wrapper {
+		justify-content: flex-start;
+	}
+
+	.cio-office-logo {
+		max-width: 110px;
+	}
+
+	.cio-office-capabilities {
+		padding-top: 26px;
+	}
+
+	.cio-office-contact {
+		margin-top: 24px;
+		padding-top: 32px;
 	}
 
 	/* MEDIA PAGE — MOBILE */
@@ -917,36 +951,4 @@ img {
 		margin-top: 24px;
 		padding-top: 32px;
 	}
-}
-
-/* THE CIO OFFICE PAGE — MOBILE */
-
-.cio-office-hero {
-	padding: 24px 0;
-}
-
-.cio-office-hero h1 {
-	font-size: 2.7rem;
-}
-
-.cio-office-intro-layout {
-	grid-template-columns: 1fr;
-	gap: 22px;
-}
-
-.cio-office-logo-wrapper {
-	justify-content: flex-start;
-	padding-top: 0;
-}
-
-.cio-office-logo {
-	max-width: 120px;
-}
-.cio-office-capabilities {
-	padding-top: 26px;
-}
-
-.cio-office-contact {
-	margin-top: 24px;
-	padding-top: 32px;
 }
