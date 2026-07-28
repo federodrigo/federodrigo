@@ -1,1 +1,228 @@
+---
+import SEO from '../components/SEO.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
 
+<!doctype html>
+
+<html lang="en">
+	<head>
+		<SEO
+			title="Contact | Fede Rodrigo"
+			description="Contact Fede Rodrigo for executive technology leadership, CIO advisory, speaking engagements, podcasts, media inquiries, and general questions."
+			lang="en"
+		/>
+	</head>
+
+	<body>
+		<Header />
+
+		<main>
+			<section class="contact-page-hero">
+				<h1>
+					Contact
+				</h1>
+
+				<p class="lead">
+					For executive leadership opportunities, CIO advisory,
+					speaking engagements, podcasts, media inquiries, or general
+					questions, please reach out
+				</p>
+
+				<div class="page-statement">
+					The CIO Creates Business Value, Not Technology.
+				</div>
+			</section>
+
+			<section class="contact-page">
+				<div class="contact-page-info">
+					<p class="contact-page-label">
+						Get in Touch
+					</p>
+
+					<h2>Let’s Connect</h2>
+
+					<p class="contact-page-intro">
+						Use the form or contact me directly. I personally review
+						all inquiries and respond when appropriate.
+					</p>
+
+					<div class="contact-page-links">
+						<div class="contact-page-item">
+							<span
+								class="contact-page-icon"
+								aria-hidden="true"
+							>
+								✉
+							</span>
+
+							<div>
+								<p class="contact-page-item-label">
+									Email
+								</p>
+
+								<a href="mailto:contact@federodrigo.com">
+									contact@federodrigo.com
+								</a>
+							</div>
+						</div>
+
+						<div class="contact-page-item">
+							<span
+								class="contact-page-icon contact-page-linkedin-icon"
+								aria-hidden="true"
+							>
+								in
+							</span>
+
+							<div>
+								<p class="contact-page-item-label">
+									LinkedIn
+								</p>
+
+								<a
+									href="https://www.linkedin.com/in/fede-rodrigo/"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									linkedin.com/in/fede-rodrigo
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="contact-page-response">
+						<p class="contact-page-response-label">
+							Response
+						</p>
+
+						<p>
+							I personally review all inquiries and respond when
+							appropriate.
+						</p>
+					</div>
+				</div>
+
+				<div class="contact-page-form-wrapper">
+					<form
+						class="contact-page-form"
+						method="POST"
+						action="/api/contact"
+					>
+						<div class="contact-page-form-row">
+							<div class="contact-page-field">
+								<label for="first-name">
+									First Name
+								</label>
+
+								<input
+									id="first-name"
+									name="firstName"
+									type="text"
+									autocomplete="given-name"
+									placeholder="Jane"
+									required
+								/>
+							</div>
+
+							<div class="contact-page-field">
+								<label for="last-name">
+									Last Name
+								</label>
+
+								<input
+									id="last-name"
+									name="lastName"
+									type="text"
+									autocomplete="family-name"
+									placeholder="Smith"
+									required
+								/>
+							</div>
+						</div>
+
+						<div class="contact-page-field">
+							<label for="email">
+								Email
+							</label>
+
+							<input
+								id="email"
+								name="email"
+								type="email"
+								autocomplete="email"
+								placeholder="jane@company.com"
+								required
+							/>
+						</div>
+
+						<div class="contact-page-field">
+							<label for="subject">
+								Subject
+							</label>
+
+							<select
+								id="subject"
+								name="subject"
+								required
+							>
+								<option value="" selected disabled>
+									Select a topic...
+								</option>
+
+								<option value="executive-leadership">
+									Executive Leadership Opportunity
+								</option>
+
+								<option value="cio-advisory">
+									CIO Advisory
+								</option>
+
+								<option value="speaking">
+									Speaking Engagement
+								</option>
+
+								<option value="podcast-media">
+									Podcast or Media Inquiry
+								</option>
+
+								<option value="books">
+									Books and Publications
+								</option>
+
+								<option value="general">
+									General Question
+								</option>
+							</select>
+						</div>
+
+						<div class="contact-page-field">
+							<label for="message">
+								Message
+							</label>
+
+							<textarea
+								id="message"
+								name="message"
+								rows="7"
+								placeholder="How can I help?"
+								required
+							></textarea>
+						</div>
+
+						<button
+							type="submit"
+							class="contact-page-submit"
+						>
+							Send Message
+							<span aria-hidden="true">→</span>
+						</button>
+					</form>
+				</div>
+			</section>
+		</main>
+
+		<Footer />
+	</body>
+</html>
