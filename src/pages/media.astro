@@ -1,7 +1,7 @@
 ---
+import SEO from '../components/SEO.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import '../styles/global.css';
 
 const mediaItems = [
 	{
@@ -62,20 +62,13 @@ const mediaItems = [
 ---
 
 <!doctype html>
+
 <html lang="en">
 	<head>
-		<meta charset="UTF-8" />
-
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1"
-		/>
-
-		<title>Media & Appearances | Fede Rodrigo</title>
-
-		<meta
-			name="description"
-			content="Interviews, podcasts, professional recognitions, executive roundtables, and public appearances featuring Fede Rodrigo"
+		<SEO
+			title="Media & Appearances | Fede Rodrigo"
+			description="Interviews, podcasts, professional recognitions, executive roundtables, and public appearances featuring Fede Rodrigo."
+			lang="en"
 		/>
 	</head>
 
