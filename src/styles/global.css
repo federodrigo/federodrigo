@@ -857,37 +857,23 @@ img {
 		font-size: 2.7rem;
 	}
 
-	.cio-office-intro-layout {
-		grid-template-columns: 1fr;
-		gap: 20px;
-		align-items: start;
+	.cio-office-capabilities {
+		padding-top: 30px;
 	}
 
-	.cio-office-logo-wrapper {
-		justify-content: flex-start;
+	.cio-office-capabilities-heading {
+		align-items: center;
+		gap: 16px;
+		margin-bottom: 22px;
 	}
 
-	.cio-office-logo {
-		max-width: 130px;
+	.cio-office-capabilities-logo {
+		width: 82px;
 	}
 
-.cio-office-capabilities {
-	padding-top: 30px;
-}
-
-.cio-office-capabilities-heading {
-	align-items: center;
-	gap: 16px;
-	margin-bottom: 22px;
-}
-
-.cio-office-capabilities-logo {
-	width: 82px;
-}
-
-.cio-office-capabilities-heading h2 {
-	font-size: 1.45rem;
-}
+	.cio-office-capabilities-heading h2 {
+		font-size: 1.45rem;
+	}
 
 	.cio-office-contact {
 		margin-top: 24px;
