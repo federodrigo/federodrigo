@@ -1285,21 +1285,63 @@ img {
 		padding: 24px 0 30px;
 	}
 
-	.featured-book {
-		grid-template-columns: 1fr;
-		gap: 30px;
+	.books-page-book {
+		grid-template-columns: 120px minmax(0, 1fr);
+		gap: 22px;
+		align-items: start;
+	}
+
+	.books-page-book-featured {
 		padding-top: 32px;
 		padding-bottom: 38px;
 	}
 
-	.featured-book-cover-wrapper {
-		width: 100%;
+	.books-page-cover-wrapper {
+		width: 120px;
 	}
 
-	.featured-book-cover {
-		width: 200px;
+	.books-page-cover-link {
+		width: 120px;
 	}
 
-	.featured-book-content h2 {
-		font-size: 1.8rem;
+	.books-page-cover {
+		width: 120px;
+		border-radius: 7px;
+	}
+
+	.books-page-content h2 {
+		font-size: 1.55rem;
+	}
+
+	.books-page-content h3 {
+		font-size: 1.28rem;
+	}
+
+	.books-page-subtitle {
+		margin-bottom: 18px;
+		font-size: 0.92rem;
+	}
+
+	.books-page-content > p {
+		font-size: 0.94rem;
+		line-height: 1.58;
+		margin-bottom: 15px;
+	}
+
+	.books-page-principles {
+		margin: 22px 0 20px;
+	}
+
+	.books-page-other {
+		margin-top: 8px;
+		padding-top: 34px;
+	}
+
+	.books-page-other > h2 {
+		margin-bottom: 28px;
+	}
+
+	.books-page-book-secondary .books-page-cover,
+	.books-page-book-secondary .books-page-cover-link {
+		width: 110px;
 	}
