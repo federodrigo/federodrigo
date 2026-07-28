@@ -10,14 +10,32 @@ const isSpanish = Astro.url.pathname.startsWith('/es');
 			<p>© {today.getFullYear()} Fede Rodrigo. {isSpanish ? 'CIO · Autor.' : 'CIO · Author.'}</p>
 		</div>
 
-	
+		<div class="footer-right">
+			<a
+				href="mailto:contact@federodrigo.com"
+				aria-label="Email"
+				title="Email"
+			>
+				✉
+			</a>
+
+			<a
+				href="https://www.linkedin.com/in/fede-rodrigo/"
+				target="_blank"
+				rel="noopener noreferrer"
+				aria-label="LinkedIn"
+				title="LinkedIn"
+			>
+				in
+			</a>
+		</div>
 
 	</div>
 </footer>
 
 <style>
 	footer {
-		margin-top: 0px;
+		margin-top: 0;
 		padding: 28px 24px;
 		border-top: 1px solid #d9e3f0;
 	}
@@ -39,28 +57,34 @@ const isSpanish = Astro.url.pathname.startsWith('/es');
 	.footer-right {
 		display: flex;
 		align-items: center;
-		gap: 12px;
-	}
-
-	.footer-right span {
-		color: #94a3b8;
+		gap: 16px;
 	}
 
 	.footer-right a {
-		color: #64748b;
+		width: 34px;
+		height: 34px;
+		border: 1px solid #d9e3f0;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		text-decoration: none;
-		font-weight: 500;
-		transition: color 0.15s ease;
+		color: #64748b;
+		font-size: 1rem;
+		font-weight: 600;
+		transition: all 0.2s ease;
 	}
 
 	.footer-right a:hover {
 		color: #102a43;
+		border-color: #102a43;
+		transform: translateY(-1px);
 	}
 
 	@media (max-width: 720px) {
 		.footer-content {
 			flex-direction: column;
-			gap: 10px;
+			gap: 14px;
 		}
 	}
 </style>
