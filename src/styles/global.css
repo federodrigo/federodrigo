@@ -327,6 +327,40 @@ img {
 	border-radius: 12px;
 }
 
+/* HOMEPAGE ABOUT */
+
+.about-layout {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) 260px;
+	gap: 48px;
+	align-items: start;
+}
+
+.about-content p {
+	max-width: none;
+}
+
+.about-content p:last-child {
+	margin-bottom: 0;
+}
+
+.about-photo-wrapper {
+	display: flex;
+	justify-content: center;
+	align-self: start;
+	padding-top: 8px;
+	transform: translateY(-24px);
+}
+
+.about-photo {
+	display: block;
+	width: 100%;
+	max-width: 240px;
+	height: auto;
+	object-fit: contain;
+	border-radius: 0;
+}
+
 /* ABOUT PAGE */
 
 .about-hero {
