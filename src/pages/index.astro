@@ -70,36 +70,8 @@ import Footer from '../components/Footer.astro';
 			<section id="cio-office">
 				<h2>The CIO Office</h2>
 
-				<div class="leadership-grid">
-					<div class="leadership-card">
-						<h3>Operational Excellence & Security</h3>
-
-						<p>
-							Build reliable, secure, and resilient technology
-							operations through a culture of service and operational
-							excellence
-						</p>
-					</div>
-
-					<div class="leadership-card">
-						<h3>Driving Business Growth</h3>
-
-						<p>
-							Connect technology strategy with business priorities,
-							customer needs, execution, and long-term value creation
-						</p>
-					</div>
-
-					<div class="leadership-card">
-						<h3>Innovation & Continuous Improvement</h3>
-
-						<p>
-							Create an environment where teams challenge assumptions,
-							improve how the organization works, and turn ideas into
-							results
-						</p>
-					</div>
-				</div>
+				
+				
 
 				<p class="book-action">
 					<a href="/cio-office/">
@@ -109,38 +81,53 @@ import Footer from '../components/Footer.astro';
 			</section>
 
 			<section id="books">
-				<h2>Book</h2>
+	<h2>Book</h2>
 
-				<div class="about-layout book-layout">
-					<div class="book-cover-wrapper">
-						<img
-							src="/images/cio-book-cover.jpg"
-							alt="How to Become CIO and Succeed"
-							class="book-cover"
-						/>
-					</div>
+	<article
+		class="books-page-book books-page-book-featured"
+		aria-labelledby="home-cio-book-title"
+	>
+		<div class="books-page-cover-wrapper">
+			<a
+				href="/books/"
+				class="books-page-cover-link"
+				aria-label="Learn more about How to Become CIO and Succeed"
+			>
+				<img
+					src="/images/cio-book-cover.jpg"
+					alt="Cover of How to Become CIO and Succeed"
+					class="books-page-cover"
+				/>
+			</a>
+		</div>
 
-					<div class="about-content">
-						<h3>How to Become CIO and Succeed</h3>
+		<div class="books-page-content">
+			<p class="books-page-label">
+				Featured Book
+			</p>
 
-						<p class="book-subtitle">
-							People, Business, Strategy
-						</p>
+			<h3 id="home-cio-book-title">
+				How to Become CIO and Succeed
+			</h3>
 
-						<p>
-							A practical guide for technology leaders who want
-							to connect IT with business value, build strong
-							teams, and succeed in the CIO role
-						</p>
+			<p class="books-page-subtitle">
+				People, Business, Strategy
+			</p>
 
-						<p class="book-action">
-							<a href="/books/">
-								Explore the book →
-							</a>
-						</p>
-					</div>
-				</div>
-			</section>
+			<p>
+				A practical field guide for current and aspiring technology
+				leaders who want to connect IT with business value, build
+				strong teams, and succeed in the CIO role
+			</p>
+
+			<p class="books-page-action">
+				<a href="/books/">
+					Explore the book →
+				</a>
+			</p>
+		</div>
+	</article>
+</section>
 
 			<section id="media">
 				<h2>Media</h2>
