@@ -1,1 +1,167 @@
+---
+import SEO from '../../components/SEO.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
 
+const mediaItems = [
+	{
+		type: 'Webinar',
+		status: 'upcoming',
+		title: 'Xseed',
+		date: 'Agosto de 2026',
+		image: '/images/xseed.jpg',
+		imageAlt: 'Fede Rodrigo presentando un webinar de Xseed',
+		description:
+			'Acompáñame en un webinar en vivo sobre liderazgo tecnológico, desarrollo profesional, inteligencia artificial, estrategia de negocio y el recorrido personal detrás de los líderes de TI actuales',
+	},
+	{
+		type: 'Podcast',
+		status: 'upcoming',
+		title: 'The Technology Vanguard',
+		date: 'Agosto de 2026',
+		image: '/images/vanguard.jpg',
+		imageAlt: 'Fede Rodrigo participando en el podcast The Technology Vanguard',
+		description:
+			'Una próxima conversación sobre liderazgo tecnológico, desarrollo profesional, inteligencia artificial, estrategia de negocio y el recorrido personal detrás de los líderes de TI actuales',
+	},
+	{
+		type: 'Entrevista escrita',
+		status: 'published',
+		title: 'Entrevista con Nublit',
+		date: 'Enero de 2026',
+		image: '/images/cloud-interview.jpg',
+		imageAlt: 'Entrevista con Fede Rodrigo publicada por Nublit',
+		description:
+			'Entrevista con Nublit sobre estrategia de nube, gobernanza, resultados de negocio y cómo evitar que la nube se convierta simplemente en otro centro de datos costoso',
+		url: 'https://informe2026.nublit.com/',
+		linkLabel: 'Leer entrevista',
+	},
+	{
+		type: 'Finalista',
+		status: 'published',
+		title: 'Premios ORBIE 2024',
+		date: 'Septiembre de 2024',
+		image: '/images/orbie.jpg',
+		imageAlt: 'Logo de los Premios ORBIE',
+		description:
+			'Reconocido como finalista en la categoría Global CIO en los Central Texas CIO Awards 2024',
+		url: 'https://orbie.org/honoree/federico-rodrigo/4324',
+		linkLabel: 'Ver reconocimiento',
+	},
+	{
+		type: 'Mesa redonda ejecutiva',
+		status: 'published',
+		title: 'The Economist Impact',
+		date: 'Septiembre de 2024',
+		image: '/images/impact.png',
+		imageAlt: 'The Economist Impact',
+		description:
+			'Participante invitado en Industrial Reinvention: New Business Models and Jobs for Tomorrow’s Technology, organizado por The Economist Impact junto con otros CIOs en Houston, Texas',
+	},
+];
+---
+
+<!doctype html>
+
+<html lang="es">
+	<head>
+		<SEO
+			title="Medios y apariciones | Fede Rodrigo"
+			description="Entrevistas, podcasts, reconocimientos profesionales, mesas redondas ejecutivas y apariciones públicas de Fede Rodrigo."
+			lang="es"
+		/>
+	</head>
+
+	<body>
+		<Header />
+
+		<main>
+			<section class="hero">
+				<h1>
+					Medios y
+					<span class="accent">apariciones</span>
+				</h1>
+
+				<div class="lead-principles">
+					<div>La tecnología es parte del trabajo</div>
+					<div>El liderazgo es el trabajo</div>
+				</div>
+			</section>
+
+			<section
+				class="media-list"
+				aria-labelledby="media-list-title"
+			>
+				<h2 id="media-list-title">
+					Destacados
+				</h2>
+
+				{
+					mediaItems.map((item) => (
+						<article class="media-item">
+							<div class="media-image-wrapper">
+								<img
+									src={item.image}
+									alt={item.imageAlt}
+									class="media-image"
+									loading="lazy"
+								/>
+							</div>
+
+							<div class="media-content">
+								<p class="media-meta">
+									<span>{item.type}</span>
+									<span aria-hidden="true">·</span>
+									<span>{item.date}</span>
+								</p>
+
+								<h3>{item.title}</h3>
+
+								<p class="media-description">
+									{item.description}
+								</p>
+
+								{
+									item.url ? (
+										<p class="media-action">
+											<a
+												href={item.url}
+												target="_blank"
+												rel="noopener noreferrer"
+											>
+												{item.linkLabel} →
+											</a>
+										</p>
+									) : (
+										item.status === 'upcoming' && (
+											<p class="media-coming-soon">
+												Próximamente
+											</p>
+										)
+									)
+								}
+							</div>
+						</article>
+					))
+				}
+			</section>
+
+			<section class="media-contact">
+				<h2>Consultas de medios</h2>
+
+				<p>
+					Para entrevistas, podcasts, conferencias u otras oportunidades
+					en medios, contáctame
+				</p>
+
+				<p class="media-contact-link">
+					<a href="/es/contact">
+						Contáctame →
+					</a>
+				</p>
+			</section>
+		</main>
+
+		<Footer />
+	</body>
+</html>
