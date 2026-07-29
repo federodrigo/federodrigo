@@ -1065,9 +1065,10 @@ img {
 }
 
 .contact-page-links {
-	display: flex;
-	flex-direction: column;
-	gap: 24px;
+	display: grid;
+	grid-template-columns: repeat(2, minmax(280px, 1fr));
+	gap: 32px;
+	align-items: start;
 }
 
 .contact-page-item {
@@ -1332,6 +1333,10 @@ img {
 	.about-photo {
 		max-width: 220px;
 	}
+
+	.contact-page-links {
+	grid-template-columns: 1fr;
+}
 
 	/* ABOUT PAGE — MOBILE */
 
