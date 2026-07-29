@@ -1440,6 +1440,29 @@ img {
 		padding-top: 32px;
 	}
 
+
+	/* CIO OFFICE ON HOMEPAGE — MOBILE */
+
+#cio-office .books-page-book {
+	grid-template-columns: 1fr;
+	gap: 16px;
+	padding-top: 24px;
+}
+
+#cio-office .books-page-cover-wrapper,
+#cio-office .books-page-cover-link {
+	width: 170px;
+}
+
+#cio-office .cio-office-capabilities-logo {
+	width: 170px;
+	transform: none;
+}
+
+#cio-office .books-page-content {
+	padding-top: 0;
+}
+
 	/* MEDIA PAGE — MOBILE */
 
 	.media-hero {
