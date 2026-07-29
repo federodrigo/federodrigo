@@ -1024,12 +1024,13 @@ img {
 }
 
 .media-contact-link a {
-	color: var(--navy);
+	color: var(--blue);
+	font-size: 1rem;
 	font-weight: 800;
 }
 
 .media-contact-link a:hover {
-	color: var(--blue);
+	color: var(--red);
 }
 
 /* CONTACT PAGE */
