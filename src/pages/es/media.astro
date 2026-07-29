@@ -12,7 +12,7 @@ const mediaItems = [
 		image: '/images/xseed.jpg',
 		imageAlt: 'Fede Rodrigo presentando un webinar de Xseed',
 		description:
-			'Acompáñame en un webinar en vivo sobre liderazgo tecnológico, desarrollo profesional, inteligencia artificial, estrategia de negocio y el recorrido personal detrás de los líderes de TI actuales',
+			'Un webinar en vivo sobre liderazgo tecnológico, desarrollo profesional, inteligencia artificial, estrategia de negocio y la trayectoria personal de los líderes de tecnología',
 	},
 	{
 		type: 'Podcast',
@@ -22,7 +22,7 @@ const mediaItems = [
 		image: '/images/vanguard.jpg',
 		imageAlt: 'Fede Rodrigo participando en el podcast The Technology Vanguard',
 		description:
-			'Una próxima conversación sobre liderazgo tecnológico, desarrollo profesional, inteligencia artificial, estrategia de negocio y el recorrido personal detrás de los líderes de TI actuales',
+			'Una conversación sobre liderazgo tecnológico, desarrollo profesional, inteligencia artificial, estrategia de negocio y la trayectoria personal de los líderes de tecnología',
 	},
 	{
 		type: 'Entrevista escrita',
@@ -30,11 +30,13 @@ const mediaItems = [
 		title: 'Entrevista con Nublit',
 		date: 'Enero de 2026',
 		image: '/images/cloud-interview.jpg',
-		imageAlt: 'Entrevista con Fede Rodrigo publicada por Nublit',
+		imageAlt: 'Entrevista a Fede Rodrigo publicada por Nublit',
 		description:
 			'Entrevista con Nublit sobre estrategia de nube, gobernanza, resultados de negocio y cómo evitar que la nube se convierta simplemente en otro centro de datos costoso',
 		url: 'https://informe2026.nublit.com/',
-		linkLabel: 'Leer entrevista',
+		linkLabel: 'Ver Informe Completo',
+		pdfUrl: '/pdfs/Fede-Rodrigo-Interview-Nublit.pdf',
+		pdfLabel: 'Leer Mi Entrevista',
 	},
 	{
 		type: 'Finalista',
@@ -44,9 +46,9 @@ const mediaItems = [
 		image: '/images/orbie.jpg',
 		imageAlt: 'Logo de los Premios ORBIE',
 		description:
-			'Reconocido como finalista en la categoría Global CIO en los Central Texas CIO Awards 2024',
+			'Reconocido como finalista en la categoría Global CIO de los Central Texas CIO Awards 2024',
 		url: 'https://orbie.org/honoree/federico-rodrigo/4324',
-		linkLabel: 'Ver reconocimiento',
+		linkLabel: 'Ver Reconocimiento',
 	},
 	{
 		type: 'Mesa redonda ejecutiva',
@@ -56,7 +58,7 @@ const mediaItems = [
 		image: '/images/impact.png',
 		imageAlt: 'The Economist Impact',
 		description:
-			'Participante invitado en Industrial Reinvention: New Business Models and Jobs for Tomorrow’s Technology, organizado por The Economist Impact junto con otros CIOs en Houston, Texas',
+			'Invitado a participar en Industrial Reinvention: New Business Models and Jobs for Tomorrow’s Technology, organizado por The Economist Impact junto con otros CIOs en Houston, Texas',
 	},
 ];
 ---
@@ -66,8 +68,8 @@ const mediaItems = [
 <html lang="es">
 	<head>
 		<SEO
-			title="Medios y Entrevistas | Fede Rodrigo"
-			description="Entrevistas, podcasts, reconocimientos profesionales, mesas redondas ejecutivas y apariciones públicas de Fede Rodrigo."
+			title="Medios & Entrevistas | Fede Rodrigo"
+			description="Entrevistas, podcasts, reconocimientos profesionales, mesas redondas ejecutivas y participaciones públicas de Fede Rodrigo."
 			lang="es"
 		/>
 	</head>
@@ -78,12 +80,12 @@ const mediaItems = [
 		<main>
 			<section class="hero">
 				<h1>
-					Medios y
-					<span class="accent">Apariciones</span>
+					Medios &
+					<span class="accent">Entrevistas</span>
 				</h1>
 
 				<div class="lead-principles">
-					<div>La Tecnología es Parte del Trabajo</div>
+					<div>La Tecnología es Solo una Parte del Trabajo</div>
 					<div>El Liderazgo es el Trabajo</div>
 				</div>
 			</section>
@@ -123,7 +125,19 @@ const mediaItems = [
 
 								{
 									item.url ? (
-										<p class="media-action">
+										<div class="media-action">
+											{
+												item.pdfUrl && (
+													<a
+														href={item.pdfUrl}
+														target="_blank"
+														rel="noopener noreferrer"
+													>
+														{item.pdfLabel} →
+													</a>
+												)
+											}
+
 											<a
 												href={item.url}
 												target="_blank"
@@ -131,7 +145,7 @@ const mediaItems = [
 											>
 												{item.linkLabel} →
 											</a>
-										</p>
+										</div>
 									) : (
 										item.status === 'upcoming' && (
 											<p class="media-coming-soon">
@@ -147,16 +161,16 @@ const mediaItems = [
 			</section>
 
 			<section class="media-contact">
-				<h2>Consultas de medios</h2>
+				<h2>Consultas de Prensa</h2>
 
 				<p>
-					Para entrevistas, podcasts, conferencias u otras oportunidades
-					en medios, contáctame
+					Para entrevistas, podcasts, conferencias u otras
+					oportunidades en medios, podés contactarme
 				</p>
 
 				<p class="media-contact-link">
-					<a href="/es/contact">
-						Contáctame →
+					<a href="/es/contacto">
+						Contactarme →
 					</a>
 				</p>
 			</section>
