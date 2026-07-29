@@ -1,1 +1,317 @@
+---
+import SEO from '../../components/SEO.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
 
+<!doctype html>
+
+<html lang="es">
+	<head>
+		<SEO
+			title="Contacto | Fede Rodrigo"
+			description="Contacta a Fede Rodrigo para asesoramiento a CIOs, conferencias, podcasts, consultas de medios y preguntas generales"
+			lang="es"
+		/>
+	</head>
+
+	<body>
+		<Header />
+
+		<main>
+			<section class="hero">
+				<h1>Contacto</h1>
+
+				<div class="lead-principles">
+					<div>La tecnología nunca es</div>
+					<div>el punto de partida</div>
+				</div>
+			</section>
+
+			<section class="contact-page">
+				<div class="contact-page-info">
+					<h2>Contáctame</h2>
+
+					<p class="contact-page-intro">
+						Para asesoramiento, conferencias, podcasts, medios de comunicación
+						o consultas generales
+					</p>
+
+					<div class="contact-page-links">
+						<div class="contact-page-item">
+							<span
+								class="contact-page-icon"
+								aria-hidden="true"
+							>
+								✉
+							</span>
+
+							<div>
+								<p class="contact-page-item-label">
+									Correo electrónico
+								</p>
+
+								<a href="mailto:contact@federodrigo.com">
+									contact@federodrigo.com
+								</a>
+							</div>
+						</div>
+
+						<div class="contact-page-item">
+							<span
+								class="contact-page-icon contact-page-linkedin-icon"
+								aria-hidden="true"
+							>
+								in
+							</span>
+
+							<div>
+								<p class="contact-page-item-label">
+									LinkedIn
+								</p>
+
+								<a
+									href="https://www.linkedin.com/in/fede-rodrigo/"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									linkedin.com/in/fede-rodrigo
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="contact-page-response">
+						<p class="contact-page-response-label">
+							Tiempo de respuesta
+						</p>
+
+						<p>
+							Normalmente respondo dentro de 2 a 3 días hábiles
+						</p>
+					</div>
+				</div>
+
+				<div class="contact-page-form-wrapper">
+					<form
+						id="contact-form"
+						class="contact-page-form"
+						method="POST"
+						action="/api/contact"
+					>
+						<div class="contact-page-form-row">
+							<div class="contact-page-field">
+								<label for="first-name">
+									Nombre
+								</label>
+
+								<input
+									id="first-name"
+									name="firstName"
+									type="text"
+									autocomplete="given-name"
+									placeholder="María"
+									required
+								/>
+							</div>
+
+							<div class="contact-page-field">
+								<label for="last-name">
+									Apellido
+								</label>
+
+								<input
+									id="last-name"
+									name="lastName"
+									type="text"
+									autocomplete="family-name"
+									placeholder="Pérez"
+									required
+								/>
+							</div>
+						</div>
+
+						<div class="contact-page-field">
+							<label for="email">
+								Correo electrónico
+							</label>
+
+							<input
+								id="email"
+								name="email"
+								type="email"
+								autocomplete="email"
+								placeholder="maria@empresa.com"
+								required
+							/>
+						</div>
+
+						<div class="contact-page-field">
+							<label for="subject">
+								Asunto
+							</label>
+
+							<select
+								id="subject"
+								name="subject"
+								required
+							>
+								<option value="" selected disabled>
+									Selecciona un tema...
+								</option>
+
+								<option value="executive-opportunity">
+									Oportunidad ejecutiva
+								</option>
+
+								<option value="fractional-cio">
+									CIO fraccional
+								</option>
+
+								<option value="cio-advisory">
+									Asesoramiento para CIOs
+								</option>
+
+								<option value="speaking">
+									Conferencia
+								</option>
+
+								<option value="podcast-media">
+									Podcast o consulta de medios
+								</option>
+
+								<option value="books">
+									Libros y publicaciones
+								</option>
+
+								<option value="general">
+									Consulta general
+								</option>
+							</select>
+						</div>
+
+						<div class="contact-page-field">
+							<label for="message">
+								Mensaje
+							</label>
+
+							<textarea
+								id="message"
+								name="message"
+								rows="7"
+								placeholder="¿Cómo puedo ayudarte?"
+								required
+							></textarea>
+						</div>
+
+						<button
+							id="contact-submit"
+							type="submit"
+							class="contact-page-submit"
+						>
+							<span class="contact-page-submit-text">
+								Enviar mensaje
+							</span>
+
+							<span aria-hidden="true">→</span>
+						</button>
+
+						<p
+							id="contact-status"
+							class="contact-page-status"
+							role="status"
+							aria-live="polite"
+							hidden
+						></p>
+					</form>
+				</div>
+			</section>
+		</main>
+
+		<Footer />
+
+		<script>
+			const form = document.querySelector<HTMLFormElement>(
+				'#contact-form'
+			);
+
+			const submitButton =
+				document.querySelector<HTMLButtonElement>('#contact-submit');
+
+			const submitText = document.querySelector<HTMLElement>(
+				'.contact-page-submit-text'
+			);
+
+			const status =
+				document.querySelector<HTMLElement>('#contact-status');
+
+			if (form && submitButton && submitText && status) {
+				form.addEventListener('submit', async (event) => {
+					event.preventDefault();
+
+					if (!form.reportValidity()) {
+						return;
+					}
+
+					submitButton.disabled = true;
+					submitButton.setAttribute('aria-busy', 'true');
+					submitText.textContent = 'Enviando...';
+
+					status.hidden = true;
+					status.textContent = '';
+					status.classList.remove(
+						'contact-page-status-success',
+						'contact-page-status-error'
+					);
+
+					try {
+						const response = await fetch(form.action, {
+							method: 'POST',
+							body: new FormData(form),
+							headers: {
+								Accept: 'application/json'
+							}
+						});
+
+						const result = await response
+							.json()
+							.catch(() => null);
+
+						if (!response.ok) {
+							throw new Error(
+								result?.message ||
+									'No fue posible enviar tu mensaje'
+							);
+						}
+
+						form.reset();
+
+						status.textContent =
+							'Gracias. Tu mensaje fue enviado correctamente.';
+
+						status.classList.add(
+							'contact-page-status-success'
+						);
+
+						status.hidden = false;
+					} catch (error) {
+						status.textContent =
+							error instanceof Error
+								? error.message
+								: 'No fue posible enviar tu mensaje. Inténtalo nuevamente.';
+
+						status.classList.add(
+							'contact-page-status-error'
+						);
+
+						status.hidden = false;
+					} finally {
+						submitButton.disabled = false;
+						submitButton.removeAttribute('aria-busy');
+						submitText.textContent = 'Enviar mensaje';
+					}
+				});
+			}
+		</script>
+	</body>
+</html>
