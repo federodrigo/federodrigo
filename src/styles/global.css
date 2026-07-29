@@ -579,6 +579,24 @@ img {
 	color: var(--blue);
 }
 
+
+/* CIO OFFICE */
+
+#cio-office .books-page-book {
+	grid-template-columns: 240px minmax(0, 1fr);
+	gap: 24px;
+}
+
+#cio-office .books-page-cover-wrapper,
+#cio-office .books-page-cover-link {
+	width: 240px;
+}
+
+#cio-office .cio-office-capabilities-logo {
+	width: 240px;
+}
+
+
 /* BOOKS */
 
 .books-grid {
