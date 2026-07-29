@@ -594,6 +594,7 @@ img {
 
 #cio-office .cio-office-capabilities-logo {
 	width: 240px;
+	transform: translateY(12px);
 }
 
 
