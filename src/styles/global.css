@@ -445,12 +445,13 @@ img {
 }
 
 .about-profile-action a {
-	color: var(--navy);
+	color: var(--blue);
+	font-size: 1rem;
 	font-weight: 800;
 }
 
 .about-profile-action a:hover {
-	color: var(--blue);
+	color: var(--red);
 }
 
 /* THE CIO OFFICE */
@@ -571,14 +572,14 @@ img {
 }
 
 .cio-office-contact-link a {
-	color: var(--navy);
+	color: var(--blue);
+	font-size: 1rem;
 	font-weight: 800;
 }
 
 .cio-office-contact-link a:hover {
-	color: var(--blue);
+	color: var(--red);
 }
-
 
 /* CIO OFFICE */
 
