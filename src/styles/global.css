@@ -588,14 +588,13 @@ img {
 	gap: 24px;
 }
 
+#cio-office .books-page-book-featured {
+	padding-bottom: 0;
+}
+
 #cio-office .books-page-cover-wrapper,
 #cio-office .books-page-cover-link {
 	width: 240px;
-}
-
-#cio-office .cio-office-capabilities-logo {
-	width: 240px;
-	transform: translateY(-16px);
 }
 
 
