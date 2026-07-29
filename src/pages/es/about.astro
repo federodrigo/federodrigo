@@ -1,1 +1,116 @@
+---
+import SEO from '../components/SEO.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 
+const profileTags = [
+	'CIO Global',
+	'Estrategia Tecnológica',
+	'Valor para el Negocio',
+	'Excelencia Operacional',
+	'Autor',
+];
+---
+
+<!doctype html>
+
+<html lang="es">
+	<head>
+		<SEO
+			title="Sobre mí | Fede Rodrigo"
+			description="Conoce más sobre Fede Rodrigo, Chief Information Officer, ejecutivo de tecnología, MBA y autor"
+			lang="es"
+		/>
+	</head>
+
+	<body>
+		<Header />
+
+		<main>
+			<section
+				class="about-profile"
+				aria-labelledby="about-profile-title"
+			>
+				<div class="about-profile-layout">
+					<div class="about-profile-image-wrapper">
+						<img
+							src="/images/fede.png"
+							alt="Fede Rodrigo"
+							class="about-profile-image"
+						/>
+					</div>
+
+					<div class="about-profile-content">
+						<p class="about-profile-eyebrow">
+							Sobre Fede Rodrigo
+						</p>
+
+						<h1 id="about-profile-title">
+							Fede Rodrigo
+						</h1>
+
+						<div
+							class="about-profile-tags"
+							aria-label="Perfil profesional"
+						>
+							{
+								profileTags.map((tag) => (
+									<span>{tag}</span>
+								))
+							}
+						</div>
+
+						<div class="about-profile-text">
+							<p class="about-profile-intro">
+								<strong>
+									Soy Chief Information Officer (CIO) con más de 25 años de
+									experiencia en tecnología
+								</strong>
+							</p>
+
+							<p>
+								<strong>Mi enfoque es simple:</strong> crear valor para el negocio
+								a través de la tecnología. Mantenerme cerca de la ejecución, pensar
+								estratégicamente y construir una cultura orientada al servicio,
+								enfocada en la excelencia operacional y la mejora continua
+							</p>
+
+							<p>
+								Creo que liderar tecnología no consiste en gestionar TI. Consiste
+								en ayudar al negocio a avanzar más rápido, tomar mejores decisiones
+								y ejecutar su estrategia
+							</p>
+
+							<p>
+								Escribí <strong><em>How to Become CIO and Succeed</em></strong> porque
+								es el libro que me hubiera gustado tener cuando comencé mi camino en
+								el liderazgo. Reúne las lecciones que aprendí para que otros no tengan
+								que aprenderlas de la forma más difícil
+							</p>
+
+							<p>
+								Tengo un MBA de la University of Illinois Urbana-Champaign y un
+								título en Ciencias de la Computación de la Universidad Católica
+								del Uruguay
+							</p>
+
+							<p>
+								Más allá de la tecnología, escribo sobre libertad, incentivos,
+								instituciones y por qué los sistemas complejos —sean tecnológicos,
+								económicos o políticos— fracasan cuando ignoran la realidad
+							</p>
+						</div>
+
+						<p class="about-profile-action">
+							<a href="/books">
+								Explorar mis libros →
+							</a>
+						</p>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<Footer />
+	</body>
+</html>
