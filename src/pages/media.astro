@@ -25,20 +25,19 @@ const mediaItems = [
 			'An upcoming conversation exploring technology leadership, career development, AI, business strategy, and the personal journey behind today’s IT leaders',
 	},
 	{
-	type: 'Written Interview',
-	status: 'published',
-	title: 'Interview with Nublit',
-	date: 'January 2026',
-	image: '/images/cloud-interview.jpg',
-	imageAlt: 'Interview with Fede Rodrigo published by Nublit',
-	description:
-		'Interview with Nublit discussing cloud strategy, governance, business outcomes, and how organizations can avoid turning the cloud into just another expensive data center',
-	url: 'https://informe2026.nublit.com/',
-	linkLabel: 'View Full Report',
-	pdfUrl: '/pdfs/Fede-Rodrigo-Interview-Nublit.pdf',
-	pdfLabel: 'Read My Interview',
-},
-
+		type: 'Written Interview',
+		status: 'published',
+		title: 'Interview with Nublit',
+		date: 'January 2026',
+		image: '/images/cloud-interview.jpg',
+		imageAlt: 'Interview with Fede Rodrigo published by Nublit',
+		description:
+			'Interview with Nublit discussing cloud strategy, governance, business outcomes, and how organizations can avoid turning the cloud into just another expensive data center',
+		url: 'https://informe2026.nublit.com/',
+		linkLabel: 'View Full Report',
+		pdfUrl: '/pdfs/Fede-Rodrigo-Interview-Nublit.pdf',
+		pdfLabel: 'Read My Interview',
+	},
 	{
 		type: 'Award Finalist',
 		status: 'published',
@@ -126,7 +125,19 @@ const mediaItems = [
 
 								{
 									item.url ? (
-										<p class="media-action">
+										<div class="media-action">
+											{
+												item.pdfUrl && (
+													<a
+														href={item.pdfUrl}
+														target="_blank"
+														rel="noopener noreferrer"
+													>
+														{item.pdfLabel} →
+													</a>
+												)
+											}
+
 											<a
 												href={item.url}
 												target="_blank"
@@ -134,7 +145,7 @@ const mediaItems = [
 											>
 												{item.linkLabel} →
 											</a>
-										</p>
+										</div>
 									) : (
 										item.status === 'upcoming' && (
 											<p class="media-coming-soon">
