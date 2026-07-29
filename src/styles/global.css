@@ -581,7 +581,7 @@ img {
 	color: var(--red);
 }
 
-/* CIO OFFICE */
+/* CIO OFFICE — HOMEPAGE */
 
 #cio-office .books-page-book {
 	grid-template-columns: 240px minmax(0, 1fr);
@@ -589,12 +589,27 @@ img {
 }
 
 #cio-office .books-page-book-featured {
+	padding-top: 28px;
 	padding-bottom: 0;
 }
 
 #cio-office .books-page-cover-wrapper,
 #cio-office .books-page-cover-link {
 	width: 240px;
+}
+
+#cio-office .cio-office-capabilities-logo {
+	width: 240px;
+	transform: translateY(-16px);
+}
+
+#books {
+	padding-bottom: 0;
+}
+
+#books .books-page-book-featured {
+	padding-top: 28px;
+	padding-bottom: 0;
 }
 
 
@@ -836,9 +851,9 @@ img {
 
 .contact-section {
 	border-top: 1px solid var(--line);
-	padding-top: 36px;
-	margin-top: 24px;
-	padding-bottom: 4px;
+	margin-top: 0;
+	padding-top: 28px;
+	padding-bottom: 0;
 }
 
 .contact-intro {
@@ -1335,7 +1350,7 @@ img {
 		height: 330px;
 	}
 
-		/* HOMEPAGE ABOUT — MOBILE */
+	/* HOMEPAGE ABOUT — MOBILE */
 
 	.about-layout {
 		grid-template-columns: 1fr;
@@ -1354,8 +1369,8 @@ img {
 	}
 
 	.contact-page-links {
-	grid-template-columns: 1fr;
-}
+		grid-template-columns: 1fr;
+	}
 
 	/* ABOUT PAGE — MOBILE */
 
@@ -1441,27 +1456,27 @@ img {
 	}
 
 
-	/* CIO OFFICE ON HOMEPAGE — MOBILE */
+		/* CIO OFFICE ON HOMEPAGE — MOBILE */
 
-#cio-office .books-page-book {
-	grid-template-columns: 1fr;
-	gap: 16px;
-	padding-top: 24px;
-}
+	#cio-office .books-page-book {
+		grid-template-columns: 1fr;
+		gap: 16px;
+		padding-top: 24px;
+	}
 
-#cio-office .books-page-cover-wrapper,
-#cio-office .books-page-cover-link {
-	width: 170px;
-}
+	#cio-office .books-page-cover-wrapper,
+	#cio-office .books-page-cover-link {
+		width: 170px;
+	}
 
-#cio-office .cio-office-capabilities-logo {
-	width: 170px;
-	transform: none;
-}
+	#cio-office .cio-office-capabilities-logo {
+		width: 170px;
+		transform: none;
+	}
 
-#cio-office .books-page-content {
-	padding-top: 0;
-}
+	#cio-office .books-page-content {
+		padding-top: 0;
+	}
 
 	/* MEDIA PAGE — MOBILE */
 
