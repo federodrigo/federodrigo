@@ -351,7 +351,7 @@ img {
 
 .about-profile {
 	padding-top: 54px;
-	padding-bottom: 28px;
+	padding-bottom: 0;
 }
 
 .about-profile-layout {
@@ -1375,8 +1375,8 @@ img {
 	/* ABOUT PAGE — MOBILE */
 
 	.about-profile {
-		padding-top: 34px;
-		padding-bottom: 20px;
+	padding-top: 34px;
+	padding-bottom: 0;
 	}
 
 	.about-profile-layout {
