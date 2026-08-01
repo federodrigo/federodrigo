@@ -8,6 +8,10 @@ import Footer from '../components/Footer.astro';
 
 <html lang="en">
 	<head>
+		<script is:inline>
+			document.documentElement.classList.add('js');
+		</script>
+
 		<SEO
 			title="CIO Book | How to Become CIO and Succeed"
 			description="How to Become CIO and Succeed is a practical CIO leadership book for aspiring and current CIOs, focused on people, business, strategy, IT leadership, and creating value through technology."
@@ -21,10 +25,12 @@ import Footer from '../components/Footer.astro';
 		<main>
 			<section
 				id="book"
-				class="books-page-book books-page-book-featured"
+				class="books-page-book books-page-book-featured reveal-section"
 				aria-labelledby="cio-book-title"
 			>
-				<div class="books-page-cover-wrapper">
+				<div
+					class="books-page-cover-wrapper reveal-item reveal-from-left"
+				>
 					<a
 						href="https://www.amazon.com/dp/B0F8MVPN4Q"
 						target="_blank"
@@ -35,12 +41,12 @@ import Footer from '../components/Footer.astro';
 						<img
 							src="/images/cio-book-cover.jpg"
 							alt="Cover of the CIO book How to Become CIO and Succeed by Fede Rodrigo"
-							class="books-page-cover"
+							class="books-page-cover animated-book-cover"
 						/>
 					</a>
 				</div>
 
-				<div class="books-page-content">
+				<div class="books-page-content reveal-item reveal-delay-1">
 					<p class="books-page-label">
 						CIO Leadership Book
 					</p>
@@ -77,8 +83,15 @@ import Footer from '../components/Footer.astro';
 							href="https://www.amazon.com/dp/B0F8MVPN4Q"
 							target="_blank"
 							rel="noopener noreferrer"
+							class="animated-link"
 						>
-							Buy the book on Amazon →
+							<span>Buy the book on Amazon</span>
+							<span
+								class="animated-link-arrow"
+								aria-hidden="true"
+							>
+								→
+							</span>
 						</a>
 					</p>
 				</div>
@@ -86,78 +99,112 @@ import Footer from '../components/Footer.astro';
 
 			<section
 				id="what-you-will-learn"
-				class="books-page-other"
+				class="books-page-other reveal-section"
 				aria-labelledby="what-you-will-learn-title"
 			>
-				<div>
+				<div class="reveal-item">
 					<h2 id="what-you-will-learn-title">
 						What You Will Learn
 					</h2>
 				</div>
 
-				<p>
-					How to build effective teams, create a service-oriented
-					culture, earn credibility, influence executive decisions,
-					improve operations, shape technology strategy, and
-					consistently create business value
-				</p>
+				<div class="reveal-item reveal-delay-1">
+					<p>
+						How to build effective teams, create a service-oriented
+						culture, earn credibility, influence executive decisions,
+						improve operations, shape technology strategy, and
+						consistently create business value
+					</p>
 
-				<p>
-					You will also learn how to lead across the full scope of
-					modern IT, from infrastructure and enterprise systems to
-					cybersecurity, transformation, and continuous change
-				</p>
+					<p>
+						You will also learn how to lead across the full scope of
+						modern IT, from infrastructure and enterprise systems to
+						cybersecurity, transformation, and continuous change
+					</p>
+				</div>
 			</section>
 
 			<section
 				id="who-is-this-book-for"
-				class="books-page-other"
+				class="books-page-other reveal-section"
 				aria-labelledby="who-is-this-book-for-title"
 			>
-				<div>
+				<div class="reveal-item">
 					<h2 id="who-is-this-book-for-title">
 						Who This CIO Book Is For
 					</h2>
 				</div>
 
-				<p>
-					This practical book for aspiring CIOs is also written for
-					current CIOs, IT managers, technology directors, and
-					business leaders who want to understand and strengthen
-					the modern CIO role
-				</p>
+				<div class="reveal-item reveal-delay-1">
+					<p>
+						This practical book for aspiring CIOs is also written for
+						current CIOs, IT managers, technology directors, and
+						business leaders who want to understand and strengthen
+						the modern CIO role
+					</p>
+				</div>
 			</section>
 
-		<section
-	id="buy"
-	class="books-page-other"
-	aria-labelledby="get-the-book-title"
->
-	<div>
-		<h2 id="get-the-book-title">
-			Get the Book
-		</h2>
-	</div>
-
-	<div class="books-page-content">
-		<p>
-			Discover a practical approach to CIO leadership built around
-			people, business, strategy, and technology
-		</p>
-
-		<p class="books-page-action">
-			<a
-				href="https://www.amazon.com/dp/B0F8MVPN4Q"
-				target="_blank"
-				rel="noopener noreferrer"
+			<section
+				id="buy"
+				class="books-page-other reveal-section"
+				aria-labelledby="get-the-book-title"
 			>
-				Buy How to Become CIO on Amazon →
-			</a>
-		</p>
-	</div>
-</section>
+				<div class="reveal-item">
+					<h2 id="get-the-book-title">
+						Get the Book
+					</h2>
+				</div>
+
+				<div class="books-page-content reveal-item reveal-delay-1">
+					<p>
+						Discover a practical approach to CIO leadership built
+						around people, business, strategy, and technology
+					</p>
+
+					<p class="books-page-action">
+						<a
+							href="https://www.amazon.com/dp/B0F8MVPN4Q"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="animated-link"
+						>
+							<span>Buy How to Become CIO on Amazon</span>
+							<span
+								class="animated-link-arrow"
+								aria-hidden="true"
+							>
+								→
+							</span>
+						</a>
+					</p>
+				</div>
+			</section>
 		</main>
 
 		<Footer />
+
+		<script>
+			const sections = document.querySelectorAll('.reveal-section');
+
+			const revealObserver = new IntersectionObserver(
+				(entries, observer) => {
+					entries.forEach((entry) => {
+						if (!entry.isIntersecting) return;
+
+						entry.target.classList.add('is-visible');
+						observer.unobserve(entry.target);
+					});
+				},
+				{
+					threshold: 0.12,
+					rootMargin: '0px 0px -60px 0px'
+				}
+			);
+
+			sections.forEach((section) => {
+				revealObserver.observe(section);
+			});
+		</script>
 	</body>
 </html>
