@@ -230,8 +230,14 @@ import Footer from '../components/Footer.astro';
 
 		<style>
 			.books-page-cover-wrapper {
-				position: relative;
-			}
+	position: relative;
+	z-index: 10;
+}
+
+.books-page-content {
+	position: relative;
+	z-index: 1;
+}
 
 			.cio-duck {
 				position: absolute;
