@@ -8,6 +8,10 @@ import Footer from '../../components/Footer.astro';
 
 <html lang="es">
 	<head>
+		<script is:inline>
+			document.documentElement.classList.add('js');
+		</script>
+
 		<SEO
 			title="Libro para CIO | Cómo convertirse en CIO y tener éxito"
 			description="Cómo convertirse en CIO y tener éxito es un libro práctico de liderazgo para aspirantes a CIO y CIO actuales, centrado en las personas, el negocio, la estrategia, el liderazgo tecnológico y la creación de valor."
@@ -21,10 +25,12 @@ import Footer from '../../components/Footer.astro';
 		<main>
 			<section
 				id="book"
-				class="books-page-book books-page-book-featured"
+				class="books-page-book books-page-book-featured reveal-section"
 				aria-labelledby="cio-book-title"
 			>
-				<div class="books-page-cover-wrapper">
+				<div
+					class="books-page-cover-wrapper reveal-item reveal-from-left"
+				>
 					<a
 						href="https://www.amazon.com/dp/B0F8MVPN4Q"
 						target="_blank"
@@ -35,12 +41,12 @@ import Footer from '../../components/Footer.astro';
 						<img
 							src="/images/cio-book-cover.jpg"
 							alt="Portada del libro para CIO Cómo convertirse en CIO y tener éxito, de Fede Rodrigo"
-							class="books-page-cover"
+							class="books-page-cover animated-book-cover"
 						/>
 					</a>
 				</div>
 
-				<div class="books-page-content">
+				<div class="books-page-content reveal-item reveal-delay-1">
 					<p class="books-page-label">
 						Libro sobre liderazgo CIO
 					</p>
@@ -78,8 +84,16 @@ import Footer from '../../components/Footer.astro';
 							href="https://www.amazon.com/dp/B0F8MVPN4Q"
 							target="_blank"
 							rel="noopener noreferrer"
+							class="animated-link"
 						>
-							Comprar el libro en Amazon →
+							<span>Comprar el libro en Amazon</span>
+
+							<span
+								class="animated-link-arrow"
+								aria-hidden="true"
+							>
+								→
+							</span>
 						</a>
 					</p>
 				</div>
@@ -87,79 +101,116 @@ import Footer from '../../components/Footer.astro';
 
 			<section
 				id="what-you-will-learn"
-				class="books-page-other"
+				class="books-page-other reveal-section"
 				aria-labelledby="what-you-will-learn-title"
 			>
-				<div>
+				<div class="reveal-item">
 					<h2 id="what-you-will-learn-title">
 						Qué aprenderás
 					</h2>
 				</div>
 
-				<p>
-					Cómo formar equipos eficaces, crear una cultura orientada
-					al servicio, ganar credibilidad, influir en las decisiones
-					ejecutivas, mejorar las operaciones, definir la estrategia
-					tecnológica y crear valor para el negocio de manera constante
-				</p>
+				<div class="reveal-item reveal-delay-1">
+					<p>
+						Cómo formar equipos eficaces, crear una cultura orientada
+						al servicio, ganar credibilidad, influir en las decisiones
+						ejecutivas, mejorar las operaciones, definir la estrategia
+						tecnológica y crear valor para el negocio de manera constante
+					</p>
 
-				<p>
-					También aprenderás a liderar todo el alcance de la tecnología
-					moderna, desde la infraestructura y los sistemas empresariales
-					hasta la ciberseguridad, la transformación y el cambio continuo
-				</p>
+					<p>
+						También aprenderás a liderar todo el alcance de la tecnología
+						moderna, desde la infraestructura y los sistemas empresariales
+						hasta la ciberseguridad, la transformación y el cambio continuo
+					</p>
+				</div>
 			</section>
 
 			<section
 				id="who-is-this-book-for"
-				class="books-page-other"
+				class="books-page-other reveal-section"
 				aria-labelledby="who-is-this-book-for-title"
 			>
-				<div>
+				<div class="reveal-item">
 					<h2 id="who-is-this-book-for-title">
 						Para quién es este libro sobre CIO
 					</h2>
 				</div>
 
-				<p>
-					Este libro práctico para aspirantes a CIO también está
-					dirigido a CIO actuales, gerentes de TI, directores de
-					tecnología y líderes empresariales que quieran comprender
-					y fortalecer el rol moderno del CIO
-				</p>
+				<div class="reveal-item reveal-delay-1">
+					<p>
+						Este libro práctico para aspirantes a CIO también está
+						dirigido a CIO actuales, gerentes de TI, directores de
+						tecnología y líderes empresariales que quieran comprender
+						y fortalecer el rol moderno del CIO
+					</p>
+				</div>
 			</section>
 
 			<section
-	id="buy"
-	class="books-page-other"
-	aria-labelledby="get-the-book-title"
->
-	<div>
-		<h2 id="get-the-book-title">
-			Conseguí el libro
-		</h2>
-	</div>
-
-	<div class="books-page-content">
-		<p>
-			Descubrí una mirada práctica sobre el liderazgo CIO,
-			construida alrededor de las personas, el negocio,
-			la estrategia y la tecnología
-		</p>
-
-		<p class="books-page-action">
-			<a
-				href="https://www.amazon.com/dp/B0F8MVPN4Q"
-				target="_blank"
-				rel="noopener noreferrer"
+				id="buy"
+				class="books-page-other reveal-section"
+				aria-labelledby="get-the-book-title"
 			>
-				Comprar Cómo convertirse en CIO en Amazon →
-			</a>
-		</p>
-	</div>
-</section>
+				<div class="reveal-item">
+					<h2 id="get-the-book-title">
+						Conseguí el libro
+					</h2>
+				</div>
+
+				<div class="books-page-content reveal-item reveal-delay-1">
+					<p>
+						Descubrí una mirada práctica sobre el liderazgo CIO,
+						construida alrededor de las personas, el negocio,
+						la estrategia y la tecnología
+					</p>
+
+					<p class="books-page-action">
+						<a
+							href="https://www.amazon.com/dp/B0F8MVPN4Q"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="animated-link"
+						>
+							<span>
+								Comprar Cómo convertirse en CIO en Amazon
+							</span>
+
+							<span
+								class="animated-link-arrow"
+								aria-hidden="true"
+							>
+								→
+							</span>
+						</a>
+					</p>
+				</div>
+			</section>
 		</main>
 
 		<Footer />
+
+		<script>
+			const sections = document.querySelectorAll('.reveal-section');
+
+			const revealObserver = new IntersectionObserver(
+				(entries, observer) => {
+					entries.forEach((entry) => {
+						if (!entry.isIntersecting) return;
+
+						entry.target.classList.add('is-visible');
+						observer.unobserve(entry.target);
+					});
+				},
+				{
+					threshold: 0.12,
+					rootMargin: '0px 0px -60px 0px',
+				}
+			);
+
+			sections.forEach((section) => {
+				revealObserver.observe(section);
+			});
+		</script>
 	</body>
 </html>
