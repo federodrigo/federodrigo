@@ -2,12 +2,49 @@
 import SEO from '../components/SEO.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+
+const capabilities = [
+	{
+		title: 'Executive Technology Leadership',
+		description:
+			'Align technology strategy with business objectives, operating models, governance, and long-term value creation',
+	},
+	{
+		title: 'Infrastructure, Cloud & Cybersecurity',
+		description:
+			'Modernize infrastructure, cloud, networks, cybersecurity, and end-user services',
+	},
+	{
+		title: 'Enterprise Applications & Data',
+		description:
+			'Deliver ERP, enterprise applications, business intelligence, and data initiatives that improve visibility, execution, and decision-making',
+	},
+	{
+		title: 'M&A Technology Integration',
+		description:
+			'Integrate systems, infrastructure, applications, data, and teams during mergers and acquisitions',
+	},
+	{
+		title: 'IT & Operational Technology',
+		description:
+			'Connect IT and operational technology to improve resilience, security, business continuity, and operational performance',
+	},
+	{
+		title: 'Fractional CIO & Advisory',
+		description:
+			'Support CEOs and executive teams with strategic technology leadership, transformation, and execution',
+	},
+];
 ---
 
 <!doctype html>
 
 <html lang="en">
 	<head>
+		<script is:inline>
+			document.documentElement.classList.add('js');
+		</script>
+
 		<SEO
 			title="The CIO Office | Fede Rodrigo"
 			description="Executive technology leadership focused on people, business value, operational excellence, and execution"
@@ -20,104 +57,100 @@ import Footer from '../components/Footer.astro';
 
 		<main>
 			<section class="hero">
-				<h1>
-					The CIO <span class="accent">Office</span>
+				<h1 class="hero-title">
+					<span class="hero-line">
+						The CIO <span class="accent">Office</span>
+					</span>
 				</h1>
 
 				<div class="lead-principles">
-	<div>The CIO Creates Business Value</div>
-	<div>Not Technology</div>
-</div>
+					<div>The CIO Creates Business Value</div>
+					<div>Not Technology</div>
+				</div>
 			</section>
 
-			<section class="cio-office-capabilities">
-				<div class="cio-office-capabilities-heading">
+			<section class="cio-office-capabilities reveal-section">
+				<div
+					class="cio-office-capabilities-heading reveal-item"
+				>
 					<img
 						src="/images/cio-office-logo.png"
 						alt="The CIO Office"
-						class="cio-office-capabilities-logo"
+						class="cio-office-capabilities-logo animated-image"
 					/>
 
-					<h2>Executive Leadership • Advisory • Transformation</h2>
+					<h2>
+						Executive Leadership • Advisory • Transformation
+					</h2>
 				</div>
 
 				<div class="leadership-grid">
-					<div class="leadership-card">
-						<h3>Executive Technology Leadership</h3>
+					{
+						capabilities.map((capability, index) => (
+							<div
+								class="leadership-card"
+								style={`--card-index: ${index};`}
+							>
+								<h3>{capability.title}</h3>
 
-						<p>
-							Align technology strategy with business objectives,
-							operating models, governance, and long-term value
-							creation
-						</p>
-					</div>
-
-					<div class="leadership-card">
-						<h3>Infrastructure, Cloud & Cybersecurity</h3>
-
-						<p>
-							Modernize infrastructure, cloud, networks,
-							cybersecurity, and end-user services
-						</p>
-					</div>
-
-					<div class="leadership-card">
-						<h3>Enterprise Applications & Data</h3>
-
-						<p>
-							Deliver ERP, enterprise applications, business
-							intelligence, and data initiatives that improve
-							visibility, execution, and decision-making
-						</p>
-					</div>
-
-					<div class="leadership-card">
-						<h3>M&A Technology Integration</h3>
-
-						<p>
-							Integrate systems, infrastructure, applications,
-							data, and teams during mergers and acquisitions
-						</p>
-					</div>
-
-					<div class="leadership-card">
-						<h3>IT & Operational Technology</h3>
-
-						<p>
-							Connect IT and operational technology to improve
-							resilience, security, business continuity, and
-							operational performance
-						</p>
-					</div>
-
-					<div class="leadership-card">
-						<h3>Fractional CIO & Advisory</h3>
-
-						<p>
-							Support CEOs and executive teams with strategic
-							technology leadership, transformation, and execution
-						</p>
-					</div>
+								<p>{capability.description}</p>
+							</div>
+						))
+					}
 				</div>
 			</section>
 
-			<section class="cio-office-contact">
-				<h2>The CIO Office Inquiries</h2>
+			<section class="cio-office-contact reveal-section">
+				<h2 class="reveal-item">
+					The CIO Office Inquiries
+				</h2>
 
-				<p>
-					For fractional CIO engagements, executive
-					advisory, transformation initiatives, or technology strategy
-					discussions, please reach out directly
-				</p>
+				<div class="reveal-item reveal-delay-1">
+					<p>
+						For fractional CIO engagements, executive advisory,
+						transformation initiatives, or technology strategy
+						discussions, please reach out directly
+					</p>
 
-				<p class="cio-office-contact-link">
-					<a href="/contact">
-						Contact Me →
-					</a>
-				</p>
+					<p class="cio-office-contact-link">
+						<a href="/contact/" class="animated-link">
+							<span>Contact Me</span>
+							<span
+								class="animated-link-arrow"
+								aria-hidden="true"
+							>
+								→
+							</span>
+						</a>
+					</p>
+				</div>
 			</section>
 		</main>
 
 		<Footer />
+
+		<script>
+			const sections = document.querySelectorAll('.reveal-section');
+
+			const revealObserver = new IntersectionObserver(
+				(entries, observer) => {
+					entries.forEach((entry) => {
+						if (!entry.isIntersecting) return;
+
+						entry.target.classList.add('is-visible');
+						observer.unobserve(entry.target);
+					});
+				},
+				{
+					threshold: 0.12,
+					rootMargin: '0px 0px -60px 0px',
+				}
+			);
+
+			sections.forEach((section) => {
+				revealObserver.observe(section);
+			});
+		</script>
 	</body>
 </html>
+
