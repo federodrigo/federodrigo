@@ -1261,7 +1261,7 @@ img {
 /* HERO */
 
 .hero-title {
-	overflow: hidden;
+	overflow: visible;
 }
 
 .hero-line {
