@@ -67,6 +67,10 @@ const mediaItems = [
 
 <html lang="en">
 	<head>
+		<script is:inline>
+			document.documentElement.classList.add('js');
+		</script>
+
 		<SEO
 			title="Media & Appearances | Fede Rodrigo"
 			description="Interviews, podcasts, professional recognitions, executive roundtables, and public appearances featuring Fede Rodrigo."
@@ -79,9 +83,10 @@ const mediaItems = [
 
 		<main>
 			<section class="hero">
-				<h1>
-					Media &
-					<span class="accent">Appearances</span>
+				<h1 class="hero-title">
+					<span class="hero-line">
+						Media & <span class="accent">Appearances</span>
+					</span>
 				</h1>
 
 				<div class="lead-principles">
@@ -91,16 +96,22 @@ const mediaItems = [
 			</section>
 
 			<section
-				class="media-list"
+				class="media-list reveal-section"
 				aria-labelledby="media-list-title"
 			>
-				<h2 id="media-list-title">
+				<h2
+					id="media-list-title"
+					class="reveal-item"
+				>
 					Highlights
 				</h2>
 
 				{
-					mediaItems.map((item) => (
-						<article class="media-item">
+					mediaItems.map((item, index) => (
+						<article
+							class="media-item"
+							style={`--media-index: ${index};`}
+						>
 							<div class="media-image-wrapper">
 								<img
 									src={item.image}
@@ -132,8 +143,18 @@ const mediaItems = [
 														href={item.pdfUrl}
 														target="_blank"
 														rel="noopener noreferrer"
+														class="animated-link"
 													>
-														{item.pdfLabel} →
+														<span>
+															{item.pdfLabel}
+														</span>
+
+														<span
+															class="animated-link-arrow"
+															aria-hidden="true"
+														>
+															→
+														</span>
 													</a>
 												)
 											}
@@ -142,8 +163,18 @@ const mediaItems = [
 												href={item.url}
 												target="_blank"
 												rel="noopener noreferrer"
+												class="animated-link"
 											>
-												{item.linkLabel} →
+												<span>
+													{item.linkLabel}
+												</span>
+
+												<span
+													class="animated-link-arrow"
+													aria-hidden="true"
+												>
+													→
+												</span>
 											</a>
 										</div>
 									) : (
@@ -160,22 +191,57 @@ const mediaItems = [
 				}
 			</section>
 
-			<section class="media-contact">
-				<h2>Media Inquiries</h2>
+			<section class="media-contact reveal-section">
+				<h2 class="reveal-item">
+					Media Inquiries
+				</h2>
 
-				<p>
-					For interviews, podcasts, speaking engagements, or other
-					media opportunities, please get in touch
-				</p>
+				<div class="reveal-item reveal-delay-1">
+					<p>
+						For interviews, podcasts, speaking engagements, or other
+						media opportunities, please get in touch
+					</p>
 
-				<p class="media-contact-link">
-					<a href="/contact">
-						Contact Me →
-					</a>
-				</p>
+					<p class="media-contact-link">
+						<a href="/contact/" class="animated-link">
+							<span>Contact Me</span>
+
+							<span
+								class="animated-link-arrow"
+								aria-hidden="true"
+							>
+								→
+							</span>
+						</a>
+					</p>
+				</div>
 			</section>
 		</main>
 
 		<Footer />
+
+		<script>
+			const sections = document.querySelectorAll('.reveal-section');
+
+			const revealObserver = new IntersectionObserver(
+				(entries, observer) => {
+					entries.forEach((entry) => {
+						if (!entry.isIntersecting) return;
+
+						entry.target.classList.add('is-visible');
+						observer.unobserve(entry.target);
+					});
+				},
+				{
+					threshold: 0.08,
+					rootMargin: '0px 0px -50px 0px',
+				}
+			);
+
+			sections.forEach((section) => {
+				revealObserver.observe(section);
+			});
+		</script>
 	</body>
 </html>
+
