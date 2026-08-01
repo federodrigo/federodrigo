@@ -8,6 +8,10 @@ import Footer from '../components/Footer.astro';
 
 <html lang="en">
 	<head>
+		<script is:inline>
+			document.documentElement.classList.add('js');
+		</script>
+
 		<SEO
 			title="Contact | Fede Rodrigo"
 			description="Contact Fede Rodrigo for CIO advisory, speaking engagements, podcasts, media inquiries, and general questions"
@@ -20,8 +24,10 @@ import Footer from '../components/Footer.astro';
 
 		<main>
 			<section class="hero">
-				<h1>
-					Get in <span class="accent">Touch</span>
+				<h1 class="hero-title">
+					<span class="hero-line">
+						Get in <span class="accent">Touch</span>
+					</span>
 				</h1>
 
 				<div class="lead-principles">
@@ -30,8 +36,10 @@ import Footer from '../components/Footer.astro';
 				</div>
 			</section>
 
-			<section class="contact-page">
-				<div class="contact-page-info">
+			<section class="contact-page reveal-section">
+				<div
+					class="contact-page-info reveal-item reveal-from-left"
+				>
 					<h2>Contact information</h2>
 
 					<p class="contact-page-intro">
@@ -40,7 +48,10 @@ import Footer from '../components/Footer.astro';
 					</p>
 
 					<div class="contact-page-links">
-						<div class="contact-page-item">
+						<div
+							class="contact-page-item"
+							style="--contact-index: 0;"
+						>
 							<span
 								class="contact-page-icon"
 								aria-hidden="true"
@@ -59,7 +70,10 @@ import Footer from '../components/Footer.astro';
 							</div>
 						</div>
 
-						<div class="contact-page-item">
+						<div
+							class="contact-page-item"
+							style="--contact-index: 1;"
+						>
 							<span
 								class="contact-page-icon contact-page-linkedin-icon"
 								aria-hidden="true"
@@ -94,14 +108,19 @@ import Footer from '../components/Footer.astro';
 					</div>
 				</div>
 
-				<div class="contact-page-form-wrapper">
+				<div
+					class="contact-page-form-wrapper reveal-item reveal-from-right reveal-delay-1"
+				>
 					<form
 						id="contact-form"
 						class="contact-page-form"
 						method="POST"
 						action="/api/contact"
 					>
-						<div class="contact-page-form-row">
+						<div
+							class="contact-page-form-row contact-animated-field"
+							style="--field-index: 0;"
+						>
 							<div class="contact-page-field">
 								<label for="first-name">
 									First Name
@@ -133,7 +152,10 @@ import Footer from '../components/Footer.astro';
 							</div>
 						</div>
 
-						<div class="contact-page-field">
+						<div
+							class="contact-page-field contact-animated-field"
+							style="--field-index: 1;"
+						>
 							<label for="email">
 								Email
 							</label>
@@ -148,7 +170,10 @@ import Footer from '../components/Footer.astro';
 							/>
 						</div>
 
-						<div class="contact-page-field">
+						<div
+							class="contact-page-field contact-animated-field"
+							style="--field-index: 2;"
+						>
 							<label for="subject">
 								Subject
 							</label>
@@ -192,7 +217,10 @@ import Footer from '../components/Footer.astro';
 							</select>
 						</div>
 
-						<div class="contact-page-field">
+						<div
+							class="contact-page-field contact-animated-field"
+							style="--field-index: 3;"
+						>
 							<label for="message">
 								Message
 							</label>
@@ -206,17 +234,22 @@ import Footer from '../components/Footer.astro';
 							></textarea>
 						</div>
 
-				
 						<button
 							id="contact-submit"
 							type="submit"
-							class="contact-page-submit"
+							class="contact-page-submit contact-animated-field"
+							style="--field-index: 4;"
 						>
 							<span class="contact-page-submit-text">
 								Send Message
 							</span>
 
-							<span aria-hidden="true">→</span>
+							<span
+								class="contact-page-submit-arrow"
+								aria-hidden="true"
+							>
+								→
+							</span>
 						</button>
 
 						<p
@@ -234,6 +267,27 @@ import Footer from '../components/Footer.astro';
 		<Footer />
 
 		<script>
+			const sections = document.querySelectorAll('.reveal-section');
+
+			const revealObserver = new IntersectionObserver(
+				(entries, observer) => {
+					entries.forEach((entry) => {
+						if (!entry.isIntersecting) return;
+
+						entry.target.classList.add('is-visible');
+						observer.unobserve(entry.target);
+					});
+				},
+				{
+					threshold: 0.12,
+					rootMargin: '0px 0px -60px 0px',
+				}
+			);
+
+			sections.forEach((section) => {
+				revealObserver.observe(section);
+			});
+
 			const form = document.querySelector<HTMLFormElement>(
 				'#contact-form'
 			);
@@ -272,8 +326,8 @@ import Footer from '../components/Footer.astro';
 							method: 'POST',
 							body: new FormData(form),
 							headers: {
-								Accept: 'application/json'
-							}
+								Accept: 'application/json',
+							},
 						});
 
 						const result = await response
@@ -291,9 +345,11 @@ import Footer from '../components/Footer.astro';
 
 						status.textContent =
 							'Thank you. Your message has been sent.';
+
 						status.classList.add(
 							'contact-page-status-success'
 						);
+
 						status.hidden = false;
 					} catch (error) {
 						status.textContent =
@@ -304,6 +360,7 @@ import Footer from '../components/Footer.astro';
 						status.classList.add(
 							'contact-page-status-error'
 						);
+
 						status.hidden = false;
 					} finally {
 						submitButton.disabled = false;
