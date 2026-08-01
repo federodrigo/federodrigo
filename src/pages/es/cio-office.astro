@@ -2,12 +2,49 @@
 import SEO from '../../components/SEO.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+
+const capabilities = [
+	{
+		title: 'Liderazgo Ejecutivo en Tecnología',
+		description:
+			'Alinear la estrategia tecnológica con los objetivos del negocio, los modelos operativos, la gobernanza y la creación de valor a largo plazo',
+	},
+	{
+		title: 'Infraestructura, Nube y Ciberseguridad',
+		description:
+			'Modernizar la infraestructura, la nube, las redes, la ciberseguridad y los servicios para usuarios finales',
+	},
+	{
+		title: 'Aplicaciones Empresariales y Datos',
+		description:
+			'Implementar ERP, aplicaciones empresariales, inteligencia de negocios e iniciativas de datos que mejoren la visibilidad, la ejecución y la toma de decisiones',
+	},
+	{
+		title: 'Integración Tecnológica en Fusiones y Adquisiciones',
+		description:
+			'Integrar sistemas, infraestructura, aplicaciones, datos y equipos durante procesos de fusiones y adquisiciones',
+	},
+	{
+		title: 'Tecnología de la Información y Tecnología Operacional',
+		description:
+			'Conectar la tecnología de la información con la tecnología operacional para mejorar la resiliencia, la seguridad, la continuidad del negocio y el desempeño operativo',
+	},
+	{
+		title: 'CIO Fraccional y Asesoramiento',
+		description:
+			'Apoyar a CEOs y equipos ejecutivos mediante liderazgo estratégico en tecnología, transformación y ejecución',
+	},
+];
 ---
 
 <!doctype html>
 
 <html lang="es">
 	<head>
+		<script is:inline>
+			document.documentElement.classList.add('js');
+		</script>
+
 		<SEO
 			title="The CIO Office | Fede Rodrigo"
 			description="Liderazgo ejecutivo en tecnología enfocado en las personas, el valor para el negocio, la excelencia operacional y la ejecución"
@@ -20,8 +57,10 @@ import Footer from '../../components/Footer.astro';
 
 		<main>
 			<section class="hero">
-				<h1>
-					The CIO <span class="accent">Office</span>
+				<h1 class="hero-title">
+					<span class="hero-line">
+						The CIO <span class="accent">Office</span>
+					</span>
 				</h1>
 
 				<div class="lead-principles">
@@ -30,94 +69,86 @@ import Footer from '../../components/Footer.astro';
 				</div>
 			</section>
 
-			<section class="cio-office-capabilities">
-				<div class="cio-office-capabilities-heading">
+			<section class="cio-office-capabilities reveal-section">
+				<div class="cio-office-capabilities-heading reveal-item">
 					<img
 						src="/images/cio-office-logo.png"
 						alt="The CIO Office"
-						class="cio-office-capabilities-logo"
+						class="cio-office-capabilities-logo animated-image"
 					/>
 
-					<h2>Liderazgo Ejecutivo • Asesoramiento • Transformación</h2>
+					<h2>
+						Liderazgo Ejecutivo • Asesoramiento • Transformación
+					</h2>
 				</div>
 
 				<div class="leadership-grid">
-					<div class="leadership-card">
-						<h3>Liderazgo Ejecutivo en Tecnología</h3>
+					{
+						capabilities.map((capability, index) => (
+							<div
+								class="leadership-card"
+								style={`--card-index: ${index};`}
+							>
+								<h3>{capability.title}</h3>
 
-						<p>
-							Alinear la estrategia tecnológica con los objetivos del
-							negocio, los modelos operativos, la gobernanza y la
-							creación de valor a largo plazo
-						</p>
-					</div>
-
-					<div class="leadership-card">
-						<h3>Infraestructura, Nube y Ciberseguridad</h3>
-
-						<p>
-							Modernizar la infraestructura, la nube, las redes, la
-							ciberseguridad y los servicios para usuarios finales
-						</p>
-					</div>
-
-					<div class="leadership-card">
-						<h3>Aplicaciones Empresariales y Datos</h3>
-
-						<p>
-							Implementar ERP, aplicaciones empresariales, inteligencia
-							de negocios e iniciativas de datos que mejoren la
-							visibilidad, la ejecución y la toma de decisiones
-						</p>
-					</div>
-
-					<div class="leadership-card">
-						<h3>Integración Tecnológica en Fusiones y Adquisiciones</h3>
-
-						<p>
-							Integrar sistemas, infraestructura, aplicaciones, datos
-							y equipos durante procesos de fusiones y adquisiciones
-						</p>
-					</div>
-
-					<div class="leadership-card">
-						<h3>Tecnología de la Información y Tecnología Operacional</h3>
-
-						<p>
-							Conectar la tecnología de la información con la tecnología
-							operacional para mejorar la resiliencia, la seguridad, la
-							continuidad del negocio y el desempeño operativo
-						</p>
-					</div>
-
-					<div class="leadership-card">
-						<h3>CIO Fraccional y Asesoramiento</h3>
-
-						<p>
-							Apoyar a CEOs y equipos ejecutivos mediante liderazgo
-							estratégico en tecnología, transformación y ejecución
-						</p>
-					</div>
+								<p>{capability.description}</p>
+							</div>
+						))
+					}
 				</div>
 			</section>
 
-			<section class="cio-office-contact">
-				<h2>Consultas sobre The CIO Office</h2>
+			<section class="cio-office-contact reveal-section">
+				<h2 class="reveal-item">
+					Consultas sobre The CIO Office
+				</h2>
 
-				<p>
-					Para servicios de CIO fraccional, asesoramiento ejecutivo,
-					iniciativas de transformación o conversaciones sobre estrategia
-					tecnológica, puedes contactarme directamente
-				</p>
+				<div class="reveal-item reveal-delay-1">
+					<p>
+						Para servicios de CIO fraccional, asesoramiento ejecutivo,
+						iniciativas de transformación o conversaciones sobre estrategia
+						tecnológica, puedes contactarme directamente
+					</p>
 
-				<p class="cio-office-contact-link">
-					<a href="/es/contact">
-						Contáctame →
-					</a>
-				</p>
+					<p class="cio-office-contact-link">
+						<a href="/es/contact/" class="animated-link">
+							<span>Contáctame</span>
+
+							<span
+								class="animated-link-arrow"
+								aria-hidden="true"
+							>
+								→
+							</span>
+						</a>
+					</p>
+				</div>
 			</section>
 		</main>
 
 		<Footer />
+
+		<script>
+			const sections = document.querySelectorAll('.reveal-section');
+
+			const revealObserver = new IntersectionObserver(
+				(entries, observer) => {
+					entries.forEach((entry) => {
+						if (!entry.isIntersecting) return;
+
+						entry.target.classList.add('is-visible');
+						observer.unobserve(entry.target);
+					});
+				},
+				{
+					threshold: 0.12,
+					rootMargin: '0px 0px -60px 0px',
+				}
+			);
+
+			sections.forEach((section) => {
+				revealObserver.observe(section);
+			});
+		</script>
 	</body>
 </html>
