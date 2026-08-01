@@ -8,6 +8,10 @@ import Footer from '../../components/Footer.astro';
 
 <html lang="es">
 	<head>
+		<script is:inline>
+			document.documentElement.classList.add('js');
+		</script>
+
 		<SEO
 			title="Contacto | Fede Rodrigo"
 			description="Contacta a Fede Rodrigo para asesoramiento a CIOs, conferencias, podcasts, consultas de medios y preguntas generales"
@@ -20,26 +24,34 @@ import Footer from '../../components/Footer.astro';
 
 		<main>
 			<section class="hero">
-					<h1>
-					Ponte en <span class="accent">Contacto</span>
+				<h1 class="hero-title">
+					<span class="hero-line">
+						Ponte en <span class="accent">Contacto</span>
+					</span>
 				</h1>
+
 				<div class="lead-principles">
 					<div>Mantente Involucrado</div>
 					<div>Lidera con el Ejemplo</div>
 				</div>
 			</section>
 
-			<section class="contact-page">
-				<div class="contact-page-info">
+			<section class="contact-page reveal-section">
+				<div
+					class="contact-page-info reveal-item reveal-from-left"
+				>
 					<h2>Información de contacto</h2>
 
 					<p class="contact-page-intro">
-						Para asesoramiento, conferencias, podcasts, medios de comunicación
-						o consultas generales
+						Para asesoramiento, conferencias, podcasts, medios de
+						comunicación o consultas generales
 					</p>
 
 					<div class="contact-page-links">
-						<div class="contact-page-item">
+						<div
+							class="contact-page-item"
+							style="--contact-index: 0;"
+						>
 							<span
 								class="contact-page-icon"
 								aria-hidden="true"
@@ -58,7 +70,10 @@ import Footer from '../../components/Footer.astro';
 							</div>
 						</div>
 
-						<div class="contact-page-item">
+						<div
+							class="contact-page-item"
+							style="--contact-index: 1;"
+						>
 							<span
 								class="contact-page-icon contact-page-linkedin-icon"
 								aria-hidden="true"
@@ -93,14 +108,19 @@ import Footer from '../../components/Footer.astro';
 					</div>
 				</div>
 
-				<div class="contact-page-form-wrapper">
+				<div
+					class="contact-page-form-wrapper reveal-item reveal-from-right reveal-delay-1"
+				>
 					<form
 						id="contact-form"
 						class="contact-page-form"
 						method="POST"
 						action="/api/contact"
 					>
-						<div class="contact-page-form-row">
+						<div
+							class="contact-page-form-row contact-animated-field"
+							style="--field-index: 0;"
+						>
 							<div class="contact-page-field">
 								<label for="first-name">
 									Nombre
@@ -132,7 +152,10 @@ import Footer from '../../components/Footer.astro';
 							</div>
 						</div>
 
-						<div class="contact-page-field">
+						<div
+							class="contact-page-field contact-animated-field"
+							style="--field-index: 1;"
+						>
 							<label for="email">
 								Correo electrónico
 							</label>
@@ -147,7 +170,10 @@ import Footer from '../../components/Footer.astro';
 							/>
 						</div>
 
-						<div class="contact-page-field">
+						<div
+							class="contact-page-field contact-animated-field"
+							style="--field-index: 2;"
+						>
 							<label for="subject">
 								Asunto
 							</label>
@@ -191,7 +217,10 @@ import Footer from '../../components/Footer.astro';
 							</select>
 						</div>
 
-						<div class="contact-page-field">
+						<div
+							class="contact-page-field contact-animated-field"
+							style="--field-index: 3;"
+						>
 							<label for="message">
 								Mensaje
 							</label>
@@ -208,13 +237,19 @@ import Footer from '../../components/Footer.astro';
 						<button
 							id="contact-submit"
 							type="submit"
-							class="contact-page-submit"
+							class="contact-page-submit contact-animated-field"
+							style="--field-index: 4;"
 						>
 							<span class="contact-page-submit-text">
 								Enviar mensaje
 							</span>
 
-							<span aria-hidden="true">→</span>
+							<span
+								class="contact-page-submit-arrow"
+								aria-hidden="true"
+							>
+								→
+							</span>
 						</button>
 
 						<p
@@ -232,6 +267,27 @@ import Footer from '../../components/Footer.astro';
 		<Footer />
 
 		<script>
+			const sections = document.querySelectorAll('.reveal-section');
+
+			const revealObserver = new IntersectionObserver(
+				(entries, observer) => {
+					entries.forEach((entry) => {
+						if (!entry.isIntersecting) return;
+
+						entry.target.classList.add('is-visible');
+						observer.unobserve(entry.target);
+					});
+				},
+				{
+					threshold: 0.12,
+					rootMargin: '0px 0px -60px 0px',
+				}
+			);
+
+			sections.forEach((section) => {
+				revealObserver.observe(section);
+			});
+
 			const form = document.querySelector<HTMLFormElement>(
 				'#contact-form'
 			);
@@ -270,8 +326,8 @@ import Footer from '../../components/Footer.astro';
 							method: 'POST',
 							body: new FormData(form),
 							headers: {
-								Accept: 'application/json'
-							}
+								Accept: 'application/json',
+							},
 						});
 
 						const result = await response
