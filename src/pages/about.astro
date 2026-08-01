@@ -4,11 +4,11 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 const profileTags = [
-  'Business Value',
-  'Hands-on Leadership',
-  'Strategy + Execution',
-  'Operational Excellence',
-  'Author',
+	'Business Value',
+	'Hands-on Leadership',
+	'Strategy + Execution',
+	'Operational Excellence',
+	'Author',
 ];
 ---
 
@@ -16,6 +16,10 @@ const profileTags = [
 
 <html lang="en">
 	<head>
+		<script is:inline>
+			document.documentElement.classList.add('js');
+		</script>
+
 		<SEO
 			title="About | Fede Rodrigo"
 			description="Learn more about Fede Rodrigo, Chief Information Officer, technology executive, MBA, and author"
@@ -28,75 +32,106 @@ const profileTags = [
 
 		<main>
 			<section
-				class="about-profile"
+				class="about-profile reveal-section"
 				aria-labelledby="about-profile-title"
 			>
 				<div class="about-profile-layout">
-					<div class="about-profile-image-wrapper">
+					<div
+						class="about-profile-image-wrapper reveal-item reveal-from-left"
+					>
 						<img
 							src="/images/fede.png"
 							alt="Fede Rodrigo"
-							class="about-profile-image"
+							class="about-profile-image animated-image"
 						/>
 					</div>
 
 					<div class="about-profile-content">
-						<p class="about-profile-eyebrow">
+						<p
+							class="about-profile-eyebrow reveal-item reveal-delay-1"
+						>
 							About Fede Rodrigo
 						</p>
 
-						<h1 id="about-profile-title">
+						<h1
+							id="about-profile-title"
+							class="reveal-item reveal-delay-1"
+						>
 							Fede Rodrigo
 						</h1>
 
 						<div
-							class="about-profile-tags"
+							class="about-profile-tags reveal-item reveal-delay-2"
 							aria-label="Professional profile"
 						>
 							{
-								profileTags.map((tag) => (
-									<span>{tag}</span>
+								profileTags.map((tag, index) => (
+									<span style={`--tag-index: ${index};`}>
+										{tag}
+									</span>
 								))
 							}
 						</div>
 
-					<div class="about-profile-text">
-	<p class="about-profile-intro">
-	<strong>
-		I am a Chief Information Officer (CIO) with more than 25 years of
-		experience in IT
-	</strong>
-</p>
+						<div
+							class="about-profile-text reveal-item reveal-delay-2"
+						>
+							<p class="about-profile-intro">
+								<strong>
+									I am a Chief Information Officer (CIO) with
+									more than 25 years of experience in IT
+								</strong>
+							</p>
 
-<p>
-	<strong>My approach is simple:</strong> create business value through
-	technology. Stay hands-on, think strategically, and build a culture of
-	service, operational excellence, and continuous improvement
-</p>
+							<p>
+								<strong>My approach is simple:</strong> create
+								business value through technology. Stay hands-on,
+								think strategically, and build a culture of
+								service, operational excellence, and continuous
+								improvement
+							</p>
 
-<p>
-I believe technology leadership is not about managing IT. It is about helping the business move faster, make better decisions, and execute its strategy
-</p>
+							<p>
+								I believe technology leadership is not about
+								managing IT. It is about helping the business move
+								faster, make better decisions, and execute its
+								strategy
+							</p>
 
-<p>
-	I wrote <strong><em>How to Become CIO and Succeed</em></strong> because
-	it is the book I wish I had when I began my leadership journey. It brings together
-	the lessons I learned so others don't have to learn them the hard way
-</p>
+							<p>
+								I wrote <strong
+									><em>How to Become CIO and Succeed</em></strong
+								> because it is the book I wish I had when I began
+								my leadership journey. It brings together the
+								lessons I learned so others don't have to learn
+								them the hard way
+							</p>
 
-<p>
-I hold an MBA from the University of Illinois Urbana-Champaign and a
-Computer Science degree from the Catholic University of Uruguay
-</p>
+							<p>
+								I hold an MBA from the University of Illinois
+								Urbana-Champaign and a Computer Science degree
+								from the Catholic University of Uruguay
+							</p>
 
-<p>
-	Beyond technology, I write about freedom, incentives,
-	institutions, and why complex systems—whether technological, economic,
-	or political—fail when they ignore reality
-</p></div>
-						<p class="about-profile-action">
-							<a href="/books">
-								Explore My Books →
+							<p>
+								Beyond technology, I write about freedom,
+								incentives, institutions, and why complex
+								systems—whether technological, economic, or
+								political—fail when they ignore reality
+							</p>
+						</div>
+
+						<p
+							class="about-profile-action reveal-item reveal-delay-2"
+						>
+							<a href="/books/" class="animated-link">
+								<span>Explore My Books</span>
+								<span
+									class="animated-link-arrow"
+									aria-hidden="true"
+								>
+									→
+								</span>
 							</a>
 						</p>
 					</div>
@@ -105,5 +140,28 @@ Computer Science degree from the Catholic University of Uruguay
 		</main>
 
 		<Footer />
+
+		<script>
+			const sections = document.querySelectorAll('.reveal-section');
+
+			const revealObserver = new IntersectionObserver(
+				(entries, observer) => {
+					entries.forEach((entry) => {
+						if (!entry.isIntersecting) return;
+
+						entry.target.classList.add('is-visible');
+						observer.unobserve(entry.target);
+					});
+				},
+				{
+					threshold: 0.12,
+					rootMargin: '0px 0px -60px 0px'
+				}
+			);
+
+			sections.forEach((section) => {
+				revealObserver.observe(section);
+			});
+		</script>
 	</body>
 </html>
