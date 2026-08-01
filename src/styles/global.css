@@ -582,6 +582,11 @@ img {
 	transform: translateY(-16px);
 }
 
+#cio-office .cio-office-capabilities-logo:hover {
+	transform: translateY(-20px) scale(1.015);
+	filter: drop-shadow(0 16px 18px rgba(16, 42, 67, 0.12));
+}
+
 #books {
 	padding-bottom: 0;
 }
