@@ -457,7 +457,7 @@ img {
 	border: 1px solid var(--line);
 	border-radius: 16px;
 	box-shadow: 0 14px 34px rgba(16, 42, 67, 0.055);
-	overflow: hidden;
+	overflow: visible;
 }
 
 .leadership-card::before {
