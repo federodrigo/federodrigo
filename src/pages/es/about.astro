@@ -16,6 +16,10 @@ const profileTags = [
 
 <html lang="es">
 	<head>
+		<script is:inline>
+			document.documentElement.classList.add('js');
+		</script>
+
 		<SEO
 			title="Sobre mí | Fede Rodrigo"
 			description="Conoce más sobre Fede Rodrigo, Chief Information Officer, ejecutivo de tecnología, MBA y autor"
@@ -28,81 +32,108 @@ const profileTags = [
 
 		<main>
 			<section
-				class="about-profile"
+				class="about-profile reveal-section"
 				aria-labelledby="about-profile-title"
 			>
 				<div class="about-profile-layout">
-					<div class="about-profile-image-wrapper">
+					<div
+						class="about-profile-image-wrapper reveal-item reveal-from-left"
+					>
 						<img
 							src="/images/fede.png"
 							alt="Fede Rodrigo"
-							class="about-profile-image"
+							class="about-profile-image animated-image"
 						/>
 					</div>
 
 					<div class="about-profile-content">
-						<p class="about-profile-eyebrow">
+						<p
+							class="about-profile-eyebrow reveal-item reveal-delay-1"
+						>
 							Sobre Fede Rodrigo
 						</p>
 
-						<h1 id="about-profile-title">
+						<h1
+							id="about-profile-title"
+							class="reveal-item reveal-delay-1"
+						>
 							Fede Rodrigo
 						</h1>
 
 						<div
-							class="about-profile-tags"
+							class="about-profile-tags reveal-item reveal-delay-2"
 							aria-label="Perfil profesional"
 						>
 							{
-								profileTags.map((tag) => (
-									<span>{tag}</span>
+								profileTags.map((tag, index) => (
+									<span style={`--tag-index: ${index};`}>
+										{tag}
+									</span>
 								))
 							}
 						</div>
 
-						<div class="about-profile-text">
+						<div
+							class="about-profile-text reveal-item reveal-delay-2"
+						>
 							<p class="about-profile-intro">
 								<strong>
-									Soy Gerente de TI (CIO) con más de 25 años de experiencia 
+									Soy Gerente de TI (CIO) con más de 25 años de
+									experiencia
 								</strong>
 							</p>
 
 							<p>
-								<strong>Mi enfoque es simple:</strong> crear valor para el negocio
-								a través de la tecnología. Mantenerme cerca de la ejecución, pensar
-								estratégicamente y construir una cultura orientada al servicio,
-								enfocada en la excelencia operacional y la mejora continua
+								<strong>Mi enfoque es simple:</strong> crear valor
+								para el negocio a través de la tecnología.
+								Mantenerme cerca de la ejecución, pensar
+								estratégicamente y construir una cultura orientada
+								al servicio, enfocada en la excelencia operacional
+								y la mejora continua
 							</p>
 
 							<p>
-								Creo que liderar tecnología no consiste en gestionar TI. Consiste
-								en ayudar al negocio a avanzar más rápido, tomar mejores decisiones
-								y ejecutar su estrategia
+								Creo que liderar tecnología no consiste en
+								gestionar TI. Consiste en ayudar al negocio a
+								avanzar más rápido, tomar mejores decisiones y
+								ejecutar su estrategia
 							</p>
 
 							<p>
-								Escribí <strong><em>How to Become CIO and Succeed</em></strong> porque
-								es el libro que me hubiera gustado tener cuando comencé mi camino en
-								el liderazgo. Reúne las lecciones que aprendí para que otros no tengan
-								que aprenderlas de la forma más difícil
+								Escribí <strong
+									><em>How to Become CIO and Succeed</em></strong
+								> porque es el libro que me hubiera gustado tener
+								cuando comencé mi camino en el liderazgo. Reúne las
+								lecciones que aprendí para que otros no tengan que
+								aprenderlas de la forma más difícil
 							</p>
 
 							<p>
-								Tengo un MBA de la University of Illinois Urbana-Champaign y un
-								título en Ciencias de la Computación de la Universidad Católica
-								del Uruguay
+								Tengo un MBA de la University of Illinois
+								Urbana-Champaign y un título en Ciencias de la
+								Computación de la Universidad Católica del Uruguay
 							</p>
 
 							<p>
-								Más allá de la tecnología, escribo sobre libertad, incentivos,
-								instituciones y por qué los sistemas complejos —sean tecnológicos,
-								económicos o políticos— fracasan cuando ignoran la realidad
+								Más allá de la tecnología, escribo sobre libertad,
+								incentivos, instituciones y por qué los sistemas
+								complejos —sean tecnológicos, económicos o
+								políticos— fracasan cuando ignoran la realidad
 							</p>
 						</div>
 
-						<p class="about-profile-action">
-							<a href="/es/books">
-								Explorar mis libros →
+						<p
+							class="about-profile-action reveal-item reveal-delay-2"
+						>
+							<a href="/es/books/" class="animated-link">
+								<span>Explorar mis libros</span>
+
+								<span
+									class="animated-link-arrow"
+									aria-hidden="true"
+								>
+									→
+								</span>
 							</a>
 						</p>
 					</div>
@@ -111,5 +142,28 @@ const profileTags = [
 		</main>
 
 		<Footer />
+
+		<script>
+			const sections = document.querySelectorAll('.reveal-section');
+
+			const revealObserver = new IntersectionObserver(
+				(entries, observer) => {
+					entries.forEach((entry) => {
+						if (!entry.isIntersecting) return;
+
+						entry.target.classList.add('is-visible');
+						observer.unobserve(entry.target);
+					});
+				},
+				{
+					threshold: 0.12,
+					rootMargin: '0px 0px -60px 0px',
+				}
+			);
+
+			sections.forEach((section) => {
+				revealObserver.observe(section);
+			});
+		</script>
 	</body>
 </html>
