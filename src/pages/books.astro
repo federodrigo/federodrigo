@@ -8,6 +8,10 @@ import Footer from '../components/Footer.astro';
 
 <html lang="en">
 	<head>
+		<script is:inline>
+			document.documentElement.classList.add('js');
+		</script>
+
 		<SEO
 			title="Books | Fede Rodrigo"
 			description="Books by Fede Rodrigo about technology leadership, business, incentives, institutions, and the systems that shape organizations"
@@ -20,8 +24,10 @@ import Footer from '../components/Footer.astro';
 
 		<main>
 			<section class="hero">
-				<h1>
-					Books & <span class="accent">Publications</span>
+				<h1 class="hero-title">
+					<span class="hero-line">
+						Books & <span class="accent">Publications</span>
+					</span>
 				</h1>
 
 				<div class="lead-principles">
@@ -31,10 +37,12 @@ import Footer from '../components/Footer.astro';
 			</section>
 
 			<section
-				class="books-page-book books-page-book-featured"
+				class="books-page-book books-page-book-featured reveal-section"
 				aria-labelledby="cio-book-title"
 			>
-				<div class="books-page-cover-wrapper">
+				<div
+					class="books-page-cover-wrapper reveal-item reveal-from-left"
+				>
 					<a
 						href="https://www.amazon.com/dp/B0F8MVPN4Q"
 						target="_blank"
@@ -45,12 +53,12 @@ import Footer from '../components/Footer.astro';
 						<img
 							src="/images/cio-book-cover.jpg"
 							alt="Cover of How to Become CIO and Succeed"
-							class="books-page-cover"
+							class="books-page-cover animated-book-cover"
 						/>
 					</a>
 				</div>
 
-				<div class="books-page-content">
+				<div class="books-page-content reveal-item reveal-delay-1">
 					<p class="books-page-label">
 						Featured Book
 					</p>
@@ -63,47 +71,51 @@ import Footer from '../components/Footer.astro';
 						People, Business, Strategy
 					</p>
 
+					<p>
+						This is the book <strong>I wish I had</strong> when I began
+						my leadership journey
+					</p>
 
-<p>
-	This is the book <strong>I wish I had</strong> when I began my
-	leadership journey
-</p>
+					<p>
+						The CIO role is not about managing systems.
+						<em>There shouldn’t be an “I” in CIO.</em> It is about
+						leading people, shaping strategy, influencing the business,
+						and turning technology into a competitive advantage
+					</p>
 
-<p>
-	The CIO role is not about managing systems.
-	<em>There shouldn’t be an “I” in CIO.</em> It is about leading people,
-	shaping strategy, influencing the business, and turning technology into
-	a competitive advantage
-</p>
+					<p>
+						<strong>This is not a textbook.</strong> It is a practical
+						field guide for current and aspiring technology leaders
+					</p>
 
-<p>
-	<strong>This is not a textbook.</strong> It is a practical field guide
-	for current and aspiring technology leaders
-</p>
-
-<p class="books-page-closing">
-	If you are here to maintain the status quo, turn back now
-</p>
-
-
+					<p class="books-page-closing">
+						If you are here to maintain the status quo, turn back now
+					</p>
 
 					<p class="books-page-action">
 						<a
 							href="https://www.amazon.com/dp/B0F8MVPN4Q"
 							target="_blank"
 							rel="noopener noreferrer"
+							class="animated-link"
 						>
-							View on Amazon →
+							<span>View on Amazon</span>
+							<span
+								class="animated-link-arrow"
+								aria-hidden="true"
+							>
+								→
+							</span>
 						</a>
 					</p>
 				</div>
 			</section>
 
 			<section
-				class="books-page-other"
+				class="books-page-other reveal-section"
 				aria-labelledby="other-work-title"
 			>
-				<h2 id="other-work-title">
+				<h2 id="other-work-title" class="reveal-item">
 					Other Work
 				</h2>
 
@@ -111,7 +123,9 @@ import Footer from '../components/Footer.astro';
 					class="books-page-book books-page-book-secondary"
 					aria-labelledby="minimal-tolerance-title"
 				>
-					<div class="books-page-cover-wrapper">
+					<div
+						class="books-page-cover-wrapper reveal-item reveal-from-left reveal-delay-1"
+					>
 						<a
 							href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5984574"
 							target="_blank"
@@ -122,13 +136,15 @@ import Footer from '../components/Footer.astro';
 							<img
 								src="/images/book-cover.jpg"
 								alt="Cover of A Theory of Minimal Tolerance"
-								class="books-page-cover"
+								class="books-page-cover animated-book-cover"
 								loading="lazy"
 							/>
 						</a>
 					</div>
 
-					<div class="books-page-content">
+					<div
+						class="books-page-content reveal-item reveal-delay-2"
+					>
 						<p class="books-page-label">
 							Forthcoming
 						</p>
@@ -146,8 +162,8 @@ import Footer from '../components/Footer.astro';
 						<p>
 							It develops a practical framework for examining the
 							conditions under which state coercion may be morally
-							tolerable, while recognizing that coercion never
-							becomes morally legitimate
+							tolerable, while recognizing that coercion never becomes
+							morally legitimate
 						</p>
 
 						<p class="books-page-action">
@@ -155,8 +171,17 @@ import Footer from '../components/Footer.astro';
 								href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5984574"
 								target="_blank"
 								rel="noopener noreferrer"
+								class="animated-link"
 							>
-								Read The Minimal Tolerance Theorem on SSRN →
+								<span>
+									Read The Minimal Tolerance Theorem on SSRN
+								</span>
+								<span
+									class="animated-link-arrow"
+									aria-hidden="true"
+								>
+									→
+								</span>
 							</a>
 						</p>
 					</div>
@@ -165,5 +190,28 @@ import Footer from '../components/Footer.astro';
 		</main>
 
 		<Footer />
+
+		<script>
+			const sections = document.querySelectorAll('.reveal-section');
+
+			const revealObserver = new IntersectionObserver(
+				(entries, observer) => {
+					entries.forEach((entry) => {
+						if (!entry.isIntersecting) return;
+
+						entry.target.classList.add('is-visible');
+						observer.unobserve(entry.target);
+					});
+				},
+				{
+					threshold: 0.12,
+					rootMargin: '0px 0px -60px 0px'
+				}
+			);
+
+			sections.forEach((section) => {
+				revealObserver.observe(section);
+			});
+		</script>
 	</body>
 </html>
