@@ -8,6 +8,10 @@ import Footer from '../../components/Footer.astro';
 
 <html lang="es">
 	<head>
+		<script is:inline>
+			document.documentElement.classList.add('js');
+		</script>
+
 		<SEO
 			title="Libros | Fede Rodrigo"
 			description="Libros de Fede Rodrigo sobre liderazgo tecnológico, negocios, incentivos, instituciones y los sistemas que moldean las organizaciones"
@@ -20,8 +24,10 @@ import Footer from '../../components/Footer.astro';
 
 		<main>
 			<section class="hero">
-				<h1>
-					Libros y <span class="accent">Publicaciones</span>
+				<h1 class="hero-title">
+					<span class="hero-line">
+						Libros y <span class="accent">Publicaciones</span>
+					</span>
 				</h1>
 
 				<div class="lead-principles">
@@ -31,10 +37,12 @@ import Footer from '../../components/Footer.astro';
 			</section>
 
 			<section
-				class="books-page-book books-page-book-featured"
+				class="books-page-book books-page-book-featured reveal-section"
 				aria-labelledby="cio-book-title"
 			>
-				<div class="books-page-cover-wrapper">
+				<div
+					class="books-page-cover-wrapper reveal-item reveal-from-left"
+				>
 					<a
 						href="https://www.amazon.com/dp/B0F8MVPN4Q"
 						target="_blank"
@@ -45,12 +53,12 @@ import Footer from '../../components/Footer.astro';
 						<img
 							src="/images/cio-book-cover.jpg"
 							alt="Portada de How to Become CIO and Succeed"
-							class="books-page-cover"
+							class="books-page-cover animated-book-cover"
 						/>
 					</a>
 				</div>
 
-				<div class="books-page-content">
+				<div class="books-page-content reveal-item reveal-delay-1">
 					<p class="books-page-label">
 						Libro destacado
 					</p>
@@ -64,15 +72,17 @@ import Footer from '../../components/Footer.astro';
 					</p>
 
 					<p>
-						Este es el libro que <strong>me habría gustado tener</strong>
+						Este es el libro que
+						<strong>me habría gustado tener</strong>
 						cuando comencé mi camino en el liderazgo
 					</p>
 
 					<p>
 						El rol del CIO no consiste en gestionar sistemas.
-						<em>No debería haber un “yo” en CIO.</em> Consiste en liderar
-						personas, definir la estrategia, influir en el negocio y
-						convertir la tecnología en una ventaja competitiva
+						<em>No debería haber un “yo” en CIO.</em> Consiste en
+						liderar personas, definir la estrategia, influir en el
+						negocio y convertir la tecnología en una ventaja
+						competitiva
 					</p>
 
 					<p>
@@ -89,18 +99,29 @@ import Footer from '../../components/Footer.astro';
 							href="https://www.amazon.com/dp/B0F8MVPN4Q"
 							target="_blank"
 							rel="noopener noreferrer"
+							class="animated-link"
 						>
-							Ver en Amazon →
+							<span>Ver en Amazon</span>
+
+							<span
+								class="animated-link-arrow"
+								aria-hidden="true"
+							>
+								→
+							</span>
 						</a>
 					</p>
 				</div>
 			</section>
 
 			<section
-				class="books-page-other"
+				class="books-page-other reveal-section"
 				aria-labelledby="other-work-title"
 			>
-				<h2 id="other-work-title">
+				<h2
+					id="other-work-title"
+					class="reveal-item"
+				>
 					Otros trabajos
 				</h2>
 
@@ -108,7 +129,9 @@ import Footer from '../../components/Footer.astro';
 					class="books-page-book books-page-book-secondary"
 					aria-labelledby="minimal-tolerance-title"
 				>
-					<div class="books-page-cover-wrapper">
+					<div
+						class="books-page-cover-wrapper reveal-item reveal-from-left reveal-delay-1"
+					>
 						<a
 							href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5984574"
 							target="_blank"
@@ -119,13 +142,15 @@ import Footer from '../../components/Footer.astro';
 							<img
 								src="/images/book-cover.jpg"
 								alt="Portada de Una teoría de la tolerancia mínima"
-								class="books-page-cover"
+								class="books-page-cover animated-book-cover"
 								loading="lazy"
 							/>
 						</a>
 					</div>
 
-					<div class="books-page-content">
+					<div
+						class="books-page-content reveal-item reveal-delay-2"
+					>
 						<p class="books-page-label">
 							Próximamente
 						</p>
@@ -136,15 +161,15 @@ import Footer from '../../components/Footer.astro';
 
 						<p>
 							Una obra que explora la libertad, la coerción, los
-							incentivos, las instituciones y los límites que deberían
-							restringir el poder político
+							incentivos, las instituciones y los límites que
+							deberían restringir el poder político
 						</p>
 
 						<p>
-							Desarrolla un marco práctico para examinar las condiciones
-							bajo las cuales la coerción estatal puede ser moralmente
-							tolerable, reconociendo al mismo tiempo que la coerción
-							nunca adquiere legitimidad moral
+							Desarrolla un marco práctico para examinar las
+							condiciones bajo las cuales la coerción estatal puede
+							ser moralmente tolerable, reconociendo al mismo tiempo
+							que la coerción nunca adquiere legitimidad moral
 						</p>
 
 						<p class="books-page-action">
@@ -152,8 +177,18 @@ import Footer from '../../components/Footer.astro';
 								href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5984574"
 								target="_blank"
 								rel="noopener noreferrer"
+								class="animated-link"
 							>
-								Leer El teorema de la tolerancia mínima en SSRN →
+								<span>
+									Leer El teorema de la tolerancia mínima en SSRN
+								</span>
+
+								<span
+									class="animated-link-arrow"
+									aria-hidden="true"
+								>
+									→
+								</span>
 							</a>
 						</p>
 					</div>
@@ -162,5 +197,28 @@ import Footer from '../../components/Footer.astro';
 		</main>
 
 		<Footer />
+
+		<script>
+			const sections = document.querySelectorAll('.reveal-section');
+
+			const revealObserver = new IntersectionObserver(
+				(entries, observer) => {
+					entries.forEach((entry) => {
+						if (!entry.isIntersecting) return;
+
+						entry.target.classList.add('is-visible');
+						observer.unobserve(entry.target);
+					});
+				},
+				{
+					threshold: 0.12,
+					rootMargin: '0px 0px -60px 0px',
+				}
+			);
+
+			sections.forEach((section) => {
+				revealObserver.observe(section);
+			});
+		</script>
 	</body>
 </html>
