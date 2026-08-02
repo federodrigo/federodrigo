@@ -1,7 +1,7 @@
 ---
-import SEO from '../../components/SEO.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
+import SEO from '../components/SEO.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <!doctype html>
@@ -13,8 +13,8 @@ import Footer from '../../components/Footer.astro';
 		</script>
 
 		<SEO
-			title="Libro para CIO | Cómo convertirse en CIO y tener éxito"
-			description="Cómo convertirse en CIO y tener éxito es un libro práctico de liderazgo para aspirantes a CIO y CIO actuales, centrado en las personas, el negocio, la estrategia, el liderazgo tecnológico y la creación de valor."
+			title="Libro para CIO | Cómo Convertirse en CIO y Tener Éxito"
+			description="Cómo Convertirse en CIO y Tener Éxito es un libro práctico de liderazgo para quienes aspiran a ser CIO y para quienes ya ocupan el cargo, centrado en las personas, el negocio, la estrategia, el liderazgo de TI y la creación de valor mediante la tecnología."
 			lang="es"
 		/>
 	</head>
@@ -24,7 +24,7 @@ import Footer from '../../components/Footer.astro';
 
 		<main>
 			<section
-				id="book"
+				id="libro"
 				class="books-page-book books-page-book-featured reveal-section"
 				aria-labelledby="cio-book-title"
 			>
@@ -36,23 +36,42 @@ import Footer from '../../components/Footer.astro';
 						target="_blank"
 						rel="noopener noreferrer"
 						class="books-page-cover-link"
-						aria-label="Ver Cómo convertirse en CIO y tener éxito en Amazon"
+						aria-label="Ver Cómo Convertirse en CIO y Tener Éxito en Amazon"
 					>
 						<img
 							src="/images/cio-book-cover.jpg"
-							alt="Portada del libro para CIO Cómo convertirse en CIO y tener éxito, de Fede Rodrigo"
+							alt="Portada del libro Cómo Convertirse en CIO y Tener Éxito, de Fede Rodrigo"
 							class="books-page-cover animated-book-cover"
 						/>
 					</a>
+
+					<div
+						class="cio-duck"
+						tabindex="0"
+						aria-describedby="cio-duck-tooltip"
+					>
+						<img
+							src="/images/duckcio.png"
+							alt="Un pato amarillo escéptico con lentes"
+						/>
+
+						<span
+							id="cio-duck-tooltip"
+							class="cio-duck-tooltip"
+							role="tooltip"
+						>
+							Ha visto demasiados proyectos de TI
+						</span>
+					</div>
 				</div>
 
 				<div class="books-page-content reveal-item reveal-delay-1">
 					<p class="books-page-label">
-						Libro sobre liderazgo CIO
+						Libro sobre liderazgo para CIO
 					</p>
 
 					<h2 id="cio-book-title">
-						Cómo convertirse en CIO y tener éxito
+						Cómo Convertirse en CIO y Tener Éxito
 					</h2>
 
 					<p class="books-page-subtitle">
@@ -61,8 +80,8 @@ import Footer from '../../components/Footer.astro';
 
 					<p>
 						El rol del Chief Information Officer no consiste en
-						administrar sistemas.
-						<em>No debería haber un “yo” en CIO.</em>
+						gestionar sistemas.
+						<em>No debería haber una “I” en CIO.</em>
 						Consiste en liderar personas, definir la estrategia,
 						influir en el negocio y convertir la tecnología en una
 						ventaja competitiva
@@ -70,13 +89,13 @@ import Footer from '../../components/Footer.astro';
 
 					<p>
 						<strong>Este no es un libro de texto.</strong>
-						Es una guía práctica para líderes tecnológicos actuales
-						y futuros
+						Es una guía práctica para quienes ya lideran tecnología
+						y para quienes aspiran a hacerlo
 					</p>
 
 					<p class="books-page-closing">
-						Si estás acá para mantener el statu quo,
-						es mejor que vuelvas atrás
+						Si estás aquí para mantener el statu quo,
+						da la vuelta ahora
 					</p>
 
 					<p class="books-page-action">
@@ -100,13 +119,13 @@ import Footer from '../../components/Footer.astro';
 			</section>
 
 			<section
-				id="what-you-will-learn"
+				id="que-aprenderas"
 				class="books-page-other reveal-section"
 				aria-labelledby="what-you-will-learn-title"
 			>
 				<div class="reveal-item">
 					<h2 id="what-you-will-learn-title">
-						Qué aprenderás
+						Qué Aprenderás
 					</h2>
 				</div>
 
@@ -115,53 +134,56 @@ import Footer from '../../components/Footer.astro';
 						Cómo formar equipos eficaces, crear una cultura orientada
 						al servicio, ganar credibilidad, influir en las decisiones
 						ejecutivas, mejorar las operaciones, definir la estrategia
-						tecnológica y crear valor para el negocio de manera constante
+						tecnológica y crear valor para el negocio de manera
+						consistente
 					</p>
 
 					<p>
-						También aprenderás a liderar todo el alcance de la tecnología
-						moderna, desde la infraestructura y los sistemas empresariales
-						hasta la ciberseguridad, la transformación y el cambio continuo
+						También aprenderás a liderar todo el alcance de la TI
+						moderna, desde la infraestructura y los sistemas
+						empresariales hasta la ciberseguridad, la transformación
+						y el cambio continuo
 					</p>
 				</div>
 			</section>
 
 			<section
-				id="who-is-this-book-for"
+				id="para-quien-es-este-libro"
 				class="books-page-other reveal-section"
 				aria-labelledby="who-is-this-book-for-title"
 			>
 				<div class="reveal-item">
 					<h2 id="who-is-this-book-for-title">
-						Para quién es este libro sobre CIO
+						Para Quién Es Este Libro
 					</h2>
 				</div>
 
 				<div class="reveal-item reveal-delay-1">
 					<p>
-						Este libro práctico para aspirantes a CIO también está
-						dirigido a CIO actuales, gerentes de TI, directores de
-						tecnología y líderes empresariales que quieran comprender
-						y fortalecer el rol moderno del CIO
+						Este libro práctico está dirigido a quienes aspiran a
+						convertirse en CIO, pero también a CIO actuales,
+						gerentes de TI, directores de tecnología y líderes de
+						negocio que quieran comprender y fortalecer el rol
+						moderno del CIO
 					</p>
 				</div>
 			</section>
 
 			<section
-				id="buy"
+				id="comprar"
 				class="books-page-other reveal-section"
 				aria-labelledby="get-the-book-title"
 			>
 				<div class="reveal-item">
 					<h2 id="get-the-book-title">
-						Conseguí el libro
+						Consigue el Libro
 					</h2>
 				</div>
 
 				<div class="books-page-content reveal-item reveal-delay-1">
 					<p>
-						Descubrí una mirada práctica sobre el liderazgo CIO,
-						construida alrededor de las personas, el negocio,
+						Descubre un enfoque práctico del liderazgo del CIO
+						construido alrededor de las personas, el negocio,
 						la estrategia y la tecnología
 					</p>
 
@@ -173,7 +195,7 @@ import Footer from '../../components/Footer.astro';
 							class="animated-link"
 						>
 							<span>
-								Comprar Cómo convertirse en CIO en Amazon
+								Comprar Cómo Convertirse en CIO en Amazon
 							</span>
 
 							<span
@@ -204,7 +226,7 @@ import Footer from '../../components/Footer.astro';
 				},
 				{
 					threshold: 0.12,
-					rootMargin: '0px 0px -60px 0px',
+					rootMargin: '0px 0px -60px 0px'
 				}
 			);
 
@@ -212,5 +234,116 @@ import Footer from '../../components/Footer.astro';
 				revealObserver.observe(section);
 			});
 		</script>
+
+		<style>
+			.books-page-cover-wrapper {
+				position: relative;
+				z-index: 10;
+			}
+
+			.books-page-content {
+				position: relative;
+				z-index: 1;
+			}
+
+			.cio-duck {
+				position: absolute;
+				right: -3rem;
+				bottom: -1.5rem;
+				width: clamp(5rem, 8vw, 7rem);
+				z-index: 2;
+				cursor: default;
+				outline: none;
+			}
+
+			.cio-duck img {
+				display: block;
+				width: 100%;
+				height: auto;
+				transition:
+					transform 180ms ease,
+					filter 180ms ease;
+			}
+
+			.cio-duck-tooltip {
+				position: absolute;
+				z-index: 9999;
+				left: 50%;
+				bottom: calc(100% + 0.75rem);
+				width: max-content;
+				max-width: 15rem;
+				padding: 0.55rem 0.75rem;
+				border-radius: 0.4rem;
+				background: #102a46;
+				border: 2px solid white;
+				color: #fff;
+				font-size: 0.85rem;
+				font-weight: 600;
+				line-height: 1.3;
+				text-align: center;
+				opacity: 0;
+				visibility: hidden;
+				transform: translate(-50%, 0.4rem);
+				transition:
+					opacity 160ms ease,
+					transform 160ms ease,
+					visibility 160ms ease;
+				pointer-events: none;
+				white-space: nowrap;
+				-webkit-text-fill-color: #fff;
+			}
+
+			.cio-duck-tooltip::after {
+				content: '';
+				position: absolute;
+				top: 100%;
+				left: 50%;
+				border: 0.4rem solid transparent;
+				border-top-color: #102a46;
+				transform: translateX(-50%);
+			}
+
+			.cio-duck:hover img,
+			.cio-duck:focus-visible img {
+				transform: translateY(-0.2rem) rotate(-2deg);
+				filter: drop-shadow(
+					0 0.5rem 0.6rem rgb(16 42 70 / 20%)
+				);
+			}
+
+			.cio-duck:hover .cio-duck-tooltip,
+			.cio-duck:focus-visible .cio-duck-tooltip {
+				opacity: 1;
+				visibility: visible;
+				transform: translate(-50%, 0);
+			}
+
+			@media (max-width: 768px) {
+				.cio-duck {
+					right: -0.75rem;
+					bottom: -1rem;
+					width: 5rem;
+				}
+
+				.cio-duck-tooltip {
+					left: auto;
+					right: 0;
+					white-space: normal;
+					width: 12rem;
+					transform: translateY(0.4rem);
+				}
+
+				.cio-duck:hover .cio-duck-tooltip,
+				.cio-duck:focus-visible .cio-duck-tooltip {
+					transform: translateY(0);
+				}
+
+				.cio-duck-tooltip::after {
+					left: auto;
+					right: 1.5rem;
+					transform: none;
+				}
+			}
+		</style>
 	</body>
 </html>
