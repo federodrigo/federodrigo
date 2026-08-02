@@ -80,11 +80,9 @@ import Footer from '../../components/Footer.astro';
 
 					<p>
 						El rol del Chief Information Officer no consiste en
-						gestionar sistemas.
-						<em>No debería haber una “I” en CIO.</em>
-						Consiste en liderar personas, definir la estrategia,
-						influir en el negocio y convertir la tecnología en una
-						ventaja competitiva
+						gestionar sistemas. Consiste en liderar personas,
+						definir la estrategia, influir en el negocio y convertir
+						la tecnología en una ventaja competitiva
 					</p>
 
 					<p>
@@ -268,39 +266,38 @@ import Footer from '../../components/Footer.astro';
 			.cio-duck-tooltip {
 				position: absolute;
 				z-index: 9999;
-				left: 50%;
+				right: 0;
 				bottom: calc(100% + 0.75rem);
 				width: max-content;
 				max-width: 15rem;
 				padding: 0.55rem 0.75rem;
+				border: 2px solid white;
 				border-radius: 0.4rem;
 				background: #102a46;
-				border: 2px solid white;
 				color: #fff;
+				-webkit-text-fill-color: #fff;
 				font-size: 0.85rem;
 				font-weight: 600;
 				line-height: 1.3;
 				text-align: center;
+				white-space: nowrap;
 				opacity: 0;
 				visibility: hidden;
-				transform: translate(-50%, 0.4rem);
+				transform: translateY(0.4rem);
 				transition:
 					opacity 160ms ease,
 					transform 160ms ease,
 					visibility 160ms ease;
 				pointer-events: none;
-				white-space: nowrap;
-				-webkit-text-fill-color: #fff;
 			}
 
 			.cio-duck-tooltip::after {
 				content: '';
 				position: absolute;
 				top: 100%;
-				left: 50%;
+				right: 1.5rem;
 				border: 0.4rem solid transparent;
 				border-top-color: #102a46;
-				transform: translateX(-50%);
 			}
 
 			.cio-duck:hover img,
@@ -315,7 +312,7 @@ import Footer from '../../components/Footer.astro';
 			.cio-duck:focus-visible .cio-duck-tooltip {
 				opacity: 1;
 				visibility: visible;
-				transform: translate(-50%, 0);
+				transform: translateY(0);
 			}
 
 			@media (max-width: 768px) {
@@ -326,22 +323,13 @@ import Footer from '../../components/Footer.astro';
 				}
 
 				.cio-duck-tooltip {
-					left: auto;
 					right: 0;
-					white-space: normal;
 					width: 12rem;
-					transform: translateY(0.4rem);
-				}
-
-				.cio-duck:hover .cio-duck-tooltip,
-				.cio-duck:focus-visible .cio-duck-tooltip {
-					transform: translateY(0);
+					white-space: normal;
 				}
 
 				.cio-duck-tooltip::after {
-					left: auto;
 					right: 1.5rem;
-					transform: none;
 				}
 			}
 		</style>
