@@ -62,7 +62,7 @@ const youtubeEmbedUrl =
 				</h2>
 
 				<article
-						class="media-item webinar-main reveal-item reveal-delay-1"
+					class="media-item webinar-main reveal-item reveal-delay-1"
 				>
 					<div class="media-image-wrapper">
 						<a
@@ -98,10 +98,12 @@ const youtubeEmbedUrl =
 							</p>
 
 							<p class="media-description">
-							<strong>This practical session explores a different approach:</strong>
-							start with people and business priorities, then use technology
-							to enable the outcome
-</p>
+								<strong>
+									This practical session explores a different approach:
+								</strong>
+								start with people and business priorities, then use
+								technology to enable the outcome
+							</p>
 						</div>
 
 						<p class="media-meta webinar-schedule">
@@ -218,7 +220,7 @@ const youtubeEmbedUrl =
 
 						<p class="media-description">
 							Why so many initiatives fail to deliver what was
-							expected — and what leaders can do differently.
+							expected — and what leaders can do differently
 						</p>
 					</div>
 				</article>
@@ -238,7 +240,7 @@ const youtubeEmbedUrl =
 						<p class="media-description">
 							How to focus IT on the people and business it
 							serves, with business value as the measure of
-							success.
+							success
 						</p>
 					</div>
 				</article>
@@ -257,7 +259,7 @@ const youtubeEmbedUrl =
 
 						<p class="media-description">
 							Why changing tools do not replace leadership,
-							strategy, judgment, and business understanding.
+							strategy, judgment, and business understanding
 						</p>
 					</div>
 				</article>
@@ -284,7 +286,7 @@ const youtubeEmbedUrl =
 
 					<p>
 						Register and the calendar invite will arrive in
-						your inbox automatically.
+						your inbox automatically
 					</p>
 
 					<p class="media-contact-link">
@@ -336,29 +338,34 @@ const youtubeEmbedUrl =
 	</body>
 </html>
 
-
-
-
 <style>
+	/* MAIN WEBINAR */
 
-.webinar-main {
-	grid-template-columns: minmax(320px, 380px) 1fr;
-}
-
-.webinar-main .media-image-wrapper {
-	width: 100%;
-}
-
-.webinar-main .media-image {
-	width: 100%;
-	height: auto;
-}
-
-@media (max-width: 700px) {
 	.webinar-main {
-		grid-template-columns: 1fr;
+		grid-template-columns: 340px minmax(0, 1fr);
+		column-gap: 2rem;
+		align-items: start;
 	}
-}
+
+	.webinar-main .media-image-wrapper {
+		width: 100%;
+		max-width: none;
+	}
+
+	.webinar-main .media-image-wrapper a {
+		display: block;
+		width: 100%;
+	}
+
+	.webinar-main .media-image {
+		display: block;
+		width: 100%;
+		max-width: none;
+		height: auto;
+	}
+
+
+	/* TEXT */
 
 	.webinar-intro {
 		margin-top: 0.9rem;
@@ -377,6 +384,9 @@ const youtubeEmbedUrl =
 		margin-bottom: 0.2rem;
 	}
 
+
+	/* SECONDARY LINKS */
+
 	.webinar-secondary-links {
 		display: flex;
 		flex-wrap: wrap;
@@ -387,6 +397,9 @@ const youtubeEmbedUrl =
 	.webinar-secondary-links .animated-link {
 		font-size: 0.95rem;
 	}
+
+
+	/* VIDEO */
 
 	.webinar-video {
 		width: 100%;
@@ -402,6 +415,13 @@ const youtubeEmbedUrl =
 		border: 0;
 	}
 
+
+	/* TAKEAWAYS */
+
+	.webinar-takeaway {
+		align-items: center;
+	}
+
 	.webinar-takeaway-number {
 		font-size: clamp(4rem, 8vw, 7rem);
 		font-weight: 700;
@@ -410,8 +430,18 @@ const youtubeEmbedUrl =
 		opacity: 0.16;
 	}
 
-	.webinar-takeaway {
-		align-items: center;
+
+	/* RESPONSIVE */
+
+	@media (max-width: 900px) {
+		.webinar-main {
+			grid-template-columns: 1fr;
+			column-gap: 0;
+		}
+
+		.webinar-main .media-image-wrapper {
+			max-width: 400px;
+		}
 	}
 
 	@media (max-width: 700px) {
