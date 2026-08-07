@@ -3,45 +3,73 @@ import SEO from '../components/SEO.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
-type MediaItem = {
-	type: string;
-	status?: 'upcoming' | 'published';
-	title: string;
-	date: string;
-	image: string;
-	imageAlt: string;
-	description: string;
-	url?: string;
-	linkLabel?: string;
-	pdfUrl?: string;
-	pdfLabel?: string;
-};
-
-const mediaItems: MediaItem[] = [
+const mediaItems = [
 	{
 		type: 'Webinar',
 		status: 'upcoming',
-		title: 'Technology is Never the Starting Point — Xseed',
-		date: 'August 20, 2026',
-		image: '/images/xseed-webinar.png',
-		imageAlt:
-			'Technology is Never the Starting Point webinar with Federico Rodrigo',
+		title: 'Technology is never the starting point — Xseed',
+		date: 'August 2026',
+		image: '/images/xseed.jpg',
+		imageAlt: 'Fede Rodrigo presenting an Xseed webinar',
 		description:
-			'A free, practical session on how IT becomes a true driver of business value by starting with people, aligning with the business, and letting technology enable the outcome—not define it.',
-		url: '/webinar/',
-		linkLabel: 'Learn more & save my spot',
+			'Most organizations begin their transformation with technology. I believe that’s exactly the problem. This session presents a practical approach to creating business value by starting with people, aligning with the business, and letting technology enable the outcome—not define it',
+	},
+	{
+		type: 'Podcast',
+		status: 'upcoming',
+		title: 'The Technology Vanguard',
+		date: 'August 2026',
+		image: '/images/vanguard.jpg',
+		imageAlt: 'Fede Rodrigo appearing on The Technology Vanguard podcast',
+		description:
+			'An upcoming conversation exploring technology leadership, career development, AI, business strategy, and the personal journey behind today’s IT leaders',
+	},
+	{
+		type: 'Written Interview',
+		status: 'published',
+		title: 'Turning Cloud Investment into Business Value — Nublit',
+		date: 'January 2026',
+		image: '/images/cloud-interview.jpg',
+		imageAlt: 'Interview with Fede Rodrigo published by Nublit',
+		description:
+			'A conversation with Nublit about cloud strategy in Latin America, hybrid adoption, cultural and regulatory barriers, and the role of technology as a driver of growth, innovation, and operational resilience',
+		url: 'https://informe2026.nublit.com/',
+		linkLabel: 'View full report',
+		pdfUrl: '/pdfs/Fede-Rodrigo-Interview-Nublit.pdf',
+		pdfLabel: 'Read my interview',
+	},
+	{
+		type: 'Award Finalist',
+		status: 'published',
+		title: 'ORBIE CIO Awards',
+		date: 'September 2024',
+		image: '/images/orbie.jpg',
+		imageAlt: 'ORBIE Awards CIO Central Texas',
+		description:
+			'Recognized as a finalist in the Global CIO category at the Central Texas awards',
+		url: 'https://orbie.org/honoree/federico-rodrigo/4324',
+		linkLabel: 'View recognition',
+	},
+	{
+		type: 'Executive Roundtable',
+		status: 'published',
+		title: 'Industrial Reinvention — The Economist',
+		date: 'September 2024',
+		image: '/images/impact.png',
+		imageAlt: 'The Economist Impact',
+		description:
+			'Invited participant in Industrial Reinvention: New Business Models and Jobs for Tomorrow’s Technology, hosted by The Economist Impact, with fellow CIOs in Houston, Texas',
 	},
 ];
 ---
 
 <!doctype html>
+
 <html lang="en">
 	<head>
-		<meta charset="UTF-8" />
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1.0"
-		/>
+		<script is:inline>
+			document.documentElement.classList.add('js');
+		</script>
 
 		<SEO
 			title="Media & Events | Fede Rodrigo"
@@ -85,28 +113,12 @@ const mediaItems: MediaItem[] = [
 							style={`--media-index: ${index};`}
 						>
 							<div class="media-image-wrapper">
-								{
-									item.url ? (
-										<a
-											href={item.url}
-											aria-label={item.linkLabel ?? item.title}
-										>
-											<img
-												src={item.image}
-												alt={item.imageAlt}
-												class="media-image"
-												loading="lazy"
-											/>
-										</a>
-									) : (
-										<img
-											src={item.image}
-											alt={item.imageAlt}
-											class="media-image"
-											loading="lazy"
-										/>
-									)
-								}
+								<img
+									src={item.image}
+									alt={item.imageAlt}
+									class="media-image"
+									loading="lazy"
+								/>
 							</div>
 
 							<div class="media-content">
@@ -126,14 +138,16 @@ const mediaItems: MediaItem[] = [
 									item.url ? (
 										<div class="media-action">
 											{
-												item.pdfUrl && item.pdfLabel && (
+												item.pdfUrl && (
 													<a
 														href={item.pdfUrl}
 														target="_blank"
 														rel="noopener noreferrer"
 														class="animated-link"
 													>
-														<span>{item.pdfLabel}</span>
+														<span>
+															{item.pdfLabel}
+														</span>
 
 														<span
 															class="animated-link-arrow"
@@ -147,10 +161,12 @@ const mediaItems: MediaItem[] = [
 
 											<a
 												href={item.url}
+												target="_blank"
+												rel="noopener noreferrer"
 												class="animated-link"
 											>
 												<span>
-													{item.linkLabel ?? 'Learn more'}
+													{item.linkLabel}
 												</span>
 
 												<span
@@ -187,10 +203,7 @@ const mediaItems: MediaItem[] = [
 					</p>
 
 					<p class="media-contact-link">
-						<a
-							href="/contact/"
-							class="animated-link"
-						>
+						<a href="/contact/" class="animated-link">
 							<span>Contact me</span>
 
 							<span
@@ -208,8 +221,7 @@ const mediaItems: MediaItem[] = [
 		<Footer />
 
 		<script>
-			const sections =
-				document.querySelectorAll('.reveal-section');
+			const sections = document.querySelectorAll('.reveal-section');
 
 			const revealObserver = new IntersectionObserver(
 				(entries, observer) => {
