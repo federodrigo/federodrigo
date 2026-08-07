@@ -91,21 +91,25 @@ const youtubeEmbedUrl =
 							Technology is Never the Starting Point
 						</h3>
 
-						<p class="media-description">
-							Technology initiatives often begin with a solution
-							instead of the business need behind it.
-						</p>
+						<div class="webinar-intro">
+							<p class="media-description">
+								Technology initiatives often begin with a solution
+								instead of the business need behind it.
+							</p>
 
-						<p class="media-description">
-							This practical session explores a different
-							approach: start with people and business priorities,
-							then use technology to enable the outcome.
-						</p>
+							<p class="media-description">
+								This practical session explores a different approach:
+								start with people and business priorities, then use
+								technology to enable the outcome.
+							</p>
+						</div>
 
-						<p class="media-meta">
+						<p class="media-meta webinar-schedule">
 							<span>Thursday, August 20</span>
 							<span aria-hidden="true">·</span>
-							<span>2:00 PM (UTC-3)</span>
+							<span>1:00 PM ET</span>
+							<span aria-hidden="true">·</span>
+							<span>2:00 PM Uruguay</span>
 							<span aria-hidden="true">·</span>
 							<span>1 hour</span>
 						</p>
@@ -118,6 +122,36 @@ const youtubeEmbedUrl =
 								class="animated-link"
 							>
 								<span>Save my spot</span>
+
+								<span
+									class="animated-link-arrow"
+									aria-hidden="true"
+								>
+									→
+								</span>
+							</a>
+						</div>
+
+						<div class="webinar-secondary-links">
+							<a
+								href="/about/"
+								class="animated-link"
+							>
+								<span>About Federico</span>
+
+								<span
+									class="animated-link-arrow"
+									aria-hidden="true"
+								>
+									→
+								</span>
+							</a>
+
+							<a
+								href="/cio-book/"
+								class="animated-link"
+							>
+								<span>Explore the book</span>
 
 								<span
 									class="animated-link-arrow"
@@ -244,8 +278,8 @@ const youtubeEmbedUrl =
 
 				<div class="reveal-item reveal-delay-1">
 					<p>
-						Thursday, August 20, 2026 · 2:00 PM (UTC-3) ·
-						1 hour
+						Thursday, August 20, 2026 · 1:00 PM ET ·
+						2:00 PM Uruguay · 1 hour
 					</p>
 
 					<p>
@@ -303,6 +337,34 @@ const youtubeEmbedUrl =
 </html>
 
 <style>
+	.webinar-intro {
+		margin-top: 0.9rem;
+	}
+
+	.webinar-intro .media-description {
+		margin-bottom: 1rem;
+	}
+
+	.webinar-intro .media-description:last-child {
+		margin-bottom: 0;
+	}
+
+	.webinar-schedule {
+		margin-top: 1.8rem;
+		margin-bottom: 0.2rem;
+	}
+
+	.webinar-secondary-links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1.5rem;
+		margin-top: 1.15rem;
+	}
+
+	.webinar-secondary-links .animated-link {
+		font-size: 0.95rem;
+	}
+
 	.webinar-video {
 		width: 100%;
 		aspect-ratio: 16 / 9;
@@ -318,9 +380,9 @@ const youtubeEmbedUrl =
 	}
 
 	.webinar-takeaway-number {
-		font-size: clamp(3.5rem, 7vw, 6rem);
+		font-size: clamp(4rem, 8vw, 7rem);
 		font-weight: 700;
-		line-height: 1;
+		line-height: 0.9;
 		letter-spacing: -0.06em;
 		opacity: 0.16;
 	}
@@ -330,8 +392,13 @@ const youtubeEmbedUrl =
 	}
 
 	@media (max-width: 700px) {
+		.webinar-secondary-links {
+			flex-direction: column;
+			gap: 0.75rem;
+		}
+
 		.webinar-takeaway-number {
-			font-size: 3.5rem;
+			font-size: 4rem;
 		}
 	}
 </style>
