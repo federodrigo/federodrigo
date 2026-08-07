@@ -106,9 +106,9 @@ const youtubeEmbedUrl =
 							</p>
 						</div>
 
-					<p class="media-meta webinar-schedule">
-	Thursday, August 20 · 1:00 PM ET · 2:00 PM Uruguay · 1 hour
-</p>
+						<p class="media-meta webinar-schedule">
+							Thursday, August 20 · 1:00 PM ET · 2:00 PM Uruguay · 1 hour
+						</p>
 
 						<div class="media-action">
 							<a
@@ -346,9 +346,19 @@ const youtubeEmbedUrl =
 		max-width: none;
 	}
 
-	.webinar-main .media-image-wrapper a {
+	.webinar-main .media-image-wrapper a,
+	.webinar-main .media-image-wrapper a:hover {
 		display: block;
 		width: 100%;
+		text-decoration: none;
+		border-bottom: none;
+		background-image: none;
+	}
+
+	.webinar-main .media-image-wrapper a::before,
+	.webinar-main .media-image-wrapper a::after {
+		display: none;
+		content: none;
 	}
 
 	.webinar-main .media-image {
@@ -374,10 +384,10 @@ const youtubeEmbedUrl =
 	}
 
 	.webinar-schedule {
-			margin-top: 1.8rem;
-	margin-bottom: 0.2rem;
-	display: block;
-	line-height: 1.5;
+		margin-top: 1.8rem;
+		margin-bottom: 0.2rem;
+		display: block;
+		line-height: 1.5;
 	}
 
 
