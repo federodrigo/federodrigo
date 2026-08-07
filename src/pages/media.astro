@@ -1,7 +1,7 @@
 ---
-import SEO from '../components/SEO.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import SEO from '../../components/SEO.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
 
 type MediaItem = {
 	type: string;
@@ -12,7 +12,7 @@ type MediaItem = {
 	imageAlt: string;
 	description: string;
 	url?: string;
-	linkLabel?: string;https://github.com/federodrigo/federodrigo/tree/main/src
+	linkLabel?: string;
 	pdfUrl?: string;
 	pdfLabel?: string;
 	internal?: boolean;
@@ -22,64 +22,71 @@ const mediaItems: MediaItem[] = [
 	{
 		type: 'Webinar',
 		status: 'upcoming',
-		title: 'Technology is Never the Starting Point — Xseed',
-		date: 'August 20, 2026',
+		title: 'La tecnología nunca es el punto de partida — Xseed',
+		date: '20 de agosto de 2026',
 		image: '/images/xseed-webinar.png',
-		imageAlt: 'Technology is Never the Starting Point webinar with Federico Rodrigo',
+		imageAlt:
+			'Webinar Technology is Never the Starting Point con Federico Rodrigo',
 		description:
-			'A practical session on how IT becomes a true driver of business value by starting with people, aligning with the business, and letting technology enable the outcome—not define it',
-		url: '/webinar/',
-		linkLabel: 'Learn more & save my spot',
+			'Una sesión práctica sobre cómo comenzar por las personas y las prioridades del negocio, y usar la tecnología para habilitar el resultado',
+		url: '/es/webinar/',
+		linkLabel: 'Más información y reservar mi lugar',
 		internal: true,
 	},
+
 	{
 		type: 'Podcast',
 		status: 'upcoming',
 		title: 'The Technology Vanguard',
-		date: 'August 2026',
+		date: 'Agosto de 2026',
 		image: '/images/vanguard.jpg',
-		imageAlt: 'Fede Rodrigo appearing on The Technology Vanguard podcast',
+		imageAlt:
+			'Fede Rodrigo participando en el podcast The Technology Vanguard',
 		description:
-			'An upcoming conversation exploring technology leadership, career development, AI, business strategy, and the personal journey behind today’s IT leaders',
+			'Una próxima conversación sobre liderazgo tecnológico, desarrollo profesional, IA, estrategia de negocio y el recorrido personal detrás de los líderes de IT de hoy',
 	},
+
 	{
-		type: 'Written Interview',
+		type: 'Entrevista Escrita',
 		status: 'published',
-		title: 'Turning Cloud Investment into Business Value — Nublit',
-		date: 'January 2026',
+		title: 'Convertir la inversión en la nube en valor para el negocio — Nublit',
+		date: 'Enero de 2026',
 		image: '/images/cloud-interview.jpg',
-		imageAlt: 'Interview with Fede Rodrigo published by Nublit',
+		imageAlt: 'Entrevista con Fede Rodrigo publicada por Nublit',
 		description:
-			'A conversation with Nublit about cloud strategy in Latin America, hybrid adoption, cultural and regulatory barriers, and the role of technology as a driver of growth, innovation, and operational resilience',
+			'Una conversación con Nublit sobre estrategia cloud en América Latina, adopción híbrida, barreras culturales y regulatorias, y el papel de la tecnología como motor de crecimiento, innovación y resiliencia operativa',
 		url: 'https://informe2026.nublit.com/',
-		linkLabel: 'View full report',
+		linkLabel: 'Ver informe completo',
 		pdfUrl: '/pdfs/Fede-Rodrigo-Interview-Nublit.pdf',
-		pdfLabel: 'Read my interview',
+		pdfLabel: 'Leer mi entrevista',
 	},
+
 	{
-		type: 'Award Finalist',
+		type: 'Finalista de Premio',
 		status: 'published',
-		title: 'ORBIE CIO Awards',
-		date: 'September 2024',
+		title: 'Premios ORBIE CIO',
+		date: 'Septiembre de 2024',
 		image: '/images/orbie.jpg',
-		imageAlt: 'ORBIE Awards CIO Central Texas',
+		imageAlt: 'Premios ORBIE CIO Central Texas',
 		description:
-			'Recognized as a finalist in the Global CIO category at the Central Texas awards',
+			'Reconocido como finalista en la categoría Global CIO de los premios Central Texas',
 		url: 'https://orbie.org/honoree/federico-rodrigo/4324',
-		linkLabel: 'View recognition',
+		linkLabel: 'Ver reconocimiento',
 	},
+
 	{
-		type: 'Executive Roundtable',
+		type: 'Mesa Redonda Ejecutiva',
 		status: 'published',
-		title: 'Industrial Reinvention — The Economist',
-		date: 'September 2024',
+		title: 'Reinvención Industrial — The Economist',
+		date: 'Septiembre de 2024',
 		image: '/images/impact.png',
 		imageAlt: 'The Economist Impact',
 		description:
-			'Invited participant in Industrial Reinvention: New Business Models and Jobs for Tomorrow’s Technology, hosted by The Economist Impact, with fellow CIOs in Houston, Texas',
+			'Participante invitado en Industrial Reinvention: New Business Models and Jobs for Tomorrow’s Technology, organizado por The Economist Impact junto a otros CIOs en Houston, Texas',
 	},
 ];
 ---
+
 
 <!doctype html>
 
