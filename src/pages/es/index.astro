@@ -23,6 +23,7 @@ import Footer from '../../components/Footer.astro';
 		<Header />
 
 		<main>
+			<!-- HERO -->
 			<section class="hero">
 				<h1 class="hero-title">
 					<span class="hero-line">
@@ -41,7 +42,79 @@ import Footer from '../../components/Footer.astro';
 				</div>
 			</section>
 
-			<section id="about" class="reveal-section">
+
+			<!-- WEBINAR -->
+			<section
+				id="webinar"
+				class="contact-section reveal-section"
+				aria-labelledby="home-webinar-title"
+			>
+				<h2
+					id="home-webinar-title"
+					class="reveal-item"
+				>
+					Próximo Webinar
+				</h2>
+
+				<article
+					class="books-page-book books-page-book-featured"
+					aria-labelledby="home-webinar-card-title"
+				>
+					<div
+						class="books-page-cover-wrapper reveal-item reveal-from-left reveal-delay-1"
+					>
+						<a
+							href="/es/webinar/"
+							class="books-page-cover-link"
+							aria-label="Ver el webinar La tecnología nunca es el punto de partida"
+						>
+							<img
+								src="/images/xseed-webinar.png"
+								alt="Webinar Technology is Never the Starting Point"
+								class="books-page-cover animated-image"
+							/>
+						</a>
+					</div>
+
+					<div class="books-page-content reveal-item reveal-delay-2">
+						<p class="books-page-label">
+							20 de agosto de 2026 · 1:00 PM ET · 2:00 PM Uruguay
+						</p>
+
+						<h3 id="home-webinar-card-title">
+							Technology is Never the Starting Point
+						</h3>
+
+						<p>
+							Una sesión práctica sobre cómo poner a las personas
+							y las prioridades del negocio antes que la tecnología
+						</p>
+
+						<p class="books-page-action">
+							<a
+								href="/es/webinar/"
+								class="animated-link"
+							>
+								<span>Ver webinar</span>
+
+								<span
+									class="animated-link-arrow"
+									aria-hidden="true"
+								>
+									→
+								</span>
+							</a>
+						</p>
+					</div>
+				</article>
+			</section>
+
+
+			<!-- ABOUT -->
+			<section
+				id="about"
+				class="contact-section reveal-section"
+			>
 				<h2 class="reveal-item">
 					Sobre mí
 				</h2>
@@ -62,7 +135,10 @@ import Footer from '../../components/Footer.astro';
 						</p>
 
 						<p class="books-page-action">
-							<a href="/es/about/" class="animated-link">
+							<a
+								href="/es/about/"
+								class="animated-link"
+							>
 								<span>Mi trayectoria</span>
 
 								<span
@@ -87,6 +163,8 @@ import Footer from '../../components/Footer.astro';
 				</div>
 			</section>
 
+
+			<!-- CIO OFFICE -->
 			<section
 				id="cio-office"
 				class="contact-section reveal-section"
@@ -131,7 +209,10 @@ import Footer from '../../components/Footer.astro';
 						</p>
 
 						<p class="books-page-action">
-							<a href="/es/cio-office/" class="animated-link">
+							<a
+								href="/es/cio-office/"
+								class="animated-link"
+							>
 								<span>Conoce The CIO Office</span>
 
 								<span
@@ -146,6 +227,8 @@ import Footer from '../../components/Footer.astro';
 				</article>
 			</section>
 
+
+			<!-- BOOK -->
 			<section
 				id="books"
 				class="contact-section reveal-section"
@@ -188,7 +271,7 @@ import Footer from '../../components/Footer.astro';
 						</p>
 
 						<p>
-							El rol del CIO no consiste en gestionar sistemas.
+							El rol del CIO no consiste en gestionar sistemas
 							Consiste en liderar personas, definir la estrategia,
 							influir en el negocio y convertir la tecnología en una
 							ventaja competitiva. Este es el libro que me habría
@@ -196,7 +279,10 @@ import Footer from '../../components/Footer.astro';
 						</p>
 
 						<p class="books-page-action">
-							<a href="/es/cio-book/" class="animated-link">
+							<a
+								href="/es/cio-book/"
+								class="animated-link"
+							>
 								<span>Explorar el libro</span>
 
 								<span
@@ -215,7 +301,8 @@ import Footer from '../../components/Footer.astro';
 		<Footer />
 
 		<script>
-			const sections = document.querySelectorAll('.reveal-section');
+			const sections =
+				document.querySelectorAll('.reveal-section');
 
 			const revealObserver = new IntersectionObserver(
 				(entries, observer) => {
