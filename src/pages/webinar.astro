@@ -49,7 +49,7 @@ const youtubeEmbedUrl =
 			</section>
 
 
-			<!-- WEBINAR DETAILS -->
+			<!-- MAIN WEBINAR BLOCK -->
 			<section
 				class="media-list reveal-section"
 				aria-labelledby="webinar-title"
@@ -65,11 +65,19 @@ const youtubeEmbedUrl =
 					class="media-item reveal-item reveal-delay-1"
 				>
 					<div class="media-image-wrapper">
-						<img
-							src="/images/xseed-webinar.png"
-							alt="Technology is Never the Starting Point webinar with Federico Rodrigo"
-							class="media-image"
-						/>
+						<a
+							href={registrationUrl}
+							target="_blank"
+							rel="noopener noreferrer"
+							aria-label="Register for Technology is Never the Starting Point"
+						>
+							<img
+								src="/images/xseed-webinar.png"
+								alt="Technology is Never the Starting Point webinar with Federico Rodrigo"
+								class="media-image"
+								loading="lazy"
+							/>
+						</a>
 					</div>
 
 					<div class="media-content">
@@ -91,17 +99,15 @@ const youtubeEmbedUrl =
 						</p>
 
 						<p class="media-description">
-							Why? Because they started with the solution before
-							understanding the problem.
+							The problem is simple: they started with the
+							solution before understanding the problem.
 						</p>
 
 						<p class="media-description">
 							This free, practical session explores how IT becomes
-							a true driver of business value — built on one
-							principle:
-							<strong>
-								People First · Business Driven · Technology Enabled.
-							</strong>
+							a true driver of business value by starting with
+							people, aligning with the business, and letting
+							technology enable the outcome — not define it.
 						</p>
 
 						<p class="media-meta">
@@ -154,12 +160,10 @@ const youtubeEmbedUrl =
 					<div class="media-content">
 						<p class="media-meta">
 							<span>01</span>
-							<span aria-hidden="true">·</span>
-							<span>Technology Initiatives</span>
 						</p>
 
 						<h3>
-							Why do so many technology initiatives fail?
+							Why Technology Initiatives Fail
 						</h3>
 
 						<p class="media-description">
@@ -176,18 +180,16 @@ const youtubeEmbedUrl =
 					<div class="media-content">
 						<p class="media-meta">
 							<span>02</span>
-							<span aria-hidden="true">·</span>
-							<span>Business Value</span>
 						</p>
 
 						<h3>
-							IT is a Service Organization
+							IT as a Service Organization
 						</h3>
 
 						<p class="media-description">
 							How to reframe IT around the people and business it
-							serves, and make business value — rather than
-							technology itself — the measure of success.
+							serves, with business value — rather than technology
+							itself — as the measure of success.
 						</p>
 					</div>
 				</article>
@@ -198,19 +200,17 @@ const youtubeEmbedUrl =
 					<div class="media-content">
 						<p class="media-meta">
 							<span>03</span>
-							<span aria-hidden="true">·</span>
-							<span>AI & Leadership</span>
 						</p>
 
 						<h3>
-							AI Changes Everything — Except the Principles
+							Leading Through the AI Era
 						</h3>
 
 						<p class="media-description">
-							A people-first approach to leading through the AI
-							era. The tools are changing dramatically, but
-							leadership, strategy, judgment, and business acumen
-							remain essential.
+							A people-first approach to an environment where the
+							tools are changing dramatically, while leadership,
+							strategy, judgment, and business acumen remain
+							essential.
 						</p>
 					</div>
 				</article>
@@ -249,8 +249,6 @@ const youtubeEmbedUrl =
 					<div class="media-content">
 						<p class="media-meta">
 							<span>Video</span>
-							<span aria-hidden="true">·</span>
-							<span>Technology Leadership</span>
 						</p>
 
 						<h3>
@@ -258,100 +256,16 @@ const youtubeEmbedUrl =
 						</h3>
 
 						<p class="media-description">
-							The central idea behind the session is simple:
-							every successful technology initiative starts
-							somewhere else — with people, the business, and
-							the problem we are trying to solve.
+							Every successful technology initiative starts
+							somewhere else — with people, the business, and the
+							problem we are trying to solve.
 						</p>
 					</div>
 				</article>
 			</section>
 
 
-			<!-- SPEAKER -->
-			<section
-				class="media-list reveal-section"
-				aria-labelledby="speaker-title"
-			>
-				<h2
-					id="speaker-title"
-					class="reveal-item"
-				>
-					About the Speaker
-				</h2>
-
-				<article
-					class="media-item reveal-item reveal-delay-1"
-				>
-					<div class="media-image-wrapper">
-						<img
-							src="/images/fede.png"
-							alt="Federico Rodrigo"
-							class="media-image"
-							loading="lazy"
-						/>
-					</div>
-
-					<div class="media-content">
-						<p class="media-meta">
-							<span>CIO</span>
-							<span aria-hidden="true">·</span>
-							<span>MBA</span>
-							<span aria-hidden="true">·</span>
-							<span>Author</span>
-						</p>
-
-						<h3>
-							Federico Rodrigo
-						</h3>
-
-						<p class="media-description">
-							Federico Rodrigo is a CIO and MBA with more than
-							25 years of experience helping global organizations
-							use technology to create business value.
-						</p>
-
-						<p class="media-description">
-							He has built and transformed technology
-							organizations across the U.S., Europe, and Latin
-							America, including leadership roles at companies
-							such as Ferrovial and Abengoa.
-						</p>
-
-						<p class="media-description">
-							He is the author of
-							<em>How to Become CIO and Succeed</em>, a practical
-							exploration of people, business, strategy, and
-							leadership in the CIO role.
-						</p>
-
-						<p class="media-description">
-							<strong>
-								Technology will always change. Leadership won't.
-							</strong>
-						</p>
-
-						<div class="media-action">
-							<a
-								href="/about/"
-								class="animated-link"
-							>
-								<span>Learn more about Federico</span>
-
-								<span
-									class="animated-link-arrow"
-									aria-hidden="true"
-								>
-									→
-								</span>
-							</a>
-						</div>
-					</div>
-				</article>
-			</section>
-
-
-			<!-- FINAL REGISTRATION -->
+			<!-- FINAL CTA -->
 			<section
 				class="media-contact reveal-section"
 				aria-labelledby="register-title"
