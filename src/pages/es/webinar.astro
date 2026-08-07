@@ -350,9 +350,19 @@ const youtubeEmbedUrl =
 		max-width: none;
 	}
 
-	.webinar-main .media-image-wrapper a {
+	.webinar-main .media-image-wrapper a,
+	.webinar-main .media-image-wrapper a:hover {
 		display: block;
 		width: 100%;
+		text-decoration: none;
+		border-bottom: none;
+		background-image: none;
+	}
+
+	.webinar-main .media-image-wrapper a::before,
+	.webinar-main .media-image-wrapper a::after {
+		display: none;
+		content: none;
 	}
 
 	.webinar-main .media-image {
