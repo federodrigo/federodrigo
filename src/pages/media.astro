@@ -3,16 +3,34 @@ import SEO from '../components/SEO.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
-const mediaItems = [
+type MediaItem = {
+	type: string;
+	status: 'upcoming' | 'published';
+	title: string;
+	date: string;
+	image: string;
+	imageAlt: string;
+	description: string;
+	url?: string;
+	linkLabel?: string;
+	pdfUrl?: string;
+	pdfLabel?: string;
+	internal?: boolean;
+};
+
+const mediaItems: MediaItem[] = [
 	{
 		type: 'Webinar',
 		status: 'upcoming',
-		title: 'Technology is never the starting point — Xseed',
-		date: 'August 2026',
-		image: '/images/xseed.jpg',
-		imageAlt: 'Fede Rodrigo presenting an Xseed webinar',
+		title: 'Technology is Never the Starting Point — Xseed',
+		date: 'August 20, 2026',
+		image: '/images/xseed-webinar.png',
+		imageAlt: 'Technology is Never the Starting Point webinar with Federico Rodrigo',
 		description:
-			'Most organizations begin their transformation with technology. I believe that’s exactly the problem. This session presents a practical approach to creating business value by starting with people, aligning with the business, and letting technology enable the outcome—not define it',
+			'A free, practical session on how IT becomes a true driver of business value by starting with people, aligning with the business, and letting technology enable the outcome—not define it.',
+		url: '/webinar/',
+		linkLabel: 'Learn more & save my spot',
+		internal: true,
 	},
 	{
 		type: 'Podcast',
@@ -113,12 +131,30 @@ const mediaItems = [
 							style={`--media-index: ${index};`}
 						>
 							<div class="media-image-wrapper">
-								<img
-									src={item.image}
-									alt={item.imageAlt}
-									class="media-image"
-									loading="lazy"
-								/>
+								{
+									item.url ? (
+										<a
+											href={item.url}
+											target={item.internal ? undefined : '_blank'}
+											rel={item.internal ? undefined : 'noopener noreferrer'}
+											aria-label={item.linkLabel ?? item.title}
+										>
+											<img
+												src={item.image}
+												alt={item.imageAlt}
+												class="media-image"
+												loading="lazy"
+											/>
+										</a>
+									) : (
+										<img
+											src={item.image}
+											alt={item.imageAlt}
+											class="media-image"
+											loading="lazy"
+										/>
+									)
+								}
 							</div>
 
 							<div class="media-content">
@@ -138,16 +174,14 @@ const mediaItems = [
 									item.url ? (
 										<div class="media-action">
 											{
-												item.pdfUrl && (
+												item.pdfUrl && item.pdfLabel && (
 													<a
 														href={item.pdfUrl}
 														target="_blank"
 														rel="noopener noreferrer"
 														class="animated-link"
 													>
-														<span>
-															{item.pdfLabel}
-														</span>
+														<span>{item.pdfLabel}</span>
 
 														<span
 															class="animated-link-arrow"
@@ -161,13 +195,11 @@ const mediaItems = [
 
 											<a
 												href={item.url}
-												target="_blank"
-												rel="noopener noreferrer"
+												target={item.internal ? undefined : '_blank'}
+												rel={item.internal ? undefined : 'noopener noreferrer'}
 												class="animated-link"
 											>
-												<span>
-													{item.linkLabel}
-												</span>
+												<span>{item.linkLabel ?? 'Learn more'}</span>
 
 												<span
 													class="animated-link-arrow"
