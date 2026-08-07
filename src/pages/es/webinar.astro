@@ -62,7 +62,7 @@ const youtubeEmbedUrl =
 				</h2>
 
 				<article
-					class="media-item reveal-item reveal-delay-1"
+					class="media-item webinar-main reveal-item reveal-delay-1"
 				>
 					<div class="media-image-wrapper">
 						<a
@@ -101,21 +101,17 @@ const youtubeEmbedUrl =
 							</p>
 
 							<p class="media-description">
-								<strong>Esta sesión práctica propone un enfoque
-								diferente:</strong>comenzar por las personas y las
-								prioridades del negocio, y recién después usar
-								la tecnología para habilitar el resultado
+								<strong>
+									Esta sesión práctica propone un enfoque diferente:
+								</strong>
+								comenzar por las personas y las prioridades del
+								negocio, y recién después usar la tecnología para
+								habilitar el resultado
 							</p>
 						</div>
 
 						<p class="media-meta webinar-schedule">
-							<span>Jueves 20 de agosto</span>
-							<span aria-hidden="true">·</span>
-							<span>1:00 PM ET</span>
-							<span aria-hidden="true">·</span>
-							<span>2:00 PM Uruguay</span>
-							<span aria-hidden="true">·</span>
-							<span>1 hora</span>
+							Jueves 20 de agosto · 1:00 PM ET · 2:00 PM Uruguay · 1 hora
 						</p>
 
 						<div class="media-action">
@@ -341,6 +337,34 @@ const youtubeEmbedUrl =
 </html>
 
 <style>
+	/* MAIN WEBINAR */
+
+	.webinar-main {
+		grid-template-columns: 340px minmax(0, 1fr);
+		column-gap: 2rem;
+		align-items: start;
+	}
+
+	.webinar-main .media-image-wrapper {
+		width: 100%;
+		max-width: none;
+	}
+
+	.webinar-main .media-image-wrapper a {
+		display: block;
+		width: 100%;
+	}
+
+	.webinar-main .media-image {
+		display: block;
+		width: 100%;
+		max-width: none;
+		height: auto;
+	}
+
+
+	/* TEXT */
+
 	.webinar-intro {
 		margin-top: 0.9rem;
 	}
@@ -356,7 +380,12 @@ const youtubeEmbedUrl =
 	.webinar-schedule {
 		margin-top: 1.8rem;
 		margin-bottom: 0.2rem;
+		display: block;
+		line-height: 1.5;
 	}
+
+
+	/* SECONDARY LINKS */
 
 	.webinar-secondary-links {
 		display: flex;
@@ -368,6 +397,9 @@ const youtubeEmbedUrl =
 	.webinar-secondary-links .animated-link {
 		font-size: 0.95rem;
 	}
+
+
+	/* VIDEO */
 
 	.webinar-video {
 		width: 100%;
@@ -383,6 +415,13 @@ const youtubeEmbedUrl =
 		border: 0;
 	}
 
+
+	/* TAKEAWAYS */
+
+	.webinar-takeaway {
+		align-items: center;
+	}
+
 	.webinar-takeaway-number {
 		font-size: clamp(4rem, 8vw, 7rem);
 		font-weight: 700;
@@ -391,8 +430,18 @@ const youtubeEmbedUrl =
 		opacity: 0.16;
 	}
 
-	.webinar-takeaway {
-		align-items: center;
+
+	/* RESPONSIVE */
+
+	@media (max-width: 900px) {
+		.webinar-main {
+			grid-template-columns: 1fr;
+			column-gap: 0;
+		}
+
+		.webinar-main .media-image-wrapper {
+			max-width: 400px;
+		}
 	}
 
 	@media (max-width: 700px) {
