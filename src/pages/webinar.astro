@@ -62,7 +62,7 @@ const youtubeEmbedUrl =
 				</h2>
 
 				<article
-					class="media-item reveal-item reveal-delay-1"
+						class="media-item webinar-main reveal-item reveal-delay-1"
 				>
 					<div class="media-image-wrapper">
 						<a
@@ -336,7 +336,30 @@ const youtubeEmbedUrl =
 	</body>
 </html>
 
+
+
+
 <style>
+
+.webinar-main {
+	grid-template-columns: minmax(320px, 380px) 1fr;
+}
+
+.webinar-main .media-image-wrapper {
+	width: 100%;
+}
+
+.webinar-main .media-image {
+	width: 100%;
+	height: auto;
+}
+
+@media (max-width: 700px) {
+	.webinar-main {
+		grid-template-columns: 1fr;
+	}
+}
+
 	.webinar-intro {
 		margin-top: 0.9rem;
 	}
