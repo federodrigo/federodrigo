@@ -3,18 +3,25 @@ import SEO from '../components/SEO.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
-{
-	type: 'Webinar',
-	status: 'upcoming',
-	title: 'Technology is Never the Starting Point — Xseed',
-	date: 'August 20, 2026',
-	image: '/images/xseed-webinar.png',
-	imageAlt: 'Technology is Never the Starting Point webinar with Federico Rodrigo',
-	description:
-		'A free, practical session on how IT becomes a true driver of business value by starting with people, aligning with the business, and letting technology enable the outcome—not define it.',
-	url: '/webinar/',
-	linkLabel: 'Learn more & save my spot',
-},
+const mediaItems = [
+	{
+		type: 'Webinar',
+		status: 'upcoming',
+		title: 'Technology is Never the Starting Point — Xseed',
+		date: 'August 20, 2026',
+		image: '/images/xseed-webinar.png',
+		imageAlt: 'Technology is Never the Starting Point webinar with Federico Rodrigo',
+		description:
+			'A free, practical session on how IT becomes a true driver of business value by starting with people, aligning with the business, and letting technology enable the outcome—not define it.',
+		url: '/webinar/',
+		linkLabel: 'Learn more & save my spot',
+	},
+
+	/*
+		PEGÁ ACÁ EL RESTO DE TUS ITEMS ACTUALES
+	*/
+];
+---
 
 <!doctype html>
 <html lang="en">
@@ -68,24 +75,9 @@ import Footer from '../components/Footer.astro';
 						>
 							<div class="media-image-wrapper">
 								{
-									item.href ? (
-										<a
-											href={item.href}
-											class="media-image-link"
-											aria-label={item.linkLabel || item.title}
-										>
-											<img
-												src={item.image}
-												alt={item.imageAlt}
-												class="media-image"
-												loading="lazy"
-											/>
-										</a>
-									) : item.url ? (
+									item.url ? (
 										<a
 											href={item.url}
-											target="_blank"
-											rel="noopener noreferrer"
 											class="media-image-link"
 											aria-label={item.linkLabel || item.title}
 										>
@@ -121,25 +113,7 @@ import Footer from '../components/Footer.astro';
 								</p>
 
 								{
-									item.href ? (
-										<div class="media-action">
-											<a
-												href={item.href}
-												class="animated-link"
-											>
-												<span>
-													{item.linkLabel}
-												</span>
-
-												<span
-													class="animated-link-arrow"
-													aria-hidden="true"
-												>
-													→
-												</span>
-											</a>
-										</div>
-									) : item.url ? (
+									item.url ? (
 										<div class="media-action">
 											{
 												item.pdfUrl && (
@@ -165,8 +139,6 @@ import Footer from '../components/Footer.astro';
 
 											<a
 												href={item.url}
-												target="_blank"
-												rel="noopener noreferrer"
 												class="animated-link"
 											>
 												<span>
