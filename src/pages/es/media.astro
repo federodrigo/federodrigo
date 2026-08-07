@@ -3,75 +3,34 @@ import SEO from '../../components/SEO.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 
-const mediaItems = [
-{
-	type: 'Webinar',
-	status: 'upcoming',
-	title: 'La tecnología nunca es el punto de partida — Xseed',
-	date: '20 de agosto de 2026',
-	image: '/images/xseed-webinar.png',
-	imageAlt: 'Webinar La tecnología nunca es el punto de partida con Federico Rodrigo',
-	description:
-		'Una sesión gratuita y práctica sobre cómo convertir a IT en un verdadero motor de valor para el negocio, comenzando por las personas, alineándose con las prioridades del negocio y dejando que la tecnología habilite el resultado, en lugar de definirlo.',
-	href: '/es/webinar/',
-	linkLabel: 'Más información y reservar mi lugar',
-},
+/*
+	DEJÁ ACÁ TU ARRAY mediaItems COMPLETO.
+
+	La entrada del webinar debe quedar así:
+
 	{
-		type: 'Podcast',
+		type: 'Webinar',
 		status: 'upcoming',
-		title: 'The Technology Vanguard',
-		date: 'Agosto de 2026',
-		image: '/images/vanguard.jpg',
-		imageAlt: 'Fede Rodrigo participando en el podcast The Technology Vanguard',
+		title: 'La tecnología nunca es el punto de partida — Xseed',
+		date: '20 de agosto de 2026',
+		image: '/images/xseed-webinar.png',
+		imageAlt: 'Webinar La tecnología nunca es el punto de partida con Federico Rodrigo',
 		description:
-			'Una próxima conversación sobre liderazgo tecnológico, desarrollo profesional, inteligencia artificial, estrategia de negocios y el recorrido personal detrás de los líderes de tecnología actuales',
+			'Una sesión gratuita y práctica sobre cómo convertir a IT en un verdadero motor de valor para el negocio, comenzando por las personas, alineándose con las prioridades del negocio y dejando que la tecnología habilite el resultado, en lugar de definirlo.',
+		href: '/es/webinar/',
+		linkLabel: 'Más información y reservar mi lugar',
 	},
-	{
-		type: 'Entrevista escrita',
-		status: 'published',
-		title: 'Cómo convertir la inversión en la nube en valor para el negocio — Nublit',
-		date: 'Enero de 2026',
-		image: '/images/cloud-interview.jpg',
-		imageAlt: 'Entrevista con Fede Rodrigo publicada por Nublit',
-		description:
-			'Una conversación con Nublit sobre estrategia cloud en Latinoamérica, adopción híbrida, barreras culturales y regulatorias, y el papel de la tecnología como impulsora del crecimiento, la innovación y la resiliencia operativa',
-		url: 'https://informe2026.nublit.com/',
-		linkLabel: 'Ver informe completo',
-		pdfUrl: '/pdfs/Fede-Rodrigo-Interview-Nublit.pdf',
-		pdfLabel: 'Leer mi entrevista',
-	},
-	{
-		type: 'Finalista de premio',
-		status: 'published',
-		title: 'Premios ORBIE CIO',
-		date: 'Septiembre de 2024',
-		image: '/images/orbie.jpg',
-		imageAlt: 'Premios ORBIE CIO Central Texas',
-		description:
-			'Reconocido como finalista en la categoría CIO Global de los premios Central Texas',
-		url: 'https://orbie.org/honoree/federico-rodrigo/4324',
-		linkLabel: 'Ver reconocimiento',
-	},
-	{
-		type: 'Mesa redonda ejecutiva',
-		status: 'published',
-		title: 'Reinvención industrial — The Economist',
-		date: 'Septiembre de 2024',
-		image: '/images/impact.png',
-		imageAlt: 'The Economist Impact',
-		description:
-			'Participante invitado en Industrial Reinvention: New Business Models and Jobs for Tomorrow’s Technology, organizado por The Economist Impact junto con otros CIOs en Houston, Texas',
-	},
-];
+*/
 ---
 
 <!doctype html>
-
 <html lang="es">
 	<head>
-		<script is:inline>
-			document.documentElement.classList.add('js');
-		</script>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
 
 		<SEO
 			title="Medios & Eventos | Fede Rodrigo"
@@ -115,12 +74,44 @@ const mediaItems = [
 							style={`--media-index: ${index};`}
 						>
 							<div class="media-image-wrapper">
-								<img
-									src={item.image}
-									alt={item.imageAlt}
-									class="media-image"
-									loading="lazy"
-								/>
+								{
+									item.href ? (
+										<a
+											href={item.href}
+											class="media-image-link"
+											aria-label={item.linkLabel || item.title}
+										>
+											<img
+												src={item.image}
+												alt={item.imageAlt}
+												class="media-image"
+												loading="lazy"
+											/>
+										</a>
+									) : item.url ? (
+										<a
+											href={item.url}
+											target="_blank"
+											rel="noopener noreferrer"
+											class="media-image-link"
+											aria-label={item.linkLabel || item.title}
+										>
+											<img
+												src={item.image}
+												alt={item.imageAlt}
+												class="media-image"
+												loading="lazy"
+											/>
+										</a>
+									) : (
+										<img
+											src={item.image}
+											alt={item.imageAlt}
+											class="media-image"
+											loading="lazy"
+										/>
+									)
+								}
 							</div>
 
 							<div class="media-content">
@@ -137,7 +128,25 @@ const mediaItems = [
 								</p>
 
 								{
-									item.url ? (
+									item.href ? (
+										<div class="media-action">
+											<a
+												href={item.href}
+												class="animated-link"
+											>
+												<span>
+													{item.linkLabel}
+												</span>
+
+												<span
+													class="animated-link-arrow"
+													aria-hidden="true"
+												>
+													→
+												</span>
+											</a>
+										</div>
+									) : item.url ? (
 										<div class="media-action">
 											{
 												item.pdfUrl && (
@@ -147,7 +156,9 @@ const mediaItems = [
 														rel="noopener noreferrer"
 														class="animated-link"
 													>
-														<span>{item.pdfLabel}</span>
+														<span>
+															{item.pdfLabel}
+														</span>
 
 														<span
 															class="animated-link-arrow"
@@ -165,7 +176,9 @@ const mediaItems = [
 												rel="noopener noreferrer"
 												class="animated-link"
 											>
-												<span>{item.linkLabel}</span>
+												<span>
+													{item.linkLabel}
+												</span>
 
 												<span
 													class="animated-link-arrow"
@@ -219,7 +232,8 @@ const mediaItems = [
 		<Footer />
 
 		<script>
-			const sections = document.querySelectorAll('.reveal-section');
+			const sections =
+				document.querySelectorAll('.reveal-section');
 
 			const revealObserver = new IntersectionObserver(
 				(entries, observer) => {
@@ -242,3 +256,22 @@ const mediaItems = [
 		</script>
 	</body>
 </html>
+
+<style>
+	.media-image-link {
+		display: block;
+		width: 100%;
+		text-decoration: none;
+	}
+
+	.media-image-link .media-image {
+		transition:
+			transform 220ms ease,
+			opacity 220ms ease;
+	}
+
+	.media-image-link:hover .media-image {
+		transform: scale(1.015);
+		opacity: 0.92;
+	}
+</style>
