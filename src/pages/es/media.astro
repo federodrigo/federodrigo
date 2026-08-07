@@ -33,7 +33,6 @@ const mediaItems: MediaItem[] = [
 		linkLabel: 'Más información y reservar mi lugar',
 		internal: true,
 	},
-
 	{
 		type: 'Podcast',
 		status: 'upcoming',
@@ -45,7 +44,6 @@ const mediaItems: MediaItem[] = [
 		description:
 			'Una próxima conversación sobre liderazgo tecnológico, desarrollo profesional, IA, estrategia de negocio y el recorrido personal detrás de los líderes de IT de hoy',
 	},
-
 	{
 		type: 'Entrevista Escrita',
 		status: 'published',
@@ -60,7 +58,6 @@ const mediaItems: MediaItem[] = [
 		pdfUrl: '/pdfs/Fede-Rodrigo-Interview-Nublit.pdf',
 		pdfLabel: 'Leer mi entrevista',
 	},
-
 	{
 		type: 'Finalista de Premio',
 		status: 'published',
@@ -73,7 +70,6 @@ const mediaItems: MediaItem[] = [
 		url: 'https://orbie.org/honoree/federico-rodrigo/4324',
 		linkLabel: 'Ver reconocimiento',
 	},
-
 	{
 		type: 'Mesa Redonda Ejecutiva',
 		status: 'published',
@@ -205,7 +201,9 @@ const mediaItems: MediaItem[] = [
 												rel={item.internal ? undefined : 'noopener noreferrer'}
 												class="animated-link"
 											>
-												<span>{item.linkLabel ?? 'Learn more'}</span>
+												<span>
+													{item.linkLabel ?? 'Más información'}
+												</span>
 
 												<span
 													class="animated-link-arrow"
@@ -241,7 +239,10 @@ const mediaItems: MediaItem[] = [
 					</p>
 
 					<p class="media-contact-link">
-						<a href="/es/contact/" class="animated-link">
+						<a
+							href="/es/contact/"
+							class="animated-link"
+						>
 							<span>Contactarme</span>
 
 							<span
@@ -259,7 +260,8 @@ const mediaItems: MediaItem[] = [
 		<Footer />
 
 		<script>
-			const sections = document.querySelectorAll('.reveal-section');
+			const sections =
+				document.querySelectorAll('.reveal-section');
 
 			const revealObserver = new IntersectionObserver(
 				(entries, observer) => {
@@ -282,4 +284,3 @@ const mediaItems: MediaItem[] = [
 		</script>
 	</body>
 </html>
-
