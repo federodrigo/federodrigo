@@ -8,6 +8,7 @@ type PaperItem = {
 	date: string;
 	status: string;
 	description: string;
+	reviewStatus: string;
 };
 
 const papers: PaperItem[] = [
@@ -17,6 +18,7 @@ const papers: PaperItem[] = [
 		status: 'Submitted',
 		description:
 			'Why a system that works can make it harder to know what would happen if the safeguards behind that performance were removed',
+		reviewStatus: 'Under review',
 	},
 	{
 		title: 'When Fixes Become the System',
@@ -24,6 +26,7 @@ const papers: PaperItem[] = [
 		status: 'Submitted',
 		description:
 			'How successful fixes become embedded around an existing technology, gradually reducing alternatives and making it harder to switch',
+		reviewStatus: 'Under review',
 	},
 ];
 ---
@@ -71,26 +74,17 @@ const papers: PaperItem[] = [
 
 							<h2>{paper.title}</h2>
 
-							<p>
+							<p class="paper-description">
 								{paper.description}
+							</p>
+
+							<p class="paper-review-status">
+								{paper.reviewStatus}
 							</p>
 						</div>
 					</section>
 				))
 			}
-
-			<section class="contact-section reveal-section">
-				<div class="contact-page-response reveal-item">
-					<p class="contact-page-response-label">
-						Current Status
-					</p>
-
-					<p>
-						Both papers are
-						currently under review
-					</p>
-				</div>
-			</section>
 		</main>
 
 		<Footer />
@@ -118,5 +112,23 @@ const papers: PaperItem[] = [
 				revealObserver.observe(section);
 			});
 		</script>
+
+		<style>
+			.paper-description {
+				margin-bottom: 0;
+			}
+
+			.paper-review-status {
+				margin-top: 18px;
+				margin-bottom: 0;
+
+				font-size: 0.78rem;
+				font-weight: 800;
+				letter-spacing: 0.08em;
+				text-transform: uppercase;
+
+				color: #6b768b;
+			}
+		</style>
 	</body>
 </html>
