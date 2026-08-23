@@ -37,8 +37,8 @@ const papers: PaperItem[] = [
 		</script>
 
 		<SEO
-			title="Papers"
-			description="Research on technology leadership, organizational dependence, technology lock-in, and decision making"
+			title="Papers | Fede Rodrigo"
+			description="Papers on technology leadership, organizational dependence, technology lock-in, and decision making"
 			lang="en"
 		/>
 	</head>
@@ -62,12 +62,9 @@ const papers: PaperItem[] = [
 			</section>
 
 			{
-				papers.map((paper, index) => (
+				papers.map((paper) => (
 					<section class="contact-section reveal-section">
-						<div
-							class="reveal-item"
-							style={`--paper-index: ${index};`}
-						>
+						<div class="reveal-item">
 							<p class="books-page-label">
 								{paper.status} · {paper.date}
 							</p>
@@ -81,6 +78,19 @@ const papers: PaperItem[] = [
 					</section>
 				))
 			}
+
+			<section class="contact-section reveal-section">
+				<div class="contact-page-response reveal-item">
+					<p class="contact-page-response-label">
+						Current Status
+					</p>
+
+					<p>
+						Both papers were submitted in August 2026 and are
+						currently under review
+					</p>
+				</div>
+			</section>
 		</main>
 
 		<Footer />
