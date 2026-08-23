@@ -1266,6 +1266,28 @@ img {
 	transform: translateY(-1px);
 }
 
+/* PAPERS STATUS */
+
+.paper-review-status {
+	display: inline-flex;
+	align-items: center;
+	width: fit-content;
+
+	margin: 20px 0 0;
+	padding: 10px 16px;
+
+	border: 1px solid #d8cbb8;
+	background: rgba(255, 255, 255, 0.28);
+
+	color: var(--navy);
+
+	font-size: 0.76rem;
+	font-weight: 700;
+	letter-spacing: 0.09em;
+	line-height: 1.2;
+	text-transform: uppercase;
+}
+
 /* ANIMATIONS */
 
 /* HERO */
