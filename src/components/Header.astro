@@ -39,17 +39,6 @@ const isActive = (path: string) => {
 			aria-label={isSpanish ? 'Navegación principal' : 'Main navigation'}
 		>
 			<a
-				href={isSpanish ? '/es/' : '/'}
-				class:list={{
-					'nav-active': isActive(isSpanish ? '/es' : '/'),
-				}}
-				aria-current={isActive(isSpanish ? '/es' : '/') ? 'page' : undefined}
-				hidden
-			>
-				{isSpanish ? 'INICIO' : 'HOME'}
-			</a>
-
-			<a
 				href={`${base}/about`}
 				class:list={{ 'nav-active': isActive(`${base}/about`) }}
 				aria-current={isActive(`${base}/about`) ? 'page' : undefined}
@@ -71,6 +60,14 @@ const isActive = (path: string) => {
 				aria-current={isActive(`${base}/books`) ? 'page' : undefined}
 			>
 				{isSpanish ? 'Libros' : 'Books'}
+			</a>
+
+			<a
+				href={`${base}/media`}
+				class:list={{ 'nav-active': isActive(`${base}/media`) }}
+				aria-current={isActive(`${base}/media`) ? 'page' : undefined}
+			>
+				{isSpanish ? 'Charlas' : 'Speaking'}
 			</a>
 
 			<a
