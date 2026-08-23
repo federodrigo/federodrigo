@@ -66,7 +66,7 @@ const papers: PaperItem[] = [
 
 			{
 				papers.map((paper) => (
-					<section class="contact-section reveal-section">
+					<section class="paper-section reveal-section">
 						<div class="reveal-item">
 							<p class="books-page-label">
 								{paper.status} · {paper.date}
@@ -114,9 +114,37 @@ const papers: PaperItem[] = [
 		</script>
 
 		<style>
-	.paper-description {
-		margin-bottom: 0;
-	}
-</style>
+			.paper-section {
+				border-top: 1px solid var(--line);
+				margin-top: 0;
+				padding-top: 28px;
+				padding-bottom: 28px;
+			}
+
+			.paper-description {
+				margin-bottom: 0;
+			}
+
+			.paper-review-status {
+				display: inline-flex;
+				align-items: center;
+				width: fit-content;
+
+				margin-top: 20px;
+				margin-bottom: 0;
+				padding: 10px 16px;
+
+				border: 1px solid var(--line);
+				background: rgba(96, 165, 250, 0.08);
+
+				color: var(--navy);
+
+				font-size: 0.76rem;
+				font-weight: 800;
+				letter-spacing: 0.09em;
+				line-height: 1.2;
+				text-transform: uppercase;
+			}
+		</style>
 	</body>
 </html>
