@@ -8,6 +8,7 @@ type PaperItem = {
 	date: string;
 	status: string;
 	description: string;
+	reviewStatus: string;
 };
 
 const papers: PaperItem[] = [
@@ -17,6 +18,7 @@ const papers: PaperItem[] = [
 		status: 'Enviado',
 		description:
 			'Cómo un sistema que funciona puede hacer más difícil saber qué pasaría si se retiraran las salvaguardas que sostienen ese desempeño',
+		reviewStatus: 'En revisión',
 	},
 	{
 		title: 'Cuando las Soluciones se Vuelven el Sistema',
@@ -24,6 +26,7 @@ const papers: PaperItem[] = [
 		status: 'Enviado',
 		description:
 			'Cómo soluciones exitosas pueden hacer que una tecnología existente sea progresivamente más difícil de reemplazar',
+		reviewStatus: 'En revisión',
 	},
 ];
 ---
@@ -71,25 +74,17 @@ const papers: PaperItem[] = [
 
 							<h2>{paper.title}</h2>
 
-							<p>
+							<p class="paper-description">
 								{paper.description}
+							</p>
+
+							<p class="paper-review-status">
+								{paper.reviewStatus}
 							</p>
 						</div>
 					</section>
 				))
 			}
-
-			<section class="contact-section reveal-section">
-				<div class="contact-page-response reveal-item">
-					<p class="contact-page-response-label">
-						Estado Actual
-					</p>
-
-					<p>
-						Ambos papers se encuentran en proceso de revisión
-					</p>
-				</div>
-			</section>
 		</main>
 
 		<Footer />
@@ -117,5 +112,23 @@ const papers: PaperItem[] = [
 				revealObserver.observe(section);
 			});
 		</script>
+
+		<style>
+			.paper-description {
+				margin-bottom: 0;
+			}
+
+			.paper-review-status {
+				margin-top: 18px;
+				margin-bottom: 0;
+
+				font-size: 0.78rem;
+				font-weight: 800;
+				letter-spacing: 0.08em;
+				text-transform: uppercase;
+
+				color: #6b768b;
+			}
+		</style>
 	</body>
 </html>
