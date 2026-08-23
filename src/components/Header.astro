@@ -28,10 +28,6 @@ const isActive = (path: string) => {
 			aria-label={isSpanish ? 'Página de inicio' : 'Home'}
 		>
 			<span class="brand-name">Fede Rodrigo</span>
-
-			<span class="brand-subtitle">
-				{isSpanish ? 'CIO · Autor' : 'CIO · Author'}
-			</span>
 		</a>
 
 		<nav
@@ -116,3 +112,17 @@ const isActive = (path: string) => {
 		</nav>
 	</div>
 </header>
+
+<style>
+	.brand-name,
+	.main-nav > a {
+		transition: color 0.2s ease;
+	}
+
+	.brand:hover .brand-name,
+	.brand:focus-visible .brand-name,
+	.main-nav > a:hover,
+	.main-nav > a:focus-visible {
+		color: var(--accent-color, #9fc3ff);
+	}
+</style>
