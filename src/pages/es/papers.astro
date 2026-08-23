@@ -1,1 +1,122 @@
+---
+import SEO from '../../components/SEO.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
 
+type PaperItem = {
+	title: string;
+	date: string;
+	status: string;
+	description: string;
+};
+
+const papers: PaperItem[] = [
+	{
+		title: 'When Success Hides Dependence',
+		date: 'Agosto de 2026',
+		status: 'Enviado',
+		description:
+			'Cómo las intervenciones exitosas pueden ocultar la dependencia que generan, haciendo más difícil evaluar su retiro a medida que desaparece la evidencia sobre lo que ocurriría sin ellas',
+	},
+	{
+		title: 'When Fixes Become the System',
+		date: 'Agosto de 2026',
+		status: 'Enviado',
+		description:
+			'Cómo las soluciones que funcionan pueden preservar una trayectoria tecnológica existente, incorporarse gradualmente a la organización, reducir las alternativas viables y aumentar el costo de cambiar',
+	},
+];
+---
+
+<!doctype html>
+
+<html lang="es">
+	<head>
+		<script is:inline>
+			document.documentElement.classList.add('js');
+		</script>
+
+		<SEO
+			title="Papers | Fede Rodrigo"
+			description="Papers sobre liderazgo tecnológico, dependencia organizacional, lock-in tecnológico y toma de decisiones"
+			lang="es"
+		/>
+	</head>
+
+	<body>
+		<Header />
+
+		<main>
+			<section class="hero">
+				<h1 class="hero-title">
+					<span class="hero-line">
+						Selected <span class="accent">Papers</span>
+					</span>
+				</h1>
+
+				<div class="lead-principles">
+					<div>Tecnología</div>
+					<div>Organizaciones</div>
+					<div>Liderazgo</div>
+				</div>
+			</section>
+
+			{
+				papers.map((paper) => (
+					<section class="contact-section reveal-section">
+						<div class="reveal-item">
+							<p class="books-page-label">
+								{paper.status} · {paper.date}
+							</p>
+
+							<h2>{paper.title}</h2>
+
+							<p>
+								{paper.description}
+							</p>
+						</div>
+					</section>
+				))
+			}
+
+			<section class="contact-section reveal-section">
+				<div class="contact-page-response reveal-item">
+					<p class="contact-page-response-label">
+						Estado Actual
+					</p>
+
+					<p>
+						Ambos papers fueron enviados en agosto de 2026 y se
+						encuentran actualmente en proceso de revisión
+					</p>
+				</div>
+			</section>
+		</main>
+
+		<Footer />
+
+		<script>
+			const sections =
+				document.querySelectorAll('.reveal-section');
+
+			const revealObserver = new IntersectionObserver(
+				(entries, observer) => {
+					entries.forEach((entry) => {
+						if (!entry.isIntersecting) return;
+
+						entry.target.classList.add('is-visible');
+						observer.unobserve(entry.target);
+					});
+				},
+				{
+					threshold: 0.08,
+					rootMargin: '0px 0px -50px 0px',
+				}
+			);
+
+			sections.forEach((section) => {
+				revealObserver.observe(section);
+			});
+		</script>
+	</body>
+</html>
