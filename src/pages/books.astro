@@ -147,7 +147,7 @@ const papers = [
 					<img
 						src="/images/book-cover.jpg"
 						alt="Cover of A Theory of Minimal Tolerance"
-						class="books-page-cover animated-book-cover"
+						class="books-page-cover"
 						loading="lazy"
 					/>
 				</div>
@@ -202,6 +202,10 @@ const papers = [
 								</div>
 
 								<div class="paper-content">
+									<p class="books-page-label paper-type">
+										Paper
+									</p>
+
 									<h2 class="paper-title">
 										{paper.title}
 									</h2>
@@ -255,13 +259,18 @@ const papers = [
 </html>
 
 <style>
+	main {
+		padding-bottom: 0;
+	}
+
 	.books-page-book-featured {
 		margin-bottom: 0;
+		padding-bottom: clamp(2.25rem, 4vw, 3.5rem);
 	}
 
 	.minimal-tolerance-book {
-		margin-top: clamp(2rem, 3vw, 3rem);
-		padding-top: clamp(2.5rem, 4vw, 3.5rem);
+		margin-top: 0;
+		padding-top: clamp(2.25rem, 4vw, 3.5rem);
 		border-top: 1px solid rgba(52, 65, 86, 0.2);
 	}
 
@@ -278,6 +287,7 @@ const papers = [
 	.papers-section {
 		width: min(1180px, calc(100% - 3rem));
 		margin: clamp(2rem, 4vw, 3.5rem) auto 0;
+		padding-bottom: 0;
 		scroll-margin-top: 8rem;
 	}
 
@@ -295,12 +305,17 @@ const papers = [
 	}
 
 	.paper-row:last-child {
+		padding-bottom: clamp(1.5rem, 2.5vw, 2rem);
 		border-bottom: 0;
 	}
 
 	.paper-meta,
 	.paper-content {
 		min-width: 0;
+	}
+
+	.paper-type {
+		margin: 0 0 0.8rem;
 	}
 
 	.paper-status {
@@ -345,9 +360,13 @@ const papers = [
 	}
 
 	@media (max-width: 850px) {
+		.books-page-book-featured {
+			padding-bottom: 2rem;
+		}
+
 		.minimal-tolerance-book {
-			margin-top: 1.5rem;
-			padding-top: 2.5rem;
+			margin-top: 0;
+			padding-top: 2rem;
 		}
 
 		.papers-section {
