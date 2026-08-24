@@ -234,11 +234,11 @@ const mediaItems: MediaItem[] = [
 			===================================================== -->
 
 <section
-	class="speaking-thesis reveal-section"
+	class="speaking-thesis"
 	data-speaking-thesis
 	style="
 		width:min(1120px, calc(100% - 48px));
-		margin:34px auto 38px;
+		margin:36px auto 40px;
 		padding:0;
 	"
 >
@@ -247,188 +247,79 @@ const mediaItems: MediaItem[] = [
 			max-width:980px;
 		"
 	>
-
-		<!-- FLOW -->
-
 		<div
+			data-thesis-line="1"
 			style="
-				display:flex;
-				flex-wrap:wrap;
-				align-items:stretch;
-				gap:12px;
-			"
-		>
-
-			<!-- 01 -->
-
-			<div
-				data-thesis-step
-				style="
-					flex:1 1 220px;
-					min-width:0;
-					padding:20px 22px;
-					border:1px solid rgba(16,43,70,.10);
-					border-radius:12px;
-					background:rgba(255,255,255,.58);
-					opacity:0;
-					transform:translateY(12px);
-				"
-			>
-				<div
-					style="
-						margin-bottom:10px;
-						color:#9aa5b3;
-						font-size:.68rem;
-						font-weight:700;
-						letter-spacing:.10em;
-						text-transform:uppercase;
-					"
-				>
-					01 · The problem
-				</div>
-
-				<div
-					style="
-						color:#102b46;
-						font-size:clamp(1.05rem,1.35vw,1.24rem);
-						font-weight:600;
-						line-height:1.3;
-						letter-spacing:-.02em;
-					"
-				>
-					A business problem
-				</div>
-			</div>
-
-
-			<!-- 02 -->
-
-			<div
-				data-thesis-step
-				style="
-					flex:1 1 220px;
-					min-width:0;
-					padding:20px 22px;
-					border:1px solid rgba(16,43,70,.10);
-					border-radius:12px;
-					background:rgba(255,255,255,.58);
-					opacity:0;
-					transform:translateY(12px);
-				"
-			>
-				<div
-					style="
-						margin-bottom:10px;
-						color:#9aa5b3;
-						font-size:.68rem;
-						font-weight:700;
-						letter-spacing:.10em;
-						text-transform:uppercase;
-					"
-				>
-					02 · The response
-				</div>
-
-				<div
-					style="
-						color:#102b46;
-						font-size:clamp(1.05rem,1.35vw,1.24rem);
-						font-weight:600;
-						line-height:1.3;
-						letter-spacing:-.02em;
-					"
-				>
-					A new system
-				</div>
-			</div>
-
-
-			<!-- 03 -->
-
-			<div
-				data-thesis-step
-				style="
-					flex:1.25 1 270px;
-					min-width:0;
-					padding:20px 22px;
-					border:1px solid rgba(16,43,70,.10);
-					border-radius:12px;
-					background:rgba(255,255,255,.58);
-					opacity:0;
-					transform:translateY(12px);
-				"
-			>
-				<div
-					style="
-						margin-bottom:10px;
-						color:#9aa5b3;
-						font-size:.68rem;
-						font-weight:700;
-						letter-spacing:.10em;
-						text-transform:uppercase;
-					"
-				>
-					03 · The result
-				</div>
-
-				<div
-					style="
-						color:#102b46;
-						font-size:clamp(1.05rem,1.35vw,1.24rem);
-						font-weight:600;
-						line-height:1.3;
-						letter-spacing:-.02em;
-					"
-				>
-					The original problem + a few new ones
-				</div>
-			</div>
-
-		</div>
-
-
-		<!-- CONCLUSION -->
-
-		<div
-			data-thesis-conclusion
-			style="
-				margin-top:28px;
+				margin:0 0 12px;
+				color:#6f7d8f;
+				font-size:clamp(1.05rem, 1.35vw, 1.25rem);
+				line-height:1.5;
+				letter-spacing:-0.015em;
 				opacity:0;
 				transform:translateY(10px);
 			"
 		>
-
-			<div
-				data-thesis-line
-				style="
-					width:0;
-					height:3px;
-					margin-bottom:17px;
-					border-radius:999px;
-					background:#b34343;
-				"
-			></div>
-
-			<div
-				style="
-					max-width:900px;
-					color:#102b46;
-					font-size:clamp(1.45rem,2.15vw,2rem);
-					font-weight:650;
-					line-height:1.22;
-					letter-spacing:-.035em;
-				"
-			>
-				The mistake is starting with the technology instead of the business
-			</div>
-
+			Companies start with a business problem
 		</div>
 
+		<div
+			data-thesis-line="2"
+			style="
+				margin:0 0 12px;
+				color:#6f7d8f;
+				font-size:clamp(1.05rem, 1.35vw, 1.25rem);
+				line-height:1.5;
+				letter-spacing:-0.015em;
+				opacity:0;
+				transform:translateY(10px);
+			"
+		>
+			They buy technology to solve it
+		</div>
+
+		<div
+			data-thesis-line="3"
+			style="
+				margin:0 0 26px;
+				color:#6f7d8f;
+				font-size:clamp(1.05rem, 1.35vw, 1.25rem);
+				line-height:1.5;
+				letter-spacing:-0.015em;
+				opacity:0;
+				transform:translateY(10px);
+			"
+		>
+			The original problem remains — and new ones appear
+		</div>
+
+		<div
+			data-thesis-accent
+			style="
+				width:0;
+				height:3px;
+				margin:0 0 16px;
+				border-radius:999px;
+				background:#b34343;
+			"
+		></div>
+
+		<div
+			data-thesis-conclusion
+			style="
+				max-width:900px;
+				color:#102b46;
+				font-size:clamp(1.55rem, 2.2vw, 2.05rem);
+				font-weight:650;
+				line-height:1.22;
+				letter-spacing:-0.035em;
+				opacity:0;
+				transform:translateY(12px);
+			"
+		>
+			The mistake is starting with the technology instead of the business
+		</div>
 	</div>
 </section>
-
-
-<!-- DIVIDER -->
 
 <div
 	aria-hidden="true"
@@ -440,54 +331,59 @@ const mediaItems: MediaItem[] = [
 	"
 ></div>
 
-
 <script>
 	const thesis = document.querySelector('[data-speaking-thesis]');
 
 	if (thesis) {
-		const steps = Array.from(
-			thesis.querySelectorAll('[data-thesis-step]')
-		);
+		const lines = [
+			thesis.querySelector('[data-thesis-line="1"]'),
+			thesis.querySelector('[data-thesis-line="2"]'),
+			thesis.querySelector('[data-thesis-line="3"]')
+		];
+
+		const accent =
+			thesis.querySelector('[data-thesis-accent]');
 
 		const conclusion =
 			thesis.querySelector('[data-thesis-conclusion]');
-
-		const line =
-			thesis.querySelector('[data-thesis-line]');
 
 		const reducedMotion =
 			window.matchMedia(
 				'(prefers-reduced-motion: reduce)'
 			).matches;
 
-		const playThesis = () => {
+		const showImmediately = () => {
+			lines.forEach((line) => {
+				if (!line) return;
 
+				line.style.opacity = '1';
+				line.style.transform = 'translateY(0)';
+			});
+
+			if (accent) {
+				accent.style.width = '52px';
+			}
+
+			if (conclusion) {
+				conclusion.style.opacity = '1';
+				conclusion.style.transform = 'translateY(0)';
+			}
+		};
+
+		const play = () => {
 			if (reducedMotion) {
-				steps.forEach((step) => {
-					step.style.opacity = '1';
-					step.style.transform = 'translateY(0)';
-				});
-
-				if (conclusion) {
-					conclusion.style.opacity = '1';
-					conclusion.style.transform = 'translateY(0)';
-				}
-
-				if (line) {
-					line.style.width = '54px';
-				}
-
+				showImmediately();
 				return;
 			}
 
+			lines.forEach((line, index) => {
+				if (!line) return;
 
-			steps.forEach((step, index) => {
-
-				step.animate(
+				line.animate(
 					[
 						{
 							opacity: 0,
-							transform: 'translateY(12px)'
+							transform: 'translateY(10px)'
 						},
 						{
 							opacity: 1,
@@ -501,17 +397,29 @@ const mediaItems: MediaItem[] = [
 						fill: 'forwards'
 					}
 				);
-
 			});
 
+			if (accent) {
+				accent.animate(
+					[
+						{ width: '0px' },
+						{ width: '52px' }
+					],
+					{
+						duration: 420,
+						delay: 620,
+						easing: 'cubic-bezier(.22,1,.36,1)',
+						fill: 'forwards'
+					}
+				);
+			}
 
 			if (conclusion) {
-
 				conclusion.animate(
 					[
 						{
 							opacity: 0,
-							transform: 'translateY(10px)'
+							transform: 'translateY(12px)'
 						},
 						{
 							opacity: 1,
@@ -520,62 +428,32 @@ const mediaItems: MediaItem[] = [
 					],
 					{
 						duration: 650,
-						delay: 650,
-						easing: 'cubic-bezier(.22,1,.36,1)',
-						fill: 'forwards'
-					}
-				);
-
-			}
-
-
-			if (line) {
-
-				line.animate(
-					[
-						{ width: '0px' },
-						{ width: '54px' }
-					],
-					{
-						duration: 480,
 						delay: 760,
 						easing: 'cubic-bezier(.22,1,.36,1)',
 						fill: 'forwards'
 					}
 				);
-
 			}
-
 		};
 
-
-		const thesisObserver =
+		const observer =
 			new IntersectionObserver(
 				(entries, observer) => {
-
 					entries.forEach((entry) => {
+						if (!entry.isIntersecting) return;
 
-						if (!entry.isIntersecting) {
-							return;
-						}
-
-						playThesis();
-
+						play();
 						observer.unobserve(entry.target);
-
 					});
-
 				},
 				{
 					threshold: 0.35
 				}
 			);
 
-
-		thesisObserver.observe(thesis);
+		observer.observe(thesis);
 	}
 </script>
-
 
 			<!-- =====================================================
 			     RECENT ENGAGEMENTS
