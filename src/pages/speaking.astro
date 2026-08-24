@@ -89,7 +89,7 @@ const mediaItems: MediaItem[] = [
 
 			<!-- =====================================================
 			     HERO
-			     ORIGINAL STRUCTURE
+			     ORIGINAL STRUCTURE — NO NEW CSS
 			===================================================== -->
 
 			<section class="hero">
@@ -119,52 +119,59 @@ const mediaItems: MediaItem[] = [
 					data-speaking-slider
 				>
 
-					<!-- SLIDE 1 -->
+					<div class="speaking-slider-stage">
 
-					<figure
-						class="speaking-slide is-active"
-						data-speaking-slide
-						aria-hidden="false"
-					>
-						<img
-							src="/images/speaking-slide-question-clean.png"
-							alt="What if your next technology decision started with no technology at all?"
-							loading="eager"
-						/>
-					</figure>
+						<!-- SLIDE 1 -->
 
-
-					<!-- SLIDE 2 -->
-
-					<figure
-						class="speaking-slide"
-						data-speaking-slide
-						aria-hidden="true"
-					>
-						<img
-							src="/images/speaking-slide-business-value.png"
-							alt="Why does IT exist? To create business value"
-							loading="lazy"
-						/>
-					</figure>
+						<figure
+							class="speaking-slide is-active"
+							data-speaking-slide
+							aria-hidden="false"
+						>
+							<img
+								class="speaking-slide-image"
+								src="/images/speaking-slide-question-clean.png"
+								alt="What if your next technology decision started with no technology at all?"
+								loading="eager"
+							/>
+						</figure>
 
 
-					<!-- SLIDE 3 -->
+						<!-- SLIDE 2 -->
 
-					<figure
-						class="speaking-slide"
-						data-speaking-slide
-						aria-hidden="true"
-					>
-						<img
-							src="/images/speaking-slide-leadership.png"
-							alt="Technology will always change. Leadership won't. Technology is never the starting point"
-							loading="lazy"
-						/>
-					</figure>
+						<figure
+							class="speaking-slide"
+							data-speaking-slide
+							aria-hidden="true"
+						>
+							<img
+								class="speaking-slide-image"
+								src="/images/speaking-slide-business-value.png"
+								alt="Why does IT exist? To create business value"
+								loading="lazy"
+							/>
+						</figure>
 
 
-					<!-- NAVIGATION -->
+						<!-- SLIDE 3 -->
+
+						<figure
+							class="speaking-slide"
+							data-speaking-slide
+							aria-hidden="true"
+						>
+							<img
+								class="speaking-slide-image"
+								src="/images/speaking-slide-leadership.png"
+								alt="Technology will always change. Leadership won't. Technology is never the starting point"
+								loading="lazy"
+							/>
+						</figure>
+
+					</div>
+
+
+					<!-- DOTS OUTSIDE THE IMAGE -->
 
 					<div
 						class="speaking-slider-nav"
@@ -214,7 +221,9 @@ const mediaItems: MediaItem[] = [
 					Media & Events
 				</h2>
 
+
 				<div class="media-grid">
+
 					{
 						mediaItems.map((item, index) => (
 							<article
@@ -223,6 +232,7 @@ const mediaItems: MediaItem[] = [
 							>
 
 								<div class="media-card-image">
+
 									{
 										item.url ? (
 											<a
@@ -256,6 +266,7 @@ const mediaItems: MediaItem[] = [
 											/>
 										)
 									}
+
 								</div>
 
 
@@ -347,12 +358,13 @@ const mediaItems: MediaItem[] = [
 							</article>
 						))
 					}
+
 				</div>
 			</section>
 
 
 			<!-- =====================================================
-			     CONTACT
+			     SPEAKING INQUIRIES
 			===================================================== -->
 
 			<section class="media-contact reveal-section">
@@ -394,7 +406,7 @@ const mediaItems: MediaItem[] = [
 
 
 		<!-- =====================================================
-		     REVEAL ANIMATION
+		     REVEAL
 		===================================================== -->
 
 		<script>
@@ -430,8 +442,7 @@ const mediaItems: MediaItem[] = [
 
 
 		<!-- =====================================================
-		     SPEAKING SLIDER
-		     SCOPED ONLY TO SLIDES
+		     SLIDER
 		===================================================== -->
 
 		<script>
@@ -464,11 +475,6 @@ const mediaItems: MediaItem[] = [
 				let sliderVisible = false;
 
 
-				/*
-					First slide stays longer because
-					it contains the opening question.
-				*/
-
 				const durations = [
 					7000,
 					5200,
@@ -481,6 +487,7 @@ const mediaItems: MediaItem[] = [
 					currentSlide =
 						(index + slides.length) %
 						slides.length;
+
 
 					slides.forEach(
 						(slide, slideIndex) => {
@@ -524,18 +531,19 @@ const mediaItems: MediaItem[] = [
 							);
 						}
 					);
+
 				}
 
 
 				function stopSlider() {
 
-					if (slideTimer) {
-						window.clearTimeout(
-							slideTimer
-						);
+					if (!slideTimer) return;
 
-						slideTimer = null;
-					}
+					window.clearTimeout(
+						slideTimer
+					);
+
+					slideTimer = null;
 				}
 
 
@@ -559,6 +567,7 @@ const mediaItems: MediaItem[] = [
 								);
 
 								scheduleNextSlide();
+
 							},
 							durations[
 								currentSlide
@@ -585,17 +594,13 @@ const mediaItems: MediaItem[] = [
 
 				speakingSlider.addEventListener(
 					'mouseenter',
-					() => {
-						stopSlider();
-					}
+					stopSlider
 				);
 
 
 				speakingSlider.addEventListener(
 					'mouseleave',
-					() => {
-						scheduleNextSlide();
-					}
+					scheduleNextSlide
 				);
 
 
@@ -616,6 +621,7 @@ const mediaItems: MediaItem[] = [
 									} else {
 										stopSlider();
 									}
+
 								}
 							);
 						},
@@ -639,6 +645,7 @@ const mediaItems: MediaItem[] = [
 						} else {
 							scheduleNextSlide();
 						}
+
 					}
 				);
 
@@ -652,9 +659,7 @@ const mediaItems: MediaItem[] = [
 <style>
 
 	/* =========================================================
-	   IMPORTANT
-	   NO HERO STYLES HERE
-	   Keeps your existing hero animation intact
+	   HERO NOT TOUCHED
 	========================================================= */
 
 
@@ -670,11 +675,21 @@ const mediaItems: MediaItem[] = [
 			);
 
 		margin:
-			20px auto 32px;
+			18px auto 28px;
 	}
 
 
 	.speaking-slider {
+		width: 100%;
+	}
+
+
+	/*
+		The image itself lives in this frame.
+		Navigation is OUTSIDE so nothing covers the slide.
+	*/
+
+	.speaking-slider-stage {
 		position: relative;
 
 		width: 100%;
@@ -703,24 +718,20 @@ const mediaItems: MediaItem[] = [
 
 		inset: 0;
 
+		display: flex;
+
+		align-items: center;
+
+		justify-content: center;
+
 		margin: 0;
 
 		opacity: 0;
 
-		transform:
-			scale(1.004);
-
 		pointer-events: none;
 
 		transition:
-			opacity 700ms ease,
-			transform 1300ms
-				cubic-bezier(
-					0.22,
-					1,
-					0.36,
-					1
-				);
+			opacity 650ms ease;
 	}
 
 
@@ -729,70 +740,51 @@ const mediaItems: MediaItem[] = [
 
 		opacity: 1;
 
-		transform:
-			scale(1);
-
 		pointer-events: auto;
 	}
 
 
 	/*
 		IMPORTANT:
-		contain instead of cover.
+		NO CROPPING.
 
-		The first slide has a wider aspect ratio
-		than the other two and was being cropped.
+		!important protects this from any global img/object-fit
+		style elsewhere on the site.
 	*/
 
-	.speaking-slide img {
-		display: block;
+	.speaking-slide-image {
+		display: block !important;
 
-		width: 100%;
-		height: 100%;
+		width: 100% !important;
+		height: 100% !important;
 
-		object-fit: contain;
+		max-width: 100% !important;
+		max-height: 100% !important;
+
+		object-fit: contain !important;
+
+		object-position: center center !important;
 
 		background: #ffffff;
 	}
 
 
 	/* =========================================================
-	   SLIDE NAVIGATION
+	   SLIDER DOTS
 	========================================================= */
 
 	.speaking-slider-nav {
-		position: absolute;
-
-		z-index: 10;
-
-		left: 50%;
-		bottom: 15px;
-
 		display: flex;
 
 		align-items: center;
 
+		justify-content: center;
+
 		gap: 8px;
 
-		padding:
-			8px 11px;
+		height: 34px;
 
-		border-radius:
-			999px;
-
-		background:
-			rgba(
-				255,
-				255,
-				255,
-				0.84
-			);
-
-		backdrop-filter:
-			blur(10px);
-
-		transform:
-			translateX(-50%);
+		margin-top: 8px;
 	}
 
 
@@ -811,7 +803,7 @@ const mediaItems: MediaItem[] = [
 				16,
 				43,
 				70,
-				0.25
+				0.23
 			);
 
 		cursor: pointer;
@@ -826,11 +818,9 @@ const mediaItems: MediaItem[] = [
 	.speaking-slider-dot.is-active {
 		width: 23px;
 
-		border-radius:
-			999px;
+		border-radius: 999px;
 
-		background:
-			#102b46;
+		background: #102b46;
 	}
 
 
@@ -846,7 +836,9 @@ const mediaItems: MediaItem[] = [
 			);
 
 		margin:
-			0 auto 48px;
+			0 auto 26px !important;
+
+		padding: 0 !important;
 	}
 
 
@@ -882,13 +874,12 @@ const mediaItems: MediaItem[] = [
 			);
 
 		gap: 20px;
-
-		align-items: start;
 	}
 
 
 	/* =========================================================
-	   MEDIA CARD
+	   MEDIA CARDS
+	   EXACT SAME HEIGHT ON DESKTOP
 	========================================================= */
 
 	.media-card {
@@ -896,7 +887,9 @@ const mediaItems: MediaItem[] = [
 
 		flex-direction: column;
 
-		align-self: start;
+		width: 100%;
+
+		height: 350px;
 
 		min-width: 0;
 
@@ -936,61 +929,86 @@ const mediaItems: MediaItem[] = [
 	}
 
 
-	/*
-		Shorter image area than before.
-		This makes all cards significantly more compact.
-	*/
+	/* =========================================================
+	   MEDIA IMAGES
+	   FIXED AREA + NO CROPPING
+	========================================================= */
 
 	.media-card-image {
+		flex:
+			0 0 178px;
+
+		width: 100%;
+
+		height: 178px;
+
 		overflow: hidden;
 
-		aspect-ratio: 16 / 8;
+		background: #ffffff;
 
-		background: #f1f3f5;
+		border-bottom:
+			1px solid
+			rgba(
+				16,
+				43,
+				70,
+				0.08
+			);
 	}
 
 
 	.media-card-image a {
-		display: block;
+		display: flex;
+
+		align-items: center;
+
+		justify-content: center;
 
 		width: 100%;
+
 		height: 100%;
 	}
 
 
+	/*
+		NO MORE CROPPED MEDIA IMAGES
+	*/
+
 	.media-card-image img {
-		display: block;
+		display: block !important;
 
-		width: 100%;
-		height: 100%;
+		width: 100% !important;
 
-		object-fit: cover;
+		height: 100% !important;
 
-		transition:
-			transform 450ms
-				cubic-bezier(
-					0.22,
-					1,
-					0.36,
-					1
-				);
+		max-width: 100% !important;
+
+		max-height: 100% !important;
+
+		object-fit: contain !important;
+
+		object-position:
+			center center !important;
+
+		background: #ffffff;
 	}
 
 
-	.media-card:hover
-	.media-card-image img {
-		transform:
-			scale(1.025);
-	}
-
+	/* =========================================================
+	   MEDIA CONTENT
+	========================================================= */
 
 	.media-card-content {
 		display: flex;
 
+		flex: 1;
+
 		flex-direction: column;
 
+		min-height: 0;
+
 		padding:
-			17px 18px 19px;
+			17px 18px 18px;
 	}
 
 
@@ -1021,7 +1039,15 @@ const mediaItems: MediaItem[] = [
 
 
 	.media-card h3 {
+		display: -webkit-box;
+
 		margin: 0;
+
+		overflow: hidden;
+
+		-webkit-box-orient: vertical;
+
+		-webkit-line-clamp: 2;
 
 		color: #102b46;
 
@@ -1047,20 +1073,23 @@ const mediaItems: MediaItem[] = [
 		flex-wrap: wrap;
 
 		gap:
-			8px 15px;
+			7px 14px;
 
-		margin-top: 17px;
+		margin-top: auto;
+
+		padding-top: 14px;
 	}
 
 
 	.media-card-actions
 	.animated-link {
-		font-size: 0.77rem;
+		font-size: 0.76rem;
 	}
 
 
 	/* =========================================================
 	   SPEAKING INQUIRIES
+	   COMPACT — NO HUGE EMPTY AREA
 	========================================================= */
 
 	.media-contact {
@@ -1070,13 +1099,13 @@ const mediaItems: MediaItem[] = [
 				calc(100% - 48px)
 			);
 
+		min-height: 0 !important;
+
 		margin:
-			0 auto 70px;
+			22px auto 0 !important;
 
-		padding-top:
-			42px;
-
-		padding-bottom: 0;
+		padding:
+			30px 0 38px !important;
 
 		border-top:
 			1px solid
@@ -1091,7 +1120,7 @@ const mediaItems: MediaItem[] = [
 
 	.media-contact h2 {
 		margin:
-			0 0 17px;
+			0 0 14px !important;
 
 		color: #102b46;
 
@@ -1112,26 +1141,26 @@ const mediaItems: MediaItem[] = [
 
 
 	.media-contact p {
-		max-width: 650px;
+		max-width: 700px;
 
-		margin: 0;
+		margin: 0 !important;
 
 		color: #6d7c8d;
 
 		font-size: 1rem;
 
-		line-height: 1.6;
+		line-height: 1.55;
 	}
 
 
 	.media-contact-link {
 		margin-top:
-			18px !important;
+			14px !important;
 	}
 
 
 	/* =========================================================
-	   REVEAL ANIMATION
+	   REVEAL
 	========================================================= */
 
 	.js
@@ -1140,7 +1169,7 @@ const mediaItems: MediaItem[] = [
 		opacity: 0;
 
 		transform:
-			translateY(16px);
+			translateY(14px);
 
 		transition:
 			opacity 600ms ease,
@@ -1188,6 +1217,11 @@ const mediaItems: MediaItem[] = [
 				);
 		}
 
+
+		.media-card {
+			height: 345px;
+		}
+
 	}
 
 
@@ -1209,34 +1243,31 @@ const mediaItems: MediaItem[] = [
 
 		.speaking-showcase {
 			margin:
-				14px auto 26px;
+				12px auto 22px;
 		}
 
 
-		.speaking-slider {
-			border-radius:
-				10px;
+		.speaking-slider-stage {
+			border-radius: 10px;
 		}
 
 
 		.speaking-slider-nav {
-			bottom:
-				9px;
+			margin-top: 5px;
 
-			padding:
-				6px 8px;
+			height: 30px;
 		}
 
 
 		.media-events {
 			margin-bottom:
-				40px;
+				18px !important;
 		}
 
 
 		.media-events > h2 {
 			margin-bottom:
-				22px;
+				20px;
 		}
 
 
@@ -1246,18 +1277,40 @@ const mediaItems: MediaItem[] = [
 		}
 
 
+		/*
+			On mobile allow content to determine card height,
+			but every image area remains identical.
+		*/
+
+		.media-card {
+			height: auto;
+
+			min-height: 330px;
+		}
+
+
+		.media-card-image {
+			flex:
+				0 0 175px;
+
+			height: 175px;
+		}
+
+
 		.media-card-content {
+			min-height: 145px;
+
 			padding:
-				17px 17px 19px;
+				16px 17px 17px;
 		}
 
 
 		.media-contact {
-			margin-bottom:
-				55px;
+			margin:
+				18px auto 0 !important;
 
-			padding-top:
-				34px;
+			padding:
+				26px 0 30px !important;
 		}
 
 	}
@@ -1275,7 +1328,6 @@ const mediaItems: MediaItem[] = [
 		.speaking-slide,
 		.speaking-slider-dot,
 		.media-card,
-		.media-card-image img,
 		.reveal-item {
 			transition:
 				none !important;
