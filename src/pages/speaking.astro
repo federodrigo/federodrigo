@@ -145,10 +145,10 @@ const recognition: MediaItem = {
 
 			<section
 				class="speaking-showcase reveal-section"
-				aria-label="Selected ideas from Fede Rodrigo's talks"
+				aria-label="Speaking presentation slides"
 			>
 				<div
-					class="speaking-slider reveal-item reveal-delay-1"
+					class="speaking-slider reveal-item"
 					data-speaking-slider
 				>
 					<div class="speaking-slider-stage">
@@ -223,9 +223,12 @@ const recognition: MediaItem = {
 				</div>
 			</section>
 
-			<div class="speaking-divider" aria-hidden="true"></div>
+			<div
+				class="speaking-divider"
+				aria-hidden="true"
+			></div>
 
-			<!-- Talks & Conversations -->
+			<!-- TALKS & CONVERSATIONS -->
 
 			<section
 				class="media-events reveal-section"
@@ -471,11 +474,11 @@ const recognition: MediaItem = {
 
 		<script>
 			const sections =
-				document.querySelectorAll('.reveal-section');
+				document.querySelectorAll(
+					'.reveal-section'
+				);
 
-			if (
-				'IntersectionObserver' in window
-			) {
+			if ('IntersectionObserver' in window) {
 				const revealObserver =
 					new IntersectionObserver(
 						(entries, observer) => {
@@ -505,7 +508,9 @@ const recognition: MediaItem = {
 				});
 			} else {
 				sections.forEach((section) => {
-					section.classList.add('is-visible');
+					section.classList.add(
+						'is-visible'
+					);
 				});
 			}
 		</script>
@@ -554,7 +559,8 @@ const recognition: MediaItem = {
 					slides.forEach(
 						(slide, slideIndex) => {
 							const active =
-								slideIndex === currentSlide;
+								slideIndex ===
+								currentSlide;
 
 							slide.classList.toggle(
 								'is-active',
@@ -573,7 +579,8 @@ const recognition: MediaItem = {
 					dots.forEach(
 						(dot, dotIndex) => {
 							const active =
-								dotIndex === currentSlide;
+								dotIndex ===
+								currentSlide;
 
 							dot.classList.toggle(
 								'is-active',
@@ -639,9 +646,7 @@ const recognition: MediaItem = {
 					scheduleNextSlide
 				);
 
-				if (
-					'IntersectionObserver' in window
-				) {
+				if ('IntersectionObserver' in window) {
 					const sliderObserver =
 						new IntersectionObserver(
 							(entries) => {
@@ -725,16 +730,6 @@ const recognition: MediaItem = {
 	.speaking-showcase {
 		width: min(980px, calc(100% - 48px));
 		margin: 0 auto 4px;
-	}
-
-	.speaking-showcase-label {
-		margin: 0 0 12px;
-		color: #7d8b9a;
-		font-size: 0.72rem;
-		font-weight: 700;
-		line-height: 1.3;
-		letter-spacing: 0.075em;
-		text-transform: uppercase;
 	}
 
 	.speaking-slider {
@@ -829,7 +824,7 @@ const recognition: MediaItem = {
 	}
 
 	/* =========================================================
-	   RECENT ENGAGEMENTS
+	   TALKS & CONVERSATIONS
 	========================================================= */
 
 	.media-events {
@@ -850,8 +845,8 @@ const recognition: MediaItem = {
 	.media-grid {
 		display: grid;
 		grid-template-columns:
-			repeat(2, minmax(0, 1fr));
-		gap: 18px;
+			repeat(4, minmax(0, 1fr));
+		gap: 14px;
 	}
 
 	/* =========================================================
@@ -862,11 +857,11 @@ const recognition: MediaItem = {
 		display: flex;
 		flex-direction: column;
 		width: 100%;
+		height: 310px;
 		min-width: 0;
-		min-height: 342px;
 		overflow: hidden;
 		border: 1px solid rgba(16, 43, 70, 0.1);
-		border-radius: 13px;
+		border-radius: 12px;
 		background: #ffffff;
 		transition:
 			transform 200ms ease,
@@ -882,11 +877,13 @@ const recognition: MediaItem = {
 	}
 
 	.media-card-image {
-		flex: 0 0 190px;
+		flex: 0 0 142px;
 		width: 100%;
-		height: 190px;
+		height: 142px;
 		overflow: hidden;
-		border-bottom: 1px solid rgba(16, 43, 70, 0.08);
+		border-bottom:
+			1px solid
+			rgba(16, 43, 70, 0.08);
 		background: #f4f5f7;
 	}
 
@@ -931,27 +928,30 @@ const recognition: MediaItem = {
 		flex: 1;
 		flex-direction: column;
 		min-height: 0;
-		padding: 15px 18px 17px;
+		padding: 13px 14px 14px;
 	}
 
 	.media-card-meta {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 5px;
-		margin: 0 0 8px;
+		gap: 4px;
+		margin: 0 0 7px;
 		color: #7d8b9a;
-		font-size: 0.7rem;
+		font-size: 0.65rem;
 		font-weight: 700;
 		line-height: 1.3;
-		letter-spacing: 0.06em;
+		letter-spacing: 0.055em;
 		text-transform: uppercase;
 	}
 
-	.media-card h3,
-	.recognition-card h3 {
+	.media-card h3 {
+		display: -webkit-box;
 		margin: 0;
+		overflow: hidden;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 2;
 		color: #102b46;
-		font-size: clamp(1.05rem, 1.25vw, 1.2rem);
+		font-size: clamp(0.96rem, 1.05vw, 1.08rem);
 		font-weight: 600;
 		line-height: 1.2;
 		letter-spacing: -0.02em;
@@ -960,13 +960,13 @@ const recognition: MediaItem = {
 	.media-card-actions {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 8px 17px;
+		gap: 6px 12px;
 		margin-top: auto;
-		padding-top: 16px;
+		padding-top: 10px;
 	}
 
 	.media-card-actions .animated-link {
-		font-size: 0.82rem;
+		font-size: 0.75rem;
 	}
 
 	/* =========================================================
@@ -975,12 +975,12 @@ const recognition: MediaItem = {
 
 	.recognition-card {
 		display: grid;
-		grid-template-columns: 230px minmax(0, 1fr);
-		min-height: 132px;
-		margin-top: 18px;
+		grid-template-columns: 210px minmax(0, 1fr);
+		min-height: 124px;
+		margin-top: 16px;
 		overflow: hidden;
 		border: 1px solid rgba(16, 43, 70, 0.1);
-		border-radius: 13px;
+		border-radius: 12px;
 		background: #ffffff;
 		transition:
 			transform 200ms ease,
@@ -988,10 +988,12 @@ const recognition: MediaItem = {
 	}
 
 	.recognition-image {
-		width: 230px;
-		min-height: 132px;
+		width: 210px;
+		min-height: 124px;
 		overflow: hidden;
-		border-right: 1px solid rgba(16, 43, 70, 0.08);
+		border-right:
+			1px solid
+			rgba(16, 43, 70, 0.08);
 		background: #f4f5f7;
 	}
 
@@ -1015,12 +1017,21 @@ const recognition: MediaItem = {
 		flex-direction: column;
 		align-items: flex-start;
 		justify-content: center;
-		padding: 20px 22px;
+		padding: 17px 20px;
+	}
+
+	.recognition-card h3 {
+		margin: 0;
+		color: #102b46;
+		font-size: 1.08rem;
+		font-weight: 600;
+		line-height: 1.2;
+		letter-spacing: -0.02em;
 	}
 
 	.recognition-link {
-		margin-top: 13px;
-		font-size: 0.82rem;
+		margin-top: 10px;
+		font-size: 0.78rem;
 	}
 
 	/* =========================================================
@@ -1032,7 +1043,9 @@ const recognition: MediaItem = {
 		min-height: 0 !important;
 		margin: 24px auto 0 !important;
 		padding: 30px 0 34px !important;
-		border-top: 1px solid rgba(16, 43, 70, 0.12);
+		border-top:
+			1px solid
+			rgba(16, 43, 70, 0.12);
 	}
 
 	.media-contact h2 {
@@ -1088,18 +1101,40 @@ const recognition: MediaItem = {
 	   TABLET
 	========================================================= */
 
-	@media (max-width: 900px) {
+	@media (max-width: 1020px) {
 		.speaking-showcase {
 			width: min(860px, calc(100% - 48px));
 		}
 
+		.media-grid {
+			grid-template-columns:
+				repeat(2, minmax(0, 1fr));
+			gap: 16px;
+		}
+
 		.media-card {
-			min-height: 326px;
+			height: 310px;
 		}
 
 		.media-card-image {
-			flex-basis: 174px;
-			height: 174px;
+			flex-basis: 150px;
+			height: 150px;
+		}
+
+		.media-card-content {
+			padding: 14px 16px 15px;
+		}
+
+		.media-card-meta {
+			font-size: 0.68rem;
+		}
+
+		.media-card h3 {
+			font-size: 1.05rem;
+		}
+
+		.media-card-actions .animated-link {
+			font-size: 0.8rem;
 		}
 	}
 
@@ -1129,10 +1164,6 @@ const recognition: MediaItem = {
 
 		.speaking-thesis-conclusion {
 			font-size: 1.45rem;
-		}
-
-		.speaking-showcase-label {
-			margin-bottom: 10px;
 		}
 
 		.speaking-slider-stage {
@@ -1166,20 +1197,20 @@ const recognition: MediaItem = {
 		}
 
 		.media-card {
-			min-height: 292px;
+			height: 295px;
 		}
 
 		.media-card-image {
-			flex-basis: 155px;
-			height: 155px;
+			flex-basis: 145px;
+			height: 145px;
 		}
 
 		.media-card-content {
-			padding: 14px 16px 15px;
+			padding: 13px 16px 14px;
 		}
 
 		.media-card-actions {
-			margin-top: 14px;
+			margin-top: 12px;
 			padding-top: 0;
 		}
 
@@ -1190,8 +1221,8 @@ const recognition: MediaItem = {
 
 		.recognition-image {
 			width: 100%;
-			height: 165px;
-			min-height: 165px;
+			height: 158px;
+			min-height: 158px;
 			border-right: 0;
 			border-bottom:
 				1px solid
@@ -1199,7 +1230,7 @@ const recognition: MediaItem = {
 		}
 
 		.recognition-content {
-			padding: 16px;
+			padding: 15px 16px 16px;
 		}
 
 		.media-contact {
