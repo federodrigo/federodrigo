@@ -5,84 +5,86 @@ import Footer from '../../components/Footer.astro';
 
 type MediaItem = {
 	type: string;
-	status: 'upcoming' | 'published';
 	title: string;
 	date: string;
 	image: string;
 	imageAlt: string;
-	description: string;
 	url?: string;
 	linkLabel?: string;
 	pdfUrl?: string;
 	pdfLabel?: string;
 	internal?: boolean;
+	imageFit?: 'cover' | 'contain';
+	imagePosition?: string;
+	imageClass?: string;
 };
 
 const mediaItems: MediaItem[] = [
 	{
 		type: 'Webinar',
-		status: 'upcoming',
 		title: 'La Tecnología Nunca es el Punto de Partida — Xseed',
 		date: 'Agosto de 2026',
 		image: '/images/xseed-webinar.png',
 		imageAlt:
-			'Webinar Technology is Never the Starting Point con Federico Rodrigo',
-		description:
-			'Una sesión práctica sobre cómo comenzar por las personas y las prioridades del negocio, y usar la tecnología para habilitar el resultado',
+			'Webinar La Tecnología Nunca es el Punto de Partida con Federico Rodrigo',
 		url: '/es/webinar/',
-		linkLabel: 'Más información',
+		linkLabel: 'Ver la charla',
 		internal: true,
+		imageFit: 'contain',
+		imagePosition: 'center center'
 	},
-{
-	type: 'Podcast',
-	status: 'published',
-	title: 'The Technology Vanguard',
-	date: 'Agosto de 2026',
-	image: '/images/vanguard.png',
-	imageAlt:
-		'Fede Rodrigo participando en el podcast The Technology Vanguard',
-	description:
-		'Una conversación honesta sobre liderazgo en IT, los errores que enseñan, el salto de la excelencia técnica al liderazgo de personas y las lecciones que realmente ayudan a construir el camino hacia el CIO',
-	url: 'https://www.youtube.com/watch?v=2wyTHhaOcWE',
-	linkLabel: 'Ver la conversación',
-},
 	{
-		type: 'Entrevista Escrita',
-		status: 'published',
-		title: 'Convertir la inversión en la nube en valor para el negocio — Nublit',
+		type: 'Podcast',
+		title: 'The Technology Vanguard',
+		date: 'Agosto de 2026',
+		image: '/images/vanguard.png',
+		imageAlt:
+			'Fede Rodrigo participando en el podcast The Technology Vanguard',
+		url: 'https://www.youtube.com/watch?v=2wyTHhaOcWE',
+		linkLabel: 'Ver la conversación',
+		imageFit: 'contain',
+		imagePosition: 'center center',
+		imageClass: 'media-image-vanguard'
+	},
+	{
+		type: 'Entrevista',
+		title: 'Inversión en la Nube y Valor de Negocio — Nublit',
 		date: 'Enero de 2026',
 		image: '/images/cloud-interview.jpg',
-		imageAlt: 'Entrevista con Fede Rodrigo publicada por Nublit',
-		description:
-			'Una conversación con Nublit sobre estrategia cloud en América Latina, adopción híbrida, barreras culturales y regulatorias, y el papel de la tecnología como motor de crecimiento, innovación y resiliencia operativa',
+		imageAlt:
+			'Entrevista con Fede Rodrigo publicada por Nublit',
 		url: 'https://informe2026.nublit.com/',
 		linkLabel: 'Ver informe completo',
 		pdfUrl: '/pdfs/Fede-Rodrigo-Interview-Nublit.pdf',
 		pdfLabel: 'Leer mi entrevista',
-	},
-	{
-		type: 'Finalista de Premio',
-		status: 'published',
-		title: 'Premios ORBIE CIO',
-		date: 'Septiembre de 2024',
-		image: '/images/orbie.jpg',
-		imageAlt: 'Premios ORBIE CIO Central Texas',
-		description:
-			'Reconocido como finalista en la categoría Global CIO de los premios Central Texas',
-		url: 'https://orbie.org/honoree/federico-rodrigo/4324',
-		linkLabel: 'Ver reconocimiento',
+		imageFit: 'contain',
+		imagePosition: 'center center',
+		imageClass: 'media-image-nublit'
 	},
 	{
 		type: 'Mesa Redonda Ejecutiva',
-		status: 'published',
 		title: 'Reinvención Industrial — The Economist',
 		date: 'Septiembre de 2024',
 		image: '/images/impact.png',
-		imageAlt: 'The Economist Impact',
-		description:
-			'Participante invitado en Industrial Reinvention: New Business Models and Jobs for Tomorrow’s Technology, organizado por The Economist Impact junto a otros CIOs en Houston, Texas',
-	},
+		imageAlt:
+			'Fede Rodrigo participando en una mesa redonda ejecutiva de The Economist Impact',
+		imageFit: 'contain',
+		imagePosition: 'center center',
+		imageClass: 'media-image-economist'
+	}
 ];
+
+const recognition: MediaItem = {
+	type: 'Reconocimiento',
+	title: 'Premios ORBIE CIO',
+	date: 'Septiembre de 2024',
+	image: '/images/orbie.jpg',
+	imageAlt: 'Premios ORBIE CIO Central Texas',
+	url: 'https://orbie.org/honoree/federico-rodrigo/4324',
+	linkLabel: 'Ver reconocimiento',
+	imageFit: 'cover',
+	imagePosition: 'center 42%'
+};
 ---
 
 <!doctype html>
@@ -94,8 +96,8 @@ const mediaItems: MediaItem[] = [
 		</script>
 
 		<SEO
-			title="Charlas & Eventos | Fede Rodrigo"
-			description="Charlas, webinars, mesas redondas ejecutivas, entrevistas, podcasts y eventos profesionales"
+			title="Charlas | Fede Rodrigo"
+			description="Charlas, webinars, mesas redondas ejecutivas, entrevistas, podcasts y conversaciones sobre tecnología, negocios, liderazgo y ejecución"
 			lang="es"
 		/>
 	</head>
@@ -104,88 +106,231 @@ const mediaItems: MediaItem[] = [
 		<Header />
 
 		<main>
+			<!-- HERO -->
+
 			<section class="hero">
 				<h1 class="hero-title">
-					<span class="hero-line">
-						Charlas & <span class="accent">Eventos</span>
-					</span>
+					<span class="hero-line">Charlas</span>
 				</h1>
 
 				<div class="lead-principles">
-					<div>La Tecnología es Solo una Parte del Trabajo</div>
+					<div>La Tecnología es Parte del Trabajo</div>
 					<div>El Liderazgo es el Trabajo</div>
 				</div>
 			</section>
 
+			<!-- IDEA CENTRAL -->
+
 			<section
-				class="media-list reveal-section"
-				aria-labelledby="media-list-title"
+				class="speaking-thesis reveal-section"
+				aria-labelledby="speaking-thesis-title"
+			>
+				<div class="speaking-thesis-copy">
+					<p class="speaking-thesis-text reveal-item">
+						Las empresas parten de un problema de negocio. Compran
+						tecnología para resolverlo. Con demasiada frecuencia, el
+						problema original permanece — y aparecen otros nuevos
+					</p>
+
+					<h2
+						id="speaking-thesis-title"
+						class="speaking-thesis-conclusion reveal-item reveal-delay-1"
+					>
+						El error es comenzar por la tecnología
+					</h2>
+				</div>
+			</section>
+
+			<!-- DIAPOSITIVAS -->
+
+			<section
+				class="speaking-showcase reveal-section"
+				aria-label="Diapositivas de las charlas"
+			>
+				<div
+					class="speaking-slider reveal-item"
+					data-speaking-slider
+				>
+					<div class="speaking-slider-stage">
+						<figure
+							class="speaking-slide is-active"
+							data-speaking-slide
+							aria-hidden="false"
+						>
+							<img
+								class="speaking-slide-image"
+								src="/images/speaking-slide-question-clean.png"
+								alt="¿Qué pasaría si tu próxima decisión tecnológica comenzara sin tecnología?"
+								loading="eager"
+							/>
+						</figure>
+
+						<figure
+							class="speaking-slide"
+							data-speaking-slide
+							aria-hidden="true"
+						>
+							<img
+								class="speaking-slide-image"
+								src="/images/speaking-slide-business-value.png"
+								alt="¿Por qué existe IT? Para crear valor de negocio"
+								loading="lazy"
+							/>
+						</figure>
+
+						<figure
+							class="speaking-slide"
+							data-speaking-slide
+							aria-hidden="true"
+						>
+							<img
+								class="speaking-slide-image"
+								src="/images/speaking-slide-leadership.png"
+								alt="La tecnología siempre cambiará. El liderazgo no. La tecnología nunca es el punto de partida"
+								loading="lazy"
+							/>
+						</figure>
+					</div>
+
+					<div
+						class="speaking-slider-nav"
+						aria-label="Elegir diapositiva"
+					>
+						<button
+							type="button"
+							class="speaking-slider-dot is-active"
+							data-speaking-dot="0"
+							aria-label="Mostrar diapositiva 1"
+							aria-current="true"
+						></button>
+
+						<button
+							type="button"
+							class="speaking-slider-dot"
+							data-speaking-dot="1"
+							aria-label="Mostrar diapositiva 2"
+							aria-current="false"
+						></button>
+
+						<button
+							type="button"
+							class="speaking-slider-dot"
+							data-speaking-dot="2"
+							aria-label="Mostrar diapositiva 3"
+							aria-current="false"
+						></button>
+					</div>
+				</div>
+			</section>
+
+			<div
+				class="speaking-divider"
+				aria-hidden="true"
+			></div>
+
+			<!-- CHARLAS & CONVERSACIONES -->
+
+			<section
+				class="media-events reveal-section"
+				aria-labelledby="media-events-title"
 			>
 				<h2
-					id="media-list-title"
+					id="media-events-title"
 					class="reveal-item"
 				>
-					Destacados
+					Charlas & Conversaciones
 				</h2>
 
-				{
-					mediaItems.map((item, index) => (
-						<article
-							class="media-item"
-							style={`--media-index: ${index};`}
-						>
-							<div class="media-image-wrapper">
-								{
-									item.url ? (
+				<div class="media-grid">
+					{
+						mediaItems.map((item, index) => (
+							<article
+								class:list={[
+									'media-card',
+									'reveal-item',
+									{
+										'media-card--nublit':
+											Boolean(item.pdfUrl)
+									}
+								]}
+								style={`
+									--delay: ${index * 70}ms;
+									--media-fit: ${item.imageFit ?? 'cover'};
+									--media-position: ${
+										item.imagePosition ?? 'center center'
+									};
+								`}
+							>
+								<div class="media-card-image">
+									{item.url ? (
 										<a
 											href={item.url}
-											target={item.internal ? undefined : '_blank'}
-											rel={item.internal ? undefined : 'noopener noreferrer'}
-											aria-label={item.linkLabel ?? item.title}
+											target={
+												item.internal
+													? undefined
+													: '_blank'
+											}
+											rel={
+												item.internal
+													? undefined
+													: 'noopener noreferrer'
+											}
+											aria-label={
+												item.linkLabel ??
+												item.title
+											}
 										>
 											<img
+												class:list={[
+													'media-card-image-element',
+													item.imageClass
+												]}
 												src={item.image}
 												alt={item.imageAlt}
-												class="media-image"
 												loading="lazy"
 											/>
 										</a>
 									) : (
 										<img
+											class:list={[
+												'media-card-image-element',
+												item.imageClass
+											]}
 											src={item.image}
 											alt={item.imageAlt}
-											class="media-image"
 											loading="lazy"
 										/>
-									)
-								}
-							</div>
+									)}
+								</div>
 
-							<div class="media-content">
-								<p class="media-meta">
-									<span>{item.type}</span>
-									<span aria-hidden="true">·</span>
-									<span>{item.date}</span>
-								</p>
+								<div class="media-card-content">
+									<p class="media-card-meta">
+										<span>{item.type}</span>
 
-								<h3>{item.title}</h3>
+										<span aria-hidden="true">·</span>
 
-								<p class="media-description">
-									{item.description}
-								</p>
+										<span>{item.date}</span>
+									</p>
 
-								{
-									item.url ? (
-										<div class="media-action">
-											{
-												item.pdfUrl && item.pdfLabel && (
+									<h3>{item.title}</h3>
+
+									{(item.url || item.pdfUrl) && (
+										<div class="media-card-actions">
+											{item.pdfUrl &&
+												item.pdfLabel && (
 													<a
-														href={item.pdfUrl}
+														href={
+															item.pdfUrl
+														}
 														target="_blank"
 														rel="noopener noreferrer"
 														class="animated-link"
 													>
-														<span>{item.pdfLabel}</span>
+														<span>
+															{
+																item.pdfLabel
+															}
+														</span>
 
 														<span
 															class="animated-link-arrow"
@@ -194,52 +339,117 @@ const mediaItems: MediaItem[] = [
 															→
 														</span>
 													</a>
-												)
-											}
+												)}
 
-											<a
-												href={item.url}
-												target={item.internal ? undefined : '_blank'}
-												rel={item.internal ? undefined : 'noopener noreferrer'}
-												class="animated-link"
-											>
-												<span>
-													{item.linkLabel ?? 'Más información'}
-												</span>
-
-												<span
-													class="animated-link-arrow"
-													aria-hidden="true"
+											{item.url && (
+												<a
+													href={item.url}
+													target={
+														item.internal
+															? undefined
+															: '_blank'
+													}
+													rel={
+														item.internal
+															? undefined
+															: 'noopener noreferrer'
+													}
+													class="animated-link"
 												>
-													→
-												</span>
-											</a>
+													<span>
+														{
+															item.linkLabel ??
+																'Más información'
+														}
+													</span>
+
+													<span
+														class="animated-link-arrow"
+														aria-hidden="true"
+													>
+														→
+													</span>
+												</a>
+											)}
 										</div>
-									) : (
-										item.status === 'upcoming' && (
-											<p class="media-coming-soon">
-												Próximamente
-											</p>
-										)
-									)
-								}
-							</div>
-						</article>
-					))
-				}
+									)}
+								</div>
+							</article>
+						))
+					}
+				</div>
+
+				<!-- RECONOCIMIENTO -->
+
+				<article
+					class="recognition-card reveal-item"
+					style={`
+						--delay: ${mediaItems.length * 70}ms;
+						--media-fit: ${recognition.imageFit ?? 'cover'};
+						--media-position: ${
+							recognition.imagePosition ?? 'center center'
+						};
+					`}
+				>
+					<div class="recognition-image">
+						<a
+							href={recognition.url}
+							target="_blank"
+							rel="noopener noreferrer"
+							aria-label={recognition.linkLabel}
+						>
+							<img
+								src={recognition.image}
+								alt={recognition.imageAlt}
+								loading="lazy"
+							/>
+						</a>
+					</div>
+
+					<div class="recognition-content">
+						<p class="media-card-meta">
+							<span>{recognition.type}</span>
+
+							<span aria-hidden="true">·</span>
+
+							<span>{recognition.date}</span>
+						</p>
+
+						<h3>{recognition.title}</h3>
+
+						<a
+							href={recognition.url}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="animated-link recognition-link"
+						>
+							<span>{recognition.linkLabel}</span>
+
+							<span
+								class="animated-link-arrow"
+								aria-hidden="true"
+							>
+								→
+							</span>
+						</a>
+					</div>
+				</article>
 			</section>
 
-			<section class="media-contact reveal-section">
+			<!-- INVITACIONES & CONSULTAS -->
+
+			<section class="cio-office-contact reveal-section">
 				<h2 class="reveal-item">
 					Invitaciones & Consultas
 				</h2>
 
 				<div class="reveal-item reveal-delay-1">
 					<p>
-						Para charlas, webinars, podcasts, conferencias, mesas redondas u otras oportunidades, podés contactarme
+						Para charlas, entrevistas, podcasts u otras
+						oportunidades en medios, podés contactarme
 					</p>
 
-					<p class="media-contact-link">
+					<p class="cio-office-contact-link">
 						<a
 							href="/es/contact/"
 							class="animated-link"
@@ -260,28 +470,740 @@ const mediaItems: MediaItem[] = [
 
 		<Footer />
 
+		<!-- REVEAL -->
+
 		<script>
 			const sections =
-				document.querySelectorAll('.reveal-section');
+				document.querySelectorAll(
+					'.reveal-section'
+				);
 
-			const revealObserver = new IntersectionObserver(
-				(entries, observer) => {
-					entries.forEach((entry) => {
-						if (!entry.isIntersecting) return;
+			if ('IntersectionObserver' in window) {
+				const revealObserver =
+					new IntersectionObserver(
+						(entries, observer) => {
+							entries.forEach((entry) => {
+								if (!entry.isIntersecting) {
+									return;
+								}
 
-						entry.target.classList.add('is-visible');
-						observer.unobserve(entry.target);
-					});
-				},
-				{
-					threshold: 0.08,
-					rootMargin: '0px 0px -50px 0px',
+								entry.target.classList.add(
+									'is-visible'
+								);
+
+								observer.unobserve(
+									entry.target
+								);
+							});
+						},
+						{
+							threshold: 0.08,
+							rootMargin:
+								'0px 0px -50px 0px'
+						}
+					);
+
+				sections.forEach((section) => {
+					revealObserver.observe(section);
+				});
+			} else {
+				sections.forEach((section) => {
+					section.classList.add(
+						'is-visible'
+					);
+				});
+			}
+		</script>
+
+		<!-- SLIDER -->
+
+		<script>
+			const speakingSlider =
+				document.querySelector(
+					'[data-speaking-slider]'
+				);
+
+			if (speakingSlider) {
+				const slides = Array.from(
+					speakingSlider.querySelectorAll(
+						'[data-speaking-slide]'
+					)
+				);
+
+				const dots = Array.from(
+					speakingSlider.querySelectorAll(
+						'[data-speaking-dot]'
+					)
+				);
+
+				const reducedMotion =
+					window.matchMedia(
+						'(prefers-reduced-motion: reduce)'
+					).matches;
+
+				let currentSlide = 0;
+				let slideTimer = null;
+				let sliderVisible = false;
+
+				const durations = [
+					7000,
+					5200,
+					5200
+				];
+
+				function showSlide(index) {
+					currentSlide =
+						(index + slides.length) %
+						slides.length;
+
+					slides.forEach(
+						(slide, slideIndex) => {
+							const active =
+								slideIndex ===
+								currentSlide;
+
+							slide.classList.toggle(
+								'is-active',
+								active
+							);
+
+							slide.setAttribute(
+								'aria-hidden',
+								active
+									? 'false'
+									: 'true'
+							);
+						}
+					);
+
+					dots.forEach(
+						(dot, dotIndex) => {
+							const active =
+								dotIndex ===
+								currentSlide;
+
+							dot.classList.toggle(
+								'is-active',
+								active
+							);
+
+							dot.setAttribute(
+								'aria-current',
+								active
+									? 'true'
+									: 'false'
+							);
+						}
+					);
 				}
-			);
 
-			sections.forEach((section) => {
-				revealObserver.observe(section);
-			});
+				function stopSlider() {
+					if (!slideTimer) {
+						return;
+					}
+
+					window.clearTimeout(slideTimer);
+					slideTimer = null;
+				}
+
+				function scheduleNextSlide() {
+					if (
+						reducedMotion ||
+						!sliderVisible
+					) {
+						return;
+					}
+
+					stopSlider();
+
+					slideTimer =
+						window.setTimeout(() => {
+							showSlide(
+								currentSlide + 1
+							);
+
+							scheduleNextSlide();
+						}, durations[currentSlide]);
+				}
+
+				dots.forEach((dot, index) => {
+					dot.addEventListener(
+						'click',
+						() => {
+							showSlide(index);
+							scheduleNextSlide();
+						}
+					);
+				});
+
+				speakingSlider.addEventListener(
+					'mouseenter',
+					stopSlider
+				);
+
+				speakingSlider.addEventListener(
+					'mouseleave',
+					scheduleNextSlide
+				);
+
+				if ('IntersectionObserver' in window) {
+					const sliderObserver =
+						new IntersectionObserver(
+							(entries) => {
+								entries.forEach((entry) => {
+									sliderVisible =
+										entry.isIntersecting;
+
+									if (sliderVisible) {
+										scheduleNextSlide();
+									} else {
+										stopSlider();
+									}
+								});
+							},
+							{
+								threshold: 0.35
+							}
+						);
+
+					sliderObserver.observe(
+						speakingSlider
+					);
+				} else {
+					sliderVisible = true;
+					scheduleNextSlide();
+				}
+
+				document.addEventListener(
+					'visibilitychange',
+					() => {
+						if (document.hidden) {
+							stopSlider();
+						} else {
+							scheduleNextSlide();
+						}
+					}
+				);
+			}
 		</script>
 	</body>
 </html>
+
+<style>
+	/* =========================================================
+	   IDEA CENTRAL
+	========================================================= */
+
+	.speaking-thesis {
+		width: min(1120px, calc(100% - 48px));
+		margin: 22px auto 30px;
+		padding: 0;
+	}
+
+	.speaking-thesis-copy {
+		max-width: 920px;
+	}
+
+	.speaking-thesis-text {
+		max-width: 850px;
+		margin: 0 0 17px;
+		color: #6f7d8f;
+		font-size: clamp(1.05rem, 1.35vw, 1..22rem);
+		line-height: 1.58;
+		letter-spacing: -0.015em;
+	}
+
+	.speaking-thesis-conclusion {
+		max-width: 900px;
+		margin: 0;
+		color: #102b46;
+		font-size: clamp(1.5rem, 2.1vw, 2rem);
+		font-weight: 650;
+		line-height: 1.22;
+		letter-spacing: -0.035em;
+	}
+
+	/* =========================================================
+	   CARRUSEL
+	========================================================= */
+
+	.speaking-showcase {
+		width: min(980px, calc(100% - 48px));
+		margin: 0 auto 4px;
+	}
+
+	.speaking-slider {
+		width: 100%;
+	}
+
+	.speaking-slider-stage {
+		position: relative;
+		width: 100%;
+		aspect-ratio: 16 / 9;
+		overflow: hidden;
+		border: 1px solid rgba(16, 43, 70, 0.06);
+		border-radius: 14px;
+		background: #ffffff;
+		box-shadow:
+			0 16px 40px
+			rgba(16, 43, 70, 0.065);
+	}
+
+	.speaking-slide {
+		position: absolute;
+		inset: clamp(24px, 3vw, 42px);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 0;
+		opacity: 0;
+		pointer-events: none;
+		transition: opacity 650ms ease;
+	}
+
+	.speaking-slide.is-active {
+		z-index: 2;
+		opacity: 1;
+		pointer-events: auto;
+	}
+
+	.speaking-slide-image {
+		display: block !important;
+		width: 100% !important;
+		height: 100% !important;
+		max-width: 100% !important;
+		max-height: 100% !important;
+		object-fit: contain !important;
+		object-position: center center !important;
+		background: #ffffff;
+	}
+
+	/* =========================================================
+	   PUNTOS DEL CARRUSEL
+	========================================================= */
+
+	.speaking-slider-nav {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 8px;
+		height: 30px;
+		margin-top: 5px;
+	}
+
+	.speaking-slider-dot {
+		width: 7px;
+		height: 7px;
+		padding: 0;
+		border: 0;
+		border-radius: 50%;
+		background: rgba(16, 43, 70, 0.23);
+		cursor: pointer;
+		transition:
+			width 200ms ease,
+			background 200ms ease,
+			border-radius 200ms ease;
+	}
+
+	.speaking-slider-dot.is-active {
+		width: 23px;
+		border-radius: 999px;
+		background: #102b46;
+	}
+
+	.speaking-slider-dot:focus-visible {
+		outline: 2px solid #6fa7ef;
+		outline-offset: 4px;
+	}
+
+	.speaking-divider {
+		width: min(1120px, calc(100% - 48px));
+		height: 1px;
+		margin: 0 auto 30px;
+		background: rgba(16, 43, 70, 0.12);
+	}
+
+	/* =========================================================
+	   CHARLAS & CONVERSACIONES
+	========================================================= */
+
+	.media-events {
+		width: min(1120px, calc(100% - 48px));
+		margin: 0 auto 22px !important;
+		padding: 0 !important;
+	}
+
+	.media-events > h2 {
+		margin: 0 0 22px;
+		color: #102b46;
+		font-size: clamp(1.95rem, 2.9vw, 2.75rem);
+		font-weight: 600;
+		line-height: 1.05;
+		letter-spacing: -0.035em;
+	}
+
+	.media-grid {
+		display: grid;
+		grid-template-columns:
+			repeat(4, minmax(0, 1fr));
+		gap: 14px;
+	}
+
+	/* =========================================================
+	   TARJETAS
+	========================================================= */
+
+	.media-card {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		height: 310px;
+		min-width: 0;
+		overflow: hidden;
+		border: 1px solid rgba(16, 43, 70, 0.1);
+		border-radius: 12px;
+		background: #ffffff;
+		transition:
+			transform 200ms ease,
+			box-shadow 200ms ease;
+	}
+
+	.media-card:hover,
+	.recognition-card:hover {
+		transform: translateY(-2px);
+		box-shadow:
+			0 12px 28px
+			rgba(16, 43, 70, 0.06);
+	}
+
+	.media-card-image {
+		flex: 0 0 142px;
+		width: 100%;
+		height: 142px;
+		overflow: hidden;
+		border-bottom:
+			1px solid
+			rgba(16, 43, 70, 0.08);
+		background: #f4f5f7;
+	}
+
+	.media-card-image a {
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+
+	.media-card-image-element {
+		display: block !important;
+		width: 100% !important;
+		height: 100% !important;
+		max-width: none !important;
+		max-height: none !important;
+		object-fit: var(--media-fit, cover) !important;
+		object-position:
+			var(--media-position, center center) !important;
+		transform-origin: center center;
+	}
+
+	.media-image-vanguard {
+		object-fit: contain !important;
+		object-position: center center !important;
+		transform: scale(0.96) !important;
+	}
+
+	.media-image-nublit {
+		object-fit: contain !important;
+		object-position: center center !important;
+		transform: scale(1.22) !important;
+	}
+
+	.media-image-economist {
+		object-fit: contain !important;
+		object-position: center center !important;
+		transform: scale(0.96) !important;
+	}
+
+	.media-card-content {
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+		min-height: 0;
+		padding: 13px 14px 14px;
+	}
+
+	.media-card-meta {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 4px;
+		margin: 0 0 7px;
+		color: #7d8b9a;
+		font-size: 0.65rem;
+		font-weight: 700;
+		line-height: 1.3;
+		letter-spacing: 0.055em;
+		text-transform: uppercase;
+	}
+
+	.media-card h3 {
+		display: -webkit-box;
+		margin: 0;
+		overflow: hidden;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 2;
+		color: #102b46;
+		font-size: clamp(0.96rem, 1.05vw, 1.08rem);
+		font-weight: 600;
+		line-height: 1.2;
+		letter-spacing: -0.02em;
+	}
+
+	.media-card-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 6px 12px;
+		margin-top: auto;
+		padding-top: 10px;
+	}
+
+	.media-card-actions .animated-link {
+		font-size: 0.75rem;
+	}
+
+	/* =========================================================
+	   RECONOCIMIENTO
+	========================================================= */
+
+	.recognition-card {
+		display: grid;
+		grid-template-columns: 210px minmax(0, 1fr);
+		min-height: 124px;
+		margin-top: 16px;
+		overflow: hidden;
+		border: 1px solid rgba(16, 43, 70, 0.1);
+		border-radius: 12px;
+		background: #ffffff;
+		transition:
+			transform 200ms ease,
+			box-shadow 200ms ease;
+	}
+
+	.recognition-image {
+		width: 210px;
+		min-height: 124px;
+		overflow: hidden;
+		border-right:
+			1px solid
+			rgba(16, 43, 70, 0.08);
+		background: #f4f5f7;
+	}
+
+	.recognition-image a {
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+
+	.recognition-image img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: var(--media-fit, cover);
+		object-position:
+			var(--media-position, center center);
+	}
+
+	.recognition-content {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: center;
+		padding: 17px 20px;
+	}
+
+	.recognition-card h3 {
+		margin: 0;
+		color: #102b46;
+		font-size: 1.08rem;
+		font-weight: 600;
+		line-height: 1.2;
+		letter-spacing: -0.02em;
+	}
+
+	.recognition-link {
+		margin-top: 10px;
+		font-size: 0.78rem;
+	}
+
+	/* =========================================================
+	   ANIMACIONES
+	========================================================= */
+
+	.js .reveal-section .reveal-item {
+		opacity: 0;
+		transform: translateY(14px);
+		transition:
+			opacity 600ms ease,
+			transform 600ms
+				cubic-bezier(0.22, 1, 0.36, 1);
+		transition-delay: var(--delay, 0ms);
+	}
+
+	.js .reveal-section.is-visible .reveal-item {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	.js .reveal-delay-1 {
+		transition-delay: 90ms !important;
+	}
+
+	/* =========================================================
+	   TABLET
+	========================================================= */
+
+	@media (max-width: 1020px) {
+		.speaking-showcase {
+			width: min(860px, calc(100% - 48px));
+		}
+
+		.media-grid {
+			grid-template-columns:
+				repeat(2, minmax(0, 1fr));
+			gap: 16px;
+		}
+
+		.media-card {
+			height: 310px;
+		}
+
+		.media-card-image {
+			flex-basis: 150px;
+			height: 150px;
+		}
+
+		.media-card-content {
+			padding: 14px 16px 15px;
+		}
+
+		.media-card-meta {
+			font-size: 0.68rem;
+		}
+
+		.media-card h3 {
+			font-size: 1.05rem;
+		}
+
+		.media-card-actions .animated-link {
+			font-size: 0.8rem;
+		}
+	}
+
+	/* =========================================================
+	   MOBILE
+	========================================================= */
+
+	@media (max-width: 620px) {
+		.speaking-thesis,
+		.speaking-showcase,
+		.speaking-divider,
+		.media-events {
+			width: calc(100% - 32px);
+		}
+
+		.speaking-thesis {
+			margin-top: 18px;
+			margin-bottom: 25px;
+		}
+
+		.speaking-thesis-text {
+			margin-bottom: 14px;
+			font-size: 1rem;
+			line-height: 1.58;
+		}
+
+		.speaking-thesis-conclusion {
+			font-size: 1.45rem;
+		}
+
+		.speaking-slider-stage {
+			border-radius: 10px;
+		}
+
+		.speaking-slide {
+			inset: 15px;
+		}
+
+		.speaking-slider-nav {
+			height: 28px;
+			margin-top: 4px;
+		}
+
+		.speaking-divider {
+			margin-bottom: 26px;
+		}
+
+		.media-events {
+			margin-bottom: 18px !important;
+		}
+
+		.media-events > h2 {
+			margin-bottom: 19px;
+		}
+
+		.media-grid {
+			grid-template-columns: 1fr;
+			gap: 16px;
+		}
+
+		.media-card {
+			height: 295px;
+		}
+
+		.media-card-image {
+			flex-basis: 145px;
+			height: 145px;
+		}
+
+		.media-card-content {
+			padding: 13px 16px 14px;
+		}
+
+		.media-card-actions {
+			margin-top: 12px;
+			padding-top: 0;
+		}
+
+		.recognition-card {
+			grid-template-columns: 1fr;
+			margin-top: 16px;
+		}
+
+		.recognition-image {
+			width: 100%;
+			height: 158px;
+			min-height: 158px;
+			border-right: 0;
+			border-bottom:
+				1px solid
+				rgba(16, 43, 70, 0.08);
+		}
+
+		.recognition-content {
+			padding: 15px 16px 16px;
+		}
+	}
+
+	/* =========================================================
+	   MOVIMIENTO REDUCIDO
+	========================================================= */
+
+	@media (prefers-reduced-motion: reduce) {
+		.speaking-slide,
+		.speaking-slider-dot,
+		.media-card,
+		.recognition-card,
+		.reveal-item {
+			transition: none !important;
+		}
+	}
+</style>
