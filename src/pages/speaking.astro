@@ -31,7 +31,7 @@ const mediaItems: MediaItem[] = [
 		linkLabel: 'Explore the talk',
 		internal: true,
 		imageFit: 'contain',
-		imagePosition: 'center center',
+		imagePosition: 'center center'
 	},
 	{
 		type: 'Podcast',
@@ -42,12 +42,9 @@ const mediaItems: MediaItem[] = [
 			'Fede Rodrigo appearing on The Technology Vanguard podcast',
 		url: 'https://www.youtube.com/watch?v=2wyTHhaOcWE',
 		linkLabel: 'Watch the conversation',
-
-		/* IMPORTANT:
-		   contain = show complete artwork, no cropping */
 		imageFit: 'contain',
 		imagePosition: 'center center',
-		imageClass: 'media-image-vanguard',
+		imageClass: 'media-image-vanguard'
 	},
 	{
 		type: 'Interview',
@@ -62,33 +59,32 @@ const mediaItems: MediaItem[] = [
 		pdfLabel: 'Read my interview',
 		imageFit: 'contain',
 		imagePosition: 'center center',
-		imageClass: 'media-image-nublit',
+		imageClass: 'media-image-nublit'
 	},
 	{
 		type: 'Executive Roundtable',
 		title: 'Industrial Reinvention — The Economist',
 		date: 'September 2024',
 		image: '/images/impact.png',
-		imageAlt: 'The Economist Impact',
-
-		/* IMPORTANT:
-		   contain = show complete photo, no cropping */
+		imageAlt:
+			'Fede Rodrigo participating in The Economist Impact executive roundtable',
 		imageFit: 'contain',
 		imagePosition: 'center center',
-		imageClass: 'media-image-economist',
-	},
-	{
-		type: 'Recognition',
-		title: 'ORBIE CIO Awards',
-		date: 'September 2024',
-		image: '/images/orbie.jpg',
-		imageAlt: 'ORBIE Awards CIO Central Texas',
-		url: 'https://orbie.org/honoree/federico-rodrigo/4324',
-		linkLabel: 'View recognition',
-		imageFit: 'cover',
-		imagePosition: 'center 42%',
-	},
+		imageClass: 'media-image-economist'
+	}
 ];
+
+const recognition: MediaItem = {
+	type: 'Recognition',
+	title: 'ORBIE CIO Awards',
+	date: 'September 2024',
+	image: '/images/orbie.jpg',
+	imageAlt: 'ORBIE Awards CIO Central Texas',
+	url: 'https://orbie.org/honoree/federico-rodrigo/4324',
+	linkLabel: 'View recognition',
+	imageFit: 'cover',
+	imagePosition: 'center 42%'
+};
 ---
 
 <!doctype html>
@@ -110,16 +106,11 @@ const mediaItems: MediaItem[] = [
 		<Header />
 
 		<main>
-
-			<!-- =====================================================
-			     HERO
-			===================================================== -->
+			<!-- HERO -->
 
 			<section class="hero">
 				<h1 class="hero-title">
-					<span class="hero-line">
-						Speaking
-					</span>
+					<span class="hero-line">Speaking</span>
 				</h1>
 
 				<div class="lead-principles">
@@ -128,24 +119,43 @@ const mediaItems: MediaItem[] = [
 				</div>
 			</section>
 
+			<!-- CENTRAL IDEA -->
 
-			<!-- =====================================================
-			     SPEAKING SLIDES
-			===================================================== -->
+			<section
+				class="speaking-thesis reveal-section"
+				aria-labelledby="speaking-thesis-title"
+			>
+				<div class="speaking-thesis-copy">
+					<p class="speaking-thesis-text reveal-item">
+						Companies start with a business problem. They buy
+						technology to solve it. Too often, the original problem
+						remains — and new ones appear
+					</p>
+
+					<h2
+						id="speaking-thesis-title"
+						class="speaking-thesis-conclusion reveal-item reveal-delay-1"
+					>
+						The mistake is starting with the technology
+					</h2>
+				</div>
+			</section>
+
+			<!-- SPEAKING SLIDES -->
 
 			<section
 				class="speaking-showcase reveal-section"
 				aria-label="Selected ideas from Fede Rodrigo's talks"
 			>
+				<p class="speaking-showcase-label reveal-item">
+					Selected ideas from my talks
+				</p>
+
 				<div
-					class="speaking-slider reveal-item"
+					class="speaking-slider reveal-item reveal-delay-1"
 					data-speaking-slider
 				>
-
 					<div class="speaking-slider-stage">
-
-						<!-- SLIDE 1 -->
-
 						<figure
 							class="speaking-slide is-active"
 							data-speaking-slide
@@ -158,9 +168,6 @@ const mediaItems: MediaItem[] = [
 								loading="eager"
 							/>
 						</figure>
-
-
-						<!-- SLIDE 2 -->
 
 						<figure
 							class="speaking-slide"
@@ -175,9 +182,6 @@ const mediaItems: MediaItem[] = [
 							/>
 						</figure>
 
-
-						<!-- SLIDE 3 -->
-
 						<figure
 							class="speaking-slide"
 							data-speaking-slide
@@ -186,15 +190,11 @@ const mediaItems: MediaItem[] = [
 							<img
 								class="speaking-slide-image"
 								src="/images/speaking-slide-leadership.png"
-								alt="Technology will always change. Leadership won't. Technology is never the starting point"
+								alt="Technology will always change. Leadership will not. Technology is never the starting point"
 								loading="lazy"
 							/>
 						</figure>
-
 					</div>
-
-
-					<!-- SLIDER DOTS -->
 
 					<div
 						class="speaking-slider-nav"
@@ -224,236 +224,17 @@ const mediaItems: MediaItem[] = [
 							aria-current="false"
 						></button>
 					</div>
-
 				</div>
 			</section>
 
+			<div class="speaking-divider" aria-hidden="true"></div>
 
-			<!-- =====================================================
-			     SPEAKING INTRO
-			===================================================== -->
-
-<section
-	class="speaking-thesis"
-	data-speaking-thesis
-	style="
-		width:min(1120px, calc(100% - 48px));
-		margin:36px auto 40px;
-		padding:0;
-	"
->
-	<div
-		style="
-			max-width:980px;
-		"
-	>
-		<div
-			data-thesis-line="1"
-			style="
-				margin:0 0 12px;
-				color:#6f7d8f;
-				font-size:clamp(1.05rem, 1.35vw, 1.25rem);
-				line-height:1.5;
-				letter-spacing:-0.015em;
-				opacity:0;
-				transform:translateY(10px);
-			"
-		>
-			Companies start with a business problem
-		</div>
-
-		<div
-			data-thesis-line="2"
-			style="
-				margin:0 0 12px;
-				color:#6f7d8f;
-				font-size:clamp(1.05rem, 1.35vw, 1.25rem);
-				line-height:1.5;
-				letter-spacing:-0.015em;
-				opacity:0;
-				transform:translateY(10px);
-			"
-		>
-			They buy technology to solve it
-		</div>
-
-		<div
-			data-thesis-line="3"
-			style="
-				margin:0 0 26px;
-				color:#6f7d8f;
-				font-size:clamp(1.05rem, 1.35vw, 1.25rem);
-				line-height:1.5;
-				letter-spacing:-0.015em;
-				opacity:0;
-				transform:translateY(10px);
-			"
-		>
-			The original problem remains — and new ones appear
-		</div>
-
-
-		<div
-			data-thesis-conclusion
-			style="
-				max-width:900px;
-				color:#102b46;
-				font-size:clamp(1.55rem, 2.2vw, 2.05rem);
-				font-weight:650;
-				line-height:1.22;
-				letter-spacing:-0.035em;
-				opacity:0;
-				transform:translateY(12px);
-			"
-		>
-			The mistake is starting with the technology
-		</div>
-	</div>
-</section>
-
-<div
-	aria-hidden="true"
-	style="
-		width:min(1120px, calc(100% - 48px));
-		height:1px;
-		margin:0 auto 34px;
-		background:rgba(16,43,70,.12);
-	"
-></div>
-
-<script>
-	const thesis = document.querySelector('[data-speaking-thesis]');
-
-	if (thesis) {
-		const lines = [
-			thesis.querySelector('[data-thesis-line="1"]'),
-			thesis.querySelector('[data-thesis-line="2"]'),
-			thesis.querySelector('[data-thesis-line="3"]')
-		];
-
-		const accent =
-			thesis.querySelector('[data-thesis-accent]');
-
-		const conclusion =
-			thesis.querySelector('[data-thesis-conclusion]');
-
-		const reducedMotion =
-			window.matchMedia(
-				'(prefers-reduced-motion: reduce)'
-			).matches;
-
-		const showImmediately = () => {
-			lines.forEach((line) => {
-				if (!line) return;
-
-				line.style.opacity = '1';
-				line.style.transform = 'translateY(0)';
-			});
-
-			if (accent) {
-				accent.style.width = '52px';
-			}
-
-			if (conclusion) {
-				conclusion.style.opacity = '1';
-				conclusion.style.transform = 'translateY(0)';
-			}
-		};
-
-		const play = () => {
-			if (reducedMotion) {
-				showImmediately();
-				return;
-			}
-
-			lines.forEach((line, index) => {
-				if (!line) return;
-
-				line.animate(
-					[
-						{
-							opacity: 0,
-							transform: 'translateY(10px)'
-						},
-						{
-							opacity: 1,
-							transform: 'translateY(0)'
-						}
-					],
-					{
-						duration: 520,
-						delay: index * 180,
-						easing: 'cubic-bezier(.22,1,.36,1)',
-						fill: 'forwards'
-					}
-				);
-			});
-
-			if (accent) {
-				accent.animate(
-					[
-						{ width: '0px' },
-						{ width: '52px' }
-					],
-					{
-						duration: 420,
-						delay: 620,
-						easing: 'cubic-bezier(.22,1,.36,1)',
-						fill: 'forwards'
-					}
-				);
-			}
-
-			if (conclusion) {
-				conclusion.animate(
-					[
-						{
-							opacity: 0,
-							transform: 'translateY(12px)'
-						},
-						{
-							opacity: 1,
-							transform: 'translateY(0)'
-						}
-					],
-					{
-						duration: 650,
-						delay: 760,
-						easing: 'cubic-bezier(.22,1,.36,1)',
-						fill: 'forwards'
-					}
-				);
-			}
-		};
-
-		const observer =
-			new IntersectionObserver(
-				(entries, observer) => {
-					entries.forEach((entry) => {
-						if (!entry.isIntersecting) return;
-
-						play();
-						observer.unobserve(entry.target);
-					});
-				},
-				{
-					threshold: 0.35
-				}
-			);
-
-		observer.observe(thesis);
-	}
-</script>
-
-			<!-- =====================================================
-			     RECENT ENGAGEMENTS
-			===================================================== -->
+			<!-- RECENT ENGAGEMENTS -->
 
 			<section
 				class="media-events reveal-section"
 				aria-labelledby="media-events-title"
 			>
-
 				<h2
 					id="media-events-title"
 					class="reveal-item"
@@ -461,225 +242,189 @@ const mediaItems: MediaItem[] = [
 					Recent Engagements
 				</h2>
 
-
 				<div class="media-grid">
-
 					{
 						mediaItems.map((item, index) => (
-
 							<article
 								class:list={[
 									'media-card',
 									'reveal-item',
 									{
 										'media-card--nublit':
-											Boolean(item.pdfUrl),
-									},
+											Boolean(item.pdfUrl)
+									}
 								]}
 								style={`
-									--delay: ${index * 60}ms;
+									--delay: ${index * 70}ms;
 									--media-fit: ${item.imageFit ?? 'cover'};
-									--media-position: ${item.imagePosition ?? 'center center'};
+									--media-position: ${
+										item.imagePosition ?? 'center center'
+									};
 								`}
 							>
-
-								<!-- IMAGE -->
-
 								<div class="media-card-image">
-
-									{
-										item.url ? (
-
-											<a
-												href={item.url}
-												target={
-													item.internal
-														? undefined
-														: '_blank'
-												}
-												rel={
-													item.internal
-														? undefined
-														: 'noopener noreferrer'
-												}
-												aria-label={
-													item.linkLabel ??
-													item.title
-												}
-											>
-
-												<img
-													class:list={[
-														'media-card-image-element',
-														item.imageClass,
-													]}
-													src={item.image}
-													alt={item.imageAlt}
-													loading="lazy"
-												/>
-
-											</a>
-
-										) : (
-
+									{item.url ? (
+										<a
+											href={item.url}
+											target={
+												item.internal
+													? undefined
+													: '_blank'
+											}
+											rel={
+												item.internal
+													? undefined
+													: 'noopener noreferrer'
+											}
+											aria-label={
+												item.linkLabel ??
+												item.title
+											}
+										>
 											<img
 												class:list={[
 													'media-card-image-element',
-													item.imageClass,
+													item.imageClass
 												]}
 												src={item.image}
 												alt={item.imageAlt}
 												loading="lazy"
 											/>
-
-										)
-									}
-
+										</a>
+									) : (
+										<img
+											class:list={[
+												'media-card-image-element',
+												item.imageClass
+											]}
+											src={item.image}
+											alt={item.imageAlt}
+											loading="lazy"
+										/>
+									)}
 								</div>
-
-
-								<!-- CONTENT -->
 
 								<div class="media-card-content">
-
 									<p class="media-card-meta">
+										<span>{item.type}</span>
 
-										<span>
-											{item.type}
-										</span>
+										<span aria-hidden="true">·</span>
 
-										<span aria-hidden="true">
-											·
-										</span>
-
-										<span>
-											{item.date}
-										</span>
-
+										<span>{item.date}</span>
 									</p>
 
+									<h3>{item.title}</h3>
 
-									<h3>
-										{item.title}
-									</h3>
-
-
-									{
-										(item.url || item.pdfUrl) && (
-
-											<div class="media-card-actions">
-
-												{
-													item.pdfUrl &&
-													item.pdfLabel && (
-
-														<a
-															href={item.pdfUrl}
-															target="_blank"
-															rel="noopener noreferrer"
-															class="animated-link"
-														>
-
-															<span>
-																{item.pdfLabel}
-															</span>
-
-															<span
-																class="animated-link-arrow"
-																aria-hidden="true"
-															>
-																→
-															</span>
-
-														</a>
-
-													)
-												}
-
-
-												{
-													item.url && (
-
-														<a
-															href={item.url}
-															target={
-																item.internal
-																	? undefined
-																	: '_blank'
+									{(item.url || item.pdfUrl) && (
+										<div class="media-card-actions">
+											{item.pdfUrl &&
+												item.pdfLabel && (
+													<a
+														href={
+															item.pdfUrl
+														}
+														target="_blank"
+														rel="noopener noreferrer"
+														class="animated-link"
+													>
+														<span>
+															{
+																item.pdfLabel
 															}
-															rel={
-																item.internal
-																	? undefined
-																	: 'noopener noreferrer'
-															}
-															class="animated-link"
+														</span>
+
+														<span
+															class="animated-link-arrow"
+															aria-hidden="true"
 														>
+															→
+														</span>
+													</a>
+												)}
 
-															<span>
-																{
-																	item.linkLabel ??
-																	'Learn more'
-																}
-															</span>
+											{item.url && (
+												<a
+													href={item.url}
+													target={
+														item.internal
+															? undefined
+															: '_blank'
+													}
+													rel={
+														item.internal
+															? undefined
+															: 'noopener noreferrer'
+													}
+													class="animated-link"
+												>
+													<span>
+														{
+															item.linkLabel ??
+																'Learn more'
+														}
+													</span>
 
-															<span
-																class="animated-link-arrow"
-																aria-hidden="true"
-															>
-																→
-															</span>
-
-														</a>
-
-													)
-												}
-
-											</div>
-
-										)
-									}
-
+													<span
+														class="animated-link-arrow"
+														aria-hidden="true"
+													>
+														→
+													</span>
+												</a>
+											)}
+										</div>
+									)}
 								</div>
-
 							</article>
-
 						))
 					}
-
 				</div>
 
-			</section>
+				<!-- RECOGNITION -->
 
+				<article
+					class="recognition-card reveal-item"
+					style={`
+						--delay: ${mediaItems.length * 70}ms;
+						--media-fit: ${recognition.imageFit ?? 'cover'};
+						--media-position: ${
+							recognition.imagePosition ?? 'center center'
+						};
+					`}
+				>
+					<div class="recognition-image">
+						<a
+							href={recognition.url}
+							target="_blank"
+							rel="noopener noreferrer"
+							aria-label={recognition.linkLabel}
+						>
+							<img
+								src={recognition.image}
+								alt={recognition.imageAlt}
+								loading="lazy"
+							/>
+						</a>
+					</div>
 
-			<!-- =====================================================
-			     SPEAKING INQUIRIES
-			===================================================== -->
+					<div class="recognition-content">
+						<p class="media-card-meta">
+							<span>{recognition.type}</span>
 
-			<section class="media-contact reveal-section">
+							<span aria-hidden="true">·</span>
 
-				<h2 class="reveal-item">
-					Speaking Inquiries
-				</h2>
+							<span>{recognition.date}</span>
+						</p>
 
-
-				<div class="reveal-item reveal-delay-1">
-
-					<p>
-						For speaking engagements, interviews, podcasts,
-						or other media opportunities, please get in touch
-					</p>
-
-
-					<p class="media-contact-link">
+						<h3>{recognition.title}</h3>
 
 						<a
-							href="/contact/"
-							class="animated-link"
+							href={recognition.url}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="animated-link recognition-link"
 						>
-
-							<span>
-								Contact me
-							</span>
+							<span>{recognition.linkLabel}</span>
 
 							<span
 								class="animated-link-arrow"
@@ -687,155 +432,138 @@ const mediaItems: MediaItem[] = [
 							>
 								→
 							</span>
-
 						</a>
-
-					</p>
-
-				</div>
-
+					</div>
+				</article>
 			</section>
 
+			<!-- SPEAKING INQUIRIES -->
+
+			<section class="media-contact reveal-section">
+				<h2 class="reveal-item">
+					Speaking Inquiries
+				</h2>
+
+				<div class="reveal-item reveal-delay-1">
+					<p>
+						For speaking engagements, interviews, podcasts,
+						or other media opportunities, please get in touch
+					</p>
+
+					<p class="media-contact-link">
+						<a
+							href="/contact/"
+							class="animated-link"
+						>
+							<span>Contact me</span>
+
+							<span
+								class="animated-link-arrow"
+								aria-hidden="true"
+							>
+								→
+							</span>
+						</a>
+					</p>
+				</div>
+			</section>
 		</main>
 
 		<Footer />
 
-
-		<!-- =====================================================
-		     REVEAL
-		===================================================== -->
+		<!-- REVEAL -->
 
 		<script>
-
 			const sections =
-				document.querySelectorAll(
-					'.reveal-section'
-				);
+				document.querySelectorAll('.reveal-section');
 
-
-			const revealObserver =
-				new IntersectionObserver(
-
-					(entries, observer) => {
-
-						entries.forEach(
-							(entry) => {
-
+			if (
+				'IntersectionObserver' in window
+			) {
+				const revealObserver =
+					new IntersectionObserver(
+						(entries, observer) => {
+							entries.forEach((entry) => {
 								if (!entry.isIntersecting) {
 									return;
 								}
-
 
 								entry.target.classList.add(
 									'is-visible'
 								);
 
-
 								observer.unobserve(
 									entry.target
 								);
-
-							}
-						);
-
-					},
-
-					{
-						threshold: 0.08,
-						rootMargin:
-							'0px 0px -50px 0px',
-					}
-
-				);
-
-
-			sections.forEach(
-				(section) => {
-
-					revealObserver.observe(
-						section
+							});
+						},
+						{
+							threshold: 0.08,
+							rootMargin:
+								'0px 0px -50px 0px'
+						}
 					);
 
-				}
-			);
-
+				sections.forEach((section) => {
+					revealObserver.observe(section);
+				});
+			} else {
+				sections.forEach((section) => {
+					section.classList.add('is-visible');
+				});
+			}
 		</script>
 
-
-		<!-- =====================================================
-		     SLIDER
-		===================================================== -->
+		<!-- SLIDER -->
 
 		<script>
-
 			const speakingSlider =
 				document.querySelector(
 					'[data-speaking-slider]'
 				);
 
-
 			if (speakingSlider) {
+				const slides = Array.from(
+					speakingSlider.querySelectorAll(
+						'[data-speaking-slide]'
+					)
+				);
 
-				const slides =
-					Array.from(
-						speakingSlider.querySelectorAll(
-							'[data-speaking-slide]'
-						)
-					);
-
-
-				const dots =
-					Array.from(
-						speakingSlider.querySelectorAll(
-							'[data-speaking-dot]'
-						)
-					);
-
+				const dots = Array.from(
+					speakingSlider.querySelectorAll(
+						'[data-speaking-dot]'
+					)
+				);
 
 				const reducedMotion =
 					window.matchMedia(
 						'(prefers-reduced-motion: reduce)'
 					).matches;
 
-
 				let currentSlide = 0;
 				let slideTimer = null;
 				let sliderVisible = false;
 
-
 				const durations = [
 					7000,
 					5200,
-					5200,
+					5200
 				];
 
-
 				function showSlide(index) {
-
 					currentSlide =
-						(
-							index +
-							slides.length
-						) %
+						(index + slides.length) %
 						slides.length;
 
-
 					slides.forEach(
-						(
-							slide,
-							slideIndex
-						) => {
-
+						(slide, slideIndex) => {
 							const active =
-								slideIndex ===
-								currentSlide;
-
+								slideIndex === currentSlide;
 
 							slide.classList.toggle(
 								'is-active',
 								active
 							);
-
 
 							slide.setAttribute(
 								'aria-hidden',
@@ -843,27 +571,18 @@ const mediaItems: MediaItem[] = [
 									? 'false'
 									: 'true'
 							);
-
 						}
 					);
 
-
 					dots.forEach(
-						(
-							dot,
-							dotIndex
-						) => {
-
+						(dot, dotIndex) => {
 							const active =
-								dotIndex ===
-								currentSlide;
-
+								dotIndex === currentSlide;
 
 							dot.classList.toggle(
 								'is-active',
 								active
 							);
-
 
 							dot.setAttribute(
 								'aria-current',
@@ -871,32 +590,20 @@ const mediaItems: MediaItem[] = [
 									? 'true'
 									: 'false'
 							);
-
 						}
 					);
-
 				}
 
-
 				function stopSlider() {
-
 					if (!slideTimer) {
 						return;
 					}
 
-
-					window.clearTimeout(
-						slideTimer
-					);
-
-
+					window.clearTimeout(slideTimer);
 					slideTimer = null;
-
 				}
 
-
 				function scheduleNextSlide() {
-
 					if (
 						reducedMotion ||
 						!sliderVisible
@@ -904,182 +611,156 @@ const mediaItems: MediaItem[] = [
 						return;
 					}
 
-
 					stopSlider();
 
-
 					slideTimer =
-						window.setTimeout(
+						window.setTimeout(() => {
+							showSlide(
+								currentSlide + 1
+							);
 
-							() => {
-
-								showSlide(
-									currentSlide + 1
-								);
-
-
-								scheduleNextSlide();
-
-							},
-
-							durations[
-								currentSlide
-							]
-
-						);
-
+							scheduleNextSlide();
+						}, durations[currentSlide]);
 				}
 
-
-				dots.forEach(
-					(dot, index) => {
-
-						dot.addEventListener(
-							'click',
-
-							() => {
-
-								showSlide(
-									index
-								);
-
-
-								scheduleNextSlide();
-
-							}
-						);
-
-					}
-				);
-
+				dots.forEach((dot, index) => {
+					dot.addEventListener(
+						'click',
+						() => {
+							showSlide(index);
+							scheduleNextSlide();
+						}
+					);
+				});
 
 				speakingSlider.addEventListener(
 					'mouseenter',
 					stopSlider
 				);
 
-
 				speakingSlider.addEventListener(
 					'mouseleave',
 					scheduleNextSlide
 				);
 
-
-				const speakingSliderObserver =
-					new IntersectionObserver(
-
-						(entries) => {
-
-							entries.forEach(
-								(entry) => {
-
+				if (
+					'IntersectionObserver' in window
+				) {
+					const sliderObserver =
+						new IntersectionObserver(
+							(entries) => {
+								entries.forEach((entry) => {
 									sliderVisible =
 										entry.isIntersecting;
 
-
-									if (
-										sliderVisible
-									) {
-
+									if (sliderVisible) {
 										scheduleNextSlide();
-
 									} else {
-
 										stopSlider();
-
 									}
+								});
+							},
+							{
+								threshold: 0.35
+							}
+						);
 
-								}
-							);
-
-						},
-
-						{
-							threshold: 0.35,
-						}
-
+					sliderObserver.observe(
+						speakingSlider
 					);
-
-
-				speakingSliderObserver.observe(
-					speakingSlider
-				);
-
+				} else {
+					sliderVisible = true;
+					scheduleNextSlide();
+				}
 
 				document.addEventListener(
 					'visibilitychange',
-
 					() => {
-
-						if (
-							document.hidden
-						) {
-
+						if (document.hidden) {
 							stopSlider();
-
 						} else {
-
 							scheduleNextSlide();
-
 						}
-
 					}
 				);
-
 			}
-
 		</script>
-
 	</body>
 </html>
 
-
 <style>
-
 	/* =========================================================
-	   HERO
-	   NOT TOUCHED
+	   CENTRAL IDEA
 	========================================================= */
 
+	.speaking-thesis {
+		width: min(1120px, calc(100% - 48px));
+		margin: 22px auto 30px;
+		padding: 0;
+	}
+
+	.speaking-thesis-copy {
+		max-width: 920px;
+	}
+
+	.speaking-thesis-text {
+		max-width: 850px;
+		margin: 0 0 17px;
+		color: #6f7d8f;
+		font-size: clamp(1.05rem, 1.35vw, 1.22rem);
+		line-height: 1.58;
+		letter-spacing: -0.015em;
+	}
+
+	.speaking-thesis-conclusion {
+		max-width: 900px;
+		margin: 0;
+		color: #102b46;
+		font-size: clamp(1.5rem, 2.1vw, 2rem);
+		font-weight: 650;
+		line-height: 1.22;
+		letter-spacing: -0.035em;
+	}
 
 	/* =========================================================
-	   SLIDES
+	   SPEAKING SLIDER
 	========================================================= */
 
 	.speaking-showcase {
-		width: min(1120px, calc(100% - 48px));
-		margin: 18px auto 10px;
+		width: min(980px, calc(100% - 48px));
+		margin: 0 auto 4px;
 	}
 
+	.speaking-showcase-label {
+		margin: 0 0 12px;
+		color: #7d8b9a;
+		font-size: 0.72rem;
+		font-weight: 700;
+		line-height: 1.3;
+		letter-spacing: 0.075em;
+		text-transform: uppercase;
+	}
 
 	.speaking-slider {
 		width: 100%;
 	}
-
 
 	.speaking-slider-stage {
 		position: relative;
 		width: 100%;
 		aspect-ratio: 16 / 9;
 		overflow: hidden;
+		border: 1px solid rgba(16, 43, 70, 0.06);
 		border-radius: 14px;
 		background: #ffffff;
 		box-shadow:
-			0 18px 45px
-			rgba(16, 43, 70, 0.07);
+			0 16px 40px
+			rgba(16, 43, 70, 0.065);
 	}
-
 
 	.speaking-slide {
 		position: absolute;
-
-		inset:
-			clamp(
-				30px,
-				3vw,
-				48px
-			);
-
+		inset: clamp(24px, 3vw, 42px);
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -1089,13 +770,11 @@ const mediaItems: MediaItem[] = [
 		transition: opacity 650ms ease;
 	}
 
-
 	.speaking-slide.is-active {
 		z-index: 2;
 		opacity: 1;
 		pointer-events: auto;
 	}
-
 
 	.speaking-slide-image {
 		display: block !important;
@@ -1107,7 +786,6 @@ const mediaItems: MediaItem[] = [
 		object-position: center center !important;
 		background: #ffffff;
 	}
-
 
 	/* =========================================================
 	   SLIDER DOTS
@@ -1122,7 +800,6 @@ const mediaItems: MediaItem[] = [
 		margin-top: 5px;
 	}
 
-
 	.speaking-slider-dot {
 		width: 7px;
 		height: 7px;
@@ -1131,13 +808,11 @@ const mediaItems: MediaItem[] = [
 		border-radius: 50%;
 		background: rgba(16, 43, 70, 0.23);
 		cursor: pointer;
-
 		transition:
 			width 200ms ease,
 			background 200ms ease,
 			border-radius 200ms ease;
 	}
-
 
 	.speaking-slider-dot.is-active {
 		width: 23px;
@@ -1145,43 +820,10 @@ const mediaItems: MediaItem[] = [
 		background: #102b46;
 	}
 
-
-	/* =========================================================
-	   SPEAKING INTRO
-	========================================================= */
-
-	.speaking-intro {
-		width: min(1120px, calc(100% - 48px));
-		margin: 14px auto 30px;
-		padding: 0 !important;
+	.speaking-slider-dot:focus-visible {
+		outline: 2px solid #6fa7ef;
+		outline-offset: 4px;
 	}
-
-
-	.speaking-intro-copy {
-		max-width: 790px;
-	}
-
-
-	.speaking-intro p {
-		margin: 0;
-		color: #5f7083;
-
-		font-size:
-			clamp(
-				1.05rem,
-				1.45vw,
-				1.22rem
-			);
-
-		line-height: 1.65;
-	}
-
-
-	.speaking-intro strong {
-		color: #102b46;
-		font-weight: 650;
-	}
-
 
 	.speaking-divider {
 		width: min(1120px, calc(100% - 48px));
@@ -1190,98 +832,67 @@ const mediaItems: MediaItem[] = [
 		background: rgba(16, 43, 70, 0.12);
 	}
 
-
 	/* =========================================================
 	   RECENT ENGAGEMENTS
 	========================================================= */
 
 	.media-events {
 		width: min(1120px, calc(100% - 48px));
-		margin: 0 auto 20px !important;
+		margin: 0 auto 22px !important;
 		padding: 0 !important;
 	}
-
 
 	.media-events > h2 {
 		margin: 0 0 22px;
 		color: #102b46;
-
-		font-size:
-			clamp(
-				1.95rem,
-				2.9vw,
-				2.75rem
-			);
-
+		font-size: clamp(1.95rem, 2.9vw, 2.75rem);
 		font-weight: 600;
 		line-height: 1.05;
 		letter-spacing: -0.035em;
 	}
 
-
 	.media-grid {
 		display: grid;
-
 		grid-template-columns:
-			repeat(
-				3,
-				minmax(0, 1fr)
-			);
-
+			repeat(2, minmax(0, 1fr));
 		gap: 18px;
 	}
 
-
 	/* =========================================================
-	   MEDIA CARD
+	   MEDIA CARDS
 	========================================================= */
 
 	.media-card {
 		display: flex;
 		flex-direction: column;
 		width: 100%;
-		height: 300px;
 		min-width: 0;
+		min-height: 342px;
 		overflow: hidden;
-
-		border:
-			1px solid
-			rgba(16, 43, 70, 0.10);
-
+		border: 1px solid rgba(16, 43, 70, 0.1);
 		border-radius: 13px;
 		background: #ffffff;
-
 		transition:
 			transform 200ms ease,
 			box-shadow 200ms ease;
 	}
 
-
-	.media-card:hover {
+	.media-card:hover,
+	.recognition-card:hover {
 		transform: translateY(-2px);
-
 		box-shadow:
 			0 12px 28px
 			rgba(16, 43, 70, 0.06);
 	}
 
-
-	/* =========================================================
-	   MEDIA IMAGE CONTAINER
-	========================================================= */
-
 	.media-card-image {
-		flex: 0 0 145px;
+		flex: 0 0 190px;
 		width: 100%;
-		height: 145px;
+		height: 190px;
 		overflow: hidden;
+		border-bottom: 1px solid rgba(16, 43, 70, 0.08);
 		background: #f4f5f7;
-
-		border-bottom:
-			1px solid
-			rgba(16, 43, 70, 0.08);
 	}
-
 
 	.media-card-image a {
 		display: block;
@@ -1289,41 +900,17 @@ const mediaItems: MediaItem[] = [
 		height: 100%;
 	}
 
-
 	.media-card-image-element {
 		display: block !important;
 		width: 100% !important;
 		height: 100% !important;
 		max-width: none !important;
 		max-height: none !important;
-
-		object-fit:
-			var(
-				--media-fit,
-				cover
-			) !important;
-
+		object-fit: var(--media-fit, cover) !important;
 		object-position:
-			var(
-				--media-position,
-				center center
-			) !important;
-
+			var(--media-position, center center) !important;
 		transform-origin: center center;
 	}
-
-
-	/* =========================================================
-	   INDIVIDUAL IMAGE SIZE
-
-	   Vanguard / Economist:
-	   contain + 0.96 = complete image with a little breathing room
-
-	   Nublit:
-	   contain + 1.30 = larger
-
-	   THESE ARE THE 3 NUMBERS TO TWEAK
-	========================================================= */
 
 	.media-image-vanguard {
 		object-fit: contain !important;
@@ -1331,13 +918,11 @@ const mediaItems: MediaItem[] = [
 		transform: scale(0.96) !important;
 	}
 
-
 	.media-image-nublit {
 		object-fit: contain !important;
 		object-position: center center !important;
-		transform: scale(1.30) !important;
+		transform: scale(1.22) !important;
 	}
-
 
 	.media-image-economist {
 		object-fit: contain !important;
@@ -1345,19 +930,13 @@ const mediaItems: MediaItem[] = [
 		transform: scale(0.96) !important;
 	}
 
-
-	/* =========================================================
-	   MEDIA CONTENT
-	========================================================= */
-
 	.media-card-content {
 		display: flex;
 		flex: 1;
 		flex-direction: column;
 		min-height: 0;
-		padding: 13px 16px 14px;
+		padding: 15px 18px 17px;
 	}
-
 
 	.media-card-meta {
 		display: flex;
@@ -1365,58 +944,88 @@ const mediaItems: MediaItem[] = [
 		gap: 5px;
 		margin: 0 0 8px;
 		color: #7d8b9a;
-		font-size: 0.70rem;
+		font-size: 0.7rem;
 		font-weight: 700;
 		line-height: 1.3;
 		letter-spacing: 0.06em;
 		text-transform: uppercase;
 	}
 
-
-	.media-card h3 {
-		display: -webkit-box;
+	.media-card h3,
+	.recognition-card h3 {
 		margin: 0;
-		overflow: hidden;
-		-webkit-box-orient: vertical;
-		-webkit-line-clamp: 2;
 		color: #102b46;
-
-		font-size:
-			clamp(
-				1rem,
-				1.25vw,
-				1.18rem
-			);
-
+		font-size: clamp(1.05rem, 1.25vw, 1.2rem);
 		font-weight: 600;
-		line-height: 1.18;
+		line-height: 1.2;
 		letter-spacing: -0.02em;
 	}
-
-
-	/* =========================================================
-	   CARD LINKS
-	========================================================= */
 
 	.media-card-actions {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 8px 15px;
-		margin-top: 15px;
-		padding-top: 0;
+		gap: 8px 17px;
+		margin-top: auto;
+		padding-top: 16px;
 	}
-
 
 	.media-card-actions .animated-link {
 		font-size: 0.82rem;
 	}
 
+	/* =========================================================
+	   RECOGNITION
+	========================================================= */
 
-	.media-card--nublit .media-card-actions {
-		margin-top: 13px;
-		padding-top: 0;
+	.recognition-card {
+		display: grid;
+		grid-template-columns: 230px minmax(0, 1fr);
+		min-height: 132px;
+		margin-top: 18px;
+		overflow: hidden;
+		border: 1px solid rgba(16, 43, 70, 0.1);
+		border-radius: 13px;
+		background: #ffffff;
+		transition:
+			transform 200ms ease,
+			box-shadow 200ms ease;
 	}
 
+	.recognition-image {
+		width: 230px;
+		min-height: 132px;
+		overflow: hidden;
+		border-right: 1px solid rgba(16, 43, 70, 0.08);
+		background: #f4f5f7;
+	}
+
+	.recognition-image a {
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+
+	.recognition-image img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: var(--media-fit, cover);
+		object-position:
+			var(--media-position, center center);
+	}
+
+	.recognition-content {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: center;
+		padding: 20px 22px;
+	}
+
+	.recognition-link {
+		margin-top: 13px;
+		font-size: 0.82rem;
+	}
 
 	/* =========================================================
 	   SPEAKING INQUIRIES
@@ -1427,29 +1036,17 @@ const mediaItems: MediaItem[] = [
 		min-height: 0 !important;
 		margin: 24px auto 0 !important;
 		padding: 30px 0 34px !important;
-
-		border-top:
-			1px solid
-			rgba(16, 43, 70, 0.12);
+		border-top: 1px solid rgba(16, 43, 70, 0.12);
 	}
-
 
 	.media-contact h2 {
 		margin: 0 0 16px !important;
 		color: #102b46;
-
-		font-size:
-			clamp(
-				1.95rem,
-				2.9vw,
-				2.75rem
-			);
-
+		font-size: clamp(1.95rem, 2.9vw, 2.75rem);
 		font-weight: 600;
 		line-height: 1.05;
 		letter-spacing: -0.035em;
 	}
-
 
 	.media-contact p {
 		max-width: 700px;
@@ -1459,11 +1056,14 @@ const mediaItems: MediaItem[] = [
 		line-height: 1.55;
 	}
 
-
 	.media-contact .media-contact-link {
-		margin-top: 24px !important;
+		margin-top: 20px !important;
 	}
 
+	.media-contact-link .animated-link {
+		font-size: 0.95rem;
+		font-weight: 700;
+	}
 
 	/* =========================================================
 	   REVEALS
@@ -1472,167 +1072,161 @@ const mediaItems: MediaItem[] = [
 	.js .reveal-section .reveal-item {
 		opacity: 0;
 		transform: translateY(14px);
-
 		transition:
 			opacity 600ms ease,
-			transform 600ms cubic-bezier(
-				0.22,
-				1,
-				0.36,
-				1
-			);
-
-		transition-delay:
-			var(
-				--delay,
-				0ms
-			);
+			transform 600ms
+				cubic-bezier(0.22, 1, 0.36, 1);
+		transition-delay: var(--delay, 0ms);
 	}
-
 
 	.js .reveal-section.is-visible .reveal-item {
 		opacity: 1;
 		transform: translateY(0);
 	}
 
-
 	.js .reveal-delay-1 {
-		transition-delay: 80ms !important;
+		transition-delay: 90ms !important;
 	}
-
 
 	/* =========================================================
 	   TABLET
 	========================================================= */
 
 	@media (max-width: 900px) {
-
-		.media-grid {
-			grid-template-columns:
-				repeat(
-					2,
-					minmax(0, 1fr)
-				);
+		.speaking-showcase {
+			width: min(860px, calc(100% - 48px));
 		}
-
 
 		.media-card {
-			height: 300px;
+			min-height: 326px;
 		}
 
+		.media-card-image {
+			flex-basis: 174px;
+			height: 174px;
+		}
 	}
-
 
 	/* =========================================================
 	   MOBILE
 	========================================================= */
 
 	@media (max-width: 620px) {
-
+		.speaking-thesis,
 		.speaking-showcase,
-		.speaking-intro,
 		.speaking-divider,
 		.media-events,
 		.media-contact {
 			width: calc(100% - 32px);
 		}
 
-
-		.speaking-showcase {
-			margin: 12px auto 8px;
+		.speaking-thesis {
+			margin-top: 18px;
+			margin-bottom: 25px;
 		}
 
+		.speaking-thesis-text {
+			margin-bottom: 14px;
+			font-size: 1rem;
+			line-height: 1.58;
+		}
+
+		.speaking-thesis-conclusion {
+			font-size: 1.45rem;
+		}
+
+		.speaking-showcase-label {
+			margin-bottom: 10px;
+		}
 
 		.speaking-slider-stage {
 			border-radius: 10px;
 		}
 
-
 		.speaking-slide {
-			inset: 16px;
+			inset: 15px;
 		}
-
 
 		.speaking-slider-nav {
-			margin-top: 4px;
 			height: 28px;
+			margin-top: 4px;
 		}
-
-
-		.speaking-intro {
-			margin: 12px auto 26px;
-		}
-
-
-		.speaking-intro p {
-			font-size: 1rem;
-			line-height: 1.6;
-		}
-
 
 		.speaking-divider {
 			margin-bottom: 26px;
 		}
 
-
 		.media-events {
 			margin-bottom: 18px !important;
 		}
 
-
 		.media-events > h2 {
 			margin-bottom: 19px;
 		}
-
 
 		.media-grid {
 			grid-template-columns: 1fr;
 			gap: 16px;
 		}
 
-
 		.media-card {
-			height: 292px;
+			min-height: 292px;
 		}
-
 
 		.media-card-image {
-			flex: 0 0 142px;
-			height: 142px;
+			flex-basis: 155px;
+			height: 155px;
 		}
-
 
 		.media-card-content {
-			padding: 13px 16px 14px;
+			padding: 14px 16px 15px;
 		}
 
+		.media-card-actions {
+			margin-top: 14px;
+			padding-top: 0;
+		}
+
+		.recognition-card {
+			grid-template-columns: 1fr;
+			margin-top: 16px;
+		}
+
+		.recognition-image {
+			width: 100%;
+			height: 165px;
+			min-height: 165px;
+			border-right: 0;
+			border-bottom:
+				1px solid
+				rgba(16, 43, 70, 0.08);
+		}
+
+		.recognition-content {
+			padding: 16px;
+		}
 
 		.media-contact {
 			margin: 22px auto 0 !important;
 			padding: 27px 0 30px !important;
 		}
 
-
 		.media-contact .media-contact-link {
-			margin-top: 22px !important;
+			margin-top: 19px !important;
 		}
-
 	}
-
 
 	/* =========================================================
 	   REDUCED MOTION
 	========================================================= */
 
 	@media (prefers-reduced-motion: reduce) {
-
 		.speaking-slide,
 		.speaking-slider-dot,
 		.media-card,
+		.recognition-card,
 		.reveal-item {
 			transition: none !important;
 		}
-
 	}
-
 </style>
