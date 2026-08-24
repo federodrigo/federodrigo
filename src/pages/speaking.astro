@@ -1,1 +1,288 @@
+---
+import SEO from '../components/SEO.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 
+type MediaItem = {
+	type: string;
+	status: 'upcoming' | 'published';
+	title: string;
+	date: string;
+	image: string;
+	imageAlt: string;
+	description: string;
+	url?: string;
+	linkLabel?: string;
+	pdfUrl?: string;
+	pdfLabel?: string;
+	internal?: boolean;
+};
+
+const mediaItems: MediaItem[] = [
+	{
+		type: 'Webinar',
+		status: 'upcoming',
+		title: 'Technology is Never the Starting Point — Xseed',
+		date: 'August 2026',
+		image: '/images/xseed-webinar.png',
+		imageAlt:
+			'Technology is Never the Starting Point webinar with Federico Rodrigo',
+		description:
+			'A practical session on how to start with people and business priorities, and use technology to enable the outcome',
+		url: '/webinar/',
+		linkLabel: 'Learn more',
+		internal: true,
+	},
+{
+	type: 'Podcast',
+	status: 'published',
+	title: 'The Technology Vanguard',
+	date: 'August 2026',
+	image: '/images/vanguard.png',
+	imageAlt:
+		'Fede Rodrigo appearing on The Technology Vanguard podcast',
+	description:
+		'An honest conversation about IT leadership, the mistakes that teach us, the transition from technical excellence to leading people, and the lessons that really shape the path to becoming a CIO',
+	url: 'https://www.youtube.com/watch?v=2wyTHhaOcWE',
+	linkLabel: 'Watch the conversation',
+},
+	{
+		type: 'Written Interview',
+		status: 'published',
+		title: 'Turning Cloud Investment into Business Value — Nublit',
+		date: 'January 2026',
+		image: '/images/cloud-interview.jpg',
+		imageAlt: 'Interview with Fede Rodrigo published by Nublit',
+		description:
+			'A conversation with Nublit about cloud strategy in Latin America, hybrid adoption, cultural and regulatory barriers, and the role of technology as a driver of growth, innovation, and operational resilience',
+		url: 'https://informe2026.nublit.com/',
+		linkLabel: 'View full report',
+		pdfUrl: '/pdfs/Fede-Rodrigo-Interview-Nublit.pdf',
+		pdfLabel: 'Read my interview',
+	},
+	{
+		type: 'Award Finalist',
+		status: 'published',
+		title: 'ORBIE CIO Awards',
+		date: 'September 2024',
+		image: '/images/orbie.jpg',
+		imageAlt: 'ORBIE Awards CIO Central Texas',
+		description:
+			'Recognized as a finalist in the Global CIO category at the Central Texas awards',
+		url: 'https://orbie.org/honoree/federico-rodrigo/4324',
+		linkLabel: 'View recognition',
+	},
+	{
+		type: 'Executive Roundtable',
+		status: 'published',
+		title: 'Industrial Reinvention — The Economist',
+		date: 'September 2024',
+		image: '/images/impact.png',
+		imageAlt: 'The Economist Impact',
+		description:
+			'Invited participant in Industrial Reinvention: New Business Models and Jobs for Tomorrow’s Technology, hosted by The Economist Impact, with fellow CIOs in Houston, Texas',
+	},
+];
+---
+
+<!doctype html>
+
+<html lang="en">
+	<head>
+		<script is:inline>
+			document.documentElement.classList.add('js');
+		</script>
+
+		<SEO
+			title="Speaking & Events | Fede Rodrigo"
+			description="Keynotes, webinars, executive roundtables, interviews, podcasts, and professional events"
+			lang="en"
+		/>
+	</head>
+
+	<body>
+		<Header />
+
+		<main>
+			<section class="hero">
+				<h1 class="hero-title">
+					<span class="hero-line">
+						Speaking & <span class="accent">Events</span>
+					</span>
+				</h1>
+
+				<div class="lead-principles">
+					<div>Technology Is Part of the Job</div>
+					<div>Leadership Is the Job</div>
+				</div>
+			</section>
+
+			<section
+				class="media-list reveal-section"
+				aria-labelledby="media-list-title"
+			>
+				<h2
+					id="media-list-title"
+					class="reveal-item"
+				>
+					Highlights
+				</h2>
+
+				{
+					mediaItems.map((item, index) => (
+						<article
+							class="media-item"
+							style={`--media-index: ${index};`}
+						>
+							<div class="media-image-wrapper">
+								{
+									item.url ? (
+										<a
+											href={item.url}
+											target={item.internal ? undefined : '_blank'}
+											rel={item.internal ? undefined : 'noopener noreferrer'}
+											aria-label={item.linkLabel ?? item.title}
+										>
+											<img
+												src={item.image}
+												alt={item.imageAlt}
+												class="media-image"
+												loading="lazy"
+											/>
+										</a>
+									) : (
+										<img
+											src={item.image}
+											alt={item.imageAlt}
+											class="media-image"
+											loading="lazy"
+										/>
+									)
+								}
+							</div>
+
+							<div class="media-content">
+								<p class="media-meta">
+									<span>{item.type}</span>
+									<span aria-hidden="true">·</span>
+									<span>{item.date}</span>
+								</p>
+
+								<h3>{item.title}</h3>
+
+								<p class="media-description">
+									{item.description}
+								</p>
+
+								{
+									item.url ? (
+										<div class="media-action">
+											{
+												item.pdfUrl && item.pdfLabel && (
+													<a
+														href={item.pdfUrl}
+														target="_blank"
+														rel="noopener noreferrer"
+														class="animated-link"
+													>
+														<span>{item.pdfLabel}</span>
+
+														<span
+															class="animated-link-arrow"
+															aria-hidden="true"
+														>
+															→
+														</span>
+													</a>
+												)
+											}
+
+											<a
+												href={item.url}
+												target={item.internal ? undefined : '_blank'}
+												rel={item.internal ? undefined : 'noopener noreferrer'}
+												class="animated-link"
+											>
+												<span>
+													{item.linkLabel ?? 'Learn more'}
+												</span>
+
+												<span
+													class="animated-link-arrow"
+													aria-hidden="true"
+												>
+													→
+												</span>
+											</a>
+										</div>
+									) : (
+										item.status === 'upcoming' && (
+											<p class="media-coming-soon">
+												Coming soon
+											</p>
+										)
+									)
+								}
+							</div>
+						</article>
+					))
+				}
+			</section>
+
+			<section class="media-contact reveal-section">
+				<h2 class="reveal-item">
+					Speaking Inquiries
+				</h2>
+
+				<div class="reveal-item reveal-delay-1">
+					<p>
+						For interviews, podcasts, speaking engagements, or other
+						media opportunities, please get in touch
+					</p>
+
+					<p class="media-contact-link">
+						<a
+							href="/contact/"
+							class="animated-link"
+						>
+							<span>Contact me</span>
+
+							<span
+								class="animated-link-arrow"
+								aria-hidden="true"
+							>
+								→
+							</span>
+						</a>
+					</p>
+				</div>
+			</section>
+		</main>
+
+		<Footer />
+
+		<script>
+			const sections =
+				document.querySelectorAll('.reveal-section');
+
+			const revealObserver = new IntersectionObserver(
+				(entries, observer) => {
+					entries.forEach((entry) => {
+						if (!entry.isIntersecting) return;
+
+						entry.target.classList.add('is-visible');
+						observer.unobserve(entry.target);
+					});
+				},
+				{
+					threshold: 0.08,
+					rootMargin: '0px 0px -50px 0px',
+				}
+			);
+
+			sections.forEach((section) => {
+				revealObserver.observe(section);
+			});
+		</script>
+	</body>
+</html>
