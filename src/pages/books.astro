@@ -2,6 +2,42 @@
 import SEO from '../components/SEO.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+
+const papers = [
+	{
+		status: 'Available on SSRN',
+		date: 'SSRN Preprint · December 2025',
+		title: 'The Theorem of Minimal Tolerance',
+		subtitle:
+			'Free Riders, the State, and the “Institutional Technology of Last Resort”',
+		description:
+			'The paper presents the theory, the formal theorem, its evidentiary standard, and its corollary',
+		href: 'https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5984574',
+		action: 'Open on SSRN'
+	},
+	{
+		status: 'Under Review',
+		date: 'Submitted · August 2026',
+		title: 'When Success Hides Dependence',
+		subtitle:
+			'Why a system that works can make it harder to know what would happen if the safeguards behind that performance were removed',
+		description:
+			'An examination of how apparent operational success can conceal structural dependence and weaken the ability to evaluate credible alternatives',
+		href: null,
+		action: 'Under Review'
+	},
+	{
+		status: 'Under Review',
+		date: 'Submitted · August 2026',
+		title: 'When Fixes Become the System',
+		subtitle:
+			'How successful accommodations can preserve an existing technology path, become embedded over time, and reduce credible alternatives',
+		description:
+			'An examination of how effective short-term fixes can become permanent features of an organization and reinforce technological lock-in',
+		href: null,
+		action: 'Under Review'
+	}
+];
 ---
 
 <!doctype html>
@@ -14,7 +50,7 @@ import Footer from '../components/Footer.astro';
 
 		<SEO
 			title="Books & Papers | Fede Rodrigo"
-			description="Books and research papers by Fede Rodrigo about technology leadership, business, incentives, institutions, and the limits of political power"
+			description="Books and research papers by Fede Rodrigo about technology leadership, business, incentives, institutions, and the systems that shape organizations"
 			lang="en"
 		/>
 	</head>
@@ -167,8 +203,7 @@ import Footer from '../components/Footer.astro';
 
 						<p>
 							It develops a practical framework for examining the
-							exceptional conditions under which state coercion may
-							be tolerated
+							conditions under which state coercion may be tolerated
 						</p>
 
 						<p class="books-page-action">
@@ -194,99 +229,88 @@ import Footer from '../components/Footer.astro';
 
 			<section
 				id="papers"
-				class="books-page-other books-page-papers reveal-section"
+				class="papers-section reveal-section"
 				aria-labelledby="papers-heading"
 			>
-				<h2
-					id="papers-heading"
-					class="reveal-item"
-				>
-					Papers
-				</h2>
+				<div class="papers-heading reveal-item">
+					<p class="papers-eyebrow">
+						Selected Research
+					</p>
 
-				<article
-					class="books-page-book books-page-book-secondary"
-					aria-labelledby="minimal-tolerance-paper-title"
-				>
-					<div
-						class="books-page-cover-wrapper reveal-item reveal-from-left reveal-delay-1"
-					>
-						<a
-							href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5984574"
-							target="_blank"
-							rel="noopener noreferrer"
-							class="books-page-cover-link"
-							aria-label="Read The Minimal Tolerance Theorem on SSRN"
-						>
-							<div class="paper-cover" aria-hidden="true">
-								<span class="paper-cover-type">
-									Research Paper
-								</span>
+					<h2 id="papers-heading">
+						Papers
+					</h2>
 
-								<span class="paper-cover-title">
-									The Minimal<br />
-									Tolerance<br />
-									Theorem
-								</span>
+					<p class="papers-introduction">
+						Technology. Organizations. Institutions
+					</p>
+				</div>
 
-								<span class="paper-cover-author">
-									Fede Rodrigo
-								</span>
+				<div class="papers-list">
+					{
+						papers.map((paper) => (
+							<article class="paper-row reveal-item">
+								<div class="paper-meta">
+									<p
+										class:list={[
+											'paper-status',
+											{
+												'paper-status-review':
+													paper.status === 'Under Review'
+											}
+										]}
+									>
+										{paper.status}
+									</p>
 
-								<span class="paper-cover-platform">
-									SSRN
-								</span>
-							</div>
-						</a>
-					</div>
+									<p class="paper-date">
+										{paper.date}
+									</p>
+								</div>
 
-					<div
-						class="books-page-content reveal-item reveal-delay-2"
-					>
-						<p class="books-page-label">
-							Research Paper
-						</p>
+								<div class="paper-content">
+									<h3 class="paper-title">
+										{paper.title}
+									</h3>
 
-						<h2 id="minimal-tolerance-paper-title">
-							The Minimal Tolerance Theorem
-						</h2>
+									<p class="paper-subtitle">
+										{paper.subtitle}
+									</p>
 
-						<p>
-							When, if ever, may state coercion be tolerated?
-						</p>
+									<p class="paper-description">
+										{paper.description}
+									</p>
+								</div>
 
-						<p>
-							The paper develops a three-condition test for
-							evaluating claims that coercive state provision is
-							necessary
-						</p>
+								<div class="paper-action">
+									{
+										paper.href ? (
+											<a
+												href={paper.href}
+												target="_blank"
+												rel="noopener noreferrer"
+												class="paper-link"
+											>
+												<span>{paper.action}</span>
 
-						<p>
-							It places the burden of proof on power and requires
-							more than the existence of free riders: voluntary
-							provision must fail persistently in the case being
-							examined
-						</p>
-
-						<p class="books-page-action">
-							<a
-								href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5984574"
-								target="_blank"
-								rel="noopener noreferrer"
-								class="animated-link"
-							>
-								<span>Read on SSRN</span>
-
-								<span
-									class="animated-link-arrow"
-									aria-hidden="true"
-								>
-									→
-								</span>
-							</a>
-						</p>
-					</div>
-				</article>
+												<span
+													class="paper-link-arrow"
+													aria-hidden="true"
+												>
+													→
+												</span>
+											</a>
+										) : (
+											<span class="paper-action-static">
+												{paper.action}
+											</span>
+										)
+									}
+								</div>
+							</article>
+						))
+					}
+				</div>
 			</section>
 		</main>
 
@@ -324,89 +348,215 @@ import Footer from '../components/Footer.astro';
 </html>
 
 <style>
-	.books-page-papers {
+	.papers-section {
+		width: min(1180px, calc(100% - 3rem));
+		margin: clamp(7rem, 12vw, 11rem) auto;
 		scroll-margin-top: 8rem;
 	}
 
-	.paper-cover {
-		position: relative;
-		display: flex;
-		aspect-ratio: 0.69;
-		width: 100%;
-		flex-direction: column;
-		overflow: hidden;
-		box-sizing: border-box;
-		padding: clamp(1.4rem, 4vw, 2.4rem);
-		color: #ffffff;
-		background:
-			linear-gradient(
-				145deg,
-				rgba(148, 193, 255, 0.16),
-				transparent 42%
-			),
-			#303c51;
-		border: 1px solid rgba(157, 199, 255, 0.28);
-		box-shadow:
-			0 28px 55px rgba(13, 20, 32, 0.25),
-			0 8px 18px rgba(13, 20, 32, 0.18);
+	.papers-heading {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) auto;
+		align-items: end;
+		gap: 1.5rem;
+		margin-bottom: clamp(2.5rem, 5vw, 4rem);
 	}
 
-	.paper-cover::before {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 0.35rem;
-		height: 100%;
-		background: #9dc7ff;
-	}
-
-	.paper-cover-type {
+	.papers-eyebrow {
+		grid-column: 1 / -1;
+		margin: 0 0 0.35rem;
 		font-size: 0.72rem;
 		font-weight: 700;
+		line-height: 1;
 		letter-spacing: 0.18em;
 		text-transform: uppercase;
-		color: #9dc7ff;
+		color: #6d9fdd;
 	}
 
-	.paper-cover-title {
-		margin-top: auto;
-		font-size: clamp(1.75rem, 4vw, 2.8rem);
+	.papers-heading h2 {
+		margin: 0;
+		font-size: clamp(2.7rem, 6vw, 5rem);
+		line-height: 0.95;
+		letter-spacing: -0.055em;
+	}
+
+	.papers-introduction {
+		margin: 0 0 0.35rem;
+		font-size: 0.82rem;
+		font-weight: 650;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		opacity: 0.54;
+	}
+
+	.papers-list {
+		border-top: 1px solid rgba(52, 65, 86, 0.2);
+	}
+
+	.paper-row {
+		display: grid;
+		grid-template-columns:
+			minmax(145px, 0.62fr)
+			minmax(0, 2.5fr)
+			minmax(135px, 0.65fr);
+		align-items: start;
+		gap: clamp(1.5rem, 4vw, 3.5rem);
+		padding: clamp(2rem, 4vw, 3.25rem) 0;
+		border-bottom: 1px solid rgba(52, 65, 86, 0.2);
+	}
+
+	.paper-meta,
+	.paper-content,
+	.paper-action {
+		min-width: 0;
+	}
+
+	.paper-status {
+		margin: 0;
+		font-size: 0.72rem;
+		font-weight: 750;
+		line-height: 1.25;
+		letter-spacing: 0.13em;
+		text-transform: uppercase;
+		color: #4f87cd;
+	}
+
+	.paper-status-review {
+		color: #8a6b36;
+	}
+
+	.paper-date {
+		margin: 0.65rem 0 0;
+		font-size: 0.78rem;
+		line-height: 1.45;
+		opacity: 0.52;
+	}
+
+	.paper-title {
+		margin: 0;
+		font-size: clamp(1.45rem, 2.4vw, 2.05rem);
 		font-weight: 700;
-		line-height: 0.98;
-		letter-spacing: -0.045em;
+		line-height: 1.08;
+		letter-spacing: -0.035em;
 	}
 
-	.paper-cover-author {
-		margin-top: 1.5rem;
-		font-size: 0.85rem;
-		font-weight: 600;
-		letter-spacing: 0.05em;
+	.paper-subtitle {
+		max-width: 760px;
+		margin: 0.85rem 0 0;
+		font-size: clamp(1rem, 1.4vw, 1.12rem);
+		font-weight: 580;
+		line-height: 1.48;
 	}
 
-	.paper-cover-platform {
-		margin-top: 0.45rem;
-		font-size: 0.7rem;
+	.paper-description {
+		max-width: 750px;
+		margin: 1rem 0 0;
+		font-size: 0.94rem;
+		line-height: 1.65;
+		opacity: 0.66;
+	}
+
+	.paper-action {
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		align-self: center;
+	}
+
+	.paper-link {
+		position: relative;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.65rem;
+		padding-bottom: 0.28rem;
+		font-size: 0.82rem;
 		font-weight: 700;
-		letter-spacing: 0.16em;
-		color: rgba(255, 255, 255, 0.58);
+		line-height: 1.25;
+		letter-spacing: 0.03em;
+		color: inherit;
+		text-decoration: none;
+		white-space: nowrap;
 	}
 
-	.books-page-cover-link:hover .paper-cover {
-		transform: translateY(-6px);
-		box-shadow:
-			0 34px 65px rgba(13, 20, 32, 0.3),
-			0 12px 24px rgba(13, 20, 32, 0.2);
+	.paper-link::after {
+		content: '';
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		height: 1px;
+		background: #6d9fdd;
+		transform: scaleX(0.28);
+		transform-origin: left;
+		transition: transform 220ms ease;
 	}
 
-	.paper-cover {
-		transition:
-			transform 280ms ease,
-			box-shadow 280ms ease;
+	.paper-link:hover::after,
+	.paper-link:focus-visible::after {
+		transform: scaleX(1);
+	}
+
+	.paper-link-arrow {
+		color: #6d9fdd;
+		transition: transform 220ms ease;
+	}
+
+	.paper-link:hover .paper-link-arrow,
+	.paper-link:focus-visible .paper-link-arrow {
+		transform: translateX(0.25rem);
+	}
+
+	.paper-action-static {
+		font-size: 0.74rem;
+		font-weight: 700;
+		line-height: 1.25;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		opacity: 0.38;
+	}
+
+	@media (max-width: 850px) {
+		.papers-section {
+			width: min(100% - 2rem, 720px);
+		}
+
+		.papers-heading {
+			grid-template-columns: 1fr;
+			gap: 0.7rem;
+		}
+
+		.papers-eyebrow {
+			grid-column: auto;
+		}
+
+		.papers-introduction {
+			margin: 0;
+		}
+
+		.paper-row {
+			grid-template-columns: 1fr;
+			gap: 1.4rem;
+		}
+
+		.paper-meta {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			gap: 0.7rem 1rem;
+		}
+
+		.paper-date {
+			margin: 0;
+		}
+
+		.paper-action {
+			justify-content: flex-start;
+		}
 	}
 
 	@media (prefers-reduced-motion: reduce) {
-		.paper-cover {
+		.paper-link::after,
+		.paper-link-arrow {
 			transition: none;
 		}
 	}
