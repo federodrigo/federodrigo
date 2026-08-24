@@ -60,15 +60,7 @@ const isActive = (path: string) => {
 				aria-current={isActive(`${base}/books`) ? 'page' : undefined}
 			>
 				{isSpanish ? 'Libros' : 'Books'}
-			</a>
-
-			<a
-				href={`${base}/papers`}
-				class:list={{ 'nav-active': isActive(`${base}/papers`) }}
-				aria-current={isActive(`${base}/papers`) ? 'page' : undefined}
-			>
-				Papers
-			</a>
+			</a>			
 
 			<a
 				href={`${base}/about`}
