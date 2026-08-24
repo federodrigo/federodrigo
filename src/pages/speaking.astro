@@ -89,7 +89,7 @@ const mediaItems: MediaItem[] = [
 
 			<!-- =====================================================
 			     HERO
-			     ORIGINAL STRUCTURE — NO NEW CSS
+			     ORIGINAL STRUCTURE — NO NEW HERO CSS
 			===================================================== -->
 
 			<section class="hero">
@@ -171,7 +171,7 @@ const mediaItems: MediaItem[] = [
 					</div>
 
 
-					<!-- DOTS OUTSIDE THE IMAGE -->
+					<!-- DOTS -->
 
 					<div
 						class="speaking-slider-nav"
@@ -684,11 +684,6 @@ const mediaItems: MediaItem[] = [
 	}
 
 
-	/*
-		The image itself lives in this frame.
-		Navigation is OUTSIDE so nothing covers the slide.
-	*/
-
 	.speaking-slider-stage {
 		position: relative;
 
@@ -713,10 +708,21 @@ const mediaItems: MediaItem[] = [
 	}
 
 
+	/*
+		More breathing room around every slide.
+		The slide no longer sits directly against
+		the outside frame.
+	*/
+
 	.speaking-slide {
 		position: absolute;
 
-		inset: 0;
+		inset:
+			clamp(
+				18px,
+				2.1vw,
+				32px
+			);
 
 		display: flex;
 
@@ -745,11 +751,8 @@ const mediaItems: MediaItem[] = [
 
 
 	/*
-		IMPORTANT:
 		NO CROPPING.
-
-		!important protects this from any global img/object-fit
-		style elsewhere on the site.
+		Full image always visible.
 	*/
 
 	.speaking-slide-image {
@@ -763,7 +766,8 @@ const mediaItems: MediaItem[] = [
 
 		object-fit: contain !important;
 
-		object-position: center center !important;
+		object-position:
+			center center !important;
 
 		background: #ffffff;
 	}
@@ -782,9 +786,9 @@ const mediaItems: MediaItem[] = [
 
 		gap: 8px;
 
-		height: 34px;
+		height: 30px;
 
-		margin-top: 8px;
+		margin-top: 6px;
 	}
 
 
@@ -818,7 +822,8 @@ const mediaItems: MediaItem[] = [
 	.speaking-slider-dot.is-active {
 		width: 23px;
 
-		border-radius: 999px;
+		border-radius:
+			999px;
 
 		background: #102b46;
 	}
@@ -836,7 +841,7 @@ const mediaItems: MediaItem[] = [
 			);
 
 		margin:
-			0 auto 26px !important;
+			0 auto 24px !important;
 
 		padding: 0 !important;
 	}
@@ -844,7 +849,7 @@ const mediaItems: MediaItem[] = [
 
 	.media-events > h2 {
 		margin:
-			0 0 24px;
+			0 0 22px;
 
 		color: #102b46;
 
@@ -873,13 +878,13 @@ const mediaItems: MediaItem[] = [
 				minmax(0, 1fr)
 			);
 
-		gap: 20px;
+		gap: 18px;
 	}
 
 
 	/* =========================================================
 	   MEDIA CARDS
-	   EXACT SAME HEIGHT ON DESKTOP
+	   SHORTER + SAME SIZE
 	========================================================= */
 
 	.media-card {
@@ -889,7 +894,7 @@ const mediaItems: MediaItem[] = [
 
 		width: 100%;
 
-		height: 350px;
+		height: 305px;
 
 		min-width: 0;
 
@@ -919,7 +924,7 @@ const mediaItems: MediaItem[] = [
 			translateY(-2px);
 
 		box-shadow:
-			0 13px 30px
+			0 12px 28px
 			rgba(
 				16,
 				43,
@@ -931,16 +936,16 @@ const mediaItems: MediaItem[] = [
 
 	/* =========================================================
 	   MEDIA IMAGES
-	   FIXED AREA + NO CROPPING
+	   SHORTER + NEVER CROPPED
 	========================================================= */
 
 	.media-card-image {
 		flex:
-			0 0 178px;
+			0 0 140px;
 
 		width: 100%;
 
-		height: 178px;
+		height: 140px;
 
 		overflow: hidden;
 
@@ -969,10 +974,6 @@ const mediaItems: MediaItem[] = [
 		height: 100%;
 	}
 
-
-	/*
-		NO MORE CROPPED MEDIA IMAGES
-	*/
 
 	.media-card-image img {
 		display: block !important;
@@ -1008,7 +1009,7 @@ const mediaItems: MediaItem[] = [
 		min-height: 0;
 
 		padding:
-			17px 18px 18px;
+			14px 16px 15px;
 	}
 
 
@@ -1017,21 +1018,21 @@ const mediaItems: MediaItem[] = [
 
 		flex-wrap: wrap;
 
-		gap: 6px;
+		gap: 5px;
 
 		margin:
-			0 0 8px;
+			0 0 7px;
 
 		color: #7d8b9a;
 
-		font-size: 0.67rem;
+		font-size: 0.64rem;
 
 		font-weight: 700;
 
-		line-height: 1.35;
+		line-height: 1.3;
 
 		letter-spacing:
-			0.065em;
+			0.06em;
 
 		text-transform:
 			uppercase;
@@ -1053,9 +1054,9 @@ const mediaItems: MediaItem[] = [
 
 		font-size:
 			clamp(
-				1rem,
-				1.25vw,
-				1.16rem
+				0.96rem,
+				1.15vw,
+				1.1rem
 			);
 
 		font-weight: 600;
@@ -1073,23 +1074,22 @@ const mediaItems: MediaItem[] = [
 		flex-wrap: wrap;
 
 		gap:
-			7px 14px;
+			6px 13px;
 
 		margin-top: auto;
 
-		padding-top: 14px;
+		padding-top: 10px;
 	}
 
 
 	.media-card-actions
 	.animated-link {
-		font-size: 0.76rem;
+		font-size: 0.73rem;
 	}
 
 
 	/* =========================================================
 	   SPEAKING INQUIRIES
-	   COMPACT — NO HUGE EMPTY AREA
 	========================================================= */
 
 	.media-contact {
@@ -1102,10 +1102,10 @@ const mediaItems: MediaItem[] = [
 		min-height: 0 !important;
 
 		margin:
-			22px auto 0 !important;
+			26px auto 0 !important;
 
 		padding:
-			30px 0 38px !important;
+			32px 0 38px !important;
 
 		border-top:
 			1px solid
@@ -1120,7 +1120,7 @@ const mediaItems: MediaItem[] = [
 
 	.media-contact h2 {
 		margin:
-			0 0 14px !important;
+			0 0 16px !important;
 
 		color: #102b46;
 
@@ -1153,9 +1153,14 @@ const mediaItems: MediaItem[] = [
 	}
 
 
-	.media-contact-link {
+	/*
+		More separation between descriptive text
+		and Contact me.
+	*/
+
+	.media-contact .media-contact-link {
 		margin-top:
-			14px !important;
+			24px !important;
 	}
 
 
@@ -1219,7 +1224,7 @@ const mediaItems: MediaItem[] = [
 
 
 		.media-card {
-			height: 345px;
+			height: 305px;
 		}
 
 	}
@@ -1243,7 +1248,7 @@ const mediaItems: MediaItem[] = [
 
 		.speaking-showcase {
 			margin:
-				12px auto 22px;
+				12px auto 20px;
 		}
 
 
@@ -1252,10 +1257,15 @@ const mediaItems: MediaItem[] = [
 		}
 
 
-		.speaking-slider-nav {
-			margin-top: 5px;
+		.speaking-slide {
+			inset: 12px;
+		}
 
-			height: 30px;
+
+		.speaking-slider-nav {
+			margin-top: 4px;
+
+			height: 28px;
 		}
 
 
@@ -1267,50 +1277,50 @@ const mediaItems: MediaItem[] = [
 
 		.media-events > h2 {
 			margin-bottom:
-				20px;
+				19px;
 		}
 
 
 		.media-grid {
 			grid-template-columns:
 				1fr;
+
+			gap: 16px;
 		}
 
 
-		/*
-			On mobile allow content to determine card height,
-			but every image area remains identical.
-		*/
-
 		.media-card {
-			height: auto;
-
-			min-height: 330px;
+			height: 295px;
 		}
 
 
 		.media-card-image {
 			flex:
-				0 0 175px;
+				0 0 138px;
 
-			height: 175px;
+			height: 138px;
 		}
 
 
 		.media-card-content {
-			min-height: 145px;
-
 			padding:
-				16px 17px 17px;
+				14px 16px 15px;
 		}
 
 
 		.media-contact {
 			margin:
-				18px auto 0 !important;
+				22px auto 0 !important;
 
 			padding:
-				26px 0 30px !important;
+				28px 0 32px !important;
+		}
+
+
+		.media-contact
+		.media-contact-link {
+			margin-top:
+				22px !important;
 		}
 
 	}
