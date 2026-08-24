@@ -14,6 +14,9 @@ type MediaItem = {
 	pdfUrl?: string;
 	pdfLabel?: string;
 	internal?: boolean;
+	imageFit?: 'cover' | 'contain';
+	imagePosition?: string;
+	imageScale?: number;
 };
 
 const mediaItems: MediaItem[] = [
@@ -27,6 +30,9 @@ const mediaItems: MediaItem[] = [
 		url: '/webinar/',
 		linkLabel: 'Explore the talk',
 		internal: true,
+		imageFit: 'contain',
+		imagePosition: 'center center',
+		imageScale: 1.04,
 	},
 	{
 		type: 'Podcast',
@@ -37,25 +43,34 @@ const mediaItems: MediaItem[] = [
 			'Fede Rodrigo appearing on The Technology Vanguard podcast',
 		url: 'https://www.youtube.com/watch?v=2wyTHhaOcWE',
 		linkLabel: 'Watch the conversation',
+		imageFit: 'cover',
+		imagePosition: 'center 38%',
+		imageScale: 1,
 	},
-{
-	type: 'Interview',
-	title: 'Cloud Investment & Business Value — Nublit',
-	date: 'January 2026',
-	image: '/images/cloud-interview.jpg',
-	imageAlt:
-		'Interview with Fede Rodrigo published by Nublit',
-	url: 'https://informe2026.nublit.com/',
-	linkLabel: 'View full report',
-	pdfUrl: '/pdfs/Fede-Rodrigo-Interview-Nublit.pdf',
-	pdfLabel: 'Read my interview',
-},
+	{
+		type: 'Interview',
+		title: 'Cloud Investment & Business Value — Nublit',
+		date: 'January 2026',
+		image: '/images/cloud-interview.jpg',
+		imageAlt:
+			'Interview with Fede Rodrigo published by Nublit',
+		url: 'https://informe2026.nublit.com/',
+		linkLabel: 'View full report',
+		pdfUrl: '/pdfs/Fede-Rodrigo-Interview-Nublit.pdf',
+		pdfLabel: 'Read my interview',
+		imageFit: 'contain',
+		imagePosition: 'center center',
+		imageScale: 1.12,
+	},
 	{
 		type: 'Executive Roundtable',
 		title: 'Industrial Reinvention — The Economist',
 		date: 'September 2024',
 		image: '/images/impact.png',
 		imageAlt: 'The Economist Impact',
+		imageFit: 'cover',
+		imagePosition: 'center 40%',
+		imageScale: 1,
 	},
 	{
 		type: 'Recognition',
@@ -65,6 +80,9 @@ const mediaItems: MediaItem[] = [
 		imageAlt: 'ORBIE Awards CIO Central Texas',
 		url: 'https://orbie.org/honoree/federico-rodrigo/4324',
 		linkLabel: 'View recognition',
+		imageFit: 'cover',
+		imagePosition: 'center 40%',
+		imageScale: 1,
 	},
 ];
 ---
@@ -173,7 +191,7 @@ const mediaItems: MediaItem[] = [
 					</div>
 
 
-					<!-- DOTS -->
+					<!-- SLIDER DOTS -->
 
 					<div
 						class="speaking-slider-nav"
@@ -216,6 +234,7 @@ const mediaItems: MediaItem[] = [
 				class="media-events reveal-section"
 				aria-labelledby="media-events-title"
 			>
+
 				<h2
 					id="media-events-title"
 					class="reveal-item"
@@ -228,15 +247,31 @@ const mediaItems: MediaItem[] = [
 
 					{
 						mediaItems.map((item, index) => (
+
 							<article
-								class="media-card reveal-item"
-								style={`--delay: ${index * 60}ms`}
+								class:list={[
+									'media-card',
+									'reveal-item',
+									{
+										'media-card--nublit':
+											Boolean(item.pdfUrl),
+									},
+								]}
+								style={`
+									--delay: ${index * 60}ms;
+									--media-fit: ${item.imageFit ?? 'cover'};
+									--media-position: ${item.imagePosition ?? 'center center'};
+									--media-scale: ${item.imageScale ?? 1};
+								`}
 							>
+
+								<!-- IMAGE -->
 
 								<div class="media-card-image">
 
 									{
 										item.url ? (
+
 											<a
 												href={item.url}
 												target={
@@ -254,34 +289,47 @@ const mediaItems: MediaItem[] = [
 													item.title
 												}
 											>
+
 												<img
 													src={item.image}
 													alt={item.imageAlt}
 													loading="lazy"
 												/>
+
 											</a>
+
 										) : (
+
 											<img
 												src={item.image}
 												alt={item.imageAlt}
 												loading="lazy"
 											/>
+
 										)
 									}
 
 								</div>
 
 
+								<!-- CONTENT -->
+
 								<div class="media-card-content">
 
 									<p class="media-card-meta">
-										<span>{item.type}</span>
+
+										<span>
+											{item.type}
+										</span>
 
 										<span aria-hidden="true">
 											·
 										</span>
 
-										<span>{item.date}</span>
+										<span>
+											{item.date}
+										</span>
+
 									</p>
 
 
@@ -292,17 +340,20 @@ const mediaItems: MediaItem[] = [
 
 									{
 										(item.url || item.pdfUrl) && (
+
 											<div class="media-card-actions">
 
 												{
 													item.pdfUrl &&
 													item.pdfLabel && (
+
 														<a
 															href={item.pdfUrl}
 															target="_blank"
 															rel="noopener noreferrer"
 															class="animated-link"
 														>
+
 															<span>
 																{item.pdfLabel}
 															</span>
@@ -313,13 +364,16 @@ const mediaItems: MediaItem[] = [
 															>
 																→
 															</span>
+
 														</a>
+
 													)
 												}
 
 
 												{
 													item.url && (
+
 														<a
 															href={item.url}
 															target={
@@ -334,6 +388,7 @@ const mediaItems: MediaItem[] = [
 															}
 															class="animated-link"
 														>
+
 															<span>
 																{
 																	item.linkLabel ??
@@ -347,21 +402,26 @@ const mediaItems: MediaItem[] = [
 															>
 																→
 															</span>
+
 														</a>
+
 													)
 												}
 
 											</div>
+
 										)
 									}
 
 								</div>
 
 							</article>
+
 						))
 					}
 
 				</div>
+
 			</section>
 
 
@@ -375,6 +435,7 @@ const mediaItems: MediaItem[] = [
 					Speaking Inquiries
 				</h2>
 
+
 				<div class="reveal-item reveal-delay-1">
 
 					<p>
@@ -382,12 +443,17 @@ const mediaItems: MediaItem[] = [
 						or other media opportunities, please get in touch
 					</p>
 
+
 					<p class="media-contact-link">
+
 						<a
 							href="/contact/"
 							class="animated-link"
 						>
-							<span>Contact me</span>
+
+							<span>
+								Contact me
+							</span>
 
 							<span
 								class="animated-link-arrow"
@@ -395,7 +461,9 @@ const mediaItems: MediaItem[] = [
 							>
 								→
 							</span>
+
 						</a>
+
 					</p>
 
 				</div>
@@ -408,74 +476,112 @@ const mediaItems: MediaItem[] = [
 
 
 		<!-- =====================================================
-		     REVEAL
+		     REVEAL ANIMATION
 		===================================================== -->
 
 		<script>
+
 			const sections =
-				document.querySelectorAll('.reveal-section');
+				document.querySelectorAll(
+					'.reveal-section'
+				);
+
 
 			const revealObserver =
 				new IntersectionObserver(
+
 					(entries, observer) => {
-						entries.forEach((entry) => {
-							if (!entry.isIntersecting) return;
 
-							entry.target.classList.add(
-								'is-visible'
-							);
+						entries.forEach(
+							(entry) => {
 
-							observer.unobserve(
-								entry.target
-							);
-						});
+								if (
+									!entry.isIntersecting
+								) {
+									return;
+								}
+
+								entry.target.classList.add(
+									'is-visible'
+								);
+
+								observer.unobserve(
+									entry.target
+								);
+
+							}
+						);
+
 					},
+
 					{
 						threshold: 0.08,
 						rootMargin:
 							'0px 0px -50px 0px',
 					}
+
 				);
 
-			sections.forEach((section) => {
-				revealObserver.observe(section);
-			});
+
+			sections.forEach(
+				(section) => {
+
+					revealObserver.observe(
+						section
+					);
+
+				}
+			);
+
 		</script>
 
 
 		<!-- =====================================================
-		     SLIDER
+		     SPEAKING SLIDER
 		===================================================== -->
 
 		<script>
+
 			const speakingSlider =
 				document.querySelector(
 					'[data-speaking-slider]'
 				);
 
+
 			if (speakingSlider) {
 
-				const slides = Array.from(
-					speakingSlider.querySelectorAll(
-						'[data-speaking-slide]'
-					)
-				);
+				const slides =
+					Array.from(
+						speakingSlider.querySelectorAll(
+							'[data-speaking-slide]'
+						)
+					);
 
-				const dots = Array.from(
-					speakingSlider.querySelectorAll(
-						'[data-speaking-dot]'
-					)
-				);
+
+				const dots =
+					Array.from(
+						speakingSlider.querySelectorAll(
+							'[data-speaking-dot]'
+						)
+					);
+
 
 				const reducedMotion =
 					window.matchMedia(
 						'(prefers-reduced-motion: reduce)'
 					).matches;
 
+
 				let currentSlide = 0;
+
 				let slideTimer = null;
+
 				let sliderVisible = false;
 
+
+				/*
+					First slide stays longer.
+				*/
 
 				const durations = [
 					7000,
@@ -487,21 +593,29 @@ const mediaItems: MediaItem[] = [
 				function showSlide(index) {
 
 					currentSlide =
-						(index + slides.length) %
+						(
+							index +
+							slides.length
+						) %
 						slides.length;
 
 
 					slides.forEach(
-						(slide, slideIndex) => {
+						(
+							slide,
+							slideIndex
+						) => {
 
 							const active =
 								slideIndex ===
 								currentSlide;
 
+
 							slide.classList.toggle(
 								'is-active',
 								active
 							);
+
 
 							slide.setAttribute(
 								'aria-hidden',
@@ -509,21 +623,27 @@ const mediaItems: MediaItem[] = [
 									? 'false'
 									: 'true'
 							);
+
 						}
 					);
 
 
 					dots.forEach(
-						(dot, dotIndex) => {
+						(
+							dot,
+							dotIndex
+						) => {
 
 							const active =
 								dotIndex ===
 								currentSlide;
 
+
 							dot.classList.toggle(
 								'is-active',
 								active
 							);
+
 
 							dot.setAttribute(
 								'aria-current',
@@ -531,6 +651,7 @@ const mediaItems: MediaItem[] = [
 									? 'true'
 									: 'false'
 							);
+
 						}
 					);
 
@@ -539,13 +660,18 @@ const mediaItems: MediaItem[] = [
 
 				function stopSlider() {
 
-					if (!slideTimer) return;
+					if (!slideTimer) {
+						return;
+					}
+
 
 					window.clearTimeout(
 						slideTimer
 					);
 
+
 					slideTimer = null;
+
 				}
 
 
@@ -558,23 +684,30 @@ const mediaItems: MediaItem[] = [
 						return;
 					}
 
+
 					stopSlider();
+
 
 					slideTimer =
 						window.setTimeout(
+
 							() => {
 
 								showSlide(
 									currentSlide + 1
 								);
 
+
 								scheduleNextSlide();
 
 							},
+
 							durations[
 								currentSlide
 							]
+
 						);
+
 				}
 
 
@@ -583,13 +716,19 @@ const mediaItems: MediaItem[] = [
 
 						dot.addEventListener(
 							'click',
+
 							() => {
 
-								showSlide(index);
+								showSlide(
+									index
+								);
+
 
 								scheduleNextSlide();
+
 							}
 						);
+
 					}
 				);
 
@@ -608,6 +747,7 @@ const mediaItems: MediaItem[] = [
 
 				const speakingSliderObserver =
 					new IntersectionObserver(
+
 						(entries) => {
 
 							entries.forEach(
@@ -616,20 +756,28 @@ const mediaItems: MediaItem[] = [
 									sliderVisible =
 										entry.isIntersecting;
 
+
 									if (
 										sliderVisible
 									) {
+
 										scheduleNextSlide();
+
 									} else {
+
 										stopSlider();
+
 									}
 
 								}
 							);
+
 						},
+
 						{
 							threshold: 0.35,
 						}
+
 					);
 
 
@@ -640,18 +788,26 @@ const mediaItems: MediaItem[] = [
 
 				document.addEventListener(
 					'visibilitychange',
+
 					() => {
 
-						if (document.hidden) {
+						if (
+							document.hidden
+						) {
+
 							stopSlider();
+
 						} else {
+
 							scheduleNextSlide();
+
 						}
 
 					}
 				);
 
 			}
+
 		</script>
 
 	</body>
@@ -661,7 +817,8 @@ const mediaItems: MediaItem[] = [
 <style>
 
 	/* =========================================================
-	   HERO NOT TOUCHED
+	   HERO
+	   INTENTIONALLY NOT TOUCHED
 	========================================================= */
 
 
@@ -670,6 +827,7 @@ const mediaItems: MediaItem[] = [
 	========================================================= */
 
 	.speaking-showcase {
+
 		width:
 			min(
 				1120px,
@@ -677,16 +835,20 @@ const mediaItems: MediaItem[] = [
 			);
 
 		margin:
-			18px auto 28px;
+			18px auto 26px;
+
 	}
 
 
 	.speaking-slider {
+
 		width: 100%;
+
 	}
 
 
 	.speaking-slider-stage {
+
 		position: relative;
 
 		width: 100%;
@@ -707,23 +869,23 @@ const mediaItems: MediaItem[] = [
 				70,
 				0.07
 			);
+
 	}
 
 
 	/*
-		More breathing room around every slide.
-		The slide no longer sits directly against
-		the outside frame.
+		Extra breathing room around each slide.
 	*/
 
 	.speaking-slide {
+
 		position: absolute;
 
 		inset:
 			clamp(
-				18px,
-				2.1vw,
-				32px
+				22px,
+				2.4vw,
+				36px
 			);
 
 		display: flex;
@@ -740,38 +902,42 @@ const mediaItems: MediaItem[] = [
 
 		transition:
 			opacity 650ms ease;
+
 	}
 
 
 	.speaking-slide.is-active {
+
 		z-index: 2;
 
 		opacity: 1;
 
 		pointer-events: auto;
+
 	}
 
 
-	/*
-		NO CROPPING.
-		Full image always visible.
-	*/
-
 	.speaking-slide-image {
+
 		display: block !important;
 
 		width: 100% !important;
+
 		height: 100% !important;
 
 		max-width: 100% !important;
+
 		max-height: 100% !important;
 
-		object-fit: contain !important;
+		object-fit:
+			contain !important;
 
 		object-position:
 			center center !important;
 
-		background: #ffffff;
+		background:
+			#ffffff;
+
 	}
 
 
@@ -780,6 +946,7 @@ const mediaItems: MediaItem[] = [
 	========================================================= */
 
 	.speaking-slider-nav {
+
 		display: flex;
 
 		align-items: center;
@@ -790,12 +957,15 @@ const mediaItems: MediaItem[] = [
 
 		height: 30px;
 
-		margin-top: 6px;
+		margin-top: 5px;
+
 	}
 
 
 	.speaking-slider-dot {
+
 		width: 7px;
+
 		height: 7px;
 
 		padding: 0;
@@ -818,16 +988,20 @@ const mediaItems: MediaItem[] = [
 			width 200ms ease,
 			background 200ms ease,
 			border-radius 200ms ease;
+
 	}
 
 
 	.speaking-slider-dot.is-active {
+
 		width: 23px;
 
 		border-radius:
 			999px;
 
-		background: #102b46;
+		background:
+			#102b46;
+
 	}
 
 
@@ -836,6 +1010,7 @@ const mediaItems: MediaItem[] = [
 	========================================================= */
 
 	.media-events {
+
 		width:
 			min(
 				1120px,
@@ -843,17 +1018,21 @@ const mediaItems: MediaItem[] = [
 			);
 
 		margin:
-			0 auto 24px !important;
+			0 auto 22px !important;
 
-		padding: 0 !important;
+		padding:
+			0 !important;
+
 	}
 
 
 	.media-events > h2 {
+
 		margin:
 			0 0 22px;
 
-		color: #102b46;
+		color:
+			#102b46;
 
 		font-size:
 			clamp(
@@ -862,45 +1041,59 @@ const mediaItems: MediaItem[] = [
 				2.65rem
 			);
 
-		font-weight: 600;
+		font-weight:
+			600;
 
-		line-height: 1.05;
+		line-height:
+			1.05;
 
 		letter-spacing:
 			-0.035em;
+
 	}
 
 
 	.media-grid {
+
 		display: grid;
 
 		grid-template-columns:
 			repeat(
 				3,
-				minmax(0, 1fr)
+				minmax(
+					0,
+					1fr
+				)
 			);
 
-		gap: 18px;
+		gap:
+			18px;
+
 	}
 
 
 	/* =========================================================
-	   MEDIA CARDS
-	   SHORTER + SAME SIZE
+	   MEDIA CARD
 	========================================================= */
 
 	.media-card {
+
 		display: flex;
 
-		flex-direction: column;
+		flex-direction:
+			column;
 
-		width: 100%;
+		width:
+			100%;
 
-		height: 280px;
+		height:
+			305px;
 
-		min-width: 0;
+		min-width:
+			0;
 
-		overflow: hidden;
+		overflow:
+			hidden;
 
 		border:
 			1px solid
@@ -911,17 +1104,21 @@ const mediaItems: MediaItem[] = [
 				0.10
 			);
 
-		border-radius: 13px;
+		border-radius:
+			13px;
 
-		background: #ffffff;
+		background:
+			#ffffff;
 
 		transition:
 			transform 200ms ease,
 			box-shadow 200ms ease;
+
 	}
 
 
 	.media-card:hover {
+
 		transform:
 			translateY(-2px);
 
@@ -933,25 +1130,30 @@ const mediaItems: MediaItem[] = [
 				70,
 				0.06
 			);
+
 	}
 
 
 	/* =========================================================
-	   MEDIA IMAGES
-	   SHORTER + NEVER CROPPED
+	   MEDIA IMAGE
 	========================================================= */
 
 	.media-card-image {
+
 		flex:
-			0 0 140px;
+			0 0 156px;
 
-		width: 100%;
+		width:
+			100%;
 
-		height: 140px;
+		height:
+			156px;
 
-		overflow: hidden;
+		overflow:
+			hidden;
 
-		background: #ffffff;
+		background:
+			#f4f5f7;
 
 		border-bottom:
 			1px solid
@@ -961,39 +1163,65 @@ const mediaItems: MediaItem[] = [
 				70,
 				0.08
 			);
+
 	}
 
 
 	.media-card-image a {
-		display: flex;
 
-		align-items: center;
+		display:
+			block;
 
-		justify-content: center;
+		width:
+			100%;
 
-		width: 100%;
+		height:
+			100%;
 
-		height: 100%;
 	}
 
 
+	/*
+		Individual fit/position comes from mediaItems.
+	*/
+
 	.media-card-image img {
-		display: block !important;
 
-		width: 100% !important;
+		display:
+			block !important;
 
-		height: 100% !important;
+		width:
+			100% !important;
 
-		max-width: 100% !important;
+		height:
+			100% !important;
 
-		max-height: 100% !important;
+		max-width:
+			none !important;
 
-		object-fit: contain !important;
+		max-height:
+			none !important;
+
+		object-fit:
+			var(
+				--media-fit,
+				cover
+			) !important;
 
 		object-position:
-			center center !important;
+			var(
+				--media-position,
+				center center
+			) !important;
 
-		background: #ffffff;
+		transform:
+			scale(
+				var(
+					--media-scale,
+					1
+				)
+			);
+
 	}
 
 
@@ -1002,91 +1230,147 @@ const mediaItems: MediaItem[] = [
 	========================================================= */
 
 	.media-card-content {
-		display: flex;
 
-		flex: 1;
+		display:
+			flex;
 
-		flex-direction: column;
+		flex:
+			1;
 
-		min-height: 0;
+		flex-direction:
+			column;
+
+		min-height:
+			0;
 
 		padding:
-			14px 16px 15px;
+			13px 16px 14px;
+
 	}
 
 
 	.media-card-meta {
-		display: flex;
 
-		flex-wrap: wrap;
+		display:
+			flex;
 
-		gap: 5px;
+		flex-wrap:
+			wrap;
+
+		gap:
+			5px;
 
 		margin:
 			0 0 7px;
 
-		color: #7d8b9a;
+		color:
+			#7d8b9a;
 
-		font-size: 0.64rem;
+		font-size:
+			0.64rem;
 
-		font-weight: 700;
+		font-weight:
+			700;
 
-		line-height: 1.3;
+		line-height:
+			1.3;
 
 		letter-spacing:
 			0.06em;
 
 		text-transform:
 			uppercase;
+
 	}
 
 
 	.media-card h3 {
-		display: -webkit-box;
 
-		margin: 0;
+		display:
+			-webkit-box;
 
-		overflow: hidden;
+		margin:
+			0;
 
-		-webkit-box-orient: vertical;
+		overflow:
+			hidden;
 
-		-webkit-line-clamp: 2;
+		-webkit-box-orient:
+			vertical;
 
-		color: #102b46;
+		-webkit-line-clamp:
+			2;
+
+		color:
+			#102b46;
 
 		font-size:
 			clamp(
 				0.96rem,
 				1.15vw,
-				1.1rem
+				1.10rem
 			);
 
-		font-weight: 600;
+		font-weight:
+			600;
 
-		line-height: 1.18;
+		line-height:
+			1.18;
 
 		letter-spacing:
 			-0.02em;
+
 	}
 
 
-	.media-card-actions {
-		display: flex;
+	/* =========================================================
+	   LINKS
+	   DEFAULT: CLOSE TO TITLE
+	========================================================= */
 
-		flex-wrap: wrap;
+	.media-card-actions {
+
+		display:
+			flex;
+
+		flex-wrap:
+			wrap;
 
 		gap:
 			6px 13px;
 
-		margin-top: auto;
+		margin-top:
+			10px;
 
-		padding-top: 10px;
+		padding-top:
+			0;
+
 	}
 
 
 	.media-card-actions
 	.animated-link {
-		font-size: 0.73rem;
+
+		font-size:
+			0.73rem;
+
+	}
+
+
+	/*
+		Nublit is intentionally different because
+		it has TWO links.
+	*/
+
+	.media-card--nublit
+	.media-card-actions {
+
+		margin-top:
+			auto;
+
+		padding-top:
+			7px;
+
 	}
 
 
@@ -1095,19 +1379,21 @@ const mediaItems: MediaItem[] = [
 	========================================================= */
 
 	.media-contact {
+
 		width:
 			min(
 				1120px,
 				calc(100% - 48px)
 			);
 
-		min-height: 0 !important;
+		min-height:
+			0 !important;
 
 		margin:
-			26px auto 0 !important;
+			24px auto 0 !important;
 
 		padding:
-			32px 0 38px !important;
+			30px 0 34px !important;
 
 		border-top:
 			1px solid
@@ -1117,14 +1403,17 @@ const mediaItems: MediaItem[] = [
 				70,
 				0.12
 			);
+
 	}
 
 
 	.media-contact h2 {
+
 		margin:
 			0 0 16px !important;
 
-		color: #102b46;
+		color:
+			#102b46;
 
 		font-size:
 			clamp(
@@ -1133,80 +1422,103 @@ const mediaItems: MediaItem[] = [
 				2.65rem
 			);
 
-		font-weight: 600;
+		font-weight:
+			600;
 
-		line-height: 1.05;
+		line-height:
+			1.05;
 
 		letter-spacing:
 			-0.035em;
+
 	}
 
 
 	.media-contact p {
-		max-width: 700px;
 
-		margin: 0 !important;
+		max-width:
+			700px;
 
-		color: #6d7c8d;
+		margin:
+			0 !important;
 
-		font-size: 1rem;
+		color:
+			#6d7c8d;
 
-		line-height: 1.55;
+		font-size:
+			1rem;
+
+		line-height:
+			1.55;
+
 	}
 
 
-	/*
-		More separation between descriptive text
-		and Contact me.
-	*/
+	.media-contact
+	.media-contact-link {
 
-	.media-contact .media-contact-link {
 		margin-top:
 			24px !important;
+
 	}
 
 
 	/* =========================================================
-	   REVEAL
+	   REVEALS
 	========================================================= */
 
 	.js
 	.reveal-section
 	.reveal-item {
-		opacity: 0;
+
+		opacity:
+			0;
 
 		transform:
-			translateY(14px);
+			translateY(
+				14px
+			);
 
 		transition:
 			opacity 600ms ease,
 			transform 600ms
-				cubic-bezier(
-					0.22,
-					1,
-					0.36,
-					1
-				);
+			cubic-bezier(
+				0.22,
+				1,
+				0.36,
+				1
+			);
 
 		transition-delay:
-			var(--delay, 0ms);
+			var(
+				--delay,
+				0ms
+			);
+
 	}
 
 
 	.js
 	.reveal-section.is-visible
 	.reveal-item {
-		opacity: 1;
+
+		opacity:
+			1;
 
 		transform:
-			translateY(0);
+			translateY(
+				0
+			);
+
 	}
 
 
 	.js
 	.reveal-delay-1 {
+
 		transition-delay:
 			80ms !important;
+
 	}
 
 
@@ -1214,19 +1526,30 @@ const mediaItems: MediaItem[] = [
 	   TABLET
 	========================================================= */
 
-	@media (max-width: 900px) {
+	@media (
+		max-width:
+		900px
+	) {
 
 		.media-grid {
+
 			grid-template-columns:
 				repeat(
 					2,
-					minmax(0, 1fr)
+					minmax(
+						0,
+						1fr
+					)
 				);
+
 		}
 
 
 		.media-card {
-			height: 305px;
+
+			height:
+				305px;
+
 		}
 
 	}
@@ -1236,93 +1559,129 @@ const mediaItems: MediaItem[] = [
 	   MOBILE
 	========================================================= */
 
-	@media (max-width: 620px) {
+	@media (
+		max-width:
+		620px
+	) {
 
 		.speaking-showcase,
 		.media-events,
 		.media-contact {
+
 			width:
 				calc(
 					100% - 32px
 				);
+
 		}
 
 
 		.speaking-showcase {
+
 			margin:
 				12px auto 20px;
+
 		}
 
 
 		.speaking-slider-stage {
-			border-radius: 10px;
+
+			border-radius:
+				10px;
+
 		}
 
 
 		.speaking-slide {
-			inset: 12px;
+
+			inset:
+				14px;
+
 		}
 
 
 		.speaking-slider-nav {
-			margin-top: 4px;
 
-			height: 28px;
+			margin-top:
+				4px;
+
+			height:
+				28px;
+
 		}
 
 
 		.media-events {
+
 			margin-bottom:
 				18px !important;
+
 		}
 
 
 		.media-events > h2 {
+
 			margin-bottom:
 				19px;
+
 		}
 
 
 		.media-grid {
+
 			grid-template-columns:
 				1fr;
 
-			gap: 16px;
+			gap:
+				16px;
+
 		}
 
 
 		.media-card {
-			height: 295px;
+
+			height:
+				295px;
+
 		}
 
 
 		.media-card-image {
-			flex:
-				0 0 138px;
 
-			height: 138px;
+			flex:
+				0 0 150px;
+
+			height:
+				150px;
+
 		}
 
 
 		.media-card-content {
+
 			padding:
-				14px 16px 15px;
+				13px 16px 14px;
+
 		}
 
 
 		.media-contact {
+
 			margin:
 				22px auto 0 !important;
 
 			padding:
-				28px 0 32px !important;
+				27px 0 30px !important;
+
 		}
 
 
 		.media-contact
 		.media-contact-link {
+
 			margin-top:
 				22px !important;
+
 		}
 
 	}
@@ -1341,8 +1700,10 @@ const mediaItems: MediaItem[] = [
 		.speaking-slider-dot,
 		.media-card,
 		.reveal-item {
+
 			transition:
 				none !important;
+
 		}
 
 	}
