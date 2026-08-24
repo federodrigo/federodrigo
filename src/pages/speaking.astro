@@ -16,7 +16,7 @@ type MediaItem = {
 	internal?: boolean;
 	imageFit?: 'cover' | 'contain';
 	imagePosition?: string;
-	imageScale?: number;
+	imageClass?: string;
 };
 
 const mediaItems: MediaItem[] = [
@@ -32,46 +32,45 @@ const mediaItems: MediaItem[] = [
 		internal: true,
 		imageFit: 'contain',
 		imagePosition: 'center center',
-		imageScale: 1.03,
 	},
 	{
-	type: 'Podcast',
-	title: 'The Technology Vanguard',
-	date: 'August 2026',
-	image: '/images/vanguard.png',
-	imageAlt:
-		'Fede Rodrigo appearing on The Technology Vanguard podcast',
-	url: 'https://www.youtube.com/watch?v=2wyTHhaOcWE',
-	linkLabel: 'Watch the conversation',
-	imageFit: 'cover',
-	imagePosition: 'center 42%',
-	imageScale: 0.70,
-},
-{
-	type: 'Interview',
-	title: 'Cloud Investment & Business Value — Nublit',
-	date: 'January 2026',
-	image: '/images/cloud-interview.jpg',
-	imageAlt:
-		'Interview with Fede Rodrigo published by Nublit',
-	url: 'https://informe2026.nublit.com/',
-	linkLabel: 'View full report',
-	pdfUrl: '/pdfs/Fede-Rodrigo-Interview-Nublit.pdf',
-	pdfLabel: 'Read my interview',
-	imageFit: 'contain',
-	imagePosition: 'center center',
-	imageScale: 1.40,
-},
-{
-	type: 'Executive Roundtable',
-	title: 'Industrial Reinvention — The Economist',
-	date: 'September 2024',
-	image: '/images/impact.png',
-	imageAlt: 'The Economist Impact',
-	imageFit: 'cover',
-	imagePosition: 'center 38%',
-	imageScale: 0.70,
-},
+		type: 'Podcast',
+		title: 'The Technology Vanguard',
+		date: 'August 2026',
+		image: '/images/vanguard.png',
+		imageAlt:
+			'Fede Rodrigo appearing on The Technology Vanguard podcast',
+		url: 'https://www.youtube.com/watch?v=2wyTHhaOcWE',
+		linkLabel: 'Watch the conversation',
+		imageFit: 'cover',
+		imagePosition: 'center 42%',
+		imageClass: 'media-image-vanguard',
+	},
+	{
+		type: 'Interview',
+		title: 'Cloud Investment & Business Value — Nublit',
+		date: 'January 2026',
+		image: '/images/cloud-interview.jpg',
+		imageAlt:
+			'Interview with Fede Rodrigo published by Nublit',
+		url: 'https://informe2026.nublit.com/',
+		linkLabel: 'View full report',
+		pdfUrl: '/pdfs/Fede-Rodrigo-Interview-Nublit.pdf',
+		pdfLabel: 'Read my interview',
+		imageFit: 'contain',
+		imagePosition: 'center center',
+		imageClass: 'media-image-nublit',
+	},
+	{
+		type: 'Executive Roundtable',
+		title: 'Industrial Reinvention — The Economist',
+		date: 'September 2024',
+		image: '/images/impact.png',
+		imageAlt: 'The Economist Impact',
+		imageFit: 'cover',
+		imagePosition: 'center 38%',
+		imageClass: 'media-image-economist',
+	},
 	{
 		type: 'Recognition',
 		title: 'ORBIE CIO Awards',
@@ -82,7 +81,6 @@ const mediaItems: MediaItem[] = [
 		linkLabel: 'View recognition',
 		imageFit: 'cover',
 		imagePosition: 'center 42%',
-		imageScale: 0.98,
 	},
 ];
 ---
@@ -109,7 +107,6 @@ const mediaItems: MediaItem[] = [
 
 			<!-- =====================================================
 			     HERO
-			     ORIGINAL STRUCTURE
 			===================================================== -->
 
 			<section class="hero">
@@ -234,16 +231,16 @@ const mediaItems: MediaItem[] = [
 
 				<div class="speaking-intro-copy reveal-item">
 
-			<p>
-	One of the recurring mistakes I speak about is treating technology
-	as the answer before the business problem is understood. Whether the
-	initiative is ERP, AI, cloud, or something else, the first question
-	is the same:
-	<strong>
-		what are we trying to change, and what business value should that
-		change create?
-	</strong>
-		</p>
+					<p>
+						One of the recurring mistakes I speak about is treating
+						technology as the answer before the business problem is
+						understood. Whether the initiative is ERP, AI, cloud, or
+						something else, the first question is the same:
+						<strong>
+							what are we trying to change, and what business value
+							should that change create?
+						</strong>
+					</p>
 
 				</div>
 
@@ -291,7 +288,6 @@ const mediaItems: MediaItem[] = [
 									--delay: ${index * 60}ms;
 									--media-fit: ${item.imageFit ?? 'cover'};
 									--media-position: ${item.imagePosition ?? 'center center'};
-									--media-scale: ${item.imageScale ?? 1};
 								`}
 							>
 
@@ -321,6 +317,10 @@ const mediaItems: MediaItem[] = [
 											>
 
 												<img
+													class:list={[
+														'media-card-image-element',
+														item.imageClass,
+													]}
 													src={item.image}
 													alt={item.imageAlt}
 													loading="lazy"
@@ -331,6 +331,10 @@ const mediaItems: MediaItem[] = [
 										) : (
 
 											<img
+												class:list={[
+													'media-card-image-element',
+													item.imageClass,
+												]}
 												src={item.image}
 												alt={item.imageAlt}
 												loading="lazy"
@@ -506,7 +510,7 @@ const mediaItems: MediaItem[] = [
 
 
 		<!-- =====================================================
-		     REVEAL ANIMATION
+		     REVEAL
 		===================================================== -->
 
 		<script>
@@ -525,15 +529,15 @@ const mediaItems: MediaItem[] = [
 						entries.forEach(
 							(entry) => {
 
-								if (
-									!entry.isIntersecting
-								) {
+								if (!entry.isIntersecting) {
 									return;
 								}
+
 
 								entry.target.classList.add(
 									'is-visible'
 								);
+
 
 								observer.unobserve(
 									entry.target
@@ -567,7 +571,7 @@ const mediaItems: MediaItem[] = [
 
 
 		<!-- =====================================================
-		     SPEAKING SLIDER
+		     SLIDER
 		===================================================== -->
 
 		<script>
@@ -603,9 +607,7 @@ const mediaItems: MediaItem[] = [
 
 
 				let currentSlide = 0;
-
 				let slideTimer = null;
-
 				let sliderVisible = false;
 
 
@@ -844,7 +846,7 @@ const mediaItems: MediaItem[] = [
 
 	/* =========================================================
 	   HERO
-	   INTENTIONALLY NOT TOUCHED
+	   NOT TOUCHED
 	========================================================= */
 
 
@@ -1042,7 +1044,8 @@ const mediaItems: MediaItem[] = [
 		margin:
 			14px auto 30px;
 
-		padding: 0 !important;
+		padding:
+			0 !important;
 
 	}
 
@@ -1057,7 +1060,8 @@ const mediaItems: MediaItem[] = [
 
 	.speaking-intro p {
 
-		margin: 0;
+		margin:
+			0;
 
 		color:
 			#5f7083;
@@ -1071,14 +1075,6 @@ const mediaItems: MediaItem[] = [
 
 		line-height:
 			1.65;
-
-	}
-
-
-	.speaking-intro p + p {
-
-		margin-top:
-			18px;
 
 	}
 
@@ -1169,7 +1165,8 @@ const mediaItems: MediaItem[] = [
 
 	.media-grid {
 
-		display: grid;
+		display:
+			grid;
 
 		grid-template-columns:
 			repeat(
@@ -1192,7 +1189,8 @@ const mediaItems: MediaItem[] = [
 
 	.media-card {
 
-		display: flex;
+		display:
+			flex;
 
 		flex-direction:
 			column;
@@ -1249,7 +1247,7 @@ const mediaItems: MediaItem[] = [
 
 
 	/* =========================================================
-	   MEDIA IMAGE
+	   MEDIA IMAGE CONTAINER
 	========================================================= */
 
 	.media-card-image {
@@ -1295,7 +1293,7 @@ const mediaItems: MediaItem[] = [
 	}
 
 
-	.media-card-image img {
+	.media-card-image-element {
 
 		display:
 			block !important;
@@ -1324,16 +1322,51 @@ const mediaItems: MediaItem[] = [
 				center center
 			) !important;
 
-		transform:
-			scale(
-				var(
-					--media-scale,
-					1
-				)
-			);
-
 		transform-origin:
 			center center;
+
+	}
+
+
+	/* =========================================================
+	   THESE ARE THE 3 VALUES TO TWEAK
+	   =========================================================
+
+	   Vanguard smaller:
+	   0.80 = much smaller
+	   0.90 = slightly smaller
+	   1.00 = normal
+
+	   Nublit:
+	   1.10 = bigger
+	   1.20 = bigger
+	   1.30 = much bigger
+
+	   Economist:
+	   same logic as Vanguard
+	========================================================= */
+
+
+	.media-image-vanguard {
+
+		transform:
+			scale(0.86) !important;
+
+	}
+
+
+	.media-image-nublit {
+
+		transform:
+			scale(1.18) !important;
+
+	}
+
+
+	.media-image-economist {
+
+		transform:
+			scale(0.86) !important;
 
 	}
 
@@ -1468,11 +1501,6 @@ const mediaItems: MediaItem[] = [
 
 	}
 
-
-	/*
-		Nublit keeps both links together,
-		but no longer pushed to bottom.
-	*/
 
 	.media-card--nublit
 	.media-card-actions {
