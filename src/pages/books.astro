@@ -4,17 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 const papers = [
-	{
-		status: 'Available on SSRN',
-		date: 'SSRN Preprint · December 2025',
-		title: 'The Theorem of Minimal Tolerance',
-		subtitle:
-			'Free Riders, the State, and the “Institutional Technology of Last Resort”',
-		description:
-			'The paper presents the theory, the formal theorem, its evidentiary standard, and its corollary',
-		href: 'https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5984574',
-		action: 'Open on SSRN'
-	},
+	
 	{
 		status: 'Under Review',
 		date: 'Submitted · August 2026',
@@ -23,8 +13,7 @@ const papers = [
 			'Why a system that works can make it harder to know what would happen if the safeguards behind that performance were removed',
 		description:
 			'An examination of how apparent operational success can conceal structural dependence and weaken the ability to evaluate credible alternatives',
-		href: null,
-		action: 'Under Review'
+		href: null
 	},
 	{
 		status: 'Under Review',
@@ -34,8 +23,7 @@ const papers = [
 			'How successful accommodations can preserve an existing technology path, become embedded over time, and reduce credible alternatives',
 		description:
 			'An examination of how effective short-term fixes can become permanent features of an organization and reinforce technological lock-in',
-		href: null,
-		action: 'Under Review'
+		href: null
 	}
 ];
 ---
@@ -153,76 +141,62 @@ const papers = [
 			<!-- FORTHCOMING BOOK -->
 
 			<section
-				class="books-page-other reveal-section"
-				aria-labelledby="forthcoming-book-heading"
+				class="books-page-book books-page-book-secondary minimal-tolerance-book reveal-section"
+				aria-labelledby="minimal-tolerance-book-title"
 			>
-				<h2
-					id="forthcoming-book-heading"
-					class="reveal-item"
+				<div
+					class="books-page-cover-wrapper reveal-item reveal-from-left"
 				>
-					Forthcoming Book
-				</h2>
-
-				<article
-					class="books-page-book books-page-book-secondary"
-					aria-labelledby="minimal-tolerance-book-title"
-				>
-					<div
-						class="books-page-cover-wrapper reveal-item reveal-from-left reveal-delay-1"
+					<a
+						href="/theory"
+						class="books-page-cover-link"
+						aria-label="Explore A Theory of Minimal Tolerance"
 					>
+						<img
+							src="/images/book-cover.jpg"
+							alt="Cover of A Theory of Minimal Tolerance"
+							class="books-page-cover animated-book-cover"
+							loading="lazy"
+						/>
+					</a>
+				</div>
+
+				<div class="books-page-content reveal-item reveal-delay-1">
+					<p class="books-page-label">
+						Forthcoming Book
+					</p>
+
+					<h2 id="minimal-tolerance-book-title">
+						A Theory of Minimal Tolerance
+					</h2>
+
+					<p>
+						A work exploring freedom, coercion, incentives,
+						institutions, and the limits that should constrain
+						political power
+					</p>
+
+					<p>
+						It develops a practical framework for examining the
+						conditions under which state coercion may be tolerated
+					</p>
+
+					<p class="books-page-action">
 						<a
 							href="/theory"
-							class="books-page-cover-link"
-							aria-label="Explore A Theory of Minimal Tolerance"
+							class="animated-link"
 						>
-							<img
-								src="/images/book-cover.jpg"
-								alt="Cover of A Theory of Minimal Tolerance"
-								class="books-page-cover animated-book-cover"
-								loading="lazy"
-							/>
-						</a>
-					</div>
+							<span>Explore Minimal Tolerance</span>
 
-					<div
-						class="books-page-content reveal-item reveal-delay-2"
-					>
-						<p class="books-page-label">
-							Forthcoming Book
-						</p>
-
-						<h2 id="minimal-tolerance-book-title">
-							A Theory of Minimal Tolerance
-						</h2>
-
-						<p>
-							A work exploring freedom, coercion, incentives,
-							institutions, and the limits that should constrain
-							political power
-						</p>
-
-						<p>
-							It develops a practical framework for examining the
-							conditions under which state coercion may be tolerated
-						</p>
-
-						<p class="books-page-action">
-							<a
-								href="/theory"
-								class="animated-link"
+							<span
+								class="animated-link-arrow"
+								aria-hidden="true"
 							>
-								<span>Explore Minimal Tolerance</span>
-
-								<span
-									class="animated-link-arrow"
-									aria-hidden="true"
-								>
-									→
-								</span>
-							</a>
-						</p>
-					</div>
-				</article>
+								→
+							</span>
+						</a>
+					</p>
+				</div>
 			</section>
 
 			<!-- PAPERS -->
@@ -230,22 +204,8 @@ const papers = [
 			<section
 				id="papers"
 				class="papers-section reveal-section"
-				aria-labelledby="papers-heading"
+				aria-label="Papers"
 			>
-				<div class="papers-heading reveal-item">
-					<p class="papers-eyebrow">
-						Selected Research
-					</p>
-
-					<h2 id="papers-heading">
-						Papers
-					</h2>
-
-					<p class="papers-introduction">
-						Technology. Organizations. Institutions
-					</p>
-				</div>
-
 				<div class="papers-list">
 					{
 						papers.map((paper) => (
@@ -269,9 +229,29 @@ const papers = [
 								</div>
 
 								<div class="paper-content">
-									<h3 class="paper-title">
-										{paper.title}
-									</h3>
+									<h2 class="paper-title">
+										{
+											paper.href ? (
+												<a
+													href={paper.href}
+													target="_blank"
+													rel="noopener noreferrer"
+													class="paper-title-link"
+												>
+													<span>{paper.title}</span>
+
+													<span
+														class="paper-title-arrow"
+														aria-hidden="true"
+													>
+														→
+													</span>
+												</a>
+											) : (
+												paper.title
+											)
+										}
+									</h2>
 
 									<p class="paper-subtitle">
 										{paper.subtitle}
@@ -280,32 +260,6 @@ const papers = [
 									<p class="paper-description">
 										{paper.description}
 									</p>
-								</div>
-
-								<div class="paper-action">
-									{
-										paper.href ? (
-											<a
-												href={paper.href}
-												target="_blank"
-												rel="noopener noreferrer"
-												class="paper-link"
-											>
-												<span>{paper.action}</span>
-
-												<span
-													class="paper-link-arrow"
-													aria-hidden="true"
-												>
-													→
-												</span>
-											</a>
-										) : (
-											<span class="paper-action-static">
-												{paper.action}
-											</span>
-										)
-									}
 								</div>
 							</article>
 						))
@@ -348,45 +302,15 @@ const papers = [
 </html>
 
 <style>
+	.minimal-tolerance-book {
+		margin-top: clamp(5rem, 9vw, 8rem);
+	}
+
 	.papers-section {
 		width: min(1180px, calc(100% - 3rem));
-		margin: clamp(7rem, 12vw, 11rem) auto;
+		margin: clamp(2rem, 4vw, 3.5rem) auto
+			clamp(7rem, 11vw, 10rem);
 		scroll-margin-top: 8rem;
-	}
-
-	.papers-heading {
-		display: grid;
-		grid-template-columns: minmax(0, 1fr) auto;
-		align-items: end;
-		gap: 1.5rem;
-		margin-bottom: clamp(2.5rem, 5vw, 4rem);
-	}
-
-	.papers-eyebrow {
-		grid-column: 1 / -1;
-		margin: 0 0 0.35rem;
-		font-size: 0.72rem;
-		font-weight: 700;
-		line-height: 1;
-		letter-spacing: 0.18em;
-		text-transform: uppercase;
-		color: #6d9fdd;
-	}
-
-	.papers-heading h2 {
-		margin: 0;
-		font-size: clamp(2.7rem, 6vw, 5rem);
-		line-height: 0.95;
-		letter-spacing: -0.055em;
-	}
-
-	.papers-introduction {
-		margin: 0 0 0.35rem;
-		font-size: 0.82rem;
-		font-weight: 650;
-		letter-spacing: 0.12em;
-		text-transform: uppercase;
-		opacity: 0.54;
 	}
 
 	.papers-list {
@@ -395,10 +319,7 @@ const papers = [
 
 	.paper-row {
 		display: grid;
-		grid-template-columns:
-			minmax(145px, 0.62fr)
-			minmax(0, 2.5fr)
-			minmax(135px, 0.65fr);
+		grid-template-columns: minmax(150px, 0.55fr) minmax(0, 2.8fr);
 		align-items: start;
 		gap: clamp(1.5rem, 4vw, 3.5rem);
 		padding: clamp(2rem, 4vw, 3.25rem) 0;
@@ -406,8 +327,7 @@ const papers = [
 	}
 
 	.paper-meta,
-	.paper-content,
-	.paper-action {
+	.paper-content {
 		min-width: 0;
 	}
 
@@ -440,8 +360,31 @@ const papers = [
 		letter-spacing: -0.035em;
 	}
 
+	.paper-title-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.65rem;
+		color: inherit;
+		text-decoration: none;
+	}
+
+	.paper-title-link:hover,
+	.paper-title-link:focus-visible {
+		color: #4f87cd;
+	}
+
+	.paper-title-arrow {
+		color: #6d9fdd;
+		transition: transform 220ms ease;
+	}
+
+	.paper-title-link:hover .paper-title-arrow,
+	.paper-title-link:focus-visible .paper-title-arrow {
+		transform: translateX(0.3rem);
+	}
+
 	.paper-subtitle {
-		max-width: 760px;
+		max-width: 800px;
 		margin: 0.85rem 0 0;
 		font-size: clamp(1rem, 1.4vw, 1.12rem);
 		font-weight: 580;
@@ -449,88 +392,21 @@ const papers = [
 	}
 
 	.paper-description {
-		max-width: 750px;
+		max-width: 780px;
 		margin: 1rem 0 0;
 		font-size: 0.94rem;
 		line-height: 1.65;
 		opacity: 0.66;
 	}
 
-	.paper-action {
-		display: flex;
-		justify-content: flex-end;
-		align-items: center;
-		align-self: center;
-	}
-
-	.paper-link {
-		position: relative;
-		display: inline-flex;
-		align-items: center;
-		gap: 0.65rem;
-		padding-bottom: 0.28rem;
-		font-size: 0.82rem;
-		font-weight: 700;
-		line-height: 1.25;
-		letter-spacing: 0.03em;
-		color: inherit;
-		text-decoration: none;
-		white-space: nowrap;
-	}
-
-	.paper-link::after {
-		content: '';
-		position: absolute;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		height: 1px;
-		background: #6d9fdd;
-		transform: scaleX(0.28);
-		transform-origin: left;
-		transition: transform 220ms ease;
-	}
-
-	.paper-link:hover::after,
-	.paper-link:focus-visible::after {
-		transform: scaleX(1);
-	}
-
-	.paper-link-arrow {
-		color: #6d9fdd;
-		transition: transform 220ms ease;
-	}
-
-	.paper-link:hover .paper-link-arrow,
-	.paper-link:focus-visible .paper-link-arrow {
-		transform: translateX(0.25rem);
-	}
-
-	.paper-action-static {
-		font-size: 0.74rem;
-		font-weight: 700;
-		line-height: 1.25;
-		letter-spacing: 0.12em;
-		text-transform: uppercase;
-		opacity: 0.38;
-	}
-
 	@media (max-width: 850px) {
+		.minimal-tolerance-book {
+			margin-top: 4rem;
+		}
+
 		.papers-section {
 			width: min(100% - 2rem, 720px);
-		}
-
-		.papers-heading {
-			grid-template-columns: 1fr;
-			gap: 0.7rem;
-		}
-
-		.papers-eyebrow {
-			grid-column: auto;
-		}
-
-		.papers-introduction {
-			margin: 0;
+			margin-top: 2rem;
 		}
 
 		.paper-row {
@@ -548,15 +424,10 @@ const papers = [
 		.paper-date {
 			margin: 0;
 		}
-
-		.paper-action {
-			justify-content: flex-start;
-		}
 	}
 
 	@media (prefers-reduced-motion: reduce) {
-		.paper-link::after,
-		.paper-link-arrow {
+		.paper-title-arrow {
 			transition: none;
 		}
 	}
