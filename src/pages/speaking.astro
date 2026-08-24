@@ -32,7 +32,7 @@ const mediaItems: MediaItem[] = [
 		internal: true,
 		imageFit: 'contain',
 		imagePosition: 'center center',
-		imageScale: 1.04,
+		imageScale: 1.03,
 	},
 	{
 		type: 'Podcast',
@@ -44,8 +44,8 @@ const mediaItems: MediaItem[] = [
 		url: 'https://www.youtube.com/watch?v=2wyTHhaOcWE',
 		linkLabel: 'Watch the conversation',
 		imageFit: 'cover',
-		imagePosition: 'center 38%',
-		imageScale: 1,
+		imagePosition: 'center 40%',
+		imageScale: 0.93,
 	},
 	{
 		type: 'Interview',
@@ -60,7 +60,7 @@ const mediaItems: MediaItem[] = [
 		pdfLabel: 'Read my interview',
 		imageFit: 'contain',
 		imagePosition: 'center center',
-		imageScale: 1.12,
+		imageScale: 1.08,
 	},
 	{
 		type: 'Executive Roundtable',
@@ -69,8 +69,8 @@ const mediaItems: MediaItem[] = [
 		image: '/images/impact.png',
 		imageAlt: 'The Economist Impact',
 		imageFit: 'cover',
-		imagePosition: 'center 40%',
-		imageScale: 1,
+		imagePosition: 'center 42%',
+		imageScale: 0.93,
 	},
 	{
 		type: 'Recognition',
@@ -81,8 +81,8 @@ const mediaItems: MediaItem[] = [
 		url: 'https://orbie.org/honoree/federico-rodrigo/4324',
 		linkLabel: 'View recognition',
 		imageFit: 'cover',
-		imagePosition: 'center 40%',
-		imageScale: 1,
+		imagePosition: 'center 42%',
+		imageScale: 0.98,
 	},
 ];
 ---
@@ -109,7 +109,7 @@ const mediaItems: MediaItem[] = [
 
 			<!-- =====================================================
 			     HERO
-			     ORIGINAL STRUCTURE — NO NEW HERO CSS
+			     ORIGINAL STRUCTURE
 			===================================================== -->
 
 			<section class="hero">
@@ -224,6 +224,40 @@ const mediaItems: MediaItem[] = [
 
 				</div>
 			</section>
+
+
+			<!-- =====================================================
+			     SPEAKING INTRO
+			===================================================== -->
+
+			<section class="speaking-intro reveal-section">
+
+				<div class="speaking-intro-copy reveal-item">
+
+					<p>
+						My talks focus on the decisions behind technology:
+						what the business is trying to change, why it matters,
+						and how people, leadership, and execution determine
+						the outcome.
+					</p>
+
+					<p>
+						From ERP and AI to cloud, transformation, and the CIO
+						role, the principle is the same:
+						<strong>
+							people first, business driven, technology enabled.
+						</strong>
+					</p>
+
+				</div>
+
+			</section>
+
+
+			<div
+				class="speaking-divider"
+				aria-hidden="true"
+			></div>
 
 
 			<!-- =====================================================
@@ -579,10 +613,6 @@ const mediaItems: MediaItem[] = [
 				let sliderVisible = false;
 
 
-				/*
-					First slide stays longer.
-				*/
-
 				const durations = [
 					7000,
 					5200,
@@ -835,7 +865,7 @@ const mediaItems: MediaItem[] = [
 			);
 
 		margin:
-			18px auto 26px;
+			18px auto 10px;
 
 	}
 
@@ -873,19 +903,15 @@ const mediaItems: MediaItem[] = [
 	}
 
 
-	/*
-		Extra breathing room around each slide.
-	*/
-
 	.speaking-slide {
 
 		position: absolute;
 
 		inset:
 			clamp(
-				22px,
-				2.4vw,
-				36px
+				30px,
+				3vw,
+				48px
 			);
 
 		display: flex;
@@ -1006,6 +1032,98 @@ const mediaItems: MediaItem[] = [
 
 
 	/* =========================================================
+	   SPEAKING INTRO
+	========================================================= */
+
+	.speaking-intro {
+
+		width:
+			min(
+				1120px,
+				calc(100% - 48px)
+			);
+
+		margin:
+			14px auto 30px;
+
+		padding: 0 !important;
+
+	}
+
+
+	.speaking-intro-copy {
+
+		max-width:
+			790px;
+
+	}
+
+
+	.speaking-intro p {
+
+		margin: 0;
+
+		color:
+			#5f7083;
+
+		font-size:
+			clamp(
+				1.05rem,
+				1.45vw,
+				1.22rem
+			);
+
+		line-height:
+			1.65;
+
+	}
+
+
+	.speaking-intro p + p {
+
+		margin-top:
+			18px;
+
+	}
+
+
+	.speaking-intro strong {
+
+		color:
+			#102b46;
+
+		font-weight:
+			650;
+
+	}
+
+
+	.speaking-divider {
+
+		width:
+			min(
+				1120px,
+				calc(100% - 48px)
+			);
+
+		height:
+			1px;
+
+		margin:
+			0 auto 30px;
+
+		background:
+			rgba(
+				16,
+				43,
+				70,
+				0.12
+			);
+
+	}
+
+
+	/* =========================================================
 	   MEDIA & EVENTS
 	========================================================= */
 
@@ -1018,7 +1136,7 @@ const mediaItems: MediaItem[] = [
 			);
 
 		margin:
-			0 auto 22px !important;
+			0 auto 20px !important;
 
 		padding:
 			0 !important;
@@ -1036,9 +1154,9 @@ const mediaItems: MediaItem[] = [
 
 		font-size:
 			clamp(
-				1.85rem,
-				2.8vw,
-				2.65rem
+				1.95rem,
+				2.9vw,
+				2.75rem
 			);
 
 		font-weight:
@@ -1087,7 +1205,7 @@ const mediaItems: MediaItem[] = [
 			100%;
 
 		height:
-			290px;
+			300px;
 
 		min-width:
 			0;
@@ -1141,13 +1259,13 @@ const mediaItems: MediaItem[] = [
 	.media-card-image {
 
 		flex:
-			0 0 156px;
+			0 0 145px;
 
 		width:
 			100%;
 
 		height:
-			156px;
+			145px;
 
 		overflow:
 			hidden;
@@ -1180,10 +1298,6 @@ const mediaItems: MediaItem[] = [
 
 	}
 
-
-	/*
-		Individual fit/position comes from mediaItems.
-	*/
 
 	.media-card-image img {
 
@@ -1221,6 +1335,9 @@ const mediaItems: MediaItem[] = [
 					1
 				)
 			);
+
+		transform-origin:
+			center center;
 
 	}
 
@@ -1261,13 +1378,13 @@ const mediaItems: MediaItem[] = [
 			5px;
 
 		margin:
-			0 0 7px;
+			0 0 8px;
 
 		color:
 			#7d8b9a;
 
 		font-size:
-			0.64rem;
+			0.70rem;
 
 		font-weight:
 			700;
@@ -1306,9 +1423,9 @@ const mediaItems: MediaItem[] = [
 
 		font-size:
 			clamp(
-				0.96rem,
-				1.15vw,
-				1.10rem
+				1rem,
+				1.25vw,
+				1.18rem
 			);
 
 		font-weight:
@@ -1324,8 +1441,7 @@ const mediaItems: MediaItem[] = [
 
 
 	/* =========================================================
-	   LINKS
-	   DEFAULT: CLOSE TO TITLE
+	   CARD LINKS
 	========================================================= */
 
 	.media-card-actions {
@@ -1337,10 +1453,10 @@ const mediaItems: MediaItem[] = [
 			wrap;
 
 		gap:
-			6px 13px;
+			8px 15px;
 
 		margin-top:
-			10px;
+			15px;
 
 		padding-top:
 			0;
@@ -1352,24 +1468,24 @@ const mediaItems: MediaItem[] = [
 	.animated-link {
 
 		font-size:
-			0.73rem;
+			0.82rem;
 
 	}
 
 
 	/*
-		Nublit is intentionally different because
-		it has TWO links.
+		Nublit keeps both links together,
+		but no longer pushed to bottom.
 	*/
 
 	.media-card--nublit
 	.media-card-actions {
 
 		margin-top:
-			auto;
+			13px;
 
 		padding-top:
-			7px;
+			0;
 
 	}
 
@@ -1417,9 +1533,9 @@ const mediaItems: MediaItem[] = [
 
 		font-size:
 			clamp(
-				1.85rem,
-				2.8vw,
-				2.65rem
+				1.95rem,
+				2.9vw,
+				2.75rem
 			);
 
 		font-weight:
@@ -1548,7 +1664,7 @@ const mediaItems: MediaItem[] = [
 		.media-card {
 
 			height:
-				320px;
+				300px;
 
 		}
 
@@ -1565,6 +1681,8 @@ const mediaItems: MediaItem[] = [
 	) {
 
 		.speaking-showcase,
+		.speaking-intro,
+		.speaking-divider,
 		.media-events,
 		.media-contact {
 
@@ -1579,7 +1697,7 @@ const mediaItems: MediaItem[] = [
 		.speaking-showcase {
 
 			margin:
-				12px auto 20px;
+				12px auto 8px;
 
 		}
 
@@ -1595,7 +1713,7 @@ const mediaItems: MediaItem[] = [
 		.speaking-slide {
 
 			inset:
-				14px;
+				16px;
 
 		}
 
@@ -1607,6 +1725,33 @@ const mediaItems: MediaItem[] = [
 
 			height:
 				28px;
+
+		}
+
+
+		.speaking-intro {
+
+			margin:
+				12px auto 26px;
+
+		}
+
+
+		.speaking-intro p {
+
+			font-size:
+				1rem;
+
+			line-height:
+				1.6;
+
+		}
+
+
+		.speaking-divider {
+
+			margin-bottom:
+				26px;
 
 		}
 
@@ -1641,7 +1786,7 @@ const mediaItems: MediaItem[] = [
 		.media-card {
 
 			height:
-				295px;
+				292px;
 
 		}
 
@@ -1649,10 +1794,10 @@ const mediaItems: MediaItem[] = [
 		.media-card-image {
 
 			flex:
-				0 0 150px;
+				0 0 142px;
 
 			height:
-				150px;
+				142px;
 
 		}
 
