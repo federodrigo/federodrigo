@@ -51,20 +51,21 @@ const isActive = (path: string) => {
 				{isSpanish ? 'La Oficina del CIO' : 'The CIO Office'}
 			</a>
 
-			<a
-				href={`${base}/books`}
-				class:list={{ 'nav-active': isActive(`${base}/books`) }}
-				aria-current={isActive(`${base}/books`) ? 'page' : undefined}
-			>
-				{isSpanish ? 'Libros' : 'Books'}
-			</a>
-
+			
 			<a
 				href={`${base}/speaking`}
 				class:list={{ 'nav-active': isActive(`${base}/speaking`) }}
 				aria-current={isActive(`${base}/speaking`) ? 'page' : undefined}
 			>
 				{isSpanish ? 'Charlas' : 'Speaking'}
+			</a>
+
+			<a
+				href={`${base}/books`}
+				class:list={{ 'nav-active': isActive(`${base}/books`) }}
+				aria-current={isActive(`${base}/books`) ? 'page' : undefined}
+			>
+				{isSpanish ? 'Libros' : 'Books'}
 			</a>
 
 			<a
