@@ -13,8 +13,8 @@ import Footer from '../components/Footer.astro';
 		</script>
 
 		<SEO
-			title="Books | Fede Rodrigo"
-			description="Books by Fede Rodrigo about technology leadership, business, incentives, institutions, and the systems that shape organizations"
+			title="Books & Papers | Fede Rodrigo"
+			description="Books and research papers by Fede Rodrigo about technology leadership, business, incentives, institutions, and the limits of political power"
 			lang="en"
 		/>
 	</head>
@@ -26,7 +26,7 @@ import Footer from '../components/Footer.astro';
 			<section class="hero">
 				<h1 class="hero-title">
 					<span class="hero-line">
-						Books & <span class="accent">Publications</span>
+						Books & <span class="accent">Papers</span>
 					</span>
 				</h1>
 
@@ -35,6 +35,8 @@ import Footer from '../components/Footer.astro';
 					<div>Twenty Years Earlier</div>
 				</div>
 			</section>
+
+			<!-- FEATURED BOOK -->
 
 			<section
 				class="books-page-book books-page-book-featured reveal-section"
@@ -100,6 +102,7 @@ import Footer from '../components/Footer.astro';
 							class="animated-link"
 						>
 							<span>View on Amazon</span>
+
 							<span
 								class="animated-link-arrow"
 								aria-hidden="true"
@@ -111,27 +114,30 @@ import Footer from '../components/Footer.astro';
 				</div>
 			</section>
 
+			<!-- FORTHCOMING BOOK -->
+
 			<section
 				class="books-page-other reveal-section"
-				aria-labelledby="other-work-title"
+				aria-labelledby="forthcoming-book-heading"
 			>
-				<h2 id="other-work-title" class="reveal-item">
-					Other Work
+				<h2
+					id="forthcoming-book-heading"
+					class="reveal-item"
+				>
+					Forthcoming Book
 				</h2>
 
 				<article
 					class="books-page-book books-page-book-secondary"
-					aria-labelledby="minimal-tolerance-title"
+					aria-labelledby="minimal-tolerance-book-title"
 				>
 					<div
 						class="books-page-cover-wrapper reveal-item reveal-from-left reveal-delay-1"
 					>
 						<a
-							href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5984574"
-							target="_blank"
-							rel="noopener noreferrer"
+							href="/theory"
 							class="books-page-cover-link"
-							aria-label="Read The Minimal Tolerance Theorem on SSRN"
+							aria-label="Explore A Theory of Minimal Tolerance"
 						>
 							<img
 								src="/images/book-cover.jpg"
@@ -146,10 +152,10 @@ import Footer from '../components/Footer.astro';
 						class="books-page-content reveal-item reveal-delay-2"
 					>
 						<p class="books-page-label">
-							Forthcoming
+							Forthcoming Book
 						</p>
 
-						<h2 id="minimal-tolerance-title">
+						<h2 id="minimal-tolerance-book-title">
 							A Theory of Minimal Tolerance
 						</h2>
 
@@ -161,7 +167,105 @@ import Footer from '../components/Footer.astro';
 
 						<p>
 							It develops a practical framework for examining the
-							conditions under which state coercion may be tolerable
+							exceptional conditions under which state coercion may
+							be tolerated
+						</p>
+
+						<p class="books-page-action">
+							<a
+								href="/theory"
+								class="animated-link"
+							>
+								<span>Explore Minimal Tolerance</span>
+
+								<span
+									class="animated-link-arrow"
+									aria-hidden="true"
+								>
+									→
+								</span>
+							</a>
+						</p>
+					</div>
+				</article>
+			</section>
+
+			<!-- PAPERS -->
+
+			<section
+				id="papers"
+				class="books-page-other books-page-papers reveal-section"
+				aria-labelledby="papers-heading"
+			>
+				<h2
+					id="papers-heading"
+					class="reveal-item"
+				>
+					Papers
+				</h2>
+
+				<article
+					class="books-page-book books-page-book-secondary"
+					aria-labelledby="minimal-tolerance-paper-title"
+				>
+					<div
+						class="books-page-cover-wrapper reveal-item reveal-from-left reveal-delay-1"
+					>
+						<a
+							href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5984574"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="books-page-cover-link"
+							aria-label="Read The Minimal Tolerance Theorem on SSRN"
+						>
+							<div class="paper-cover" aria-hidden="true">
+								<span class="paper-cover-type">
+									Research Paper
+								</span>
+
+								<span class="paper-cover-title">
+									The Minimal<br />
+									Tolerance<br />
+									Theorem
+								</span>
+
+								<span class="paper-cover-author">
+									Fede Rodrigo
+								</span>
+
+								<span class="paper-cover-platform">
+									SSRN
+								</span>
+							</div>
+						</a>
+					</div>
+
+					<div
+						class="books-page-content reveal-item reveal-delay-2"
+					>
+						<p class="books-page-label">
+							Research Paper
+						</p>
+
+						<h2 id="minimal-tolerance-paper-title">
+							The Minimal Tolerance Theorem
+						</h2>
+
+						<p>
+							When, if ever, may state coercion be tolerated?
+						</p>
+
+						<p>
+							The paper develops a three-condition test for
+							evaluating claims that coercive state provision is
+							necessary
+						</p>
+
+						<p>
+							It places the burden of proof on power and requires
+							more than the existence of free riders: voluntary
+							provision must fail persistently in the case being
+							examined
 						</p>
 
 						<p class="books-page-action">
@@ -171,9 +275,8 @@ import Footer from '../components/Footer.astro';
 								rel="noopener noreferrer"
 								class="animated-link"
 							>
-								<span>
-									Read The minimal tolerance theorem on SSRN
-								</span>
+								<span>Read on SSRN</span>
+
 								<span
 									class="animated-link-arrow"
 									aria-hidden="true"
@@ -192,24 +295,119 @@ import Footer from '../components/Footer.astro';
 		<script>
 			const sections = document.querySelectorAll('.reveal-section');
 
-			const revealObserver = new IntersectionObserver(
-				(entries, observer) => {
-					entries.forEach((entry) => {
-						if (!entry.isIntersecting) return;
+			if ('IntersectionObserver' in window) {
+				const revealObserver = new IntersectionObserver(
+					(entries, observer) => {
+						entries.forEach((entry) => {
+							if (!entry.isIntersecting) return;
 
-						entry.target.classList.add('is-visible');
-						observer.unobserve(entry.target);
-					});
-				},
-				{
-					threshold: 0.12,
-					rootMargin: '0px 0px -60px 0px'
-				}
-			);
+							entry.target.classList.add('is-visible');
+							observer.unobserve(entry.target);
+						});
+					},
+					{
+						threshold: 0.12,
+						rootMargin: '0px 0px -60px 0px'
+					}
+				);
 
-			sections.forEach((section) => {
-				revealObserver.observe(section);
-			});
+				sections.forEach((section) => {
+					revealObserver.observe(section);
+				});
+			} else {
+				sections.forEach((section) => {
+					section.classList.add('is-visible');
+				});
+			}
 		</script>
 	</body>
 </html>
+
+<style>
+	.books-page-papers {
+		scroll-margin-top: 8rem;
+	}
+
+	.paper-cover {
+		position: relative;
+		display: flex;
+		aspect-ratio: 0.69;
+		width: 100%;
+		flex-direction: column;
+		overflow: hidden;
+		box-sizing: border-box;
+		padding: clamp(1.4rem, 4vw, 2.4rem);
+		color: #ffffff;
+		background:
+			linear-gradient(
+				145deg,
+				rgba(148, 193, 255, 0.16),
+				transparent 42%
+			),
+			#303c51;
+		border: 1px solid rgba(157, 199, 255, 0.28);
+		box-shadow:
+			0 28px 55px rgba(13, 20, 32, 0.25),
+			0 8px 18px rgba(13, 20, 32, 0.18);
+	}
+
+	.paper-cover::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 0.35rem;
+		height: 100%;
+		background: #9dc7ff;
+	}
+
+	.paper-cover-type {
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.18em;
+		text-transform: uppercase;
+		color: #9dc7ff;
+	}
+
+	.paper-cover-title {
+		margin-top: auto;
+		font-size: clamp(1.75rem, 4vw, 2.8rem);
+		font-weight: 700;
+		line-height: 0.98;
+		letter-spacing: -0.045em;
+	}
+
+	.paper-cover-author {
+		margin-top: 1.5rem;
+		font-size: 0.85rem;
+		font-weight: 600;
+		letter-spacing: 0.05em;
+	}
+
+	.paper-cover-platform {
+		margin-top: 0.45rem;
+		font-size: 0.7rem;
+		font-weight: 700;
+		letter-spacing: 0.16em;
+		color: rgba(255, 255, 255, 0.58);
+	}
+
+	.books-page-cover-link:hover .paper-cover {
+		transform: translateY(-6px);
+		box-shadow:
+			0 34px 65px rgba(13, 20, 32, 0.3),
+			0 12px 24px rgba(13, 20, 32, 0.2);
+	}
+
+	.paper-cover {
+		transition:
+			transform 280ms ease,
+			box-shadow 280ms ease;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.paper-cover {
+			transition: none;
+		}
+	}
+</style>
