@@ -234,48 +234,347 @@ const mediaItems: MediaItem[] = [
 			===================================================== -->
 
 <section
-	class="speaking-intro reveal-section"
+	class="speaking-thesis reveal-section"
+	data-speaking-thesis
 	style="
 		width:min(1120px, calc(100% - 48px));
-		margin:26px auto 42px;
+		margin:34px auto 38px;
 		padding:0;
 	"
 >
 	<div
-		class="speaking-intro-copy reveal-item"
 		style="
-			max-width:900px;
+			max-width:980px;
 		"
 	>
-		<p
-			style="
-				margin:0;
-				max-width:850px;
-				color:#6d7b8e;
-				font-size:clamp(1rem, 1.15vw, 1.12rem);
-				line-height:1.6;
-				letter-spacing:-0.01em;
-			"
-		>
-			Companies start with a business problem, buy a new system to solve it,
-			and too often end up with the original problem plus a few new ones.
-		</p>
 
-		<p
+		<!-- FLOW -->
+
+		<div
 			style="
-				margin:10px 0 0;
-				max-width:760px;
-				color:#102b46;
-				font-size:clamp(1.18rem, 1.55vw, 1.42rem);
-				line-height:1.35;
-				letter-spacing:-0.025em;
-				font-weight:650;
+				display:flex;
+				flex-wrap:wrap;
+				align-items:stretch;
+				gap:12px;
 			"
 		>
-			The mistake is starting with the technology instead of the business.
-		</p>
+
+			<!-- 01 -->
+
+			<div
+				data-thesis-step
+				style="
+					flex:1 1 220px;
+					min-width:0;
+					padding:20px 22px;
+					border:1px solid rgba(16,43,70,.10);
+					border-radius:12px;
+					background:rgba(255,255,255,.58);
+					opacity:0;
+					transform:translateY(12px);
+				"
+			>
+				<div
+					style="
+						margin-bottom:10px;
+						color:#9aa5b3;
+						font-size:.68rem;
+						font-weight:700;
+						letter-spacing:.10em;
+						text-transform:uppercase;
+					"
+				>
+					01 · The problem
+				</div>
+
+				<div
+					style="
+						color:#102b46;
+						font-size:clamp(1.05rem,1.35vw,1.24rem);
+						font-weight:600;
+						line-height:1.3;
+						letter-spacing:-.02em;
+					"
+				>
+					A business problem
+				</div>
+			</div>
+
+
+			<!-- 02 -->
+
+			<div
+				data-thesis-step
+				style="
+					flex:1 1 220px;
+					min-width:0;
+					padding:20px 22px;
+					border:1px solid rgba(16,43,70,.10);
+					border-radius:12px;
+					background:rgba(255,255,255,.58);
+					opacity:0;
+					transform:translateY(12px);
+				"
+			>
+				<div
+					style="
+						margin-bottom:10px;
+						color:#9aa5b3;
+						font-size:.68rem;
+						font-weight:700;
+						letter-spacing:.10em;
+						text-transform:uppercase;
+					"
+				>
+					02 · The response
+				</div>
+
+				<div
+					style="
+						color:#102b46;
+						font-size:clamp(1.05rem,1.35vw,1.24rem);
+						font-weight:600;
+						line-height:1.3;
+						letter-spacing:-.02em;
+					"
+				>
+					A new system
+				</div>
+			</div>
+
+
+			<!-- 03 -->
+
+			<div
+				data-thesis-step
+				style="
+					flex:1.25 1 270px;
+					min-width:0;
+					padding:20px 22px;
+					border:1px solid rgba(16,43,70,.10);
+					border-radius:12px;
+					background:rgba(255,255,255,.58);
+					opacity:0;
+					transform:translateY(12px);
+				"
+			>
+				<div
+					style="
+						margin-bottom:10px;
+						color:#9aa5b3;
+						font-size:.68rem;
+						font-weight:700;
+						letter-spacing:.10em;
+						text-transform:uppercase;
+					"
+				>
+					03 · The result
+				</div>
+
+				<div
+					style="
+						color:#102b46;
+						font-size:clamp(1.05rem,1.35vw,1.24rem);
+						font-weight:600;
+						line-height:1.3;
+						letter-spacing:-.02em;
+					"
+				>
+					The original problem + a few new ones
+				</div>
+			</div>
+
+		</div>
+
+
+		<!-- CONCLUSION -->
+
+		<div
+			data-thesis-conclusion
+			style="
+				margin-top:28px;
+				opacity:0;
+				transform:translateY(10px);
+			"
+		>
+
+			<div
+				data-thesis-line
+				style="
+					width:0;
+					height:3px;
+					margin-bottom:17px;
+					border-radius:999px;
+					background:#b34343;
+				"
+			></div>
+
+			<div
+				style="
+					max-width:900px;
+					color:#102b46;
+					font-size:clamp(1.45rem,2.15vw,2rem);
+					font-weight:650;
+					line-height:1.22;
+					letter-spacing:-.035em;
+				"
+			>
+				The mistake is starting with the technology instead of the business
+			</div>
+
+		</div>
+
 	</div>
 </section>
+
+
+<!-- DIVIDER -->
+
+<div
+	aria-hidden="true"
+	style="
+		width:min(1120px, calc(100% - 48px));
+		height:1px;
+		margin:0 auto 34px;
+		background:rgba(16,43,70,.12);
+	"
+></div>
+
+
+<script>
+	const thesis = document.querySelector('[data-speaking-thesis]');
+
+	if (thesis) {
+		const steps = Array.from(
+			thesis.querySelectorAll('[data-thesis-step]')
+		);
+
+		const conclusion =
+			thesis.querySelector('[data-thesis-conclusion]');
+
+		const line =
+			thesis.querySelector('[data-thesis-line]');
+
+		const reducedMotion =
+			window.matchMedia(
+				'(prefers-reduced-motion: reduce)'
+			).matches;
+
+		const playThesis = () => {
+
+			if (reducedMotion) {
+				steps.forEach((step) => {
+					step.style.opacity = '1';
+					step.style.transform = 'translateY(0)';
+				});
+
+				if (conclusion) {
+					conclusion.style.opacity = '1';
+					conclusion.style.transform = 'translateY(0)';
+				}
+
+				if (line) {
+					line.style.width = '54px';
+				}
+
+				return;
+			}
+
+
+			steps.forEach((step, index) => {
+
+				step.animate(
+					[
+						{
+							opacity: 0,
+							transform: 'translateY(12px)'
+						},
+						{
+							opacity: 1,
+							transform: 'translateY(0)'
+						}
+					],
+					{
+						duration: 520,
+						delay: index * 180,
+						easing: 'cubic-bezier(.22,1,.36,1)',
+						fill: 'forwards'
+					}
+				);
+
+			});
+
+
+			if (conclusion) {
+
+				conclusion.animate(
+					[
+						{
+							opacity: 0,
+							transform: 'translateY(10px)'
+						},
+						{
+							opacity: 1,
+							transform: 'translateY(0)'
+						}
+					],
+					{
+						duration: 650,
+						delay: 650,
+						easing: 'cubic-bezier(.22,1,.36,1)',
+						fill: 'forwards'
+					}
+				);
+
+			}
+
+
+			if (line) {
+
+				line.animate(
+					[
+						{ width: '0px' },
+						{ width: '54px' }
+					],
+					{
+						duration: 480,
+						delay: 760,
+						easing: 'cubic-bezier(.22,1,.36,1)',
+						fill: 'forwards'
+					}
+				);
+
+			}
+
+		};
+
+
+		const thesisObserver =
+			new IntersectionObserver(
+				(entries, observer) => {
+
+					entries.forEach((entry) => {
+
+						if (!entry.isIntersecting) {
+							return;
+						}
+
+						playThesis();
+
+						observer.unobserve(entry.target);
+
+					});
+
+				},
+				{
+					threshold: 0.35
+				}
+			);
+
+
+		thesisObserver.observe(thesis);
+	}
+</script>
 
 
 			<!-- =====================================================
