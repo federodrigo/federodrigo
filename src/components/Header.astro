@@ -35,13 +35,7 @@ const isActive = (path: string) => {
 			class="main-nav"
 			aria-label={isSpanish ? 'Navegación principal' : 'Main navigation'}
 		>
-			<a
-				href={`${base}/about`}
-				class:list={{ 'nav-active': isActive(`${base}/about`) }}
-				aria-current={isActive(`${base}/about`) ? 'page' : undefined}
-			>
-				{isSpanish ? 'Sobre mí' : 'About'}
-			</a>
+		
 
 			<a
 				href={`${base}/cio-office`}
@@ -74,6 +68,14 @@ const isActive = (path: string) => {
 				aria-current={isActive(`${base}/papers`) ? 'page' : undefined}
 			>
 				Papers
+			</a>
+
+			<a
+				href={`${base}/about`}
+				class:list={{ 'nav-active': isActive(`${base}/about`) }}
+				aria-current={isActive(`${base}/about`) ? 'page' : undefined}
+			>
+				{isSpanish ? 'Sobre mí' : 'About'}
 			</a>
 
 			<a
