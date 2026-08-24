@@ -4,7 +4,6 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 const papers = [
-	
 	{
 		status: 'Under Review',
 		date: 'Submitted · August 2026',
@@ -12,8 +11,7 @@ const papers = [
 		subtitle:
 			'Why a system that works can make it harder to know what would happen if the safeguards behind that performance were removed',
 		description:
-			'An examination of how apparent operational success can conceal structural dependence and weaken the ability to evaluate credible alternatives',
-		href: null
+			'An examination of how apparent operational success can conceal structural dependence and weaken the ability to evaluate credible alternatives'
 	},
 	{
 		status: 'Under Review',
@@ -22,8 +20,7 @@ const papers = [
 		subtitle:
 			'How successful accommodations can preserve an existing technology path, become embedded over time, and reduce credible alternatives',
 		description:
-			'An examination of how effective short-term fixes can become permanent features of an organization and reinforce technological lock-in',
-		href: null
+			'An examination of how effective short-term fixes can become permanent features of an organization and reinforce technological lock-in'
 	}
 ];
 ---
@@ -74,7 +71,7 @@ const papers = [
 						target="_blank"
 						rel="noopener noreferrer"
 						class="books-page-cover-link"
-						aria-label="View How to Become CIO and Succeed on Amazon"
+						aria-label="Buy How to Become CIO and Succeed on Amazon"
 					>
 						<img
 							src="/images/cio-book-cover.png"
@@ -183,10 +180,10 @@ const papers = [
 
 					<p class="books-page-action">
 						<a
-							href="/theory"
+							href=""
 							class="animated-link"
 						>
-							<span>Explore Minimal Tolerance</span>
+							<span>Coming soon</span>
 
 							<span
 								class="animated-link-arrow"
@@ -204,22 +201,14 @@ const papers = [
 			<section
 				id="papers"
 				class="papers-section reveal-section"
-				aria-label="Papers"
+				aria-label="Technology papers"
 			>
 				<div class="papers-list">
 					{
 						papers.map((paper) => (
 							<article class="paper-row reveal-item">
 								<div class="paper-meta">
-									<p
-										class:list={[
-											'paper-status',
-											{
-												'paper-status-review':
-													paper.status === 'Under Review'
-											}
-										]}
-									>
+									<p class="paper-status">
 										{paper.status}
 									</p>
 
@@ -230,27 +219,7 @@ const papers = [
 
 								<div class="paper-content">
 									<h2 class="paper-title">
-										{
-											paper.href ? (
-												<a
-													href={paper.href}
-													target="_blank"
-													rel="noopener noreferrer"
-													class="paper-title-link"
-												>
-													<span>{paper.title}</span>
-
-													<span
-														class="paper-title-arrow"
-														aria-hidden="true"
-													>
-														→
-													</span>
-												</a>
-											) : (
-												paper.title
-											)
-										}
+										{paper.title}
 									</h2>
 
 									<p class="paper-subtitle">
@@ -304,12 +273,13 @@ const papers = [
 <style>
 	.minimal-tolerance-book {
 		margin-top: clamp(5rem, 9vw, 8rem);
+		padding-top: clamp(5rem, 9vw, 8rem);
+		border-top: 1px solid rgba(52, 65, 86, 0.2);
 	}
 
 	.papers-section {
 		width: min(1180px, calc(100% - 3rem));
-		margin: clamp(2rem, 4vw, 3.5rem) auto
-			clamp(7rem, 11vw, 10rem);
+		margin: clamp(2rem, 4vw, 3.5rem) auto 0;
 		scroll-margin-top: 8rem;
 	}
 
@@ -326,6 +296,10 @@ const papers = [
 		border-bottom: 1px solid rgba(52, 65, 86, 0.2);
 	}
 
+	.paper-row:last-child {
+		border-bottom: 0;
+	}
+
 	.paper-meta,
 	.paper-content {
 		min-width: 0;
@@ -338,10 +312,6 @@ const papers = [
 		line-height: 1.25;
 		letter-spacing: 0.13em;
 		text-transform: uppercase;
-		color: #4f87cd;
-	}
-
-	.paper-status-review {
 		color: #8a6b36;
 	}
 
@@ -358,29 +328,6 @@ const papers = [
 		font-weight: 700;
 		line-height: 1.08;
 		letter-spacing: -0.035em;
-	}
-
-	.paper-title-link {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.65rem;
-		color: inherit;
-		text-decoration: none;
-	}
-
-	.paper-title-link:hover,
-	.paper-title-link:focus-visible {
-		color: #4f87cd;
-	}
-
-	.paper-title-arrow {
-		color: #6d9fdd;
-		transition: transform 220ms ease;
-	}
-
-	.paper-title-link:hover .paper-title-arrow,
-	.paper-title-link:focus-visible .paper-title-arrow {
-		transform: translateX(0.3rem);
 	}
 
 	.paper-subtitle {
@@ -402,6 +349,7 @@ const papers = [
 	@media (max-width: 850px) {
 		.minimal-tolerance-book {
 			margin-top: 4rem;
+			padding-top: 4rem;
 		}
 
 		.papers-section {
@@ -423,12 +371,6 @@ const papers = [
 
 		.paper-date {
 			margin: 0;
-		}
-	}
-
-	@media (prefers-reduced-motion: reduce) {
-		.paper-title-arrow {
-			transition: none;
 		}
 	}
 </style>
