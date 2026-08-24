@@ -3,9 +3,8 @@ import SEO from '../components/SEO.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
-type MediaItem = {
+type AppearanceItem = {
 	type: string;
-	status: 'upcoming' | 'published';
 	title: string;
 	date: string;
 	image: string;
@@ -15,54 +14,44 @@ type MediaItem = {
 	linkLabel?: string;
 	pdfUrl?: string;
 	pdfLabel?: string;
-	internal?: boolean;
 };
 
-const mediaItems: MediaItem[] = [
+const appearances: AppearanceItem[] = [
 	{
-		type: 'Webinar',
-		status: 'upcoming',
-		title: 'Technology is Never the Starting Point — Xseed',
+		type: 'Podcast',
+		title: 'The Technology Vanguard',
 		date: 'August 2026',
-		image: '/images/xseed-webinar.png',
-		imageAlt:
-			'Technology is Never the Starting Point webinar with Federico Rodrigo',
+		image: '/images/vanguard.png',
+		imageAlt: 'Fede Rodrigo appearing on The Technology Vanguard podcast',
 		description:
-			'A practical session on how to start with people and business priorities, and use technology to enable the outcome',
-		url: '/webinar/',
-		linkLabel: 'Learn more',
-		internal: true,
+			'An honest conversation about IT leadership, the transition from technical excellence to leading people, and the lessons that shape the path to becoming a CIO',
+		url: 'https://www.youtube.com/watch?v=2wyTHhaOcWE',
+		linkLabel: 'Watch',
 	},
-{
-	type: 'Podcast',
-	status: 'published',
-	title: 'The Technology Vanguard',
-	date: 'August 2026',
-	image: '/images/vanguard.png',
-	imageAlt:
-		'Fede Rodrigo appearing on The Technology Vanguard podcast',
-	description:
-		'An honest conversation about IT leadership, the mistakes that teach us, the transition from technical excellence to leading people, and the lessons that really shape the path to becoming a CIO',
-	url: 'https://www.youtube.com/watch?v=2wyTHhaOcWE',
-	linkLabel: 'Watch the conversation',
-},
 	{
 		type: 'Written Interview',
-		status: 'published',
 		title: 'Turning Cloud Investment into Business Value — Nublit',
 		date: 'January 2026',
 		image: '/images/cloud-interview.jpg',
 		imageAlt: 'Interview with Fede Rodrigo published by Nublit',
 		description:
-			'A conversation with Nublit about cloud strategy in Latin America, hybrid adoption, cultural and regulatory barriers, and the role of technology as a driver of growth, innovation, and operational resilience',
+			'A conversation about cloud strategy, business value, cultural barriers, and technology as a driver of growth and operational resilience',
 		url: 'https://informe2026.nublit.com/',
-		linkLabel: 'View full report',
+		linkLabel: 'View report',
 		pdfUrl: '/pdfs/Fede-Rodrigo-Interview-Nublit.pdf',
-		pdfLabel: 'Read my interview',
+		pdfLabel: 'Read interview',
 	},
 	{
-		type: 'Award Finalist',
-		status: 'published',
+		type: 'Executive Roundtable',
+		title: 'Industrial Reinvention — The Economist',
+		date: 'September 2024',
+		image: '/images/impact.png',
+		imageAlt: 'The Economist Impact',
+		description:
+			'Invited participant in Industrial Reinvention: New Business Models and Jobs for Tomorrow’s Technology, hosted by The Economist Impact',
+	},
+	{
+		type: 'Recognition',
 		title: 'ORBIE CIO Awards',
 		date: 'September 2024',
 		image: '/images/orbie.jpg',
@@ -72,16 +61,36 @@ const mediaItems: MediaItem[] = [
 		url: 'https://orbie.org/honoree/federico-rodrigo/4324',
 		linkLabel: 'View recognition',
 	},
+];
+
+const topics = [
 	{
-		type: 'Executive Roundtable',
-		status: 'published',
-		title: 'Industrial Reinvention — The Economist',
-		date: 'September 2024',
-		image: '/images/impact.png',
-		imageAlt: 'The Economist Impact',
+		number: '01',
+		title: 'Technology & Business Value',
 		description:
-			'Invited participant in Industrial Reinvention: New Business Models and Jobs for Tomorrow’s Technology, hosted by The Economist Impact, with fellow CIOs in Houston, Texas',
+			'How to make better technology decisions by starting with business outcomes, not tools',
 	},
+	{
+		number: '02',
+		title: 'Leadership & the CIO Role',
+		description:
+			'What changes when technical responsibility becomes leadership responsibility',
+	},
+	{
+		number: '03',
+		title: 'Strategy & Execution',
+		description:
+			'Why strategy creates value only when organizations can actually execute it',
+	},
+];
+
+const formats = [
+	'Keynotes',
+	'Webinars',
+	'Executive Sessions',
+	'Workshops',
+	'Panels',
+	'Podcasts',
 ];
 ---
 
@@ -94,8 +103,8 @@ const mediaItems: MediaItem[] = [
 		</script>
 
 		<SEO
-			title="Speaking & Events | Fede Rodrigo"
-			description="Keynotes, webinars, executive roundtables, interviews, podcasts, and professional events"
+			title="Speaking | Fede Rodrigo"
+			description="Keynotes, webinars, executive sessions, workshops, panels, and conversations on technology leadership, business value, strategy, and execution"
 			lang="en"
 		/>
 	</head>
@@ -104,157 +113,486 @@ const mediaItems: MediaItem[] = [
 		<Header />
 
 		<main>
-			<section class="hero">
-				<h1 class="hero-title">
-					<span class="hero-line">
-						Speaking & <span class="accent">Events</span>
-					</span>
-				</h1>
+			<!-- =========================================================
+			     HERO
+			========================================================= -->
 
-				<div class="lead-principles">
-					<div>Technology Is Part of the Job</div>
-					<div>Leadership Is the Job</div>
+			<section class="hero">
+				<div class="hero-inner">
+					<p class="eyebrow">SPEAKING</p>
+
+					<h1 class="hero-title">
+						<span>Technology is part of the job.</span>
+						<span class="hero-accent">Leadership is the job.</span>
+					</h1>
+
+					<p class="hero-copy">
+						Talks on technology leadership, business value, strategy,
+						and execution — grounded in real operating experience.
+					</p>
+
+					<div class="hero-actions">
+						<a href="/contact/" class="primary-link">
+							<span>Invite Fede to speak</span>
+							<span aria-hidden="true">→</span>
+						</a>
+
+						<a href="#topics" class="secondary-link">
+							Explore speaking topics
+						</a>
+					</div>
 				</div>
 			</section>
 
-			<section
-				class="media-list reveal-section"
-				aria-labelledby="media-list-title"
-			>
-				<h2
-					id="media-list-title"
-					class="reveal-item"
-				>
-					Highlights
-				</h2>
+			<!-- =========================================================
+			     VISUAL STORY / SPEAKING TRAILER
+			========================================================= -->
 
-				{
-					mediaItems.map((item, index) => (
-						<article
-							class="media-item"
-							style={`--media-index: ${index};`}
+			<section
+				class="story-section"
+				aria-labelledby="story-title"
+			>
+				<div class="section-heading reveal-section">
+					<p class="eyebrow reveal-item">A DIFFERENT STARTING POINT</p>
+
+					<h2 id="story-title" class="reveal-item reveal-delay-1">
+						Technology conversations should not start with technology
+					</h2>
+				</div>
+
+				<div class="story-layout">
+					<div class="story-stage-wrapper">
+						<div
+							class="story-stage"
+							aria-live="polite"
 						>
-							<div class="media-image-wrapper">
-								{
-									item.url ? (
-										<a
-											href={item.url}
-											target={item.internal ? undefined : '_blank'}
-											rel={item.internal ? undefined : 'noopener noreferrer'}
-											aria-label={item.linkLabel ?? item.title}
-										>
+							<!-- FRAME 1 -->
+
+							<div
+								class="story-frame story-frame-question is-active"
+								data-story-frame="0"
+							>
+								<div class="mountain-scene" aria-hidden="true">
+									<div class="mountain mountain-one"></div>
+									<div class="mountain mountain-two"></div>
+									<div class="mountain mountain-three"></div>
+									<div class="road"></div>
+								</div>
+
+								<div class="story-frame-content story-question">
+									<p>
+										What if your next technology
+										decision started with…
+									</p>
+
+									<strong>
+										no technology at all?
+									</strong>
+								</div>
+							</div>
+
+							<!-- FRAME 2 -->
+
+							<div
+								class="story-frame story-frame-value"
+								data-story-frame="1"
+							>
+								<div class="story-frame-content centered-frame">
+									<p class="frame-question">
+										Why does IT exist?
+									</p>
+
+									<div class="value-answer">
+										<span>To create</span>
+										<strong>BUSINESS VALUE</strong>
+									</div>
+
+									<p class="frame-conclusion">
+										Everything else is a consequence
+									</p>
+								</div>
+							</div>
+
+							<!-- FRAME 3 -->
+
+							<div
+								class="story-frame story-frame-model"
+								data-story-frame="2"
+							>
+								<div class="story-frame-content model-frame">
+									<div class="model-item">
+										<span class="model-number">01</span>
+										<strong>People First</strong>
+									</div>
+
+									<div class="model-divider"></div>
+
+									<div class="model-item">
+										<span class="model-number">02</span>
+										<strong>Business Driven</strong>
+									</div>
+
+									<div class="model-divider"></div>
+
+									<div class="model-item">
+										<span class="model-number">03</span>
+										<strong>Technology Enabled</strong>
+									</div>
+								</div>
+							</div>
+
+							<!-- FRAME 4 -->
+
+							<div
+								class="story-frame story-frame-closing"
+								data-story-frame="3"
+							>
+								<div class="story-frame-content closing-frame">
+									<div class="closing-pair">
+										<p>
+											Technology
+											<span>will always</span>
+											change
+										</p>
+
+										<p>
+											Leadership
+											<span>won’t</span>
+										</p>
+									</div>
+
+									<div class="closing-rule"></div>
+
+									<strong class="closing-statement">
+										Technology is never
+										<br />
+										the starting point
+									</strong>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="story-steps">
+						<button
+							type="button"
+							class="story-step is-active"
+							data-story-step="0"
+							aria-label="Show opening question"
+						>
+							<span>01</span>
+							<p>Start with the question</p>
+						</button>
+
+						<button
+							type="button"
+							class="story-step"
+							data-story-step="1"
+							aria-label="Show business value"
+						>
+							<span>02</span>
+							<p>Define the purpose</p>
+						</button>
+
+						<button
+							type="button"
+							class="story-step"
+							data-story-step="2"
+							aria-label="Show operating model"
+						>
+							<span>03</span>
+							<p>Put the order right</p>
+						</button>
+
+						<button
+							type="button"
+							class="story-step"
+							data-story-step="3"
+							aria-label="Show closing principle"
+						>
+							<span>04</span>
+							<p>Lead through change</p>
+						</button>
+					</div>
+				</div>
+			</section>
+
+			<!-- =========================================================
+			     SPEAKING TOPICS
+			========================================================= -->
+
+			<section
+				id="topics"
+				class="topics reveal-section"
+				aria-labelledby="topics-title"
+			>
+				<div class="section-heading">
+					<p class="eyebrow reveal-item">
+						SPEAKING TOPICS
+					</p>
+
+					<h2
+						id="topics-title"
+						class="reveal-item reveal-delay-1"
+					>
+						Where technology meets leadership
+					</h2>
+				</div>
+
+				<div class="topics-grid">
+					{
+						topics.map((topic, index) => (
+							<article
+								class="topic-card reveal-item"
+								style={`--delay: ${index * 0.08}s`}
+							>
+								<span class="topic-number">
+									{topic.number}
+								</span>
+
+								<h3>{topic.title}</h3>
+
+								<p>{topic.description}</p>
+							</article>
+						))
+					}
+				</div>
+			</section>
+
+			<!-- =========================================================
+			     FORMATS
+			========================================================= -->
+
+			<section class="formats reveal-section">
+				<div class="formats-inner">
+					<div class="formats-heading reveal-item">
+						<p class="eyebrow">FORMATS</p>
+
+						<h2>
+							From a conference stage to an executive room
+						</h2>
+					</div>
+
+					<div class="format-list reveal-item reveal-delay-1">
+						{
+							formats.map((format) => (
+								<div class="format-item">
+									<span>{format}</span>
+								</div>
+							))
+						}
+					</div>
+				</div>
+			</section>
+
+			<!-- =========================================================
+			     FEATURED TALK
+			========================================================= -->
+
+			<section
+				class="featured-talk reveal-section"
+				aria-labelledby="featured-talk-title"
+			>
+				<div class="featured-talk-grid">
+					<div class="featured-talk-copy">
+						<p class="eyebrow reveal-item">
+							FEATURED TALK
+						</p>
+
+						<h2
+							id="featured-talk-title"
+							class="reveal-item reveal-delay-1"
+						>
+							Technology Is Never the Starting Point
+						</h2>
+
+						<p class="featured-intro reveal-item reveal-delay-2">
+							Technology initiatives often begin with platforms,
+							tools, and architecture. The better starting point is
+							the outcome the organization is trying to create.
+						</p>
+
+						<p class="featured-description reveal-item reveal-delay-2">
+							This session explores how leaders can start with
+							people and business priorities, connect strategy with
+							execution, and use technology to enable the outcome
+							rather than define it.
+						</p>
+
+						<div class="featured-actions reveal-item reveal-delay-3">
+							<a
+								href="/webinar/"
+								class="primary-link"
+							>
+								<span>Explore the talk</span>
+								<span aria-hidden="true">→</span>
+							</a>
+						</div>
+					</div>
+
+					<a
+						href="/webinar/"
+						class="featured-talk-image reveal-item reveal-delay-2"
+						aria-label="Explore Technology Is Never the Starting Point"
+					>
+						<img
+							src="/images/xseed-webinar.png"
+							alt="Technology Is Never the Starting Point presentation"
+							loading="lazy"
+						/>
+
+						<div class="featured-image-overlay">
+							<span>Technology Is Never the Starting Point</span>
+							<span aria-hidden="true">→</span>
+						</div>
+					</a>
+				</div>
+			</section>
+
+			<!-- =========================================================
+			     SELECTED APPEARANCES
+			========================================================= -->
+
+			<section
+				class="appearances reveal-section"
+				aria-labelledby="appearances-title"
+			>
+				<div class="section-heading appearances-heading">
+					<div>
+						<p class="eyebrow reveal-item">
+							SELECTED APPEARANCES
+						</p>
+
+						<h2
+							id="appearances-title"
+							class="reveal-item reveal-delay-1"
+						>
+							Conversations, events & recognition
+						</h2>
+					</div>
+				</div>
+
+				<div class="appearances-grid">
+					{
+						appearances.map((item, index) => (
+							<article
+								class="appearance-card reveal-item"
+								style={`--delay: ${index * 0.07}s`}
+							>
+								<div class="appearance-image-wrapper">
+									{
+										item.url ? (
+											<a
+												href={item.url}
+												target="_blank"
+												rel="noopener noreferrer"
+												aria-label={item.linkLabel ?? item.title}
+											>
+												<img
+													src={item.image}
+													alt={item.imageAlt}
+													class="appearance-image"
+													loading="lazy"
+												/>
+											</a>
+										) : (
 											<img
 												src={item.image}
 												alt={item.imageAlt}
-												class="media-image"
+												class="appearance-image"
 												loading="lazy"
 											/>
-										</a>
-									) : (
-										<img
-											src={item.image}
-											alt={item.imageAlt}
-											class="media-image"
-											loading="lazy"
-										/>
-									)
-								}
-							</div>
-
-							<div class="media-content">
-								<p class="media-meta">
-									<span>{item.type}</span>
-									<span aria-hidden="true">·</span>
-									<span>{item.date}</span>
-								</p>
-
-								<h3>{item.title}</h3>
-
-								<p class="media-description">
-									{item.description}
-								</p>
-
-								{
-									item.url ? (
-										<div class="media-action">
-											{
-												item.pdfUrl && item.pdfLabel && (
-													<a
-														href={item.pdfUrl}
-														target="_blank"
-														rel="noopener noreferrer"
-														class="animated-link"
-													>
-														<span>{item.pdfLabel}</span>
-
-														<span
-															class="animated-link-arrow"
-															aria-hidden="true"
-														>
-															→
-														</span>
-													</a>
-												)
-											}
-
-											<a
-												href={item.url}
-												target={item.internal ? undefined : '_blank'}
-												rel={item.internal ? undefined : 'noopener noreferrer'}
-												class="animated-link"
-											>
-												<span>
-													{item.linkLabel ?? 'Learn more'}
-												</span>
-
-												<span
-													class="animated-link-arrow"
-													aria-hidden="true"
-												>
-													→
-												</span>
-											</a>
-										</div>
-									) : (
-										item.status === 'upcoming' && (
-											<p class="media-coming-soon">
-												Coming soon
-											</p>
 										)
-									)
-								}
-							</div>
-						</article>
-					))
-				}
+									}
+								</div>
+
+								<div class="appearance-content">
+									<p class="appearance-meta">
+										<span>{item.type}</span>
+										<span aria-hidden="true">·</span>
+										<span>{item.date}</span>
+									</p>
+
+									<h3>{item.title}</h3>
+
+									<p class="appearance-description">
+										{item.description}
+									</p>
+
+									{
+										(item.url || item.pdfUrl) && (
+											<div class="appearance-actions">
+												{
+													item.pdfUrl &&
+													item.pdfLabel && (
+														<a
+															href={item.pdfUrl}
+															target="_blank"
+															rel="noopener noreferrer"
+															class="text-link"
+														>
+															{item.pdfLabel}
+															<span aria-hidden="true">
+																→
+															</span>
+														</a>
+													)
+												}
+
+												{
+													item.url &&
+													item.linkLabel && (
+														<a
+															href={item.url}
+															target="_blank"
+															rel="noopener noreferrer"
+															class="text-link"
+														>
+															{item.linkLabel}
+															<span aria-hidden="true">
+																→
+															</span>
+														</a>
+													)
+												}
+											</div>
+										)
+									}
+								</div>
+							</article>
+						))
+					}
+				</div>
 			</section>
 
-			<section class="media-contact reveal-section">
-				<h2 class="reveal-item">
-					Speaking Inquiries
-				</h2>
+			<!-- =========================================================
+			     FINAL CTA
+			========================================================= -->
 
-				<div class="reveal-item reveal-delay-1">
-					<p>
-						For interviews, podcasts, speaking engagements, or other
-						media opportunities, please get in touch
+			<section class="speaking-contact reveal-section">
+				<div class="speaking-contact-inner">
+					<p class="eyebrow reveal-item">
+						SPEAKING INQUIRIES
 					</p>
 
-					<p class="media-contact-link">
+					<h2 class="reveal-item reveal-delay-1">
+						Bring a business-first perspective on technology to your audience.
+					</h2>
+
+					<p class="contact-copy reveal-item reveal-delay-2">
+						Available for keynotes, webinars, executive sessions,
+						workshops, panels, podcasts, and selected media conversations.
+					</p>
+
+					<div class="reveal-item reveal-delay-3">
 						<a
 							href="/contact/"
-							class="animated-link"
+							class="contact-button"
 						>
-							<span>Contact me</span>
-
-							<span
-								class="animated-link-arrow"
-								aria-hidden="true"
-							>
-								→
-							</span>
+							<span>Invite Fede to speak</span>
+							<span aria-hidden="true">→</span>
 						</a>
-					</p>
+					</div>
 				</div>
 			</section>
 		</main>
@@ -262,6 +600,10 @@ const mediaItems: MediaItem[] = [
 		<Footer />
 
 		<script>
+			// =========================================================
+			// GENERAL REVEALS
+			// =========================================================
+
 			const sections =
 				document.querySelectorAll('.reveal-section');
 
@@ -283,6 +625,1156 @@ const mediaItems: MediaItem[] = [
 			sections.forEach((section) => {
 				revealObserver.observe(section);
 			});
+
+			// =========================================================
+			// SPEAKING STORY
+			// =========================================================
+
+			const storyFrames =
+				document.querySelectorAll('[data-story-frame]');
+
+			const storySteps =
+				document.querySelectorAll('[data-story-step]');
+
+			function activateStoryFrame(index) {
+				storyFrames.forEach((frame, frameIndex) => {
+					frame.classList.toggle(
+						'is-active',
+						frameIndex === index
+					);
+				});
+
+				storySteps.forEach((step, stepIndex) => {
+					step.classList.toggle(
+						'is-active',
+						stepIndex === index
+					);
+				});
+			}
+
+			storySteps.forEach((step, index) => {
+				step.addEventListener('click', () => {
+					activateStoryFrame(index);
+				});
+			});
+
+			const desktopQuery =
+				window.matchMedia('(min-width: 901px)');
+
+			let storyObserver;
+
+			function initializeStoryObserver() {
+				if (storyObserver) {
+					storyObserver.disconnect();
+				}
+
+				if (!desktopQuery.matches) {
+					return;
+				}
+
+				storyObserver = new IntersectionObserver(
+					(entries) => {
+						const visible = entries
+							.filter((entry) => entry.isIntersecting)
+							.sort(
+								(a, b) =>
+									b.intersectionRatio -
+									a.intersectionRatio
+							);
+
+						if (!visible.length) return;
+
+						const index = Number(
+							visible[0].target.getAttribute(
+								'data-story-step'
+							)
+						);
+
+						activateStoryFrame(index);
+					},
+					{
+						threshold: [0.35, 0.5, 0.65, 0.8],
+						rootMargin: '-25% 0px -25% 0px',
+					}
+				);
+
+				storySteps.forEach((step) => {
+					storyObserver.observe(step);
+				});
+			}
+
+			initializeStoryObserver();
+
+			desktopQuery.addEventListener(
+				'change',
+				initializeStoryObserver
+			);
 		</script>
 	</body>
 </html>
+
+<style>
+	/* =========================================================
+	   PAGE TOKENS
+	========================================================= */
+
+	:root {
+		--speaking-ink: #102b46;
+		--speaking-muted: #64768a;
+		--speaking-accent: #6f9fe8;
+		--speaking-soft: #f5f7fa;
+		--speaking-line: rgba(16, 43, 70, 0.12);
+		--speaking-max: 1180px;
+	}
+
+	main {
+		overflow: clip;
+	}
+
+	.hero,
+	.story-section,
+	.topics,
+	.formats,
+	.featured-talk,
+	.appearances,
+	.speaking-contact {
+		padding-left: clamp(24px, 6vw, 88px);
+		padding-right: clamp(24px, 6vw, 88px);
+	}
+
+	.eyebrow {
+		margin: 0 0 18px;
+		font-size: 0.73rem;
+		font-weight: 700;
+		letter-spacing: 0.18em;
+		color: var(--speaking-muted);
+	}
+
+	.section-heading {
+		width: min(100%, var(--speaking-max));
+		margin: 0 auto 52px;
+	}
+
+	.section-heading h2,
+	.formats h2,
+	.featured-talk h2,
+	.speaking-contact h2 {
+		margin: 0;
+		color: var(--speaking-ink);
+		font-size: clamp(2rem, 4vw, 4.25rem);
+		font-weight: 600;
+		line-height: 1.03;
+		letter-spacing: -0.045em;
+	}
+
+	/* =========================================================
+	   HERO
+	========================================================= */
+
+	.hero {
+		padding-top: clamp(110px, 14vw, 190px);
+		padding-bottom: clamp(90px, 11vw, 150px);
+	}
+
+	.hero-inner {
+		width: min(100%, var(--speaking-max));
+		margin: 0 auto;
+	}
+
+	.hero-title {
+		display: flex;
+		flex-direction: column;
+		max-width: 1040px;
+		margin: 0;
+		color: var(--speaking-ink);
+		font-size: clamp(3.35rem, 7vw, 7rem);
+		font-weight: 650;
+		line-height: 0.95;
+		letter-spacing: -0.06em;
+	}
+
+	.hero-accent {
+		margin-top: 0.12em;
+		color: var(--speaking-accent);
+	}
+
+	.hero-copy {
+		max-width: 690px;
+		margin: 38px 0 0;
+		color: var(--speaking-muted);
+		font-size: clamp(1.08rem, 1.55vw, 1.35rem);
+		line-height: 1.6;
+	}
+
+	.hero-actions {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 26px;
+		margin-top: 38px;
+	}
+
+	.primary-link,
+	.contact-button {
+		display: inline-flex;
+		align-items: center;
+		gap: 18px;
+		text-decoration: none;
+	}
+
+	.primary-link {
+		color: var(--speaking-ink);
+		font-size: 1rem;
+		font-weight: 650;
+	}
+
+	.primary-link span:last-child {
+		transition: transform 180ms ease;
+	}
+
+	.primary-link:hover span:last-child {
+		transform: translateX(5px);
+	}
+
+	.secondary-link {
+		color: var(--speaking-muted);
+		font-size: 0.95rem;
+		text-decoration: none;
+	}
+
+	.secondary-link:hover {
+		color: var(--speaking-ink);
+	}
+
+	/* =========================================================
+	   STORY
+	========================================================= */
+
+	.story-section {
+		padding-top: clamp(80px, 9vw, 130px);
+		padding-bottom: clamp(100px, 12vw, 170px);
+		background:
+			linear-gradient(
+				to bottom,
+				#ffffff 0%,
+				#f7f9fb 20%,
+				#f7f9fb 80%,
+				#ffffff 100%
+			);
+	}
+
+	.story-layout {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) 280px;
+		gap: clamp(40px, 7vw, 100px);
+		width: min(100%, var(--speaking-max));
+		margin: 0 auto;
+	}
+
+	.story-stage-wrapper {
+		min-width: 0;
+	}
+
+	.story-stage {
+		position: sticky;
+		top: 11vh;
+		width: 100%;
+		aspect-ratio: 16 / 9;
+		overflow: hidden;
+		background: #fff;
+		border: 1px solid var(--speaking-line);
+		border-radius: 22px;
+		box-shadow:
+			0 28px 70px rgba(16, 43, 70, 0.08);
+	}
+
+	.story-frame {
+		position: absolute;
+		inset: 0;
+		display: grid;
+		place-items: center;
+		opacity: 0;
+		transform: scale(1.015);
+		pointer-events: none;
+		transition:
+			opacity 600ms ease,
+			transform 850ms cubic-bezier(0.22, 1, 0.36, 1);
+	}
+
+	.story-frame.is-active {
+		z-index: 2;
+		opacity: 1;
+		transform: scale(1);
+	}
+
+	.story-frame-content {
+		position: relative;
+		z-index: 3;
+	}
+
+	.story-steps {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.story-step {
+		min-height: 48vh;
+		padding: 30px 0;
+		border: 0;
+		border-left: 1px solid var(--speaking-line);
+		background: transparent;
+		color: var(--speaking-muted);
+		text-align: left;
+		cursor: pointer;
+		transition:
+			color 200ms ease,
+			border-color 200ms ease;
+	}
+
+	.story-step span,
+	.story-step p {
+		display: block;
+		margin-left: 24px;
+	}
+
+	.story-step span {
+		margin-bottom: 10px;
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.12em;
+	}
+
+	.story-step p {
+		max-width: 190px;
+		margin-top: 0;
+		margin-bottom: 0;
+		font-size: 1.05rem;
+		font-weight: 550;
+		line-height: 1.35;
+	}
+
+	.story-step.is-active {
+		border-left: 2px solid var(--speaking-accent);
+		color: var(--speaking-ink);
+	}
+
+	/* FRAME 1 */
+
+	.story-frame-question {
+		background:
+			linear-gradient(
+				to bottom,
+				rgba(255,255,255,0.2),
+				rgba(255,255,255,0.88)
+			),
+			#edf3f7;
+	}
+
+	.story-question {
+		width: 86%;
+		align-self: start;
+		margin-top: 7%;
+		color: var(--speaking-ink);
+		text-align: center;
+	}
+
+	.story-question p {
+		max-width: 900px;
+		margin: 0 auto;
+		font-size: clamp(2rem, 4.2vw, 4.9rem);
+		font-weight: 500;
+		line-height: 1.04;
+		letter-spacing: -0.05em;
+	}
+
+	.story-question strong {
+		display: block;
+		margin-top: 0.14em;
+		color: #718295;
+		font-size: clamp(2rem, 4.15vw, 4.8rem);
+		font-weight: 500;
+		line-height: 1;
+		letter-spacing: -0.05em;
+	}
+
+	.mountain-scene {
+		position: absolute;
+		inset: 0;
+		overflow: hidden;
+		opacity: 0.62;
+	}
+
+	.mountain {
+		position: absolute;
+		bottom: -22%;
+		width: 58%;
+		height: 58%;
+		background:
+			linear-gradient(
+				145deg,
+				#9aabbb 0%,
+				#d7e0e8 45%,
+				#eef3f7 100%
+			);
+		clip-path: polygon(
+			0 100%,
+			9% 78%,
+			22% 57%,
+			31% 67%,
+			49% 30%,
+			61% 54%,
+			73% 39%,
+			100% 100%
+		);
+		filter: blur(0.2px);
+	}
+
+	.mountain-one {
+		left: -10%;
+		transform: scale(1.15);
+		opacity: 0.82;
+	}
+
+	.mountain-two {
+		left: 25%;
+		bottom: -28%;
+		opacity: 0.38;
+	}
+
+	.mountain-three {
+		right: -10%;
+		bottom: -30%;
+		opacity: 0.28;
+	}
+
+	.road {
+		position: absolute;
+		left: 56%;
+		bottom: -24%;
+		width: 10%;
+		height: 58%;
+		border-left: 1.5px solid rgba(87, 107, 127, 0.28);
+		border-right: 1.5px solid rgba(87, 107, 127, 0.28);
+		transform: perspective(400px) rotateX(18deg) rotate(20deg);
+		transform-origin: bottom center;
+	}
+
+	/* FRAME 2 */
+
+	.story-frame-value {
+		background:
+			radial-gradient(
+				circle at 50% 50%,
+				rgba(111, 159, 232, 0.08),
+				transparent 48%
+			),
+			#ffffff;
+	}
+
+	.centered-frame {
+		width: 82%;
+		color: var(--speaking-ink);
+		text-align: center;
+	}
+
+	.frame-question {
+		margin: 0 0 6%;
+		font-size: clamp(1.5rem, 3vw, 3rem);
+		font-weight: 500;
+		letter-spacing: -0.035em;
+	}
+
+	.value-answer {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.value-answer span {
+		font-size: clamp(1.3rem, 2.1vw, 2rem);
+	}
+
+	.value-answer strong {
+		margin-top: 0.18em;
+		color: var(--speaking-accent);
+		font-size: clamp(3.2rem, 7vw, 7.7rem);
+		font-weight: 700;
+		line-height: 0.9;
+		letter-spacing: -0.065em;
+	}
+
+	.frame-conclusion {
+		margin: 7% 0 0;
+		color: var(--speaking-muted);
+		font-size: clamp(1.05rem, 1.8vw, 1.7rem);
+	}
+
+	/* FRAME 3 */
+
+	.story-frame-model {
+		background: #ffffff;
+	}
+
+	.model-frame {
+		display: grid;
+		grid-template-columns: 1fr auto 1fr auto 1fr;
+		align-items: center;
+		width: 86%;
+		color: var(--speaking-ink);
+	}
+
+	.model-item {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 22px;
+		text-align: center;
+	}
+
+	.model-number {
+		color: var(--speaking-accent);
+		font-size: 0.72rem;
+		font-weight: 800;
+		letter-spacing: 0.16em;
+	}
+
+	.model-item strong {
+		max-width: 190px;
+		font-size: clamp(1.45rem, 2.6vw, 2.9rem);
+		font-weight: 600;
+		line-height: 1.05;
+		letter-spacing: -0.04em;
+	}
+
+	.model-divider {
+		width: 1px;
+		height: 130px;
+		background: var(--speaking-line);
+	}
+
+	/* FRAME 4 */
+
+	.story-frame-closing {
+		background:
+			linear-gradient(
+				145deg,
+				#f7f9fb,
+				#ffffff 60%
+			);
+	}
+
+	.closing-frame {
+		width: 82%;
+		color: var(--speaking-ink);
+	}
+
+	.closing-pair {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 12%;
+	}
+
+	.closing-pair p {
+		margin: 0;
+		font-size: clamp(2rem, 4vw, 4.5rem);
+		font-weight: 600;
+		line-height: 0.96;
+		letter-spacing: -0.055em;
+	}
+
+	.closing-pair p:last-child {
+		color: var(--speaking-accent);
+	}
+
+	.closing-pair span {
+		display: block;
+		font-size: 0.65em;
+		font-weight: 450;
+	}
+
+	.closing-rule {
+		width: 100%;
+		height: 1px;
+		margin: 9% 0 7%;
+		background: var(--speaking-line);
+	}
+
+	.closing-statement {
+		display: block;
+		font-size: clamp(1.4rem, 2.6vw, 2.8rem);
+		font-weight: 550;
+		line-height: 1.05;
+		letter-spacing: -0.035em;
+	}
+
+	/* =========================================================
+	   TOPICS
+	========================================================= */
+
+	.topics {
+		padding-top: clamp(90px, 10vw, 150px);
+		padding-bottom: clamp(100px, 11vw, 160px);
+	}
+
+	.topics-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		width: min(100%, var(--speaking-max));
+		margin: 0 auto;
+		border-top: 1px solid var(--speaking-line);
+		border-bottom: 1px solid var(--speaking-line);
+	}
+
+	.topic-card {
+		min-height: 330px;
+		padding: 38px 38px 44px 0;
+	}
+
+	.topic-card + .topic-card {
+		padding-left: 38px;
+		border-left: 1px solid var(--speaking-line);
+	}
+
+	.topic-number {
+		display: block;
+		margin-bottom: 75px;
+		color: var(--speaking-accent);
+		font-size: 0.72rem;
+		font-weight: 800;
+		letter-spacing: 0.14em;
+	}
+
+	.topic-card h3 {
+		margin: 0 0 18px;
+		color: var(--speaking-ink);
+		font-size: clamp(1.35rem, 2vw, 2rem);
+		font-weight: 600;
+		line-height: 1.08;
+		letter-spacing: -0.03em;
+	}
+
+	.topic-card p {
+		max-width: 310px;
+		margin: 0;
+		color: var(--speaking-muted);
+		font-size: 1rem;
+		line-height: 1.55;
+	}
+
+	/* =========================================================
+	   FORMATS
+	========================================================= */
+
+	.formats {
+		padding-top: clamp(90px, 10vw, 150px);
+		padding-bottom: clamp(90px, 10vw, 150px);
+		background: var(--speaking-ink);
+	}
+
+	.formats-inner {
+		display: grid;
+		grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+		gap: clamp(70px, 10vw, 150px);
+		width: min(100%, var(--speaking-max));
+		margin: 0 auto;
+	}
+
+	.formats .eyebrow {
+		color: rgba(255,255,255,0.54);
+	}
+
+	.formats h2 {
+		color: #ffffff;
+		font-size: clamp(2.1rem, 4vw, 4rem);
+	}
+
+	.format-list {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		align-content: start;
+	}
+
+	.format-item {
+		padding: 24px 0;
+		border-top: 1px solid rgba(255,255,255,0.16);
+		color: #ffffff;
+		font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+	}
+
+	.format-item:nth-child(odd) {
+		padding-right: 30px;
+	}
+
+	.format-item:nth-child(even) {
+		padding-left: 30px;
+		border-left: 1px solid rgba(255,255,255,0.16);
+	}
+
+	/* =========================================================
+	   FEATURED TALK
+	========================================================= */
+
+	.featured-talk {
+		padding-top: clamp(100px, 12vw, 180px);
+		padding-bottom: clamp(100px, 12vw, 180px);
+	}
+
+	.featured-talk-grid {
+		display: grid;
+		grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+		gap: clamp(60px, 8vw, 120px);
+		align-items: center;
+		width: min(100%, var(--speaking-max));
+		margin: 0 auto;
+	}
+
+	.featured-talk h2 {
+		font-size: clamp(2.7rem, 5.4vw, 5.8rem);
+	}
+
+	.featured-intro {
+		margin: 34px 0 0;
+		color: var(--speaking-ink);
+		font-size: clamp(1.12rem, 1.6vw, 1.35rem);
+		line-height: 1.55;
+	}
+
+	.featured-description {
+		margin: 20px 0 0;
+		color: var(--speaking-muted);
+		font-size: 1rem;
+		line-height: 1.65;
+	}
+
+	.featured-actions {
+		margin-top: 32px;
+	}
+
+	.featured-talk-image {
+		position: relative;
+		display: block;
+		overflow: hidden;
+		border-radius: 18px;
+		background: var(--speaking-soft);
+		box-shadow: 0 25px 65px rgba(16,43,70,0.08);
+	}
+
+	.featured-talk-image img {
+		display: block;
+		width: 100%;
+		aspect-ratio: 16 / 10;
+		object-fit: cover;
+		transition: transform 550ms cubic-bezier(0.22,1,0.36,1);
+	}
+
+	.featured-talk-image:hover img {
+		transform: scale(1.025);
+	}
+
+	.featured-image-overlay {
+		position: absolute;
+		right: 18px;
+		bottom: 18px;
+		left: 18px;
+		display: flex;
+		justify-content: space-between;
+		gap: 20px;
+		padding: 16px 18px;
+		border: 1px solid rgba(255,255,255,0.55);
+		border-radius: 12px;
+		background: rgba(255,255,255,0.87);
+		backdrop-filter: blur(12px);
+		color: var(--speaking-ink);
+		font-size: 0.9rem;
+		font-weight: 600;
+	}
+
+	/* =========================================================
+	   APPEARANCES
+	========================================================= */
+
+	.appearances {
+		padding-top: clamp(90px, 10vw, 150px);
+		padding-bottom: clamp(100px, 11vw, 160px);
+		background: #f7f9fb;
+	}
+
+	.appearances-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 22px;
+		width: min(100%, var(--speaking-max));
+		margin: 0 auto;
+	}
+
+	.appearance-card {
+		display: grid;
+		grid-template-columns: 42% 1fr;
+		min-height: 260px;
+		overflow: hidden;
+		border: 1px solid var(--speaking-line);
+		border-radius: 16px;
+		background: #ffffff;
+	}
+
+	.appearance-image-wrapper {
+		min-height: 100%;
+		overflow: hidden;
+		background: #edf1f5;
+	}
+
+	.appearance-image-wrapper a {
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+
+	.appearance-image {
+		display: block;
+		width: 100%;
+		height: 100%;
+		min-height: 260px;
+		object-fit: cover;
+		transition: transform 450ms cubic-bezier(0.22,1,0.36,1);
+	}
+
+	.appearance-image-wrapper:hover .appearance-image {
+		transform: scale(1.035);
+	}
+
+	.appearance-content {
+		display: flex;
+		flex-direction: column;
+		padding: 26px;
+	}
+
+	.appearance-meta {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 7px;
+		margin: 0 0 20px;
+		color: var(--speaking-muted);
+		font-size: 0.73rem;
+		font-weight: 650;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+	}
+
+	.appearance-card h3 {
+		margin: 0;
+		color: var(--speaking-ink);
+		font-size: 1.3rem;
+		font-weight: 600;
+		line-height: 1.15;
+		letter-spacing: -0.025em;
+	}
+
+	.appearance-description {
+		margin: 14px 0 22px;
+		color: var(--speaking-muted);
+		font-size: 0.9rem;
+		line-height: 1.55;
+	}
+
+	.appearance-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 18px;
+		margin-top: auto;
+	}
+
+	.text-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		color: var(--speaking-ink);
+		font-size: 0.84rem;
+		font-weight: 650;
+		text-decoration: none;
+	}
+
+	.text-link span {
+		transition: transform 160ms ease;
+	}
+
+	.text-link:hover span {
+		transform: translateX(3px);
+	}
+
+	/* =========================================================
+	   CONTACT
+	========================================================= */
+
+	.speaking-contact {
+		padding-top: clamp(110px, 13vw, 190px);
+		padding-bottom: clamp(110px, 13vw, 190px);
+	}
+
+	.speaking-contact-inner {
+		width: min(100%, 940px);
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	.speaking-contact h2 {
+		font-size: clamp(2.8rem, 6vw, 6rem);
+	}
+
+	.contact-copy {
+		max-width: 670px;
+		margin: 32px auto 0;
+		color: var(--speaking-muted);
+		font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+		line-height: 1.6;
+	}
+
+	.contact-button {
+		margin-top: 38px;
+		padding: 17px 24px;
+		border: 1px solid var(--speaking-ink);
+		border-radius: 999px;
+		color: var(--speaking-ink);
+		font-size: 0.95rem;
+		font-weight: 650;
+		transition:
+			background 180ms ease,
+			color 180ms ease,
+			transform 180ms ease;
+	}
+
+	.contact-button:hover {
+		background: var(--speaking-ink);
+		color: white;
+		transform: translateY(-2px);
+	}
+
+	/* =========================================================
+	   REVEAL ANIMATIONS
+	========================================================= */
+
+	.js .reveal-section .reveal-item {
+		opacity: 0;
+		transform: translateY(18px);
+		transition:
+			opacity 650ms ease,
+			transform 650ms cubic-bezier(0.22,1,0.36,1);
+		transition-delay: var(--delay, 0s);
+	}
+
+	.js .reveal-section.is-visible .reveal-item {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	.js .reveal-delay-1 {
+		transition-delay: 80ms !important;
+	}
+
+	.js .reveal-delay-2 {
+		transition-delay: 160ms !important;
+	}
+
+	.js .reveal-delay-3 {
+		transition-delay: 240ms !important;
+	}
+
+	/* =========================================================
+	   TABLET
+	========================================================= */
+
+	@media (max-width: 1000px) {
+		.appearance-card {
+			grid-template-columns: 1fr;
+		}
+
+		.appearance-image-wrapper,
+		.appearance-image {
+			min-height: 220px;
+		}
+
+		.appearance-image {
+			aspect-ratio: 16 / 9;
+		}
+	}
+
+	/* =========================================================
+	   MOBILE
+	========================================================= */
+
+	@media (max-width: 900px) {
+		.hero {
+			padding-top: 100px;
+			padding-bottom: 90px;
+		}
+
+		.hero-title {
+			font-size: clamp(3rem, 13vw, 5.3rem);
+		}
+
+		.story-layout {
+			display: block;
+		}
+
+		.story-stage {
+			position: relative;
+			top: auto;
+			aspect-ratio: 4 / 3;
+		}
+
+		.story-steps {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: 0;
+			margin-top: 18px;
+			border-top: 1px solid var(--speaking-line);
+		}
+
+		.story-step {
+			min-height: auto;
+			padding: 16px 8px 12px;
+			border-left: 0;
+			border-top: 2px solid transparent;
+		}
+
+		.story-step.is-active {
+			border-left: 0;
+			border-top-color: var(--speaking-accent);
+		}
+
+		.story-step span,
+		.story-step p {
+			margin-left: 0;
+		}
+
+		.story-step p {
+			display: none;
+		}
+
+		.story-question {
+			margin-top: 10%;
+		}
+
+		.story-question p,
+		.story-question strong {
+			font-size: clamp(1.65rem, 7vw, 3.3rem);
+		}
+
+		.model-frame {
+			grid-template-columns: 1fr;
+			gap: 22px;
+		}
+
+		.model-divider {
+			width: 70px;
+			height: 1px;
+			margin: 0 auto;
+		}
+
+		.model-item {
+			gap: 7px;
+		}
+
+		.model-item strong {
+			font-size: clamp(1.3rem, 6vw, 2.1rem);
+		}
+
+		.closing-pair {
+			grid-template-columns: 1fr;
+			gap: 28px;
+		}
+
+		.closing-pair p {
+			font-size: clamp(1.7rem, 7vw, 3.2rem);
+		}
+
+		.topics-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.topic-card,
+		.topic-card + .topic-card {
+			min-height: auto;
+			padding: 32px 0;
+			border-left: 0;
+		}
+
+		.topic-card + .topic-card {
+			border-top: 1px solid var(--speaking-line);
+		}
+
+		.topic-number {
+			margin-bottom: 42px;
+		}
+
+		.formats-inner {
+			grid-template-columns: 1fr;
+			gap: 55px;
+		}
+
+		.featured-talk-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.featured-talk-copy {
+			max-width: 680px;
+		}
+
+		.appearances-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	@media (max-width: 620px) {
+		.hero-actions {
+			align-items: flex-start;
+			flex-direction: column;
+			gap: 18px;
+		}
+
+		.story-stage {
+			aspect-ratio: 1 / 1.08;
+			border-radius: 14px;
+		}
+
+		.story-question {
+			width: 88%;
+			margin-top: 14%;
+		}
+
+		.value-answer strong {
+			font-size: clamp(2.8rem, 14vw, 4.6rem);
+		}
+
+		.format-list {
+			grid-template-columns: 1fr;
+		}
+
+		.format-item,
+		.format-item:nth-child(odd),
+		.format-item:nth-child(even) {
+			padding: 20px 0;
+			border-left: 0;
+		}
+
+		.appearance-card {
+			border-radius: 12px;
+		}
+	}
+
+	/* =========================================================
+	   REDUCED MOTION
+	========================================================= */
+
+	@media (prefers-reduced-motion: reduce) {
+		* {
+			scroll-behavior: auto !important;
+		}
+
+		.story-frame,
+		.featured-talk-image img,
+		.appearance-image,
+		.reveal-item {
+			transition: none !important;
+		}
+	}
+</style>
