@@ -3,33 +3,31 @@ import SEO from '../components/SEO.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
-type AppearanceItem = {
+type MediaItem = {
 	type: string;
 	title: string;
 	date: string;
 	image: string;
 	imageAlt: string;
-	description: string;
 	url?: string;
 	linkLabel?: string;
 	pdfUrl?: string;
 	pdfLabel?: string;
+	internal?: boolean;
 };
 
-const featuredTalk = {
-	type: 'Webinar',
-	title: 'Technology is Never the Starting Point — Xseed',
-	date: 'August 2026',
-	image: '/images/xseed-webinar.png',
-	imageAlt:
-		'Technology is Never the Starting Point webinar with Federico Rodrigo',
-	description:
-		'A practical session on how to start with people and business priorities, and use technology to enable the outcome',
-	url: '/webinar/',
-	linkLabel: 'Explore the talk',
-};
-
-const appearances: AppearanceItem[] = [
+const mediaItems: MediaItem[] = [
+	{
+		type: 'Webinar',
+		title: 'Technology is Never the Starting Point — Xseed',
+		date: 'August 2026',
+		image: '/images/xseed-webinar.png',
+		imageAlt:
+			'Technology is Never the Starting Point webinar with Federico Rodrigo',
+		url: '/webinar/',
+		linkLabel: 'Explore the talk',
+		internal: true,
+	},
 	{
 		type: 'Podcast',
 		title: 'The Technology Vanguard',
@@ -37,8 +35,6 @@ const appearances: AppearanceItem[] = [
 		image: '/images/vanguard.png',
 		imageAlt:
 			'Fede Rodrigo appearing on The Technology Vanguard podcast',
-		description:
-			'An honest conversation about IT leadership, the transition from technical excellence to leading people, and the lessons that shape the path to becoming a CIO',
 		url: 'https://www.youtube.com/watch?v=2wyTHhaOcWE',
 		linkLabel: 'Watch the conversation',
 	},
@@ -49,8 +45,6 @@ const appearances: AppearanceItem[] = [
 		image: '/images/cloud-interview.jpg',
 		imageAlt:
 			'Interview with Fede Rodrigo published by Nublit',
-		description:
-			'A conversation about cloud strategy, business value, cultural barriers, and technology as a driver of growth and operational resilience',
 		url: 'https://informe2026.nublit.com/',
 		linkLabel: 'View full report',
 		pdfUrl: '/pdfs/Fede-Rodrigo-Interview-Nublit.pdf',
@@ -62,8 +56,6 @@ const appearances: AppearanceItem[] = [
 		date: 'September 2024',
 		image: '/images/impact.png',
 		imageAlt: 'The Economist Impact',
-		description:
-			'Invited participant in Industrial Reinvention: New Business Models and Jobs for Tomorrow’s Technology, hosted by The Economist Impact',
 	},
 	{
 		type: 'Recognition',
@@ -71,8 +63,6 @@ const appearances: AppearanceItem[] = [
 		date: 'September 2024',
 		image: '/images/orbie.jpg',
 		imageAlt: 'ORBIE Awards CIO Central Texas',
-		description:
-			'Recognized as a finalist in the Global CIO category at the Central Texas awards',
 		url: 'https://orbie.org/honoree/federico-rodrigo/4324',
 		linkLabel: 'View recognition',
 	},
@@ -89,7 +79,7 @@ const appearances: AppearanceItem[] = [
 
 		<SEO
 			title="Speaking | Fede Rodrigo"
-			description="Speaking engagements, keynotes, webinars, executive sessions, podcasts, and conversations on technology, business, leadership, and execution"
+			description="Speaking engagements, webinars, executive sessions, podcasts, interviews, and conversations on technology, business, leadership, and execution"
 			lang="en"
 		/>
 	</head>
@@ -101,7 +91,7 @@ const appearances: AppearanceItem[] = [
 
 			<!-- =====================================================
 			     HERO
-			     KEEPING YOUR ORIGINAL STRUCTURE / ANIMATION
+			     ORIGINAL STRUCTURE — DO NOT TOUCH ANIMATION
 			===================================================== -->
 
 			<section class="hero">
@@ -119,7 +109,7 @@ const appearances: AppearanceItem[] = [
 
 
 			<!-- =====================================================
-			     SLIDES
+			     SPEAKING SLIDES
 			===================================================== -->
 
 			<section
@@ -127,20 +117,26 @@ const appearances: AppearanceItem[] = [
 				aria-label="Selected ideas from Fede Rodrigo's talks"
 			>
 				<div
-					class="speaking-slides reveal-item"
+					class="speaking-slider reveal-item"
 					data-speaking-slider
 				>
+
+					<!-- SLIDE 1 -->
+
 					<figure
 						class="speaking-slide is-active"
 						data-speaking-slide
 						aria-hidden="false"
 					>
 						<img
-							src="/images/speaking-slide-question.png"
+							src="/images/speaking-slide-question-clean.png"
 							alt="What if your next technology decision started with no technology at all?"
 							loading="eager"
 						/>
 					</figure>
+
+
+					<!-- SLIDE 2 -->
 
 					<figure
 						class="speaking-slide"
@@ -154,6 +150,9 @@ const appearances: AppearanceItem[] = [
 						/>
 					</figure>
 
+
+					<!-- SLIDE 3 -->
+
 					<figure
 						class="speaking-slide"
 						data-speaking-slide
@@ -166,13 +165,16 @@ const appearances: AppearanceItem[] = [
 						/>
 					</figure>
 
+
+					<!-- DOTS -->
+
 					<div
-						class="speaking-slide-nav"
+						class="speaking-slider-nav"
 						aria-label="Choose slide"
 					>
 						<button
 							type="button"
-							class="speaking-slide-dot is-active"
+							class="speaking-slider-dot is-active"
 							data-speaking-dot="0"
 							aria-label="Show slide 1"
 							aria-current="true"
@@ -180,7 +182,7 @@ const appearances: AppearanceItem[] = [
 
 						<button
 							type="button"
-							class="speaking-slide-dot"
+							class="speaking-slider-dot"
 							data-speaking-dot="1"
 							aria-label="Show slide 2"
 							aria-current="false"
@@ -188,109 +190,55 @@ const appearances: AppearanceItem[] = [
 
 						<button
 							type="button"
-							class="speaking-slide-dot"
+							class="speaking-slider-dot"
 							data-speaking-dot="2"
 							aria-label="Show slide 3"
 							aria-current="false"
 						></button>
 					</div>
+
 				</div>
 			</section>
 
 
 			<!-- =====================================================
-			     SELECTED TALKS & APPEARANCES
+			     MEDIA & EVENTS
 			===================================================== -->
 
 			<section
-				class="speaking-selected reveal-section"
-				aria-labelledby="speaking-selected-title"
+				class="media-events reveal-section"
+				aria-labelledby="media-events-title"
 			>
-				<div class="speaking-selected-heading">
-					<div>
-						<h2
-							id="speaking-selected-title"
-							class="reveal-item"
-						>
-							Selected Talks & Appearances
-						</h2>
-
-						<p
-							class="speaking-formats reveal-item reveal-delay-1"
-						>
-							Keynotes · Webinars · Executive Sessions · Panels · Podcasts
-						</p>
-					</div>
-				</div>
-
-
-				<!-- FEATURED TALK -->
-
-				<article
-					class="speaking-featured reveal-item reveal-delay-1"
+				<h2
+					id="media-events-title"
+					class="reveal-item"
 				>
-					<a
-						href={featuredTalk.url}
-						class="speaking-featured-image"
-						aria-label={featuredTalk.linkLabel}
-					>
-						<img
-							src={featuredTalk.image}
-							alt={featuredTalk.imageAlt}
-							loading="lazy"
-						/>
-					</a>
+					Media & Events
+				</h2>
 
-					<div class="speaking-featured-content">
-						<p class="speaking-meta">
-							<span>{featuredTalk.type}</span>
-
-							<span aria-hidden="true">·</span>
-
-							<span>{featuredTalk.date}</span>
-						</p>
-
-						<h3>
-							{featuredTalk.title}
-						</h3>
-
-						<p class="speaking-featured-description">
-							{featuredTalk.description}
-						</p>
-
-						<a
-							href={featuredTalk.url}
-							class="animated-link"
-						>
-							<span>{featuredTalk.linkLabel}</span>
-
-							<span
-								class="animated-link-arrow"
-								aria-hidden="true"
-							>
-								→
-							</span>
-						</a>
-					</div>
-				</article>
-
-
-				<!-- OTHER APPEARANCES -->
-
-				<div class="speaking-appearances-grid">
+				<div class="media-grid">
 					{
-						appearances.map((item, index) => (
+						mediaItems.map((item, index) => (
 							<article
-								class="speaking-appearance-card reveal-item"
-								style={`--appearance-delay: ${index * 70}ms`}
+								class="media-card reveal-item"
+								style={`--delay: ${index * 60}ms`}
 							>
-								<div class="speaking-appearance-image-wrapper">
+
+								<div class="media-card-image">
 									{
 										item.url ? (
 											<a
 												href={item.url}
-												target="_blank"
-												rel="noopener noreferrer"
+												target={
+													item.internal
+														? undefined
+														: '_blank'
+												}
+												rel={
+													item.internal
+														? undefined
+														: 'noopener noreferrer'
+												}
 												aria-label={
 													item.linkLabel ??
 													item.title
@@ -299,7 +247,6 @@ const appearances: AppearanceItem[] = [
 												<img
 													src={item.image}
 													alt={item.imageAlt}
-													class="speaking-appearance-image"
 													loading="lazy"
 												/>
 											</a>
@@ -307,15 +254,16 @@ const appearances: AppearanceItem[] = [
 											<img
 												src={item.image}
 												alt={item.imageAlt}
-												class="speaking-appearance-image"
 												loading="lazy"
 											/>
 										)
 									}
 								</div>
 
-								<div class="speaking-appearance-content">
-									<p class="speaking-meta">
+
+								<div class="media-card-content">
+
+									<p class="media-card-meta">
 										<span>{item.type}</span>
 
 										<span aria-hidden="true">
@@ -325,15 +273,16 @@ const appearances: AppearanceItem[] = [
 										<span>{item.date}</span>
 									</p>
 
-									<h3>{item.title}</h3>
 
-									<p class="speaking-appearance-description">
-										{item.description}
-									</p>
+									<h3>
+										{item.title}
+									</h3>
+
 
 									{
 										(item.url || item.pdfUrl) && (
-											<div class="speaking-appearance-actions">
+											<div class="media-card-actions">
+
 												{
 													item.pdfUrl &&
 													item.pdfLabel && (
@@ -344,9 +293,7 @@ const appearances: AppearanceItem[] = [
 															class="animated-link"
 														>
 															<span>
-																{
-																	item.pdfLabel
-																}
+																{item.pdfLabel}
 															</span>
 
 															<span
@@ -359,18 +306,27 @@ const appearances: AppearanceItem[] = [
 													)
 												}
 
+
 												{
-													item.url &&
-													item.linkLabel && (
+													item.url && (
 														<a
 															href={item.url}
-															target="_blank"
-															rel="noopener noreferrer"
+															target={
+																item.internal
+																	? undefined
+																	: '_blank'
+															}
+															rel={
+																item.internal
+																	? undefined
+																	: 'noopener noreferrer'
+															}
 															class="animated-link"
 														>
 															<span>
 																{
-																	item.linkLabel
+																	item.linkLabel ??
+																	'Learn more'
 																}
 															</span>
 
@@ -383,10 +339,13 @@ const appearances: AppearanceItem[] = [
 														</a>
 													)
 												}
+
 											</div>
 										)
 									}
+
 								</div>
+
 							</article>
 						))
 					}
@@ -399,14 +358,16 @@ const appearances: AppearanceItem[] = [
 			===================================================== -->
 
 			<section class="media-contact reveal-section">
+
 				<h2 class="reveal-item">
 					Speaking Inquiries
 				</h2>
 
 				<div class="reveal-item reveal-delay-1">
+
 					<p>
-						For speaking inquiries, collaborations, or media
-						opportunities, please get in touch
+						For speaking engagements, interviews, podcasts,
+						or other media opportunities, please get in touch
 					</p>
 
 					<p class="media-contact-link">
@@ -424,7 +385,9 @@ const appearances: AppearanceItem[] = [
 							</span>
 						</a>
 					</p>
+
 				</div>
+
 			</section>
 
 		</main>
@@ -432,29 +395,35 @@ const appearances: AppearanceItem[] = [
 		<Footer />
 
 
-		<!-- =========================================================
-		     EXISTING REVEAL ANIMATION
-		     SAME LOGIC AS YOUR ORIGINAL
-		========================================================= -->
+		<!-- =====================================================
+		     EXISTING REVEAL
+		===================================================== -->
 
 		<script>
 			const sections =
 				document.querySelectorAll('.reveal-section');
 
-			const revealObserver = new IntersectionObserver(
-				(entries, observer) => {
-					entries.forEach((entry) => {
-						if (!entry.isIntersecting) return;
+			const revealObserver =
+				new IntersectionObserver(
+					(entries, observer) => {
+						entries.forEach((entry) => {
+							if (!entry.isIntersecting) return;
 
-						entry.target.classList.add('is-visible');
-						observer.unobserve(entry.target);
-					});
-				},
-				{
-					threshold: 0.08,
-					rootMargin: '0px 0px -50px 0px',
-				}
-			);
+							entry.target.classList.add(
+								'is-visible'
+							);
+
+							observer.unobserve(
+								entry.target
+							);
+						});
+					},
+					{
+						threshold: 0.08,
+						rootMargin:
+							'0px 0px -50px 0px',
+					}
+				);
 
 			sections.forEach((section) => {
 				revealObserver.observe(section);
@@ -462,147 +431,219 @@ const appearances: AppearanceItem[] = [
 		</script>
 
 
-		<!-- =========================================================
-		     SLIDE ANIMATION
-		     FULLY SCOPED — DOES NOT TOUCH HERO
-		========================================================= -->
+		<!-- =====================================================
+		     SPEAKING SLIDER
+		     ONLY AFFECTS THE SLIDES
+		===================================================== -->
 
 		<script>
-			const slider =
-				document.querySelector('[data-speaking-slider]');
+			const speakingSlider =
+				document.querySelector(
+					'[data-speaking-slider]'
+				);
 
-			if (slider) {
+			if (speakingSlider) {
+
 				const slides = Array.from(
-					slider.querySelectorAll('[data-speaking-slide]')
+					speakingSlider.querySelectorAll(
+						'[data-speaking-slide]'
+					)
 				);
 
 				const dots = Array.from(
-					slider.querySelectorAll('[data-speaking-dot]')
+					speakingSlider.querySelectorAll(
+						'[data-speaking-dot]'
+					)
 				);
 
-				const reduceMotion =
+				const reducedMotion =
 					window.matchMedia(
 						'(prefers-reduced-motion: reduce)'
 					).matches;
 
-				let current = 0;
-				let timer = null;
-				let hasStarted = false;
+				let currentSlide = 0;
+				let slideTimer = null;
+				let sliderVisible = false;
 
-				const showSlide = (index) => {
-					current =
+
+				/*
+					First slide gets more time because
+					it is the opening question.
+				*/
+
+				const durations = [
+					7000,
+					5200,
+					5200,
+				];
+
+
+				function showSlide(index) {
+
+					currentSlide =
 						(index + slides.length) %
 						slides.length;
 
-					slides.forEach((slide, slideIndex) => {
-						const active =
-							slideIndex === current;
+					slides.forEach(
+						(slide, slideIndex) => {
 
-						slide.classList.toggle(
-							'is-active',
-							active
+							const active =
+								slideIndex ===
+								currentSlide;
+
+							slide.classList.toggle(
+								'is-active',
+								active
+							);
+
+							slide.setAttribute(
+								'aria-hidden',
+								active
+									? 'false'
+									: 'true'
+							);
+						}
+					);
+
+
+					dots.forEach(
+						(dot, dotIndex) => {
+
+							const active =
+								dotIndex ===
+								currentSlide;
+
+							dot.classList.toggle(
+								'is-active',
+								active
+							);
+
+							dot.setAttribute(
+								'aria-current',
+								active
+									? 'true'
+									: 'false'
+							);
+						}
+					);
+				}
+
+
+				function stopSlider() {
+
+					if (slideTimer) {
+						window.clearTimeout(
+							slideTimer
 						);
 
-						slide.setAttribute(
-							'aria-hidden',
-							active ? 'false' : 'true'
+						slideTimer = null;
+					}
+				}
+
+
+				function scheduleNextSlide() {
+
+					if (
+						reducedMotion ||
+						!sliderVisible
+					) {
+						return;
+					}
+
+					stopSlider();
+
+					slideTimer =
+						window.setTimeout(
+							() => {
+
+								showSlide(
+									currentSlide + 1
+								);
+
+								scheduleNextSlide();
+							},
+							durations[
+								currentSlide
+							]
 						);
-					});
+				}
 
-					dots.forEach((dot, dotIndex) => {
-						const active =
-							dotIndex === current;
 
-						dot.classList.toggle(
-							'is-active',
-							active
+				dots.forEach(
+					(dot, index) => {
+
+						dot.addEventListener(
+							'click',
+							() => {
+
+								showSlide(index);
+
+								scheduleNextSlide();
+							}
 						);
-
-						dot.setAttribute(
-							'aria-current',
-							active ? 'true' : 'false'
-						);
-					});
-				};
-
-				const stop = () => {
-					if (!timer) return;
-
-					window.clearInterval(timer);
-					timer = null;
-				};
-
-				const start = () => {
-					if (reduceMotion) return;
-
-					stop();
-
-					timer = window.setInterval(() => {
-						showSlide(current + 1);
-					}, 5200);
-				};
-
-				dots.forEach((dot, index) => {
-					dot.addEventListener('click', () => {
-						showSlide(index);
-						start();
-					});
-				});
-
-				slider.addEventListener(
-					'mouseenter',
-					stop
-				);
-
-				slider.addEventListener(
-					'mouseleave',
-					() => {
-						if (hasStarted) start();
 					}
 				);
 
-				const sliderObserver =
+
+				speakingSlider.addEventListener(
+					'mouseenter',
+					() => {
+						stopSlider();
+					}
+				);
+
+
+				speakingSlider.addEventListener(
+					'mouseleave',
+					() => {
+						scheduleNextSlide();
+					}
+				);
+
+
+				const speakingSliderObserver =
 					new IntersectionObserver(
 						(entries) => {
-							entries.forEach((entry) => {
-								if (
-									entry.isIntersecting &&
-									!hasStarted
-								) {
-									hasStarted = true;
-									showSlide(0);
-									start();
-								}
 
-								if (!entry.isIntersecting) {
-									stop();
-								}
+							entries.forEach(
+								(entry) => {
 
-								if (
-									entry.isIntersecting &&
-									hasStarted
-								) {
-									start();
+									sliderVisible =
+										entry.isIntersecting;
+
+									if (
+										sliderVisible
+									) {
+										scheduleNextSlide();
+									} else {
+										stopSlider();
+									}
 								}
-							});
+							);
 						},
 						{
 							threshold: 0.35,
 						}
 					);
 
-				sliderObserver.observe(slider);
+
+				speakingSliderObserver.observe(
+					speakingSlider
+				);
+
 
 				document.addEventListener(
 					'visibilitychange',
 					() => {
+
 						if (document.hidden) {
-							stop();
-						} else if (hasStarted) {
-							start();
+							stopSlider();
+						} else {
+							scheduleNextSlide();
 						}
 					}
 				);
+
 			}
 		</script>
 
@@ -613,24 +654,29 @@ const appearances: AppearanceItem[] = [
 <style>
 
 	/* =========================================================
-	   NEW SLIDES SECTION
-	   EVERYTHING PREFIXED SO IT DOES NOT TOUCH YOUR HERO
+	   IMPORTANT:
+	   NOTHING HERE OVERRIDES .hero, .hero-title,
+	   .hero-line OR .lead-principles
+	========================================================= */
+
+
+	/* =========================================================
+	   SLIDES
 	========================================================= */
 
 	.speaking-showcase {
-		width: min(
-			1180px,
-			calc(100% - 48px)
-		);
+		width:
+			min(
+				1120px,
+				calc(100% - 48px)
+			);
 
 		margin:
-			clamp(20px, 3vw, 45px)
-			auto
-			clamp(90px, 10vw, 145px);
+			20px auto 58px;
 	}
 
 
-	.speaking-slides {
+	.speaking-slider {
 		position: relative;
 
 		width: 100%;
@@ -639,13 +685,18 @@ const appearances: AppearanceItem[] = [
 
 		overflow: hidden;
 
-		border-radius: 18px;
+		border-radius: 14px;
 
 		background: #f5f7f9;
 
 		box-shadow:
-			0 22px 55px
-			rgba(18, 43, 68, 0.08);
+			0 18px 45px
+			rgba(
+				16,
+				43,
+				70,
+				0.07
+			);
 	}
 
 
@@ -659,13 +710,13 @@ const appearances: AppearanceItem[] = [
 		opacity: 0;
 
 		transform:
-			scale(1.008);
+			scale(1.006);
 
 		pointer-events: none;
 
 		transition:
-			opacity 650ms ease,
-			transform 1100ms
+			opacity 700ms ease,
+			transform 1300ms
 				cubic-bezier(
 					0.22,
 					1,
@@ -697,24 +748,29 @@ const appearances: AppearanceItem[] = [
 	}
 
 
-	.speaking-slide-nav {
+	/* =========================================================
+	   SLIDE NAVIGATION
+	========================================================= */
+
+	.speaking-slider-nav {
 		position: absolute;
 
 		z-index: 10;
 
 		left: 50%;
-		bottom: 18px;
+		bottom: 15px;
 
 		display: flex;
 
-		gap: 9px;
+		align-items: center;
 
-		transform:
-			translateX(-50%);
+		gap: 8px;
 
-		padding: 9px 12px;
+		padding:
+			8px 11px;
 
-		border-radius: 999px;
+		border-radius:
+			999px;
 
 		background:
 			rgba(
@@ -726,74 +782,82 @@ const appearances: AppearanceItem[] = [
 
 		backdrop-filter:
 			blur(10px);
+
+		transform:
+			translateX(-50%);
 	}
 
 
-	.speaking-slide-dot {
+	.speaking-slider-dot {
 		width: 7px;
 		height: 7px;
 
 		padding: 0;
 
 		border: 0;
+
 		border-radius: 50%;
 
 		background:
 			rgba(
-				18,
+				16,
 				43,
-				68,
-				0.24
+				70,
+				0.25
 			);
 
 		cursor: pointer;
 
 		transition:
-			width 220ms ease,
-			border-radius 220ms ease,
-			background 220ms ease;
+			width 200ms ease,
+			background 200ms ease,
+			border-radius 200ms ease;
 	}
 
 
-	.speaking-slide-dot.is-active {
-		width: 25px;
+	.speaking-slider-dot.is-active {
+		width: 23px;
 
-		border-radius: 999px;
+		border-radius:
+			999px;
 
-		background: #102b46;
+		background:
+			#102b46;
 	}
 
 
 	/* =========================================================
-	   SELECTED TALKS
+	   MEDIA & EVENTS
 	========================================================= */
 
-	.speaking-selected {
-		width: min(
-			1180px,
-			calc(100% - 48px)
-		);
+	.media-events {
+		width:
+			min(
+				1120px,
+				calc(100% - 48px)
+			);
 
 		margin:
 			0 auto
-			clamp(100px, 11vw, 165px);
+			clamp(
+				85px,
+				8vw,
+				120px
+			);
 	}
 
 
-	.speaking-selected-heading {
-		margin-bottom:
-			clamp(36px, 5vw, 60px);
-	}
+	.media-events > h2 {
+		margin:
+			0 0 28px;
 
-
-	.speaking-selected-heading h2 {
-		margin: 0;
+		color: #102b46;
 
 		font-size:
 			clamp(
-				2rem,
-				3.8vw,
-				3.7rem
+				1.85rem,
+				2.8vw,
+				2.65rem
 			);
 
 		font-weight: 600;
@@ -801,173 +865,33 @@ const appearances: AppearanceItem[] = [
 		line-height: 1.05;
 
 		letter-spacing:
-			-0.04em;
-
-		color: #102b46;
-	}
-
-
-	.speaking-formats {
-		margin:
-			16px 0 0;
-
-		font-size:
-			clamp(
-				0.9rem,
-				1.2vw,
-				1rem
-			);
-
-		line-height: 1.5;
-
-		color: #6e7d8e;
-	}
-
-
-	/* =========================================================
-	   FEATURED TALK
-	========================================================= */
-
-	.speaking-featured {
-		display: grid;
-
-		grid-template-columns:
-			minmax(0, 1.08fr)
-			minmax(300px, 0.92fr);
-
-		gap:
-			clamp(38px, 6vw, 80px);
-
-		align-items: center;
-
-		margin-bottom:
-			clamp(55px, 7vw, 90px);
-	}
-
-
-	.speaking-featured-image {
-		display: block;
-
-		overflow: hidden;
-
-		border-radius: 15px;
-
-		background: #f3f5f7;
-	}
-
-
-	.speaking-featured-image img {
-		display: block;
-
-		width: 100%;
-
-		aspect-ratio: 16 / 9;
-
-		object-fit: cover;
-
-		transition:
-			transform 500ms
-				cubic-bezier(
-					0.22,
-					1,
-					0.36,
-					1
-				);
-	}
-
-
-	.speaking-featured-image:hover img {
-		transform: scale(1.02);
-	}
-
-
-	.speaking-featured-content h3 {
-		max-width: 520px;
-
-		margin:
-			0 0 18px;
-
-		font-size:
-			clamp(
-				1.8rem,
-				3vw,
-				3rem
-			);
-
-		font-weight: 600;
-
-		line-height: 1.08;
-
-		letter-spacing:
 			-0.035em;
-
-		color: #102b46;
 	}
 
 
-	.speaking-featured-description {
-		max-width: 520px;
-
-		margin:
-			0 0 25px;
-
-		font-size: 1rem;
-
-		line-height: 1.6;
-
-		color: #667789;
-	}
-
-
-	.speaking-meta {
-		display: flex;
-
-		flex-wrap: wrap;
-
-		gap: 7px;
-
-		margin:
-			0 0 13px;
-
-		font-size: 0.74rem;
-
-		font-weight: 650;
-
-		letter-spacing:
-			0.06em;
-
-		text-transform:
-			uppercase;
-
-		color: #778698;
-	}
-
-
-	/* =========================================================
-	   SMALLER APPEARANCES
-	========================================================= */
-
-	.speaking-appearances-grid {
+	.media-grid {
 		display: grid;
 
 		grid-template-columns:
 			repeat(
-				2,
+				3,
 				minmax(0, 1fr)
 			);
 
-		gap: 22px;
+		gap: 20px;
 	}
 
 
-	.speaking-appearance-card {
-		display: grid;
+	/* =========================================================
+	   MEDIA CARD
+	========================================================= */
 
-		grid-template-columns:
-			180px
-			minmax(0, 1fr);
+	.media-card {
+		display: flex;
 
-		min-height: 210px;
+		flex-direction: column;
+
+		min-width: 0;
 
 		overflow: hidden;
 
@@ -982,37 +906,39 @@ const appearances: AppearanceItem[] = [
 
 		border-radius: 13px;
 
-		background: #fff;
+		background: #ffffff;
 
 		transition:
-			transform 220ms ease,
-			box-shadow 220ms ease;
+			transform 200ms ease,
+			box-shadow 200ms ease;
 	}
 
 
-	.speaking-appearance-card:hover {
+	.media-card:hover {
 		transform:
 			translateY(-2px);
 
 		box-shadow:
-			0 14px 35px
-				rgba(
-					16,
-					43,
-					70,
-					0.06
-				);
+			0 13px 30px
+			rgba(
+				16,
+				43,
+				70,
+				0.06
+			);
 	}
 
 
-	.speaking-appearance-image-wrapper {
+	.media-card-image {
 		overflow: hidden;
 
-		background: #f3f5f7;
+		aspect-ratio: 16 / 9;
+
+		background: #f1f3f5;
 	}
 
 
-	.speaking-appearance-image-wrapper a {
+	.media-card-image a {
 		display: block;
 
 		width: 100%;
@@ -1020,88 +946,214 @@ const appearances: AppearanceItem[] = [
 	}
 
 
-	.speaking-appearance-image {
+	.media-card-image img {
 		display: block;
 
 		width: 100%;
 		height: 100%;
-
-		min-height: 210px;
 
 		object-fit: cover;
 
 		transition:
-			transform 400ms ease;
+			transform 450ms
+				cubic-bezier(
+					0.22,
+					1,
+					0.36,
+					1
+				);
 	}
 
 
-	.speaking-appearance-image-wrapper:hover
-	.speaking-appearance-image {
-		transform: scale(1.025);
+	.media-card:hover
+	.media-card-image img {
+		transform:
+			scale(1.025);
 	}
 
 
-	.speaking-appearance-content {
+	.media-card-content {
 		display: flex;
+
+		flex: 1;
 
 		flex-direction: column;
 
-		padding: 22px;
+		padding:
+			18px 18px 20px;
 	}
 
 
-	.speaking-appearance-content h3 {
-		margin:
-			0 0 11px;
-
-		font-size: 1.17rem;
-
-		font-weight: 600;
-
-		line-height: 1.18;
-
-		letter-spacing:
-			-0.02em;
-
-		color: #102b46;
-	}
-
-
-	.speaking-appearance-description {
-		display: -webkit-box;
-
-		margin:
-			0 0 18px;
-
-		overflow: hidden;
-
-		-webkit-box-orient:
-			vertical;
-
-		-webkit-line-clamp: 3;
-
-		font-size: 0.88rem;
-
-		line-height: 1.52;
-
-		color: #6e7d8e;
-	}
-
-
-	.speaking-appearance-actions {
+	.media-card-meta {
 		display: flex;
 
 		flex-wrap: wrap;
 
-		gap: 15px;
+		gap: 6px;
 
-		margin-top: auto;
+		margin:
+			0 0 9px;
+
+		color: #7d8b9a;
+
+		font-size: 0.68rem;
+
+		font-weight: 700;
+
+		line-height: 1.35;
+
+		letter-spacing:
+			0.065em;
+
+		text-transform:
+			uppercase;
 	}
 
 
-	.speaking-appearance-actions
+	.media-card h3 {
+		margin: 0;
+
+		color: #102b46;
+
+		font-size:
+			clamp(
+				1.02rem,
+				1.35vw,
+				1.2rem
+			);
+
+		font-weight: 600;
+
+		line-height: 1.2;
+
+		letter-spacing:
+			-0.02em;
+	}
+
+
+	.media-card-actions {
+		display: flex;
+
+		flex-wrap: wrap;
+
+		gap:
+			8px 16px;
+
+		margin-top: 19px;
+	}
+
+
+	.media-card-actions
 	.animated-link {
-		font-size: 0.82rem;
+		font-size: 0.78rem;
+	}
+
+
+	/* =========================================================
+	   CONTACT
+	   SMALL LOCAL ADJUSTMENTS ONLY
+	========================================================= */
+
+	.media-contact {
+		width:
+			min(
+				1120px,
+				calc(100% - 48px)
+			);
+
+		margin:
+			0 auto
+			clamp(
+				90px,
+				10vw,
+				145px
+			);
+	}
+
+
+	.media-contact h2 {
+		margin:
+			0 0 17px;
+
+		color: #102b46;
+
+		font-size:
+			clamp(
+				1.85rem,
+				2.8vw,
+				2.65rem
+			);
+
+		font-weight: 600;
+
+		line-height: 1.05;
+
+		letter-spacing:
+			-0.035em;
+	}
+
+
+	.media-contact p {
+		max-width: 650px;
+
+		margin:
+			0;
+
+		color: #6d7c8d;
+
+		font-size: 1rem;
+
+		line-height: 1.6;
+	}
+
+
+	.media-contact-link {
+		margin-top:
+			18px !important;
+	}
+
+
+	/* =========================================================
+	   REVEALS
+	========================================================= */
+
+	.js
+	.reveal-section
+	.reveal-item {
+		opacity: 0;
+
+		transform:
+			translateY(16px);
+
+		transition:
+			opacity 600ms ease,
+			transform 600ms
+				cubic-bezier(
+					0.22,
+					1,
+					0.36,
+					1
+				);
+
+		transition-delay:
+			var(--delay, 0ms);
+	}
+
+
+	.js
+	.reveal-section.is-visible
+	.reveal-item {
+		opacity: 1;
+
+		transform:
+			translateY(0);
+	}
+
+
+	.js
+	.reveal-delay-1 {
+		transition-delay:
+			80ms !important;
 	}
 
 
@@ -1109,29 +1161,14 @@ const appearances: AppearanceItem[] = [
 	   TABLET
 	========================================================= */
 
-	@media (max-width: 950px) {
+	@media (max-width: 900px) {
 
-		.speaking-featured {
-			grid-template-columns: 1fr;
-
-			gap: 30px;
-		}
-
-
-		.speaking-featured-content {
-			max-width: 680px;
-		}
-
-
-		.speaking-appearances-grid {
-			grid-template-columns: 1fr;
-		}
-
-
-		.speaking-appearance-card {
+		.media-grid {
 			grid-template-columns:
-				220px
-				minmax(0, 1fr);
+				repeat(
+					2,
+					minmax(0, 1fr)
+				);
 		}
 
 	}
@@ -1144,7 +1181,8 @@ const appearances: AppearanceItem[] = [
 	@media (max-width: 620px) {
 
 		.speaking-showcase,
-		.speaking-selected {
+		.media-events,
+		.media-contact {
 			width:
 				calc(
 					100% - 32px
@@ -1153,63 +1191,62 @@ const appearances: AppearanceItem[] = [
 
 
 		.speaking-showcase {
-			margin-bottom: 80px;
+			margin:
+				14px auto 45px;
 		}
 
 
-		.speaking-slides {
-			border-radius: 11px;
+		.speaking-slider {
+			border-radius:
+				10px;
 		}
 
 
-		.speaking-slide-nav {
-			bottom: 10px;
+		.speaking-slider-nav {
+			bottom:
+				9px;
 
-			padding: 7px 9px;
+			padding:
+				6px 8px;
 		}
 
 
-		.speaking-selected-heading {
-			margin-bottom: 32px;
+		.media-events > h2 {
+			margin-bottom:
+				22px;
 		}
 
 
-		.speaking-featured {
-			margin-bottom: 48px;
+		.media-grid {
+			grid-template-columns:
+				1fr;
 		}
 
 
-		.speaking-appearance-card {
-			grid-template-columns: 1fr;
-		}
-
-
-		.speaking-appearance-image {
-			min-height: 0;
-
-			aspect-ratio: 16 / 8.5;
-		}
-
-
-		.speaking-appearance-content {
-			padding: 20px;
+		.media-card-content {
+			padding:
+				17px 17px 19px;
 		}
 
 	}
 
 
 	/* =========================================================
-	   ACCESSIBILITY
+	   REDUCED MOTION
 	========================================================= */
 
-	@media (prefers-reduced-motion: reduce) {
+	@media (
+		prefers-reduced-motion:
+		reduce
+	) {
 
 		.speaking-slide,
-		.speaking-slide-dot,
-		.speaking-featured-image img,
-		.speaking-appearance-card,
-		.speaking-appearance-image {
-			transition: none;
+		.speaking-slider-dot,
+		.media-card,
+		.media-card-image img,
+		.reveal-item {
+			transition:
+				none !important;
 		}
 
 	}
