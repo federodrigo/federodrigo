@@ -144,18 +144,12 @@ const papers = [
 				<div
 					class="books-page-cover-wrapper reveal-item reveal-from-left"
 				>
-					<a
-						href="/theory"
-						class="books-page-cover-link"
-						aria-label="Explore A Theory of Minimal Tolerance"
-					>
-						<img
-							src="/images/book-cover.jpg"
-							alt="Cover of A Theory of Minimal Tolerance"
-							class="books-page-cover animated-book-cover"
-							loading="lazy"
-						/>
-					</a>
+					<img
+						src="/images/book-cover.jpg"
+						alt="Cover of A Theory of Minimal Tolerance"
+						class="books-page-cover animated-book-cover"
+						loading="lazy"
+					/>
 				</div>
 
 				<div class="books-page-content reveal-item reveal-delay-1">
@@ -179,19 +173,9 @@ const papers = [
 					</p>
 
 					<p class="books-page-action">
-						<a
-							href=""
-							class="animated-link"
-						>
-							<span>Coming soon</span>
-
-							<span
-								class="animated-link-arrow"
-								aria-hidden="true"
-							>
-								→
-							</span>
-						</a>
+						<span class="coming-soon">
+							Coming Soon
+						</span>
 					</p>
 				</div>
 			</section>
@@ -271,10 +255,24 @@ const papers = [
 </html>
 
 <style>
+	.books-page-book-featured {
+		margin-bottom: 0;
+	}
+
 	.minimal-tolerance-book {
-		margin-top: clamp(5rem, 9vw, 8rem);
-		padding-top: clamp(5rem, 9vw, 8rem);
+		margin-top: clamp(2rem, 3vw, 3rem);
+		padding-top: clamp(2.5rem, 4vw, 3.5rem);
 		border-top: 1px solid rgba(52, 65, 86, 0.2);
+	}
+
+	.coming-soon {
+		display: inline-block;
+		font-size: 0.76rem;
+		font-weight: 750;
+		line-height: 1.2;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		color: #6d9fdd;
 	}
 
 	.papers-section {
@@ -348,8 +346,8 @@ const papers = [
 
 	@media (max-width: 850px) {
 		.minimal-tolerance-book {
-			margin-top: 4rem;
-			padding-top: 4rem;
+			margin-top: 1.5rem;
+			padding-top: 2.5rem;
 		}
 
 		.papers-section {
