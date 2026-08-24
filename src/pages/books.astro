@@ -144,12 +144,16 @@ const papers = [
 				<div
 					class="books-page-cover-wrapper reveal-item reveal-from-left"
 				>
-					<img
-						src="/images/book-cover.jpg"
-						alt="Cover of A Theory of Minimal Tolerance"
-						class="books-page-cover"
-						loading="lazy"
-					/>
+					<div
+						class="books-page-cover-link books-page-cover-static"
+					>
+						<img
+							src="/images/book-cover.jpg"
+							alt="Cover of A Theory of Minimal Tolerance"
+							class="books-page-cover animated-book-cover"
+							loading="lazy"
+						/>
+					</div>
 				</div>
 
 				<div class="books-page-content reveal-item reveal-delay-1">
@@ -274,6 +278,10 @@ const papers = [
 		padding-top: clamp(2.25rem, 4vw, 3.5rem);
 		padding-bottom: clamp(2.25rem, 4vw, 3.5rem);
 		border-top: 1px solid rgba(52, 65, 86, 0.2);
+	}
+
+	.books-page-cover-static {
+		cursor: default;
 	}
 
 	.coming-soon {
