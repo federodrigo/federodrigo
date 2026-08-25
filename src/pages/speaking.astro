@@ -106,17 +106,17 @@ const recognition: MediaItem = {
 		<Header />
 
 		<main>
-			<!-- HERO -->
+			<!-- SPEAKING HERO -->
 
-			<section class="hero">
-				<h1 class="hero-title">
-					<span class="hero-line">Speaking</span>
+			<section class="hero speaking-hero">
+				<p class="speaking-hero-label">Speaking</p>
+
+				<h1 class="hero-title speaking-hero-title">
+					<span class="hero-line">What if your next</span>
+					<span class="hero-line">technology decision</span>
+					<span class="hero-line">started with</span>
+					<span class="hero-line">no technology at all?</span>
 				</h1>
-
-				<div class="lead-principles">
-					<div>Technology Is Part of the Job</div>
-					<div>Leadership Is the Job</div>
-				</div>
 			</section>
 
 			<!-- CENTRAL IDEA -->
@@ -127,17 +127,30 @@ const recognition: MediaItem = {
 			>
 				<div class="speaking-thesis-copy">
 					<p class="speaking-thesis-text reveal-item">
-						Companies start with a business problem. They buy
-						technology to solve it. Too often, the original problem
-						remains — and new ones appear
+						Technology decisions should begin with the business
+						problem, the people who have to make the change work,
+						and the outcome the organization is trying to create
 					</p>
 
 					<h2
 						id="speaking-thesis-title"
 						class="speaking-thesis-conclusion reveal-item reveal-delay-1"
 					>
-						Because technology was the starting point
+						Technology is never the starting point
 					</h2>
+
+					<p class="speaking-thesis-link reveal-item reveal-delay-1">
+						<a href="/webinar/" class="animated-link">
+							<span>Explore the talk</span>
+
+							<span
+								class="animated-link-arrow"
+								aria-hidden="true"
+							>
+								→
+							</span>
+						</a>
+					</p>
 				</div>
 			</section>
 
@@ -228,7 +241,7 @@ const recognition: MediaItem = {
 				aria-hidden="true"
 			></div>
 
-			<!-- TALKS & CONVERSATIONS -->
+			<!-- SELECTED APPEARANCES -->
 
 			<section
 				class="media-events reveal-section"
@@ -238,7 +251,7 @@ const recognition: MediaItem = {
 					id="media-events-title"
 					class="reveal-item"
 				>
-					Talks & Conversations
+					Selected Appearances
 				</h2>
 
 				<div class="media-grid">
@@ -691,6 +704,29 @@ const recognition: MediaItem = {
 
 <style>
 	/* =========================================================
+	   SPEAKING HERO — MINIMAL PAGE-SPECIFIC OVERRIDES
+	========================================================= */
+
+	.speaking-hero-label {
+		margin: 0 0 22px;
+		color: #7d8b9a;
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+	}
+
+	.speaking-hero-title {
+		max-width: 1120px;
+		font-size: clamp(3rem, 6.5vw, 6.8rem);
+		line-height: 0.98;
+	}
+
+	.speaking-thesis-link {
+		margin: 20px 0 0;
+	}
+
+	/* =========================================================
 	   CENTRAL IDEA
 	========================================================= */
 
@@ -824,7 +860,7 @@ const recognition: MediaItem = {
 	}
 
 	/* =========================================================
-	   TALKS & CONVERSATIONS
+	   SELECTED APPEARANCES
 	========================================================= */
 
 	.media-events {
@@ -1098,6 +1134,10 @@ const recognition: MediaItem = {
 	========================================================= */
 
 	@media (max-width: 620px) {
+		.speaking-hero-title {
+			font-size: clamp(2.7rem, 13vw, 4rem);
+		}
+
 		.speaking-thesis,
 		.speaking-showcase,
 		.speaking-divider,
