@@ -36,18 +36,21 @@ import Footer from '../components/Footer.astro';
 				padding-bottom: 0 !important;
 			}
 
-
 			/* =========================================================
 			   SPEAKING
 			========================================================= */
 
 			#speaking {
-				padding-top: 4rem;
-				padding-bottom: 4rem;
+				padding-top: 1.75rem !important;
+				padding-bottom: 1.75rem !important;
 			}
 
 			#speaking .books-page-book {
 				align-items: center;
+				margin-top: 0 !important;
+				margin-bottom: 0 !important;
+				padding-top: 0 !important;
+				padding-bottom: 0 !important;
 			}
 
 			#speaking .books-page-cover-wrapper {
@@ -56,23 +59,24 @@ import Footer from '../components/Footer.astro';
 				align-items: center;
 				border: none !important;
 				border-bottom: none !important;
-				padding-bottom: 0 !important;
+				padding: 0 !important;
+				margin: 0 !important;
 			}
 
 			.speaking-cover-link {
 				display: block;
 				width: 100%;
-				max-width: 480px;
+				max-width: 390px;
 				text-decoration: none !important;
 				border: none !important;
 			}
 
 			.speaking-cover-frame {
-				border-radius: 24px;
+				border-radius: 20px;
 				overflow: hidden;
 				background: #ffffff;
-				box-shadow: 0 16px 40px rgba(28, 44, 76, 0.08);
-				border: 1px solid rgba(36, 55, 92, 0.08);
+				box-shadow: 0 12px 30px rgba(28, 44, 76, 0.06);
+				border: 1px solid rgba(36, 55, 92, 0.07);
 			}
 
 			.speaking-cover-image {
@@ -87,24 +91,25 @@ import Footer from '../components/Footer.astro';
 			}
 
 			#speaking .books-page-content h2 {
-				margin-top: 0;
-				margin-bottom: 1rem;
-				font-size: clamp(2.25rem, 3vw, 2.9rem);
+				margin-top: 0 !important;
+				margin-bottom: 0.9rem;
+				font-size: clamp(2.1rem, 2.7vw, 2.7rem);
 				line-height: 1;
 				letter-spacing: -0.03em;
 			}
 
 			#speaking .books-page-content > p:not(.books-page-action) {
 				max-width: 680px;
-				margin-top: 0;
-				font-size: 1.12rem;
-				line-height: 1.65;
+				margin-top: 0 !important;
+				margin-bottom: 0 !important;
+				font-size: 1.08rem;
+				line-height: 1.6;
 			}
 
 			#speaking .books-page-action {
-				margin-top: 1.6rem;
+				margin-top: 1.3rem;
+				margin-bottom: 0 !important;
 			}
-
 
 			/* =========================================================
 			   CIO OFFICE
@@ -113,7 +118,6 @@ import Footer from '../components/Footer.astro';
 			#cio-office .books-page-content {
 				align-self: center;
 			}
-
 
 			/* =========================================================
 			   BOOK
@@ -126,7 +130,6 @@ import Footer from '../components/Footer.astro';
 			#books .books-page-book {
 				padding-bottom: 0.5rem;
 			}
-
 
 			/* =========================================================
 			   ABOUT
@@ -168,27 +171,26 @@ import Footer from '../components/Footer.astro';
 				box-shadow: none !important;
 			}
 
-
 			/* =========================================================
 			   TABLET / MOBILE
 			========================================================= */
 
 			@media (max-width: 900px) {
 				#speaking {
-					padding-top: 3.25rem;
-					padding-bottom: 3.25rem;
+					padding-top: 1.25rem !important;
+					padding-bottom: 1.25rem !important;
 				}
 
 				.speaking-cover-link {
-					max-width: 420px;
+					max-width: 360px;
 				}
 
 				#speaking .books-page-content h2 {
-					font-size: 2.2rem;
+					font-size: 2rem;
 				}
 
 				#speaking .books-page-content > p:not(.books-page-action) {
-					font-size: 1.05rem;
+					font-size: 1rem;
 				}
 
 				#about .about-photo-wrapper {
@@ -204,8 +206,8 @@ import Footer from '../components/Footer.astro';
 
 			@media (max-width: 640px) {
 				#speaking {
-					padding-top: 2.75rem;
-					padding-bottom: 2.75rem;
+					padding-top: 1rem !important;
+					padding-bottom: 1rem !important;
 				}
 
 				.speaking-cover-link {
@@ -219,7 +221,6 @@ import Footer from '../components/Footer.astro';
 		<Header />
 
 		<main>
-
 			<!-- HERO -->
 			<section class="hero">
 				<h1 class="hero-title">
@@ -238,7 +239,6 @@ import Footer from '../components/Footer.astro';
 					<div>Technology Enabled</div>
 				</div>
 			</section>
-
 
 			<!-- SPEAKING -->
 			<section
@@ -295,7 +295,6 @@ import Footer from '../components/Footer.astro';
 				</article>
 			</section>
 
-
 			<!-- CIO OFFICE -->
 			<section
 				id="cio-office"
@@ -347,7 +346,6 @@ import Footer from '../components/Footer.astro';
 					</div>
 				</article>
 			</section>
-
 
 			<!-- BOOK -->
 			<section
@@ -407,7 +405,6 @@ import Footer from '../components/Footer.astro';
 				</article>
 			</section>
 
-
 			<!-- ABOUT -->
 			<section
 				id="about"
@@ -458,7 +455,6 @@ import Footer from '../components/Footer.astro';
 					</div>
 				</div>
 			</section>
-
 		</main>
 
 		<Footer />
