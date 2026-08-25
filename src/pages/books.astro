@@ -44,13 +44,41 @@ const papers = [
 		<Header />
 
 		<main>
+			<!-- TAGLINE -->
 
-			<!-- INTRO -->
+			<section class="books-page-heading reveal-section">
+				<h2
+					class="cio-office-capabilities-tagline books-page-tagline reveal-item"
+					aria-label="Writing on technology, leadership, institutions, and power"
+				>
+					<span
+						class="tagline-part tagline-part-1"
+						aria-hidden="true"
+					>
+						Writing on technology,
+					</span>
 
-			<section class="books-intro">
-				<p class="lead books-intro-text">
-					Writing on technology, leadership, institutions, and power
-				</p>
+					<span
+						class="tagline-part tagline-part-2"
+						aria-hidden="true"
+					>
+						leadership,
+					</span>
+
+					<span
+						class="tagline-part tagline-part-3"
+						aria-hidden="true"
+					>
+						institutions,
+					</span>
+
+					<span
+						class="tagline-part tagline-part-4"
+						aria-hidden="true"
+					>
+						and power
+					</span>
+				</h2>
 			</section>
 
 			<!-- FEATURED BOOK -->
@@ -255,179 +283,224 @@ const papers = [
 				});
 			}
 		</script>
+
+		<style>
+			main {
+				padding-bottom: 0;
+			}
+
+			/* TAGLINE */
+
+			.books-page-heading {
+				width: min(1180px, calc(100% - 3rem));
+				margin: 0 auto;
+				padding-top: clamp(4.5rem, 8vw, 7rem);
+				padding-bottom: clamp(4.75rem, 7vw, 6.5rem);
+			}
+
+			.books-page-tagline {
+				margin: 0;
+			}
+
+			.books-page-tagline span {
+				display: inline-block;
+			}
+
+			.js .books-page-tagline span {
+				opacity: 0;
+				transform: translateY(12px);
+			}
+
+			.books-page-heading.is-visible
+				.books-page-tagline
+				span {
+				animation: tagline-reveal 0.7s
+					cubic-bezier(0.22, 1, 0.36, 1) forwards;
+			}
+
+			.books-page-heading.is-visible .tagline-part-1 {
+				animation-delay: 0.15s;
+			}
+
+			.books-page-heading.is-visible .tagline-part-2 {
+				animation-delay: 0.25s;
+			}
+
+			.books-page-heading.is-visible .tagline-part-3 {
+				animation-delay: 0.35s;
+			}
+
+			.books-page-heading.is-visible .tagline-part-4 {
+				animation-delay: 0.45s;
+			}
+
+			@keyframes tagline-reveal {
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+
+			/* FEATURED BOOK */
+
+			.books-page-book-featured {
+				margin-top: 0;
+				margin-bottom: 0;
+				padding-top: clamp(1.5rem, 3vw, 2.5rem);
+				padding-bottom: clamp(2.25rem, 4vw, 3.5rem);
+			}
+
+			/* FORTHCOMING BOOK */
+
+			.minimal-tolerance-book {
+				margin-top: 0;
+				margin-bottom: 0;
+				padding-top: clamp(2.25rem, 4vw, 3.5rem);
+				padding-bottom: clamp(2.25rem, 4vw, 3.5rem);
+				border-top: 1px solid rgba(52, 65, 86, 0.2);
+			}
+
+			.books-page-cover-static {
+				cursor: default;
+			}
+
+			.coming-soon {
+				display: inline-block;
+				font-size: 0.76rem;
+				font-weight: 750;
+				line-height: 1.2;
+				letter-spacing: 0.14em;
+				text-transform: uppercase;
+				color: #6d9fdd;
+			}
+
+			/* PAPERS */
+
+			.papers-section {
+				width: min(1180px, calc(100% - 3rem));
+				margin: 0 auto;
+				padding-bottom: 0;
+				scroll-margin-top: 8rem;
+			}
+
+			.papers-list {
+				border-top: 1px solid rgba(52, 65, 86, 0.2);
+			}
+
+			.paper-row {
+				display: grid;
+				grid-template-columns: minmax(170px, 0.6fr) minmax(0, 2.8fr);
+				align-items: start;
+				gap: clamp(1.5rem, 4vw, 3.5rem);
+				padding: clamp(2rem, 4vw, 3.25rem) 0;
+				border-bottom: 1px solid rgba(52, 65, 86, 0.2);
+			}
+
+			.paper-row:last-child {
+				padding-bottom: clamp(1.5rem, 2.5vw, 2rem);
+				border-bottom: 0;
+			}
+
+			.paper-meta,
+			.paper-content {
+				min-width: 0;
+			}
+
+			.paper-type {
+				margin: 0 0 0.8rem;
+			}
+
+			.paper-status {
+				margin: 0;
+				font-size: 0.8rem;
+				font-weight: 750;
+				line-height: 1.3;
+				letter-spacing: 0.12em;
+				text-transform: uppercase;
+				color: #8a6b36;
+			}
+
+			.paper-date {
+				margin: 0.7rem 0 0;
+				font-size: 0.86rem;
+				line-height: 1.45;
+				opacity: 0.58;
+			}
+
+			.paper-title {
+				margin: 0;
+				font-size: clamp(1.45rem, 2.4vw, 2.05rem);
+				font-weight: 700;
+				line-height: 1.08;
+				letter-spacing: -0.035em;
+			}
+
+			.paper-subtitle {
+				max-width: 800px;
+				margin: 0.85rem 0 0;
+				font-size: clamp(1rem, 1.4vw, 1.12rem);
+				font-weight: 580;
+				line-height: 1.48;
+			}
+
+			.paper-description {
+				max-width: 780px;
+				margin: 1rem 0 0;
+				font-size: 0.94rem;
+				line-height: 1.65;
+				opacity: 0.66;
+			}
+
+			@media (prefers-reduced-motion: reduce) {
+				.js .books-page-tagline span {
+					opacity: 1;
+					transform: none;
+					animation: none;
+				}
+			}
+
+			@media (max-width: 850px) {
+				.books-page-heading {
+					width: min(100% - 2rem, 720px);
+					padding-top: 3.5rem;
+					padding-bottom: 3.5rem;
+				}
+
+				.books-page-book-featured {
+					margin-top: 0;
+					margin-bottom: 0;
+					padding-top: 1.5rem;
+					padding-bottom: 2rem;
+				}
+
+				.minimal-tolerance-book {
+					margin-top: 0;
+					margin-bottom: 0;
+					padding-top: 2rem;
+					padding-bottom: 2rem;
+				}
+
+				.papers-section {
+					width: min(100% - 2rem, 720px);
+					margin: 0 auto;
+				}
+
+				.paper-row {
+					grid-template-columns: 1fr;
+					gap: 1.4rem;
+				}
+
+				.paper-meta {
+					display: flex;
+					flex-wrap: wrap;
+					align-items: center;
+					gap: 0.7rem 1rem;
+				}
+
+				.paper-date {
+					margin: 0;
+				}
+			}
+		</style>
 	</body>
 </html>
-
-<style>
-	main {
-		padding-bottom: 0;
-	}
-
-	/* INTRO — SAME TREATMENT AS CIO OFFICE */
-
-	.books-intro {
-		width: min(1180px, calc(100% - 3rem));
-		margin: 0 auto;
-		padding-top: clamp(4.5rem, 8vw, 7rem);
-		padding-bottom: 0;
-	}
-
-	.books-intro-text {
-		max-width: 690px;
-		margin: 0;
-		font-weight: 600;
-		color: var(--muted);
-	}
-
-	/* FEATURED BOOK */
-
-	.books-page-book-featured {
-		margin-top: 0;
-		margin-bottom: 0;
-		padding-top: clamp(4rem, 6vw, 5.5rem);
-		padding-bottom: clamp(2.25rem, 4vw, 3.5rem);
-	}
-
-	/* FORTHCOMING BOOK */
-
-	.minimal-tolerance-book {
-		margin-top: 0;
-		margin-bottom: 0;
-		padding-top: clamp(2.25rem, 4vw, 3.5rem);
-		padding-bottom: clamp(2.25rem, 4vw, 3.5rem);
-		border-top: 1px solid rgba(52, 65, 86, 0.2);
-	}
-
-	.books-page-cover-static {
-		cursor: default;
-	}
-
-	.coming-soon {
-		display: inline-block;
-		font-size: 0.76rem;
-		font-weight: 750;
-		line-height: 1.2;
-		letter-spacing: 0.14em;
-		text-transform: uppercase;
-		color: #6d9fdd;
-	}
-
-	/* PAPERS */
-
-	.papers-section {
-		width: min(1180px, calc(100% - 3rem));
-		margin: 0 auto;
-		padding-bottom: 0;
-		scroll-margin-top: 8rem;
-	}
-
-	.papers-list {
-		border-top: 1px solid rgba(52, 65, 86, 0.2);
-	}
-
-	.paper-row {
-		display: grid;
-		grid-template-columns: minmax(170px, 0.6fr) minmax(0, 2.8fr);
-		align-items: start;
-		gap: clamp(1.5rem, 4vw, 3.5rem);
-		padding: clamp(2rem, 4vw, 3.25rem) 0;
-		border-bottom: 1px solid rgba(52, 65, 86, 0.2);
-	}
-
-	.paper-row:last-child {
-		padding-bottom: clamp(1.5rem, 2.5vw, 2rem);
-		border-bottom: 0;
-	}
-
-	.paper-meta,
-	.paper-content {
-		min-width: 0;
-	}
-
-	.paper-type {
-		margin: 0 0 0.8rem;
-	}
-
-	.paper-status {
-		margin: 0;
-		font-size: 0.8rem;
-		font-weight: 750;
-		line-height: 1.3;
-		letter-spacing: 0.12em;
-		text-transform: uppercase;
-		color: #8a6b36;
-	}
-
-	.paper-date {
-		margin: 0.7rem 0 0;
-		font-size: 0.86rem;
-		line-height: 1.45;
-		opacity: 0.58;
-	}
-
-	.paper-title {
-		margin: 0;
-		font-size: clamp(1.45rem, 2.4vw, 2.05rem);
-		font-weight: 700;
-		line-height: 1.08;
-		letter-spacing: -0.035em;
-	}
-
-	.paper-subtitle {
-		max-width: 800px;
-		margin: 0.85rem 0 0;
-		font-size: clamp(1rem, 1.4vw, 1.12rem);
-		font-weight: 580;
-		line-height: 1.48;
-	}
-
-	.paper-description {
-		max-width: 780px;
-		margin: 1rem 0 0;
-		font-size: 0.94rem;
-		line-height: 1.65;
-		opacity: 0.66;
-	}
-
-	@media (max-width: 850px) {
-		.books-intro {
-			width: min(100% - 2rem, 720px);
-			padding-top: 3.5rem;
-		}
-
-		.books-page-book-featured {
-			margin-top: 0;
-			margin-bottom: 0;
-			padding-top: 3.5rem;
-			padding-bottom: 2rem;
-		}
-
-		.minimal-tolerance-book {
-			margin-top: 0;
-			margin-bottom: 0;
-			padding-top: 2rem;
-			padding-bottom: 2rem;
-		}
-
-		.papers-section {
-			width: min(100% - 2rem, 720px);
-			margin: 0 auto;
-		}
-
-		.paper-row {
-			grid-template-columns: 1fr;
-			gap: 1.4rem;
-		}
-
-		.paper-meta {
-			display: flex;
-			flex-wrap: wrap;
-			align-items: center;
-			gap: 0.7rem 1rem;
-		}
-
-		.paper-date {
-			margin: 0;
-		}
-	}
-</style>
