@@ -145,7 +145,8 @@ const mediaItems: MediaItem[] = [
 
 					<div class="speaking-evidence-item reveal-item">
 						<p class="speaking-evidence-value">
-							~70%
+							<span class="speaking-evidence-symbol">~</span>
+							<span class="speaking-evidence-number">70%</span>
 						</p>
 
 						<p class="speaking-evidence-label">
@@ -160,7 +161,8 @@ const mediaItems: MediaItem[] = [
 
 					<div class="speaking-evidence-item reveal-item reveal-delay-1">
 						<p class="speaking-evidence-value">
-							&gt;80%
+							<span class="speaking-evidence-symbol">&gt;</span>
+							<span class="speaking-evidence-number">80%</span>
 						</p>
 
 						<p class="speaking-evidence-label">
@@ -950,7 +952,7 @@ const mediaItems: MediaItem[] = [
 	.speaking-evidence {
 		width:
 			min(
-				430px,
+				400px,
 				calc(100% - 48px)
 			);
 
@@ -961,20 +963,20 @@ const mediaItems: MediaItem[] = [
 	}
 
 	.speaking-evidence-grid {
-		display: grid;
-		grid-template-columns:
-			repeat(
-				2,
-				minmax(0, 1fr)
-			);
-		gap: 14px;
+		display: flex;
+		align-items: flex-start;
+		justify-content: center;
+		gap: 20px;
 	}
 
 	.speaking-evidence-item {
+		flex: 0 0 190px;
 		text-align: center;
 	}
 
 	.speaking-evidence-value {
+		position: relative;
+		display: inline-block;
 		margin: 0 0 4px;
 		color: #102b46;
 		font-size:
@@ -986,6 +988,18 @@ const mediaItems: MediaItem[] = [
 		font-weight: 700;
 		line-height: 1;
 		letter-spacing: -0.04em;
+		font-variant-numeric: tabular-nums;
+	}
+
+	.speaking-evidence-number {
+		display: inline-block;
+	}
+
+	.speaking-evidence-symbol {
+		position: absolute;
+		right: 100%;
+		top: 0;
+		margin-right: 0.05em;
 	}
 
 	.speaking-evidence-label {
@@ -1431,7 +1445,13 @@ const mediaItems: MediaItem[] = [
 		}
 
 		.speaking-evidence-grid {
-			gap: 10px;
+			gap: 12px;
+		}
+
+		.speaking-evidence-item {
+			flex:
+				1 1
+				0;
 		}
 
 		.speaking-evidence-value {
