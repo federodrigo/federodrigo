@@ -1,90 +1,350 @@
 ---
 const today = new Date();
 const isSpanish = Astro.url.pathname.startsWith('/es');
+
+const currentPath =
+	Astro.url.pathname.replace(/\/+$/, '') || '/';
+
+const navigation = isSpanish
+	? [
+			{ label: 'Oficina del CIO', href: '/es/cio-office/' },
+			{ label: 'Charlas', href: '/es/speaking/' },
+			{ label: 'Libros', href: '/es/books/' },
+			{ label: 'Sobre mí', href: '/es/about/' },
+			{ label: 'Contacto', href: '/es/contact/' },
+		]
+	: [
+			{ label: 'CIO Office', href: '/cio-office/' },
+			{ label: 'Speaking', href: '/speaking/' },
+			{ label: 'Books', href: '/books/' },
+			{ label: 'About', href: '/about/' },
+			{ label: 'Contact', href: '/contact/' },
+		];
+
+const englishPath = isSpanish
+	? Astro.url.pathname.replace(/^\/es(?=\/|$)/, '') || '/'
+	: Astro.url.pathname;
+
+const spanishPath = isSpanish
+	? Astro.url.pathname
+	: Astro.url.pathname === '/'
+		? '/es/'
+		: `/es${Astro.url.pathname}`;
 ---
 
-<footer>
-	<div class="footer-content">
+<footer class="site-footer">
+	<div class="footer-shell">
 
-		<div class="footer-left">
-			<p>© {today.getFullYear()} Fede Rodrigo · {isSpanish ? 'CIO · Speaker · Autor' : 'CIO · Speaker · Author'}</p>
+		<div class="footer-main">
+
+			<div class="footer-brand">
+				<a
+					href={isSpanish ? '/es/' : '/'}
+					class="footer-name"
+				>
+					Fede Rodrigo
+				</a>
+
+				<p class="footer-role">
+					{isSpanish
+						? 'CIO · Speaker · Autor'
+						: 'CIO · Speaker · Author'}
+				</p>
+
+				<div class="footer-socials">
+					<a
+						href="mailto:contact@federodrigo.com"
+						aria-label={isSpanish ? 'Correo electrónico' : 'Email'}
+						title={isSpanish ? 'Correo electrónico' : 'Email'}
+					>
+						✉
+					</a>
+
+					<a
+						href="https://www.linkedin.com/in/fede-rodrigo/"
+						target="_blank"
+						rel="noopener noreferrer"
+						aria-label="LinkedIn"
+						title="LinkedIn"
+					>
+						in
+					</a>
+				</div>
+			</div>
+
+			<nav
+				class="footer-navigation"
+				aria-label={isSpanish
+					? 'Navegación del pie de página'
+					: 'Footer navigation'}
+			>
+				<p class="footer-navigation-title">
+					{isSpanish ? 'Navegar' : 'Navigate'}
+				</p>
+
+				<ul>
+					{
+						navigation.map((item) => {
+							const itemPath =
+								item.href.replace(/\/+$/, '') || '/';
+
+							const isActive = currentPath === itemPath;
+
+							return (
+								<li>
+									<a
+										href={item.href}
+										aria-current={isActive ? 'page' : undefined}
+									>
+										{item.label}
+									</a>
+								</li>
+							);
+						})
+					}
+				</ul>
+			</nav>
+
 		</div>
 
-		<div class="footer-right">
-			<a
-				href="mailto:contact@federodrigo.com"
-				aria-label="Email"
-				title="Email"
-			>
-				✉
-			</a>
+		<div class="footer-bottom">
+			<p>
+				© {today.getFullYear()} Fede Rodrigo
+			</p>
 
-			<a
-				href="https://www.linkedin.com/in/fede-rodrigo/"
-				target="_blank"
-				rel="noopener noreferrer"
-				aria-label="LinkedIn"
-				title="LinkedIn"
+			<div
+				class="footer-language"
+				aria-label={isSpanish ? 'Seleccionar idioma' : 'Select language'}
 			>
-				in
-			</a>
+				<a
+					href={englishPath}
+					class={!isSpanish ? 'is-active' : undefined}
+					aria-current={!isSpanish ? 'page' : undefined}
+				>
+					EN
+				</a>
+
+				<span aria-hidden="true">·</span>
+
+				<a
+					href={spanishPath}
+					class={isSpanish ? 'is-active' : undefined}
+					aria-current={isSpanish ? 'page' : undefined}
+				>
+					ES
+				</a>
+			</div>
 		</div>
 
 	</div>
 </footer>
 
 <style>
-	footer {
+	.site-footer {
 		margin-top: 0;
-		padding: 28px 24px;
+		padding: 46px 24px 22px;
 		border-top: 1px solid #d9e3f0;
+		background: #f7f9fc;
 	}
 
-	.footer-content {
-		max-width: 920px;
+	.footer-shell {
+		width: min(1120px, 100%);
 		margin: 0 auto;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		font-size: 0.9rem;
+	}
+
+	.footer-main {
+		display: grid;
+		grid-template-columns: minmax(0, 1.45fr) minmax(220px, 0.55fr);
+		gap: clamp(48px, 8vw, 110px);
+		padding-bottom: 36px;
+	}
+
+	.footer-brand {
+		min-width: 0;
+	}
+
+	.footer-name {
+		display: inline-block;
+		color: #102a43;
+		font-size: clamp(1.45rem, 2.1vw, 1.8rem);
+		font-weight: 750;
+		line-height: 1.1;
+		letter-spacing: -0.035em;
+		text-decoration: none;
+	}
+
+	.footer-name:hover {
+		color: #4667e2;
+	}
+
+	.footer-role {
+		margin: 12px 0 0;
 		color: #64748b;
+		font-size: 0.98rem;
+		line-height: 1.5;
 	}
 
-	.footer-left p {
-		margin: 0;
-	}
-
-	.footer-right {
+	.footer-socials {
 		display: flex;
 		align-items: center;
-		gap: 16px;
+		gap: 12px;
+		margin-top: 22px;
 	}
 
-	.footer-right a {
-		width: 34px;
-		height: 34px;
-		border: 1px solid #d9e3f0;
-		border-radius: 50%;
+	.footer-socials a {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		text-decoration: none;
+		width: 36px;
+		height: 36px;
+		border: 1px solid #d9e3f0;
+		border-radius: 50%;
 		color: #64748b;
-		font-size: 1rem;
-		font-weight: 600;
-		transition: all 0.2s ease;
+		font-size: 0.95rem;
+		font-weight: 700;
+		line-height: 1;
+		text-decoration: none;
+		transition:
+			color 180ms ease,
+			border-color 180ms ease,
+			transform 180ms ease;
 	}
 
-	.footer-right a:hover {
+	.footer-socials a:hover {
 		color: #102a43;
 		border-color: #102a43;
 		transform: translateY(-1px);
 	}
 
+	.footer-socials a:focus-visible,
+	.footer-navigation a:focus-visible,
+	.footer-language a:focus-visible,
+	.footer-name:focus-visible {
+		outline: 2px solid #6fa7ef;
+		outline-offset: 4px;
+	}
+
+	.footer-navigation-title {
+		margin: 0 0 17px;
+		color: #102a43;
+		font-size: 0.72rem;
+		font-weight: 750;
+		line-height: 1.2;
+		letter-spacing: 0.19em;
+		text-transform: uppercase;
+	}
+
+	.footer-navigation ul {
+		display: grid;
+		gap: 11px;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.footer-navigation a {
+		position: relative;
+		display: inline-block;
+		color: #64748b;
+		font-size: 0.98rem;
+		line-height: 1.4;
+		text-decoration: none;
+		transition: color 180ms ease;
+	}
+
+	.footer-navigation a::after {
+		position: absolute;
+		left: 0;
+		bottom: -2px;
+		width: 0;
+		height: 1px;
+		background: #4667e2;
+		content: '';
+		transition: width 180ms ease;
+	}
+
+	.footer-navigation a:hover,
+	.footer-navigation a[aria-current='page'] {
+		color: #102a43;
+	}
+
+	.footer-navigation a:hover::after,
+	.footer-navigation a[aria-current='page']::after {
+		width: 100%;
+	}
+
+	.footer-bottom {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 24px;
+		padding-top: 20px;
+		border-top: 1px solid #d9e3f0;
+		color: #64748b;
+		font-size: 0.82rem;
+	}
+
+	.footer-bottom p {
+		margin: 0;
+	}
+
+	.footer-language {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+	}
+
+	.footer-language span {
+		color: #a8b3c2;
+	}
+
+	.footer-language a {
+		color: #64748b;
+		font-weight: 650;
+		letter-spacing: 0.04em;
+		text-decoration: none;
+	}
+
+	.footer-language a:hover,
+	.footer-language a.is-active {
+		color: #102a43;
+	}
+
 	@media (max-width: 720px) {
-		.footer-content {
+		.site-footer {
+			padding: 38px 20px 20px;
+		}
+
+		.footer-main {
+			grid-template-columns: 1fr;
+			gap: 34px;
+			padding-bottom: 30px;
+		}
+
+		.footer-navigation ul {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			column-gap: 24px;
+			row-gap: 12px;
+		}
+
+		.footer-bottom {
+			align-items: flex-start;
+			padding-top: 18px;
+		}
+	}
+
+	@media (max-width: 420px) {
+		.footer-bottom {
 			flex-direction: column;
-			gap: 14px;
+			gap: 12px;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.footer-socials a,
+		.footer-navigation a,
+		.footer-navigation a::after {
+			transition: none;
 		}
 	}
 </style>
