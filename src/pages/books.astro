@@ -44,19 +44,6 @@ const papers = [
 		<Header />
 
 		<main>
-			<section class="hero">
-				<h1 class="hero-title">
-					<span class="hero-line">
-						Books & <span class="accent">Papers</span>
-					</span>
-				</h1>
-
-				<div class="lead-principles">
-					<div>I Wrote the Book I Wish I'd Had</div>
-					<div>Twenty Years Earlier</div>
-				</div>
-			</section>
-
 			<!-- FEATURED BOOK -->
 
 			<section
@@ -268,7 +255,9 @@ const papers = [
 	}
 
 	.books-page-book-featured {
+		margin-top: 0;
 		margin-bottom: 0;
+		padding-top: clamp(3rem, 6vw, 5rem);
 		padding-bottom: clamp(2.25rem, 4vw, 3.5rem);
 	}
 
@@ -371,7 +360,9 @@ const papers = [
 
 	@media (max-width: 850px) {
 		.books-page-book-featured {
+			margin-top: 0;
 			margin-bottom: 0;
+			padding-top: 2.5rem;
 			padding-bottom: 2rem;
 		}
 
