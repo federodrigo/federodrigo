@@ -14,7 +14,7 @@ import Footer from '../components/Footer.astro';
 
 		<SEO
 			title="Fede Rodrigo | CIO, Author, Speaker & Technology Leader"
-			description="Fede Rodrigo is a Chief Information Officer, author, and technology leader focused on business value, leadership, technology strategy, operational excellence, and transformation"
+			description="Fede Rodrigo is a Chief Information Officer, author, speaker, and technology leader focused on business value, leadership, technology strategy, operational excellence, and transformation"
 			lang="en"
 		/>
 	</head>
@@ -23,6 +23,8 @@ import Footer from '../components/Footer.astro';
 		<Header />
 
 		<main>
+
+			<!-- HERO -->
 			<section class="hero">
 				<h1 class="hero-title">
 					<span class="hero-line">
@@ -41,25 +43,52 @@ import Footer from '../components/Footer.astro';
 				</div>
 			</section>
 
-			<section id="about" class="contact-section reveal-section">
-				<h2 class="reveal-item">About</h2>
 
-				<div class="about-layout">
-					<div class="about-content reveal-item reveal-delay-1">
-						<p>
-					I am a Chief Information Officer (CIO) with more than 15 years of international IT leadership experience helping global organizations create business value
+			<!-- SPEAKING -->
+			<section
+				id="speaking"
+				class="contact-section reveal-section"
+			>
+				<article
+					class="books-page-book books-page-book-featured"
+					aria-labelledby="home-speaking-title"
+				>
+					<div
+						class="books-page-cover-wrapper reveal-item reveal-from-left reveal-delay-1"
+					>
+						<a
+							href="/speaking/"
+							class="books-page-cover-link"
+							aria-label="Explore speaking and conversations"
+						>
+							<img
+								src="/images/fede-speaking.png"
+								alt="Fede Rodrigo speaking about technology leadership and business value"
+								class="about-photo animated-image"
+							/>
+						</a>
+					</div>
+
+					<div class="books-page-content reveal-item reveal-delay-2">
+						<p class="books-page-label">
+							Speaking & Conversations
 						</p>
 
+						<h2 id="home-speaking-title">
+							Technology is Never the Starting Point
+						</h2>
+
 						<p>
-							My approach combines strategic thinking, practical
-							execution, strong relationships, and a service-oriented
-							culture focused on operational excellence and continuous
-							improvement
+							Talks and conversations about technology leadership,
+							business value, transformation, organizational change,
+							and the decisions that shape how technology creates
+							impact
 						</p>
 
 						<p class="books-page-action">
-							<a href="/about/" class="animated-link">
-								<span>My journey</span>
+							<a href="/speaking/" class="animated-link">
+								<span>Explore talks</span>
+
 								<span
 									class="animated-link-arrow"
 									aria-hidden="true"
@@ -69,25 +98,15 @@ import Footer from '../components/Footer.astro';
 							</a>
 						</p>
 					</div>
-
-					<div
-						class="about-photo-wrapper reveal-item reveal-from-right reveal-delay-2"
-					>
-						<img
-							src="/images/fede.png"
-							alt="Fede Rodrigo, Chief Information Officer and author"
-							class="about-photo animated-image"
-						/>
-					</div>
-				</div>
+				</article>
 			</section>
 
+
+			<!-- CIO OFFICE -->
 			<section
 				id="cio-office"
 				class="contact-section reveal-section"
 			>
-				<h2 class="reveal-item">CIO Office</h2>
-
 				<article
 					class="books-page-book books-page-book-featured"
 					aria-labelledby="home-cio-office-title"
@@ -113,9 +132,9 @@ import Footer from '../components/Footer.astro';
 							Executive Technology Leadership
 						</p>
 
-						<h3 id="home-cio-office-title">
+						<h2 id="home-cio-office-title">
 							Technology that Creates Business Value
-						</h3>
+						</h2>
 
 						<p>
 							Advisory for organizations seeking to align technology
@@ -126,6 +145,7 @@ import Footer from '../components/Footer.astro';
 						<p class="books-page-action">
 							<a href="/cio-office/" class="animated-link">
 								<span>Learn about the CIO Office</span>
+
 								<span
 									class="animated-link-arrow"
 									aria-hidden="true"
@@ -138,12 +158,12 @@ import Footer from '../components/Footer.astro';
 				</article>
 			</section>
 
+
+			<!-- BOOK -->
 			<section
 				id="books"
 				class="contact-section reveal-section"
 			>
-				<h2 class="reveal-item">Book</h2>
-
 				<article
 					class="books-page-book books-page-book-featured"
 					aria-labelledby="home-cio-book-title"
@@ -152,7 +172,7 @@ import Footer from '../components/Footer.astro';
 						class="books-page-cover-wrapper reveal-item reveal-from-left reveal-delay-1"
 					>
 						<a
-							href="/books/"
+							href="/cio-book/"
 							class="books-page-cover-link"
 							aria-label="Learn more about How to Become CIO and Succeed"
 						>
@@ -169,9 +189,9 @@ import Footer from '../components/Footer.astro';
 							Featured Book
 						</p>
 
-						<h3 id="home-cio-book-title">
+						<h2 id="home-cio-book-title">
 							How to Become CIO and Succeed
-						</h3>
+						</h2>
 
 						<p class="books-page-subtitle">
 							People, Business, Strategy
@@ -188,6 +208,7 @@ import Footer from '../components/Footer.astro';
 						<p class="books-page-action">
 							<a href="/cio-book/" class="animated-link">
 								<span>Explore the book</span>
+
 								<span
 									class="animated-link-arrow"
 									aria-hidden="true"
@@ -199,6 +220,61 @@ import Footer from '../components/Footer.astro';
 					</div>
 				</article>
 			</section>
+
+
+			<!-- ABOUT -->
+			<section
+				id="about"
+				class="contact-section reveal-section"
+			>
+				<div class="about-layout">
+
+					<div class="about-content reveal-item reveal-delay-1">
+						<p>
+							I am a Chief Information Officer (CIO) with more than
+							15 years of international IT leadership experience
+							helping global organizations create business value
+						</p>
+
+						<p>
+							My approach combines strategic thinking, practical
+							execution, strong relationships, and a service-oriented
+							culture focused on operational excellence and continuous
+							improvement
+						</p>
+
+						<p class="books-page-action">
+							<a href="/about/" class="animated-link">
+								<span>My journey</span>
+
+								<span
+									class="animated-link-arrow"
+									aria-hidden="true"
+								>
+									→
+								</span>
+							</a>
+						</p>
+					</div>
+
+					<div
+						class="about-photo-wrapper reveal-item reveal-from-right reveal-delay-2"
+					>
+						<a
+							href="/about/"
+							aria-label="Learn more about Fede Rodrigo"
+						>
+							<img
+								src="/images/fede.png"
+								alt="Fede Rodrigo, Chief Information Officer, author, and speaker"
+								class="about-photo animated-image"
+							/>
+						</a>
+					</div>
+
+				</div>
+			</section>
+
 		</main>
 
 		<Footer />
