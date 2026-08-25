@@ -107,14 +107,12 @@ const mediaItems: MediaItem[] = [
 		<Header />
 
 		<main>
-
 			<!-- =====================================================
 			     HERO
 			===================================================== -->
 
 			<section class="hero speaking-hero">
 				<h1 class="hero-title speaking-hero-title">
-
 					<span class="hero-line">
 						What if your next technology
 					</span>
@@ -128,10 +126,8 @@ const mediaItems: MediaItem[] = [
 							no technology at all?
 						</span>
 					</span>
-
 				</h1>
 			</section>
-
 
 			<!-- =====================================================
 			     EXPLORE TALK
@@ -158,7 +154,6 @@ const mediaItems: MediaItem[] = [
 				</p>
 			</section>
 
-
 			<!-- =====================================================
 			     SPEAKING SLIDES
 			===================================================== -->
@@ -171,9 +166,7 @@ const mediaItems: MediaItem[] = [
 					class="speaking-slider reveal-item"
 					data-speaking-slider
 				>
-
 					<div class="speaking-slider-stage">
-
 						<figure
 							class="speaking-slide is-active"
 							data-speaking-slide
@@ -212,14 +205,12 @@ const mediaItems: MediaItem[] = [
 								loading="lazy"
 							/>
 						</figure>
-
 					</div>
 
 					<div
 						class="speaking-slider-nav"
 						aria-label="Choose slide"
 					>
-
 						<button
 							type="button"
 							class="speaking-slider-dot is-active"
@@ -243,12 +234,9 @@ const mediaItems: MediaItem[] = [
 							aria-label="Show slide 3"
 							aria-current="false"
 						></button>
-
 					</div>
-
 				</div>
 			</section>
-
 
 			<!-- =====================================================
 			     CLOSING THESIS
@@ -266,14 +254,30 @@ const mediaItems: MediaItem[] = [
 					<span class="speaking-never">never</span>
 					the starting point
 				</h2>
-			</section>
 
+				<p
+					class="speaking-closing-link reveal-item reveal-delay-1"
+				>
+					<a
+						href="/webinar/"
+						class="animated-link"
+					>
+						<span>Explore the talk</span>
+
+						<span
+							class="animated-link-arrow"
+							aria-hidden="true"
+						>
+							→
+						</span>
+					</a>
+				</p>
+			</section>
 
 			<div
 				class="speaking-divider"
 				aria-hidden="true"
 			></div>
-
 
 			<!-- =====================================================
 			     SELECTED APPEARANCES
@@ -292,17 +296,13 @@ const mediaItems: MediaItem[] = [
 
 				{
 					mediaItems.map((item, index) => (
-
 						<article
 							class="media-item"
 							style={`--media-index: ${index};`}
 						>
-
 							<div class="media-image-wrapper">
-
 								{
 									item.url ? (
-
 										<a
 											href={item.url}
 											target={
@@ -320,69 +320,49 @@ const mediaItems: MediaItem[] = [
 												item.title
 											}
 										>
-
 											<img
 												src={item.image}
 												alt={item.imageAlt}
 												class="media-image"
 												loading="lazy"
 											/>
-
 										</a>
-
 									) : (
-
 										<img
 											src={item.image}
 											alt={item.imageAlt}
 											class="media-image"
 											loading="lazy"
 										/>
-
 									)
 								}
-
 							</div>
 
-
 							<div class="media-content">
-
 								<p class="media-meta">
-
-									<span>
-										{item.type}
-									</span>
+									<span>{item.type}</span>
 
 									<span aria-hidden="true">
 										·
 									</span>
 
-									<span>
-										{item.date}
-									</span>
-
+									<span>{item.date}</span>
 								</p>
-
 
 								<h3>
 									{item.title}
 								</h3>
 
-
 								<p class="media-description">
 									{item.description}
 								</p>
 
-
 								{
 									item.url ? (
-
 										<div class="media-action">
-
 											{
 												item.pdfUrl &&
 													item.pdfLabel && (
-
 														<a
 															href={
 																item.pdfUrl
@@ -391,7 +371,6 @@ const mediaItems: MediaItem[] = [
 															rel="noopener noreferrer"
 															class="animated-link"
 														>
-
 															<span>
 																{
 																	item.pdfLabel
@@ -404,12 +383,9 @@ const mediaItems: MediaItem[] = [
 															>
 																→
 															</span>
-
 														</a>
-
 													)
 											}
-
 
 											<a
 												href={item.url}
@@ -425,7 +401,6 @@ const mediaItems: MediaItem[] = [
 												}
 												class="animated-link"
 											>
-
 												<span>
 													{
 														item.linkLabel ??
@@ -439,47 +414,33 @@ const mediaItems: MediaItem[] = [
 												>
 													→
 												</span>
-
 											</a>
-
 										</div>
-
 									) : (
-
 										item.status ===
 											'upcoming' && (
-
 											<p class="media-coming-soon">
 												Coming soon
 											</p>
-
 										)
-
 									)
 								}
-
 							</div>
-
 						</article>
-
 					))
 				}
-
 			</section>
-
 
 			<!-- =====================================================
 			     SPEAKING INQUIRIES
 			===================================================== -->
 
 			<section class="cio-office-contact reveal-section">
-
 				<h2 class="reveal-item">
 					Speaking Inquiries
 				</h2>
 
 				<div class="reveal-item reveal-delay-1">
-
 					<p>
 						For speaking engagements, interviews,
 						podcasts, or other media opportunities,
@@ -487,15 +448,11 @@ const mediaItems: MediaItem[] = [
 					</p>
 
 					<p class="cio-office-contact-link">
-
 						<a
 							href="/contact/"
 							class="animated-link"
 						>
-
-							<span>
-								Contact me
-							</span>
+							<span>Contact me</span>
 
 							<span
 								class="animated-link-arrow"
@@ -503,19 +460,13 @@ const mediaItems: MediaItem[] = [
 							>
 								→
 							</span>
-
 						</a>
-
 					</p>
-
 				</div>
-
 			</section>
-
 		</main>
 
 		<Footer />
-
 
 		<!-- =====================================================
 		     REVEAL
@@ -528,14 +479,10 @@ const mediaItems: MediaItem[] = [
 				);
 
 			if ('IntersectionObserver' in window) {
-
 				const revealObserver =
 					new IntersectionObserver(
-
 						(entries, observer) => {
-
 							entries.forEach((entry) => {
-
 								if (!entry.isIntersecting) {
 									return;
 								}
@@ -547,35 +494,26 @@ const mediaItems: MediaItem[] = [
 								observer.unobserve(
 									entry.target
 								);
-
 							});
-
 						},
-
 						{
 							threshold: 0.08,
 							rootMargin:
 								'0px 0px -50px 0px'
 						}
-
 					);
-
 
 				sections.forEach((section) => {
 					revealObserver.observe(section);
 				});
-
 			} else {
-
 				sections.forEach((section) => {
 					section.classList.add(
 						'is-visible'
 					);
 				});
-
 			}
 		</script>
-
 
 		<!-- =====================================================
 		     SLIDER
@@ -588,7 +526,6 @@ const mediaItems: MediaItem[] = [
 				);
 
 			if (speakingSlider) {
-
 				const slides = Array.from(
 					speakingSlider.querySelectorAll(
 						'[data-speaking-slide]'
@@ -616,17 +553,13 @@ const mediaItems: MediaItem[] = [
 					5200
 				];
 
-
 				function showSlide(index) {
-
 					currentSlide =
 						(index + slides.length) %
 						slides.length;
 
-
 					slides.forEach(
 						(slide, slideIndex) => {
-
 							const active =
 								slideIndex ===
 								currentSlide;
@@ -642,14 +575,11 @@ const mediaItems: MediaItem[] = [
 									? 'false'
 									: 'true'
 							);
-
 						}
 					);
 
-
 					dots.forEach(
 						(dot, dotIndex) => {
-
 							const active =
 								dotIndex ===
 								currentSlide;
@@ -665,15 +595,11 @@ const mediaItems: MediaItem[] = [
 									? 'true'
 									: 'false'
 							);
-
 						}
 					);
-
 				}
 
-
 				function stopSlider() {
-
 					if (!slideTimer) {
 						return;
 					}
@@ -685,9 +611,7 @@ const mediaItems: MediaItem[] = [
 					slideTimer = null;
 				}
 
-
 				function scheduleNextSlide() {
-
 					if (
 						reducedMotion ||
 						!sliderVisible
@@ -700,59 +624,44 @@ const mediaItems: MediaItem[] = [
 					slideTimer =
 						window.setTimeout(
 							() => {
-
 								showSlide(
 									currentSlide + 1
 								);
 
 								scheduleNextSlide();
-
 							},
 							durations[currentSlide]
 						);
-
 				}
-
 
 				dots.forEach(
 					(dot, index) => {
-
 						dot.addEventListener(
 							'click',
 							() => {
-
 								showSlide(index);
 								scheduleNextSlide();
-
 							}
 						);
-
 					}
 				);
-
 
 				speakingSlider.addEventListener(
 					'mouseenter',
 					stopSlider
 				);
 
-
 				speakingSlider.addEventListener(
 					'mouseleave',
 					scheduleNextSlide
 				);
 
-
 				if ('IntersectionObserver' in window) {
-
 					const sliderObserver =
 						new IntersectionObserver(
-
 							(entries) => {
-
 								entries.forEach(
 									(entry) => {
-
 										sliderVisible =
 											entry.isIntersecting;
 
@@ -763,35 +672,25 @@ const mediaItems: MediaItem[] = [
 										} else {
 											stopSlider();
 										}
-
 									}
 								);
-
 							},
-
 							{
 								threshold: 0.35
 							}
-
 						);
-
 
 					sliderObserver.observe(
 						speakingSlider
 					);
-
 				} else {
-
 					sliderVisible = true;
 					scheduleNextSlide();
-
 				}
-
 
 				document.addEventListener(
 					'visibilitychange',
 					() => {
-
 						if (
 							document.hidden
 						) {
@@ -799,19 +698,14 @@ const mediaItems: MediaItem[] = [
 						} else {
 							scheduleNextSlide();
 						}
-
 					}
 				);
-
 			}
 		</script>
-
 	</body>
 </html>
 
-
 <style>
-
 	/* =========================================================
 	   SPEAKING HERO
 	========================================================= */
@@ -820,45 +714,30 @@ const mediaItems: MediaItem[] = [
 		border-bottom: 0 !important;
 	}
 
-
 	.speaking-hero-title {
 		width: 100%;
 		max-width: 1080px;
 		margin-left: auto;
 		margin-right: auto;
-
-		font-size:
-			clamp(
-				2rem,
-				3.65vw,
-				3.75rem
-			);
-
+		font-size: clamp(2rem, 3.65vw, 3.75rem);
 		line-height: 1.08;
 		text-align: center;
 	}
-
 
 	.speaking-hero-title .hero-line {
 		width: 100%;
 		white-space: nowrap;
 	}
 
-
 	.speaking-hero-accent,
 	.speaking-never {
 		color: #6fa7ef;
 	}
 
-
 	.speaking-hero-accent {
 		display: inline-block;
-
 		opacity: 0;
-
-		transform:
-			translateY(6px);
-
+		transform: translateY(6px);
 		animation:
 			speakingAccentReveal
 			520ms
@@ -867,158 +746,87 @@ const mediaItems: MediaItem[] = [
 			forwards;
 	}
 
-
 	@keyframes speakingAccentReveal {
-
 		to {
 			opacity: 1;
 			transform: translateY(0);
 		}
-
 	}
 
-
 	/* =========================================================
-	   EXPLORE TALK
+	   EXPLORE TALK — TOP
 	========================================================= */
 
 	.speaking-talk-link {
-		width:
-			min(
-				1120px,
-				calc(100% - 48px)
-			);
+		width: min(1120px, calc(100% - 48px));
 
-		margin:
-			-12px
-			auto
-			38px;
+		/*
+			Closer to the hero and closer to
+			the presentation below.
+		*/
+		margin: -24px auto 18px;
 
 		text-align: center;
 	}
 
-
 	.speaking-talk-link p {
 		margin: 0;
 	}
-
 
 	/* =========================================================
 	   SPEAKING SLIDER
 	========================================================= */
 
 	.speaking-showcase {
-		width:
-			min(
-				980px,
-				calc(100% - 48px)
-			);
-
-		margin:
-			0
-			auto
-			4px;
+		width: min(980px, calc(100% - 48px));
+		margin: 0 auto;
 	}
-
 
 	.speaking-slider {
 		width: 100%;
 	}
 
-
 	.speaking-slider-stage {
 		position: relative;
-
 		width: 100%;
-
-		aspect-ratio:
-			16 / 9;
-
+		aspect-ratio: 16 / 9;
 		overflow: hidden;
-
-		border:
-			1px solid
-			rgba(
-				16,
-				43,
-				70,
-				0.06
-			);
-
-		border-radius:
-			14px;
-
-		background:
-			#ffffff;
-
+		border: 1px solid rgba(16, 43, 70, 0.06);
+		border-radius: 14px;
+		background: #ffffff;
 		box-shadow:
 			0 16px 40px
-			rgba(
-				16,
-				43,
-				70,
-				0.065
-			);
+			rgba(16, 43, 70, 0.065);
 	}
-
 
 	.speaking-slide {
 		position: absolute;
-
-		inset:
-			clamp(
-				24px,
-				3vw,
-				42px
-			);
-
+		inset: clamp(24px, 3vw, 42px);
 		display: flex;
-
 		align-items: center;
-
 		justify-content: center;
-
 		margin: 0;
-
 		opacity: 0;
-
 		pointer-events: none;
-
-		transition:
-			opacity
-			650ms
-			ease;
+		transition: opacity 650ms ease;
 	}
-
 
 	.speaking-slide.is-active {
 		z-index: 2;
-
 		opacity: 1;
-
 		pointer-events: auto;
 	}
 
-
 	.speaking-slide-image {
 		display: block !important;
-
 		width: 100% !important;
 		height: 100% !important;
-
 		max-width: 100% !important;
 		max-height: 100% !important;
-
-		object-fit:
-			contain !important;
-
-		object-position:
-			center center !important;
-
-		background:
-			#ffffff;
+		object-fit: contain !important;
+		object-position: center center !important;
+		background: #ffffff;
 	}
-
 
 	/* =========================================================
 	   SLIDER DOTS
@@ -1026,336 +834,188 @@ const mediaItems: MediaItem[] = [
 
 	.speaking-slider-nav {
 		display: flex;
-
 		align-items: center;
-
 		justify-content: center;
-
 		gap: 8px;
-
-		height: 30px;
-
-		margin-top: 5px;
+		height: 28px;
+		margin-top: 3px;
 	}
-
 
 	.speaking-slider-dot {
 		width: 7px;
 		height: 7px;
-
 		padding: 0;
-
 		border: 0;
-
 		border-radius: 50%;
-
-		background:
-			rgba(
-				16,
-				43,
-				70,
-				0.23
-			);
-
+		background: rgba(16, 43, 70, 0.23);
 		cursor: pointer;
-
 		transition:
 			width 200ms ease,
 			background 200ms ease,
 			border-radius 200ms ease;
 	}
 
-
 	.speaking-slider-dot.is-active {
 		width: 23px;
-
-		border-radius:
-			999px;
-
-		background:
-			#102b46;
+		border-radius: 999px;
+		background: #102b46;
 	}
-
 
 	.speaking-slider-dot:focus-visible {
-		outline:
-			2px solid
-			#6fa7ef;
-
-		outline-offset:
-			4px;
+		outline: 2px solid #6fa7ef;
+		outline-offset: 4px;
 	}
-
 
 	/* =========================================================
 	   CLOSING THESIS
 	========================================================= */
 
 	.speaking-closing {
-		width:
-			min(
-				1120px,
-				calc(100% - 48px)
-			);
+		width: min(1120px, calc(100% - 48px));
 
-		margin:
-			36px
-			auto
-			32px;
+		/*
+			Previously 36px above.
+			Now it sits much closer to the slides.
+		*/
+		margin: 14px auto 24px;
 
 		text-align: center;
 	}
 
-
 	.speaking-closing-title {
 		margin: 0 auto;
-
-		color:
-			#102b46;
-
-		font-size:
-			clamp(
-				1.5rem,
-				2.1vw,
-				2rem
-			);
-
-		font-weight:
-			650;
-
-		line-height:
-			1.22;
-
-		letter-spacing:
-			-0.035em;
+		color: #102b46;
+		font-size: clamp(1.5rem, 2.1vw, 2rem);
+		font-weight: 650;
+		line-height: 1.22;
+		letter-spacing: -0.035em;
 	}
-
 
 	.speaking-closing-title::before,
 	.speaking-closing-title::after {
-		display:
-			none !important;
-
-		content:
-			none !important;
+		display: none !important;
+		content: none !important;
 	}
 
+	.speaking-closing-link {
+		margin: 11px 0 0;
+	}
+
+	/* =========================================================
+	   DIVIDER
+	========================================================= */
 
 	.speaking-divider {
-		width:
-			min(
-				1120px,
-				calc(100% - 48px)
-			);
-
-		height:
-			1px;
-
-		margin:
-			0
-			auto
-			34px;
-
-		background:
-			rgba(
-				16,
-				43,
-				70,
-				0.12
-			);
+		width: min(1120px, calc(100% - 48px));
+		height: 1px;
+		margin: 0 auto 34px;
+		background: rgba(16, 43, 70, 0.12);
 	}
-
 
 	/* =========================================================
 	   REVEALS
 	========================================================= */
 
-	.js
-	.reveal-section
-	.reveal-item {
+	.js .reveal-section .reveal-item {
 		opacity: 0;
-
-		transform:
-			translateY(14px);
-
+		transform: translateY(14px);
 		transition:
 			opacity 600ms ease,
-			transform
-			600ms
-			cubic-bezier(
-				0.22,
-				1,
-				0.36,
-				1
-			);
-
-		transition-delay:
-			var(
-				--delay,
-				0ms
-			);
+			transform 600ms
+				cubic-bezier(0.22, 1, 0.36, 1);
+		transition-delay: var(--delay, 0ms);
 	}
 
-
-	.js
-	.reveal-section.is-visible
-	.reveal-item {
+	.js .reveal-section.is-visible .reveal-item {
 		opacity: 1;
-
-		transform:
-			translateY(0);
+		transform: translateY(0);
 	}
 
-
-	.js
-	.reveal-delay-1 {
-		transition-delay:
-			90ms !important;
+	.js .reveal-delay-1 {
+		transition-delay: 90ms !important;
 	}
-
 
 	/* =========================================================
 	   TABLET
 	========================================================= */
 
-	@media (
-		max-width: 1020px
-	) {
-
+	@media (max-width: 1020px) {
 		.speaking-showcase {
-			width:
-				min(
-					860px,
-					calc(
-						100% - 48px
-					)
-				);
+			width: min(860px, calc(100% - 48px));
 		}
-
 	}
-
 
 	/* =========================================================
 	   MOBILE
 	========================================================= */
 
-	@media (
-		max-width: 620px
-	) {
-
+	@media (max-width: 620px) {
 		.speaking-hero-title {
-			max-width:
-				100%;
-
-			font-size:
-				clamp(
-					1.95rem,
-					7.8vw,
-					2.65rem
-				);
-
-			line-height:
-				1.1;
+			max-width: 100%;
+			font-size: clamp(1.95rem, 7.8vw, 2.65rem);
+			line-height: 1.1;
 		}
 
-
-		.speaking-hero-title
-		.hero-line {
-			white-space:
-				normal;
+		.speaking-hero-title .hero-line {
+			white-space: normal;
 		}
-
 
 		.speaking-talk-link,
 		.speaking-showcase,
 		.speaking-closing,
 		.speaking-divider {
-			width:
-				calc(
-					100% - 32px
-				);
+			width: calc(100% - 32px);
 		}
-
 
 		.speaking-talk-link {
-			margin:
-				-8px
-				auto
-				30px;
+			margin: -14px auto 16px;
 		}
-
 
 		.speaking-slider-stage {
-			border-radius:
-				10px;
+			border-radius: 10px;
 		}
-
 
 		.speaking-slide {
-			inset:
-				15px;
+			inset: 15px;
 		}
-
 
 		.speaking-slider-nav {
-			height:
-				28px;
-
-			margin-top:
-				4px;
+			height: 26px;
+			margin-top: 2px;
 		}
-
 
 		.speaking-closing {
-			margin:
-				28px
-				auto
-				26px;
+			margin: 12px auto 22px;
 		}
-
 
 		.speaking-closing-title {
-			font-size:
-				1.45rem;
+			font-size: 1.45rem;
 		}
 
+		.speaking-closing-link {
+			margin-top: 10px;
+		}
 
 		.speaking-divider {
-			margin:
-				0
-				auto
-				28px;
+			margin: 0 auto 28px;
 		}
-
 	}
-
 
 	/* =========================================================
 	   REDUCED MOTION
 	========================================================= */
 
-	@media (
-		prefers-reduced-motion:
-		reduce
-	) {
-
+	@media (prefers-reduced-motion: reduce) {
 		.speaking-hero-accent {
 			opacity: 1;
-
 			transform: none;
-
-			animation:
-				none !important;
+			animation: none !important;
 		}
-
 
 		.speaking-slide,
 		.speaking-slider-dot,
 		.reveal-item {
-			transition:
-				none !important;
+			transition: none !important;
 		}
-
 	}
-
 </style>
