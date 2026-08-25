@@ -405,23 +405,58 @@ const youtubeEmbedUrl =
 	========================================================= */
 
 	.webinar-hero {
+		display:
+			block !important;
+
+		width:
+			min(
+				1120px,
+				calc(100% - 48px)
+			) !important;
+
+		margin-left:
+			auto !important;
+
+		margin-right:
+			auto !important;
+
+		padding-left:
+			0 !important;
+
+		padding-right:
+			0 !important;
+
+		box-sizing:
+			border-box;
+
+		text-align:
+			center;
+
 		border-bottom:
 			0 !important;
 	}
 
 
+	main
+	.webinar-hero
 	.webinar-hero-title {
 		width:
-			100%;
+			100% !important;
 
 		max-width:
-			1050px;
+			1050px !important;
 
 		margin-left:
-			auto;
+			auto !important;
 
 		margin-right:
-			auto;
+			auto !important;
+
+		padding-left:
+			0 !important;
+
+		padding-right:
+			0 !important;
 
 		font-size:
 			clamp(
@@ -437,7 +472,7 @@ const youtubeEmbedUrl =
 			-0.055em;
 
 		text-align:
-			center;
+			center !important;
 	}
 
 
@@ -470,6 +505,12 @@ const youtubeEmbedUrl =
 		flex-wrap:
 			wrap;
 
+		width:
+			100%;
+
+		max-width:
+			1050px;
+
 		gap:
 			8px;
 
@@ -492,6 +533,9 @@ const youtubeEmbedUrl =
 
 		letter-spacing:
 			0.045em;
+
+		text-align:
+			center;
 
 		text-transform:
 			uppercase;
@@ -826,6 +870,13 @@ const youtubeEmbedUrl =
 	@media (
 		max-width: 700px
 	) {
+
+		.webinar-hero {
+			width:
+				calc(
+					100% - 32px
+				) !important;
+		}
 
 		.webinar-intro {
 			width:
