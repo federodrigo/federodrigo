@@ -16,6 +16,7 @@ type MediaItem = {
 	pdfUrl?: string;
 	pdfLabel?: string;
 	internal?: boolean;
+	compactTitle?: boolean;
 };
 
 const mediaItems: MediaItem[] = [
@@ -32,6 +33,7 @@ const mediaItems: MediaItem[] = [
 		url: '/webinar/',
 		linkLabel: 'Explore the talk',
 		internal: true,
+		compactTitle: true,
 	},
 	{
 		type: 'Podcast',
@@ -60,6 +62,7 @@ const mediaItems: MediaItem[] = [
 		linkLabel: 'View full report',
 		pdfUrl: '/pdfs/Fede-Rodrigo-Interview-Nublit.pdf',
 		pdfLabel: 'Read my interview',
+		compactTitle: true,
 	},
 	{
 		type: 'Award Finalist',
@@ -190,12 +193,12 @@ const mediaItems: MediaItem[] = [
 
 					<a
 						href="/webinar/"
-						class="animated-link speaking-centered-link"
+						class="speaking-centered-link"
 					>
 						<span>Explore the talk</span>
 
 						<span
-							class="animated-link-arrow"
+							class="speaking-centered-link-arrow"
 							aria-hidden="true"
 						>
 							→
@@ -228,7 +231,7 @@ const mediaItems: MediaItem[] = [
 						>
 							<img
 								class="speaking-slide-image"
-								src="/images/slide2.png"
+								src="/images/slide1.png"
 								alt="People First · Busines Driven · Technology Enabled?"
 								loading="eager"
 							/>
@@ -241,7 +244,7 @@ const mediaItems: MediaItem[] = [
 						>
 							<img
 								class="speaking-slide-image"
-								src="/images/slide1.png"
+								src="/images/slide2.png"
 								alt="Why does IT exist? To create business value?"
 								loading="lazy"
 							/>
@@ -322,12 +325,12 @@ const mediaItems: MediaItem[] = [
 				>
 					<a
 						href="/webinar/"
-						class="animated-link speaking-centered-link"
+						class="speaking-centered-link"
 					>
 						<span>Explore the talk</span>
 
 						<span
-							class="animated-link-arrow"
+							class="speaking-centered-link-arrow"
 							aria-hidden="true"
 						>
 							→
@@ -431,7 +434,13 @@ const mediaItems: MediaItem[] = [
 								</p>
 
 
-								<h3>
+								<h3
+									class={
+										item.compactTitle
+											? 'media-title-compact'
+											: undefined
+									}
+								>
 									{item.title}
 								</h3>
 
@@ -1075,11 +1084,11 @@ const mediaItems: MediaItem[] = [
 
 
 	.speaking-centered-link {
-		display: inline-flex !important;
+		display: inline-block !important;
 
-		align-items: center;
+		position: relative !important;
 
-		justify-content: center;
+		inset: auto !important;
 
 		width: max-content !important;
 		min-width: 0 !important;
@@ -1090,16 +1099,66 @@ const mediaItems: MediaItem[] = [
 		padding-left: 0 !important;
 		padding-right: 0 !important;
 
-		gap: 0.3em;
+		color: #4667e2;
+
+		font-size: 1rem;
+		font-weight: 700;
+		line-height: 1.2;
+		letter-spacing: -0.01em;
+
+		text-decoration: none;
+
+		transform: none !important;
+		translate: none !important;
 	}
 
 
-	.speaking-centered-link
-	.animated-link-arrow {
-		position: static !important;
+	.speaking-centered-link::before,
+	.speaking-centered-link::after {
+		display: none !important;
+
+		content: none !important;
+	}
+
+
+	.speaking-centered-link-arrow {
+		position: absolute !important;
+
+		left: calc(100% + 0.3em) !important;
+		top: 50% !important;
+
+		right: auto !important;
+		bottom: auto !important;
+
+		display: inline-block;
+
+		width: auto !important;
+		min-width: 0 !important;
 
 		margin-left: 0 !important;
 		margin-right: 0 !important;
+
+		padding: 0 !important;
+
+		transition: transform 180ms ease;
+
+		transform: translateY(-50%);
+	}
+
+
+	.speaking-centered-link:hover
+	.speaking-centered-link-arrow {
+		transform:
+			translate(
+				4px,
+				-50%
+			);
+	}
+
+
+	.speaking-centered-link:focus-visible {
+		outline: 2px solid #6fa7ef;
+		outline-offset: 4px;
 	}
 
 
@@ -1386,6 +1445,30 @@ const mediaItems: MediaItem[] = [
 
 
 	/* =========================================================
+	   COMPACT APPEARANCE TITLES
+	========================================================= */
+
+	.media-item
+	.media-title-compact {
+		font-size:
+			clamp(
+				1rem,
+				1.45vw,
+				1.25rem
+			) !important;
+
+		line-height:
+			1.16;
+
+		letter-spacing:
+			-0.035em;
+
+		white-space:
+			nowrap !important;
+	}
+
+
+	/* =========================================================
 	   REVEALS
 	========================================================= */
 
@@ -1461,6 +1544,15 @@ const mediaItems: MediaItem[] = [
 	@media (
 		max-width: 620px
 	) {
+
+		.media-item
+		.media-title-compact {
+			font-size:
+				1.08rem !important;
+
+			white-space:
+				normal !important;
+		}
 
 		.speaking-hero-title {
 			max-width:
@@ -1620,6 +1712,7 @@ const mediaItems: MediaItem[] = [
 
 		.speaking-slide,
 		.speaking-slider-dot,
+		.speaking-centered-link-arrow,
 		.reveal-item {
 			transition:
 				none !important;
