@@ -32,17 +32,17 @@ import Footer from '../components/Footer.astro';
 
 			/*
 				Secondary titles:
-				lighter and smaller so they don't compete with the hero.
+				smaller and lighter so the hero remains dominant
 			*/
 			#speaking .books-page-content h2,
 			#cio-office .books-page-content h2,
 			#books .books-page-content h2 {
 				padding-bottom: 0 !important;
 
-				font-size: clamp(1.9rem, 2.2vw, 2.3rem) !important;
+				font-size: clamp(1.55rem, 1.8vw, 1.85rem) !important;
 				font-weight: 500 !important;
-				line-height: 1.12 !important;
-				letter-spacing: -0.02em !important;
+				line-height: 1.18 !important;
+				letter-spacing: -0.015em !important;
 			}
 
 
@@ -101,7 +101,6 @@ import Footer from '../components/Footer.astro';
 
 			.speaking-cover-image {
 				display: block;
-
 				width: 100%;
 				height: auto;
 			}
@@ -113,7 +112,7 @@ import Footer from '../components/Footer.astro';
 
 			#speaking .books-page-content h2 {
 				margin-top: 0 !important;
-				margin-bottom: 0.9rem;
+				margin-bottom: 0.85rem;
 			}
 
 			#speaking .books-page-content > p:not(.books-page-action) {
@@ -242,7 +241,7 @@ import Footer from '../components/Footer.astro';
 				#speaking .books-page-content h2,
 				#cio-office .books-page-content h2,
 				#books .books-page-content h2 {
-					font-size: 1.85rem !important;
+					font-size: 1.65rem !important;
 				}
 
 				#about .about-photo-wrapper {
@@ -274,7 +273,7 @@ import Footer from '../components/Footer.astro';
 				#speaking .books-page-content h2,
 				#cio-office .books-page-content h2,
 				#books .books-page-content h2 {
-					font-size: 1.7rem !important;
+					font-size: 1.5rem !important;
 				}
 
 				#books .books-page-cover {
@@ -290,7 +289,10 @@ import Footer from '../components/Footer.astro';
 
 		<main>
 
-			<!-- HERO -->
+			<!-- =====================================================
+			     HERO
+			===================================================== -->
+
 			<section class="hero">
 				<h1 class="hero-title">
 					<span class="hero-line">
@@ -310,7 +312,10 @@ import Footer from '../components/Footer.astro';
 			</section>
 
 
-			<!-- SPEAKING -->
+			<!-- =====================================================
+			     SPEAKING
+			===================================================== -->
+
 			<section
 				id="speaking"
 				class="contact-section reveal-section"
@@ -319,6 +324,7 @@ import Footer from '../components/Footer.astro';
 					class="books-page-book books-page-book-featured"
 					aria-labelledby="home-speaking-title"
 				>
+
 					<div
 						class="books-page-cover-wrapper reveal-item reveal-from-left reveal-delay-1"
 					>
@@ -331,11 +337,12 @@ import Footer from '../components/Footer.astro';
 								<img
 									src="/images/speaking-cover.png"
 									alt="Speaking theme visual about technology decisions starting with no technology at all"
-									class="speaking-cover-image"
+									class="speaking-cover-image animated-image"
 								/>
 							</div>
 						</a>
 					</div>
+
 
 					<div
 						class="books-page-content reveal-item reveal-delay-2"
@@ -367,11 +374,15 @@ import Footer from '../components/Footer.astro';
 							</a>
 						</p>
 					</div>
+
 				</article>
 			</section>
 
 
-			<!-- CIO OFFICE -->
+			<!-- =====================================================
+			     CIO OFFICE
+			===================================================== -->
+
 			<section
 				id="cio-office"
 				class="contact-section reveal-section"
@@ -380,6 +391,7 @@ import Footer from '../components/Footer.astro';
 					class="books-page-book books-page-book-featured"
 					aria-labelledby="home-cio-office-title"
 				>
+
 					<div
 						class="books-page-cover-wrapper reveal-item reveal-from-left reveal-delay-1"
 					>
@@ -395,6 +407,7 @@ import Footer from '../components/Footer.astro';
 							/>
 						</a>
 					</div>
+
 
 					<div
 						class="books-page-content reveal-item reveal-delay-2"
@@ -425,11 +438,15 @@ import Footer from '../components/Footer.astro';
 							</a>
 						</p>
 					</div>
+
 				</article>
 			</section>
 
 
-			<!-- BOOK -->
+			<!-- =====================================================
+			     BOOK
+			===================================================== -->
+
 			<section
 				id="books"
 				class="contact-section reveal-section"
@@ -438,6 +455,7 @@ import Footer from '../components/Footer.astro';
 					class="books-page-book books-page-book-featured"
 					aria-labelledby="home-cio-book-title"
 				>
+
 					<div
 						class="books-page-cover-wrapper reveal-item reveal-from-left reveal-delay-1"
 					>
@@ -453,6 +471,7 @@ import Footer from '../components/Footer.astro';
 							/>
 						</a>
 					</div>
+
 
 					<div
 						class="books-page-content reveal-item reveal-delay-2"
@@ -489,11 +508,15 @@ import Footer from '../components/Footer.astro';
 							</a>
 						</p>
 					</div>
+
 				</article>
 			</section>
 
 
-			<!-- ABOUT -->
+			<!-- =====================================================
+			     ABOUT
+			===================================================== -->
+
 			<section
 				id="about"
 				class="contact-section reveal-section"
@@ -533,6 +556,7 @@ import Footer from '../components/Footer.astro';
 						</p>
 					</div>
 
+
 					<div
 						class="about-photo-wrapper reveal-item reveal-from-right reveal-delay-2"
 					>
@@ -554,6 +578,7 @@ import Footer from '../components/Footer.astro';
 		</main>
 
 		<Footer />
+
 
 		<script>
 			const sections =
