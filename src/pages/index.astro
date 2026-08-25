@@ -19,6 +19,56 @@ import Footer from '../components/Footer.astro';
 		/>
 
 		<style>
+			/* SPEAKING VISUAL */
+			.speaking-visual-link {
+				display: block;
+				text-decoration: none;
+			}
+
+			.speaking-visual {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				min-height: 320px;
+				padding: 2.5rem 2.25rem;
+				border: 1px solid rgba(44, 62, 100, 0.12);
+				border-radius: 24px;
+				background: linear-gradient(
+					180deg,
+					rgba(255, 255, 255, 0.92) 0%,
+					rgba(248, 250, 255, 0.98) 100%
+				);
+				box-shadow: 0 14px 40px rgba(35, 52, 88, 0.06);
+			}
+
+			.speaking-visual-kicker {
+				margin: 0 0 1rem 0;
+				font-size: 0.82rem;
+				font-weight: 700;
+				letter-spacing: 0.14em;
+				text-transform: uppercase;
+				color: rgba(44, 62, 100, 0.62);
+			}
+
+			.speaking-visual-title {
+				margin: 0;
+				font-size: clamp(2rem, 3vw, 3rem);
+				line-height: 1.05;
+				font-weight: 700;
+				letter-spacing: -0.03em;
+				color: #22345a;
+				text-wrap: balance;
+			}
+
+			.speaking-visual-subtitle {
+				margin: 1.25rem 0 0 0;
+				font-size: 0.98rem;
+				line-height: 1.6;
+				font-weight: 600;
+				letter-spacing: 0.03em;
+				color: rgba(44, 62, 100, 0.72);
+			}
+
 			/* BOOK — controlled space before divider */
 			#books {
 				padding-bottom: 1.25rem;
@@ -28,13 +78,13 @@ import Footer from '../components/Footer.astro';
 				padding-bottom: 0.5rem;
 			}
 
-			/* ABOUT — move photo up, make it 10% smaller, remove line below it */
+			/* ABOUT — photo slightly lower, smaller, no line below it */
 			#about .about-photo-wrapper {
 				border: none !important;
 				border-bottom: none !important;
 				box-shadow: none !important;
 				padding-bottom: 0 !important;
-				margin-top: -36px;
+				margin-top: -10px;
 				align-self: start;
 				text-align: right;
 			}
@@ -64,6 +114,22 @@ import Footer from '../components/Footer.astro';
 				border-bottom: none !important;
 				box-shadow: none !important;
 			}
+
+			@media (max-width: 900px) {
+				.speaking-visual {
+					min-height: auto;
+					padding: 2rem 1.5rem;
+				}
+
+				#about .about-photo-wrapper {
+					margin-top: 0;
+					text-align: center;
+				}
+
+				#about .about-photo {
+					margin: 0 auto;
+				}
+			}
 		</style>
 	</head>
 
@@ -91,7 +157,6 @@ import Footer from '../components/Footer.astro';
 				</div>
 			</section>
 
-
 			<!-- SPEAKING -->
 			<section
 				id="speaking"
@@ -106,21 +171,28 @@ import Footer from '../components/Footer.astro';
 					>
 						<a
 							href="/speaking/"
-							class="books-page-cover-link"
-							aria-label="Explore speaking and conversations"
+							class="speaking-visual-link"
+							aria-label="Explore speaking"
 						>
-							<img
-								src="/images/fede-speaking.png"
-								alt="Speaking and conversations about technology leadership and business value"
-								class="about-photo animated-image"
-							/>
+							<div class="speaking-visual animated-image">
+								<p class="speaking-visual-kicker">
+									Talks & Conversations
+								</p>
+
+								<h3 class="speaking-visual-title">
+									Technology is Never the Starting Point
+								</h3>
+
+								<p class="speaking-visual-subtitle">
+									People First · Business Driven · Technology Enabled
+								</p>
+							</div>
 						</a>
 					</div>
 
 					<div class="books-page-content reveal-item reveal-delay-2">
-
 						<h2 id="home-speaking-title">
-							Technology is Never the Starting Point
+							Speaking
 						</h2>
 
 						<p>
@@ -132,7 +204,7 @@ import Footer from '../components/Footer.astro';
 
 						<p class="books-page-action">
 							<a href="/speaking/" class="animated-link">
-								<span>Explore talks</span>
+								<span>Explore speaking</span>
 
 								<span
 									class="animated-link-arrow"
@@ -145,7 +217,6 @@ import Footer from '../components/Footer.astro';
 					</div>
 				</article>
 			</section>
-
 
 			<!-- CIO OFFICE -->
 			<section
@@ -173,7 +244,6 @@ import Footer from '../components/Footer.astro';
 					</div>
 
 					<div class="books-page-content reveal-item reveal-delay-2">
-
 						<h2 id="home-cio-office-title">
 							Technology that Creates Business Value
 						</h2>
@@ -199,7 +269,6 @@ import Footer from '../components/Footer.astro';
 					</div>
 				</article>
 			</section>
-
 
 			<!-- BOOK -->
 			<section
@@ -227,7 +296,6 @@ import Footer from '../components/Footer.astro';
 					</div>
 
 					<div class="books-page-content reveal-item reveal-delay-2">
-
 						<h2 id="home-cio-book-title">
 							How to Become CIO and Succeed
 						</h2>
@@ -260,14 +328,12 @@ import Footer from '../components/Footer.astro';
 				</article>
 			</section>
 
-
 			<!-- ABOUT -->
 			<section
 				id="about"
 				class="contact-section reveal-section"
 			>
 				<div class="about-layout">
-
 					<div class="about-content reveal-item reveal-delay-1">
 						<p>
 							I am a Chief Information Officer (CIO) with more than
@@ -310,7 +376,6 @@ import Footer from '../components/Footer.astro';
 							/>
 						</a>
 					</div>
-
 				</div>
 			</section>
 
