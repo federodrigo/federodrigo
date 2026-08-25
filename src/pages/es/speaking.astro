@@ -16,6 +16,7 @@ type MediaItem = {
 	pdfUrl?: string;
 	pdfLabel?: string;
 	internal?: boolean;
+	compactTitle?: boolean;
 };
 
 const mediaItems: MediaItem[] = [
@@ -32,6 +33,7 @@ const mediaItems: MediaItem[] = [
 		url: '/es/webinar/',
 		linkLabel: 'Explorar la charla',
 		internal: true,
+		compactTitle: true,
 	},
 	{
 		type: 'Podcast',
@@ -60,6 +62,7 @@ const mediaItems: MediaItem[] = [
 		linkLabel: 'Ver informe completo',
 		pdfUrl: '/pdfs/Fede-Rodrigo-Interview-Nublit.pdf',
 		pdfLabel: 'Leer mi entrevista',
+		compactTitle: true,
 	},
 	{
 		type: 'Finalista',
@@ -190,12 +193,12 @@ const mediaItems: MediaItem[] = [
 
 					<a
 						href="/es/webinar/"
-						class="animated-link"
+						class="speaking-centered-link"
 					>
 						<span>Explorar la charla</span>
 
 						<span
-							class="animated-link-arrow"
+							class="speaking-centered-link-arrow"
 							aria-hidden="true"
 						>
 							→
@@ -228,7 +231,7 @@ const mediaItems: MediaItem[] = [
 						>
 							<img
 								class="speaking-slide-image"
-								src="/images/slide2.png"
+								src="/images/slide1.png"
 								alt="Personas Primero · Impulsado por el Negocio · Habilitado por la Tecnología"
 								loading="eager"
 							/>
@@ -241,7 +244,7 @@ const mediaItems: MediaItem[] = [
 						>
 							<img
 								class="speaking-slide-image"
-								src="/images/slide1.png"
+								src="/images/slide2.png"
 								alt="¿Por qué existe IT? Para crear valor de negocio"
 								loading="lazy"
 							/>
@@ -322,12 +325,12 @@ const mediaItems: MediaItem[] = [
 				>
 					<a
 						href="/es/webinar/"
-						class="animated-link"
+						class="speaking-centered-link"
 					>
 						<span>Explorar la charla</span>
 
 						<span
-							class="animated-link-arrow"
+							class="speaking-centered-link-arrow"
 							aria-hidden="true"
 						>
 							→
@@ -431,7 +434,13 @@ const mediaItems: MediaItem[] = [
 								</p>
 
 
-								<h3>
+								<h3
+									class={
+										item.compactTitle
+											? 'media-title-compact'
+											: undefined
+									}
+								>
 									{item.title}
 								</h3>
 
@@ -882,16 +891,37 @@ const mediaItems: MediaItem[] = [
 	========================================================= */
 
 	.speaking-hero {
+		display: block !important;
+
+		width:
+			min(
+				1120px,
+				calc(100% - 48px)
+			);
+
+		margin-left: auto !important;
+		margin-right: auto !important;
+
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+
+		box-sizing: border-box;
+
+		text-align: center;
+
 		border-bottom: 0 !important;
 	}
 
 
-	.speaking-hero-title {
+	main .speaking-hero .speaking-hero-title {
 		width: 100%;
 		max-width: 1080px;
 
-		margin-left: auto;
-		margin-right: auto;
+		margin-left: auto !important;
+		margin-right: auto !important;
+
+		padding-left: 0 !important;
+		padding-right: 0 !important;
 
 		font-size:
 			clamp(
@@ -907,7 +937,10 @@ const mediaItems: MediaItem[] = [
 
 
 	.speaking-hero-title .hero-line {
+		display: block;
+
 		width: 100%;
+
 		white-space: nowrap;
 	}
 
@@ -996,10 +1029,9 @@ const mediaItems: MediaItem[] = [
 	}
 
 	.speaking-evidence-symbol {
-		position: absolute;
-		right: 100%;
-		top: 0;
-		margin-right: 0.05em;
+		position: static;
+		display: inline-block;
+		margin-right: 0.04em;
 	}
 
 	.speaking-evidence-label {
@@ -1042,8 +1074,130 @@ const mediaItems: MediaItem[] = [
 	}
 
 
-	.speaking-talk-link p {
-		margin: 0;
+	main
+	.speaking-talk-link
+	> p,
+	main
+	.speaking-closing
+	> .speaking-closing-link {
+		display:
+			grid !important;
+
+		grid-template-columns:
+			minmax(0, 1fr)
+			auto
+			minmax(0, 1fr) !important;
+
+		width:
+			100% !important;
+
+		max-width:
+			none !important;
+
+		margin-left:
+			0 !important;
+
+		margin-right:
+			0 !important;
+
+		padding:
+			0 !important;
+
+		text-align:
+			center !important;
+	}
+
+
+	.speaking-centered-link {
+		display:
+			inline-grid !important;
+
+		grid-column:
+			2 !important;
+
+		grid-template-columns:
+			auto
+			auto;
+
+		align-items:
+			center;
+
+		justify-self:
+			center !important;
+
+		position: static !important;
+
+		inset: auto !important;
+
+		width: max-content !important;
+		min-width: 0 !important;
+
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+
+		gap:
+			0.3em;
+
+		color: #4667e2;
+
+		font-size: 1.1rem;
+		font-weight: 700;
+		line-height: 1.2;
+		letter-spacing: -0.01em;
+
+		text-decoration: none;
+
+		transform: none !important;
+		translate: none !important;
+	}
+
+
+	.speaking-centered-link::before,
+	.speaking-centered-link::after {
+		display: none !important;
+
+		content: none !important;
+	}
+
+
+	.speaking-centered-link-arrow {
+		position: static !important;
+
+		left: auto !important;
+		top: auto !important;
+
+		right: auto !important;
+		bottom: auto !important;
+
+		display: inline-block;
+
+		width: auto !important;
+		min-width: 0 !important;
+
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+
+		padding: 0 !important;
+
+		transition: transform 180ms ease;
+
+		transform: none;
+	}
+
+
+	.speaking-centered-link:hover
+	.speaking-centered-link-arrow {
+		transform:
+			translateX(4px);
+	}
+
+
+	.speaking-centered-link:focus-visible {
+		outline: 2px solid #6fa7ef;
+		outline-offset: 4px;
 	}
 
 
@@ -1250,8 +1404,14 @@ const mediaItems: MediaItem[] = [
 	}
 
 
+	main
+	.speaking-closing
 	.speaking-closing-title {
-		max-width: 1120px;
+		width:
+			100% !important;
+
+		max-width:
+			1120px !important;
 
 		margin:
 			0
@@ -1263,8 +1423,8 @@ const mediaItems: MediaItem[] = [
 		font-size:
 			clamp(
 				2rem,
-				3.2vw,
-				3.3rem
+				3.1vw,
+				3.25rem
 			);
 
 		font-weight:
@@ -1293,7 +1453,7 @@ const mediaItems: MediaItem[] = [
 
 	.speaking-closing-link {
 		margin:
-			14px
+			22px
 			0
 			0;
 	}
@@ -1325,6 +1485,30 @@ const mediaItems: MediaItem[] = [
 				70,
 				0.12
 			);
+	}
+
+
+	/* =========================================================
+	   TÍTULOS COMPACTOS DE PARTICIPACIONES
+	========================================================= */
+
+	.media-item
+	.media-title-compact {
+		font-size:
+			clamp(
+				1rem,
+				1.45vw,
+				1.25rem
+			) !important;
+
+		line-height:
+			1.16;
+
+		letter-spacing:
+			-0.035em;
+
+		white-space:
+			nowrap !important;
 	}
 
 
@@ -1405,6 +1589,20 @@ const mediaItems: MediaItem[] = [
 		max-width: 620px
 	) {
 
+		.speaking-centered-link {
+			font-size:
+				1.05rem;
+		}
+
+		.media-item
+		.media-title-compact {
+			font-size:
+				1.08rem !important;
+
+			white-space:
+				normal !important;
+		}
+
 		.speaking-hero-title {
 			max-width:
 				100%;
@@ -1429,6 +1627,7 @@ const mediaItems: MediaItem[] = [
 
 
 		.speaking-evidence,
+		.speaking-hero,
 		.speaking-talk-link,
 		.speaking-showcase,
 		.speaking-closing,
@@ -1506,6 +1705,8 @@ const mediaItems: MediaItem[] = [
 		}
 
 
+		main
+		.speaking-closing
 		.speaking-closing-title {
 			max-width:
 				100%;
@@ -1530,7 +1731,7 @@ const mediaItems: MediaItem[] = [
 
 		.speaking-closing-link {
 			margin-top:
-				12px;
+				18px;
 		}
 
 
@@ -1565,6 +1766,7 @@ const mediaItems: MediaItem[] = [
 
 		.speaking-slide,
 		.speaking-slider-dot,
+		.speaking-centered-link-arrow,
 		.reveal-item {
 			transition:
 				none !important;
@@ -1573,3 +1775,4 @@ const mediaItems: MediaItem[] = [
 	}
 
 </style>
+
