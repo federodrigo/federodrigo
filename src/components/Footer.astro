@@ -142,22 +142,23 @@ const spanishPath = isSpanish
 <style>
 	.site-footer {
 		margin-top: 0;
-		padding: 34px 24px 18px;
+		padding: 30px 24px 18px;
 		border-top: 1px solid #d9e3f0;
 		background: #f7f9fc;
 	}
 
 	.footer-shell {
-		width: min(920px, 100%);
+		width: min(1000px, 100%);
 		margin: 0 auto;
 	}
 
 	.footer-main {
 		display: grid;
-		grid-template-columns: minmax(0, 1fr) 180px;
-		gap: clamp(60px, 8vw, 100px);
+		grid-template-columns: minmax(280px, 340px) minmax(300px, 360px);
+		justify-content: space-between;
 		align-items: start;
-		padding-bottom: 26px;
+		gap: 64px;
+		padding-bottom: 24px;
 	}
 
 	.footer-brand {
@@ -172,8 +173,10 @@ const spanishPath = isSpanish
 		line-height: 1.1;
 		letter-spacing: -0.035em;
 		text-decoration: none !important;
+		border: none !important;
 		border-bottom: none !important;
 		box-shadow: none !important;
+		background: none !important;
 		background-image: none !important;
 		transition: color 180ms ease;
 	}
@@ -181,7 +184,11 @@ const spanishPath = isSpanish
 	.footer-name:hover {
 		color: #4667e2;
 		text-decoration: none !important;
+		border: none !important;
 		border-bottom: none !important;
+		box-shadow: none !important;
+		background: none !important;
+		background-image: none !important;
 	}
 
 	.footer-name::before,
@@ -191,7 +198,7 @@ const spanishPath = isSpanish
 	}
 
 	.footer-role {
-		margin: 10px 0 0;
+		margin: 9px 0 0;
 		color: #64748b;
 		font-size: 0.96rem;
 		line-height: 1.45;
@@ -201,7 +208,7 @@ const spanishPath = isSpanish
 		display: flex;
 		align-items: center;
 		gap: 10px;
-		margin-top: 18px;
+		margin-top: 16px;
 	}
 
 	.footer-socials a {
@@ -230,10 +237,18 @@ const spanishPath = isSpanish
 		border-color: #102a43;
 		transform: translateY(-1px);
 		text-decoration: none !important;
+		box-shadow: none !important;
+		background-image: none !important;
+	}
+
+	.footer-socials a::before,
+	.footer-socials a::after {
+		display: none !important;
+		content: none !important;
 	}
 
 	.footer-navigation-title {
-		margin: 0 0 14px;
+		margin: 0 0 13px;
 		color: #102a43;
 		font-size: 0.72rem;
 		font-weight: 750;
@@ -244,7 +259,9 @@ const spanishPath = isSpanish
 
 	.footer-navigation ul {
 		display: grid;
-		gap: 7px;
+		grid-template-columns: repeat(2, max-content);
+		column-gap: 34px;
+		row-gap: 8px;
 		margin: 0;
 		padding: 0;
 		list-style: none;
@@ -260,9 +277,10 @@ const spanishPath = isSpanish
 		display: inline-block;
 		color: #64748b;
 		font-size: 0.96rem;
+		font-weight: 600;
 		line-height: 1.35;
 		text-decoration: none !important;
-		border: 0 !important;
+		border: none !important;
 		border-bottom: none !important;
 		box-shadow: none !important;
 		background: none !important;
@@ -273,8 +291,10 @@ const spanishPath = isSpanish
 	.footer-navigation a:hover {
 		color: #4667e2;
 		text-decoration: none !important;
+		border: none !important;
 		border-bottom: none !important;
 		box-shadow: none !important;
+		background: none !important;
 		background-image: none !important;
 	}
 
@@ -282,16 +302,21 @@ const spanishPath = isSpanish
 	.footer-navigation a:active,
 	.footer-navigation a:visited {
 		text-decoration: none !important;
+		border: none !important;
 		border-bottom: none !important;
 		box-shadow: none !important;
+		background: none !important;
 		background-image: none !important;
 	}
 
 	.footer-navigation a[aria-current='page'] {
 		color: #102a43;
 		text-decoration: none !important;
+		border: none !important;
 		border-bottom: none !important;
 		box-shadow: none !important;
+		background: none !important;
+		background-image: none !important;
 	}
 
 	.footer-navigation a::before,
@@ -301,6 +326,7 @@ const spanishPath = isSpanish
 		height: 0 !important;
 		border: 0 !important;
 		background: none !important;
+		background-image: none !important;
 		content: none !important;
 	}
 
@@ -309,7 +335,7 @@ const spanishPath = isSpanish
 		align-items: center;
 		justify-content: space-between;
 		gap: 24px;
-		padding-top: 16px;
+		padding-top: 15px;
 		border-top: 1px solid #d9e3f0;
 		color: #64748b;
 		font-size: 0.8rem;
@@ -334,8 +360,10 @@ const spanishPath = isSpanish
 		font-weight: 650;
 		letter-spacing: 0.04em;
 		text-decoration: none !important;
+		border: none !important;
 		border-bottom: none !important;
 		box-shadow: none !important;
+		background: none !important;
 		background-image: none !important;
 		transition: color 180ms ease;
 	}
@@ -343,13 +371,21 @@ const spanishPath = isSpanish
 	.footer-language a:hover {
 		color: #4667e2;
 		text-decoration: none !important;
+		border: none !important;
 		border-bottom: none !important;
+		box-shadow: none !important;
+		background: none !important;
+		background-image: none !important;
 	}
 
 	.footer-language a.is-active {
 		color: #102a43;
 		text-decoration: none !important;
+		border: none !important;
 		border-bottom: none !important;
+		box-shadow: none !important;
+		background: none !important;
+		background-image: none !important;
 	}
 
 	.footer-language a::before,
@@ -366,9 +402,9 @@ const spanishPath = isSpanish
 		outline-offset: 4px;
 	}
 
-	@media (max-width: 720px) {
+	@media (max-width: 760px) {
 		.site-footer {
-			padding: 30px 20px 18px;
+			padding: 28px 20px 18px;
 		}
 
 		.footer-shell {
@@ -377,23 +413,28 @@ const spanishPath = isSpanish
 
 		.footer-main {
 			grid-template-columns: 1fr;
-			gap: 28px;
-			padding-bottom: 24px;
+			gap: 26px;
+			padding-bottom: 22px;
 		}
 
 		.footer-navigation ul {
-			grid-template-columns: repeat(2, minmax(0, 1fr));
-			column-gap: 24px;
+			grid-template-columns: repeat(2, max-content);
+			column-gap: 30px;
 			row-gap: 8px;
 		}
 
 		.footer-bottom {
 			align-items: flex-start;
-			padding-top: 15px;
+			padding-top: 14px;
 		}
 	}
 
-	@media (max-width: 420px) {
+	@media (max-width: 440px) {
+		.footer-navigation ul {
+			grid-template-columns: 1fr 1fr;
+			column-gap: 20px;
+		}
+
 		.footer-bottom {
 			flex-direction: column;
 			gap: 10px;
