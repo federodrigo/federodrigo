@@ -17,13 +17,285 @@ import Footer from '../../components/Footer.astro';
 			description="Fede Rodrigo es Chief Information Officer, autor y líder tecnológico, enfocado en la creación de valor para el negocio, el liderazgo, la estrategia tecnológica, la excelencia operacional y la transformación"
 			lang="es"
 		/>
+
+		<style>
+			/* =========================================================
+			   HOME FEATURE TITLES
+			========================================================= */
+
+			#speaking .books-page-content h2::after,
+			#cio-office .books-page-content h2::after,
+			#books .books-page-content h2::after {
+				content: none !important;
+				display: none !important;
+			}
+
+			/*
+				Secondary titles:
+				smaller and lighter so the hero remains dominant
+			*/
+
+			#speaking .books-page-content h2,
+			#cio-office .books-page-content h2,
+			#books .books-page-content h2 {
+				padding-bottom: 0 !important;
+
+				font-size: clamp(1.55rem, 1.8vw, 1.85rem) !important;
+				font-weight: 500 !important;
+				line-height: 1.18 !important;
+				letter-spacing: -0.015em !important;
+			}
+
+
+			/* =========================================================
+			   SPEAKING
+			========================================================= */
+
+			#speaking {
+				padding-top: 2.75rem !important;
+				padding-bottom: 1.75rem !important;
+			}
+
+			#speaking .books-page-book {
+				align-items: center;
+
+				margin-top: 0 !important;
+				margin-bottom: 0 !important;
+
+				padding-top: 0 !important;
+				padding-bottom: 0 !important;
+			}
+
+			#speaking .books-page-cover-wrapper {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+
+				border: none !important;
+				border-bottom: none !important;
+
+				padding: 0 !important;
+				margin: 0 !important;
+			}
+
+			.speaking-cover-link {
+				display: block;
+
+				width: 100%;
+				max-width: 390px;
+
+				text-decoration: none !important;
+				border: none !important;
+			}
+
+			.speaking-cover-frame {
+				overflow: hidden;
+
+				border: 1px solid rgba(36, 55, 92, 0.07);
+				border-radius: 20px;
+
+				background: #ffffff;
+
+				box-shadow:
+					0 12px 30px rgba(28, 44, 76, 0.06);
+			}
+
+			.speaking-cover-image {
+				display: block;
+				width: 100%;
+				height: auto;
+			}
+
+			#speaking .books-page-content {
+				align-self: center;
+				max-width: 680px;
+			}
+
+			#speaking .books-page-content h2 {
+				margin-top: 0 !important;
+				margin-bottom: 0.85rem;
+			}
+
+			#speaking .books-page-content > p:not(.books-page-action) {
+				max-width: 680px;
+
+				margin-top: 0 !important;
+				margin-bottom: 0 !important;
+
+				font-size: 1.08rem;
+				line-height: 1.6;
+			}
+
+			#speaking .books-page-action {
+				margin-top: 1.3rem;
+				margin-bottom: 0 !important;
+			}
+
+
+			/* =========================================================
+			   CIO OFFICE
+			========================================================= */
+
+			#cio-office .books-page-content {
+				align-self: center;
+			}
+
+
+			/* =========================================================
+			   BOOK
+			========================================================= */
+
+			#books {
+				padding-bottom: 1.25rem;
+			}
+
+			#books .books-page-book {
+				padding-bottom: 0.5rem;
+			}
+
+			/* Book cover 15% smaller */
+
+			#books .books-page-cover {
+				display: block;
+
+				width: 85% !important;
+				max-width: 85% !important;
+
+				height: auto;
+
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+
+			/* =========================================================
+			   ABOUT
+			========================================================= */
+
+			#about .about-photo-wrapper {
+				border: none !important;
+				border-bottom: none !important;
+
+				box-shadow: none !important;
+
+				padding-bottom: 0 !important;
+
+				margin-top: 2px;
+
+				align-self: start;
+				text-align: right;
+			}
+
+			#about .about-photo-wrapper::before,
+			#about .about-photo-wrapper::after {
+				content: none !important;
+				display: none !important;
+
+				border: none !important;
+				box-shadow: none !important;
+			}
+
+			#about .about-photo-wrapper a {
+				display: block;
+
+				border: none !important;
+				border-bottom: none !important;
+
+				box-shadow: none !important;
+
+				text-decoration: none !important;
+			}
+
+			/* Photo 10% smaller */
+
+			#about .about-photo {
+				display: block;
+
+				width: 81%;
+				max-width: 81%;
+
+				margin-left: auto;
+
+				border: none !important;
+				border-bottom: none !important;
+
+				box-shadow: none !important;
+			}
+
+
+			/* =========================================================
+			   TABLET
+			========================================================= */
+
+			@media (max-width: 900px) {
+				#speaking {
+					padding-top: 2.25rem !important;
+					padding-bottom: 1.25rem !important;
+				}
+
+				.speaking-cover-link {
+					max-width: 360px;
+				}
+
+				#speaking .books-page-content > p:not(.books-page-action) {
+					font-size: 1rem;
+				}
+
+				#speaking .books-page-content h2,
+				#cio-office .books-page-content h2,
+				#books .books-page-content h2 {
+					font-size: 1.65rem !important;
+				}
+
+				#about .about-photo-wrapper {
+					margin-top: 0;
+					text-align: center;
+				}
+
+				#about .about-photo {
+					margin-left: auto;
+					margin-right: auto;
+				}
+			}
+
+
+			/* =========================================================
+			   MOBILE
+			========================================================= */
+
+			@media (max-width: 640px) {
+				#speaking {
+					padding-top: 2rem !important;
+					padding-bottom: 1rem !important;
+				}
+
+				.speaking-cover-link {
+					max-width: 100%;
+				}
+
+				#speaking .books-page-content h2,
+				#cio-office .books-page-content h2,
+				#books .books-page-content h2 {
+					font-size: 1.5rem !important;
+				}
+
+				#books .books-page-cover {
+					width: 85% !important;
+					max-width: 85% !important;
+				}
+			}
+		</style>
 	</head>
 
 	<body>
 		<Header />
 
 		<main>
-			<!-- HERO -->
+
+			<!-- =====================================================
+			     HERO
+			===================================================== -->
+
 			<section class="hero">
 				<h1 class="hero-title">
 					<span class="hero-line">
@@ -41,20 +313,227 @@ import Footer from '../../components/Footer.astro';
 					<div>Tecnología como Habilitador</div>
 				</div>
 			</section>
-			
-			<!-- ABOUT -->
+
+
+			<!-- =====================================================
+			     SPEAKING
+			===================================================== -->
+
+			<section
+				id="speaking"
+				class="contact-section reveal-section"
+			>
+				<article
+					class="books-page-book books-page-book-featured"
+					aria-labelledby="home-speaking-title"
+				>
+
+					<div
+						class="books-page-cover-wrapper reveal-item reveal-from-left reveal-delay-1"
+					>
+						<a
+							href="/es/speaking/"
+							class="speaking-cover-link"
+							aria-label="Explorar speaking"
+						>
+							<div class="speaking-cover-frame">
+								<img
+									src="/images/speaking-cover.png"
+									alt="Imagen sobre decisiones tecnológicas que comienzan sin tecnología"
+									class="speaking-cover-image animated-image"
+								/>
+							</div>
+						</a>
+					</div>
+
+
+					<div
+						class="books-page-content reveal-item reveal-delay-2"
+					>
+						<h2 id="home-speaking-title">
+							Speaking
+						</h2>
+
+						<p>
+							Charlas y conversaciones sobre liderazgo tecnológico,
+							valor para el negocio, transformación, cambio
+							organizacional y las decisiones que determinan cómo
+							la tecnología genera impacto
+						</p>
+
+						<p class="books-page-action">
+							<a
+								href="/es/speaking/"
+								class="animated-link"
+							>
+								<span>Explorar speaking</span>
+
+								<span
+									class="animated-link-arrow"
+									aria-hidden="true"
+								>
+									→
+								</span>
+							</a>
+						</p>
+					</div>
+
+				</article>
+			</section>
+
+
+			<!-- =====================================================
+			     CIO OFFICE
+			===================================================== -->
+
+			<section
+				id="cio-office"
+				class="contact-section reveal-section"
+			>
+				<article
+					class="books-page-book books-page-book-featured"
+					aria-labelledby="home-cio-office-title"
+				>
+
+					<div
+						class="books-page-cover-wrapper reveal-item reveal-from-left reveal-delay-1"
+					>
+						<a
+							href="/es/cio-office/"
+							class="books-page-cover-link"
+							aria-label="Explorar la CIO Office"
+						>
+							<img
+								src="/images/cio-office-logo.png"
+								alt="CIO Office"
+								class="cio-office-capabilities-logo animated-image"
+							/>
+						</a>
+					</div>
+
+
+					<div
+						class="books-page-content reveal-item reveal-delay-2"
+					>
+						<h2 id="home-cio-office-title">
+							Tecnología que crea valor para el negocio
+						</h2>
+
+						<p>
+							Asesoramiento para organizaciones que buscan alinear la
+							tecnología con los objetivos del negocio, fortalecer sus
+							operaciones y acelerar la transformación
+						</p>
+
+						<p class="books-page-action">
+							<a
+								href="/es/cio-office/"
+								class="animated-link"
+							>
+								<span>Conoce la CIO Office</span>
+
+								<span
+									class="animated-link-arrow"
+									aria-hidden="true"
+								>
+									→
+								</span>
+							</a>
+						</p>
+					</div>
+
+				</article>
+			</section>
+
+
+			<!-- =====================================================
+			     BOOK
+			===================================================== -->
+
+			<section
+				id="books"
+				class="contact-section reveal-section"
+			>
+				<article
+					class="books-page-book books-page-book-featured"
+					aria-labelledby="home-cio-book-title"
+				>
+
+					<div
+						class="books-page-cover-wrapper reveal-item reveal-from-left reveal-delay-1"
+					>
+						<a
+							href="/es/cio-book/"
+							class="books-page-cover-link"
+							aria-label="Conoce más sobre How to Become CIO and Succeed"
+						>
+							<img
+								src="/images/cio-book-cover.png"
+								alt="Portada de How to Become CIO and Succeed"
+								class="books-page-cover animated-book-cover"
+							/>
+						</a>
+					</div>
+
+
+					<div
+						class="books-page-content reveal-item reveal-delay-2"
+					>
+						<h2 id="home-cio-book-title">
+							How to Become CIO and Succeed
+						</h2>
+
+						<p class="books-page-subtitle">
+							Personas, Negocio, Estrategia
+						</p>
+
+						<p>
+							El rol del CIO no consiste en gestionar sistemas. Consiste
+							en liderar personas, definir la estrategia, influir en el
+							negocio y convertir la tecnología en una ventaja
+							competitiva. Este es el libro que me habría gustado tener
+							cuando comencé mi camino en el liderazgo
+						</p>
+
+						<p class="books-page-action">
+							<a
+								href="/es/cio-book/"
+								class="animated-link"
+							>
+								<span>Explorar el libro</span>
+
+								<span
+									class="animated-link-arrow"
+									aria-hidden="true"
+								>
+									→
+								</span>
+							</a>
+						</p>
+					</div>
+
+				</article>
+			</section>
+
+
+			<!-- =====================================================
+			     ABOUT
+			===================================================== -->
+
 			<section
 				id="about"
 				class="contact-section reveal-section"
 			>
-				<h2 class="reveal-item">
-					Sobre mí
-				</h2>
-
 				<div class="about-layout">
-					<div class="about-content reveal-item reveal-delay-1">
+
+					<div
+						class="about-content reveal-item reveal-delay-1"
+					>
 						<p>
-						Soy Gerente de TI (CIO) con más de 15 años de experiencia internacional en liderazgo de TI, ayudando a organizaciones globales a generar valor para el negocio
+							Soy Chief Information Officer (CIO) con más de 15 años
+							de experiencia internacional en liderazgo de TI,
+							ayudando a organizaciones globales a generar valor para
+							el negocio
 						</p>
 
 						<p>
@@ -81,154 +560,29 @@ import Footer from '../../components/Footer.astro';
 						</p>
 					</div>
 
+
 					<div
 						class="about-photo-wrapper reveal-item reveal-from-right reveal-delay-2"
 					>
-						<img
-							src="/images/fede.png"
-							alt="Fede Rodrigo, Chief Information Officer y autor"
-							class="about-photo animated-image"
-						/>
+						<a
+							href="/es/about/"
+							aria-label="Conoce más sobre Fede Rodrigo"
+						>
+							<img
+								src="/images/fede.png"
+								alt="Fede Rodrigo, Chief Information Officer, autor y speaker"
+								class="about-photo animated-image"
+							/>
+						</a>
 					</div>
+
 				</div>
 			</section>
 
-
-			<!-- CIO OFFICE -->
-			<section
-				id="cio-office"
-				class="contact-section reveal-section"
-			>
-				<h2 class="reveal-item">
-					CIO Office
-				</h2>
-
-				<article
-					class="books-page-book books-page-book-featured"
-					aria-labelledby="home-cio-office-title"
-				>
-					<div
-						class="books-page--wrapper reveal-item reveal-from-left reveal-delay-1"
-					>
-						<a
-							href="/es/cio-office/"
-							class="books-page--link"
-							aria-label="Explorar la CIO Office"
-						>
-							<img
-								src="/images/cio-office-logo.png"
-								alt="CIO Office"
-								class="cio-office-capabilities-logo animated-image"
-							/>
-						</a>
-					</div>
-
-					<div class="books-page-content reveal-item reveal-delay-2">
-						<p class="books-page-label">
-							Liderazgo Ejecutivo en Tecnología
-						</p>
-
-						<h3 id="home-cio-office-title">
-							Tecnología que crea valor para el negocio
-						</h3>
-
-						<p>
-							Asesoramiento para organizaciones que buscan alinear la
-							tecnología con los objetivos del negocio, fortalecer sus
-							operaciones y acelerar la transformación
-						</p>
-
-						<p class="books-page-action">
-							<a
-								href="/es/cio-office/"
-								class="animated-link"
-							>
-								<span>Conoce la CIO Office</span>
-
-								<span
-									class="animated-link-arrow"
-									aria-hidden="true"
-								>
-									→
-								</span>
-							</a>
-						</p>
-					</div>
-				</article>
-			</section>
-
-
-			<!-- BOOK -->
-			<section
-				id="books"
-				class="contact-section reveal-section"
-			>
-				<h2 class="reveal-item">
-					Libro
-				</h2>
-
-				<article
-					class="books-page-book books-page-book-featured"
-					aria-labelledby="home-cio-book-title"
-				>
-					<div
-						class="books-page--wrapper reveal-item reveal-from-left reveal-delay-1"
-					>
-						<a
-							href="/es/books/"
-							class="books-page-cover-link"
-							aria-label="Conoce más sobre How to Become CIO and Succeed"
-						>
-							<img
-								src="/images/cio-book-cover.png"
-								alt="Portada de How to Become CIO and Succeed"
-								class="books-page-cover animated-book-cover"
-							/>
-						</a>
-					</div>
-
-					<div class="books-page-content reveal-item reveal-delay-2">
-						<p class="books-page-label">
-							Libro destacado
-						</p>
-
-						<h3 id="home-cio-book-title">
-							How to Become CIO and Succeed
-						</h3>
-
-						<p class="books-page-subtitle">
-							Personas, Negocio, Estrategia
-						</p>
-
-						<p>
-							El rol del CIO no consiste en gestionar sistemas
-							Consiste en liderar personas, definir la estrategia,
-							influir en el negocio y convertir la tecnología en una
-							ventaja competitiva. Este es el libro que me habría
-							gustado tener cuando comencé mi camino en el liderazgo
-						</p>
-
-						<p class="books-page-action">
-							<a
-								href="/es/cio-book/"
-								class="animated-link"
-							>
-								<span>Explorar el libro</span>
-
-								<span
-									class="animated-link-arrow"
-									aria-hidden="true"
-								>
-									→
-								</span>
-							</a>
-						</p>
-					</div>
-				</article>
-			</section>
 		</main>
 
 		<Footer />
+
 
 		<script>
 			const sections =
@@ -245,7 +599,7 @@ import Footer from '../../components/Footer.astro';
 				},
 				{
 					threshold: 0.12,
-					rootMargin: '0px 0px -60px 0px',
+					rootMargin: '0px 0px -60px 0px'
 				}
 			);
 
@@ -253,6 +607,6 @@ import Footer from '../../components/Footer.astro';
 				revealObserver.observe(section);
 			});
 		</script>
+
 	</body>
 </html>
-
