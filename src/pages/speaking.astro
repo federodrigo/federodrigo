@@ -1074,19 +1074,58 @@ const mediaItems: MediaItem[] = [
 	}
 
 
-	.speaking-talk-link p {
-		margin: 0;
+	main
+	.speaking-talk-link
+	> p,
+	main
+	.speaking-closing
+	> .speaking-closing-link {
+		display:
+			grid !important;
 
-		display: flex;
+		grid-template-columns:
+			minmax(0, 1fr)
+			auto
+			minmax(0, 1fr) !important;
 
-		justify-content: center;
+		width:
+			100% !important;
+
+		max-width:
+			none !important;
+
+		margin-left:
+			0 !important;
+
+		margin-right:
+			0 !important;
+
+		padding:
+			0 !important;
+
+		text-align:
+			center !important;
 	}
 
 
 	.speaking-centered-link {
-		display: inline-block !important;
+		display:
+			inline-grid !important;
 
-		position: relative !important;
+		grid-column:
+			2 !important;
+
+		grid-template-columns:
+			auto
+			auto;
+
+		align-items:
+			center;
+
+		justify-self:
+			center !important;
+
+		position: static !important;
 
 		inset: auto !important;
 
@@ -1098,6 +1137,9 @@ const mediaItems: MediaItem[] = [
 
 		padding-left: 0 !important;
 		padding-right: 0 !important;
+
+		gap:
+			0.3em;
 
 		color: #4667e2;
 
@@ -1122,10 +1164,10 @@ const mediaItems: MediaItem[] = [
 
 
 	.speaking-centered-link-arrow {
-		position: absolute !important;
+		position: static !important;
 
-		left: calc(100% + 0.3em) !important;
-		top: 50% !important;
+		left: auto !important;
+		top: auto !important;
 
 		right: auto !important;
 		bottom: auto !important;
@@ -1142,17 +1184,14 @@ const mediaItems: MediaItem[] = [
 
 		transition: transform 180ms ease;
 
-		transform: translateY(-50%);
+		transform: none;
 	}
 
 
 	.speaking-centered-link:hover
 	.speaking-centered-link-arrow {
 		transform:
-			translate(
-				4px,
-				-50%
-			);
+			translateX(4px);
 	}
 
 
@@ -1365,8 +1404,14 @@ const mediaItems: MediaItem[] = [
 	}
 
 
+	main
+	.speaking-closing
 	.speaking-closing-title {
-		max-width: 1000px;
+		width:
+			100% !important;
+
+		max-width:
+			1120px !important;
 
 		margin:
 			0
@@ -1378,8 +1423,8 @@ const mediaItems: MediaItem[] = [
 		font-size:
 			clamp(
 				2rem,
-				3.4vw,
-				3.5rem
+				3.1vw,
+				3.25rem
 			);
 
 		font-weight:
@@ -1390,6 +1435,9 @@ const mediaItems: MediaItem[] = [
 
 		letter-spacing:
 			-0.05em;
+
+		white-space:
+			nowrap;
 	}
 
 
@@ -1408,10 +1456,6 @@ const mediaItems: MediaItem[] = [
 			14px
 			0
 			0;
-
-		display: flex;
-
-		justify-content: center;
 	}
 
 
@@ -1656,6 +1700,8 @@ const mediaItems: MediaItem[] = [
 		}
 
 
+		main
+		.speaking-closing
 		.speaking-closing-title {
 			max-width:
 				100%;
@@ -1672,6 +1718,9 @@ const mediaItems: MediaItem[] = [
 
 			line-height:
 				1.08;
+
+			white-space:
+				normal;
 		}
 
 
@@ -1721,5 +1770,4 @@ const mediaItems: MediaItem[] = [
 	}
 
 </style>
-
 
