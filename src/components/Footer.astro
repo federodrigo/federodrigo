@@ -171,6 +171,7 @@ const spanishPath = isSpanish
 		line-height: 1.1;
 		letter-spacing: -0.035em;
 		text-decoration: none;
+		transition: color 180ms ease;
 	}
 
 	.footer-name:hover {
@@ -243,7 +244,6 @@ const spanishPath = isSpanish
 	}
 
 	.footer-navigation a {
-		position: relative;
 		display: inline-block;
 		color: #64748b;
 		font-size: 0.98rem;
@@ -252,25 +252,12 @@ const spanishPath = isSpanish
 		transition: color 180ms ease;
 	}
 
-	.footer-navigation a::after {
-		position: absolute;
-		left: 0;
-		bottom: -2px;
-		width: 0;
-		height: 1px;
-		background: #4667e2;
-		content: '';
-		transition: width 180ms ease;
+	.footer-navigation a:hover {
+		color: #4667e2;
 	}
 
-	.footer-navigation a:hover,
 	.footer-navigation a[aria-current='page'] {
 		color: #102a43;
-	}
-
-	.footer-navigation a:hover::after,
-	.footer-navigation a[aria-current='page']::after {
-		width: 100%;
 	}
 
 	.footer-bottom {
@@ -303,9 +290,13 @@ const spanishPath = isSpanish
 		font-weight: 650;
 		letter-spacing: 0.04em;
 		text-decoration: none;
+		transition: color 180ms ease;
 	}
 
-	.footer-language a:hover,
+	.footer-language a:hover {
+		color: #4667e2;
+	}
+
 	.footer-language a.is-active {
 		color: #102a43;
 	}
@@ -341,9 +332,10 @@ const spanishPath = isSpanish
 	}
 
 	@media (prefers-reduced-motion: reduce) {
+		.footer-name,
 		.footer-socials a,
 		.footer-navigation a,
-		.footer-navigation a::after {
+		.footer-language a {
 			transition: none;
 		}
 	}
