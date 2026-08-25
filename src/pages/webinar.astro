@@ -73,8 +73,10 @@ const youtubeEmbedUrl =
 				<div class="webinar-intro-inner">
 
 					<p class="webinar-lead reveal-item">
+
 						Technology initiatives often begin with a solution
 						instead of the business need behind it
+
 					</p>
 
 
@@ -83,11 +85,14 @@ const youtubeEmbedUrl =
 					>
 
 						<p class="webinar-description">
+
 							<strong>
 								This talk explores a different approach:
 							</strong>
+
 							start with people and business priorities,
 							then use technology to enable the outcome
+
 						</p>
 
 
@@ -97,7 +102,10 @@ const youtubeEmbedUrl =
 								href="/about/"
 								class="animated-link"
 							>
-								<span>About Federico</span>
+
+								<span>
+									About Federico
+								</span>
 
 								<span
 									class="animated-link-arrow"
@@ -105,6 +113,7 @@ const youtubeEmbedUrl =
 								>
 									→
 								</span>
+
 							</a>
 
 
@@ -112,7 +121,10 @@ const youtubeEmbedUrl =
 								href="/books/"
 								class="animated-link"
 							>
-								<span>Explore the book</span>
+
+								<span>
+									Explore the book
+								</span>
 
 								<span
 									class="animated-link-arrow"
@@ -120,6 +132,7 @@ const youtubeEmbedUrl =
 								>
 									→
 								</span>
+
 							</a>
 
 						</div>
@@ -136,13 +149,14 @@ const youtubeEmbedUrl =
 			===================================================== -->
 
 			<section
-				class="media-list webinar-watch reveal-section"
+				class="media-list webinar-video-section reveal-section"
 				aria-label="Technology is Never the Starting Point video"
 			>
 
 				<div
 					class="webinar-video reveal-item"
 				>
+
 					<iframe
 						src={youtubeEmbedUrl}
 						title="Technology is Never the Starting Point"
@@ -150,10 +164,13 @@ const youtubeEmbedUrl =
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 						allowfullscreen
 					></iframe>
+
 				</div>
 
 
-				<p class="webinar-watch-link reveal-item reveal-delay-1">
+				<p
+					class="webinar-watch-link reveal-item reveal-delay-1"
+				>
 
 					<a
 						href="https://www.youtube.com/watch?v=ZN-d5W68Lp8"
@@ -161,7 +178,10 @@ const youtubeEmbedUrl =
 						rel="noopener noreferrer"
 						class="animated-link"
 					>
-						<span>Watch on YouTube</span>
+
+						<span>
+							Watch on YouTube
+						</span>
 
 						<span
 							class="animated-link-arrow"
@@ -169,6 +189,7 @@ const youtubeEmbedUrl =
 						>
 							→
 						</span>
+
 					</a>
 
 				</p>
@@ -193,6 +214,8 @@ const youtubeEmbedUrl =
 				</h2>
 
 
+				<!-- 01 -->
+
 				<article
 					class="media-item webinar-takeaway reveal-item reveal-delay-1"
 				>
@@ -210,15 +233,19 @@ const youtubeEmbedUrl =
 
 
 						<p class="media-description">
+
 							Why so many initiatives fail to deliver
-							what was expected — and what leaders
+							what was expected and what leaders
 							can do differently
+
 						</p>
 
 					</div>
 
 				</article>
 
+
+				<!-- 02 -->
 
 				<article
 					class="media-item webinar-takeaway reveal-item reveal-delay-2"
@@ -237,15 +264,19 @@ const youtubeEmbedUrl =
 
 
 						<p class="media-description">
+
 							How to focus IT on the people and
 							business it serves, with business value
 							as the measure of success
+
 						</p>
 
 					</div>
 
 				</article>
 
+
+				<!-- 03 -->
 
 				<article
 					class="media-item webinar-takeaway reveal-item reveal-delay-3"
@@ -264,49 +295,57 @@ const youtubeEmbedUrl =
 
 
 						<p class="media-description">
+
 							Why changing tools do not replace
 							leadership, strategy, judgment,
 							and business understanding
+
 						</p>
 
 					</div>
 
 				</article>
 
-			</section>
 
+				<!-- =================================================
+				     CONTACT
+				================================================= -->
 
-			<!-- =====================================================
-			     CONTACT
-			===================================================== -->
-
-			<section class="webinar-contact reveal-section">
-
-				<p class="webinar-contact-copy reveal-item">
-					For speaking engagements, interviews,
-					podcasts, or other opportunities
-				</p>
-
-
-				<p
-					class="webinar-contact-link reveal-item reveal-delay-1"
+				<div
+					class="webinar-contact reveal-item reveal-delay-3"
 				>
 
-					<a
-						href="/contact/"
-						class="animated-link"
-					>
-						<span>Contact me</span>
+					<p class="webinar-contact-copy">
 
-						<span
-							class="animated-link-arrow"
-							aria-hidden="true"
+						For speaking engagements, interviews,
+						podcasts, or other opportunities
+
+					</p>
+
+
+					<p class="webinar-contact-link">
+
+						<a
+							href="/contact/"
+							class="animated-link"
 						>
-							→
-						</span>
-					</a>
 
-				</p>
+							<span>
+								Contact me
+							</span>
+
+							<span
+								class="animated-link-arrow"
+								aria-hidden="true"
+							>
+								→
+							</span>
+
+						</a>
+
+					</p>
+
+				</div>
 
 			</section>
 
@@ -322,6 +361,7 @@ const youtubeEmbedUrl =
 					'.reveal-section'
 				);
 
+
 			const revealObserver =
 				new IntersectionObserver(
 
@@ -333,9 +373,11 @@ const youtubeEmbedUrl =
 								return;
 							}
 
+
 							entry.target.classList.add(
 								'is-visible'
 							);
+
 
 							observer.unobserve(
 								entry.target
@@ -346,7 +388,9 @@ const youtubeEmbedUrl =
 					},
 
 					{
-						threshold: 0.08,
+						threshold:
+							0.08,
+
 						rootMargin:
 							'0px 0px -50px 0px',
 					}
@@ -355,7 +399,11 @@ const youtubeEmbedUrl =
 
 
 			sections.forEach((section) => {
-				revealObserver.observe(section);
+
+				revealObserver.observe(
+					section
+				);
+
 			});
 		</script>
 
@@ -486,7 +534,7 @@ const youtubeEmbedUrl =
 		margin:
 			-18px
 			auto
-			30px;
+			22px;
 	}
 
 
@@ -615,12 +663,12 @@ const youtubeEmbedUrl =
 	   VIDEO
 	========================================================= */
 
-	.webinar-watch {
+	.webinar-video-section {
 		margin-top:
-			-12px;
+			-10px;
 
 		margin-bottom:
-			24px;
+			22px;
 	}
 
 
@@ -668,7 +716,7 @@ const youtubeEmbedUrl =
 
 	/* =========================================================
 	   TAKEAWAYS
-	   SAME STRUCTURE / SCALE AS ORIGINAL SPANISH PAGE
+	   SAME STRUCTURE AS ORIGINAL PAGE
 	========================================================= */
 
 	.webinar-takeaways {
@@ -710,22 +758,20 @@ const youtubeEmbedUrl =
 
 	/* =========================================================
 	   CONTACT
+	   INSIDE FINAL SECTION SO FOOTER FOLLOWS NATURALLY
 	========================================================= */
 
 	.webinar-contact {
 		width:
-			min(
-				1120px,
-				calc(100% - 48px)
-			);
+			100%;
 
 		margin:
-			0
-			auto
-			18px;
+			0;
 
-		padding-top:
-			26px;
+		padding:
+			24px
+			0
+			4px;
 
 		border-top:
 			1px solid
@@ -762,7 +808,7 @@ const youtubeEmbedUrl =
 
 	.webinar-contact-link {
 		margin:
-			10px
+			8px
 			0
 			0;
 	}
@@ -803,7 +849,7 @@ const youtubeEmbedUrl =
 			margin:
 				-4px
 				auto
-				24px;
+				20px;
 		}
 
 
@@ -819,12 +865,12 @@ const youtubeEmbedUrl =
 		}
 
 
-		.webinar-watch {
+		.webinar-video-section {
 			margin-top:
 				-4px;
 
 			margin-bottom:
-				20px;
+				18px;
 		}
 
 
@@ -835,16 +881,10 @@ const youtubeEmbedUrl =
 
 
 		.webinar-contact {
-			width:
-				calc(
-					100% - 32px
-				);
-
-			margin-bottom:
-				12px;
-
-			padding-top:
-				22px;
+			padding:
+				20px
+				0
+				0;
 		}
 
 	}
