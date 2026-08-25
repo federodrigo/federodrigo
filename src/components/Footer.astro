@@ -147,17 +147,30 @@ const spanishPath = isSpanish
 		background: #f7f9fc;
 	}
 
+	/*
+	 * El footer general mantiene un ancho amplio.
+	 * Esto conserva larga la barra inferior.
+	 */
 	.footer-shell {
 		width: min(1040px, 100%);
 		margin: 0 auto;
 	}
 
+	/*
+	 * SOLO el contenido superior se hace más angosto.
+	 * Así Fede y Navigate se mueven hacia el centro
+	 * sin afectar la barra inferior.
+	 */
 	.footer-main {
 		display: grid;
 		grid-template-columns: auto auto;
 		justify-content: space-between;
 		align-items: start;
-		gap: 80px;
+		gap: 70px;
+
+		width: min(900px, 100%);
+		margin: 0 auto;
+
 		padding-bottom: 26px;
 	}
 
@@ -172,17 +185,20 @@ const spanishPath = isSpanish
 		font-weight: 750;
 		line-height: 1.1;
 		letter-spacing: -0.035em;
+
 		text-decoration: none !important;
 		border: none !important;
 		border-bottom: none !important;
 		box-shadow: none !important;
 		background: none !important;
 		background-image: none !important;
+
 		transition: color 180ms ease;
 	}
 
 	.footer-name:hover {
 		color: #4667e2;
+
 		text-decoration: none !important;
 		border: none !important;
 		border-bottom: none !important;
@@ -215,18 +231,23 @@ const spanishPath = isSpanish
 		display: flex;
 		align-items: center;
 		justify-content: center;
+
 		width: 34px;
 		height: 34px;
+
 		border: 1px solid #d9e3f0;
 		border-radius: 50%;
+
 		color: #64748b;
 		font-size: 0.92rem;
 		font-weight: 700;
 		line-height: 1;
+
 		text-decoration: none !important;
 		box-shadow: none !important;
 		background: none !important;
 		background-image: none !important;
+
 		transition:
 			color 180ms ease,
 			border-color 180ms ease,
@@ -237,6 +258,7 @@ const spanishPath = isSpanish
 		color: #102a43;
 		border-color: #102a43;
 		transform: translateY(-1px);
+
 		text-decoration: none !important;
 	}
 
@@ -253,10 +275,12 @@ const spanishPath = isSpanish
 
 	.footer-navigation-title {
 		margin: 0 0 13px;
+
 		color: #102a43;
 		font-size: 0.72rem;
 		font-weight: 750;
 		line-height: 1.2;
+
 		letter-spacing: 0.19em;
 		text-transform: uppercase;
 	}
@@ -265,7 +289,9 @@ const spanishPath = isSpanish
 		display: flex;
 		flex-wrap: nowrap;
 		align-items: center;
+
 		gap: 24px;
+
 		margin: 0;
 		padding: 0;
 		list-style: none;
@@ -279,21 +305,25 @@ const spanishPath = isSpanish
 
 	.footer-navigation a {
 		display: inline-block;
+
 		color: #64748b;
 		font-size: 0.98rem;
 		font-weight: 600;
 		line-height: 1.35;
+
 		text-decoration: none !important;
 		border: none !important;
 		border-bottom: none !important;
 		box-shadow: none !important;
 		background: none !important;
 		background-image: none !important;
+
 		transition: color 180ms ease;
 	}
 
 	.footer-navigation a:hover {
 		color: #4667e2;
+
 		text-decoration: none !important;
 		border: none !important;
 		border-bottom: none !important;
@@ -315,6 +345,7 @@ const spanishPath = isSpanish
 
 	.footer-navigation a[aria-current='page'] {
 		color: #102a43;
+
 		text-decoration: none !important;
 		border: none !important;
 		border-bottom: none !important;
@@ -323,6 +354,10 @@ const spanishPath = isSpanish
 		background-image: none !important;
 	}
 
+	/*
+	 * Mata cualquier rayita generada
+	 * por estilos globales del sitio.
+	 */
 	.footer-navigation a::before,
 	.footer-navigation a::after {
 		display: none !important;
@@ -334,13 +369,20 @@ const spanishPath = isSpanish
 		content: none !important;
 	}
 
+	/*
+	 * Esta parte sigue usando TODO el ancho
+	 * del footer-shell: 1040px.
+	 */
 	.footer-bottom {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		gap: 24px;
+
 		padding-top: 16px;
+
 		border-top: 1px solid #d9e3f0;
+
 		color: #64748b;
 		font-size: 0.82rem;
 	}
@@ -363,33 +405,31 @@ const spanishPath = isSpanish
 		color: #64748b;
 		font-weight: 650;
 		letter-spacing: 0.04em;
+
 		text-decoration: none !important;
 		border: none !important;
 		border-bottom: none !important;
 		box-shadow: none !important;
 		background: none !important;
 		background-image: none !important;
+
 		transition: color 180ms ease;
 	}
 
 	.footer-language a:hover {
 		color: #4667e2;
+
 		text-decoration: none !important;
 		border: none !important;
 		border-bottom: none !important;
-		box-shadow: none !important;
-		background: none !important;
-		background-image: none !important;
 	}
 
 	.footer-language a.is-active {
 		color: #102a43;
+
 		text-decoration: none !important;
 		border: none !important;
 		border-bottom: none !important;
-		box-shadow: none !important;
-		background: none !important;
-		background-image: none !important;
 	}
 
 	.footer-language a::before,
@@ -408,6 +448,7 @@ const spanishPath = isSpanish
 
 	@media (max-width: 900px) {
 		.footer-main {
+			width: 100%;
 			grid-template-columns: 1fr;
 			gap: 28px;
 		}
