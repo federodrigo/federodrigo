@@ -147,28 +147,19 @@ const spanishPath = isSpanish
 		background: #f7f9fc;
 	}
 
-	/*
-	 * El footer general mantiene un ancho amplio.
-	 * Esto conserva larga la barra inferior.
-	 */
 	.footer-shell {
 		width: min(1040px, 100%);
 		margin: 0 auto;
 	}
 
-	/*
-	 * SOLO el contenido superior se hace más angosto.
-	 * Así Fede y Navigate se mueven hacia el centro
-	 * sin afectar la barra inferior.
-	 */
 	.footer-main {
 		display: grid;
 		grid-template-columns: auto auto;
 		justify-content: space-between;
 		align-items: start;
-		gap: 70px;
+		gap: 50px;
 
-		width: min(900px, 100%);
+		width: min(820px, 100%);
 		margin: 0 auto;
 
 		padding-bottom: 26px;
@@ -290,7 +281,7 @@ const spanishPath = isSpanish
 		flex-wrap: nowrap;
 		align-items: center;
 
-		gap: 24px;
+		gap: 21px;
 
 		margin: 0;
 		padding: 0;
@@ -354,10 +345,6 @@ const spanishPath = isSpanish
 		background-image: none !important;
 	}
 
-	/*
-	 * Mata cualquier rayita generada
-	 * por estilos globales del sitio.
-	 */
 	.footer-navigation a::before,
 	.footer-navigation a::after {
 		display: none !important;
@@ -369,10 +356,6 @@ const spanishPath = isSpanish
 		content: none !important;
 	}
 
-	/*
-	 * Esta parte sigue usando TODO el ancho
-	 * del footer-shell: 1040px.
-	 */
 	.footer-bottom {
 		display: flex;
 		align-items: center;
