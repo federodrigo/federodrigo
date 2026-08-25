@@ -44,43 +44,6 @@ const papers = [
 		<Header />
 
 		<main>
-			<!-- TAGLINE -->
-
-			<section class="books-page-heading reveal-section">
-				<h2
-					class="cio-office-capabilities-tagline books-page-tagline"
-					aria-label="Writing on technology, leadership, institutions, and power"
-				>
-					<span
-						class="tagline-part tagline-part-1"
-						aria-hidden="true"
-					>
-						Writing on technology,
-					</span>
-
-					<span
-						class="tagline-part tagline-part-2"
-						aria-hidden="true"
-					>
-						leadership,
-					</span>
-
-					<span
-						class="tagline-part tagline-part-3"
-						aria-hidden="true"
-					>
-						institutions,
-					</span>
-
-					<span
-						class="tagline-part tagline-part-4"
-						aria-hidden="true"
-					>
-						and power
-					</span>
-				</h2>
-			</section>
-
 			<!-- FEATURED BOOK -->
 
 			<section
@@ -290,64 +253,12 @@ const papers = [
 				padding-bottom: 0;
 			}
 
-			/* TAGLINE */
-
-			.books-page-heading {
-				width: min(1180px, calc(100% - 3rem));
-				margin: 0 auto;
-				padding-top: clamp(1.5rem, 2.5vw, 2.25rem);
-				padding-bottom: 0.75rem;
-			}
-
-			.books-page-tagline {
-				margin: 0;
-			}
-
-			.books-page-tagline span {
-				display: inline-block;
-			}
-
-			.js .books-page-tagline span {
-				opacity: 0;
-				transform: translateY(12px);
-			}
-
-			.books-page-heading.is-visible
-				.books-page-tagline
-				span {
-				animation: tagline-reveal 0.7s
-					cubic-bezier(0.22, 1, 0.36, 1) forwards;
-			}
-
-			.books-page-heading.is-visible .tagline-part-1 {
-				animation-delay: 0.15s;
-			}
-
-			.books-page-heading.is-visible .tagline-part-2 {
-				animation-delay: 0.25s;
-			}
-
-			.books-page-heading.is-visible .tagline-part-3 {
-				animation-delay: 0.35s;
-			}
-
-			.books-page-heading.is-visible .tagline-part-4 {
-				animation-delay: 0.45s;
-			}
-
-			@keyframes tagline-reveal {
-				to {
-					opacity: 1;
-					transform: translateY(0);
-				}
-			}
-
 			/* FEATURED BOOK */
 
 			.books-page-book-featured {
 				margin-top: 0;
 				margin-bottom: 0;
-				padding-top: clamp(1.5rem, 2.5vw, 2rem);
+				padding-top: clamp(3rem, 5vw, 4.25rem);
 				padding-bottom: clamp(2.25rem, 4vw, 3.5rem);
 			}
 
@@ -452,25 +363,11 @@ const papers = [
 				opacity: 0.66;
 			}
 
-			@media (prefers-reduced-motion: reduce) {
-				.js .books-page-tagline span {
-					opacity: 1;
-					transform: none;
-					animation: none;
-				}
-			}
-
 			@media (max-width: 850px) {
-				.books-page-heading {
-					width: min(100% - 2rem, 720px);
-					padding-top: 1.5rem;
-					padding-bottom: 0.5rem;
-				}
-
 				.books-page-book-featured {
 					margin-top: 0;
 					margin-bottom: 0;
-					padding-top: 1.25rem;
+					padding-top: 2.5rem;
 					padding-bottom: 2rem;
 				}
 
