@@ -56,19 +56,6 @@ const capabilities = [
 		<Header />
 
 		<main>
-			<section class="hero">
-				<h1 class="hero-title">
-					<span class="hero-line">
-						CIO <span class="accent">Office</span>
-					</span>
-				</h1>
-
-				<div class="lead-principles">
-					<div>La Tecnología No Es el Punto de Partida</div>
-					<div>El Negocio Sí</div>
-				</div>
-			</section>
-
 			<section class="cio-office-capabilities reveal-section">
 				<div class="cio-office-capabilities-heading reveal-item">
 					<img
@@ -77,8 +64,44 @@ const capabilities = [
 						class="cio-office-capabilities-logo animated-image"
 					/>
 
-					<h2>
-						Estrategia • Asesoramiento • Transformación
+					<h2
+						class="cio-office-capabilities-tagline"
+						aria-label="Estrategia • Asesoramiento • Transformación"
+					>
+						<span
+							class="tagline-part tagline-part-1"
+							aria-hidden="true"
+						>
+							Estrategia
+						</span>
+
+						<span
+							class="tagline-dot tagline-part-2 accent"
+							aria-hidden="true"
+						>
+							•
+						</span>
+
+						<span
+							class="tagline-part tagline-part-3"
+							aria-hidden="true"
+						>
+							Asesoramiento
+						</span>
+
+						<span
+							class="tagline-dot tagline-part-4 accent"
+							aria-hidden="true"
+						>
+							•
+						</span>
+
+						<span
+							class="tagline-part tagline-part-5"
+							aria-hidden="true"
+						>
+							Transformación
+						</span>
 					</h2>
 				</div>
 
@@ -151,5 +174,58 @@ const capabilities = [
 				revealObserver.observe(section);
 			});
 		</script>
+
+		<style>
+			.cio-office-capabilities-tagline span {
+				display: inline-block;
+			}
+
+			.js .cio-office-capabilities-tagline span {
+				opacity: 0;
+				transform: translateY(12px);
+			}
+
+			.cio-office-capabilities.is-visible
+				.cio-office-capabilities-tagline
+				span {
+				animation: tagline-reveal 0.7s
+					cubic-bezier(0.22, 1, 0.36, 1) forwards;
+			}
+
+			.cio-office-capabilities.is-visible .tagline-part-1 {
+				animation-delay: 0.15s;
+			}
+
+			.cio-office-capabilities.is-visible .tagline-part-2 {
+				animation-delay: 0.25s;
+			}
+
+			.cio-office-capabilities.is-visible .tagline-part-3 {
+				animation-delay: 0.35s;
+			}
+
+			.cio-office-capabilities.is-visible .tagline-part-4 {
+				animation-delay: 0.45s;
+			}
+
+			.cio-office-capabilities.is-visible .tagline-part-5 {
+				animation-delay: 0.55s;
+			}
+
+			@keyframes tagline-reveal {
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+
+			@media (prefers-reduced-motion: reduce) {
+				.js .cio-office-capabilities-tagline span {
+					opacity: 1;
+					transform: none;
+					animation: none;
+				}
+			}
+		</style>
 	</body>
 </html>
