@@ -132,24 +132,16 @@ const youtubeEmbedUrl =
 
 
 			<!-- =====================================================
-			     WATCH
+			     VIDEO
 			===================================================== -->
 
 			<section
 				class="media-list webinar-watch reveal-section"
-				aria-labelledby="video-title"
+				aria-label="Technology is Never the Starting Point video"
 			>
 
-				<h2
-					id="video-title"
-					class="webinar-watch-title reveal-item"
-				>
-					Watch
-				</h2>
-
-
 				<div
-					class="webinar-video reveal-item reveal-delay-1"
+					class="webinar-video reveal-item"
 				>
 					<iframe
 						src={youtubeEmbedUrl}
@@ -161,7 +153,7 @@ const youtubeEmbedUrl =
 				</div>
 
 
-				<p class="webinar-watch-link reveal-item">
+				<p class="webinar-watch-link reveal-item reveal-delay-1">
 
 					<a
 						href="https://www.youtube.com/watch?v=ZN-d5W68Lp8"
@@ -494,7 +486,7 @@ const youtubeEmbedUrl =
 		margin:
 			-18px
 			auto
-			38px;
+			30px;
 	}
 
 
@@ -620,21 +612,15 @@ const youtubeEmbedUrl =
 
 
 	/* =========================================================
-	   WATCH
+	   VIDEO
 	========================================================= */
 
 	.webinar-watch {
+		margin-top:
+			-12px;
+
 		margin-bottom:
-			48px;
-	}
-
-
-	.webinar-watch-title::after {
-		display:
-			none !important;
-
-		content:
-			none !important;
+			24px;
 	}
 
 
@@ -671,7 +657,7 @@ const youtubeEmbedUrl =
 
 	.webinar-watch-link {
 		margin:
-			14px
+			10px
 			0
 			0;
 
@@ -686,8 +672,11 @@ const youtubeEmbedUrl =
 	========================================================= */
 
 	.webinar-takeaways {
+		margin-top:
+			0;
+
 		margin-bottom:
-			34px;
+			0;
 	}
 
 
@@ -726,14 +715,26 @@ const youtubeEmbedUrl =
 	.webinar-contact {
 		width:
 			min(
-				900px,
+				1120px,
 				calc(100% - 48px)
 			);
 
 		margin:
 			0
 			auto
-			48px;
+			18px;
+
+		padding-top:
+			26px;
+
+		border-top:
+			1px solid
+			rgba(
+				16,
+				43,
+				70,
+				0.12
+			);
 
 		text-align:
 			center;
@@ -761,7 +762,7 @@ const youtubeEmbedUrl =
 
 	.webinar-contact-link {
 		margin:
-			12px
+			10px
 			0
 			0;
 	}
@@ -802,7 +803,7 @@ const youtubeEmbedUrl =
 			margin:
 				-4px
 				auto
-				30px;
+				24px;
 		}
 
 
@@ -818,6 +819,15 @@ const youtubeEmbedUrl =
 		}
 
 
+		.webinar-watch {
+			margin-top:
+				-4px;
+
+			margin-bottom:
+				20px;
+		}
+
+
 		.webinar-takeaway-number {
 			font-size:
 				4rem;
@@ -829,6 +839,12 @@ const youtubeEmbedUrl =
 				calc(
 					100% - 32px
 				);
+
+			margin-bottom:
+				12px;
+
+			padding-top:
+				22px;
 		}
 
 	}
