@@ -17,6 +17,29 @@ import Footer from '../components/Footer.astro';
 			description="Fede Rodrigo is a Chief Information Officer, author, speaker, and technology leader focused on business value, leadership, technology strategy, operational excellence, and transformation"
 			lang="en"
 		/>
+
+		<style>
+			/* BOOK — more space before the divider */
+			#books {
+				padding-bottom: 3.5rem;
+			}
+
+			#books .books-page-book {
+				padding-bottom: 2rem;
+			}
+
+			/* ABOUT — move photo up and remove line below it */
+			#about .about-photo-wrapper {
+				border-bottom: none !important;
+				padding-bottom: 0 !important;
+				margin-top: -28px;
+				align-self: start;
+			}
+
+			#about .about-photo {
+				display: block;
+			}
+		</style>
 	</head>
 
 	<body>
