@@ -109,11 +109,9 @@ const recognition: MediaItem = {
 			<!-- SPEAKING HERO -->
 
 			<section class="hero speaking-hero">
-
 				<h1 class="hero-title speaking-hero-title">
-					<span class="hero-line">What if your next</span>
-					<span class="hero-line">technology decision</span>
-					<span class="hero-line">started with</span>
+					<span class="hero-line">What if your next technology</span>
+					<span class="hero-line">decision started with</span>
 					<span class="hero-line"><span class="speaking-hero-accent">no technology at all?</span></span>
 				</h1>
 			</section>
@@ -135,7 +133,7 @@ const recognition: MediaItem = {
 						id="speaking-thesis-title"
 						class="speaking-thesis-conclusion reveal-item reveal-delay-1"
 					>
-						Technology is never the starting point
+						Technology is <span class="speaking-never">never</span> the starting point
 					</h2>
 
 					<p class="speaking-thesis-link reveal-item reveal-delay-1">
@@ -702,15 +700,32 @@ const recognition: MediaItem = {
 	   SPEAKING HERO — MINIMAL PAGE-SPECIFIC OVERRIDES
 	========================================================= */
 
+	.speaking-hero {
+		border-bottom: 0 !important;
+	}
+
 	.speaking-hero-title {
-		max-width: 900px;
+		width: 100%;
+		max-width: 1080px;
+		margin-left: auto;
+		margin-right: auto;
 		font-size: clamp(1.85rem, 3.3vw, 3.4rem);
 		line-height: 1.08;
+		text-align: center;
+	}
+
+	.speaking-hero-title .hero-line {
+		width: 100%;
+		white-space: nowrap;
+	}
+
+	.speaking-hero-accent,
+	.speaking-never {
+		color: #6fa7ef;
 	}
 
 	.speaking-hero-accent {
 		display: inline-block;
-		color: #6fa7ef;
 		opacity: 0;
 		transform: translateY(6px);
 		animation: speakingAccentReveal 520ms ease 720ms forwards;
@@ -733,17 +748,20 @@ const recognition: MediaItem = {
 
 	.speaking-thesis {
 		width: min(1120px, calc(100% - 48px));
-		margin: 22px auto 30px;
+		margin: 8px auto 42px;
 		padding: 0;
+		border-top: 0 !important;
 	}
 
 	.speaking-thesis-copy {
-		max-width: 920px;
+		max-width: 880px;
+		margin: 0 auto;
+		text-align: center;
 	}
 
 	.speaking-thesis-text {
-		max-width: 850px;
-		margin: 0 0 17px;
+		max-width: 760px;
+		margin: 0 auto 18px;
 		color: #6f7d8f;
 		font-size: clamp(1.05rem, 1.35vw, 1.22rem);
 		line-height: 1.58;
@@ -752,12 +770,18 @@ const recognition: MediaItem = {
 
 	.speaking-thesis-conclusion {
 		max-width: 900px;
-		margin: 0;
+		margin: 0 auto;
 		color: #102b46;
 		font-size: clamp(1.5rem, 2.1vw, 2rem);
 		font-weight: 650;
 		line-height: 1.22;
 		letter-spacing: -0.035em;
+	}
+
+	.speaking-thesis-conclusion::before,
+	.speaking-thesis-conclusion::after {
+		display: none !important;
+		content: none !important;
 	}
 
 	/* =========================================================
@@ -1130,8 +1154,13 @@ const recognition: MediaItem = {
 
 	@media (max-width: 620px) {
 		.speaking-hero-title {
+			max-width: 100%;
 			font-size: clamp(1.8rem, 7.2vw, 2.45rem);
 			line-height: 1.1;
+		}
+
+		.speaking-hero-title .hero-line {
+			white-space: normal;
 		}
 
 		.speaking-thesis,
