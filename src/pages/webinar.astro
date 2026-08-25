@@ -86,10 +86,10 @@ const youtubeEmbedUrl =
 
 						<p class="webinar-description">
 
-						<strong>
-							This talk explores a different approach:
-						</strong>
-						<br />
+							<strong>
+								This talk explores a different approach:
+							</strong>
+
 							start with people and business priorities,
 							then use technology to enable the outcome
 
@@ -282,10 +282,14 @@ const youtubeEmbedUrl =
 					class="webinar-contact reveal-item reveal-delay-3"
 				>
 
+					<h2 class="webinar-contact-title">
+						Speaking Inquiries
+					</h2>
+
 					<p class="webinar-contact-copy">
 
-						For speaking engagements, interviews,
-						podcasts, or other opportunities
+						For speaking engagements, podcasts,
+						or other opportunities, please get in touch
 
 					</p>
 
@@ -737,7 +741,7 @@ const youtubeEmbedUrl =
 			) !important;
 
 		padding-bottom:
-			32px !important;
+			0 !important;
 	}
 
 
@@ -782,9 +786,9 @@ const youtubeEmbedUrl =
 			0;
 
 		padding:
-			24px
+			64px
 			0
-			4px;
+			56px;
 
 		border-top:
 			1px solid
@@ -796,26 +800,93 @@ const youtubeEmbedUrl =
 			);
 
 		text-align:
-			center;
+			left;
+	}
+
+
+	main
+	.webinar-contact
+	.webinar-contact-title {
+		width:
+			100%;
+
+		max-width:
+			none;
+
+		margin:
+			0 !important;
+
+		color:
+			#102b46;
+
+		font-size:
+			clamp(
+				2.1rem,
+				3.2vw,
+				2.85rem
+			);
+
+		font-weight:
+			700;
+
+		line-height:
+			1.08;
+
+		letter-spacing:
+			-0.045em;
+
+		text-align:
+			left;
+	}
+
+
+	main
+	.webinar-contact
+	.webinar-contact-title::after {
+		display:
+			block;
+
+		width:
+			68px;
+
+		height:
+			3px;
+
+		margin-top:
+			16px;
+
+		background:
+			#b43a37;
+
+		content:
+			'';
 	}
 
 
 	.webinar-contact-copy {
 		max-width:
-			650px;
+			1080px;
 
 		margin:
+			24px
 			0
-			auto;
+			0;
 
 		color:
 			#6f7d8f;
 
 		font-size:
-			1rem;
+			clamp(
+				1.2rem,
+				1.8vw,
+				1.55rem
+			);
 
 		line-height:
-			1.6;
+			1.55;
+
+		letter-spacing:
+			-0.015em;
 	}
 
 
@@ -827,18 +898,18 @@ const youtubeEmbedUrl =
 			center;
 
 		justify-content:
-			center;
+			flex-start;
 
 		width:
 			100%;
 
 		margin:
-			8px
-			auto
+			26px
+			0
 			0 !important;
 
 		text-align:
-			center !important;
+			left !important;
 	}
 
 
@@ -851,13 +922,16 @@ const youtubeEmbedUrl =
 			center;
 
 		justify-content:
-			center;
+			flex-start;
 
 		width:
 			max-content !important;
 
 		margin:
-			0 auto !important;
+			0 !important;
+
+		font-size:
+			1.08rem;
 	}
 
 
@@ -933,7 +1007,7 @@ const youtubeEmbedUrl =
 				24px !important;
 
 			padding-bottom:
-				24px !important;
+				0 !important;
 		}
 
 
@@ -945,9 +1019,43 @@ const youtubeEmbedUrl =
 
 		.webinar-contact {
 			padding:
-				20px
+				42px
 				0
-				0;
+				38px;
+		}
+
+
+		main
+		.webinar-contact
+		.webinar-contact-title {
+			font-size:
+				2rem;
+		}
+
+
+		main
+		.webinar-contact
+		.webinar-contact-title::after {
+			width:
+				56px;
+
+			margin-top:
+				13px;
+		}
+
+
+		.webinar-contact-copy {
+			margin-top:
+				20px;
+
+			font-size:
+				1.12rem;
+		}
+
+
+		.webinar-contact-link {
+			margin-top:
+				22px !important;
 		}
 
 	}
