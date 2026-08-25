@@ -2,12 +2,6 @@
 import SEO from '../components/SEO.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-
-const registrationUrl =
-	'https://forms.gle/TJEuQGhBCBT8cZx28';
-
-const youtubeEmbedUrl =
-	'https://www.youtube.com/embed/ZN-d5W68Lp8';
 ---
 
 <!doctype html>
@@ -19,8 +13,8 @@ const youtubeEmbedUrl =
 		</script>
 
 		<SEO
-			title="Technology is never the starting point | Webinar | Fede Rodrigo"
-			description="Join Fede Rodrigo on August 20, 2026 for a practical webinar on creating business value by starting with people and business priorities before technology"
+			title="Technology is Never the Starting Point | Fede Rodrigo"
+			description="Technology initiatives often begin with a solution instead of the business need behind it. A talk about starting with people and business priorities, then using technology to enable the outcome."
 			lang="en"
 		/>
 	</head>
@@ -29,435 +23,1311 @@ const youtubeEmbedUrl =
 		<Header />
 
 		<main>
-			<!-- HERO -->
-			<section class="hero">
-				<h1 class="hero-title">
+
+			<!-- =====================================================
+			     HERO
+			===================================================== -->
+
+			<section class="hero webinar-hero">
+
+				<h1 class="hero-title webinar-hero-title">
+
 					<span class="hero-line">
-						Technology is <span class="accent">never</span>
+						Technology is
+						<span class="webinar-never">never</span>
 					</span>
 
 					<span class="hero-line">
 						the starting point
 					</span>
+
 				</h1>
 
-				<div class="lead-principles">
-					<div>People First</div>
-					<div>Business Driven</div>
-					<div>Technology Enabled</div>
+
+				<div class="webinar-principles">
+
+					<span>People First</span>
+
+					<span aria-hidden="true">·</span>
+
+					<span>Business Driven</span>
+
+					<span aria-hidden="true">·</span>
+
+					<span>Technology Enabled</span>
+
 				</div>
+
 			</section>
 
 
-			<!-- WEBINAR -->
+			<!-- =====================================================
+			     INTRO
+			===================================================== -->
+
 			<section
-				class="media-list reveal-section"
-				aria-labelledby="webinar-title"
+				class="webinar-intro reveal-section"
+				aria-labelledby="webinar-intro-title"
 			>
+
+				<p class="webinar-eyebrow reveal-item">
+					Talk
+				</p>
+
+
+				<p class="webinar-meta reveal-item">
+					Xseed · August 20, 2026
+				</p>
+
+
 				<h2
-					id="webinar-title"
-					class="reveal-item"
+					id="webinar-intro-title"
+					class="webinar-intro-title reveal-item"
 				>
-					Webinar
+					Technology is Never the Starting Point
 				</h2>
 
-				<article
-					class="media-item webinar-main reveal-item reveal-delay-1"
-				>
-					<div class="media-image-wrapper">
-						<a
-							href={registrationUrl}
-							target="_blank"
-							rel="noopener noreferrer"
-							aria-label="Register for Technology is Never the Starting Point"
+
+				<div class="webinar-copy">
+
+					<p class="webinar-lead reveal-item">
+						Technology initiatives often begin with a solution
+						instead of the business need behind it
+					</p>
+
+
+					<p class="webinar-description reveal-item reveal-delay-1">
+						<strong>This talk explores a different approach:</strong>
+						start with people and business priorities,
+						then use technology to enable the outcome
+					</p>
+
+				</div>
+
+
+				<div class="webinar-secondary-links reveal-item">
+
+					<a
+						href="/about/"
+						class="animated-link"
+					>
+						<span>About Federico</span>
+
+						<span
+							class="animated-link-arrow"
+							aria-hidden="true"
 						>
-							<img
-								src="/images/xseed-webinar.png"
-								alt="Technology is Never the Starting Point webinar with Federico Rodrigo"
-								class="media-image"
-								loading="lazy"
-							/>
-						</a>
-					</div>
+							→
+						</span>
+					</a>
 
-					<div class="media-content">
-						<p class="media-meta">
-							<span>Xseed</span>
-							<span aria-hidden="true">·</span>
-							<span>August 20, 2026</span>
-						</p>
 
-						<h3>
-							Technology is Never the Starting Point
-						</h3>
+					<a
+						href="/books/"
+						class="animated-link"
+					>
+						<span>Explore the book</span>
 
-						<div class="webinar-intro">
-							<p class="media-description">
-								Technology initiatives often begin with a solution
-								instead of the business need behind it
-							</p>
+						<span
+							class="animated-link-arrow"
+							aria-hidden="true"
+						>
+							→
+						</span>
+					</a>
 
-							<p class="media-description">
-								<strong>
-									This practical session explores a different approach:
-								</strong>
-								start with people and business priorities, then use
-								technology to enable the outcome
-							</p>
-						</div>
+				</div>
 
-						<p class="media-meta webinar-schedule">
-							Thursday, August 20 · 1:00 PM ET · 2:00 PM Uruguay · 1 hour
-						</p>
-
-						<div class="media-action">
-							<a
-								href={registrationUrl}
-								target="_blank"
-								rel="noopener noreferrer"
-								class="animated-link"
-							>
-								<span>Save my spot</span>
-
-								<span
-									class="animated-link-arrow"
-									aria-hidden="true"
-								>
-									→
-								</span>
-							</a>
-						</div>
-
-						<div class="webinar-secondary-links">
-							<a
-								href="/about/"
-								class="animated-link"
-							>
-								<span>About Federico</span>
-
-								<span
-									class="animated-link-arrow"
-									aria-hidden="true"
-								>
-									→
-								</span>
-							</a>
-
-							<a
-								href="/cio-book/"
-								class="animated-link"
-							>
-								<span>Explore the book</span>
-
-								<span
-									class="animated-link-arrow"
-									aria-hidden="true"
-								>
-									→
-								</span>
-							</a>
-						</div>
-					</div>
-				</article>
 			</section>
 
 
-			<!-- VIDEO -->
+			<div
+				class="webinar-divider"
+				aria-hidden="true"
+			></div>
+
+
+			<!-- =====================================================
+			     WATCH
+			===================================================== -->
+
 			<section
-				class="media-list reveal-section"
-				aria-labelledby="video-title"
+				class="webinar-watch reveal-section"
+				aria-labelledby="webinar-watch-title"
 			>
+
 				<h2
-					id="video-title"
+					id="webinar-watch-title"
 					class="reveal-item"
 				>
 					Watch
 				</h2>
 
-				<div
-					class="webinar-video reveal-item reveal-delay-1"
-				>
+
+				<div class="webinar-video reveal-item reveal-delay-1">
+
 					<iframe
-						src={youtubeEmbedUrl}
+						src="https://www.youtube.com/embed/ZN-d5W68Lp8"
 						title="Technology is Never the Starting Point"
 						loading="lazy"
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 						allowfullscreen
 					></iframe>
+
 				</div>
+
+
+				<p class="webinar-watch-link reveal-item">
+
+					<a
+						href="https://www.youtube.com/watch?v=ZN-d5W68Lp8"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="animated-link"
+					>
+						<span>
+							Watch on YouTube
+						</span>
+
+						<span
+							class="animated-link-arrow"
+							aria-hidden="true"
+						>
+							→
+						</span>
+					</a>
+
+				</p>
+
 			</section>
 
 
-			<!-- TAKEAWAYS -->
+			<div
+				class="webinar-divider"
+				aria-hidden="true"
+			></div>
+
+
+			<!-- =====================================================
+			     TAKEAWAYS
+			===================================================== -->
+
 			<section
-				class="media-list reveal-section"
-				aria-labelledby="takeaways-title"
+				class="webinar-takeaways reveal-section"
+				aria-labelledby="webinar-takeaways-title"
 			>
+
 				<h2
-					id="takeaways-title"
+					id="webinar-takeaways-title"
 					class="reveal-item"
 				>
 					What You'll Take Away
 				</h2>
 
-				<article
-					class="media-item webinar-takeaway reveal-item reveal-delay-1"
-				>
-					<div class="webinar-takeaway-number">
-						01
-					</div>
 
-					<div class="media-content">
+				<div class="webinar-takeaways-grid">
+
+
+					<article
+						class="webinar-takeaway reveal-item"
+						style="--delay: 0ms;"
+					>
+
+						<p class="webinar-takeaway-number">
+							01
+						</p>
+
 						<h3>
 							Why Technology Initiatives Fail
 						</h3>
 
-						<p class="media-description">
-							Why so many initiatives fail to deliver what was
-							expected — and what leaders can do differently
+						<p>
+							Why so many initiatives fail to deliver
+							what was expected — and what leaders
+							can do differently
 						</p>
-					</div>
-				</article>
 
-				<article
-					class="media-item webinar-takeaway reveal-item reveal-delay-2"
-				>
-					<div class="webinar-takeaway-number">
-						02
-					</div>
+					</article>
 
-					<div class="media-content">
+
+					<article
+						class="webinar-takeaway reveal-item"
+						style="--delay: 80ms;"
+					>
+
+						<p class="webinar-takeaway-number">
+							02
+						</p>
+
 						<h3>
 							IT as a Service Organization
 						</h3>
 
-						<p class="media-description">
-							How to focus IT on the people and business it
-							serves, with business value as the measure of
-							success
+						<p>
+							How to focus IT on the people and
+							business it serves, with business value
+							as the measure of success
 						</p>
-					</div>
-				</article>
 
-				<article
-					class="media-item webinar-takeaway reveal-item reveal-delay-3"
-				>
-					<div class="webinar-takeaway-number">
-						03
-					</div>
+					</article>
 
-					<div class="media-content">
+
+					<article
+						class="webinar-takeaway reveal-item"
+						style="--delay: 160ms;"
+					>
+
+						<p class="webinar-takeaway-number">
+							03
+						</p>
+
 						<h3>
 							Leading Through the AI Era
 						</h3>
 
-						<p class="media-description">
-							Why changing tools do not replace leadership,
-							strategy, judgment, and business understanding
+						<p>
+							Why changing tools do not replace
+							leadership, strategy, judgment,
+							and business understanding
 						</p>
-					</div>
-				</article>
+
+					</article>
+
+
+				</div>
+
 			</section>
 
 
-			<!-- FINAL CTA -->
+			<!-- =====================================================
+			     CLOSING
+			===================================================== -->
+
 			<section
-				class="media-contact reveal-section"
-				aria-labelledby="register-title"
+				class="webinar-closing reveal-section"
+				aria-labelledby="webinar-closing-title"
 			>
+
 				<h2
-					id="register-title"
-					class="reveal-item"
+					id="webinar-closing-title"
+					class="webinar-closing-title reveal-item"
 				>
-					Join the Webinar
+					Technology is
+					<span class="webinar-never">never</span>
+					the starting point
 				</h2>
 
-				<div class="reveal-item reveal-delay-1">
-					<p>
-						Thursday, August 20, 2026 · 1:00 PM ET ·
-						2:00 PM Uruguay · 1 hour
-					</p>
 
-					<p>
-						Register and the calendar invite will arrive in
-						your inbox automatically
-					</p>
+				<p class="webinar-closing-copy reveal-item reveal-delay-1">
+					For speaking engagements, executive conversations,
+					interviews, or other opportunities, get in touch
+				</p>
 
-					<p class="media-contact-link">
-						<a
-							href={registrationUrl}
-							target="_blank"
-							rel="noopener noreferrer"
-							class="animated-link"
+
+				<p class="webinar-contact-link reveal-item reveal-delay-1">
+
+					<a
+						href="/contact/"
+						class="animated-link"
+					>
+						<span>Contact me</span>
+
+						<span
+							class="animated-link-arrow"
+							aria-hidden="true"
 						>
-							<span>Save my spot</span>
+							→
+						</span>
+					</a>
 
-							<span
-								class="animated-link-arrow"
-								aria-hidden="true"
-							>
-								→
-							</span>
-						</a>
-					</p>
-				</div>
+				</p>
+
 			</section>
+
 		</main>
+
 
 		<Footer />
 
+
+		<!-- =====================================================
+		     REVEAL
+		===================================================== -->
+
 		<script>
 			const sections =
-				document.querySelectorAll('.reveal-section');
+				document.querySelectorAll(
+					'.reveal-section'
+				);
 
-			const revealObserver = new IntersectionObserver(
-				(entries, observer) => {
-					entries.forEach((entry) => {
-						if (!entry.isIntersecting) return;
+			if ('IntersectionObserver' in window) {
 
-						entry.target.classList.add('is-visible');
-						observer.unobserve(entry.target);
-					});
-				},
-				{
-					threshold: 0.08,
-					rootMargin: '0px 0px -50px 0px',
-				}
-			);
+				const revealObserver =
+					new IntersectionObserver(
 
-			sections.forEach((section) => {
-				revealObserver.observe(section);
-			});
+						(entries, observer) => {
+
+							entries.forEach((entry) => {
+
+								if (!entry.isIntersecting) {
+									return;
+								}
+
+								entry.target.classList.add(
+									'is-visible'
+								);
+
+								observer.unobserve(
+									entry.target
+								);
+
+							});
+
+						},
+
+						{
+							threshold: 0.08,
+							rootMargin:
+								'0px 0px -50px 0px'
+						}
+
+					);
+
+
+				sections.forEach((section) => {
+					revealObserver.observe(section);
+				});
+
+			} else {
+
+				sections.forEach((section) => {
+					section.classList.add(
+						'is-visible'
+					);
+				});
+
+			}
 		</script>
+
 	</body>
 </html>
 
+
 <style>
-	/* MAIN WEBINAR */
 
-	.webinar-main {
-		grid-template-columns: 340px minmax(0, 1fr);
-		column-gap: 2rem;
-		align-items: start;
-	}
+	/* =========================================================
+	   HERO
+	========================================================= */
 
-	.webinar-main .media-image-wrapper {
-		width: 100%;
-		max-width: none;
-	}
-
-	.webinar-main .media-image-wrapper a,
-	.webinar-main .media-image-wrapper a:hover {
-		display: block;
-		width: 100%;
-		text-decoration: none;
-		border-bottom: none;
-		background-image: none;
-	}
-
-	.webinar-main .media-image-wrapper a::before,
-	.webinar-main .media-image-wrapper a::after {
-		display: none;
-		content: none;
-	}
-
-	.webinar-main .media-image {
-		display: block;
-		width: 100%;
-		max-width: none;
-		height: auto;
+	.webinar-hero {
+		border-bottom:
+			0 !important;
 	}
 
 
-	/* TEXT */
+	.webinar-hero-title {
+		width:
+			100%;
+
+		max-width:
+			1050px;
+
+		margin-left:
+			auto;
+
+		margin-right:
+			auto;
+
+		font-size:
+			clamp(
+				2.4rem,
+				4.8vw,
+				4.7rem
+			);
+
+		line-height:
+			1.03;
+
+		letter-spacing:
+			-0.055em;
+
+		text-align:
+			center;
+	}
+
+
+	.webinar-hero-title
+	.hero-line {
+		display:
+			block;
+
+		width:
+			100%;
+	}
+
+
+	.webinar-never {
+		color:
+			#6fa7ef;
+	}
+
+
+	.webinar-principles {
+		display:
+			flex;
+
+		align-items:
+			center;
+
+		justify-content:
+			center;
+
+		flex-wrap:
+			wrap;
+
+		gap:
+			8px;
+
+		margin:
+			22px
+			auto
+			0;
+
+		color:
+			#6f7d8f;
+
+		font-size:
+			0.82rem;
+
+		font-weight:
+			650;
+
+		line-height:
+			1.4;
+
+		letter-spacing:
+			0.045em;
+
+		text-transform:
+			uppercase;
+	}
+
+
+	.webinar-principles
+	span:nth-child(2),
+	.webinar-principles
+	span:nth-child(4) {
+		color:
+			#b3bdc7;
+	}
+
+
+	/* =========================================================
+	   INTRO
+	========================================================= */
 
 	.webinar-intro {
-		margin-top: 0.9rem;
-	}
+		width:
+			min(
+				900px,
+				calc(100% - 48px)
+			);
 
-	.webinar-intro .media-description {
-		margin-bottom: 1rem;
-	}
+		margin:
+			-16px
+			auto
+			42px;
 
-	.webinar-intro .media-description:last-child {
-		margin-bottom: 0;
-	}
-
-	.webinar-schedule {
-		margin-top: 1.8rem;
-		margin-bottom: 0.2rem;
-		display: block;
-		line-height: 1.5;
+		text-align:
+			center;
 	}
 
 
-	/* SECONDARY LINKS */
+	.webinar-eyebrow {
+		margin:
+			0
+			0
+			6px;
+
+		color:
+			#6fa7ef;
+
+		font-size:
+			0.7rem;
+
+		font-weight:
+			750;
+
+		line-height:
+			1.2;
+
+		letter-spacing:
+			0.1em;
+
+		text-transform:
+			uppercase;
+	}
+
+
+	.webinar-meta {
+		margin:
+			0
+			0
+			20px;
+
+		color:
+			#8b97a4;
+
+		font-size:
+			0.75rem;
+
+		font-weight:
+			650;
+
+		line-height:
+			1.35;
+
+		letter-spacing:
+			0.04em;
+
+		text-transform:
+			uppercase;
+	}
+
+
+	.webinar-intro-title {
+		max-width:
+			850px;
+
+		margin:
+			0
+			auto
+			22px;
+
+		color:
+			#102b46;
+
+		font-size:
+			clamp(
+				1.8rem,
+				3vw,
+				2.8rem
+			);
+
+		font-weight:
+			700;
+
+		line-height:
+			1.08;
+
+		letter-spacing:
+			-0.045em;
+	}
+
+
+	.webinar-copy {
+		max-width:
+			760px;
+
+		margin:
+			0
+			auto;
+	}
+
+
+	.webinar-lead {
+		margin:
+			0
+			auto
+			16px;
+
+		color:
+			#102b46;
+
+		font-size:
+			clamp(
+				1.15rem,
+				1.55vw,
+				1.35rem
+			);
+
+		font-weight:
+			600;
+
+		line-height:
+			1.5;
+
+		letter-spacing:
+			-0.025em;
+	}
+
+
+	.webinar-description {
+		max-width:
+			720px;
+
+		margin:
+			0
+			auto;
+
+		color:
+			#6f7d8f;
+
+		font-size:
+			clamp(
+				1rem,
+				1.25vw,
+				1.12rem
+			);
+
+		line-height:
+			1.65;
+
+		letter-spacing:
+			-0.012em;
+	}
+
+
+	.webinar-description
+	strong {
+		color:
+			#102b46;
+
+		font-weight:
+			650;
+	}
+
 
 	.webinar-secondary-links {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 1.5rem;
-		margin-top: 1.15rem;
+		display:
+			flex;
+
+		align-items:
+			center;
+
+		justify-content:
+			center;
+
+		flex-wrap:
+			wrap;
+
+		gap:
+			14px
+			26px;
+
+		margin-top:
+			24px;
 	}
 
-	.webinar-secondary-links .animated-link {
-		font-size: 0.95rem;
+
+	/* =========================================================
+	   DIVIDER
+	========================================================= */
+
+	.webinar-divider {
+		width:
+			min(
+				1120px,
+				calc(100% - 48px)
+			);
+
+		height:
+			1px;
+
+		margin:
+			0
+			auto
+			38px;
+
+		background:
+			rgba(
+				16,
+				43,
+				70,
+				0.12
+			);
 	}
 
 
-	/* VIDEO */
+	/* =========================================================
+	   WATCH
+	========================================================= */
+
+	.webinar-watch {
+		width:
+			min(
+				980px,
+				calc(100% - 48px)
+			);
+
+		margin:
+			0
+			auto
+			38px;
+	}
+
+
+	.webinar-watch
+	h2,
+	.webinar-takeaways
+	> h2 {
+		margin:
+			0
+			0
+			22px;
+
+		color:
+			#102b46;
+	}
+
 
 	.webinar-video {
-		width: 100%;
-		aspect-ratio: 16 / 9;
-		overflow: hidden;
-		border-radius: 14px;
+		position:
+			relative;
+
+		width:
+			100%;
+
+		aspect-ratio:
+			16 / 9;
+
+		overflow:
+			hidden;
+
+		border:
+			1px solid
+			rgba(
+				16,
+				43,
+				70,
+				0.07
+			);
+
+		border-radius:
+			14px;
+
+		background:
+			#000000;
+
+		box-shadow:
+			0 16px 40px
+			rgba(
+				16,
+				43,
+				70,
+				0.07
+			);
 	}
 
-	.webinar-video iframe {
-		display: block;
-		width: 100%;
-		height: 100%;
-		border: 0;
+
+	.webinar-video
+	iframe {
+		position:
+			absolute;
+
+		inset:
+			0;
+
+		width:
+			100%;
+
+		height:
+			100%;
+
+		border:
+			0;
 	}
 
 
-	/* TAKEAWAYS */
+	.webinar-watch-link {
+		margin:
+			14px
+			0
+			0;
+
+		text-align:
+			center;
+	}
+
+
+	/* =========================================================
+	   TAKEAWAYS
+	========================================================= */
+
+	.webinar-takeaways {
+		width:
+			min(
+				1120px,
+				calc(100% - 48px)
+			);
+
+		margin:
+			0
+			auto
+			52px;
+	}
+
+
+	.webinar-takeaways-grid {
+		display:
+			grid;
+
+		grid-template-columns:
+			repeat(
+				3,
+				minmax(
+					0,
+					1fr
+				)
+			);
+
+		gap:
+			18px;
+	}
+
 
 	.webinar-takeaway {
-		align-items: center;
+		padding:
+			24px
+			22px
+			25px;
+
+		border:
+			1px solid
+			rgba(
+				16,
+				43,
+				70,
+				0.1
+			);
+
+		border-radius:
+			12px;
+
+		background:
+			#ffffff;
 	}
+
 
 	.webinar-takeaway-number {
-		font-size: clamp(4rem, 8vw, 7rem);
-		font-weight: 700;
-		line-height: 0.9;
-		letter-spacing: -0.06em;
-		opacity: 0.16;
+		margin:
+			0
+			0
+			22px;
+
+		color:
+			#6fa7ef;
+
+		font-size:
+			0.7rem;
+
+		font-weight:
+			750;
+
+		line-height:
+			1;
+
+		letter-spacing:
+			0.08em;
 	}
 
 
-	/* RESPONSIVE */
+	.webinar-takeaway
+	h3 {
+		margin:
+			0
+			0
+			10px;
 
-	@media (max-width: 900px) {
-		.webinar-main {
-			grid-template-columns: 1fr;
-			column-gap: 0;
-		}
+		color:
+			#102b46;
 
-		.webinar-main .media-image-wrapper {
-			max-width: 400px;
-		}
+		font-size:
+			clamp(
+				1.05rem,
+				1.35vw,
+				1.22rem
+			);
+
+		font-weight:
+			650;
+
+		line-height:
+			1.25;
+
+		letter-spacing:
+			-0.025em;
 	}
 
-	@media (max-width: 700px) {
-		.webinar-secondary-links {
-			flex-direction: column;
-			gap: 0.75rem;
+
+	.webinar-takeaway
+	p:not(
+		.webinar-takeaway-number
+	) {
+		margin:
+			0;
+
+		color:
+			#6f7d8f;
+
+		font-size:
+			0.94rem;
+
+		line-height:
+			1.55;
+	}
+
+
+	/* =========================================================
+	   CLOSING
+	========================================================= */
+
+	.webinar-closing {
+		width:
+			min(
+				1120px,
+				calc(100% - 48px)
+			);
+
+		margin:
+			0
+			auto
+			52px;
+
+		padding:
+			46px
+			0
+			0;
+
+		border-top:
+			1px solid
+			rgba(
+				16,
+				43,
+				70,
+				0.12
+			);
+
+		text-align:
+			center;
+	}
+
+
+	.webinar-closing-title {
+		max-width:
+			1000px;
+
+		margin:
+			0
+			auto;
+
+		color:
+			#102b46;
+
+		font-size:
+			clamp(
+				2rem,
+				3.4vw,
+				3.5rem
+			);
+
+		font-weight:
+			700;
+
+		line-height:
+			1.08;
+
+		letter-spacing:
+			-0.05em;
+	}
+
+
+	.webinar-closing-title::before,
+	.webinar-closing-title::after {
+		display:
+			none !important;
+
+		content:
+			none !important;
+	}
+
+
+	.webinar-closing-copy {
+		max-width:
+			650px;
+
+		margin:
+			18px
+			auto
+			0;
+
+		color:
+			#6f7d8f;
+
+		font-size:
+			1rem;
+
+		line-height:
+			1.6;
+	}
+
+
+	.webinar-contact-link {
+		margin:
+			14px
+			0
+			0;
+	}
+
+
+	/* =========================================================
+	   REVEALS
+	========================================================= */
+
+	.js
+	.reveal-section
+	.reveal-item {
+		opacity:
+			0;
+
+		transform:
+			translateY(
+				14px
+			);
+
+		transition:
+			opacity
+				600ms
+				ease,
+			transform
+				600ms
+				cubic-bezier(
+					0.22,
+					1,
+					0.36,
+					1
+				);
+
+		transition-delay:
+			var(
+				--delay,
+				0ms
+			);
+	}
+
+
+	.js
+	.reveal-section.is-visible
+	.reveal-item {
+		opacity:
+			1;
+
+		transform:
+			translateY(
+				0
+			);
+	}
+
+
+	.js
+	.reveal-delay-1 {
+		transition-delay:
+			90ms !important;
+	}
+
+
+	/* =========================================================
+	   TABLET
+	========================================================= */
+
+	@media (
+		max-width: 900px
+	) {
+
+		.webinar-takeaways-grid {
+			grid-template-columns:
+				1fr;
 		}
+
+
+		.webinar-takeaway {
+			padding:
+				22px
+				20px;
+		}
+
 
 		.webinar-takeaway-number {
-			font-size: 4rem;
+			margin-bottom:
+				14px;
 		}
+
 	}
+
+
+	/* =========================================================
+	   MOBILE
+	========================================================= */
+
+	@media (
+		max-width: 620px
+	) {
+
+		.webinar-hero-title {
+			font-size:
+				clamp(
+					2.1rem,
+					10vw,
+					3rem
+				);
+
+			line-height:
+				1.03;
+		}
+
+
+		.webinar-principles {
+			max-width:
+				310px;
+
+			gap:
+				5px
+				7px;
+
+			font-size:
+				0.65rem;
+
+			line-height:
+				1.45;
+		}
+
+
+		.webinar-intro,
+		.webinar-watch,
+		.webinar-takeaways,
+		.webinar-closing,
+		.webinar-divider {
+			width:
+				calc(
+					100% - 32px
+				);
+		}
+
+
+		.webinar-intro {
+			margin-top:
+				-8px;
+
+			margin-bottom:
+				34px;
+		}
+
+
+		.webinar-intro-title {
+			font-size:
+				1.85rem;
+		}
+
+
+		.webinar-lead {
+			font-size:
+				1.08rem;
+		}
+
+
+		.webinar-description {
+			font-size:
+				0.98rem;
+
+			line-height:
+				1.6;
+		}
+
+
+		.webinar-secondary-links {
+			flex-direction:
+				column;
+
+			gap:
+				10px;
+
+			margin-top:
+				20px;
+		}
+
+
+		.webinar-divider {
+			margin-bottom:
+				30px;
+		}
+
+
+		.webinar-watch {
+			margin-bottom:
+				30px;
+		}
+
+
+		.webinar-video {
+			border-radius:
+				10px;
+		}
+
+
+		.webinar-takeaways {
+			margin-bottom:
+				40px;
+		}
+
+
+		.webinar-takeaway {
+			padding:
+				20px
+				18px;
+		}
+
+
+		.webinar-closing {
+			margin-bottom:
+				38px;
+
+			padding-top:
+				36px;
+		}
+
+
+		.webinar-closing-title {
+			font-size:
+				clamp(
+					1.9rem,
+					8vw,
+					2.5rem
+				);
+		}
+
+
+		.webinar-closing-copy {
+			font-size:
+				0.95rem;
+		}
+
+	}
+
+
+	/* =========================================================
+	   REDUCED MOTION
+	========================================================= */
+
+	@media (
+		prefers-reduced-motion:
+		reduce
+	) {
+
+		.reveal-item {
+			transition:
+				none !important;
+		}
+
+	}
+
 </style>
