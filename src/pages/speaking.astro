@@ -190,7 +190,7 @@ const mediaItems: MediaItem[] = [
 
 					<a
 						href="/webinar/"
-						class="animated-link"
+						class="animated-link speaking-centered-link"
 					>
 						<span>Explore the talk</span>
 
@@ -322,7 +322,7 @@ const mediaItems: MediaItem[] = [
 				>
 					<a
 						href="/webinar/"
-						class="animated-link"
+						class="animated-link speaking-centered-link"
 					>
 						<span>Explore the talk</span>
 
@@ -882,16 +882,37 @@ const mediaItems: MediaItem[] = [
 	========================================================= */
 
 	.speaking-hero {
+		display: block !important;
+
+		width:
+			min(
+				1120px,
+				calc(100% - 48px)
+			);
+
+		margin-left: auto !important;
+		margin-right: auto !important;
+
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+
+		box-sizing: border-box;
+
+		text-align: center;
+
 		border-bottom: 0 !important;
 	}
 
 
-	.speaking-hero-title {
+	main .speaking-hero .speaking-hero-title {
 		width: 100%;
 		max-width: 1080px;
 
-		margin-left: auto;
-		margin-right: auto;
+		margin-left: auto !important;
+		margin-right: auto !important;
+
+		padding-left: 0 !important;
+		padding-right: 0 !important;
 
 		font-size:
 			clamp(
@@ -907,7 +928,10 @@ const mediaItems: MediaItem[] = [
 
 
 	.speaking-hero-title .hero-line {
+		display: block;
+
 		width: 100%;
+
 		white-space: nowrap;
 	}
 
@@ -996,10 +1020,9 @@ const mediaItems: MediaItem[] = [
 	}
 
 	.speaking-evidence-symbol {
-		position: absolute;
-		right: 100%;
-		top: 0;
-		margin-right: 0.05em;
+		position: static;
+		display: inline-block;
+		margin-right: 0.04em;
 	}
 
 	.speaking-evidence-label {
@@ -1044,6 +1067,39 @@ const mediaItems: MediaItem[] = [
 
 	.speaking-talk-link p {
 		margin: 0;
+
+		display: flex;
+
+		justify-content: center;
+	}
+
+
+	.speaking-centered-link {
+		display: inline-flex !important;
+
+		align-items: center;
+
+		justify-content: center;
+
+		width: max-content !important;
+		min-width: 0 !important;
+
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+
+		gap: 0.3em;
+	}
+
+
+	.speaking-centered-link
+	.animated-link-arrow {
+		position: static !important;
+
+		margin-left: 0 !important;
+		margin-right: 0 !important;
 	}
 
 
@@ -1293,6 +1349,10 @@ const mediaItems: MediaItem[] = [
 			14px
 			0
 			0;
+
+		display: flex;
+
+		justify-content: center;
 	}
 
 
@@ -1426,6 +1486,7 @@ const mediaItems: MediaItem[] = [
 
 
 		.speaking-evidence,
+		.speaking-hero,
 		.speaking-talk-link,
 		.speaking-showcase,
 		.speaking-closing,
@@ -1567,3 +1628,4 @@ const mediaItems: MediaItem[] = [
 	}
 
 </style>
+
