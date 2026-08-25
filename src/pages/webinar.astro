@@ -14,7 +14,7 @@ import Footer from '../components/Footer.astro';
 
 		<SEO
 			title="Technology is Never the Starting Point | Fede Rodrigo"
-			description="Technology initiatives often begin with a solution instead of the business need behind it. A talk about starting with people and business priorities, then using technology to enable the outcome."
+			description="Technology initiatives often begin with a solution instead of the business need behind it. Start with people and business priorities, then use technology to enable the outcome."
 			lang="en"
 		/>
 	</head>
@@ -65,28 +65,7 @@ import Footer from '../components/Footer.astro';
 			     INTRO
 			===================================================== -->
 
-			<section
-				class="webinar-intro reveal-section"
-				aria-labelledby="webinar-intro-title"
-			>
-
-				<p class="webinar-eyebrow reveal-item">
-					Talk
-				</p>
-
-
-				<p class="webinar-meta reveal-item">
-					Xseed · August 20, 2026
-				</p>
-
-
-				<h2
-					id="webinar-intro-title"
-					class="webinar-intro-title reveal-item"
-				>
-					Technology is Never the Starting Point
-				</h2>
-
+			<section class="webinar-intro reveal-section">
 
 				<div class="webinar-copy">
 
@@ -105,7 +84,7 @@ import Footer from '../components/Footer.astro';
 				</div>
 
 
-				<div class="webinar-secondary-links reveal-item">
+				<div class="webinar-secondary-links reveal-item reveal-delay-1">
 
 					<a
 						href="/about/"
@@ -139,12 +118,6 @@ import Footer from '../components/Footer.astro';
 				</div>
 
 			</section>
-
-
-			<div
-				class="webinar-divider"
-				aria-hidden="true"
-			></div>
 
 
 			<!-- =====================================================
@@ -185,9 +158,7 @@ import Footer from '../components/Footer.astro';
 						rel="noopener noreferrer"
 						class="animated-link"
 					>
-						<span>
-							Watch on YouTube
-						</span>
+						<span>Watch on YouTube</span>
 
 						<span
 							class="animated-link-arrow"
@@ -200,12 +171,6 @@ import Footer from '../components/Footer.astro';
 				</p>
 
 			</section>
-
-
-			<div
-				class="webinar-divider"
-				aria-hidden="true"
-			></div>
 
 
 			<!-- =====================================================
@@ -228,7 +193,7 @@ import Footer from '../components/Footer.astro';
 				<div class="webinar-takeaways-grid">
 
 
-					<article
+					<div
 						class="webinar-takeaway reveal-item"
 						style="--delay: 0ms;"
 					>
@@ -247,10 +212,10 @@ import Footer from '../components/Footer.astro';
 							can do differently
 						</p>
 
-					</article>
+					</div>
 
 
-					<article
+					<div
 						class="webinar-takeaway reveal-item"
 						style="--delay: 80ms;"
 					>
@@ -269,10 +234,10 @@ import Footer from '../components/Footer.astro';
 							as the measure of success
 						</p>
 
-					</article>
+					</div>
 
 
-					<article
+					<div
 						class="webinar-takeaway reveal-item"
 						style="--delay: 160ms;"
 					>
@@ -291,7 +256,7 @@ import Footer from '../components/Footer.astro';
 							and business understanding
 						</p>
 
-					</article>
+					</div>
 
 
 				</div>
@@ -300,27 +265,14 @@ import Footer from '../components/Footer.astro';
 
 
 			<!-- =====================================================
-			     CLOSING
+			     CONTACT
 			===================================================== -->
 
-			<section
-				class="webinar-closing reveal-section"
-				aria-labelledby="webinar-closing-title"
-			>
+			<section class="webinar-contact reveal-section">
 
-				<h2
-					id="webinar-closing-title"
-					class="webinar-closing-title reveal-item"
-				>
-					Technology is
-					<span class="webinar-never">never</span>
-					the starting point
-				</h2>
-
-
-				<p class="webinar-closing-copy reveal-item reveal-delay-1">
-					For speaking engagements, executive conversations,
-					interviews, or other opportunities, get in touch
+				<p class="webinar-contact-copy reveal-item">
+					For speaking engagements, interviews,
+					podcasts, or other opportunities
 				</p>
 
 
@@ -534,94 +486,12 @@ import Footer from '../components/Footer.astro';
 			);
 
 		margin:
-			-16px
+			-18px
 			auto
-			42px;
+			58px;
 
 		text-align:
 			center;
-	}
-
-
-	.webinar-eyebrow {
-		margin:
-			0
-			0
-			6px;
-
-		color:
-			#6fa7ef;
-
-		font-size:
-			0.7rem;
-
-		font-weight:
-			750;
-
-		line-height:
-			1.2;
-
-		letter-spacing:
-			0.1em;
-
-		text-transform:
-			uppercase;
-	}
-
-
-	.webinar-meta {
-		margin:
-			0
-			0
-			20px;
-
-		color:
-			#8b97a4;
-
-		font-size:
-			0.75rem;
-
-		font-weight:
-			650;
-
-		line-height:
-			1.35;
-
-		letter-spacing:
-			0.04em;
-
-		text-transform:
-			uppercase;
-	}
-
-
-	.webinar-intro-title {
-		max-width:
-			850px;
-
-		margin:
-			0
-			auto
-			22px;
-
-		color:
-			#102b46;
-
-		font-size:
-			clamp(
-				1.8rem,
-				3vw,
-				2.8rem
-			);
-
-		font-weight:
-			700;
-
-		line-height:
-			1.08;
-
-		letter-spacing:
-			-0.045em;
 	}
 
 
@@ -716,36 +586,7 @@ import Footer from '../components/Footer.astro';
 			26px;
 
 		margin-top:
-			24px;
-	}
-
-
-	/* =========================================================
-	   DIVIDER
-	========================================================= */
-
-	.webinar-divider {
-		width:
-			min(
-				1120px,
-				calc(100% - 48px)
-			);
-
-		height:
-			1px;
-
-		margin:
-			0
-			auto
-			38px;
-
-		background:
-			rgba(
-				16,
-				43,
-				70,
-				0.12
-			);
+			26px;
 	}
 
 
@@ -763,7 +604,7 @@ import Footer from '../components/Footer.astro';
 		margin:
 			0
 			auto
-			38px;
+			64px;
 	}
 
 
@@ -774,7 +615,7 @@ import Footer from '../components/Footer.astro';
 		margin:
 			0
 			0
-			22px;
+			24px;
 
 		color:
 			#102b46;
@@ -864,7 +705,7 @@ import Footer from '../components/Footer.astro';
 		margin:
 			0
 			auto
-			52px;
+			72px;
 	}
 
 
@@ -882,30 +723,32 @@ import Footer from '../components/Footer.astro';
 			);
 
 		gap:
-			18px;
+			clamp(
+				28px,
+				5vw,
+				72px
+			);
 	}
 
 
 	.webinar-takeaway {
 		padding:
-			24px
-			22px
-			25px;
+			0;
+
+		margin:
+			0;
 
 		border:
-			1px solid
-			rgba(
-				16,
-				43,
-				70,
-				0.1
-			);
+			0;
 
 		border-radius:
-			12px;
+			0;
 
 		background:
-			#ffffff;
+			transparent;
+
+		box-shadow:
+			none;
 	}
 
 
@@ -913,13 +756,13 @@ import Footer from '../components/Footer.astro';
 		margin:
 			0
 			0
-			22px;
+			18px;
 
 		color:
 			#6fa7ef;
 
 		font-size:
-			0.7rem;
+			0.72rem;
 
 		font-weight:
 			750;
@@ -944,9 +787,9 @@ import Footer from '../components/Footer.astro';
 
 		font-size:
 			clamp(
-				1.05rem,
-				1.35vw,
-				1.22rem
+				1.1rem,
+				1.4vw,
+				1.28rem
 			);
 
 		font-weight:
@@ -971,95 +814,41 @@ import Footer from '../components/Footer.astro';
 			#6f7d8f;
 
 		font-size:
-			0.94rem;
+			0.95rem;
 
 		line-height:
-			1.55;
+			1.6;
 	}
 
 
 	/* =========================================================
-	   CLOSING
+	   CONTACT
 	========================================================= */
 
-	.webinar-closing {
+	.webinar-contact {
 		width:
 			min(
-				1120px,
+				900px,
 				calc(100% - 48px)
 			);
 
 		margin:
 			0
 			auto
-			52px;
-
-		padding:
-			46px
-			0
-			0;
-
-		border-top:
-			1px solid
-			rgba(
-				16,
-				43,
-				70,
-				0.12
-			);
+			54px;
 
 		text-align:
 			center;
 	}
 
 
-	.webinar-closing-title {
+	.webinar-contact-copy {
 		max-width:
-			1000px;
+			600px;
 
 		margin:
 			0
 			auto;
-
-		color:
-			#102b46;
-
-		font-size:
-			clamp(
-				2rem,
-				3.4vw,
-				3.5rem
-			);
-
-		font-weight:
-			700;
-
-		line-height:
-			1.08;
-
-		letter-spacing:
-			-0.05em;
-	}
-
-
-	.webinar-closing-title::before,
-	.webinar-closing-title::after {
-		display:
-			none !important;
-
-		content:
-			none !important;
-	}
-
-
-	.webinar-closing-copy {
-		max-width:
-			650px;
-
-		margin:
-			18px
-			auto
-			0;
 
 		color:
 			#6f7d8f;
@@ -1074,7 +863,7 @@ import Footer from '../components/Footer.astro';
 
 	.webinar-contact-link {
 		margin:
-			14px
+			12px
 			0
 			0;
 	}
@@ -1145,21 +934,8 @@ import Footer from '../components/Footer.astro';
 	) {
 
 		.webinar-takeaways-grid {
-			grid-template-columns:
-				1fr;
-		}
-
-
-		.webinar-takeaway {
-			padding:
-				22px
-				20px;
-		}
-
-
-		.webinar-takeaway-number {
-			margin-bottom:
-				14px;
+			gap:
+				30px;
 		}
 
 	}
@@ -1205,8 +981,7 @@ import Footer from '../components/Footer.astro';
 		.webinar-intro,
 		.webinar-watch,
 		.webinar-takeaways,
-		.webinar-closing,
-		.webinar-divider {
+		.webinar-contact {
 			width:
 				calc(
 					100% - 32px
@@ -1219,13 +994,7 @@ import Footer from '../components/Footer.astro';
 				-8px;
 
 			margin-bottom:
-				34px;
-		}
-
-
-		.webinar-intro-title {
-			font-size:
-				1.85rem;
+				46px;
 		}
 
 
@@ -1256,15 +1025,9 @@ import Footer from '../components/Footer.astro';
 		}
 
 
-		.webinar-divider {
-			margin-bottom:
-				30px;
-		}
-
-
 		.webinar-watch {
 			margin-bottom:
-				30px;
+				48px;
 		}
 
 
@@ -1276,37 +1039,32 @@ import Footer from '../components/Footer.astro';
 
 		.webinar-takeaways {
 			margin-bottom:
-				40px;
+				52px;
 		}
 
 
-		.webinar-takeaway {
-			padding:
-				20px
-				18px;
+		.webinar-takeaways-grid {
+			grid-template-columns:
+				1fr;
+
+			gap:
+				34px;
 		}
 
 
-		.webinar-closing {
+		.webinar-takeaway-number {
+			margin-bottom:
+				12px;
+		}
+
+
+		.webinar-contact {
 			margin-bottom:
 				38px;
-
-			padding-top:
-				36px;
 		}
 
 
-		.webinar-closing-title {
-			font-size:
-				clamp(
-					1.9rem,
-					8vw,
-					2.5rem
-				);
-		}
-
-
-		.webinar-closing-copy {
+		.webinar-contact-copy {
 			font-size:
 				0.95rem;
 		}
