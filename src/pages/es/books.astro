@@ -44,19 +44,6 @@ const papers = [
 		<Header />
 
 		<main>
-			<section class="hero">
-				<h1 class="hero-title">
-					<span class="hero-line">
-						Libros y <span class="accent">Papers</span>
-					</span>
-				</h1>
-
-				<div class="lead-principles">
-					<div>Escribí el Libro que me Hubiera Gustado Tener</div>
-					<div>Hace Veinte Años</div>
-				</div>
-			</section>
-
 			<!-- LIBRO DESTACADO -->
 
 			<section
@@ -146,12 +133,16 @@ const papers = [
 				<div
 					class="books-page-cover-wrapper reveal-item reveal-from-left"
 				>
-					<img
-						src="/images/book-cover-esp.jpg"
-						alt="Portada de Una Teoría de Tolerancia Mínima"
-						class="books-page-cover"
-						loading="lazy"
-					/>
+					<div
+						class="books-page-cover-link books-page-cover-static"
+					>
+						<img
+							src="/images/book-cover-esp.jpg"
+							alt="Portada de Una Teoría de Tolerancia Mínima"
+							class="books-page-cover animated-book-cover"
+							loading="lazy"
+						/>
+					</div>
 				</div>
 
 				<div class="books-page-content reveal-item reveal-delay-1">
@@ -257,144 +248,159 @@ const papers = [
 				});
 			}
 		</script>
+
+		<style>
+			main {
+				padding-top: 0 !important;
+				padding-bottom: 0;
+			}
+
+			/* LIBRO DESTACADO */
+
+			.books-page-book-featured {
+				margin-top: 0;
+				margin-bottom: 0;
+				padding-top: clamp(3rem, 5vw, 4.25rem);
+				padding-bottom: clamp(2.25rem, 4vw, 3.5rem);
+			}
+
+			/* PRÓXIMO LIBRO */
+
+			.minimal-tolerance-book {
+				margin-top: 0;
+				margin-bottom: 0;
+				padding-top: clamp(2.25rem, 4vw, 3.5rem);
+				padding-bottom: clamp(2.25rem, 4vw, 3.5rem);
+				border-top: 1px solid rgba(52, 65, 86, 0.2);
+			}
+
+			.books-page-cover-static {
+				cursor: default;
+			}
+
+			.coming-soon {
+				display: inline-block;
+				font-size: 0.76rem;
+				font-weight: 750;
+				line-height: 1.2;
+				letter-spacing: 0.14em;
+				text-transform: uppercase;
+				color: #6d9fdd;
+			}
+
+			/* PAPERS */
+
+			.papers-section {
+				width: min(1180px, calc(100% - 3rem));
+				margin: 0 auto;
+				padding-bottom: 0;
+				scroll-margin-top: 8rem;
+			}
+
+			.papers-list {
+				border-top: 1px solid rgba(52, 65, 86, 0.2);
+			}
+
+			.paper-row {
+				display: grid;
+				grid-template-columns: minmax(170px, 0.6fr) minmax(0, 2.8fr);
+				align-items: start;
+				gap: clamp(1.5rem, 4vw, 3.5rem);
+				padding: clamp(2rem, 4vw, 3.25rem) 0;
+				border-bottom: 1px solid rgba(52, 65, 86, 0.2);
+			}
+
+			.paper-row:last-child {
+				padding-bottom: clamp(1.5rem, 2.5vw, 2rem);
+				border-bottom: 0;
+			}
+
+			.paper-meta,
+			.paper-content {
+				min-width: 0;
+			}
+
+			.paper-type {
+				margin: 0 0 0.8rem;
+			}
+
+			.paper-status {
+				margin: 0;
+				font-size: 0.8rem;
+				font-weight: 750;
+				line-height: 1.3;
+				letter-spacing: 0.12em;
+				text-transform: uppercase;
+				color: #8a6b36;
+			}
+
+			.paper-date {
+				margin: 0.7rem 0 0;
+				font-size: 0.86rem;
+				line-height: 1.45;
+				opacity: 0.58;
+			}
+
+			.paper-title {
+				margin: 0;
+				font-size: clamp(1.45rem, 2.4vw, 2.05rem);
+				font-weight: 700;
+				line-height: 1.08;
+				letter-spacing: -0.035em;
+			}
+
+			.paper-subtitle {
+				max-width: 800px;
+				margin: 0.85rem 0 0;
+				font-size: clamp(1rem, 1.4vw, 1.12rem);
+				font-weight: 580;
+				line-height: 1.48;
+			}
+
+			.paper-description {
+				max-width: 780px;
+				margin: 1rem 0 0;
+				font-size: 0.94rem;
+				line-height: 1.65;
+				opacity: 0.66;
+			}
+
+			@media (max-width: 850px) {
+				.books-page-book-featured {
+					margin-top: 0;
+					margin-bottom: 0;
+					padding-top: 2.5rem;
+					padding-bottom: 2rem;
+				}
+
+				.minimal-tolerance-book {
+					margin-top: 0;
+					margin-bottom: 0;
+					padding-top: 2rem;
+					padding-bottom: 2rem;
+				}
+
+				.papers-section {
+					width: min(100% - 2rem, 720px);
+					margin: 0 auto;
+				}
+
+				.paper-row {
+					grid-template-columns: 1fr;
+					gap: 1.4rem;
+				}
+
+				.paper-meta {
+					display: flex;
+					flex-wrap: wrap;
+					align-items: center;
+					gap: 0.7rem 1rem;
+				}
+
+				.paper-date {
+					margin: 0;
+				}
+			}
+		</style>
 	</body>
 </html>
-
-<style>
-	main {
-		padding-bottom: 0;
-	}
-
-	.books-page-book-featured {
-		margin-bottom: 0;
-		padding-bottom: clamp(2.25rem, 4vw, 3.5rem);
-	}
-
-	.minimal-tolerance-book {
-		margin-top: 0;
-		margin-bottom: 0;
-		padding-top: clamp(2.25rem, 4vw, 3.5rem);
-		padding-bottom: clamp(2.25rem, 4vw, 3.5rem);
-		border-top: 1px solid rgba(52, 65, 86, 0.2);
-	}
-
-	.coming-soon {
-		display: inline-block;
-		font-size: 0.76rem;
-		font-weight: 750;
-		line-height: 1.2;
-		letter-spacing: 0.14em;
-		text-transform: uppercase;
-		color: #6d9fdd;
-	}
-
-	.papers-section {
-		width: min(1180px, calc(100% - 3rem));
-		margin: 0 auto;
-		padding-bottom: 0;
-		scroll-margin-top: 8rem;
-	}
-
-	.papers-list {
-		border-top: 1px solid rgba(52, 65, 86, 0.2);
-	}
-
-	.paper-row {
-		display: grid;
-		grid-template-columns: minmax(170px, 0.6fr) minmax(0, 2.8fr);
-		align-items: start;
-		gap: clamp(1.5rem, 4vw, 3.5rem);
-		padding: clamp(2rem, 4vw, 3.25rem) 0;
-		border-bottom: 1px solid rgba(52, 65, 86, 0.2);
-	}
-
-	.paper-row:last-child {
-		padding-bottom: clamp(1.5rem, 2.5vw, 2rem);
-		border-bottom: 0;
-	}
-
-	.paper-meta,
-	.paper-content {
-		min-width: 0;
-	}
-
-	.paper-type {
-		margin: 0 0 0.8rem;
-	}
-
-	.paper-status {
-		margin: 0;
-		font-size: 0.8rem;
-		font-weight: 750;
-		line-height: 1.3;
-		letter-spacing: 0.12em;
-		text-transform: uppercase;
-		color: #8a6b36;
-	}
-
-	.paper-date {
-		margin: 0.7rem 0 0;
-		font-size: 0.86rem;
-		line-height: 1.45;
-		opacity: 0.58;
-	}
-
-	.paper-title {
-		margin: 0;
-		font-size: clamp(1.45rem, 2.4vw, 2.05rem);
-		font-weight: 700;
-		line-height: 1.08;
-		letter-spacing: -0.035em;
-	}
-
-	.paper-subtitle {
-		max-width: 800px;
-		margin: 0.85rem 0 0;
-		font-size: clamp(1rem, 1.4vw, 1.12rem);
-		font-weight: 580;
-		line-height: 1.48;
-	}
-
-	.paper-description {
-		max-width: 780px;
-		margin: 1rem 0 0;
-		font-size: 0.94rem;
-		line-height: 1.65;
-		opacity: 0.66;
-	}
-
-	@media (max-width: 850px) {
-		.books-page-book-featured {
-			margin-bottom: 0;
-			padding-bottom: 2rem;
-		}
-
-		.minimal-tolerance-book {
-			margin-top: 0;
-			margin-bottom: 0;
-			padding-top: 2rem;
-			padding-bottom: 2rem;
-		}
-
-		.papers-section {
-			width: min(100% - 2rem, 720px);
-			margin: 0 auto;
-		}
-
-		.paper-row {
-			grid-template-columns: 1fr;
-			gap: 1.4rem;
-		}
-
-		.paper-meta {
-			display: flex;
-			flex-wrap: wrap;
-			align-items: center;
-			gap: 0.7rem 1rem;
-		}
-
-		.paper-date {
-			margin: 0;
-		}
-	}
-</style>
