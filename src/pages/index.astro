@@ -30,10 +30,19 @@ import Footer from '../components/Footer.astro';
 				display: none !important;
 			}
 
+			/*
+				Secondary titles:
+				lighter and smaller so they don't compete with the hero.
+			*/
 			#speaking .books-page-content h2,
 			#cio-office .books-page-content h2,
 			#books .books-page-content h2 {
 				padding-bottom: 0 !important;
+
+				font-size: clamp(1.9rem, 2.2vw, 2.3rem) !important;
+				font-weight: 500 !important;
+				line-height: 1.12 !important;
+				letter-spacing: -0.02em !important;
 			}
 
 
@@ -48,8 +57,10 @@ import Footer from '../components/Footer.astro';
 
 			#speaking .books-page-book {
 				align-items: center;
+
 				margin-top: 0 !important;
 				margin-bottom: 0 !important;
+
 				padding-top: 0 !important;
 				padding-bottom: 0 !important;
 			}
@@ -58,31 +69,39 @@ import Footer from '../components/Footer.astro';
 				display: flex;
 				justify-content: center;
 				align-items: center;
+
 				border: none !important;
 				border-bottom: none !important;
+
 				padding: 0 !important;
 				margin: 0 !important;
 			}
 
 			.speaking-cover-link {
 				display: block;
+
 				width: 100%;
 				max-width: 390px;
+
 				text-decoration: none !important;
 				border: none !important;
 			}
 
 			.speaking-cover-frame {
 				overflow: hidden;
+
 				border: 1px solid rgba(36, 55, 92, 0.07);
 				border-radius: 20px;
+
 				background: #ffffff;
+
 				box-shadow:
 					0 12px 30px rgba(28, 44, 76, 0.06);
 			}
 
 			.speaking-cover-image {
 				display: block;
+
 				width: 100%;
 				height: auto;
 			}
@@ -99,8 +118,10 @@ import Footer from '../components/Footer.astro';
 
 			#speaking .books-page-content > p:not(.books-page-action) {
 				max-width: 680px;
+
 				margin-top: 0 !important;
 				margin-bottom: 0 !important;
+
 				font-size: 1.08rem;
 				line-height: 1.6;
 			}
@@ -135,9 +156,12 @@ import Footer from '../components/Footer.astro';
 			/* Book cover 15% smaller */
 			#books .books-page-cover {
 				display: block;
+
 				width: 85% !important;
 				max-width: 85% !important;
+
 				height: auto;
+
 				margin-left: auto;
 				margin-right: auto;
 			}
@@ -150,6 +174,7 @@ import Footer from '../components/Footer.astro';
 			#about .about-photo-wrapper {
 				border: none !important;
 				border-bottom: none !important;
+
 				box-shadow: none !important;
 
 				padding-bottom: 0 !important;
@@ -174,12 +199,13 @@ import Footer from '../components/Footer.astro';
 
 				border: none !important;
 				border-bottom: none !important;
+
 				box-shadow: none !important;
 
 				text-decoration: none !important;
 			}
 
-			/* Photo 10% smaller than current size */
+			/* Photo 10% smaller */
 			#about .about-photo {
 				display: block;
 
@@ -190,6 +216,7 @@ import Footer from '../components/Footer.astro';
 
 				border: none !important;
 				border-bottom: none !important;
+
 				box-shadow: none !important;
 			}
 
@@ -210,6 +237,12 @@ import Footer from '../components/Footer.astro';
 
 				#speaking .books-page-content > p:not(.books-page-action) {
 					font-size: 1rem;
+				}
+
+				#speaking .books-page-content h2,
+				#cio-office .books-page-content h2,
+				#books .books-page-content h2 {
+					font-size: 1.85rem !important;
 				}
 
 				#about .about-photo-wrapper {
@@ -236,6 +269,12 @@ import Footer from '../components/Footer.astro';
 
 				.speaking-cover-link {
 					max-width: 100%;
+				}
+
+				#speaking .books-page-content h2,
+				#cio-office .books-page-content h2,
+				#books .books-page-content h2 {
+					font-size: 1.7rem !important;
 				}
 
 				#books .books-page-cover {
