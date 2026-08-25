@@ -134,6 +134,49 @@ const mediaItems: MediaItem[] = [
 
 
 			<!-- =====================================================
+			     EDITORIAL EVIDENCE
+			===================================================== -->
+
+			<section
+				class="speaking-evidence reveal-section"
+				aria-label="Why this matters"
+			>
+				<div class="speaking-evidence-grid">
+
+					<div class="speaking-evidence-item reveal-item">
+						<p class="speaking-evidence-value">
+							~70%
+						</p>
+
+						<p class="speaking-evidence-label">
+							of transformation efforts fail
+						</p>
+
+						<p class="speaking-evidence-source">
+							McKinsey · 2020
+						</p>
+					</div>
+
+
+					<div class="speaking-evidence-item reveal-item reveal-delay-1">
+						<p class="speaking-evidence-value">
+							&gt;80%
+						</p>
+
+						<p class="speaking-evidence-label">
+							of AI projects fail
+						</p>
+
+						<p class="speaking-evidence-source">
+							RAND · 2024
+						</p>
+					</div>
+
+				</div>
+			</section>
+
+
+			<!-- =====================================================
 			     EXPLORE TALK — TOP
 			===================================================== -->
 
@@ -901,6 +944,76 @@ const mediaItems: MediaItem[] = [
 
 
 	/* =========================================================
+	   EDITORIAL EVIDENCE
+	========================================================= */
+
+	.speaking-evidence {
+		width:
+			min(
+				760px,
+				calc(100% - 48px)
+			);
+
+		margin:
+			-26px
+			auto
+			18px;
+	}
+
+	.speaking-evidence-grid {
+		display: grid;
+		grid-template-columns:
+			repeat(
+				2,
+				minmax(0, 1fr)
+			);
+		gap:
+			clamp(
+				36px,
+				6vw,
+				72px
+			);
+	}
+
+	.speaking-evidence-item {
+		text-align: center;
+	}
+
+	.speaking-evidence-value {
+		margin: 0 0 4px;
+		color: #6fa7ef;
+		font-size:
+			clamp(
+				1.55rem,
+				2.4vw,
+				2.1rem
+			);
+		font-weight: 700;
+		line-height: 1;
+		letter-spacing: -0.04em;
+	}
+
+	.speaking-evidence-label {
+		margin: 0;
+		color: #102b46;
+		font-size: 0.96rem;
+		font-weight: 550;
+		line-height: 1.35;
+		letter-spacing: -0.015em;
+	}
+
+	.speaking-evidence-source {
+		margin: 6px 0 0;
+		color: #8b97a4;
+		font-size: 0.68rem;
+		font-weight: 700;
+		line-height: 1.2;
+		letter-spacing: 0.07em;
+		text-transform: uppercase;
+	}
+
+
+	/* =========================================================
 	   EXPLORE TALK — TOP
 	========================================================= */
 
@@ -912,7 +1025,7 @@ const mediaItems: MediaItem[] = [
 			);
 
 		margin:
-			-24px
+			2px
 			auto
 			18px;
 
@@ -1303,6 +1416,7 @@ const mediaItems: MediaItem[] = [
 		}
 
 
+		.speaking-evidence,
 		.speaking-talk-link,
 		.speaking-showcase,
 		.speaking-closing,
@@ -1314,9 +1428,32 @@ const mediaItems: MediaItem[] = [
 		}
 
 
+		.speaking-evidence {
+			margin:
+				-12px
+				auto
+				16px;
+		}
+
+		.speaking-evidence-grid {
+			gap: 20px;
+		}
+
+		.speaking-evidence-value {
+			font-size: 1.55rem;
+		}
+
+		.speaking-evidence-label {
+			font-size: 0.84rem;
+		}
+
+		.speaking-evidence-source {
+			font-size: 0.62rem;
+		}
+
 		.speaking-talk-link {
 			margin:
-				-14px
+				2px
 				auto
 				16px;
 		}
