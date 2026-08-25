@@ -5,86 +5,84 @@ import Footer from '../components/Footer.astro';
 
 type MediaItem = {
 	type: string;
+	status: 'upcoming' | 'published';
 	title: string;
 	date: string;
 	image: string;
 	imageAlt: string;
+	description: string;
 	url?: string;
 	linkLabel?: string;
 	pdfUrl?: string;
 	pdfLabel?: string;
 	internal?: boolean;
-	imageFit?: 'cover' | 'contain';
-	imagePosition?: string;
-	imageClass?: string;
 };
 
 const mediaItems: MediaItem[] = [
 	{
 		type: 'Webinar',
+		status: 'upcoming',
 		title: 'Technology is Never the Starting Point — Xseed',
 		date: 'August 2026',
 		image: '/images/xseed-webinar.png',
 		imageAlt:
 			'Technology is Never the Starting Point webinar with Federico Rodrigo',
+		description:
+			'A practical session on how to start with people and business priorities, and use technology to enable the outcome',
 		url: '/webinar/',
 		linkLabel: 'Explore the talk',
 		internal: true,
-		imageFit: 'contain',
-		imagePosition: 'center center'
 	},
 	{
 		type: 'Podcast',
+		status: 'published',
 		title: 'The Technology Vanguard',
 		date: 'August 2026',
 		image: '/images/vanguard.png',
 		imageAlt:
 			'Fede Rodrigo appearing on The Technology Vanguard podcast',
+		description:
+			'An honest conversation about IT leadership, the mistakes that teach us, the transition from technical excellence to leading people, and the lessons that really shape the path to becoming a CIO',
 		url: 'https://www.youtube.com/watch?v=2wyTHhaOcWE',
 		linkLabel: 'Watch the conversation',
-		imageFit: 'contain',
-		imagePosition: 'center center',
-		imageClass: 'media-image-vanguard'
 	},
 	{
-		type: 'Interview',
-		title: 'Cloud Investment & Business Value — Nublit',
+		type: 'Written Interview',
+		status: 'published',
+		title: 'Turning Cloud Investment into Business Value — Nublit',
 		date: 'January 2026',
 		image: '/images/cloud-interview.jpg',
-		imageAlt:
-			'Interview with Fede Rodrigo published by Nublit',
+		imageAlt: 'Interview with Fede Rodrigo published by Nublit',
+		description:
+			'A conversation with Nublit about cloud strategy in Latin America, hybrid adoption, cultural and regulatory barriers, and the role of technology as a driver of growth, innovation, and operational resilience',
 		url: 'https://informe2026.nublit.com/',
 		linkLabel: 'View full report',
 		pdfUrl: '/pdfs/Fede-Rodrigo-Interview-Nublit.pdf',
 		pdfLabel: 'Read my interview',
-		imageFit: 'contain',
-		imagePosition: 'center center',
-		imageClass: 'media-image-nublit'
+	},
+	{
+		type: 'Award Finalist',
+		status: 'published',
+		title: 'ORBIE CIO Awards',
+		date: 'September 2024',
+		image: '/images/orbie.jpg',
+		imageAlt: 'ORBIE Awards CIO Central Texas',
+		description:
+			'Recognized as a finalist in the Global CIO category at the Central Texas awards',
+		url: 'https://orbie.org/honoree/federico-rodrigo/4324',
+		linkLabel: 'View recognition',
 	},
 	{
 		type: 'Executive Roundtable',
+		status: 'published',
 		title: 'Industrial Reinvention — The Economist',
 		date: 'September 2024',
 		image: '/images/impact.png',
-		imageAlt:
-			'Fede Rodrigo participating in The Economist Impact executive roundtable',
-		imageFit: 'contain',
-		imagePosition: 'center center',
-		imageClass: 'media-image-economist'
-	}
+		imageAlt: 'The Economist Impact',
+		description:
+			'Invited participant in Industrial Reinvention: New Business Models and Jobs for Tomorrow’s Technology, hosted by The Economist Impact, with fellow CIOs in Houston, Texas',
+	},
 ];
-
-const recognition: MediaItem = {
-	type: 'Recognition',
-	title: 'ORBIE CIO Awards',
-	date: 'September 2024',
-	image: '/images/orbie.jpg',
-	imageAlt: 'ORBIE Awards CIO Central Texas',
-	url: 'https://orbie.org/honoree/federico-rodrigo/4324',
-	linkLabel: 'View recognition',
-	imageFit: 'cover',
-	imagePosition: 'center 42%'
-};
 ---
 
 <!doctype html>
@@ -110,9 +108,19 @@ const recognition: MediaItem = {
 
 			<section class="hero speaking-hero">
 				<h1 class="hero-title speaking-hero-title">
-					<span class="hero-line">What if your next technology</span>
-					<span class="hero-line">decision started with</span>
-					<span class="hero-line"><span class="speaking-hero-accent">no technology at all?</span></span>
+					<span class="hero-line">
+						What if your next technology
+					</span>
+
+					<span class="hero-line">
+						decision started with
+					</span>
+
+					<span class="hero-line">
+						<span class="speaking-hero-accent">
+							no technology at all?
+						</span>
+					</span>
 				</h1>
 			</section>
 
@@ -133,11 +141,18 @@ const recognition: MediaItem = {
 						id="speaking-thesis-title"
 						class="speaking-thesis-conclusion reveal-item reveal-delay-1"
 					>
-						Technology is <span class="speaking-never">never</span> the starting point
+						Technology is
+						<span class="speaking-never">never</span>
+						the starting point
 					</h2>
 
-					<p class="speaking-thesis-link reveal-item reveal-delay-1">
-						<a href="/webinar/" class="animated-link">
+					<p
+						class="speaking-thesis-link reveal-item reveal-delay-1"
+					>
+						<a
+							href="/webinar/"
+							class="animated-link"
+						>
 							<span>Explore the talk</span>
 
 							<span
@@ -241,38 +256,25 @@ const recognition: MediaItem = {
 			<!-- SELECTED APPEARANCES -->
 
 			<section
-				class="media-events reveal-section"
-				aria-labelledby="media-events-title"
+				class="media-list reveal-section"
+				aria-labelledby="media-list-title"
 			>
 				<h2
-					id="media-events-title"
+					id="media-list-title"
 					class="reveal-item"
 				>
 					Selected Appearances
 				</h2>
 
-				<div class="media-grid">
-					{
-						mediaItems.map((item, index) => (
-							<article
-								class:list={[
-									'media-card',
-									'reveal-item',
-									{
-										'media-card--nublit':
-											Boolean(item.pdfUrl)
-									}
-								]}
-								style={`
-									--delay: ${index * 70}ms;
-									--media-fit: ${item.imageFit ?? 'cover'};
-									--media-position: ${
-										item.imagePosition ?? 'center center'
-									};
-								`}
-							>
-								<div class="media-card-image">
-									{item.url ? (
+				{
+					mediaItems.map((item, index) => (
+						<article
+							class="media-item"
+							style={`--media-index: ${index};`}
+						>
+							<div class="media-image-wrapper">
+								{
+									item.url ? (
 										<a
 											href={item.url}
 											target={
@@ -291,159 +293,113 @@ const recognition: MediaItem = {
 											}
 										>
 											<img
-												class:list={[
-													'media-card-image-element',
-													item.imageClass
-												]}
 												src={item.image}
 												alt={item.imageAlt}
+												class="media-image"
 												loading="lazy"
 											/>
 										</a>
 									) : (
 										<img
-											class:list={[
-												'media-card-image-element',
-												item.imageClass
-											]}
 											src={item.image}
 											alt={item.imageAlt}
+											class="media-image"
 											loading="lazy"
 										/>
-									)}
-								</div>
+									)
+								}
+							</div>
 
-								<div class="media-card-content">
-									<p class="media-card-meta">
-										<span>{item.type}</span>
+							<div class="media-content">
+								<p class="media-meta">
+									<span>{item.type}</span>
 
-										<span aria-hidden="true">·</span>
+									<span aria-hidden="true">
+										·
+									</span>
 
-										<span>{item.date}</span>
-									</p>
+									<span>{item.date}</span>
+								</p>
 
-									<h3>{item.title}</h3>
+								<h3>
+									{item.title}
+								</h3>
 
-									{(item.url || item.pdfUrl) && (
-										<div class="media-card-actions">
-											{item.pdfUrl &&
-												item.pdfLabel && (
-													<a
-														href={
-															item.pdfUrl
-														}
-														target="_blank"
-														rel="noopener noreferrer"
-														class="animated-link"
-													>
-														<span>
-															{
-																item.pdfLabel
+								<p class="media-description">
+									{item.description}
+								</p>
+
+								{
+									item.url ? (
+										<div class="media-action">
+											{
+												item.pdfUrl &&
+													item.pdfLabel && (
+														<a
+															href={
+																item.pdfUrl
 															}
-														</span>
-
-														<span
-															class="animated-link-arrow"
-															aria-hidden="true"
+															target="_blank"
+															rel="noopener noreferrer"
+															class="animated-link"
 														>
-															→
-														</span>
-													</a>
-												)}
+															<span>
+																{
+																	item.pdfLabel
+																}
+															</span>
 
-											{item.url && (
-												<a
-													href={item.url}
-													target={
-														item.internal
-															? undefined
-															: '_blank'
+															<span
+																class="animated-link-arrow"
+																aria-hidden="true"
+															>
+																→
+															</span>
+														</a>
+													)
+											}
+
+											<a
+												href={item.url}
+												target={
+													item.internal
+														? undefined
+														: '_blank'
+												}
+												rel={
+													item.internal
+														? undefined
+														: 'noopener noreferrer'
+												}
+												class="animated-link"
+											>
+												<span>
+													{
+														item.linkLabel ??
+															'Learn more'
 													}
-													rel={
-														item.internal
-															? undefined
-															: 'noopener noreferrer'
-													}
-													class="animated-link"
+												</span>
+
+												<span
+													class="animated-link-arrow"
+													aria-hidden="true"
 												>
-													<span>
-														{
-															item.linkLabel ??
-																'Learn more'
-														}
-													</span>
-
-													<span
-														class="animated-link-arrow"
-														aria-hidden="true"
-													>
-														→
-													</span>
-												</a>
-											)}
+													→
+												</span>
+											</a>
 										</div>
-									)}
-								</div>
-							</article>
-						))
-					}
-				</div>
-
-				<!-- RECOGNITION -->
-
-				<article
-					class="recognition-card reveal-item"
-					style={`
-						--delay: ${mediaItems.length * 70}ms;
-						--media-fit: ${recognition.imageFit ?? 'cover'};
-						--media-position: ${
-							recognition.imagePosition ?? 'center center'
-						};
-					`}
-				>
-					<div class="recognition-image">
-						<a
-							href={recognition.url}
-							target="_blank"
-							rel="noopener noreferrer"
-							aria-label={recognition.linkLabel}
-						>
-							<img
-								src={recognition.image}
-								alt={recognition.imageAlt}
-								loading="lazy"
-							/>
-						</a>
-					</div>
-
-					<div class="recognition-content">
-						<p class="media-card-meta">
-							<span>{recognition.type}</span>
-
-							<span aria-hidden="true">·</span>
-
-							<span>{recognition.date}</span>
-						</p>
-
-						<h3>{recognition.title}</h3>
-
-						<a
-							href={recognition.url}
-							target="_blank"
-							rel="noopener noreferrer"
-							class="animated-link recognition-link"
-						>
-							<span>{recognition.linkLabel}</span>
-
-							<span
-								class="animated-link-arrow"
-								aria-hidden="true"
-							>
-								→
-							</span>
-						</a>
-					</div>
-				</article>
+									) : (
+										item.status === 'upcoming' && (
+											<p class="media-coming-soon">
+												Coming soon
+											</p>
+										)
+									)
+								}
+							</div>
+						</article>
+					))
+				}
 			</section>
 
 			<!-- SPEAKING INQUIRIES -->
@@ -732,7 +688,12 @@ const recognition: MediaItem = {
 		display: inline-block;
 		opacity: 0;
 		transform: translateY(6px);
-		animation: speakingAccentReveal 520ms ease 720ms forwards;
+		animation:
+			speakingAccentReveal
+			520ms
+			ease
+			720ms
+			forwards;
 	}
 
 	@keyframes speakingAccentReveal {
@@ -881,218 +842,11 @@ const recognition: MediaItem = {
 		outline-offset: 4px;
 	}
 
-
 	.speaking-divider {
 		width: min(1120px, calc(100% - 48px));
 		height: 1px;
 		margin: 28px auto 34px;
 		background: rgba(16, 43, 70, 0.12);
-	}
-
-	/* =========================================================
-	   SELECTED APPEARANCES
-	========================================================= */
-
-	.media-events {
-		width: min(1120px, calc(100% - 48px));
-		margin: 0 auto 22px !important;
-		padding: 0 !important;
-	}
-
-	.media-events > h2 {
-		margin: 0 0 22px;
-	}
-
-	.media-grid {
-		display: grid;
-		grid-template-columns:
-			repeat(2, minmax(0, 1fr));
-		gap: 18px;
-	}
-
-	/* =========================================================
-	   MEDIA CARDS
-	========================================================= */
-
-	.media-card {
-		display: flex;
-		flex-direction: column;
-		width: 100%;
-		height: 350px;
-		min-width: 0;
-		overflow: hidden;
-		border: 1px solid rgba(16, 43, 70, 0.1);
-		border-radius: 12px;
-		background: #ffffff;
-		transition:
-			transform 200ms ease,
-			box-shadow 200ms ease;
-	}
-
-	.media-card:hover,
-	.recognition-card:hover {
-		transform: translateY(-2px);
-		box-shadow:
-			0 12px 28px
-			rgba(16, 43, 70, 0.06);
-	}
-
-	.media-card-image {
-		flex: 0 0 205px;
-		width: 100%;
-		height: 205px;
-		overflow: hidden;
-		border-bottom:
-			1px solid
-			rgba(16, 43, 70, 0.08);
-		background: #f4f5f7;
-	}
-
-	.media-card-image a {
-		display: block;
-		width: 100%;
-		height: 100%;
-	}
-
-	.media-card-image-element {
-		display: block !important;
-		width: 100% !important;
-		height: 100% !important;
-		max-width: none !important;
-		max-height: none !important;
-		object-fit: var(--media-fit, cover) !important;
-		object-position:
-			var(--media-position, center center) !important;
-		transform-origin: center center;
-	}
-
-	.media-image-vanguard {
-		object-fit: contain !important;
-		object-position: center center !important;
-		transform: scale(0.96) !important;
-	}
-
-	.media-image-nublit {
-		object-fit: contain !important;
-		object-position: center center !important;
-		transform: scale(1.22) !important;
-	}
-
-	.media-image-economist {
-		object-fit: contain !important;
-		object-position: center center !important;
-		transform: scale(0.96) !important;
-	}
-
-	.media-card-content {
-		display: flex;
-		flex: 1;
-		flex-direction: column;
-		min-height: 0;
-		padding: 16px 18px 17px;
-	}
-
-	.media-card-meta {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 4px;
-		margin: 0 0 7px;
-		color: #7d8b9a;
-		font-size: 0.68rem;
-		font-weight: 700;
-		line-height: 1.3;
-		letter-spacing: 0.055em;
-		text-transform: uppercase;
-	}
-
-	.media-card h3 {
-		display: -webkit-box;
-		margin: 0;
-		overflow: hidden;
-		-webkit-box-orient: vertical;
-		-webkit-line-clamp: 2;
-		color: #102b46;
-		font-size: clamp(1rem, 1.15vw, 1.12rem);
-		font-weight: 600;
-		line-height: 1.2;
-		letter-spacing: -0.02em;
-	}
-
-	.media-card-actions {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 6px 12px;
-		margin-top: auto;
-		padding-top: 10px;
-	}
-
-	.media-card-actions .animated-link {
-		font-size: 0.8rem;
-	}
-
-	/* =========================================================
-	   RECOGNITION
-	========================================================= */
-
-	.recognition-card {
-		display: grid;
-		grid-template-columns: 210px minmax(0, 1fr);
-		min-height: 124px;
-		margin-top: 16px;
-		overflow: hidden;
-		border: 1px solid rgba(16, 43, 70, 0.1);
-		border-radius: 12px;
-		background: #ffffff;
-		transition:
-			transform 200ms ease,
-			box-shadow 200ms ease;
-	}
-
-	.recognition-image {
-		width: 210px;
-		min-height: 124px;
-		overflow: hidden;
-		border-right:
-			1px solid
-			rgba(16, 43, 70, 0.08);
-		background: #f4f5f7;
-	}
-
-	.recognition-image a {
-		display: block;
-		width: 100%;
-		height: 100%;
-	}
-
-	.recognition-image img {
-		display: block;
-		width: 100%;
-		height: 100%;
-		object-fit: var(--media-fit, cover);
-		object-position:
-			var(--media-position, center center);
-	}
-
-	.recognition-content {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-		justify-content: center;
-		padding: 17px 20px;
-	}
-
-	.recognition-card h3 {
-		margin: 0;
-		color: #102b46;
-		font-size: 1.08rem;
-		font-weight: 600;
-		line-height: 1.2;
-		letter-spacing: -0.02em;
-	}
-
-	.recognition-link {
-		margin-top: 10px;
-		font-size: 0.78rem;
 	}
 
 	/* =========================================================
@@ -1126,37 +880,6 @@ const recognition: MediaItem = {
 		.speaking-showcase {
 			width: min(860px, calc(100% - 48px));
 		}
-
-		.media-grid {
-			grid-template-columns:
-				repeat(2, minmax(0, 1fr));
-			gap: 16px;
-		}
-
-		.media-card {
-			height: 330px;
-		}
-
-		.media-card-image {
-			flex-basis: 180px;
-			height: 180px;
-		}
-
-		.media-card-content {
-			padding: 14px 16px 15px;
-		}
-
-		.media-card-meta {
-			font-size: 0.68rem;
-		}
-
-		.media-card h3 {
-			font-size: 1.05rem;
-		}
-
-		.media-card-actions .animated-link {
-			font-size: 0.8rem;
-		}
 	}
 
 	/* =========================================================
@@ -1176,8 +899,7 @@ const recognition: MediaItem = {
 
 		.speaking-thesis,
 		.speaking-showcase,
-		.speaking-divider,
-		.media-events {
+		.speaking-divider {
 			width: calc(100% - 32px);
 		}
 
@@ -1212,56 +934,6 @@ const recognition: MediaItem = {
 		.speaking-divider {
 			margin: 24px auto 28px;
 		}
-
-		.media-events {
-			margin-bottom: 18px !important;
-		}
-
-		.media-events > h2 {
-			margin-bottom: 19px;
-		}
-
-		.media-grid {
-			grid-template-columns: 1fr;
-			gap: 16px;
-		}
-
-		.media-card {
-			height: 295px;
-		}
-
-		.media-card-image {
-			flex-basis: 145px;
-			height: 145px;
-		}
-
-		.media-card-content {
-			padding: 13px 16px 14px;
-		}
-
-		.media-card-actions {
-			margin-top: 12px;
-			padding-top: 0;
-		}
-
-		.recognition-card {
-			grid-template-columns: 1fr;
-			margin-top: 16px;
-		}
-
-		.recognition-image {
-			width: 100%;
-			height: 158px;
-			min-height: 158px;
-			border-right: 0;
-			border-bottom:
-				1px solid
-				rgba(16, 43, 70, 0.08);
-		}
-
-		.recognition-content {
-			padding: 15px 16px 16px;
-		}
 	}
 
 	/* =========================================================
@@ -1277,8 +949,6 @@ const recognition: MediaItem = {
 
 		.speaking-slide,
 		.speaking-slider-dot,
-		.media-card,
-		.recognition-card,
 		.reveal-item {
 			transition: none !important;
 		}
