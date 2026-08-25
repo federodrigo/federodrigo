@@ -64,9 +64,45 @@ const capabilities = [
 						class="cio-office-capabilities-logo animated-image"
 					/>
 
-					<h1>
-						Strategy • Advisory • Transformation
-					</h1>
+					<h2
+						class="cio-office-capabilities-tagline"
+						aria-label="Strategy • Advisory • Transformation"
+					>
+						<span
+							class="tagline-part tagline-part-1"
+							aria-hidden="true"
+						>
+							Strategy
+						</span>
+
+						<span
+							class="tagline-dot tagline-part-2 accent"
+							aria-hidden="true"
+						>
+							•
+						</span>
+
+						<span
+							class="tagline-part tagline-part-3"
+							aria-hidden="true"
+						>
+							Advisory
+						</span>
+
+						<span
+							class="tagline-dot tagline-part-4 accent"
+							aria-hidden="true"
+						>
+							•
+						</span>
+
+						<span
+							class="tagline-part tagline-part-5"
+							aria-hidden="true"
+						>
+							Transformation
+						</span>
+					</h2>
 				</div>
 
 				<div class="leadership-grid">
@@ -76,7 +112,7 @@ const capabilities = [
 								class="leadership-card"
 								style={`--card-index: ${index};`}
 							>
-								<h2>{capability.title}</h2>
+								<h3>{capability.title}</h3>
 
 								<p>{capability.description}</p>
 							</div>
@@ -137,5 +173,58 @@ const capabilities = [
 				revealObserver.observe(section);
 			});
 		</script>
+
+		<style>
+			.cio-office-capabilities-tagline span {
+				display: inline-block;
+			}
+
+			.js .cio-office-capabilities-tagline span {
+				opacity: 0;
+				transform: translateY(12px);
+			}
+
+			.cio-office-capabilities.is-visible
+				.cio-office-capabilities-tagline
+				span {
+				animation: tagline-reveal 0.7s
+					cubic-bezier(0.22, 1, 0.36, 1) forwards;
+			}
+
+			.cio-office-capabilities.is-visible .tagline-part-1 {
+				animation-delay: 0.15s;
+			}
+
+			.cio-office-capabilities.is-visible .tagline-part-2 {
+				animation-delay: 0.25s;
+			}
+
+			.cio-office-capabilities.is-visible .tagline-part-3 {
+				animation-delay: 0.35s;
+			}
+
+			.cio-office-capabilities.is-visible .tagline-part-4 {
+				animation-delay: 0.45s;
+			}
+
+			.cio-office-capabilities.is-visible .tagline-part-5 {
+				animation-delay: 0.55s;
+			}
+
+			@keyframes tagline-reveal {
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+
+			@media (prefers-reduced-motion: reduce) {
+				.js .cio-office-capabilities-tagline span {
+					opacity: 1;
+					transform: none;
+					animation: none;
+				}
+			}
+		</style>
 	</body>
 </html>
