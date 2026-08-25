@@ -44,6 +44,15 @@ const papers = [
 		<Header />
 
 		<main>
+
+			<!-- INTRO -->
+
+			<section class="books-intro">
+				<p class="lead books-intro-text">
+					Writing on technology, leadership, institutions, and power
+				</p>
+			</section>
+
 			<!-- FEATURED BOOK -->
 
 			<section
@@ -254,12 +263,32 @@ const papers = [
 		padding-bottom: 0;
 	}
 
+	/* INTRO — SAME TREATMENT AS CIO OFFICE */
+
+	.books-intro {
+		width: min(1180px, calc(100% - 3rem));
+		margin: 0 auto;
+		padding-top: clamp(4.5rem, 8vw, 7rem);
+		padding-bottom: 0;
+	}
+
+	.books-intro-text {
+		max-width: 690px;
+		margin: 0;
+		font-weight: 600;
+		color: var(--muted);
+	}
+
+	/* FEATURED BOOK */
+
 	.books-page-book-featured {
 		margin-top: 0;
 		margin-bottom: 0;
-		padding-top: clamp(3rem, 6vw, 5rem);
+		padding-top: clamp(4rem, 6vw, 5.5rem);
 		padding-bottom: clamp(2.25rem, 4vw, 3.5rem);
 	}
+
+	/* FORTHCOMING BOOK */
 
 	.minimal-tolerance-book {
 		margin-top: 0;
@@ -282,6 +311,8 @@ const papers = [
 		text-transform: uppercase;
 		color: #6d9fdd;
 	}
+
+	/* PAPERS */
 
 	.papers-section {
 		width: min(1180px, calc(100% - 3rem));
@@ -359,10 +390,15 @@ const papers = [
 	}
 
 	@media (max-width: 850px) {
+		.books-intro {
+			width: min(100% - 2rem, 720px);
+			padding-top: 3.5rem;
+		}
+
 		.books-page-book-featured {
 			margin-top: 0;
 			margin-bottom: 0;
-			padding-top: 2.5rem;
+			padding-top: 3.5rem;
 			padding-bottom: 2rem;
 		}
 
