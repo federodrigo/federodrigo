@@ -56,32 +56,17 @@ const capabilities = [
 		<Header />
 
 		<main>
-			<section class="hero">
-				<h1 class="hero-title">
-					<span class="hero-line">
-						CIO <span class="accent">Office</span>
-					</span>
-				</h1>
-
-				<div class="lead-principles">
-					<div>Technology Is Not the Starting Point</div>
-					<div>Business Is</div>
-				</div>
-			</section>
-
 			<section class="cio-office-capabilities reveal-section">
-				<div
-					class="cio-office-capabilities-heading reveal-item"
-				>
+				<div class="cio-office-capabilities-heading reveal-item">
 					<img
 						src="/images/cio-office-logo.png"
 						alt="CIO Office"
 						class="cio-office-capabilities-logo animated-image"
 					/>
 
-					<h2>
+					<h1>
 						Strategy • Advisory • Transformation
-					</h2>
+					</h1>
 				</div>
 
 				<div class="leadership-grid">
@@ -91,7 +76,7 @@ const capabilities = [
 								class="leadership-card"
 								style={`--card-index: ${index};`}
 							>
-								<h3>{capability.title}</h3>
+								<h2>{capability.title}</h2>
 
 								<p>{capability.description}</p>
 							</div>
@@ -115,6 +100,7 @@ const capabilities = [
 					<p class="cio-office-contact-link">
 						<a href="/contact/" class="animated-link">
 							<span>Contact me</span>
+
 							<span
 								class="animated-link-arrow"
 								aria-hidden="true"
