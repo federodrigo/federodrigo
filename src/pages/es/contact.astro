@@ -23,20 +23,7 @@ import Footer from '../../components/Footer.astro';
 		<Header />
 
 		<main>
-			<section class="hero">
-				<h1 class="hero-title">
-					<span class="hero-line">
-						Ponte en <span class="accent">Contacto</span>
-					</span>
-				</h1>
-
-				<div class="lead-principles">
-					<div>Mantente Involucrado</div>
-					<div>Lidera con el Ejemplo</div>
-				</div>
-			</section>
-
-			<section class="contact-page reveal-section">
+			<section class="contact-page contact-page-direct reveal-section">
 				<div
 					class="contact-page-info reveal-item reveal-from-left"
 				>
@@ -183,23 +170,21 @@ import Footer from '../../components/Footer.astro';
 								name="subject"
 								required
 							>
-							<option value="" selected disabled>
-								Selecciona un tema...
-							</option>
-							
-							<option value="cio-advisory">
-								Asesoría y CIO fraccional
-							</option>
-							
-							<option value="speaking">
-								Conferencias, webinars y podcasts
-							</option>
-							
-							<option value="general">
-								Consulta general
-							</option>
+								<option value="" selected disabled>
+									Selecciona un tema...
+								</option>
 
+								<option value="cio-advisory">
+									Asesoría y CIO fraccional
+								</option>
 
+								<option value="speaking">
+									Conferencias, webinars y podcasts
+								</option>
+
+								<option value="general">
+									Consulta general
+								</option>
 							</select>
 						</div>
 
@@ -356,5 +341,22 @@ import Footer from '../../components/Footer.astro';
 				});
 			}
 		</script>
+
+		<style>
+			main {
+				padding-top: 0 !important;
+			}
+
+			.contact-page-direct {
+				margin-top: 0;
+				padding-top: clamp(3rem, 5vw, 4.25rem);
+			}
+
+			@media (max-width: 850px) {
+				.contact-page-direct {
+					padding-top: 2.5rem;
+				}
+			}
+		</style>
 	</body>
 </html>
