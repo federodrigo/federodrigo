@@ -19,25 +19,50 @@ import Footer from '../components/Footer.astro';
 		/>
 
 		<style>
-			/* BOOK — more space before the divider */
+			/* BOOK — less space before the divider */
 			#books {
-				padding-bottom: 3.5rem;
+				padding-bottom: 1.25rem;
 			}
 
 			#books .books-page-book {
-				padding-bottom: 2rem;
+				padding-bottom: 0.5rem;
 			}
 
-			/* ABOUT — move photo up and remove line below it */
+			/* ABOUT — move photo up, make it 10% smaller, remove any line below it */
 			#about .about-photo-wrapper {
+				border: none !important;
 				border-bottom: none !important;
+				box-shadow: none !important;
 				padding-bottom: 0 !important;
-				margin-top: -28px;
+				margin-top: -36px;
 				align-self: start;
+				text-align: right;
+			}
+
+			#about .about-photo-wrapper::before,
+			#about .about-photo-wrapper::after {
+				content: none !important;
+				display: none !important;
+				border: none !important;
+				box-shadow: none !important;
+			}
+
+			#about .about-photo-wrapper a {
+				display: block;
+				border: none !important;
+				border-bottom: none !important;
+				box-shadow: none !important;
+				text-decoration: none !important;
 			}
 
 			#about .about-photo {
 				display: block;
+				width: 90%;
+				max-width: 90%;
+				margin-left: auto;
+				border: none !important;
+				border-bottom: none !important;
+				box-shadow: none !important;
 			}
 		</style>
 	</head>
@@ -66,7 +91,6 @@ import Footer from '../components/Footer.astro';
 				</div>
 			</section>
 
-
 			<!-- SPEAKING -->
 			<section
 				id="speaking"
@@ -86,7 +110,7 @@ import Footer from '../components/Footer.astro';
 						>
 							<img
 								src="/images/fede-speaking.png"
-								alt="Fede Rodrigo speaking about technology leadership and business value"
+								alt="Speaking and conversations about technology leadership and business value"
 								class="about-photo animated-image"
 							/>
 						</a>
@@ -123,7 +147,6 @@ import Footer from '../components/Footer.astro';
 					</div>
 				</article>
 			</section>
-
 
 			<!-- CIO OFFICE -->
 			<section
@@ -180,7 +203,6 @@ import Footer from '../components/Footer.astro';
 					</div>
 				</article>
 			</section>
-
 
 			<!-- BOOK -->
 			<section
@@ -244,14 +266,12 @@ import Footer from '../components/Footer.astro';
 				</article>
 			</section>
 
-
 			<!-- ABOUT -->
 			<section
 				id="about"
 				class="contact-section reveal-section"
 			>
 				<div class="about-layout">
-
 					<div class="about-content reveal-item reveal-delay-1">
 						<p>
 							I am a Chief Information Officer (CIO) with more than
@@ -294,7 +314,6 @@ import Footer from '../components/Footer.astro';
 							/>
 						</a>
 					</div>
-
 				</div>
 			</section>
 
