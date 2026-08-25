@@ -147,32 +147,32 @@ const spanishPath = isSpanish
 <style>
 	.site-footer {
 		margin-top: 0;
-		padding: 0 24px 18px;
+		padding: 0 0 18px;
 		background: #f7f9fc;
 	}
 
 	/*
-	 * TODO el footer usa exactamente el mismo ancho.
+	 * MISMA GEOMETRÍA QUE EL HEADER:
 	 *
-	 * Fede Rodrigo
-	 * ↓
-	 * © 2026 Fede Rodrigo
+	 * header-inner:
+	 * max-width: 920px;
+	 * padding-left/right: 32px;
 	 *
-	 * quedan perfectamente alineados.
-	 *
-	 * Y del otro lado:
-	 *
-	 * Navigate / Contact
-	 * ↓
-	 * EN · ES
-	 *
-	 * comparten el mismo borde derecho.
+	 * Por eso footer-shell usa exactamente
+	 * esos mismos valores.
 	 */
 	.footer-shell {
-		width: min(980px, 100%);
+		width: 100%;
+		max-width: 920px;
 		margin: 0 auto;
+		padding: 0 32px;
+		box-sizing: border-box;
 	}
 
+	/*
+	 * Las dos barras comparten exactamente
+	 * el mismo eje izquierdo y derecho.
+	 */
 	.footer-top-rule {
 		width: 100%;
 		height: 1px;
@@ -184,7 +184,7 @@ const spanishPath = isSpanish
 		grid-template-columns: auto auto;
 		justify-content: space-between;
 		align-items: start;
-		gap: 60px;
+		gap: 48px;
 
 		width: 100%;
 
@@ -291,11 +291,6 @@ const spanishPath = isSpanish
 
 	.footer-navigation {
 		min-width: 0;
-
-		/*
-		 * Esto hace que todo el bloque Navigate
-		 * se apoye sobre el borde derecho del footer.
-		 */
 		justify-self: end;
 	}
 
@@ -383,8 +378,8 @@ const spanishPath = isSpanish
 	}
 
 	/*
-	 * Elimina cualquier subrayado / rayita
-	 * generado por CSS global.
+	 * Mata definitivamente cualquier rayita
+	 * que pueda venir del CSS global.
 	 */
 	.footer-navigation a::before,
 	.footer-navigation a::after {
@@ -394,6 +389,7 @@ const spanishPath = isSpanish
 		height: 0 !important;
 
 		border: 0 !important;
+
 		background: none !important;
 		background-image: none !important;
 
@@ -475,12 +471,22 @@ const spanishPath = isSpanish
 		outline-offset: 4px;
 	}
 
-	@media (max-width: 900px) {
+	/*
+	 * El header pasa a 24px laterales debajo
+	 * de 720px, así que el footer hace lo mismo.
+	 */
+	@media (max-width: 720px) {
+		.footer-shell {
+			padding-left: 24px;
+			padding-right: 24px;
+		}
+
 		.footer-main {
 			grid-template-columns: 1fr;
 			gap: 28px;
 
 			padding-top: 28px;
+			padding-bottom: 24px;
 		}
 
 		.footer-navigation {
@@ -494,10 +500,6 @@ const spanishPath = isSpanish
 	}
 
 	@media (max-width: 520px) {
-		.site-footer {
-			padding: 0 20px 18px;
-		}
-
 		.footer-main {
 			padding-top: 26px;
 			padding-bottom: 22px;
