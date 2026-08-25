@@ -21,7 +21,6 @@ import Footer from '../components/Footer.astro';
 		<style>
 			/* =========================================================
 			   HOME FEATURE TITLES
-			   Remove decorative underline inherited from section styles
 			========================================================= */
 
 			#speaking .books-page-content h2::after,
@@ -36,7 +35,6 @@ import Footer from '../components/Footer.astro';
 			#books .books-page-content h2 {
 				padding-bottom: 0 !important;
 			}
-
 
 			/* =========================================================
 			   SPEAKING
@@ -53,7 +51,7 @@ import Footer from '../components/Footer.astro';
 			.speaking-visual-link {
 				display: block;
 				width: 100%;
-				max-width: 315px;
+				max-width: 300px;
 				margin: 0 auto;
 				text-decoration: none !important;
 				border: none !important;
@@ -62,59 +60,44 @@ import Footer from '../components/Footer.astro';
 			.speaking-visual {
 				box-sizing: border-box;
 				display: flex;
-				flex-direction: column;
-				justify-content: space-between;
+				align-items: center;
+				justify-content: center;
 
 				width: 100%;
-				min-height: 350px;
+				aspect-ratio: 1 / 1;
+				padding: 1.85rem;
 
-				padding: 2.1rem 2rem;
+				border: 1px solid rgba(36, 55, 92, 0.1);
+				border-radius: 22px;
 
-				border: 1px solid rgba(36, 55, 92, 0.11);
-				border-radius: 20px;
+				background: linear-gradient(
+					145deg,
+					rgba(255, 255, 255, 0.98),
+					rgba(247, 249, 253, 0.98)
+				);
 
-				background:
-					linear-gradient(
-						145deg,
-						rgba(255, 255, 255, 0.98),
-						rgba(247, 249, 253, 0.98)
-					);
-
-				box-shadow:
-					0 14px 34px rgba(28, 44, 76, 0.055);
+				box-shadow: 0 12px 28px rgba(28, 44, 76, 0.05);
 			}
 
 			.speaking-visual-title {
-				max-width: 245px;
 				margin: 0;
+				max-width: 220px;
 
-				font-size: clamp(1.9rem, 2.3vw, 2.45rem);
+				font-size: clamp(1.75rem, 2vw, 2.2rem);
 				font-weight: 700;
 				line-height: 1.08;
 				letter-spacing: -0.035em;
-
 				color: #24365e;
+				text-wrap: balance;
 			}
 
 			.speaking-visual-title span {
 				display: block;
 			}
 
-			.speaking-visual-principles {
-				margin: 2.5rem 0 0;
-
-				font-size: 0.82rem;
-				font-weight: 600;
-				line-height: 1.65;
-				letter-spacing: 0.01em;
-
-				color: rgba(47, 65, 101, 0.62);
+			.speaking-visual-title .speaking-never {
+				color: #4f6df5;
 			}
-
-			.speaking-visual-principles span {
-				display: block;
-			}
-
 
 			/* =========================================================
 			   BOOK
@@ -128,7 +111,6 @@ import Footer from '../components/Footer.astro';
 				padding-bottom: 0.5rem;
 			}
 
-
 			/* =========================================================
 			   ABOUT
 			========================================================= */
@@ -137,12 +119,8 @@ import Footer from '../components/Footer.astro';
 				border: none !important;
 				border-bottom: none !important;
 				box-shadow: none !important;
-
 				padding-bottom: 0 !important;
-
-				/* slightly lower than previous version */
 				margin-top: 2px;
-
 				align-self: start;
 				text-align: right;
 			}
@@ -151,34 +129,27 @@ import Footer from '../components/Footer.astro';
 			#about .about-photo-wrapper::after {
 				content: none !important;
 				display: none !important;
-
 				border: none !important;
 				box-shadow: none !important;
 			}
 
 			#about .about-photo-wrapper a {
 				display: block;
-
 				border: none !important;
 				border-bottom: none !important;
 				box-shadow: none !important;
-
 				text-decoration: none !important;
 			}
 
 			#about .about-photo {
 				display: block;
-
 				width: 90%;
 				max-width: 90%;
-
 				margin-left: auto;
-
 				border: none !important;
 				border-bottom: none !important;
 				box-shadow: none !important;
 			}
-
 
 			/* =========================================================
 			   MOBILE
@@ -186,16 +157,16 @@ import Footer from '../components/Footer.astro';
 
 			@media (max-width: 900px) {
 				.speaking-visual-link {
-					max-width: 290px;
+					max-width: 280px;
 				}
 
 				.speaking-visual {
-					min-height: 320px;
-					padding: 1.8rem;
+					padding: 1.5rem;
 				}
 
 				.speaking-visual-title {
-					font-size: 1.9rem;
+					max-width: 205px;
+					font-size: 1.65rem;
 				}
 
 				#about .about-photo-wrapper {
@@ -215,11 +186,7 @@ import Footer from '../components/Footer.astro';
 		<Header />
 
 		<main>
-
-			<!-- =====================================================
-			     HERO
-			===================================================== -->
-
+			<!-- HERO -->
 			<section class="hero">
 				<h1 class="hero-title">
 					<span class="hero-line">
@@ -238,11 +205,7 @@ import Footer from '../components/Footer.astro';
 				</div>
 			</section>
 
-
-			<!-- =====================================================
-			     SPEAKING
-			===================================================== -->
-
+			<!-- SPEAKING -->
 			<section
 				id="speaking"
 				class="contact-section reveal-section"
@@ -251,7 +214,6 @@ import Footer from '../components/Footer.astro';
 					class="books-page-book books-page-book-featured"
 					aria-labelledby="home-speaking-title"
 				>
-
 					<div
 						class="books-page-cover-wrapper reveal-item reveal-from-left reveal-delay-1"
 					>
@@ -261,27 +223,16 @@ import Footer from '../components/Footer.astro';
 							aria-label="Explore speaking"
 						>
 							<div class="speaking-visual animated-image">
-
 								<h3 class="speaking-visual-title">
 									<span>Technology is</span>
-									<span>Never the</span>
-									<span>Starting Point</span>
+									<span class="speaking-never">never</span>
+									<span>the starting point</span>
 								</h3>
-
-								<p class="speaking-visual-principles">
-									<span>People First</span>
-									<span>Business Driven</span>
-									<span>Technology Enabled</span>
-								</p>
-
 							</div>
 						</a>
 					</div>
 
-
-					<div
-						class="books-page-content reveal-item reveal-delay-2"
-					>
+					<div class="books-page-content reveal-item reveal-delay-2">
 						<h2 id="home-speaking-title">
 							Speaking
 						</h2>
@@ -294,10 +245,7 @@ import Footer from '../components/Footer.astro';
 						</p>
 
 						<p class="books-page-action">
-							<a
-								href="/speaking/"
-								class="animated-link"
-							>
+							<a href="/speaking/" class="animated-link">
 								<span>Explore speaking</span>
 
 								<span
@@ -309,15 +257,10 @@ import Footer from '../components/Footer.astro';
 							</a>
 						</p>
 					</div>
-
 				</article>
 			</section>
 
-
-			<!-- =====================================================
-			     CIO OFFICE
-			===================================================== -->
-
+			<!-- CIO OFFICE -->
 			<section
 				id="cio-office"
 				class="contact-section reveal-section"
@@ -326,7 +269,6 @@ import Footer from '../components/Footer.astro';
 					class="books-page-book books-page-book-featured"
 					aria-labelledby="home-cio-office-title"
 				>
-
 					<div
 						class="books-page-cover-wrapper reveal-item reveal-from-left reveal-delay-1"
 					>
@@ -343,10 +285,7 @@ import Footer from '../components/Footer.astro';
 						</a>
 					</div>
 
-
-					<div
-						class="books-page-content reveal-item reveal-delay-2"
-					>
+					<div class="books-page-content reveal-item reveal-delay-2">
 						<h2 id="home-cio-office-title">
 							Technology that Creates Business Value
 						</h2>
@@ -358,10 +297,7 @@ import Footer from '../components/Footer.astro';
 						</p>
 
 						<p class="books-page-action">
-							<a
-								href="/cio-office/"
-								class="animated-link"
-							>
+							<a href="/cio-office/" class="animated-link">
 								<span>Learn about the CIO Office</span>
 
 								<span
@@ -373,15 +309,10 @@ import Footer from '../components/Footer.astro';
 							</a>
 						</p>
 					</div>
-
 				</article>
 			</section>
 
-
-			<!-- =====================================================
-			     BOOK
-			===================================================== -->
-
+			<!-- BOOK -->
 			<section
 				id="books"
 				class="contact-section reveal-section"
@@ -390,7 +321,6 @@ import Footer from '../components/Footer.astro';
 					class="books-page-book books-page-book-featured"
 					aria-labelledby="home-cio-book-title"
 				>
-
 					<div
 						class="books-page-cover-wrapper reveal-item reveal-from-left reveal-delay-1"
 					>
@@ -407,10 +337,7 @@ import Footer from '../components/Footer.astro';
 						</a>
 					</div>
 
-
-					<div
-						class="books-page-content reveal-item reveal-delay-2"
-					>
+					<div class="books-page-content reveal-item reveal-delay-2">
 						<h2 id="home-cio-book-title">
 							How to Become CIO and Succeed
 						</h2>
@@ -428,10 +355,7 @@ import Footer from '../components/Footer.astro';
 						</p>
 
 						<p class="books-page-action">
-							<a
-								href="/cio-book/"
-								class="animated-link"
-							>
+							<a href="/cio-book/" class="animated-link">
 								<span>Explore the book</span>
 
 								<span
@@ -443,24 +367,16 @@ import Footer from '../components/Footer.astro';
 							</a>
 						</p>
 					</div>
-
 				</article>
 			</section>
 
-
-			<!-- =====================================================
-			     ABOUT
-			===================================================== -->
-
+			<!-- ABOUT -->
 			<section
 				id="about"
 				class="contact-section reveal-section"
 			>
 				<div class="about-layout">
-
-					<div
-						class="about-content reveal-item reveal-delay-1"
-					>
+					<div class="about-content reveal-item reveal-delay-1">
 						<p>
 							I am a Chief Information Officer (CIO) with more than
 							15 years of international IT leadership experience
@@ -475,10 +391,7 @@ import Footer from '../components/Footer.astro';
 						</p>
 
 						<p class="books-page-action">
-							<a
-								href="/about/"
-								class="animated-link"
-							>
+							<a href="/about/" class="animated-link">
 								<span>My journey</span>
 
 								<span
@@ -490,7 +403,6 @@ import Footer from '../components/Footer.astro';
 							</a>
 						</p>
 					</div>
-
 
 					<div
 						class="about-photo-wrapper reveal-item reveal-from-right reveal-delay-2"
@@ -506,18 +418,14 @@ import Footer from '../components/Footer.astro';
 							/>
 						</a>
 					</div>
-
 				</div>
 			</section>
-
 		</main>
 
 		<Footer />
 
-
 		<script>
-			const sections =
-				document.querySelectorAll('.reveal-section');
+			const sections = document.querySelectorAll('.reveal-section');
 
 			const revealObserver = new IntersectionObserver(
 				(entries, observer) => {
@@ -538,6 +446,5 @@ import Footer from '../components/Footer.astro';
 				revealObserver.observe(section);
 			});
 		</script>
-
 	</body>
 </html>
