@@ -40,6 +40,10 @@ import Footer from '../../components/Footer.astro';
 				padding-top: var(--divider-space-after);
 			}
 
+			#books.home-feature {
+				margin-top: 0;
+			}
+
 
 			/* =========================================================
 			   FEATURE LAYOUT
@@ -158,9 +162,11 @@ import Footer from '../../components/Footer.astro';
 
 			#cio-office .cio-office-capabilities-logo:hover {
 				transform: translateY(-4px) scale(1.015);
-				filter: drop-shadow(
-					0 16px 18px rgba(16, 42, 67, 0.12)
-				);
+
+				filter:
+					drop-shadow(
+						0 16px 18px rgba(16, 42, 67, 0.12)
+					);
 			}
 
 
@@ -173,7 +179,6 @@ import Footer from '../../components/Footer.astro';
 
 				width: 85%;
 				max-width: 85%;
-
 				height: auto;
 
 				margin-left: auto;
@@ -258,6 +263,10 @@ import Footer from '../../components/Footer.astro';
 					padding-top: var(--divider-space-mobile);
 				}
 
+				#books.home-feature {
+					margin-top: var(--divider-space-mobile);
+				}
+
 				#speaking .books-page-book,
 				#cio-office .books-page-book,
 				#books .books-page-book {
@@ -322,10 +331,6 @@ import Footer from '../../components/Footer.astro';
 
 		<main class="home-main">
 
-			<!-- =====================================================
-			     HERO
-			===================================================== -->
-
 			<section class="hero home-hero">
 				<h1 class="hero-title">
 
@@ -346,10 +351,6 @@ import Footer from '../../components/Footer.astro';
 				</div>
 			</section>
 
-
-			<!-- =====================================================
-			     SPEAKING
-			===================================================== -->
 
 			<section
 				id="speaking"
@@ -398,9 +399,7 @@ import Footer from '../../components/Footer.astro';
 								href="/es/speaking/"
 								class="animated-link"
 							>
-								<span>
-									Explorar speaking
-								</span>
+								<span>Explorar speaking</span>
 
 								<span
 									class="animated-link-arrow"
@@ -415,10 +414,6 @@ import Footer from '../../components/Footer.astro';
 				</article>
 			</section>
 
-
-			<!-- =====================================================
-			     CIO OFFICE
-			===================================================== -->
 
 			<section
 				id="cio-office"
@@ -464,9 +459,7 @@ import Footer from '../../components/Footer.astro';
 								href="/es/cio-office/"
 								class="animated-link"
 							>
-								<span>
-									Conoce la CIO Office
-								</span>
+								<span>Conoce la CIO Office</span>
 
 								<span
 									class="animated-link-arrow"
@@ -481,10 +474,6 @@ import Footer from '../../components/Footer.astro';
 				</article>
 			</section>
 
-
-			<!-- =====================================================
-			     BOOK
-			===================================================== -->
 
 			<section
 				id="books"
@@ -536,9 +525,7 @@ import Footer from '../../components/Footer.astro';
 								href="/es/cio-book/"
 								class="animated-link"
 							>
-								<span>
-									Explorar el libro
-								</span>
+								<span>Explorar el libro</span>
 
 								<span
 									class="animated-link-arrow"
@@ -553,10 +540,6 @@ import Footer from '../../components/Footer.astro';
 				</article>
 			</section>
 
-
-			<!-- =====================================================
-			     ABOUT
-			===================================================== -->
 
 			<section
 				id="about"
@@ -586,9 +569,7 @@ import Footer from '../../components/Footer.astro';
 								href="/es/about/"
 								class="animated-link"
 							>
-								<span>
-									Mi trayectoria
-								</span>
+								<span>Mi trayectoria</span>
 
 								<span
 									class="animated-link-arrow"
@@ -632,31 +613,18 @@ import Footer from '../../components/Footer.astro';
 			const revealObserver =
 				new IntersectionObserver(
 					(entries, observer) => {
-
 						entries.forEach((entry) => {
+							if (!entry.isIntersecting) return;
 
-							if (!entry.isIntersecting) {
-								return;
-							}
-
-							entry.target.classList.add(
-								'is-visible'
-							);
-
-							observer.unobserve(
-								entry.target
-							);
-
+							entry.target.classList.add('is-visible');
+							observer.unobserve(entry.target);
 						});
-
 					},
 					{
 						threshold: 0.12,
-						rootMargin:
-							'0px 0px -60px 0px'
+						rootMargin: '0px 0px -60px 0px'
 					}
 				);
-
 
 			sections.forEach((section) => {
 				revealObserver.observe(section);
