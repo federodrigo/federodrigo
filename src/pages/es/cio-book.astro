@@ -2,9 +2,6 @@
 import SEO from '../../components/SEO.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-
-const youtubeEmbedUrl =
-	'https://www.youtube.com/embed/ZN-d5W68Lp8';
 ---
 
 <!doctype html>
@@ -16,278 +13,49 @@ const youtubeEmbedUrl =
 		</script>
 
 		<SEO
-			title="La tecnología nunca es el punto de partida | Fede Rodrigo"
-			description="Las iniciativas tecnológicas suelen comenzar con una solución en lugar de la necesidad del negocio. Comienza con las personas y las prioridades del negocio, y utiliza la tecnología para habilitar el resultado."
+			title="Libro CIO | How to Become CIO and Succeed"
+			description="How to Become CIO and Succeed es un libro práctico sobre liderazgo CIO para futuros y actuales CIOs, enfocado en personas, negocio, estrategia, liderazgo de TI y creación de valor a través de la tecnología"
 			lang="es"
 		/>
 
 		<style>
 			/* =========================================================
-			   WEBINAR PAGE
+			   CIO BOOK PAGE
 			========================================================= */
 
-			.webinar-page {
+			.cio-book-page {
 				padding-top: 46px;
 			}
 
 
 			/* =========================================================
-			   HERO
+			   FEATURED BOOK
 			========================================================= */
 
-			.webinar-hero {
-				display: block;
-
-				width: 100%;
-				max-width: none;
-
-				margin: 0 auto;
-
-				padding: 0 0 24px;
-
-				border-bottom: 0;
-
-				text-align: center;
-			}
-
-			.webinar-hero-title {
-				width: 100%;
-				max-width: 850px;
-
-				margin: 0 auto;
-
-				font-size: clamp(2.4rem, 4.8vw, 4.7rem);
-				font-weight: 800;
-				line-height: 1.03;
-				letter-spacing: -0.055em;
-
-				text-align: center;
-			}
-
-			.webinar-hero-title .hero-line {
-				display: block;
-				width: 100%;
-			}
-
-			.webinar-never {
-				color: #6fa7ef;
-			}
-
-
-			/* =========================================================
-			   PRINCIPLES
-			========================================================= */
-
-			.webinar-principles {
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				flex-wrap: wrap;
-
-				gap: 8px;
-
-				width: 100%;
-				max-width: 850px;
-
-				margin: 22px auto 0;
-
-				color: #6f7d8f;
-
-				font-size: 0.82rem;
-				font-weight: 650;
-				line-height: 1.4;
-				letter-spacing: 0.045em;
-
-				text-align: center;
-				text-transform: uppercase;
-			}
-
-			.webinar-principles span:nth-child(2),
-			.webinar-principles span:nth-child(4) {
-				color: #b3bdc7;
-			}
-
-
-			/* =========================================================
-			   INTRO
-			========================================================= */
-
-			.webinar-intro {
-				width: 100%;
-
-				margin: 12px auto 30px;
-				padding: 0;
-			}
-
-			.webinar-intro-inner {
-				display: grid;
-
-				grid-template-columns:
-					minmax(0, 0.92fr)
-					minmax(0, 1.08fr);
-
-				align-items: start;
-
-				gap: 54px;
-
-				width: 100%;
-			}
-
-			.webinar-lead {
-				max-width: none;
-
+			.cio-book-page .books-page-book-featured {
 				margin: 0;
-
-				color: #102b46;
-
-				font-size: clamp(1.25rem, 1.75vw, 1.5rem);
-				font-weight: 620;
-				line-height: 1.42;
-				letter-spacing: -0.032em;
-			}
-
-			.webinar-intro-response {
-				padding-top: 2px;
-			}
-
-			.webinar-description {
-				max-width: none;
-
-				margin: 0;
-
-				color: #6f7d8f;
-
-				font-size: clamp(1.02rem, 1.35vw, 1.15rem);
-				line-height: 1.62;
-				letter-spacing: -0.014em;
-			}
-
-			.webinar-description strong {
-				color: #102b46;
-				font-weight: 700;
-			}
-
-
-			/* =========================================================
-			   SECONDARY LINKS
-			========================================================= */
-
-			.webinar-secondary-links {
-				display: flex;
-				align-items: center;
-				flex-wrap: wrap;
-
-				gap: 24px;
-
-				margin-top: 20px;
-			}
-
-
-			/* =========================================================
-			   VIDEO
-			========================================================= */
-
-			.webinar-video-section {
-				margin: 0;
-				padding: 0;
-			}
-
-			.webinar-video {
-				width: 100%;
-
-				aspect-ratio: 16 / 9;
-
-				overflow: hidden;
-
-				border-radius: 14px;
-
-				background: #000000;
-
-				box-shadow:
-					0 14px 34px rgba(16, 42, 67, 0.08);
-			}
-
-			.webinar-video iframe {
-				display: block;
-
-				width: 100%;
-				height: 100%;
-
-				border: 0;
-			}
-
-
-			/* =========================================================
-			   TAKEAWAYS
-			========================================================= */
-
-			.webinar-takeaways {
-				margin-top: 38px;
-				margin-bottom: 0;
-
 				padding-top: 0;
 				padding-bottom: 0;
 			}
 
-			.webinar-takeaways > h2 {
-				margin-bottom: 28px;
+			.cio-book-page .books-page-cover-wrapper {
+				position: relative;
+				z-index: 2;
 			}
 
-			.webinar-takeaway {
-				display: grid;
-
-				grid-template-columns:
-					150px
-					minmax(0, 1fr);
-
-				align-items: center;
-
-				gap: 28px;
-
-				padding: 30px 0;
-
-				border-bottom: 1px solid var(--line);
-			}
-
-			.webinar-takeaway:first-of-type {
-				padding-top: 4px;
-			}
-
-			.webinar-takeaway:last-of-type {
-				padding-bottom: 30px;
-				border-bottom: 0;
-			}
-
-			.webinar-takeaway-number {
-				color: var(--navy);
-
-				font-size: clamp(4rem, 7vw, 6.5rem);
-				font-weight: 700;
-				line-height: 0.9;
-				letter-spacing: -0.06em;
-
-				opacity: 0.16;
-			}
-
-			.webinar-takeaway .media-content {
-				padding-top: 0;
-			}
-
-			.webinar-takeaway .media-content h3 {
-				margin-bottom: 10px;
-			}
-
-			.webinar-takeaway .media-description {
-				max-width: 650px;
+			.cio-book-page .books-page-content {
+				position: relative;
+				z-index: 1;
 			}
 
 
 			/* =========================================================
-			   SPEAKING INQUIRIES
+			   CONTENT SECTIONS
 			========================================================= */
 
-			.webinar-contact {
+			.cio-book-page .books-page-other {
 				margin-top: var(--divider-space-before);
+				margin-bottom: 0;
 
 				padding-top: var(--divider-space-after);
 				padding-bottom: 0;
@@ -295,37 +63,129 @@ const youtubeEmbedUrl =
 				border-top: 1px solid var(--line);
 			}
 
-			.webinar-contact-title {
-				margin-bottom: 10px;
+			.cio-book-page
+				.books-page-other
+				> .reveal-item:first-child {
+				margin-bottom: 22px;
 			}
 
-			.webinar-contact-copy {
-				max-width: 650px;
-
-				margin: 0;
-
-				color: var(--muted);
+			.cio-book-page
+				.books-page-other
+				> .reveal-item:first-child
+				h2 {
+				margin-bottom: 0;
 			}
 
-			.webinar-contact-link {
-				margin: 18px 0 0;
+			.cio-book-page .books-page-other p {
+				max-width: 740px;
 			}
 
 
 			/* =========================================================
-			   TABLET
+			   DUCK
 			========================================================= */
 
-			@media (max-width: 850px) {
-				.webinar-intro-inner {
-					grid-template-columns: 1fr;
+			.cio-duck {
+				position: absolute;
+				right: -3rem;
+				bottom: -1.5rem;
+				z-index: 3;
 
-					gap: 22px;
-				}
+				width: clamp(5rem, 8vw, 7rem);
 
-				.webinar-intro {
-					max-width: 720px;
-				}
+				cursor: default;
+				outline: none;
+			}
+
+			.cio-duck img {
+				display: block;
+
+				width: 100%;
+				height: auto;
+
+				border-radius: 0;
+
+				transition:
+					transform 180ms ease,
+					filter 180ms ease;
+			}
+
+
+			/* =========================================================
+			   DUCK TOOLTIP
+			========================================================= */
+
+			.cio-duck-tooltip {
+				position: absolute;
+				left: 50%;
+				bottom: calc(100% + 0.75rem);
+				z-index: 20;
+
+				width: max-content;
+				max-width: 15rem;
+
+				padding: 0.55rem 0.75rem;
+
+				border: 2px solid #ffffff;
+				border-radius: 0.4rem;
+
+				background: #102a46;
+				color: #ffffff;
+				-webkit-text-fill-color: #ffffff;
+
+				font-size: 0.85rem;
+				font-weight: 600;
+				line-height: 1.3;
+				text-align: center;
+				white-space: nowrap;
+
+				opacity: 0;
+				visibility: hidden;
+
+				transform: translate(-50%, 0.4rem);
+
+				pointer-events: none;
+
+				transition:
+					opacity 160ms ease,
+					transform 160ms ease,
+					visibility 160ms ease;
+			}
+
+			.cio-duck-tooltip::after {
+				content: "";
+
+				position: absolute;
+				top: 100%;
+				left: 50%;
+
+				border: 0.4rem solid transparent;
+				border-top-color: #102a46;
+
+				transform: translateX(-50%);
+			}
+
+
+			/* =========================================================
+			   DUCK INTERACTION
+			========================================================= */
+
+			.cio-duck:hover img,
+			.cio-duck:focus-visible img {
+				transform: translateY(-0.2rem) rotate(-2deg);
+
+				filter:
+					drop-shadow(
+						0 0.5rem 0.6rem rgb(16 42 70 / 20%)
+					);
+			}
+
+			.cio-duck:hover .cio-duck-tooltip,
+			.cio-duck:focus-visible .cio-duck-tooltip {
+				opacity: 1;
+				visibility: visible;
+
+				transform: translate(-50%, 0);
 			}
 
 
@@ -334,400 +194,224 @@ const youtubeEmbedUrl =
 			========================================================= */
 
 			@media (max-width: 720px) {
-				.webinar-page {
+				.cio-book-page {
 					padding-top: 42px;
 				}
 
-				.webinar-hero {
-					padding-bottom: 22px;
+				.cio-book-page .books-page-book {
+					grid-template-columns: 1fr;
+					gap: 24px;
 				}
 
-				.webinar-hero-title {
-					font-size: clamp(2.3rem, 11vw, 3.15rem);
-					line-height: 1.04;
+				.cio-book-page .books-page-book-featured {
+					padding-top: 0;
+					padding-bottom: 0;
 				}
 
-				.webinar-principles {
-					gap: 6px;
-
-					margin-top: 18px;
-
-					font-size: 0.74rem;
-					line-height: 1.45;
+				.cio-book-page .books-page-cover-wrapper,
+				.cio-book-page .books-page-cover-link {
+					width: 180px;
 				}
 
+				.cio-book-page .books-page-cover {
+					width: 180px;
+					max-width: 100%;
 
-				/* INTRO */
-
-				.webinar-intro {
-					margin-top: 6px;
-					margin-bottom: 28px;
+					border-radius: 8px;
 				}
 
-				.webinar-intro-inner {
-					gap: 20px;
+				.cio-book-page .books-page-content h2 {
+					font-size: 1.55rem;
 				}
 
-				.webinar-lead {
-					font-size: 1.2rem;
-					line-height: 1.42;
+				.cio-book-page .books-page-subtitle {
+					margin-bottom: 18px;
+
+					font-size: 0.92rem;
 				}
 
-				.webinar-description {
-					font-size: 1rem;
+				.cio-book-page .books-page-content > p {
+					margin-bottom: 15px;
+
+					font-size: 0.94rem;
 					line-height: 1.58;
 				}
 
-				.webinar-secondary-links {
-					flex-direction: column;
-					align-items: flex-start;
-
-					gap: 10px;
-
+				.cio-book-page .books-page-action {
 					margin-top: 18px;
 				}
 
 
-				/* VIDEO */
+				/* CONTENT SECTIONS */
 
-				.webinar-video {
-					border-radius: 10px;
-				}
-
-
-				/* TAKEAWAYS */
-
-				.webinar-takeaways {
-					margin-top: 32px;
-				}
-
-				.webinar-takeaways > h2 {
-					margin-bottom: 22px;
-				}
-
-				.webinar-takeaway {
-					grid-template-columns:
-						72px
-						minmax(0, 1fr);
-
-					align-items: start;
-
-					gap: 18px;
-
-					padding: 26px 0;
-				}
-
-				.webinar-takeaway:first-of-type {
-					padding-top: 2px;
-				}
-
-				.webinar-takeaway:last-of-type {
-					padding-bottom: 26px;
-				}
-
-				.webinar-takeaway-number {
-					padding-top: 4px;
-
-					font-size: 3.4rem;
-				}
-
-				.webinar-takeaway .media-content h3 {
-					font-size: 1.18rem;
-				}
-
-				.webinar-takeaway .media-description {
-					font-size: 0.94rem;
-					line-height: 1.55;
-				}
-
-
-				/* SPEAKING INQUIRIES */
-
-				.webinar-contact {
+				.cio-book-page .books-page-other {
 					margin-top: var(--divider-space-mobile);
 
 					padding-top: var(--divider-space-mobile);
+					padding-bottom: 0;
+				}
+
+				.cio-book-page
+					.books-page-other
+					> .reveal-item:first-child {
+					margin-bottom: 20px;
+				}
+
+
+				/* DUCK */
+
+				.cio-duck {
+					right: -0.75rem;
+					bottom: -1rem;
+
+					width: 5rem;
+				}
+
+				.cio-duck-tooltip {
+					left: auto;
+					right: 0;
+
+					width: 12rem;
+
+					white-space: normal;
+
+					transform: translateY(0.4rem);
+				}
+
+				.cio-duck:hover .cio-duck-tooltip,
+				.cio-duck:focus-visible .cio-duck-tooltip {
+					transform: translateY(0);
+				}
+
+				.cio-duck-tooltip::after {
+					left: auto;
+					right: 1.5rem;
+
+					transform: none;
+				}
+			}
+
+
+			/* =========================================================
+			   REDUCED MOTION
+			========================================================= */
+
+			@media (prefers-reduced-motion: reduce) {
+				.cio-duck img,
+				.cio-duck-tooltip {
+					transition: none;
 				}
 			}
 		</style>
 	</head>
 
-
 	<body>
 		<Header />
 
 
-		<main class="webinar-page">
+		<main class="cio-book-page">
 
 			<!-- =====================================================
-			     HERO
-			===================================================== -->
-
-			<section class="hero webinar-hero">
-
-				<h1 class="hero-title webinar-hero-title">
-
-					<span class="hero-line">
-						La tecnología
-						<span class="webinar-never">
-							nunca
-						</span>
-					</span>
-
-					<span class="hero-line">
-						es el punto de partida
-					</span>
-
-				</h1>
-
-
-				<div class="webinar-principles">
-
-					<span>
-						Personas Primero
-					</span>
-
-					<span aria-hidden="true">
-						·
-					</span>
-
-					<span>
-						Orientado al Negocio
-					</span>
-
-					<span aria-hidden="true">
-						·
-					</span>
-
-					<span>
-						Tecnología como Habilitador
-					</span>
-
-				</div>
-
-			</section>
-
-
-			<!-- =====================================================
-			     INTRO
-			===================================================== -->
-
-			<section class="webinar-intro reveal-section">
-
-				<div class="webinar-intro-inner">
-
-					<p class="webinar-lead reveal-item">
-						Las iniciativas tecnológicas suelen comenzar con una solución
-						en lugar de la necesidad del negocio que existe detrás
-					</p>
-
-
-					<div
-						class="webinar-intro-response reveal-item reveal-delay-1"
-					>
-
-						<p class="webinar-description">
-							<strong>
-								Esta charla explora un enfoque diferente:
-							</strong>
-
-							<br />
-
-							comenzar con las personas y las prioridades del negocio,
-
-							<br />
-
-							y luego utilizar la tecnología para habilitar el resultado
-						</p>
-
-
-						<div class="webinar-secondary-links">
-
-							<a
-								href="/es/about/"
-								class="animated-link"
-							>
-								<span>
-									Sobre Federico
-								</span>
-							</a>
-
-
-							<a
-								href="/es/books/"
-								class="animated-link"
-							>
-								<span>
-									Explorar el libro
-								</span>
-
-								<span
-									class="animated-link-arrow"
-									aria-hidden="true"
-								>
-									→
-								</span>
-							</a>
-
-						</div>
-
-					</div>
-
-				</div>
-
-			</section>
-
-
-			<!-- =====================================================
-			     VIDEO
+			     BOOK
 			===================================================== -->
 
 			<section
-				class="webinar-video-section reveal-section"
-				aria-label="Video de La tecnología nunca es el punto de partida"
+				id="book"
+				class="books-page-book books-page-book-featured reveal-section"
+				aria-labelledby="cio-book-title"
 			>
 
 				<div
-					class="webinar-video reveal-item"
+					class="books-page-cover-wrapper reveal-item reveal-from-left"
 				>
-					<iframe
-						src={youtubeEmbedUrl}
-						title="Technology is Never the Starting Point"
-						loading="lazy"
-						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-						allowfullscreen
-					></iframe>
+
+					<a
+						href="https://www.amazon.com/dp/B0F8MVPN4Q"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="books-page-cover-link"
+						aria-label="Ver How to Become CIO and Succeed en Amazon"
+					>
+						<img
+							src="/images/cio-book-cover.png"
+							alt="Portada del libro CIO How to Become CIO and Succeed de Fede Rodrigo"
+							class="books-page-cover animated-book-cover"
+						/>
+					</a>
+
+
+					<div
+						class="cio-duck"
+						tabindex="0"
+						aria-describedby="cio-duck-tooltip"
+					>
+						<img
+							src="/images/duckcio.png"
+							alt="Un pato amarillo escéptico usando lentes"
+						/>
+
+						<span
+							id="cio-duck-tooltip"
+							class="cio-duck-tooltip"
+							role="tooltip"
+						>
+							Ha visto demasiados proyectos de TI
+						</span>
+					</div>
+
 				</div>
 
-			</section>
 
-
-			<!-- =====================================================
-			     TAKEAWAYS
-			===================================================== -->
-
-			<section
-				class="webinar-takeaways reveal-section"
-				aria-labelledby="takeaways-title"
-			>
-
-				<h2
-					id="takeaways-title"
-					class="reveal-item"
-				>
-					Qué te llevarás de esta charla
-				</h2>
-
-
-				<!-- 01 -->
-
-				<article
-					class="webinar-takeaway reveal-item reveal-delay-1"
+				<div
+					class="books-page-content reveal-item reveal-delay-1"
 				>
 
-					<div class="webinar-takeaway-number">
-						01
-					</div>
-
-
-					<div class="media-content">
-
-						<h3>
-							Por qué fracasan las iniciativas tecnológicas
-						</h3>
-
-						<p class="media-description">
-							Por qué tantas iniciativas no logran entregar
-							lo esperado y qué pueden hacer los líderes
-							de manera diferente
-						</p>
-
-					</div>
-
-				</article>
-
-
-				<!-- 02 -->
-
-				<article
-					class="webinar-takeaway reveal-item reveal-delay-2"
-				>
-
-					<div class="webinar-takeaway-number">
-						02
-					</div>
-
-
-					<div class="media-content">
-
-						<h3>
-							TI como organización de servicio
-						</h3>
-
-						<p class="media-description">
-							Cómo enfocar TI en las personas y en el
-							negocio al que sirve, utilizando el valor
-							para el negocio como medida del éxito
-						</p>
-
-					</div>
-
-				</article>
-
-
-				<!-- 03 -->
-
-				<article
-					class="webinar-takeaway reveal-item reveal-delay-2"
-				>
-
-					<div class="webinar-takeaway-number">
-						03
-					</div>
-
-
-					<div class="media-content">
-
-						<h3>
-							Liderar en la era de la IA
-						</h3>
-
-						<p class="media-description">
-							Por qué las herramientas cambian, pero no reemplazan
-							el liderazgo, la estrategia, el criterio
-							y el entendimiento del negocio
-						</p>
-
-					</div>
-
-				</article>
-
-
-				<!-- =================================================
-				     SPEAKING INQUIRIES
-				================================================= -->
-
-				<div class="webinar-contact reveal-item">
-
-					<h2 class="webinar-contact-title">
-						Consultas de Speaking
-					</h2>
-
-
-					<p class="webinar-contact-copy">
-						Para charlas, podcasts u otras oportunidades,
-						ponte en contacto
+					<p class="books-page-label">
+						Libro de Liderazgo CIO
 					</p>
 
 
-					<p class="webinar-contact-link">
+					<h2 id="cio-book-title">
+						How to Become CIO and Succeed
+					</h2>
 
+
+					<p class="books-page-subtitle">
+						Personas, Negocio, Estrategia
+					</p>
+
+
+					<p>
+						El rol del Chief Information Officer no consiste en
+						gestionar sistemas. <em>No debería haber una “I” en CIO.</em>
+						Se trata de liderar personas, definir la estrategia, influir
+						en el negocio y convertir la tecnología en una ventaja
+						competitiva
+					</p>
+
+
+					<p>
+						<strong>Este no es un libro de texto.</strong>
+						Es una guía práctica para líderes tecnológicos actuales
+						y futuros
+					</p>
+
+
+					<p class="books-page-closing">
+						Si estás acá para mantener el status quo,
+						mejor da la vuelta
+					</p>
+
+
+					<p class="books-page-action">
 						<a
-							href="/es/contact/"
+							href="https://www.amazon.com/dp/B0F8MVPN4Q"
+							target="_blank"
+							rel="noopener noreferrer"
 							class="animated-link"
 						>
 							<span>
-								Contáctame
+								Comprar el libro en Amazon
 							</span>
 
 							<span
@@ -737,7 +421,126 @@ const youtubeEmbedUrl =
 								→
 							</span>
 						</a>
+					</p>
 
+				</div>
+
+			</section>
+
+
+			<!-- =====================================================
+			     WHAT YOU WILL LEARN
+			===================================================== -->
+
+			<section
+				id="what-you-will-learn"
+				class="books-page-other reveal-section"
+				aria-labelledby="what-you-will-learn-title"
+			>
+
+				<div class="reveal-item">
+					<h2 id="what-you-will-learn-title">
+						Qué Aprenderás
+					</h2>
+				</div>
+
+
+				<div class="reveal-item reveal-delay-1">
+
+					<p>
+						Cómo construir equipos efectivos, crear una cultura orientada
+						al servicio, generar credibilidad, influir en decisiones
+						ejecutivas, mejorar las operaciones, definir la estrategia
+						tecnológica y crear valor para el negocio de manera consistente
+					</p>
+
+					<p>
+						También aprenderás a liderar todo el alcance de la TI moderna,
+						desde infraestructura y sistemas empresariales hasta
+						ciberseguridad, transformación y cambio continuo
+					</p>
+
+				</div>
+
+			</section>
+
+
+			<!-- =====================================================
+			     WHO THIS BOOK IS FOR
+			===================================================== -->
+
+			<section
+				id="who-is-this-book-for"
+				class="books-page-other reveal-section"
+				aria-labelledby="who-is-this-book-for-title"
+			>
+
+				<div class="reveal-item">
+					<h2 id="who-is-this-book-for-title">
+						Para Quién Es Este Libro
+					</h2>
+				</div>
+
+
+				<div class="reveal-item reveal-delay-1">
+
+					<p>
+						Este libro práctico para futuros CIOs también está dirigido
+						a CIOs actuales, gerentes de TI, directores de tecnología
+						y líderes de negocio que quieran comprender y fortalecer
+						el rol moderno del CIO
+					</p>
+
+				</div>
+
+			</section>
+
+
+			<!-- =====================================================
+			     GET THE BOOK
+			===================================================== -->
+
+			<section
+				id="buy"
+				class="books-page-other reveal-section"
+				aria-labelledby="get-the-book-title"
+			>
+
+				<div class="reveal-item">
+					<h2 id="get-the-book-title">
+						Obtén el Libro
+					</h2>
+				</div>
+
+
+				<div
+					class="books-page-content reveal-item reveal-delay-1"
+				>
+
+					<p>
+						Descubre un enfoque práctico del liderazgo CIO construido
+						en torno a las personas, el negocio y la estrategia de TI
+					</p>
+
+
+					<p class="books-page-action">
+						<a
+							href="https://www.amazon.com/dp/B0F8MVPN4Q"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="animated-link"
+						>
+							<span>
+								Comprar How to Become CIO en Amazon
+							</span>
+
+							<span
+								class="animated-link-arrow"
+								aria-hidden="true"
+							>
+								→
+							</span>
+						</a>
 					</p>
 
 				</div>
@@ -756,9 +559,7 @@ const youtubeEmbedUrl =
 
 		<script>
 			const sections =
-				document.querySelectorAll(
-					'.reveal-section'
-				);
+				document.querySelectorAll('.reveal-section');
 
 
 			if ('IntersectionObserver' in window) {
@@ -773,11 +574,9 @@ const youtubeEmbedUrl =
 									return;
 								}
 
-
 								entry.target.classList.add(
 									'is-visible'
 								);
-
 
 								observer.unobserve(
 									entry.target
@@ -787,30 +586,23 @@ const youtubeEmbedUrl =
 
 						},
 						{
-							threshold: 0.08,
-
+							threshold: 0.12,
 							rootMargin:
-								'0px 0px -50px 0px',
+								'0px 0px -60px 0px'
 						}
 					);
 
 
 				sections.forEach((section) => {
-
-					revealObserver.observe(
-						section
-					);
-
+					revealObserver.observe(section);
 				});
 
 			} else {
 
 				sections.forEach((section) => {
-
 					section.classList.add(
 						'is-visible'
 					);
-
 				});
 
 			}
