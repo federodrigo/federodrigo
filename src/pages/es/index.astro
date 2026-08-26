@@ -149,6 +149,22 @@ import Footer from '../../components/Footer.astro';
 
 
 			/* =========================================================
+			   CIO OFFICE
+			========================================================= */
+
+			#cio-office .cio-office-capabilities-logo {
+				transform: none;
+			}
+
+			#cio-office .cio-office-capabilities-logo:hover {
+				transform: translateY(-4px) scale(1.015);
+				filter: drop-shadow(
+					0 16px 18px rgba(16, 42, 67, 0.12)
+				);
+			}
+
+
+			/* =========================================================
 			   BOOK
 			========================================================= */
 
@@ -281,6 +297,10 @@ import Footer from '../../components/Footer.astro';
 				#cio-office .cio-office-capabilities-logo {
 					width: 170px;
 					transform: none;
+				}
+
+				#cio-office .cio-office-capabilities-logo:hover {
+					transform: translateY(-4px) scale(1.015);
 				}
 
 				#books .books-page-cover-wrapper,
@@ -604,10 +624,6 @@ import Footer from '../../components/Footer.astro';
 
 		<Footer />
 
-
-		<!-- =====================================================
-		     REVEAL
-		===================================================== -->
 
 		<script>
 			const sections =
