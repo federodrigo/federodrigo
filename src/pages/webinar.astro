@@ -3,8 +3,92 @@ import SEO from '../../components/SEO.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 
-const youtubeEmbedUrl =
-	'https://www.youtube.com/embed/ZN-d5W68Lp8';
+type MediaItem = {
+	type: string;
+	status: 'upcoming' | 'published';
+	title: string;
+	date: string;
+	image: string;
+	imageAlt: string;
+	description: string;
+	url?: string;
+	linkLabel?: string;
+	pdfUrl?: string;
+	pdfLabel?: string;
+	internal?: boolean;
+	compactTitle?: boolean;
+};
+
+const mediaItems: MediaItem[] = [
+	{
+		type: 'Webinar',
+		status: 'upcoming',
+		title: 'Technology is Never the Starting Point — Xseed',
+		date: 'Agosto 2026',
+		image: '/images/xseed-webinar.png',
+		imageAlt:
+			'Webinar Technology is Never the Starting Point con Federico Rodrigo',
+		description:
+			'Una sesión práctica sobre cómo comenzar con las personas y las prioridades del negocio, y utilizar la tecnología para habilitar el resultado',
+		url: '/es/webinar/',
+		linkLabel: 'Explorar la charla',
+		internal: true,
+		compactTitle: true,
+	},
+	{
+		type: 'Podcast',
+		status: 'published',
+		title: 'The Technology Vanguard',
+		date: 'Agosto 2026',
+		image: '/images/vanguard.png',
+		imageAlt:
+			'Fede Rodrigo participando en el podcast The Technology Vanguard',
+		description:
+			'Una conversación sobre liderazgo de TI, los errores que enseñan, la transición desde la excelencia técnica hacia el liderazgo de personas y las lecciones que realmente forman el camino para convertirse en CIO',
+		url: 'https://www.youtube.com/watch?v=2wyTHhaOcWE',
+		linkLabel: 'Ver la conversación',
+	},
+	{
+		type: 'Entrevista Escrita',
+		status: 'published',
+		title: 'Turning Cloud Investment into Business Value — Nublit',
+		date: 'Enero 2026',
+		image: '/images/cloud-interview.jpg',
+		imageAlt:
+			'Entrevista con Fede Rodrigo publicada por Nublit',
+		description:
+			'Una conversación con Nublit sobre estrategia cloud en América Latina, adopción híbrida, barreras culturales y regulatorias, y el rol de la tecnología como impulsor del crecimiento, la innovación y la resiliencia operacional',
+		url: 'https://informe2026.nublit.com/',
+		linkLabel: 'Ver informe completo',
+		pdfUrl: '/pdfs/Fede-Rodrigo-Interview-Nublit.pdf',
+		pdfLabel: 'Leer mi entrevista',
+		compactTitle: true,
+	},
+	{
+		type: 'Finalista',
+		status: 'published',
+		title: 'ORBIE CIO Awards',
+		date: 'Septiembre 2024',
+		image: '/images/orbie.jpg',
+		imageAlt:
+			'ORBIE Awards CIO Central Texas',
+		description:
+			'Reconocido como finalista en la categoría Global CIO de los premios de Central Texas',
+		url: 'https://orbie.org/honoree/federico-rodrigo/4324',
+		linkLabel: 'Ver reconocimiento',
+	},
+	{
+		type: 'Mesa Ejecutiva',
+		status: 'published',
+		title: 'Industrial Reinvention — The Economist',
+		date: 'Septiembre 2024',
+		image: '/images/impact.png',
+		imageAlt:
+			'The Economist Impact',
+		description:
+			'Participante invitado en Industrial Reinvention: New Business Models and Jobs for Tomorrow’s Technology, organizado por The Economist Impact junto a otros CIOs en Houston, Texas',
+	},
+];
 ---
 
 <!doctype html>
@@ -16,269 +100,343 @@ const youtubeEmbedUrl =
 		</script>
 
 		<SEO
-			title="La tecnología nunca es el punto de partida | Fede Rodrigo"
-			description="Las iniciativas tecnológicas suelen comenzar con una solución en lugar de la necesidad del negocio. Comienza con las personas y las prioridades del negocio, y utiliza la tecnología para habilitar el resultado."
+			title="Speaking | Fede Rodrigo"
+			description="Charlas, webinars, sesiones ejecutivas, podcasts, entrevistas y conversaciones sobre tecnología, negocio, liderazgo y ejecución"
 			lang="es"
 		/>
 
 		<style>
 			/* =========================================================
-			   WEBINAR PAGE
+			   SPEAKING HERO
 			========================================================= */
 
-			.webinar-page {
-				padding-top: 46px;
-			}
-
-
-			/* =========================================================
-			   HERO
-			========================================================= */
-
-			.webinar-hero {
-				display: block;
-
-				width: 100%;
+			.speaking-hero {
 				max-width: none;
-
-				margin: 0 auto;
-
-				padding: 0 0 24px;
-
+				padding: 10px 0 24px;
 				border-bottom: 0;
-
 				text-align: center;
 			}
 
-			.webinar-hero-title {
+			.speaking-hero-title {
 				width: 100%;
-				max-width: 850px;
+				max-width: 100%;
+				margin-left: auto;
+				margin-right: auto;
 
-				margin: 0 auto;
-
-				font-size: clamp(2.4rem, 4.8vw, 4.7rem);
-				font-weight: 800;
-				line-height: 1.03;
-				letter-spacing: -0.055em;
-
+				font-size: clamp(2rem, 3.65vw, 3.75rem);
+				line-height: 1.08;
 				text-align: center;
 			}
 
-			.webinar-hero-title .hero-line {
+			.speaking-hero-title .hero-line {
 				display: block;
 				width: 100%;
+				white-space: nowrap;
 			}
 
-			.webinar-never {
+			.speaking-hero-accent,
+			.speaking-never {
 				color: #6fa7ef;
 			}
 
+			.speaking-hero-accent {
+				display: inline-block;
+				opacity: 0;
+				transform: translateY(6px);
+
+				animation:
+					speaking-accent-reveal
+					520ms
+					ease
+					720ms
+					forwards;
+			}
+
+			@keyframes speaking-accent-reveal {
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+
 
 			/* =========================================================
-			   PRINCIPLES
+			   EDITORIAL EVIDENCE
 			========================================================= */
 
-			.webinar-principles {
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				flex-wrap: wrap;
-
-				gap: 8px;
-
+			.speaking-evidence {
 				width: 100%;
-				max-width: 850px;
+				max-width: 400px;
+				margin: -34px auto 12px;
+			}
 
-				margin: 22px auto 0;
+			.speaking-evidence-grid {
+				display: flex;
+				align-items: flex-start;
+				justify-content: center;
+				gap: 20px;
+			}
 
-				color: #6f7d8f;
-
-				font-size: 0.82rem;
-				font-weight: 650;
-				line-height: 1.4;
-				letter-spacing: 0.045em;
-
+			.speaking-evidence-item {
+				flex: 0 1 190px;
 				text-align: center;
+			}
+
+			.speaking-evidence-value {
+				display: inline-block;
+				margin: 0 0 4px;
+
+				color: #102b46;
+				font-size: clamp(1.35rem, 2vw, 1.7rem);
+				font-weight: 700;
+				line-height: 1;
+				letter-spacing: -0.04em;
+				font-variant-numeric: tabular-nums;
+			}
+
+			.speaking-evidence-number,
+			.speaking-evidence-symbol {
+				display: inline-block;
+			}
+
+			.speaking-evidence-symbol {
+				margin-right: 0.04em;
+			}
+
+			.speaking-evidence-label {
+				margin: 0;
+
+				color: #102b46;
+				font-size: 0.9rem;
+				font-weight: 550;
+				line-height: 1.35;
+				letter-spacing: -0.015em;
+			}
+
+			.speaking-evidence-source {
+				margin: 6px 0 0;
+
+				color: #8b97a4;
+				font-size: 0.68rem;
+				font-weight: 700;
+				line-height: 1.2;
+				letter-spacing: 0.07em;
 				text-transform: uppercase;
 			}
 
-			.webinar-principles span:nth-child(2),
-			.webinar-principles span:nth-child(4) {
-				color: #b3bdc7;
+
+			/* =========================================================
+			   ALL SPEAKING LINKS
+			   Same typography everywhere
+			========================================================= */
+
+			.speaking-page
+				.speaking-talk-link
+				.animated-link,
+			.speaking-page
+				.speaking-closing-link
+				.animated-link,
+			.speaking-page
+				.media-action
+				.animated-link,
+			.speaking-page
+				.speaking-inquiry-action
+				.animated-link {
+				font-family: inherit;
+				font-size: var(--cta-size);
+				font-weight: var(--cta-weight);
+				line-height: 1.3;
 			}
 
 
 			/* =========================================================
-			   INTRO
+			   CENTERED TALK LINKS
 			========================================================= */
 
-			.webinar-intro {
+			.speaking-talk-link {
 				width: 100%;
-
-				margin: 12px auto 30px;
-				padding: 0;
+				margin: -6px auto 16px;
+				text-align: center;
 			}
 
-			.webinar-intro-inner {
-				display: grid;
-
-				grid-template-columns:
-					minmax(0, 0.92fr)
-					minmax(0, 1.08fr);
-
-				align-items: start;
-
-				gap: 54px;
-
-				width: 100%;
-			}
-
-			.webinar-lead {
+			.speaking-centered-action {
 				max-width: none;
-
 				margin: 0;
-
-				color: #102b46;
-
-				font-size: clamp(1.25rem, 1.75vw, 1.5rem);
-				font-weight: 620;
-				line-height: 1.42;
-				letter-spacing: -0.032em;
+				text-align: center;
 			}
 
-			.webinar-intro-response {
-				padding-top: 2px;
-			}
-
-			.webinar-description {
-				max-width: none;
-
-				margin: 0;
-
-				color: #6f7d8f;
-
-				font-size: clamp(1.02rem, 1.35vw, 1.15rem);
-				line-height: 1.62;
-				letter-spacing: -0.014em;
-			}
-
-			.webinar-description strong {
-				color: #102b46;
-				font-weight: 700;
+			.speaking-centered-link {
+				justify-content: center;
 			}
 
 
 			/* =========================================================
-			   SECONDARY LINKS
+			   SPEAKING SLIDER
 			========================================================= */
 
-			.webinar-secondary-links {
-				display: flex;
-				align-items: center;
-				flex-wrap: wrap;
-
-				gap: 24px;
-
-				margin-top: 20px;
-			}
-
-
-			/* =========================================================
-			   VIDEO
-			========================================================= */
-
-			.webinar-video-section {
-				margin: 0;
-				padding: 0;
-			}
-
-			.webinar-video {
+			.speaking-showcase {
 				width: 100%;
+				max-width: 100%;
+				margin: 0 auto;
+			}
 
+			.speaking-slider {
+				width: 100%;
+			}
+
+			.speaking-slider-stage {
+				position: relative;
+
+				width: 100%;
 				aspect-ratio: 16 / 9;
 
 				overflow: hidden;
 
+				border: 1px solid rgba(16, 43, 70, 0.06);
 				border-radius: 14px;
 
-				background: #000000;
+				background: #ffffff;
 
 				box-shadow:
-					0 14px 34px rgba(16, 42, 67, 0.08);
+					0 16px 40px rgba(16, 43, 70, 0.065);
 			}
 
-			.webinar-video iframe {
+			.speaking-slide {
+				position: absolute;
+				inset: clamp(24px, 3vw, 42px);
+
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
+				margin: 0;
+
+				opacity: 0;
+				pointer-events: none;
+
+				transition: opacity 650ms ease;
+			}
+
+			.speaking-slide.is-active {
+				z-index: 2;
+				opacity: 1;
+				pointer-events: auto;
+			}
+
+			.speaking-slide-image {
 				display: block;
 
 				width: 100%;
 				height: 100%;
 
-				border: 0;
+				max-width: 100%;
+				max-height: 100%;
+
+				object-fit: contain;
+				object-position: center;
+
+				border-radius: 0;
+				background: #ffffff;
 			}
 
 
 			/* =========================================================
-			   TAKEAWAYS
+			   SLIDER DOTS
 			========================================================= */
 
-			.webinar-takeaways {
-				margin-top: 38px;
-				margin-bottom: 0;
-
-				padding-top: 0;
-				padding-bottom: 0;
-			}
-
-			.webinar-takeaways > h2 {
-				margin-bottom: 28px;
-			}
-
-			.webinar-takeaway {
-				display: grid;
-
-				grid-template-columns:
-					150px
-					minmax(0, 1fr);
-
+			.speaking-slider-nav {
+				display: flex;
 				align-items: center;
+				justify-content: center;
 
-				gap: 28px;
+				gap: 8px;
 
-				padding: 30px 0;
-
-				border-bottom: 1px solid var(--line);
+				height: 28px;
+				margin-top: 3px;
 			}
 
-			.webinar-takeaway:first-of-type {
-				padding-top: 4px;
+			.speaking-slider-dot {
+				width: 7px;
+				height: 7px;
+
+				padding: 0;
+				border: 0;
+				border-radius: 50%;
+
+				background: rgba(16, 43, 70, 0.23);
+
+				cursor: pointer;
+
+				transition:
+					width 200ms ease,
+					background 200ms ease,
+					border-radius 200ms ease;
 			}
 
-			.webinar-takeaway:last-of-type {
-				padding-bottom: 30px;
-				border-bottom: 0;
+			.speaking-slider-dot.is-active {
+				width: 23px;
+				border-radius: 999px;
+				background: #102b46;
 			}
 
-			.webinar-takeaway-number {
-				color: var(--navy);
+			.speaking-slider-dot:focus-visible {
+				outline: 2px solid #6fa7ef;
+				outline-offset: 4px;
+			}
 
-				font-size: clamp(4rem, 7vw, 6.5rem);
+
+			/* =========================================================
+			   CLOSING THESIS
+			========================================================= */
+
+			.speaking-closing {
+				width: 100%;
+				margin: 14px auto 0;
+				padding-bottom: 0;
+
+				text-align: center;
+			}
+
+			.speaking-closing-title {
+				width: 100%;
+				max-width: 100%;
+				margin: 0 auto;
+
+				color: #102b46;
+
+				font-size: clamp(2rem, 3.1vw, 3.25rem);
 				font-weight: 700;
-				line-height: 0.9;
-				letter-spacing: -0.06em;
+				line-height: 1.08;
+				letter-spacing: -0.05em;
 
-				opacity: 0.16;
+				white-space: nowrap;
 			}
 
-			.webinar-takeaway .media-content {
-				padding-top: 0;
+			.speaking-closing-title::after {
+				content: none;
+				display: none;
 			}
 
-			.webinar-takeaway .media-content h3 {
-				margin-bottom: 10px;
+			.speaking-closing-link {
+				max-width: none;
+				margin: 22px 0 0;
+				text-align: center;
 			}
 
-			.webinar-takeaway .media-description {
-				max-width: 650px;
+
+			/* =========================================================
+			   SELECTED APPEARANCES
+			========================================================= */
+
+			.media-list.page-divider {
+				padding-top: var(--divider-space-after);
+			}
+
+			.media-item .media-title-compact {
+				font-size: clamp(1rem, 1.45vw, 1.25rem);
+				line-height: 1.16;
+				letter-spacing: -0.035em;
+				white-space: nowrap;
 			}
 
 
@@ -286,46 +444,8 @@ const youtubeEmbedUrl =
 			   SPEAKING INQUIRIES
 			========================================================= */
 
-			.webinar-contact {
-				margin-top: var(--divider-space-before);
-
-				padding-top: var(--divider-space-after);
-				padding-bottom: 0;
-
-				border-top: 1px solid var(--line);
-			}
-
-			.webinar-contact-title {
-				margin-bottom: 10px;
-			}
-
-			.webinar-contact-copy {
-				max-width: 650px;
-
-				margin: 0;
-
-				color: var(--muted);
-			}
-
-			.webinar-contact-link {
+			.speaking-inquiry-action {
 				margin: 18px 0 0;
-			}
-
-
-			/* =========================================================
-			   TABLET
-			========================================================= */
-
-			@media (max-width: 850px) {
-				.webinar-intro-inner {
-					grid-template-columns: 1fr;
-
-					gap: 22px;
-				}
-
-				.webinar-intro {
-					max-width: 720px;
-				}
 			}
 
 
@@ -334,401 +454,518 @@ const youtubeEmbedUrl =
 			========================================================= */
 
 			@media (max-width: 720px) {
-				.webinar-page {
-					padding-top: 42px;
-				}
-
-				.webinar-hero {
+				.speaking-hero {
+					padding-top: 8px;
 					padding-bottom: 22px;
 				}
 
-				.webinar-hero-title {
-					font-size: clamp(2.3rem, 11vw, 3.15rem);
-					line-height: 1.04;
+				.speaking-hero-title {
+					font-size: clamp(1.95rem, 7.8vw, 2.65rem);
+					line-height: 1.1;
 				}
 
-				.webinar-principles {
-					gap: 6px;
-
-					margin-top: 18px;
-
-					font-size: 0.74rem;
-					line-height: 1.45;
+				.speaking-hero-title .hero-line {
+					white-space: normal;
 				}
 
-
-				/* INTRO */
-
-				.webinar-intro {
-					margin-top: 6px;
-					margin-bottom: 28px;
+				.speaking-evidence {
+					margin: -12px auto 12px;
 				}
 
-				.webinar-intro-inner {
-					gap: 20px;
+				.speaking-evidence-grid {
+					gap: 12px;
 				}
 
-				.webinar-lead {
-					font-size: 1.2rem;
-					line-height: 1.42;
+				.speaking-evidence-item {
+					flex: 1 1 0;
 				}
 
-				.webinar-description {
-					font-size: 1rem;
-					line-height: 1.58;
+				.speaking-evidence-value {
+					font-size: 1.35rem;
 				}
 
-				.webinar-secondary-links {
-					flex-direction: column;
-					align-items: flex-start;
-
-					gap: 10px;
-
-					margin-top: 18px;
+				.speaking-evidence-label {
+					font-size: 0.78rem;
 				}
 
+				.speaking-evidence-source {
+					font-size: 0.58rem;
+				}
 
-				/* VIDEO */
+				.speaking-talk-link {
+					margin: -2px auto 14px;
+				}
 
-				.webinar-video {
+				.speaking-slider-stage {
 					border-radius: 10px;
 				}
 
-
-				/* TAKEAWAYS */
-
-				.webinar-takeaways {
-					margin-top: 32px;
+				.speaking-slide {
+					inset: 15px;
 				}
 
-				.webinar-takeaways > h2 {
-					margin-bottom: 22px;
+				.speaking-slider-nav {
+					height: 26px;
+					margin-top: 2px;
 				}
 
-				.webinar-takeaway {
-					grid-template-columns:
-						72px
-						minmax(0, 1fr);
-
-					align-items: start;
-
-					gap: 18px;
-
-					padding: 26px 0;
+				.speaking-closing {
+					margin-top: 12px;
 				}
 
-				.webinar-takeaway:first-of-type {
-					padding-top: 2px;
+				.speaking-closing-title {
+					font-size: clamp(1.9rem, 7.4vw, 2.5rem);
+					font-weight: 700;
+					line-height: 1.08;
+					white-space: normal;
 				}
 
-				.webinar-takeaway:last-of-type {
-					padding-bottom: 26px;
+				.speaking-closing-link {
+					margin-top: 18px;
 				}
 
-				.webinar-takeaway-number {
-					padding-top: 4px;
-
-					font-size: 3.4rem;
-				}
-
-				.webinar-takeaway .media-content h3 {
-					font-size: 1.18rem;
-				}
-
-				.webinar-takeaway .media-description {
-					font-size: 0.94rem;
-					line-height: 1.55;
-				}
-
-
-				/* SPEAKING INQUIRIES */
-
-				.webinar-contact {
-					margin-top: var(--divider-space-mobile);
-
+				.media-list.page-divider {
 					padding-top: var(--divider-space-mobile);
+				}
+
+				.media-item .media-title-compact {
+					font-size: 1.08rem;
+					white-space: normal;
+				}
+			}
+
+
+			/* =========================================================
+			   REDUCED MOTION
+			========================================================= */
+
+			@media (prefers-reduced-motion: reduce) {
+				.speaking-hero-accent {
+					opacity: 1;
+					transform: none;
+					animation: none;
+				}
+
+				.speaking-slide,
+				.speaking-slider-dot {
+					transition: none;
 				}
 			}
 		</style>
 	</head>
 
-
 	<body>
 		<Header />
 
+		<main class="speaking-page">
 
-		<main class="webinar-page">
-
-			<!-- =====================================================
-			     HERO
-			===================================================== -->
-
-			<section class="hero webinar-hero">
-
-				<h1 class="hero-title webinar-hero-title">
+			<section class="hero speaking-hero">
+				<h1 class="hero-title speaking-hero-title">
 
 					<span class="hero-line">
-						La tecnología
-						<span class="webinar-never">
-							nunca
+						¿Y si tu próxima decisión
+					</span>
+
+					<span class="hero-line">
+						tecnológica comenzara
+					</span>
+
+					<span class="hero-line">
+						<span class="speaking-hero-accent">
+							sin tecnología?
 						</span>
 					</span>
 
-					<span class="hero-line">
-						es el punto de partida
-					</span>
-
 				</h1>
-
-
-				<div class="webinar-principles">
-
-					<span>
-						Personas Primero
-					</span>
-
-					<span aria-hidden="true">
-						·
-					</span>
-
-					<span>
-						Orientado al Negocio
-					</span>
-
-					<span aria-hidden="true">
-						·
-					</span>
-
-					<span>
-						Tecnología como Habilitador
-					</span>
-
-				</div>
-
 			</section>
 
 
-			<!-- =====================================================
-			     INTRO
-			===================================================== -->
+			<section
+				class="speaking-evidence reveal-section"
+				aria-label="Por qué importa"
+			>
+				<div class="speaking-evidence-grid">
 
-			<section class="webinar-intro reveal-section">
+					<div class="speaking-evidence-item reveal-item">
+						<p class="speaking-evidence-value">
+							<span class="speaking-evidence-symbol">~</span>
+							<span class="speaking-evidence-number">70%</span>
+						</p>
 
-				<div class="webinar-intro-inner">
+						<p class="speaking-evidence-label">
+							de los esfuerzos de transformación fracasan
+						</p>
 
-					<p class="webinar-lead reveal-item">
-						Las iniciativas tecnológicas suelen comenzar con una solución
-						en lugar de la necesidad del negocio que existe detrás
-					</p>
+						<p class="speaking-evidence-source">
+							McKinsey · 2020
+						</p>
+					</div>
 
 
 					<div
-						class="webinar-intro-response reveal-item reveal-delay-1"
+						class="speaking-evidence-item reveal-item reveal-delay-1"
 					>
-
-						<p class="webinar-description">
-							<strong>
-								Esta charla explora un enfoque diferente:
-							</strong>
-
-							<br />
-
-							comenzar con las personas y las prioridades del negocio,
-
-							<br />
-
-							y luego utilizar la tecnología para habilitar el resultado
+						<p class="speaking-evidence-value">
+							<span class="speaking-evidence-symbol">&gt;</span>
+							<span class="speaking-evidence-number">80%</span>
 						</p>
 
+						<p class="speaking-evidence-label">
+							de los proyectos de IA fracasan
+						</p>
 
-						<div class="webinar-secondary-links">
-
-							<a
-								href="/es/about/"
-								class="animated-link"
-							>
-								<span>
-									Sobre Federico
-								</span>
-							</a>
-
-
-							<a
-								href="/es/books/"
-								class="animated-link"
-							>
-								<span>
-									Explorar el libro
-								</span>
-
-								<span
-									class="animated-link-arrow"
-									aria-hidden="true"
-								>
-									→
-								</span>
-							</a>
-
-						</div>
-
+						<p class="speaking-evidence-source">
+							RAND · 2024
+						</p>
 					</div>
 
 				</div>
-
 			</section>
 
 
-			<!-- =====================================================
-			     VIDEO
-			===================================================== -->
+			<section
+				class="speaking-talk-link reveal-section"
+				aria-label="Explorar la charla"
+			>
+				<p class="speaking-centered-action reveal-item">
+
+					<a
+						href="/es/webinar/"
+						class="animated-link speaking-centered-link"
+					>
+						<span>Explorar la charla</span>
+
+						<span
+							class="animated-link-arrow"
+							aria-hidden="true"
+						>
+							→
+						</span>
+					</a>
+
+				</p>
+			</section>
+
 
 			<section
-				class="webinar-video-section reveal-section"
-				aria-label="Video de La tecnología nunca es el punto de partida"
+				class="speaking-showcase reveal-section"
+				aria-label="Slides de la presentación"
 			>
-
 				<div
-					class="webinar-video reveal-item"
+					class="speaking-slider reveal-item"
+					data-speaking-slider
 				>
-					<iframe
-						src={youtubeEmbedUrl}
-						title="Technology is Never the Starting Point"
-						loading="lazy"
-						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-						allowfullscreen
-					></iframe>
-				</div>
 
+					<div class="speaking-slider-stage">
+
+						<figure
+							class="speaking-slide is-active"
+							data-speaking-slide
+							aria-hidden="false"
+						>
+							<img
+								class="speaking-slide-image"
+								src="/images/slide1.png"
+								alt="People First · Busines Driven · Technology Enabled?"
+								loading="eager"
+							/>
+						</figure>
+
+						<figure
+							class="speaking-slide"
+							data-speaking-slide
+							aria-hidden="true"
+						>
+							<img
+								class="speaking-slide-image"
+								src="/images/slide2.png"
+								alt="Why does IT exist? To create business value?"
+								loading="lazy"
+							/>
+						</figure>
+
+						<figure
+							class="speaking-slide"
+							data-speaking-slide
+							aria-hidden="true"
+						>
+							<img
+								class="speaking-slide-image"
+								src="/images/slide3.png"
+								alt="AI changes everything except..."
+								loading="lazy"
+							/>
+						</figure>
+
+					</div>
+
+
+					<div
+						class="speaking-slider-nav"
+						aria-label="Elegir slide"
+					>
+						<button
+							type="button"
+							class="speaking-slider-dot is-active"
+							data-speaking-dot="0"
+							aria-label="Mostrar slide 1"
+							aria-current="true"
+						></button>
+
+						<button
+							type="button"
+							class="speaking-slider-dot"
+							data-speaking-dot="1"
+							aria-label="Mostrar slide 2"
+							aria-current="false"
+						></button>
+
+						<button
+							type="button"
+							class="speaking-slider-dot"
+							data-speaking-dot="2"
+							aria-label="Mostrar slide 3"
+							aria-current="false"
+						></button>
+					</div>
+
+				</div>
 			</section>
 
 
-			<!-- =====================================================
-			     TAKEAWAYS
-			===================================================== -->
+			<section
+				class="speaking-closing reveal-section"
+				aria-labelledby="speaking-closing-title"
+			>
+				<h2
+					id="speaking-closing-title"
+					class="speaking-closing-title reveal-item"
+				>
+					La tecnología
+					<span class="speaking-never">nunca</span>
+					es el punto de partida
+				</h2>
+
+				<p
+					class="speaking-closing-link reveal-item reveal-delay-1"
+				>
+					<a
+						href="/es/webinar/"
+						class="animated-link speaking-centered-link"
+					>
+						<span>Explorar la charla</span>
+
+						<span
+							class="animated-link-arrow"
+							aria-hidden="true"
+						>
+							→
+						</span>
+					</a>
+				</p>
+			</section>
+
 
 			<section
-				class="webinar-takeaways reveal-section"
-				aria-labelledby="takeaways-title"
+				class="media-list page-divider reveal-section"
+				aria-labelledby="media-list-title"
 			>
-
 				<h2
-					id="takeaways-title"
+					id="media-list-title"
 					class="reveal-item"
 				>
-					Qué te llevarás de esta charla
+					Participaciones Destacadas
 				</h2>
 
 
-				<!-- 01 -->
+				{
+					mediaItems.map((item, index) => (
 
-				<article
-					class="webinar-takeaway reveal-item reveal-delay-1"
-				>
+						<article
+							class="media-item"
+							style={`--media-index: ${index};`}
+						>
 
-					<div class="webinar-takeaway-number">
-						01
-					</div>
+							<div class="media-image-wrapper">
 
+								{
+									item.url ? (
 
-					<div class="media-content">
+										<a
+											href={item.url}
+											target={
+												item.internal
+													? undefined
+													: '_blank'
+											}
+											rel={
+												item.internal
+													? undefined
+													: 'noopener noreferrer'
+											}
+											aria-label={
+												item.linkLabel ??
+												item.title
+											}
+										>
+											<img
+												src={item.image}
+												alt={item.imageAlt}
+												class="media-image"
+												loading="lazy"
+											/>
+										</a>
 
-						<h3>
-							Por qué fracasan las iniciativas tecnológicas
-						</h3>
+									) : (
 
-						<p class="media-description">
-							Por qué tantas iniciativas no logran entregar
-							lo esperado y qué pueden hacer los líderes
-							de manera diferente
-						</p>
+										<img
+											src={item.image}
+											alt={item.imageAlt}
+											class="media-image"
+											loading="lazy"
+										/>
 
-					</div>
+									)
+								}
 
-				</article>
-
-
-				<!-- 02 -->
-
-				<article
-					class="webinar-takeaway reveal-item reveal-delay-2"
-				>
-
-					<div class="webinar-takeaway-number">
-						02
-					</div>
-
-
-					<div class="media-content">
-
-						<h3>
-							TI como organización de servicio
-						</h3>
-
-						<p class="media-description">
-							Cómo enfocar TI en las personas y en el
-							negocio al que sirve, utilizando el valor
-							para el negocio como medida del éxito
-						</p>
-
-					</div>
-
-				</article>
+							</div>
 
 
-				<!-- 03 -->
+							<div class="media-content">
 
-				<article
-					class="webinar-takeaway reveal-item reveal-delay-2"
-				>
+								<p class="media-meta">
 
-					<div class="webinar-takeaway-number">
-						03
-					</div>
+									<span>{item.type}</span>
 
+									<span aria-hidden="true">
+										·
+									</span>
 
-					<div class="media-content">
+									<span>{item.date}</span>
 
-						<h3>
-							Liderar en la era de la IA
-						</h3>
-
-						<p class="media-description">
-							Por qué las herramientas cambian, pero no reemplazan
-							el liderazgo, la estrategia, el criterio
-							y el entendimiento del negocio
-						</p>
-
-					</div>
-
-				</article>
+								</p>
 
 
-				<!-- =================================================
-				     SPEAKING INQUIRIES
-				================================================= -->
+								<h3
+									class={
+										item.compactTitle
+											? 'media-title-compact'
+											: undefined
+									}
+								>
+									{item.title}
+								</h3>
 
-				<div class="webinar-contact reveal-item">
 
-					<h2 class="webinar-contact-title">
-						Consultas de Speaking
-					</h2>
+								<p class="media-description">
+									{item.description}
+								</p>
 
 
-					<p class="webinar-contact-copy">
+								{
+									item.url ? (
+
+										<div class="media-action">
+
+											{
+												item.pdfUrl &&
+													item.pdfLabel && (
+
+														<a
+															href={item.pdfUrl}
+															target="_blank"
+															rel="noopener noreferrer"
+															class="animated-link"
+														>
+															<span>
+																{item.pdfLabel}
+															</span>
+
+															<span
+																class="animated-link-arrow"
+																aria-hidden="true"
+															>
+																→
+															</span>
+														</a>
+
+													)
+											}
+
+
+											<a
+												href={item.url}
+												target={
+													item.internal
+														? undefined
+														: '_blank'
+												}
+												rel={
+													item.internal
+														? undefined
+														: 'noopener noreferrer'
+												}
+												class="animated-link"
+											>
+												<span>
+													{
+														item.linkLabel ??
+															'Conocer más'
+													}
+												</span>
+
+												<span
+													class="animated-link-arrow"
+													aria-hidden="true"
+												>
+													→
+												</span>
+											</a>
+
+										</div>
+
+									) : (
+
+										item.status === 'upcoming' && (
+
+											<p class="media-coming-soon">
+												Próximamente
+											</p>
+
+										)
+
+									)
+								}
+
+							</div>
+
+						</article>
+
+					))
+				}
+
+			</section>
+
+
+			<section class="page-closing reveal-section">
+
+				<h2 class="reveal-item">
+					Consultas de Speaking
+				</h2>
+
+				<div class="reveal-item reveal-delay-1">
+
+					<p>
 						Para charlas, podcasts u otras oportunidades,
 						ponte en contacto
 					</p>
 
-
-					<p class="webinar-contact-link">
-
+					<p class="speaking-inquiry-action">
 						<a
 							href="/es/contact/"
 							class="animated-link"
 						>
-							<span>
-								Contáctame
-							</span>
+							<span>Contáctame</span>
 
 							<span
 								class="animated-link-arrow"
@@ -737,7 +974,6 @@ const youtubeEmbedUrl =
 								→
 							</span>
 						</a>
-
 					</p>
 
 				</div>
@@ -750,16 +986,9 @@ const youtubeEmbedUrl =
 		<Footer />
 
 
-		<!-- =====================================================
-		     REVEAL
-		===================================================== -->
-
 		<script>
 			const sections =
-				document.querySelectorAll(
-					'.reveal-section'
-				);
-
+				document.querySelectorAll('.reveal-section');
 
 			if ('IntersectionObserver' in window) {
 
@@ -773,11 +1002,9 @@ const youtubeEmbedUrl =
 									return;
 								}
 
-
 								entry.target.classList.add(
 									'is-visible'
 								);
-
 
 								observer.unobserve(
 									entry.target
@@ -788,30 +1015,241 @@ const youtubeEmbedUrl =
 						},
 						{
 							threshold: 0.08,
-
 							rootMargin:
-								'0px 0px -50px 0px',
+								'0px 0px -50px 0px'
 						}
 					);
 
 
 				sections.forEach((section) => {
-
-					revealObserver.observe(
-						section
-					);
-
+					revealObserver.observe(section);
 				});
 
 			} else {
 
 				sections.forEach((section) => {
-
 					section.classList.add(
 						'is-visible'
 					);
-
 				});
+
+			}
+		</script>
+
+
+		<script>
+			const speakingSlider =
+				document.querySelector(
+					'[data-speaking-slider]'
+				);
+
+			if (speakingSlider) {
+
+				const slides = Array.from(
+					speakingSlider.querySelectorAll(
+						'[data-speaking-slide]'
+					)
+				);
+
+				const dots = Array.from(
+					speakingSlider.querySelectorAll(
+						'[data-speaking-dot]'
+					)
+				);
+
+				const reducedMotion =
+					window.matchMedia(
+						'(prefers-reduced-motion: reduce)'
+					).matches;
+
+				let currentSlide = 0;
+				let slideTimer = null;
+				let sliderVisible = false;
+
+				const durations = [
+					7000,
+					5200,
+					5200
+				];
+
+
+				function showSlide(index) {
+
+					currentSlide =
+						(index + slides.length) %
+						slides.length;
+
+
+					slides.forEach(
+						(slide, slideIndex) => {
+
+							const active =
+								slideIndex ===
+								currentSlide;
+
+							slide.classList.toggle(
+								'is-active',
+								active
+							);
+
+							slide.setAttribute(
+								'aria-hidden',
+								active
+									? 'false'
+									: 'true'
+							);
+
+						}
+					);
+
+
+					dots.forEach(
+						(dot, dotIndex) => {
+
+							const active =
+								dotIndex ===
+								currentSlide;
+
+							dot.classList.toggle(
+								'is-active',
+								active
+							);
+
+							dot.setAttribute(
+								'aria-current',
+								active
+									? 'true'
+									: 'false'
+							);
+
+						}
+					);
+
+				}
+
+
+				function stopSlider() {
+
+					if (!slideTimer) {
+						return;
+					}
+
+					window.clearTimeout(
+						slideTimer
+					);
+
+					slideTimer = null;
+				}
+
+
+				function scheduleNextSlide() {
+
+					if (
+						reducedMotion ||
+						!sliderVisible
+					) {
+						return;
+					}
+
+					stopSlider();
+
+					slideTimer =
+						window.setTimeout(
+							() => {
+
+								showSlide(
+									currentSlide + 1
+								);
+
+								scheduleNextSlide();
+
+							},
+							durations[currentSlide]
+						);
+
+				}
+
+
+				dots.forEach(
+					(dot, index) => {
+
+						dot.addEventListener(
+							'click',
+							() => {
+
+								showSlide(index);
+								scheduleNextSlide();
+
+							}
+						);
+
+					}
+				);
+
+
+				speakingSlider.addEventListener(
+					'mouseenter',
+					stopSlider
+				);
+
+				speakingSlider.addEventListener(
+					'mouseleave',
+					scheduleNextSlide
+				);
+
+
+				if ('IntersectionObserver' in window) {
+
+					const sliderObserver =
+						new IntersectionObserver(
+							(entries) => {
+
+								entries.forEach(
+									(entry) => {
+
+										sliderVisible =
+											entry.isIntersecting;
+
+										if (sliderVisible) {
+											scheduleNextSlide();
+										} else {
+											stopSlider();
+										}
+
+									}
+								);
+
+							},
+							{
+								threshold: 0.35
+							}
+						);
+
+
+					sliderObserver.observe(
+						speakingSlider
+					);
+
+				} else {
+
+					sliderVisible = true;
+					scheduleNextSlide();
+
+				}
+
+
+				document.addEventListener(
+					'visibilitychange',
+					() => {
+
+						if (document.hidden) {
+							stopSlider();
+						} else {
+							scheduleNextSlide();
+						}
+
+					}
+				);
 
 			}
 		</script>
