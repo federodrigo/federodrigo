@@ -6,21 +6,21 @@ import Footer from '../../components/Footer.astro';
 const papers = [
 	{
 		status: 'En revisión',
-		date: 'Enviado · agosto de 2026',
-		title: 'Cuando el Éxito Oculta la Dependencia',
+		date: 'Enviado · Agosto 2026',
+		title: 'When Success Hides Dependence',
 		subtitle:
-			'Por qué un sistema que funciona puede dificultar saber qué ocurriría si se eliminaran las salvaguardas que sostienen ese desempeño',
+			'Por qué un sistema que funciona puede hacer más difícil saber qué ocurriría si se eliminaran las salvaguardas que sostienen ese desempeño',
 		description:
-			'Un análisis de cómo el éxito operativo aparente puede ocultar una dependencia estructural y debilitar la capacidad de evaluar alternativas creíbles'
+			'Un análisis de cómo el éxito operacional aparente puede ocultar dependencias estructurales y debilitar la capacidad de evaluar alternativas creíbles'
 	},
 	{
 		status: 'En revisión',
-		date: 'Enviado · agosto de 2026',
-		title: 'Cuando las Soluciones se Convierten en el Sistema',
+		date: 'Enviado · Agosto 2026',
+		title: 'When Fixes Become the System',
 		subtitle:
-			'Cómo las adaptaciones exitosas pueden preservar una trayectoria tecnológica, arraigarse con el tiempo y reducir las alternativas creíbles',
+			'Cómo las soluciones exitosas pueden preservar una trayectoria tecnológica existente, incorporarse con el tiempo y reducir las alternativas creíbles',
 		description:
-			'Un análisis de cómo las soluciones efectivas de corto plazo pueden convertirse en elementos permanentes de una organización y reforzar la dependencia tecnológica'
+			'Un análisis de cómo soluciones efectivas de corto plazo pueden convertirse en características permanentes de una organización y reforzar el lock-in tecnológico'
 	}
 ];
 ---
@@ -38,13 +38,277 @@ const papers = [
 			description="Libros y papers de Fede Rodrigo sobre liderazgo tecnológico, negocios, incentivos, instituciones y los sistemas que moldean las organizaciones"
 			lang="es"
 		/>
+
+		<style>
+			/* =========================================================
+			   BOOKS PAGE
+			========================================================= */
+
+			.books-index-page {
+				padding-top: 46px;
+			}
+
+
+			/* =========================================================
+			   FEATURED BOOK
+			========================================================= */
+
+			.books-index-page .books-page-book-featured {
+				margin: 0;
+				padding-top: 0;
+				padding-bottom: 0;
+			}
+
+
+			/* =========================================================
+			   FORTHCOMING BOOK
+			========================================================= */
+
+			.books-index-page .minimal-tolerance-book {
+				margin-top: var(--divider-space-before);
+				margin-bottom: 0;
+
+				padding-top: var(--divider-space-after);
+				padding-bottom: 0;
+
+				border-top: 1px solid var(--line);
+			}
+
+			.books-page-cover-static {
+				cursor: default;
+			}
+
+			.coming-soon {
+				display: inline-block;
+
+				color: #6d9fdd;
+
+				font-size: 0.76rem;
+				font-weight: 750;
+				line-height: 1.2;
+				letter-spacing: 0.14em;
+				text-transform: uppercase;
+			}
+
+
+			/* =========================================================
+			   PAPERS
+			========================================================= */
+
+			.papers-section {
+				width: 100%;
+
+				margin-top: var(--divider-space-before);
+				padding-top: var(--divider-space-after);
+				padding-bottom: 0;
+
+				border-top: 1px solid var(--line);
+
+				scroll-margin-top: 8rem;
+			}
+
+			.papers-list {
+				width: 100%;
+			}
+
+			.paper-row {
+				display: grid;
+
+				grid-template-columns:
+					minmax(150px, 0.55fr)
+					minmax(0, 2.8fr);
+
+				align-items: start;
+
+				gap: clamp(1.5rem, 4vw, 3.5rem);
+
+				padding: 34px 0;
+
+				border-bottom: 1px solid var(--line);
+			}
+
+			.paper-row:first-child {
+				padding-top: 0;
+			}
+
+			.paper-row:last-child {
+				padding-bottom: 0;
+				border-bottom: 0;
+			}
+
+			.paper-meta,
+			.paper-content {
+				min-width: 0;
+			}
+
+			.paper-type {
+				margin: 0 0 0.8rem;
+			}
+
+			.paper-status {
+				margin: 0;
+
+				color: #8a6b36;
+
+				font-size: 0.8rem;
+				font-weight: 750;
+				line-height: 1.3;
+				letter-spacing: 0.12em;
+				text-transform: uppercase;
+			}
+
+			.paper-date {
+				margin: 0.7rem 0 0;
+
+				font-size: 0.86rem;
+				line-height: 1.45;
+
+				opacity: 0.58;
+			}
+
+			.paper-title {
+				margin: 0;
+
+				font-size: clamp(1.45rem, 2.4vw, 2.05rem);
+				font-weight: 700;
+				line-height: 1.08;
+				letter-spacing: -0.035em;
+			}
+
+			.paper-subtitle {
+				max-width: 800px;
+
+				margin: 0.85rem 0 0;
+
+				font-size: clamp(1rem, 1.4vw, 1.12rem);
+				font-weight: 580;
+				line-height: 1.48;
+			}
+
+			.paper-description {
+				max-width: 780px;
+
+				margin: 1rem 0 0;
+
+				font-size: 0.94rem;
+				line-height: 1.65;
+
+				opacity: 0.66;
+			}
+
+
+			/* =========================================================
+			   TABLET
+			========================================================= */
+
+			@media (max-width: 850px) {
+				.paper-row {
+					grid-template-columns: 1fr;
+					gap: 1.2rem;
+				}
+
+				.paper-meta {
+					display: flex;
+					flex-wrap: wrap;
+					align-items: center;
+					gap: 0.7rem 1rem;
+				}
+
+				.paper-date {
+					margin: 0;
+				}
+			}
+
+
+			/* =========================================================
+			   MOBILE
+			========================================================= */
+
+			@media (max-width: 720px) {
+				.books-index-page {
+					padding-top: 42px;
+				}
+
+				.books-index-page .books-page-book {
+					grid-template-columns: 1fr;
+					gap: 24px;
+				}
+
+				.books-index-page .books-page-book-featured {
+					padding-top: 0;
+					padding-bottom: 0;
+				}
+
+				.books-index-page .minimal-tolerance-book {
+					margin-top: var(--divider-space-mobile);
+					padding-top: var(--divider-space-mobile);
+				}
+
+				.books-index-page .books-page-cover-wrapper,
+				.books-index-page .books-page-cover-link {
+					width: 180px;
+				}
+
+				.books-index-page .books-page-cover {
+					width: 180px;
+					max-width: 100%;
+					border-radius: 8px;
+				}
+
+				.books-index-page .books-page-content h2 {
+					font-size: 1.55rem;
+				}
+
+				.books-index-page .books-page-subtitle {
+					margin-bottom: 18px;
+					font-size: 0.92rem;
+				}
+
+				.books-index-page .books-page-content > p {
+					margin-bottom: 15px;
+
+					font-size: 0.94rem;
+					line-height: 1.58;
+				}
+
+				.books-index-page .books-page-action {
+					margin-top: 18px;
+				}
+
+				.papers-section {
+					margin-top: var(--divider-space-mobile);
+					padding-top: var(--divider-space-mobile);
+				}
+
+				.paper-row {
+					gap: 1rem;
+					padding: 28px 0;
+				}
+
+				.paper-title {
+					font-size: 1.45rem;
+				}
+
+				.paper-subtitle {
+					font-size: 1rem;
+				}
+
+				.paper-description {
+					font-size: 0.94rem;
+					line-height: 1.58;
+				}
+			}
+		</style>
 	</head>
 
 	<body>
 		<Header />
 
-		<main>
-			<!-- LIBRO DESTACADO -->
+		<main class="books-index-page">
+
+			<!-- =====================================================
+			     FEATURED BOOK
+			===================================================== -->
 
 			<section
 				class="books-page-book books-page-book-featured reveal-section"
@@ -58,7 +322,7 @@ const papers = [
 						target="_blank"
 						rel="noopener noreferrer"
 						class="books-page-cover-link"
-						aria-label="Ver How to Become CIO and Succeed en Amazon"
+						aria-label="Comprar How to Become CIO and Succeed en Amazon"
 					>
 						<img
 							src="/images/cio-book-cover.png"
@@ -68,9 +332,11 @@ const papers = [
 					</a>
 				</div>
 
-				<div class="books-page-content reveal-item reveal-delay-1">
+				<div
+					class="books-page-content reveal-item reveal-delay-1"
+				>
 					<p class="books-page-label">
-						Libro destacado
+						Libro Destacado
 					</p>
 
 					<h2 id="cio-book-title">
@@ -82,14 +348,13 @@ const papers = [
 					</p>
 
 					<p>
-						Este es el libro que
-						<strong>me habría gustado tener</strong>
+						Este es el libro que <strong>me habría gustado tener</strong>
 						cuando comencé mi camino en el liderazgo
 					</p>
 
 					<p>
 						El rol del CIO no consiste en gestionar sistemas.
-						<em>No debería haber un “yo” en CIO.</em> Consiste en
+						<em>No debería haber una “I” en CIO.</em> Se trata de
 						liderar personas, definir la estrategia, influir en el
 						negocio y convertir la tecnología en una ventaja
 						competitiva
@@ -101,7 +366,7 @@ const papers = [
 					</p>
 
 					<p class="books-page-closing">
-						Si estás aquí para mantener el statu quo, da la vuelta ahora
+						Si estás acá para mantener el status quo, mejor da la vuelta
 					</p>
 
 					<p class="books-page-action">
@@ -111,7 +376,7 @@ const papers = [
 							rel="noopener noreferrer"
 							class="animated-link"
 						>
-							<span>Ver en Amazon</span>
+							<span>Comprar en Amazon</span>
 
 							<span
 								class="animated-link-arrow"
@@ -124,7 +389,10 @@ const papers = [
 				</div>
 			</section>
 
-			<!-- PRÓXIMO LIBRO -->
+
+			<!-- =====================================================
+			     FORTHCOMING BOOK
+			===================================================== -->
 
 			<section
 				class="books-page-book books-page-book-secondary minimal-tolerance-book reveal-section"
@@ -137,27 +405,29 @@ const papers = [
 						class="books-page-cover-link books-page-cover-static"
 					>
 						<img
-							src="/images/book-cover-esp.jpg"
-							alt="Portada de Una Teoría de Tolerancia Mínima"
+							src="/images/book-cover.jpg"
+							alt="Portada de A Theory of Minimal Tolerance"
 							class="books-page-cover animated-book-cover"
 							loading="lazy"
 						/>
 					</div>
 				</div>
 
-				<div class="books-page-content reveal-item reveal-delay-1">
+				<div
+					class="books-page-content reveal-item reveal-delay-1"
+				>
 					<p class="books-page-label">
-						Próximo libro
+						Próximo Libro
 					</p>
 
 					<h2 id="minimal-tolerance-book-title">
-						Una Teoría de Tolerancia Mínima
+						A Theory of Minimal Tolerance
 					</h2>
 
 					<p>
-						Una obra que explora la libertad, la coerción, los
-						incentivos, las instituciones y los límites que deberían
-						restringir el poder político
+						Un trabajo sobre libertad, coerción, incentivos,
+						instituciones y los límites que deberían restringir
+						el poder político
 					</p>
 
 					<p>
@@ -173,18 +443,25 @@ const papers = [
 				</div>
 			</section>
 
-			<!-- PAPERS -->
+
+			<!-- =====================================================
+			     PAPERS
+			===================================================== -->
 
 			<section
 				id="papers"
 				class="papers-section reveal-section"
-				aria-label="Papers sobre tecnología"
+				aria-label="Papers de tecnología"
 			>
 				<div class="papers-list">
+
 					{
 						papers.map((paper) => (
+
 							<article class="paper-row reveal-item">
+
 								<div class="paper-meta">
+
 									<p class="paper-status">
 										{paper.status}
 									</p>
@@ -192,9 +469,12 @@ const papers = [
 									<p class="paper-date">
 										{paper.date}
 									</p>
+
 								</div>
 
+
 								<div class="paper-content">
+
 									<p class="books-page-label paper-type">
 										Paper
 									</p>
@@ -210,197 +490,76 @@ const papers = [
 									<p class="paper-description">
 										{paper.description}
 									</p>
+
 								</div>
+
 							</article>
+
 						))
 					}
+
 				</div>
 			</section>
+
 		</main>
+
 
 		<Footer />
 
+
+		<!-- =====================================================
+		     REVEAL
+		===================================================== -->
+
 		<script>
-			const sections = document.querySelectorAll('.reveal-section');
+			const sections =
+				document.querySelectorAll('.reveal-section');
 
 			if ('IntersectionObserver' in window) {
-				const revealObserver = new IntersectionObserver(
-					(entries, observer) => {
-						entries.forEach((entry) => {
-							if (!entry.isIntersecting) return;
 
-							entry.target.classList.add('is-visible');
-							observer.unobserve(entry.target);
-						});
-					},
-					{
-						threshold: 0.12,
-						rootMargin: '0px 0px -60px 0px'
-					}
-				);
+				const revealObserver =
+					new IntersectionObserver(
+						(entries, observer) => {
+
+							entries.forEach((entry) => {
+
+								if (!entry.isIntersecting) {
+									return;
+								}
+
+								entry.target.classList.add(
+									'is-visible'
+								);
+
+								observer.unobserve(
+									entry.target
+								);
+
+							});
+
+						},
+						{
+							threshold: 0.12,
+							rootMargin:
+								'0px 0px -60px 0px'
+						}
+					);
+
 
 				sections.forEach((section) => {
 					revealObserver.observe(section);
 				});
+
 			} else {
+
 				sections.forEach((section) => {
-					section.classList.add('is-visible');
+					section.classList.add(
+						'is-visible'
+					);
 				});
+
 			}
 		</script>
 
-		<style>
-			main {
-				padding-top: 0 !important;
-				padding-bottom: 0;
-			}
-
-			/* LIBRO DESTACADO */
-
-			.books-page-book-featured {
-				margin-top: 0;
-				margin-bottom: 0;
-				padding-top: clamp(3rem, 5vw, 4.25rem);
-				padding-bottom: clamp(2.25rem, 4vw, 3.5rem);
-			}
-
-			/* PRÓXIMO LIBRO */
-
-			.minimal-tolerance-book {
-				margin-top: 0;
-				margin-bottom: 0;
-				padding-top: clamp(2.25rem, 4vw, 3.5rem);
-				padding-bottom: clamp(2.25rem, 4vw, 3.5rem);
-				border-top: 1px solid rgba(52, 65, 86, 0.2);
-			}
-
-			.books-page-cover-static {
-				cursor: default;
-			}
-
-			.coming-soon {
-				display: inline-block;
-				font-size: 0.76rem;
-				font-weight: 750;
-				line-height: 1.2;
-				letter-spacing: 0.14em;
-				text-transform: uppercase;
-				color: #6d9fdd;
-			}
-
-			/* PAPERS */
-
-			.papers-section {
-				width: min(1180px, calc(100% - 3rem));
-				margin: 0 auto;
-				padding-bottom: 0;
-				scroll-margin-top: 8rem;
-			}
-
-			.papers-list {
-				border-top: 1px solid rgba(52, 65, 86, 0.2);
-			}
-
-			.paper-row {
-				display: grid;
-				grid-template-columns: minmax(170px, 0.6fr) minmax(0, 2.8fr);
-				align-items: start;
-				gap: clamp(1.5rem, 4vw, 3.5rem);
-				padding: clamp(2rem, 4vw, 3.25rem) 0;
-				border-bottom: 1px solid rgba(52, 65, 86, 0.2);
-			}
-
-			.paper-row:last-child {
-				padding-bottom: clamp(1.5rem, 2.5vw, 2rem);
-				border-bottom: 0;
-			}
-
-			.paper-meta,
-			.paper-content {
-				min-width: 0;
-			}
-
-			.paper-type {
-				margin: 0 0 0.8rem;
-			}
-
-			.paper-status {
-				margin: 0;
-				font-size: 0.8rem;
-				font-weight: 750;
-				line-height: 1.3;
-				letter-spacing: 0.12em;
-				text-transform: uppercase;
-				color: #8a6b36;
-			}
-
-			.paper-date {
-				margin: 0.7rem 0 0;
-				font-size: 0.86rem;
-				line-height: 1.45;
-				opacity: 0.58;
-			}
-
-			.paper-title {
-				margin: 0;
-				font-size: clamp(1.45rem, 2.4vw, 2.05rem);
-				font-weight: 700;
-				line-height: 1.08;
-				letter-spacing: -0.035em;
-			}
-
-			.paper-subtitle {
-				max-width: 800px;
-				margin: 0.85rem 0 0;
-				font-size: clamp(1rem, 1.4vw, 1.12rem);
-				font-weight: 580;
-				line-height: 1.48;
-			}
-
-			.paper-description {
-				max-width: 780px;
-				margin: 1rem 0 0;
-				font-size: 0.94rem;
-				line-height: 1.65;
-				opacity: 0.66;
-			}
-
-			@media (max-width: 850px) {
-				.books-page-book-featured {
-					margin-top: 0;
-					margin-bottom: 0;
-					padding-top: 2.5rem;
-					padding-bottom: 2rem;
-				}
-
-				.minimal-tolerance-book {
-					margin-top: 0;
-					margin-bottom: 0;
-					padding-top: 2rem;
-					padding-bottom: 2rem;
-				}
-
-				.papers-section {
-					width: min(100% - 2rem, 720px);
-					margin: 0 auto;
-				}
-
-				.paper-row {
-					grid-template-columns: 1fr;
-					gap: 1.4rem;
-				}
-
-				.paper-meta {
-					display: flex;
-					flex-wrap: wrap;
-					align-items: center;
-					gap: 0.7rem 1rem;
-				}
-
-				.paper-date {
-					margin: 0;
-				}
-			}
-		</style>
 	</body>
 </html>
