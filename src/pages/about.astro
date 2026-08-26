@@ -53,6 +53,25 @@ const profileTags = [
 
 
 			/* =========================================================
+			   PROFILE LABEL
+			   Optical match with Books labels
+			========================================================= */
+
+			.about-page .about-profile-eyebrow {
+				margin: 0 0 14px;
+
+				color: var(--red);
+
+				font-size: 0.86rem;
+				font-weight: 800;
+				line-height: 1.2;
+				letter-spacing: 0.13em;
+
+				text-transform: uppercase;
+			}
+
+
+			/* =========================================================
 			   PROFILE IMAGE
 			========================================================= */
 
@@ -100,6 +119,10 @@ const profileTags = [
 					width: 240px;
 					max-width: 100%;
 				}
+
+				.about-page .about-profile-eyebrow {
+					font-size: 0.86rem;
+				}
 			}
 		</style>
 	</head>
@@ -133,7 +156,7 @@ const profileTags = [
 					<div class="about-profile-content">
 
 						<p
-							class="about-profile-eyebrow books-page-label reveal-item reveal-delay-1"
+							class="about-profile-eyebrow reveal-item reveal-delay-1"
 						>
 							About Fede Rodrigo
 						</p>
@@ -238,10 +261,6 @@ const profileTags = [
 
 		<Footer />
 
-
-		<!-- =====================================================
-		     REVEAL
-		===================================================== -->
 
 		<script>
 			const sections =
