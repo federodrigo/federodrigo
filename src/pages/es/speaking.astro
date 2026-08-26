@@ -226,6 +226,30 @@ const mediaItems: MediaItem[] = [
 
 
 			/* =========================================================
+			   ALL SPEAKING LINKS
+			   Same typography everywhere
+			========================================================= */
+
+			.speaking-page
+				.speaking-talk-link
+				.animated-link,
+			.speaking-page
+				.speaking-closing-link
+				.animated-link,
+			.speaking-page
+				.media-action
+				.animated-link,
+			.speaking-page
+				.speaking-inquiry-action
+				.animated-link {
+				font-family: inherit;
+				font-size: var(--cta-size);
+				font-weight: var(--cta-weight);
+				line-height: 1.3;
+			}
+
+
+			/* =========================================================
 			   CENTERED TALK LINKS
 			========================================================= */
 
@@ -533,11 +557,7 @@ const mediaItems: MediaItem[] = [
 	<body>
 		<Header />
 
-		<main>
-
-			<!-- =====================================================
-			     HERO
-			===================================================== -->
+		<main class="speaking-page">
 
 			<section class="hero speaking-hero">
 				<h1 class="hero-title speaking-hero-title">
@@ -559,10 +579,6 @@ const mediaItems: MediaItem[] = [
 				</h1>
 			</section>
 
-
-			<!-- =====================================================
-			     EDITORIAL EVIDENCE
-			===================================================== -->
 
 			<section
 				class="speaking-evidence reveal-section"
@@ -607,10 +623,6 @@ const mediaItems: MediaItem[] = [
 			</section>
 
 
-			<!-- =====================================================
-			     EXPLORE TALK — TOP
-			===================================================== -->
-
 			<section
 				class="speaking-talk-link reveal-section"
 				aria-label="Explorar la charla"
@@ -634,10 +646,6 @@ const mediaItems: MediaItem[] = [
 				</p>
 			</section>
 
-
-			<!-- =====================================================
-			     SPEAKING SLIDES
-			===================================================== -->
 
 			<section
 				class="speaking-showcase reveal-section"
@@ -725,10 +733,6 @@ const mediaItems: MediaItem[] = [
 			</section>
 
 
-			<!-- =====================================================
-			     CLOSING THESIS
-			===================================================== -->
-
 			<section
 				class="speaking-closing reveal-section"
 				aria-labelledby="speaking-closing-title"
@@ -761,10 +765,6 @@ const mediaItems: MediaItem[] = [
 				</p>
 			</section>
 
-
-			<!-- =====================================================
-			     SELECTED APPEARANCES
-			===================================================== -->
 
 			<section
 				class="media-list page-divider reveal-section"
@@ -947,10 +947,6 @@ const mediaItems: MediaItem[] = [
 			</section>
 
 
-			<!-- =====================================================
-			     SPEAKING INQUIRIES
-			===================================================== -->
-
 			<section class="page-closing reveal-section">
 
 				<h2 class="reveal-item">
@@ -989,10 +985,6 @@ const mediaItems: MediaItem[] = [
 
 		<Footer />
 
-
-		<!-- =====================================================
-		     REVEAL
-		===================================================== -->
 
 		<script>
 			const sections =
@@ -1044,10 +1036,6 @@ const mediaItems: MediaItem[] = [
 			}
 		</script>
 
-
-		<!-- =====================================================
-		     SLIDER
-		===================================================== -->
 
 		<script>
 			const speakingSlider =
