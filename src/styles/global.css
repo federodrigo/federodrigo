@@ -1,4 +1,5 @@
 :root {
+	/* COLORS */
 	--bg: #f6f7f9;
 	--navy: #102a43;
 	--blue: #2563eb;
@@ -6,6 +7,27 @@
 	--text: #243447;
 	--muted: #64748b;
 	--line: #d9e3f0;
+
+	/* SITE GEOMETRY */
+	--site-width: 920px;
+	--content-width: 760px;
+	--text-width: 740px;
+	--gutter: 32px;
+	--gutter-mobile: 24px;
+	--main-top: 36px;
+	--main-bottom: 40px;
+	--main-bottom-mobile: 36px;
+	--section-padding: 22px;
+	--section-padding-mobile: 18px;
+
+	/* SHARED RHYTHM — used progressively as pages are cleaned */
+	--divider-space-before: 34px;
+	--divider-space-after: 34px;
+	--divider-space-mobile: 28px;
+
+	/* TYPOGRAPHY / ACTIONS */
+	--cta-size: 1rem;
+	--cta-weight: 800;
 }
 
 * {
@@ -36,9 +58,9 @@ body {
 }
 
 .header-inner {
-	max-width: 920px;
+	max-width: var(--site-width);
 	margin: 0 auto;
-	padding: 18px 32px;
+	padding: 18px var(--gutter);
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -167,19 +189,19 @@ body {
 /* MAIN */
 
 main {
-	max-width: 920px;
+	max-width: var(--site-width);
 	margin: 0 auto;
-	padding: 36px 32px 40px;
+	padding: var(--main-top) var(--gutter) var(--main-bottom);
 }
 
 .hero {
-	max-width: 760px;
+	max-width: var(--content-width);
 	padding: 10px 0 24px;
 	border-bottom: 1px solid var(--line);
 }
 
 h1 {
-	max-width: 760px;
+	max-width: var(--content-width);
 	margin: 0 0 16px;
 	font-size: clamp(2.6rem, 4.8vw, 4rem);
 	font-weight: 800;
@@ -236,7 +258,7 @@ h1 {
 }
 
 section {
-	padding: 22px 0;
+	padding: var(--section-padding) 0;
 }
 
 #about {
@@ -271,7 +293,7 @@ h3 {
 }
 
 p {
-	max-width: 740px;
+	max-width: var(--text-width);
 	margin: 0 0 8px;
 }
 
@@ -295,6 +317,34 @@ img {
 	max-width: 100%;
 	height: auto;
 	border-radius: 12px;
+}
+
+/* SHARED LAYOUT UTILITIES
+   These are the target shared rules for the page-by-page cleanup. */
+
+.page-divider {
+	margin-top: var(--divider-space-before);
+	padding-top: var(--divider-space-after);
+	border-top: 1px solid var(--line);
+}
+
+.page-closing {
+	margin-top: var(--divider-space-before);
+	padding-top: var(--divider-space-after);
+	padding-bottom: 0;
+	border-top: 1px solid var(--line);
+}
+
+.page-closing p {
+	max-width: 650px;
+	color: var(--muted);
+}
+
+.site-cta,
+.animated-link {
+	font-size: var(--cta-size);
+	font-weight: var(--cta-weight);
+	line-height: 1.3;
 }
 
 /* HOMEPAGE ABOUT */
@@ -430,8 +480,8 @@ img {
 
 .about-profile-action a {
 	color: var(--blue);
-	font-size: 1rem;
-	font-weight: 800;
+	font-size: var(--cta-size);
+	font-weight: var(--cta-weight);
 }
 
 .about-profile-action a:hover {
@@ -490,7 +540,7 @@ img {
 	color: var(--muted);
 }
 
-/* THE CIO OFFICE PAGE */
+/* THE CIO OFFICE PAGE — LEGACY PAGE-SPECIFIC RULES */
 
 .cio-office-hero {
 	max-width: 760px;
@@ -557,8 +607,8 @@ img {
 
 .cio-office-contact-link a {
 	color: var(--blue);
-	font-size: 1rem;
-	font-weight: 800;
+	font-size: var(--cta-size);
+	font-weight: var(--cta-weight);
 }
 
 .cio-office-contact-link a:hover {
@@ -654,8 +704,8 @@ img {
 
 .book-action {
 	margin-top: 8px;
-	font-size: 1rem;
-	font-weight: 800;
+	font-size: var(--cta-size);
+	font-weight: var(--cta-weight);
 }
 
 .book-ssrn {
@@ -667,7 +717,7 @@ img {
 	color: var(--blue);
 }
 
-/* BOOKS PAGE */
+/* BOOKS PAGE — LEGACY PAGE-SPECIFIC RULES */
 
 .books-page-hero {
 	max-width: 760px;
@@ -812,7 +862,8 @@ img {
 
 .books-page-action a {
 	color: var(--blue);
-	font-weight: 800;
+	font-size: var(--cta-size);
+	font-weight: var(--cta-weight);
 }
 
 .books-page-action a:hover {
@@ -833,7 +884,6 @@ img {
 .books-page-book-secondary {
 	padding: 0;
 }
-
 
 
 /* CONTACT */
@@ -906,7 +956,7 @@ img {
 	max-width: 500px;
 }
 
-/* MEDIA PAGE */
+/* MEDIA / SPEAKING LIST — LEGACY PAGE-SPECIFIC RULES */
 
 .media-hero {
 	max-width: 760px;
@@ -1004,7 +1054,8 @@ img {
 }
 
 .media-action a {
-	font-weight: 800;
+	font-size: var(--cta-size);
+	font-weight: var(--cta-weight);
 }
 
 .media-coming-soon {
@@ -1032,15 +1083,15 @@ img {
 
 .media-contact-link a {
 	color: var(--blue);
-	font-size: 1rem;
-	font-weight: 800;
+	font-size: var(--cta-size);
+	font-weight: var(--cta-weight);
 }
 
 .media-contact-link a:hover {
 	color: var(--red);
 }
 
-/* CONTACT PAGE */
+/* CONTACT PAGE — LEGACY PAGE-SPECIFIC RULES */
 
 .contact-page-hero {
 	max-width: 760px;
@@ -1408,6 +1459,11 @@ img {
 	transform: translateX(5px);
 }
 
+.animated-link:focus-visible {
+	outline: 2px solid #6fa7ef;
+	outline-offset: 4px;
+}
+
 /* IMAGES */
 
 .animated-image {
@@ -1492,8 +1548,6 @@ img {
 		transform: none;
 	}
 }
-
-
 
 
 /* MEDIA ITEMS */
@@ -1647,11 +1701,17 @@ img {
 		font-size: 17px;
 	}
 
+	.page-divider,
+	.page-closing {
+		margin-top: var(--divider-space-mobile);
+		padding-top: var(--divider-space-mobile);
+	}
+
 	.header-inner {
 		flex-direction: column;
 		align-items: flex-start;
 		gap: 12px;
-		padding: 18px 24px;
+		padding: 18px var(--gutter-mobile);
 	}
 
 	.main-nav {
@@ -1668,7 +1728,7 @@ img {
 	}
 
 	main {
-		padding: 36px 24px;
+		padding: var(--main-top) var(--gutter-mobile) var(--main-bottom-mobile);
 	}
 
 	.hero {
@@ -1697,9 +1757,8 @@ img {
 	}
 
 
-
 	section {
-		padding: 18px 0;
+		padding: var(--section-padding-mobile) 0;
 	}
 
 	.leadership-grid {
@@ -1734,9 +1793,6 @@ img {
 		max-width: 220px;
 	}
 
-	.contact-page-links {
-		grid-template-columns: 1fr;
-	}
 
 	/* ABOUT PAGE — MOBILE */
 
