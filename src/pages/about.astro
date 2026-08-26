@@ -43,8 +43,17 @@ const profileTags = [
 
 
 			/* =========================================================
+			   PROFILE LAYOUT
+			========================================================= */
+
+			.about-page .about-profile-layout {
+				grid-template-columns: 290px minmax(0, 1fr);
+				gap: 48px;
+			}
+
+
+			/* =========================================================
 			   PROFILE LABEL
-			   Same visual system as book labels
 			========================================================= */
 
 			.about-page .about-profile-eyebrow {
@@ -52,7 +61,7 @@ const profileTags = [
 
 				color: var(--red);
 
-				font-size: 0.74rem;
+				font-size: 0.82rem;
 				font-weight: 800;
 				line-height: 1.2;
 				letter-spacing: 0.13em;
@@ -65,8 +74,21 @@ const profileTags = [
 			   PROFILE IMAGE
 			========================================================= */
 
+			.about-page .about-profile-image-wrapper {
+				width: 290px;
+			}
+
 			.about-page .about-profile-image {
-				max-width: 290px;
+				display: block;
+
+				width: 290px;
+				max-width: 100%;
+
+				height: auto;
+
+				margin: 0;
+
+				border-radius: 10px;
 			}
 
 
@@ -84,9 +106,22 @@ const profileTags = [
 					padding-bottom: 0;
 				}
 
+				.about-page .about-profile-layout {
+					grid-template-columns: 1fr;
+					gap: 30px;
+				}
+
+				.about-page .about-profile-image-wrapper {
+					width: 240px;
+				}
+
 				.about-page .about-profile-image {
 					width: 240px;
 					max-width: 100%;
+				}
+
+				.about-page .about-profile-eyebrow {
+					font-size: 0.82rem;
 				}
 			}
 		</style>
@@ -226,6 +261,10 @@ const profileTags = [
 
 		<Footer />
 
+
+		<!-- =====================================================
+		     REVEAL
+		===================================================== -->
 
 		<script>
 			const sections =
