@@ -32,9 +32,41 @@ const profileTags = [
 			   ABOUT PAGE
 			========================================================= */
 
+			.about-page {
+				padding-top: 46px;
+			}
+
 			.about-page .about-profile {
 				padding-top: 0;
 				padding-bottom: 0;
+			}
+
+
+			/* =========================================================
+			   PROFILE LABEL
+			   Same visual system as book labels
+			========================================================= */
+
+			.about-page .about-profile-eyebrow {
+				margin: 0 0 14px;
+
+				color: var(--red);
+
+				font-size: 0.74rem;
+				font-weight: 800;
+				line-height: 1.2;
+				letter-spacing: 0.13em;
+
+				text-transform: uppercase;
+			}
+
+
+			/* =========================================================
+			   PROFILE IMAGE
+			========================================================= */
+
+			.about-page .about-profile-image {
+				max-width: 290px;
 			}
 
 
@@ -43,9 +75,18 @@ const profileTags = [
 			========================================================= */
 
 			@media (max-width: 720px) {
+				.about-page {
+					padding-top: 42px;
+				}
+
 				.about-page .about-profile {
 					padding-top: 0;
 					padding-bottom: 0;
+				}
+
+				.about-page .about-profile-image {
+					width: 240px;
+					max-width: 100%;
 				}
 			}
 		</style>
@@ -185,10 +226,6 @@ const profileTags = [
 
 		<Footer />
 
-
-		<!-- =====================================================
-		     REVEAL
-		===================================================== -->
 
 		<script>
 			const sections =
