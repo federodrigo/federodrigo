@@ -5,19 +5,19 @@ import Footer from '../../components/Footer.astro';
 
 const capabilities = [
 	{
-		title: 'Liderazgo Ejecutivo en Tecnología',
+		title: 'Liderazgo Ejecutivo de Tecnología',
 		description:
-			'Alinear la estrategia, las inversiones, la gobernanza y la ejecución tecnológica con las prioridades del negocio y la creación de valor a largo plazo',
+			'Alinear la estrategia, inversión, gobernanza y ejecución tecnológica con las prioridades del negocio y la creación de valor a largo plazo',
 	},
 	{
 		title: 'ERP y Sistemas Empresariales',
 		description:
-			'Seleccionar, supervisar, evaluar y recuperar iniciativas de ERP y aplicaciones empresariales con liderazgo independiente del lado del cliente',
+			'Seleccionar, supervisar, evaluar y recuperar iniciativas de ERP y aplicaciones empresariales con liderazgo independiente desde el lado del cliente',
 	},
 	{
-		title: 'Infraestructura y Nube',
+		title: 'Infraestructura y Cloud',
 		description:
-			'Definir y supervisar la modernización de infraestructura, estrategia de nube, migraciones, plataformas de trabajo y grandes transiciones tecnológicas',
+			'Definir y supervisar la modernización de infraestructura, estrategia cloud, migraciones, plataformas de trabajo y grandes transiciones tecnológicas',
 	},
 	{
 		title: 'Ciberseguridad y Resiliencia',
@@ -27,12 +27,12 @@ const capabilities = [
 	{
 		title: 'Estrategia de Datos e IA',
 		description:
-			'Identificar oportunidades de valor en datos e IA, evaluar capacidades, definir gobernanza, seleccionar soluciones y supervisar su ejecución',
+			'Identificar oportunidades de valor en datos e IA, evaluar la preparación, definir la gobernanza, seleccionar soluciones y supervisar la ejecución',
 	},
 	{
-		title: 'CIO Fraccional y Asesoramiento',
+		title: 'Fractional CIO y Asesoramiento',
 		description:
-			'Apoyar a CEOs y equipos ejecutivos con criterio independiente de nivel CIO para decisiones tecnológicas críticas y procesos de transformación',
+			'Apoyar a CEOs y equipos ejecutivos con criterio independiente a nivel CIO para decisiones tecnológicas críticas y procesos de transformación',
 	},
 ];
 ---
@@ -47,17 +47,127 @@ const capabilities = [
 
 		<SEO
 			title="CIO Office | CXY Office"
-			description="Asesoramiento independiente de nivel CIO para ERP, infraestructura, nube, ciberseguridad, datos, IA y decisiones tecnológicas críticas"
+			description="Asesoramiento independiente a nivel CIO para ERP, infraestructura, cloud, ciberseguridad, datos, IA y decisiones tecnológicas críticas"
 			lang="es"
 		/>
+
+		<style>
+			/* =========================================================
+			   CIO OFFICE TITLE
+			========================================================= */
+
+			.cio-office-capabilities-tagline {
+				margin: 0;
+
+				font-size: clamp(1.85rem, 2.7vw, 2.25rem);
+				font-weight: 650;
+				line-height: 1.12;
+				letter-spacing: -0.035em;
+
+				color: var(--navy);
+			}
+
+			.cio-office-capabilities-tagline::after {
+				content: none;
+				display: none;
+			}
+
+			.cio-office-capabilities-tagline span {
+				display: inline-block;
+			}
+
+
+			/* =========================================================
+			   TAGLINE ANIMATION
+			========================================================= */
+
+			.js .cio-office-capabilities-tagline span {
+				opacity: 0;
+				transform: translateY(12px);
+			}
+
+			.cio-office-capabilities.is-visible
+				.cio-office-capabilities-tagline
+				span {
+				animation:
+					tagline-reveal
+					0.7s
+					cubic-bezier(0.22, 1, 0.36, 1)
+					forwards;
+			}
+
+			.cio-office-capabilities.is-visible
+				.tagline-part-1 {
+				animation-delay: 0.15s;
+			}
+
+			.cio-office-capabilities.is-visible
+				.tagline-part-2 {
+				animation-delay: 0.25s;
+			}
+
+			.cio-office-capabilities.is-visible
+				.tagline-part-3 {
+				animation-delay: 0.35s;
+			}
+
+			.cio-office-capabilities.is-visible
+				.tagline-part-4 {
+				animation-delay: 0.45s;
+			}
+
+			.cio-office-capabilities.is-visible
+				.tagline-part-5 {
+				animation-delay: 0.55s;
+			}
+
+			@keyframes tagline-reveal {
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+
+
+			/* =========================================================
+			   MOBILE
+			========================================================= */
+
+			@media (max-width: 720px) {
+				.cio-office-capabilities-tagline {
+					font-size: 1.6rem;
+					line-height: 1.15;
+				}
+			}
+
+
+			/* =========================================================
+			   REDUCED MOTION
+			========================================================= */
+
+			@media (prefers-reduced-motion: reduce) {
+				.js .cio-office-capabilities-tagline span {
+					opacity: 1;
+					transform: none;
+					animation: none;
+				}
+			}
+		</style>
 	</head>
 
 	<body>
 		<Header />
 
 		<main>
+
+			<!-- =====================================================
+			     CAPABILITIES
+			===================================================== -->
+
 			<section class="cio-office-capabilities reveal-section">
+
 				<div class="cio-office-capabilities-heading reveal-item">
+
 					<img
 						src="/images/cio-office-logo.png"
 						alt="CIO Office"
@@ -103,40 +213,63 @@ const capabilities = [
 							Transformación
 						</span>
 					</h2>
+
 				</div>
 
+
 				<div class="leadership-grid">
+
 					{
 						capabilities.map((capability, index) => (
+
 							<div
 								class="leadership-card"
 								style={`--card-index: ${index};`}
 							>
-								<h3>{capability.title}</h3>
+								<h3>
+									{capability.title}
+								</h3>
 
-								<p>{capability.description}</p>
+								<p>
+									{capability.description}
+								</p>
 							</div>
+
 						))
 					}
+
 				</div>
+
 			</section>
 
-			<section class="cio-office-contact reveal-section">
+
+			<!-- =====================================================
+			     CONTACT
+			===================================================== -->
+
+			<section class="page-closing reveal-section">
+
 				<h2 class="reveal-item">
 					CXY Office
 				</h2>
 
 				<div class="reveal-item reveal-delay-1">
+
 					<p>
-						Para asesoramiento tecnológico independiente, iniciativas
-						de ERP y transformación, servicios de CIO fraccional o
-						decisiones tecnológicas críticas, puedes contactarme
-						directamente
+						Para asesoramiento independiente, iniciativas de ERP y
+						transformación, servicios de Fractional CIO o decisiones
+						tecnológicas críticas, contáctame directamente
 					</p>
 
 					<p class="cio-office-contact-link">
-						<a href="/es/contact/" class="animated-link">
-							<span>Contáctame</span>
+
+						<a
+							href="/es/contact/"
+							class="animated-link"
+						>
+							<span>
+								Contáctame
+							</span>
 
 							<span
 								class="animated-link-arrow"
@@ -145,87 +278,58 @@ const capabilities = [
 								→
 							</span>
 						</a>
+
 					</p>
+
 				</div>
+
 			</section>
+
 		</main>
 
 		<Footer />
 
+
+		<!-- =====================================================
+		     REVEAL
+		===================================================== -->
+
 		<script>
-			const sections = document.querySelectorAll('.reveal-section');
+			const sections =
+				document.querySelectorAll('.reveal-section');
 
-			const revealObserver = new IntersectionObserver(
-				(entries, observer) => {
-					entries.forEach((entry) => {
-						if (!entry.isIntersecting) return;
+			const revealObserver =
+				new IntersectionObserver(
+					(entries, observer) => {
 
-						entry.target.classList.add('is-visible');
-						observer.unobserve(entry.target);
-					});
-				},
-				{
-					threshold: 0.12,
-					rootMargin: '0px 0px -60px 0px',
-				}
-			);
+						entries.forEach((entry) => {
+
+							if (!entry.isIntersecting) {
+								return;
+							}
+
+							entry.target.classList.add(
+								'is-visible'
+							);
+
+							observer.unobserve(
+								entry.target
+							);
+
+						});
+
+					},
+					{
+						threshold: 0.12,
+						rootMargin:
+							'0px 0px -60px 0px',
+					}
+				);
 
 			sections.forEach((section) => {
 				revealObserver.observe(section);
 			});
 		</script>
 
-		<style>
-			.cio-office-capabilities-tagline span {
-				display: inline-block;
-			}
-
-			.js .cio-office-capabilities-tagline span {
-				opacity: 0;
-				transform: translateY(12px);
-			}
-
-			.cio-office-capabilities.is-visible
-				.cio-office-capabilities-tagline
-				span {
-				animation: tagline-reveal 0.7s
-					cubic-bezier(0.22, 1, 0.36, 1) forwards;
-			}
-
-			.cio-office-capabilities.is-visible .tagline-part-1 {
-				animation-delay: 0.15s;
-			}
-
-			.cio-office-capabilities.is-visible .tagline-part-2 {
-				animation-delay: 0.25s;
-			}
-
-			.cio-office-capabilities.is-visible .tagline-part-3 {
-				animation-delay: 0.35s;
-			}
-
-			.cio-office-capabilities.is-visible .tagline-part-4 {
-				animation-delay: 0.45s;
-			}
-
-			.cio-office-capabilities.is-visible .tagline-part-5 {
-				animation-delay: 0.55s;
-			}
-
-			@keyframes tagline-reveal {
-				to {
-					opacity: 1;
-					transform: translateY(0);
-				}
-			}
-
-			@media (prefers-reduced-motion: reduce) {
-				.js .cio-office-capabilities-tagline span {
-					opacity: 1;
-					transform: none;
-					animation: none;
-				}
-			}
-		</style>
 	</body>
 </html>
