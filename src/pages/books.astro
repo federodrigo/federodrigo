@@ -16,11 +16,11 @@ const papers = [
 	{
 		status: 'Under Review',
 		date: 'Submitted · August 2026',
-		title: 'When Fixes Become the System',
+		title: 'When Success Erodes the Capacity to Know',
 		subtitle:
-			'How successful accommodations can preserve an existing technology path, become embedded over time, and reduce credible alternatives',
+			'How sustained success can make it harder to determine whether an intervention is still necessary',
 		description:
-			'An examination of how effective short-term fixes can become permanent features of an organization and reinforce technological lock-in'
+			'An examination of how organizations can lose the ability to test safe withdrawal even while operating performance remains strong'
 	}
 ];
 ---
@@ -50,13 +50,39 @@ const papers = [
 
 
 			/* =========================================================
+			   SHARED LABELS
+			========================================================= */
+
+			.books-index-page .books-page-label,
+			.books-index-page .paper-type {
+				font-size: 0.74rem;
+				font-weight: 800;
+				line-height: 1.2;
+				letter-spacing: 0.13em;
+				text-transform: uppercase;
+			}
+
+
+			/* =========================================================
 			   FEATURED BOOK
 			========================================================= */
 
 			.books-index-page .books-page-book-featured {
 				margin: 0;
+
 				padding-top: 0;
 				padding-bottom: 0;
+			}
+
+			.books-index-page
+				.books-page-book-featured
+				.books-page-action {
+				margin-bottom: 0;
+			}
+
+			.books-page-secondary-action {
+				margin-top: 10px;
+				margin-bottom: 0;
 			}
 
 
@@ -83,11 +109,13 @@ const papers = [
 
 				color: #6d9fdd;
 
-				font-size: 0.76rem;
-				font-weight: 750;
-				line-height: 1.2;
-				letter-spacing: 0.14em;
-				text-transform: uppercase;
+				font-family: inherit;
+				font-size: var(--cta-size);
+				font-weight: var(--cta-weight);
+				line-height: 1.3;
+
+				letter-spacing: normal;
+				text-transform: none;
 			}
 
 
@@ -99,6 +127,7 @@ const papers = [
 				width: 100%;
 
 				margin-top: var(--divider-space-before);
+
 				padding-top: var(--divider-space-after);
 				padding-bottom: 0;
 
@@ -133,6 +162,7 @@ const papers = [
 
 			.paper-row:last-child {
 				padding-bottom: 0;
+
 				border-bottom: 0;
 			}
 
@@ -154,6 +184,7 @@ const papers = [
 				font-weight: 750;
 				line-height: 1.3;
 				letter-spacing: 0.12em;
+
 				text-transform: uppercase;
 			}
 
@@ -204,6 +235,7 @@ const papers = [
 			@media (max-width: 850px) {
 				.paper-row {
 					grid-template-columns: 1fr;
+
 					gap: 1.2rem;
 				}
 
@@ -211,6 +243,7 @@ const papers = [
 					display: flex;
 					flex-wrap: wrap;
 					align-items: center;
+
 					gap: 0.7rem 1rem;
 				}
 
@@ -231,6 +264,7 @@ const papers = [
 
 				.books-index-page .books-page-book {
 					grid-template-columns: 1fr;
+
 					gap: 24px;
 				}
 
@@ -241,6 +275,7 @@ const papers = [
 
 				.books-index-page .minimal-tolerance-book {
 					margin-top: var(--divider-space-mobile);
+
 					padding-top: var(--divider-space-mobile);
 				}
 
@@ -252,6 +287,7 @@ const papers = [
 				.books-index-page .books-page-cover {
 					width: 180px;
 					max-width: 100%;
+
 					border-radius: 8px;
 				}
 
@@ -261,6 +297,7 @@ const papers = [
 
 				.books-index-page .books-page-subtitle {
 					margin-bottom: 18px;
+
 					font-size: 0.92rem;
 				}
 
@@ -275,13 +312,19 @@ const papers = [
 					margin-top: 18px;
 				}
 
+				.books-page-secondary-action {
+					margin-top: 10px;
+				}
+
 				.papers-section {
 					margin-top: var(--divider-space-mobile);
+
 					padding-top: var(--divider-space-mobile);
 				}
 
 				.paper-row {
 					gap: 1rem;
+
 					padding: 28px 0;
 				}
 
@@ -304,15 +347,22 @@ const papers = [
 	<body>
 		<Header />
 
+
 		<main class="books-index-page">
+
+			<!-- =====================================================
+			     FEATURED BOOK
+			===================================================== -->
 
 			<section
 				class="books-page-book books-page-book-featured reveal-section"
 				aria-labelledby="cio-book-title"
 			>
+
 				<div
 					class="books-page-cover-wrapper reveal-item reveal-from-left"
 				>
+
 					<a
 						href="https://www.amazon.com/dp/B0F8MVPN4Q"
 						target="_blank"
@@ -320,33 +370,42 @@ const papers = [
 						class="books-page-cover-link"
 						aria-label="Buy How to Become CIO and Succeed on Amazon"
 					>
+
 						<img
 							src="/images/cio-book-cover.png"
 							alt="Cover of How to Become CIO and Succeed"
 							class="books-page-cover animated-book-cover"
 						/>
+
 					</a>
+
 				</div>
+
 
 				<div
 					class="books-page-content reveal-item reveal-delay-1"
 				>
+
 					<p class="books-page-label">
 						Featured Book
 					</p>
+
 
 					<h2 id="cio-book-title">
 						How to Become CIO and Succeed
 					</h2>
 
+
 					<p class="books-page-subtitle">
 						People, Business, Strategy
 					</p>
+
 
 					<p>
 						This is the book <strong>I wish I had</strong> when I began
 						my leadership journey
 					</p>
+
 
 					<p>
 						The CIO role is not about managing systems.
@@ -355,23 +414,30 @@ const papers = [
 						and turning technology into a competitive advantage
 					</p>
 
+
 					<p>
 						<strong>This is not a textbook.</strong> It is a practical
 						field guide for current and aspiring technology leaders
 					</p>
 
+
 					<p class="books-page-closing">
 						If you are here to maintain the status quo, turn back now
 					</p>
 
+
 					<p class="books-page-action">
+
 						<a
 							href="https://www.amazon.com/dp/B0F8MVPN4Q"
 							target="_blank"
 							rel="noopener noreferrer"
 							class="animated-link"
 						>
-							<span>Buy on Amazon</span>
+
+							<span>
+								Buy on Amazon
+							</span>
 
 							<span
 								class="animated-link-arrow"
@@ -379,41 +445,81 @@ const papers = [
 							>
 								→
 							</span>
+
 						</a>
+
 					</p>
+
+
+					<p class="books-page-secondary-action">
+
+						<a
+							href="/cio-book/"
+							class="animated-link"
+						>
+
+							<span>
+								Explore the book
+							</span>
+
+							<span
+								class="animated-link-arrow"
+								aria-hidden="true"
+							>
+								→
+							</span>
+
+						</a>
+
+					</p>
+
 				</div>
+
 			</section>
 
+
+			<!-- =====================================================
+			     FORTHCOMING BOOK
+			===================================================== -->
 
 			<section
 				class="books-page-book books-page-book-secondary minimal-tolerance-book reveal-section"
 				aria-labelledby="minimal-tolerance-book-title"
 			>
+
 				<div
 					class="books-page-cover-wrapper reveal-item reveal-from-left"
 				>
+
 					<div
 						class="books-page-cover-link books-page-cover-static"
 					>
+
 						<img
 							src="/images/book-cover.jpg"
 							alt="Cover of A Theory of Minimal Tolerance"
 							class="books-page-cover animated-book-cover"
 							loading="lazy"
 						/>
+
 					</div>
+
 				</div>
+
 
 				<div
 					class="books-page-content reveal-item reveal-delay-1"
 				>
+
 					<p class="books-page-label">
 						Forthcoming Book
 					</p>
 
+
 					<h2 id="minimal-tolerance-book-title">
 						A Theory of Minimal Tolerance
 					</h2>
+
 
 					<p>
 						A work exploring freedom, coercion, incentives,
@@ -421,25 +527,36 @@ const papers = [
 						political power
 					</p>
 
+
 					<p>
 						It develops a practical framework for examining the
 						conditions under which state coercion may be tolerated
 					</p>
 
+
 					<p class="books-page-action">
+
 						<span class="coming-soon">
 							Coming Soon
 						</span>
+
 					</p>
+
 				</div>
+
 			</section>
 
+
+			<!-- =====================================================
+			     PAPERS
+			===================================================== -->
 
 			<section
 				id="papers"
 				class="papers-section reveal-section"
 				aria-label="Technology papers"
 			>
+
 				<div class="papers-list">
 
 					{
@@ -466,13 +583,16 @@ const papers = [
 										Paper
 									</p>
 
+
 									<h2 class="paper-title">
 										{paper.title}
 									</h2>
 
+
 									<p class="paper-subtitle">
 										{paper.subtitle}
 									</p>
+
 
 									<p class="paper-description">
 										{paper.description}
@@ -486,6 +606,7 @@ const papers = [
 					}
 
 				</div>
+
 			</section>
 
 		</main>
@@ -530,15 +651,19 @@ const papers = [
 
 
 				sections.forEach((section) => {
+
 					revealObserver.observe(section);
+
 				});
 
 			} else {
 
 				sections.forEach((section) => {
+
 					section.classList.add(
 						'is-visible'
 					);
+
 				});
 
 			}
