@@ -1,7 +1,7 @@
 ---
-import SEO from '../components/SEO.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import SEO from '../../components/SEO.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
 
 type MediaItem = {
 	type: string;
@@ -24,14 +24,14 @@ const mediaItems: MediaItem[] = [
 		type: 'Webinar',
 		status: 'upcoming',
 		title: 'Technology is Never the Starting Point — Xseed',
-		date: 'August 2026',
+		date: 'Agosto 2026',
 		image: '/images/xseed-webinar.png',
 		imageAlt:
-			'Technology is Never the Starting Point webinar with Federico Rodrigo',
+			'Webinar Technology is Never the Starting Point con Federico Rodrigo',
 		description:
-			'A practical session on how to start with people and business priorities, and use technology to enable the outcome',
-		url: '/webinar/',
-		linkLabel: 'Explore the talk',
+			'Una sesión práctica sobre cómo comenzar con las personas y las prioridades del negocio, y utilizar la tecnología para habilitar el resultado',
+		url: '/es/webinar/',
+		linkLabel: 'Explorar la charla',
 		internal: true,
 		compactTitle: true,
 	},
@@ -39,61 +39,61 @@ const mediaItems: MediaItem[] = [
 		type: 'Podcast',
 		status: 'published',
 		title: 'The Technology Vanguard',
-		date: 'August 2026',
+		date: 'Agosto 2026',
 		image: '/images/vanguard.png',
 		imageAlt:
-			'Fede Rodrigo appearing on The Technology Vanguard podcast',
+			'Fede Rodrigo participando en el podcast The Technology Vanguard',
 		description:
-			'An honest conversation about IT leadership, the mistakes that teach us, the transition from technical excellence to leading people, and the lessons that really shape the path to becoming a CIO',
+			'Una conversación sobre liderazgo de TI, los errores que enseñan, la transición desde la excelencia técnica hacia el liderazgo de personas y las lecciones que realmente forman el camino para convertirse en CIO',
 		url: 'https://www.youtube.com/watch?v=2wyTHhaOcWE',
-		linkLabel: 'Watch the conversation',
+		linkLabel: 'Ver la conversación',
 	},
 	{
-		type: 'Written Interview',
+		type: 'Entrevista Escrita',
 		status: 'published',
 		title: 'Turning Cloud Investment into Business Value — Nublit',
-		date: 'January 2026',
+		date: 'Enero 2026',
 		image: '/images/cloud-interview.jpg',
 		imageAlt:
-			'Interview with Fede Rodrigo published by Nublit',
+			'Entrevista con Fede Rodrigo publicada por Nublit',
 		description:
-			'A conversation with Nublit about cloud strategy in Latin America, hybrid adoption, cultural and regulatory barriers, and the role of technology as a driver of growth, innovation, and operational resilience',
+			'Una conversación con Nublit sobre estrategia cloud en América Latina, adopción híbrida, barreras culturales y regulatorias, y el rol de la tecnología como impulsor del crecimiento, la innovación y la resiliencia operacional',
 		url: 'https://informe2026.nublit.com/',
-		linkLabel: 'View full report',
+		linkLabel: 'Ver informe completo',
 		pdfUrl: '/pdfs/Fede-Rodrigo-Interview-Nublit.pdf',
-		pdfLabel: 'Read my interview',
+		pdfLabel: 'Leer mi entrevista',
 		compactTitle: true,
 	},
 	{
-		type: 'Award Finalist',
+		type: 'Finalista',
 		status: 'published',
 		title: 'ORBIE CIO Awards',
-		date: 'September 2024',
+		date: 'Septiembre 2024',
 		image: '/images/orbie.jpg',
 		imageAlt:
 			'ORBIE Awards CIO Central Texas',
 		description:
-			'Recognized as a finalist in the Global CIO category at the Central Texas awards',
+			'Reconocido como finalista en la categoría Global CIO de los premios de Central Texas',
 		url: 'https://orbie.org/honoree/federico-rodrigo/4324',
-		linkLabel: 'View recognition',
+		linkLabel: 'Ver reconocimiento',
 	},
 	{
-		type: 'Executive Roundtable',
+		type: 'Mesa Ejecutiva',
 		status: 'published',
 		title: 'Industrial Reinvention — The Economist',
-		date: 'September 2024',
+		date: 'Septiembre 2024',
 		image: '/images/impact.png',
 		imageAlt:
 			'The Economist Impact',
 		description:
-			'Invited participant in Industrial Reinvention: New Business Models and Jobs for Tomorrow’s Technology, hosted by The Economist Impact, with fellow CIOs in Houston, Texas',
+			'Participante invitado en Industrial Reinvention: New Business Models and Jobs for Tomorrow’s Technology, organizado por The Economist Impact junto a otros CIOs en Houston, Texas',
 	},
 ];
 ---
 
 <!doctype html>
 
-<html lang="en">
+<html lang="es">
 	<head>
 		<script is:inline>
 			document.documentElement.classList.add('js');
@@ -101,8 +101,8 @@ const mediaItems: MediaItem[] = [
 
 		<SEO
 			title="Speaking | Fede Rodrigo"
-			description="Speaking engagements, webinars, executive sessions, podcasts, interviews, and conversations on technology, business, leadership, and execution"
-			lang="en"
+			description="Charlas, webinars, sesiones ejecutivas, podcasts, entrevistas y conversaciones sobre tecnología, negocio, liderazgo y ejecución"
+			lang="es"
 		/>
 
 		<style>
@@ -563,16 +563,16 @@ const mediaItems: MediaItem[] = [
 				<h1 class="hero-title speaking-hero-title">
 
 					<span class="hero-line">
-						What if your next technology
+						¿Y si tu próxima decisión
 					</span>
 
 					<span class="hero-line">
-						decision started with
+						tecnológica comenzara
 					</span>
 
 					<span class="hero-line">
 						<span class="speaking-hero-accent">
-							no technology at all?
+							sin tecnología?
 						</span>
 					</span>
 
@@ -582,7 +582,7 @@ const mediaItems: MediaItem[] = [
 
 			<section
 				class="speaking-evidence reveal-section"
-				aria-label="Why this matters"
+				aria-label="Por qué importa"
 			>
 				<div class="speaking-evidence-grid">
 
@@ -593,7 +593,7 @@ const mediaItems: MediaItem[] = [
 						</p>
 
 						<p class="speaking-evidence-label">
-							of transformation efforts fail
+							de los esfuerzos de transformación fracasan
 						</p>
 
 						<p class="speaking-evidence-source">
@@ -611,7 +611,7 @@ const mediaItems: MediaItem[] = [
 						</p>
 
 						<p class="speaking-evidence-label">
-							of AI projects fail
+							de los proyectos de IA fracasan
 						</p>
 
 						<p class="speaking-evidence-source">
@@ -625,15 +625,15 @@ const mediaItems: MediaItem[] = [
 
 			<section
 				class="speaking-talk-link reveal-section"
-				aria-label="Explore the talk"
+				aria-label="Explorar la charla"
 			>
 				<p class="speaking-centered-action reveal-item">
 
 					<a
-						href="/webinar/"
+						href="/es/webinar/"
 						class="animated-link speaking-centered-link"
 					>
-						<span>Explore the talk</span>
+						<span>Explorar la charla</span>
 
 						<span
 							class="animated-link-arrow"
@@ -649,7 +649,7 @@ const mediaItems: MediaItem[] = [
 
 			<section
 				class="speaking-showcase reveal-section"
-				aria-label="Speaking presentation slides"
+				aria-label="Slides de la presentación"
 			>
 				<div
 					class="speaking-slider reveal-item"
@@ -702,13 +702,13 @@ const mediaItems: MediaItem[] = [
 
 					<div
 						class="speaking-slider-nav"
-						aria-label="Choose slide"
+						aria-label="Elegir slide"
 					>
 						<button
 							type="button"
 							class="speaking-slider-dot is-active"
 							data-speaking-dot="0"
-							aria-label="Show slide 1"
+							aria-label="Mostrar slide 1"
 							aria-current="true"
 						></button>
 
@@ -716,7 +716,7 @@ const mediaItems: MediaItem[] = [
 							type="button"
 							class="speaking-slider-dot"
 							data-speaking-dot="1"
-							aria-label="Show slide 2"
+							aria-label="Mostrar slide 2"
 							aria-current="false"
 						></button>
 
@@ -724,7 +724,7 @@ const mediaItems: MediaItem[] = [
 							type="button"
 							class="speaking-slider-dot"
 							data-speaking-dot="2"
-							aria-label="Show slide 3"
+							aria-label="Mostrar slide 3"
 							aria-current="false"
 						></button>
 					</div>
@@ -741,19 +741,19 @@ const mediaItems: MediaItem[] = [
 					id="speaking-closing-title"
 					class="speaking-closing-title reveal-item"
 				>
-					Technology is
-					<span class="speaking-never">never</span>
-					the starting point
+					La tecnología
+					<span class="speaking-never">nunca</span>
+					es el punto de partida
 				</h2>
 
 				<p
 					class="speaking-closing-link reveal-item reveal-delay-1"
 				>
 					<a
-						href="/webinar/"
+						href="/es/webinar/"
 						class="animated-link speaking-centered-link"
 					>
-						<span>Explore the talk</span>
+						<span>Explorar la charla</span>
 
 						<span
 							class="animated-link-arrow"
@@ -774,7 +774,7 @@ const mediaItems: MediaItem[] = [
 					id="media-list-title"
 					class="reveal-item"
 				>
-					Selected Appearances
+					Participaciones Destacadas
 				</h2>
 
 
@@ -910,7 +910,7 @@ const mediaItems: MediaItem[] = [
 												<span>
 													{
 														item.linkLabel ??
-															'Learn more'
+															'Conocer más'
 													}
 												</span>
 
@@ -929,7 +929,7 @@ const mediaItems: MediaItem[] = [
 										item.status === 'upcoming' && (
 
 											<p class="media-coming-soon">
-												Coming soon
+												Próximamente
 											</p>
 
 										)
@@ -950,22 +950,22 @@ const mediaItems: MediaItem[] = [
 			<section class="page-closing reveal-section">
 
 				<h2 class="reveal-item">
-					Speaking Inquiries
+					Consultas de Speaking
 				</h2>
 
 				<div class="reveal-item reveal-delay-1">
 
 					<p>
-						For speaking engagements, podcasts, or other opportunities,
-						please get in touch
+						Para charlas, podcasts u otras oportunidades,
+						ponte en contacto
 					</p>
 
 					<p class="speaking-inquiry-action">
 						<a
-							href="/contact/"
+							href="/es/contact/"
 							class="animated-link"
 						>
-							<span>Contact me</span>
+							<span>Contáctame</span>
 
 							<span
 								class="animated-link-arrow"
