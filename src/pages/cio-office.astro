@@ -56,8 +56,15 @@ const capabilities = [
 		<Header />
 
 		<main>
+
+			<!-- =====================================================
+			     CAPABILITIES
+			===================================================== -->
+
 			<section class="cio-office-capabilities reveal-section">
+
 				<div class="cio-office-capabilities-heading reveal-item">
+
 					<img
 						src="/images/cio-office-logo.png"
 						alt="CIO Office"
@@ -103,30 +110,48 @@ const capabilities = [
 							Transformation
 						</span>
 					</h2>
+
 				</div>
 
+
 				<div class="leadership-grid">
+
 					{
 						capabilities.map((capability, index) => (
+
 							<div
 								class="leadership-card"
 								style={`--card-index: ${index};`}
 							>
-								<h3>{capability.title}</h3>
+								<h3>
+									{capability.title}
+								</h3>
 
-								<p>{capability.description}</p>
+								<p>
+									{capability.description}
+								</p>
 							</div>
+
 						))
 					}
+
 				</div>
+
 			</section>
 
-			<section class="cio-office-contact reveal-section">
+
+			<!-- =====================================================
+			     CONTACT
+			===================================================== -->
+
+			<section class="page-closing reveal-section">
+
 				<h2 class="reveal-item">
 					CXY Office
 				</h2>
 
 				<div class="reveal-item reveal-delay-1">
+
 					<p>
 						For independent advisory, ERP and transformation
 						initiatives, fractional CIO engagements, or critical
@@ -134,8 +159,14 @@ const capabilities = [
 					</p>
 
 					<p class="cio-office-contact-link">
-						<a href="/contact/" class="animated-link">
-							<span>Contact me</span>
+
+						<a
+							href="/contact/"
+							class="animated-link"
+						>
+							<span>
+								Contact me
+							</span>
 
 							<span
 								class="animated-link-arrow"
@@ -144,35 +175,63 @@ const capabilities = [
 								→
 							</span>
 						</a>
+
 					</p>
+
 				</div>
+
 			</section>
+
 		</main>
 
 		<Footer />
 
+
+		<!-- =====================================================
+		     REVEAL
+		===================================================== -->
+
 		<script>
-			const sections = document.querySelectorAll('.reveal-section');
+			const sections =
+				document.querySelectorAll('.reveal-section');
 
-			const revealObserver = new IntersectionObserver(
-				(entries, observer) => {
-					entries.forEach((entry) => {
-						if (!entry.isIntersecting) return;
+			const revealObserver =
+				new IntersectionObserver(
+					(entries, observer) => {
 
-						entry.target.classList.add('is-visible');
-						observer.unobserve(entry.target);
-					});
-				},
-				{
-					threshold: 0.12,
-					rootMargin: '0px 0px -60px 0px',
-				}
-			);
+						entries.forEach((entry) => {
+
+							if (!entry.isIntersecting) {
+								return;
+							}
+
+							entry.target.classList.add(
+								'is-visible'
+							);
+
+							observer.unobserve(
+								entry.target
+							);
+
+						});
+
+					},
+					{
+						threshold: 0.12,
+						rootMargin:
+							'0px 0px -60px 0px',
+					}
+				);
 
 			sections.forEach((section) => {
 				revealObserver.observe(section);
 			});
 		</script>
+
+
+		<!-- =====================================================
+		     TAGLINE ANIMATION
+		===================================================== -->
 
 		<style>
 			.cio-office-capabilities-tagline span {
@@ -187,27 +246,35 @@ const capabilities = [
 			.cio-office-capabilities.is-visible
 				.cio-office-capabilities-tagline
 				span {
-				animation: tagline-reveal 0.7s
-					cubic-bezier(0.22, 1, 0.36, 1) forwards;
+				animation:
+					tagline-reveal
+					0.7s
+					cubic-bezier(0.22, 1, 0.36, 1)
+					forwards;
 			}
 
-			.cio-office-capabilities.is-visible .tagline-part-1 {
+			.cio-office-capabilities.is-visible
+				.tagline-part-1 {
 				animation-delay: 0.15s;
 			}
 
-			.cio-office-capabilities.is-visible .tagline-part-2 {
+			.cio-office-capabilities.is-visible
+				.tagline-part-2 {
 				animation-delay: 0.25s;
 			}
 
-			.cio-office-capabilities.is-visible .tagline-part-3 {
+			.cio-office-capabilities.is-visible
+				.tagline-part-3 {
 				animation-delay: 0.35s;
 			}
 
-			.cio-office-capabilities.is-visible .tagline-part-4 {
+			.cio-office-capabilities.is-visible
+				.tagline-part-4 {
 				animation-delay: 0.45s;
 			}
 
-			.cio-office-capabilities.is-visible .tagline-part-5 {
+			.cio-office-capabilities.is-visible
+				.tagline-part-5 {
 				animation-delay: 0.55s;
 			}
 
@@ -226,5 +293,6 @@ const capabilities = [
 				}
 			}
 		</style>
+
 	</body>
 </html>
