@@ -17,24 +17,89 @@ import Footer from '../components/Footer.astro';
 			description="Contact Fede Rodrigo for CIO advisory, speaking engagements, podcasts, media inquiries, and general questions"
 			lang="en"
 		/>
+
+		<style>
+			/* =========================================================
+			   CONTACT PAGE
+			========================================================= */
+
+			.contact-page-main {
+				padding-top: 46px;
+			}
+
+			.contact-page-direct {
+				margin-top: 0;
+				padding-top: 0;
+			}
+
+
+			/* =========================================================
+			   CONTACT TITLE
+			========================================================= */
+
+			.contact-page-direct .contact-page-info > h2 {
+				margin-bottom: 24px;
+
+				font-size: clamp(1.75rem, 2.3vw, 2rem);
+				font-weight: 700;
+				line-height: 1.12;
+				letter-spacing: -0.035em;
+			}
+
+			.contact-page-direct .contact-page-info > h2::after {
+				content: none;
+				display: none;
+			}
+
+
+			/* =========================================================
+			   MOBILE
+			========================================================= */
+
+			@media (max-width: 720px) {
+				.contact-page-main {
+					padding-top: 42px;
+				}
+
+				.contact-page-direct {
+					padding-top: 0;
+				}
+
+				.contact-page-direct .contact-page-info > h2 {
+					font-size: 1.7rem;
+				}
+			}
+		</style>
 	</head>
 
 	<body>
 		<Header />
 
-		<main>
-			<section class="contact-page contact-page-direct reveal-section">
+		<main class="contact-page-main">
+
+			<section
+				class="contact-page contact-page-direct reveal-section"
+			>
+
+				<!-- =================================================
+				     CONTACT INFORMATION
+				================================================= -->
+
 				<div
 					class="contact-page-info reveal-item reveal-from-left"
 				>
-					<h2>Contact information</h2>
+					<h2>
+						Contact information
+					</h2>
 
 					<p class="contact-page-intro">
 						For advisory, speaking engagements, podcasts, media, or
 						general inquiries
 					</p>
 
+
 					<div class="contact-page-links">
+
 						<div
 							class="contact-page-item"
 							style="--contact-index: 0;"
@@ -56,6 +121,7 @@ import Footer from '../components/Footer.astro';
 								</a>
 							</div>
 						</div>
+
 
 						<div
 							class="contact-page-item"
@@ -82,9 +148,12 @@ import Footer from '../components/Footer.astro';
 								</a>
 							</div>
 						</div>
+
 					</div>
 
+
 					<div class="contact-page-response">
+
 						<p class="contact-page-response-label">
 							Response Time
 						</p>
@@ -92,8 +161,15 @@ import Footer from '../components/Footer.astro';
 						<p>
 							I typically respond within 2–3 business days
 						</p>
+
 					</div>
+
 				</div>
+
+
+				<!-- =================================================
+				     CONTACT FORM
+				================================================= -->
 
 				<div
 					class="contact-page-form-wrapper reveal-item reveal-from-right reveal-delay-1"
@@ -104,11 +180,14 @@ import Footer from '../components/Footer.astro';
 						method="POST"
 						action="/api/contact"
 					>
+
 						<div
 							class="contact-page-form-row contact-animated-field"
 							style="--field-index: 0;"
 						>
+
 							<div class="contact-page-field">
+
 								<label for="first-name">
 									First Name
 								</label>
@@ -121,9 +200,12 @@ import Footer from '../components/Footer.astro';
 									placeholder="Jane"
 									required
 								/>
+
 							</div>
 
+
 							<div class="contact-page-field">
+
 								<label for="last-name">
 									Last Name
 								</label>
@@ -136,8 +218,11 @@ import Footer from '../components/Footer.astro';
 									placeholder="Smith"
 									required
 								/>
+
 							</div>
+
 						</div>
+
 
 						<div
 							class="contact-page-field contact-animated-field"
@@ -157,6 +242,7 @@ import Footer from '../components/Footer.astro';
 							/>
 						</div>
 
+
 						<div
 							class="contact-page-field contact-animated-field"
 							style="--field-index: 2;"
@@ -170,7 +256,11 @@ import Footer from '../components/Footer.astro';
 								name="subject"
 								required
 							>
-								<option value="" selected disabled>
+								<option
+									value=""
+									selected
+									disabled
+								>
 									Select a topic...
 								</option>
 
@@ -188,6 +278,7 @@ import Footer from '../components/Footer.astro';
 							</select>
 						</div>
 
+
 						<div
 							class="contact-page-field contact-animated-field"
 							style="--field-index: 3;"
@@ -204,6 +295,7 @@ import Footer from '../components/Footer.astro';
 								required
 							></textarea>
 						</div>
+
 
 						<button
 							id="contact-submit"
@@ -223,6 +315,7 @@ import Footer from '../components/Footer.astro';
 							</span>
 						</button>
 
+
 						<p
 							id="contact-status"
 							class="contact-page-status"
@@ -230,133 +323,222 @@ import Footer from '../components/Footer.astro';
 							aria-live="polite"
 							hidden
 						></p>
+
 					</form>
 				</div>
+
 			</section>
+
 		</main>
+
 
 		<Footer />
 
+
+		<!-- =====================================================
+		     REVEAL + FORM
+		===================================================== -->
+
 		<script>
-			const sections = document.querySelectorAll('.reveal-section');
+			const sections =
+				document.querySelectorAll('.reveal-section');
 
-			const revealObserver = new IntersectionObserver(
-				(entries, observer) => {
-					entries.forEach((entry) => {
-						if (!entry.isIntersecting) return;
 
-						entry.target.classList.add('is-visible');
-						observer.unobserve(entry.target);
-					});
-				},
-				{
-					threshold: 0.12,
-					rootMargin: '0px 0px -60px 0px',
-				}
-			);
+			if ('IntersectionObserver' in window) {
 
-			sections.forEach((section) => {
-				revealObserver.observe(section);
-			});
+				const revealObserver =
+					new IntersectionObserver(
+						(entries, observer) => {
 
-			const form = document.querySelector<HTMLFormElement>(
-				'#contact-form'
-			);
+							entries.forEach((entry) => {
 
-			const submitButton =
-				document.querySelector<HTMLButtonElement>('#contact-submit');
+								if (!entry.isIntersecting) {
+									return;
+								}
 
-			const submitText = document.querySelector<HTMLElement>(
-				'.contact-page-submit-text'
-			);
+								entry.target.classList.add(
+									'is-visible'
+								);
 
-			const status =
-				document.querySelector<HTMLElement>('#contact-status');
+								observer.unobserve(
+									entry.target
+								);
 
-			if (form && submitButton && submitText && status) {
-				form.addEventListener('submit', async (event) => {
-					event.preventDefault();
+							});
 
-					if (!form.reportValidity()) {
-						return;
-					}
-
-					submitButton.disabled = true;
-					submitButton.setAttribute('aria-busy', 'true');
-					submitText.textContent = 'Sending...';
-
-					status.hidden = true;
-					status.textContent = '';
-					status.classList.remove(
-						'contact-page-status-success',
-						'contact-page-status-error'
+						},
+						{
+							threshold: 0.12,
+							rootMargin:
+								'0px 0px -60px 0px',
+						}
 					);
 
-					try {
-						const response = await fetch(form.action, {
-							method: 'POST',
-							body: new FormData(form),
-							headers: {
-								Accept: 'application/json',
-							},
-						});
 
-						const result = await response
-							.json()
-							.catch(() => null);
+				sections.forEach((section) => {
+					revealObserver.observe(section);
+				});
 
-						if (!response.ok) {
-							throw new Error(
-								result?.message ||
-									'Your message could not be sent'
-							);
+			} else {
+
+				sections.forEach((section) => {
+					section.classList.add(
+						'is-visible'
+					);
+				});
+
+			}
+
+
+			const form =
+				document.querySelector<HTMLFormElement>(
+					'#contact-form'
+				);
+
+			const submitButton =
+				document.querySelector<HTMLButtonElement>(
+					'#contact-submit'
+				);
+
+			const submitText =
+				document.querySelector<HTMLElement>(
+					'.contact-page-submit-text'
+				);
+
+			const status =
+				document.querySelector<HTMLElement>(
+					'#contact-status'
+				);
+
+
+			if (
+				form &&
+				submitButton &&
+				submitText &&
+				status
+			) {
+
+				form.addEventListener(
+					'submit',
+					async (event) => {
+
+						event.preventDefault();
+
+
+						if (!form.reportValidity()) {
+							return;
 						}
 
-						form.reset();
 
-						status.textContent =
-							'Thank you. Your message has been sent.';
+						submitButton.disabled = true;
 
-						status.classList.add(
-							'contact-page-status-success'
+						submitButton.setAttribute(
+							'aria-busy',
+							'true'
 						);
 
-						status.hidden = false;
-					} catch (error) {
-						status.textContent =
-							error instanceof Error
-								? error.message
-								: 'Your message could not be sent. Please try again.';
+						submitText.textContent =
+							'Sending...';
 
-						status.classList.add(
+
+						status.hidden = true;
+						status.textContent = '';
+
+						status.classList.remove(
+							'contact-page-status-success',
 							'contact-page-status-error'
 						);
 
-						status.hidden = false;
-					} finally {
-						submitButton.disabled = false;
-						submitButton.removeAttribute('aria-busy');
-						submitText.textContent = 'Send Message';
+
+						try {
+
+							const response =
+								await fetch(
+									form.action,
+									{
+										method: 'POST',
+
+										body:
+											new FormData(
+												form
+											),
+
+										headers: {
+											Accept:
+												'application/json',
+										},
+									}
+								);
+
+
+							const result =
+								await response
+									.json()
+									.catch(
+										() => null
+									);
+
+
+							if (!response.ok) {
+
+								throw new Error(
+									result?.message ||
+										'Your message could not be sent'
+								);
+
+							}
+
+
+							form.reset();
+
+
+							status.textContent =
+								'Thank you. Your message has been sent.';
+
+
+							status.classList.add(
+								'contact-page-status-success'
+							);
+
+
+							status.hidden = false;
+
+						} catch (error) {
+
+							status.textContent =
+								error instanceof Error
+									? error.message
+									: 'Your message could not be sent. Please try again.';
+
+
+							status.classList.add(
+								'contact-page-status-error'
+							);
+
+
+							status.hidden = false;
+
+						} finally {
+
+							submitButton.disabled =
+								false;
+
+
+							submitButton.removeAttribute(
+								'aria-busy'
+							);
+
+
+							submitText.textContent =
+								'Send Message';
+
+						}
+
 					}
-				});
+				);
+
 			}
 		</script>
 
-		<style>
-			main {
-				padding-top: 0 !important;
-			}
-
-			.contact-page-direct {
-				margin-top: 0;
-				padding-top: clamp(3rem, 5vw, 4.25rem);
-			}
-
-			@media (max-width: 850px) {
-				.contact-page-direct {
-					padding-top: 2.5rem;
-				}
-			}
-		</style>
 	</body>
 </html>
