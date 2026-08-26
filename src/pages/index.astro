@@ -40,6 +40,15 @@ import Footer from '../components/Footer.astro';
 				padding-top: var(--divider-space-after);
 			}
 
+			/*
+				CIO Office has a taller visual block than the other
+				home features. Remove the additional margin before
+				Book so the divider has the same optical spacing.
+			*/
+			#books.home-feature {
+				margin-top: 0;
+			}
+
 
 			/* =========================================================
 			   FEATURE LAYOUT
@@ -158,9 +167,11 @@ import Footer from '../components/Footer.astro';
 
 			#cio-office .cio-office-capabilities-logo:hover {
 				transform: translateY(-4px) scale(1.015);
-				filter: drop-shadow(
-					0 16px 18px rgba(16, 42, 67, 0.12)
-				);
+
+				filter:
+					drop-shadow(
+						0 16px 18px rgba(16, 42, 67, 0.12)
+					);
 			}
 
 
@@ -173,7 +184,6 @@ import Footer from '../components/Footer.astro';
 
 				width: 85%;
 				max-width: 85%;
-
 				height: auto;
 
 				margin-left: auto;
@@ -258,6 +268,14 @@ import Footer from '../components/Footer.astro';
 					padding-top: var(--divider-space-mobile);
 				}
 
+				/*
+					On mobile the layout is stacked and the CIO logo
+					no longer creates the same height imbalance.
+				*/
+				#books.home-feature {
+					margin-top: var(--divider-space-mobile);
+				}
+
 				#speaking .books-page-book,
 				#cio-office .books-page-book,
 				#books .books-page-book {
@@ -322,10 +340,6 @@ import Footer from '../components/Footer.astro';
 
 		<main class="home-main">
 
-			<!-- =====================================================
-			     HERO
-			===================================================== -->
-
 			<section class="hero home-hero">
 				<h1 class="hero-title">
 					<span class="hero-line">
@@ -344,10 +358,6 @@ import Footer from '../components/Footer.astro';
 				</div>
 			</section>
 
-
-			<!-- =====================================================
-			     SPEAKING
-			===================================================== -->
 
 			<section
 				id="speaking"
@@ -409,10 +419,6 @@ import Footer from '../components/Footer.astro';
 			</section>
 
 
-			<!-- =====================================================
-			     CIO OFFICE
-			===================================================== -->
-
 			<section
 				id="cio-office"
 				class="page-divider home-feature reveal-section"
@@ -469,10 +475,6 @@ import Footer from '../components/Footer.astro';
 				</article>
 			</section>
 
-
-			<!-- =====================================================
-			     BOOK
-			===================================================== -->
 
 			<section
 				id="books"
@@ -536,10 +538,6 @@ import Footer from '../components/Footer.astro';
 				</article>
 			</section>
 
-
-			<!-- =====================================================
-			     ABOUT
-			===================================================== -->
 
 			<section
 				id="about"
@@ -607,20 +605,21 @@ import Footer from '../components/Footer.astro';
 			const sections =
 				document.querySelectorAll('.reveal-section');
 
-			const revealObserver = new IntersectionObserver(
-				(entries, observer) => {
-					entries.forEach((entry) => {
-						if (!entry.isIntersecting) return;
+			const revealObserver =
+				new IntersectionObserver(
+					(entries, observer) => {
+						entries.forEach((entry) => {
+							if (!entry.isIntersecting) return;
 
-						entry.target.classList.add('is-visible');
-						observer.unobserve(entry.target);
-					});
-				},
-				{
-					threshold: 0.12,
-					rootMargin: '0px 0px -60px 0px'
-				}
-			);
+							entry.target.classList.add('is-visible');
+							observer.unobserve(entry.target);
+						});
+					},
+					{
+						threshold: 0.12,
+						rootMargin: '0px 0px -60px 0px'
+					}
+				);
 
 			sections.forEach((section) => {
 				revealObserver.observe(section);
