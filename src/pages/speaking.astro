@@ -104,6 +104,430 @@ const mediaItems: MediaItem[] = [
 			description="Speaking engagements, webinars, executive sessions, podcasts, interviews, and conversations on technology, business, leadership, and execution"
 			lang="en"
 		/>
+
+		<style>
+			/* =========================================================
+			   SPEAKING HERO
+			========================================================= */
+
+			.speaking-hero {
+				max-width: none;
+				padding: 10px 0 24px;
+				border-bottom: 0;
+				text-align: center;
+			}
+
+			.speaking-hero-title {
+				width: 100%;
+				max-width: 100%;
+				margin-left: auto;
+				margin-right: auto;
+
+				font-size: clamp(2rem, 3.65vw, 3.75rem);
+				line-height: 1.08;
+				text-align: center;
+			}
+
+			.speaking-hero-title .hero-line {
+				display: block;
+				width: 100%;
+				white-space: nowrap;
+			}
+
+			.speaking-hero-accent,
+			.speaking-never {
+				color: #6fa7ef;
+			}
+
+			.speaking-hero-accent {
+				display: inline-block;
+				opacity: 0;
+				transform: translateY(6px);
+
+				animation:
+					speaking-accent-reveal
+					520ms
+					ease
+					720ms
+					forwards;
+			}
+
+			@keyframes speaking-accent-reveal {
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+
+
+			/* =========================================================
+			   EDITORIAL EVIDENCE
+			========================================================= */
+
+			.speaking-evidence {
+				width: 100%;
+				max-width: 400px;
+				margin: -34px auto 12px;
+			}
+
+			.speaking-evidence-grid {
+				display: flex;
+				align-items: flex-start;
+				justify-content: center;
+				gap: 20px;
+			}
+
+			.speaking-evidence-item {
+				flex: 0 1 190px;
+				text-align: center;
+			}
+
+			.speaking-evidence-value {
+				display: inline-block;
+				margin: 0 0 4px;
+
+				color: #102b46;
+				font-size: clamp(1.35rem, 2vw, 1.7rem);
+				font-weight: 700;
+				line-height: 1;
+				letter-spacing: -0.04em;
+				font-variant-numeric: tabular-nums;
+			}
+
+			.speaking-evidence-number,
+			.speaking-evidence-symbol {
+				display: inline-block;
+			}
+
+			.speaking-evidence-symbol {
+				margin-right: 0.04em;
+			}
+
+			.speaking-evidence-label {
+				margin: 0;
+
+				color: #102b46;
+				font-size: 0.9rem;
+				font-weight: 550;
+				line-height: 1.35;
+				letter-spacing: -0.015em;
+			}
+
+			.speaking-evidence-source {
+				margin: 6px 0 0;
+
+				color: #8b97a4;
+				font-size: 0.68rem;
+				font-weight: 700;
+				line-height: 1.2;
+				letter-spacing: 0.07em;
+				text-transform: uppercase;
+			}
+
+
+			/* =========================================================
+			   CENTERED TALK LINKS
+			========================================================= */
+
+			.speaking-talk-link {
+				width: 100%;
+				margin: -6px auto 16px;
+				text-align: center;
+			}
+
+			.speaking-centered-action {
+				max-width: none;
+				margin: 0;
+				text-align: center;
+			}
+
+			.speaking-centered-link {
+				justify-content: center;
+			}
+
+
+			/* =========================================================
+			   SPEAKING SLIDER
+			========================================================= */
+
+			.speaking-showcase {
+				width: 100%;
+				max-width: 100%;
+				margin: 0 auto;
+			}
+
+			.speaking-slider {
+				width: 100%;
+			}
+
+			.speaking-slider-stage {
+				position: relative;
+
+				width: 100%;
+				aspect-ratio: 16 / 9;
+
+				overflow: hidden;
+
+				border: 1px solid rgba(16, 43, 70, 0.06);
+				border-radius: 14px;
+
+				background: #ffffff;
+
+				box-shadow:
+					0 16px 40px rgba(16, 43, 70, 0.065);
+			}
+
+			.speaking-slide {
+				position: absolute;
+				inset: clamp(24px, 3vw, 42px);
+
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
+				margin: 0;
+
+				opacity: 0;
+				pointer-events: none;
+
+				transition: opacity 650ms ease;
+			}
+
+			.speaking-slide.is-active {
+				z-index: 2;
+				opacity: 1;
+				pointer-events: auto;
+			}
+
+			.speaking-slide-image {
+				display: block;
+
+				width: 100%;
+				height: 100%;
+
+				max-width: 100%;
+				max-height: 100%;
+
+				object-fit: contain;
+				object-position: center;
+
+				border-radius: 0;
+				background: #ffffff;
+			}
+
+
+			/* =========================================================
+			   SLIDER DOTS
+			========================================================= */
+
+			.speaking-slider-nav {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
+				gap: 8px;
+
+				height: 28px;
+				margin-top: 3px;
+			}
+
+			.speaking-slider-dot {
+				width: 7px;
+				height: 7px;
+
+				padding: 0;
+				border: 0;
+				border-radius: 50%;
+
+				background: rgba(16, 43, 70, 0.23);
+
+				cursor: pointer;
+
+				transition:
+					width 200ms ease,
+					background 200ms ease,
+					border-radius 200ms ease;
+			}
+
+			.speaking-slider-dot.is-active {
+				width: 23px;
+				border-radius: 999px;
+				background: #102b46;
+			}
+
+			.speaking-slider-dot:focus-visible {
+				outline: 2px solid #6fa7ef;
+				outline-offset: 4px;
+			}
+
+
+			/* =========================================================
+			   CLOSING THESIS
+			========================================================= */
+
+			.speaking-closing {
+				width: 100%;
+				margin: 14px auto 0;
+				padding-bottom: 0;
+
+				text-align: center;
+			}
+
+			.speaking-closing-title {
+				width: 100%;
+				max-width: 100%;
+				margin: 0 auto;
+
+				color: #102b46;
+
+				font-size: clamp(2rem, 3.1vw, 3.25rem);
+				font-weight: 700;
+				line-height: 1.08;
+				letter-spacing: -0.05em;
+
+				white-space: nowrap;
+			}
+
+			.speaking-closing-title::after {
+				content: none;
+				display: none;
+			}
+
+			.speaking-closing-link {
+				max-width: none;
+				margin: 22px 0 0;
+				text-align: center;
+			}
+
+
+			/* =========================================================
+			   SELECTED APPEARANCES
+			========================================================= */
+
+			.media-list.page-divider {
+				padding-top: var(--divider-space-after);
+			}
+
+			.media-item .media-title-compact {
+				font-size: clamp(1rem, 1.45vw, 1.25rem);
+				line-height: 1.16;
+				letter-spacing: -0.035em;
+				white-space: nowrap;
+			}
+
+
+			/* =========================================================
+			   SPEAKING INQUIRIES
+			========================================================= */
+
+			.speaking-inquiry-action {
+				margin: 18px 0 0;
+			}
+
+
+			/* =========================================================
+			   MOBILE
+			========================================================= */
+
+			@media (max-width: 720px) {
+				.speaking-hero {
+					padding-top: 8px;
+					padding-bottom: 22px;
+				}
+
+				.speaking-hero-title {
+					font-size: clamp(1.95rem, 7.8vw, 2.65rem);
+					line-height: 1.1;
+				}
+
+				.speaking-hero-title .hero-line {
+					white-space: normal;
+				}
+
+				.speaking-evidence {
+					margin: -12px auto 12px;
+				}
+
+				.speaking-evidence-grid {
+					gap: 12px;
+				}
+
+				.speaking-evidence-item {
+					flex: 1 1 0;
+				}
+
+				.speaking-evidence-value {
+					font-size: 1.35rem;
+				}
+
+				.speaking-evidence-label {
+					font-size: 0.78rem;
+				}
+
+				.speaking-evidence-source {
+					font-size: 0.58rem;
+				}
+
+				.speaking-talk-link {
+					margin: -2px auto 14px;
+				}
+
+				.speaking-slider-stage {
+					border-radius: 10px;
+				}
+
+				.speaking-slide {
+					inset: 15px;
+				}
+
+				.speaking-slider-nav {
+					height: 26px;
+					margin-top: 2px;
+				}
+
+				.speaking-closing {
+					margin-top: 12px;
+				}
+
+				.speaking-closing-title {
+					font-size: clamp(1.9rem, 7.4vw, 2.5rem);
+					font-weight: 700;
+					line-height: 1.08;
+					white-space: normal;
+				}
+
+				.speaking-closing-link {
+					margin-top: 18px;
+				}
+
+				.media-list.page-divider {
+					padding-top: var(--divider-space-mobile);
+				}
+
+				.media-item .media-title-compact {
+					font-size: 1.08rem;
+					white-space: normal;
+				}
+			}
+
+
+			/* =========================================================
+			   REDUCED MOTION
+			========================================================= */
+
+			@media (prefers-reduced-motion: reduce) {
+				.speaking-hero-accent {
+					opacity: 1;
+					transform: none;
+					animation: none;
+				}
+
+				.speaking-slide,
+				.speaking-slider-dot {
+					transition: none;
+				}
+			}
+		</style>
 	</head>
 
 	<body>
@@ -162,7 +586,9 @@ const mediaItems: MediaItem[] = [
 					</div>
 
 
-					<div class="speaking-evidence-item reveal-item reveal-delay-1">
+					<div
+						class="speaking-evidence-item reveal-item reveal-delay-1"
+					>
 						<p class="speaking-evidence-value">
 							<span class="speaking-evidence-symbol">&gt;</span>
 							<span class="speaking-evidence-number">80%</span>
@@ -189,16 +615,16 @@ const mediaItems: MediaItem[] = [
 				class="speaking-talk-link reveal-section"
 				aria-label="Explore the talk"
 			>
-				<p class="reveal-item">
+				<p class="speaking-centered-action reveal-item">
 
 					<a
 						href="/webinar/"
-						class="speaking-centered-link"
+						class="animated-link speaking-centered-link"
 					>
 						<span>Explore the talk</span>
 
 						<span
-							class="speaking-centered-link-arrow"
+							class="animated-link-arrow"
 							aria-hidden="true"
 						>
 							→
@@ -270,7 +696,6 @@ const mediaItems: MediaItem[] = [
 						class="speaking-slider-nav"
 						aria-label="Choose slide"
 					>
-
 						<button
 							type="button"
 							class="speaking-slider-dot is-active"
@@ -294,7 +719,6 @@ const mediaItems: MediaItem[] = [
 							aria-label="Show slide 3"
 							aria-current="false"
 						></button>
-
 					</div>
 
 				</div>
@@ -309,7 +733,6 @@ const mediaItems: MediaItem[] = [
 				class="speaking-closing reveal-section"
 				aria-labelledby="speaking-closing-title"
 			>
-
 				<h2
 					id="speaking-closing-title"
 					class="speaking-closing-title reveal-item"
@@ -319,32 +742,24 @@ const mediaItems: MediaItem[] = [
 					the starting point
 				</h2>
 
-
 				<p
 					class="speaking-closing-link reveal-item reveal-delay-1"
 				>
 					<a
 						href="/webinar/"
-						class="speaking-centered-link"
+						class="animated-link speaking-centered-link"
 					>
 						<span>Explore the talk</span>
 
 						<span
-							class="speaking-centered-link-arrow"
+							class="animated-link-arrow"
 							aria-hidden="true"
 						>
 							→
 						</span>
 					</a>
 				</p>
-
 			</section>
-
-
-			<div
-				class="speaking-divider"
-				aria-hidden="true"
-			></div>
 
 
 			<!-- =====================================================
@@ -352,10 +767,9 @@ const mediaItems: MediaItem[] = [
 			===================================================== -->
 
 			<section
-				class="media-list reveal-section"
+				class="media-list page-divider reveal-section"
 				aria-labelledby="media-list-title"
 			>
-
 				<h2
 					id="media-list-title"
 					class="reveal-item"
@@ -394,14 +808,12 @@ const mediaItems: MediaItem[] = [
 												item.title
 											}
 										>
-
 											<img
 												src={item.image}
 												alt={item.imageAlt}
 												class="media-image"
 												loading="lazy"
 											/>
-
 										</a>
 
 									) : (
@@ -460,18 +872,13 @@ const mediaItems: MediaItem[] = [
 													item.pdfLabel && (
 
 														<a
-															href={
-																item.pdfUrl
-															}
+															href={item.pdfUrl}
 															target="_blank"
 															rel="noopener noreferrer"
 															class="animated-link"
 														>
-
 															<span>
-																{
-																	item.pdfLabel
-																}
+																{item.pdfLabel}
 															</span>
 
 															<span
@@ -480,7 +887,6 @@ const mediaItems: MediaItem[] = [
 															>
 																→
 															</span>
-
 														</a>
 
 													)
@@ -501,7 +907,6 @@ const mediaItems: MediaItem[] = [
 												}
 												class="animated-link"
 											>
-
 												<span>
 													{
 														item.linkLabel ??
@@ -515,7 +920,6 @@ const mediaItems: MediaItem[] = [
 												>
 													→
 												</span>
-
 											</a>
 
 										</div>
@@ -547,12 +951,11 @@ const mediaItems: MediaItem[] = [
 			     SPEAKING INQUIRIES
 			===================================================== -->
 
-			<section class="cio-office-contact reveal-section">
+			<section class="page-closing reveal-section">
 
 				<h2 class="reveal-item">
 					Speaking Inquiries
 				</h2>
-
 
 				<div class="reveal-item reveal-delay-1">
 
@@ -561,14 +964,11 @@ const mediaItems: MediaItem[] = [
 						please get in touch
 					</p>
 
-
-					<p class="cio-office-contact-link">
-
+					<p class="speaking-inquiry-action">
 						<a
 							href="/contact/"
 							class="animated-link"
 						>
-
 							<span>Contact me</span>
 
 							<span
@@ -577,9 +977,7 @@ const mediaItems: MediaItem[] = [
 							>
 								→
 							</span>
-
 						</a>
-
 					</p>
 
 				</div>
@@ -598,15 +996,12 @@ const mediaItems: MediaItem[] = [
 
 		<script>
 			const sections =
-				document.querySelectorAll(
-					'.reveal-section'
-				);
+				document.querySelectorAll('.reveal-section');
 
 			if ('IntersectionObserver' in window) {
 
 				const revealObserver =
 					new IntersectionObserver(
-
 						(entries, observer) => {
 
 							entries.forEach((entry) => {
@@ -626,13 +1021,11 @@ const mediaItems: MediaItem[] = [
 							});
 
 						},
-
 						{
 							threshold: 0.08,
 							rootMargin:
 								'0px 0px -50px 0px'
 						}
-
 					);
 
 
@@ -811,7 +1204,6 @@ const mediaItems: MediaItem[] = [
 					stopSlider
 				);
 
-
 				speakingSlider.addEventListener(
 					'mouseleave',
 					scheduleNextSlide
@@ -822,7 +1214,6 @@ const mediaItems: MediaItem[] = [
 
 					const sliderObserver =
 						new IntersectionObserver(
-
 							(entries) => {
 
 								entries.forEach(
@@ -831,9 +1222,7 @@ const mediaItems: MediaItem[] = [
 										sliderVisible =
 											entry.isIntersecting;
 
-										if (
-											sliderVisible
-										) {
+										if (sliderVisible) {
 											scheduleNextSlide();
 										} else {
 											stopSlider();
@@ -843,11 +1232,9 @@ const mediaItems: MediaItem[] = [
 								);
 
 							},
-
 							{
 								threshold: 0.35
 							}
-
 						);
 
 
@@ -881,894 +1268,3 @@ const mediaItems: MediaItem[] = [
 
 	</body>
 </html>
-
-
-<style>
-
-	/* =========================================================
-	   SPEAKING HERO
-	========================================================= */
-
-	.speaking-hero {
-		display: block !important;
-
-		width:
-			min(
-				1120px,
-				calc(100% - 48px)
-			);
-
-		margin-left: auto !important;
-		margin-right: auto !important;
-
-		padding-left: 0 !important;
-		padding-right: 0 !important;
-
-		box-sizing: border-box;
-
-		text-align: center;
-
-		border-bottom: 0 !important;
-	}
-
-
-	main .speaking-hero .speaking-hero-title {
-		width: 100%;
-		max-width: 1080px;
-
-		margin-left: auto !important;
-		margin-right: auto !important;
-
-		padding-left: 0 !important;
-		padding-right: 0 !important;
-
-		font-size:
-			clamp(
-				2rem,
-				3.65vw,
-				3.75rem
-			);
-
-		line-height: 1.08;
-
-		text-align: center;
-	}
-
-
-	.speaking-hero-title .hero-line {
-		display: block;
-
-		width: 100%;
-
-		white-space: nowrap;
-	}
-
-
-	.speaking-hero-accent,
-	.speaking-never {
-		color: #6fa7ef;
-	}
-
-
-	.speaking-hero-accent {
-		display: inline-block;
-
-		opacity: 0;
-
-		transform:
-			translateY(6px);
-
-		animation:
-			speakingAccentReveal
-			520ms
-			ease
-			720ms
-			forwards;
-	}
-
-
-	@keyframes speakingAccentReveal {
-
-		to {
-			opacity: 1;
-			transform: translateY(0);
-		}
-
-	}
-
-
-	/* =========================================================
-	   EDITORIAL EVIDENCE
-	========================================================= */
-
-	.speaking-evidence {
-		width:
-			min(
-				400px,
-				calc(100% - 48px)
-			);
-
-		margin:
-			-34px
-			auto
-			12px;
-	}
-
-	.speaking-evidence-grid {
-		display: flex;
-		align-items: flex-start;
-		justify-content: center;
-		gap: 20px;
-	}
-
-	.speaking-evidence-item {
-		flex: 0 0 190px;
-		text-align: center;
-	}
-
-	.speaking-evidence-value {
-		position: relative;
-		display: inline-block;
-		margin: 0 0 4px;
-		color: #102b46;
-		font-size:
-			clamp(
-				1.35rem,
-				2vw,
-				1.7rem
-			);
-		font-weight: 700;
-		line-height: 1;
-		letter-spacing: -0.04em;
-		font-variant-numeric: tabular-nums;
-	}
-
-	.speaking-evidence-number {
-		display: inline-block;
-	}
-
-	.speaking-evidence-symbol {
-		position: static;
-		display: inline-block;
-		margin-right: 0.04em;
-	}
-
-	.speaking-evidence-label {
-		margin: 0;
-		color: #102b46;
-		font-size: 0.9rem;
-		font-weight: 550;
-		line-height: 1.35;
-		letter-spacing: -0.015em;
-	}
-
-	.speaking-evidence-source {
-		margin: 6px 0 0;
-		color: #8b97a4;
-		font-size: 0.68rem;
-		font-weight: 700;
-		line-height: 1.2;
-		letter-spacing: 0.07em;
-		text-transform: uppercase;
-	}
-
-
-	/* =========================================================
-	   EXPLORE TALK — TOP
-	========================================================= */
-
-	.speaking-talk-link {
-		width:
-			min(
-				1120px,
-				calc(100% - 48px)
-			);
-
-		margin:
-			-6px
-			auto
-			16px;
-
-		text-align: center;
-	}
-
-
-	main
-	.speaking-talk-link
-	> p,
-	main
-	.speaking-closing
-	> .speaking-closing-link {
-		display:
-			grid !important;
-
-		grid-template-columns:
-			minmax(0, 1fr)
-			auto
-			minmax(0, 1fr) !important;
-
-		width:
-			100% !important;
-
-		max-width:
-			none !important;
-
-		margin-left:
-			0 !important;
-
-		margin-right:
-			0 !important;
-
-		padding:
-			0 !important;
-
-		text-align:
-			center !important;
-	}
-
-
-	.speaking-centered-link {
-		display:
-			inline-grid !important;
-
-		grid-column:
-			2 !important;
-
-		grid-template-columns:
-			auto
-			auto;
-
-		align-items:
-			center;
-
-		justify-self:
-			center !important;
-
-		position: static !important;
-
-		inset: auto !important;
-
-		width: max-content !important;
-		min-width: 0 !important;
-
-		margin-left: 0 !important;
-		margin-right: 0 !important;
-
-		padding-left: 0 !important;
-		padding-right: 0 !important;
-
-		gap:
-			0.3em;
-
-		color: #4667e2;
-
-		font-size: 1.1rem;
-		font-weight: 700;
-		line-height: 1.2;
-		letter-spacing: -0.01em;
-
-		text-decoration: none;
-
-		transform: none !important;
-		translate: none !important;
-	}
-
-
-	.speaking-centered-link::before,
-	.speaking-centered-link::after {
-		display: none !important;
-
-		content: none !important;
-	}
-
-
-	.speaking-centered-link-arrow {
-		position: static !important;
-
-		left: auto !important;
-		top: auto !important;
-
-		right: auto !important;
-		bottom: auto !important;
-
-		display: inline-block;
-
-		width: auto !important;
-		min-width: 0 !important;
-
-		margin-left: 0 !important;
-		margin-right: 0 !important;
-
-		padding: 0 !important;
-
-		transition: transform 180ms ease;
-
-		transform: none;
-	}
-
-
-	.speaking-centered-link:hover
-	.speaking-centered-link-arrow {
-		transform:
-			translateX(4px);
-	}
-
-
-	.speaking-centered-link:focus-visible {
-		outline: 2px solid #6fa7ef;
-		outline-offset: 4px;
-	}
-
-
-	/* =========================================================
-	   SPEAKING SLIDER
-	========================================================= */
-
-	.speaking-showcase {
-		width:
-			min(
-				980px,
-				calc(100% - 48px)
-			);
-
-		margin:
-			0
-			auto;
-	}
-
-
-	.speaking-slider {
-		width: 100%;
-	}
-
-
-	.speaking-slider-stage {
-		position: relative;
-
-		width: 100%;
-
-		aspect-ratio:
-			16 / 9;
-
-		overflow: hidden;
-
-		border:
-			1px solid
-			rgba(
-				16,
-				43,
-				70,
-				0.06
-			);
-
-		border-radius:
-			14px;
-
-		background:
-			#ffffff;
-
-		box-shadow:
-			0 16px 40px
-			rgba(
-				16,
-				43,
-				70,
-				0.065
-			);
-	}
-
-
-	.speaking-slide {
-		position: absolute;
-
-		inset:
-			clamp(
-				24px,
-				3vw,
-				42px
-			);
-
-		display: flex;
-
-		align-items: center;
-
-		justify-content: center;
-
-		margin: 0;
-
-		opacity: 0;
-
-		pointer-events: none;
-
-		transition:
-			opacity
-			650ms
-			ease;
-	}
-
-
-	.speaking-slide.is-active {
-		z-index: 2;
-
-		opacity: 1;
-
-		pointer-events: auto;
-	}
-
-
-	.speaking-slide-image {
-		display: block !important;
-
-		width: 100% !important;
-		height: 100% !important;
-
-		max-width: 100% !important;
-		max-height: 100% !important;
-
-		object-fit:
-			contain !important;
-
-		object-position:
-			center center !important;
-
-		background:
-			#ffffff;
-	}
-
-
-	/* =========================================================
-	   SLIDER DOTS
-	========================================================= */
-
-	.speaking-slider-nav {
-		display: flex;
-
-		align-items: center;
-
-		justify-content: center;
-
-		gap: 8px;
-
-		height: 28px;
-
-		margin-top: 3px;
-	}
-
-
-	.speaking-slider-dot {
-		width: 7px;
-		height: 7px;
-
-		padding: 0;
-
-		border: 0;
-
-		border-radius: 50%;
-
-		background:
-			rgba(
-				16,
-				43,
-				70,
-				0.23
-			);
-
-		cursor: pointer;
-
-		transition:
-			width 200ms ease,
-			background 200ms ease,
-			border-radius 200ms ease;
-	}
-
-
-	.speaking-slider-dot.is-active {
-		width: 23px;
-
-		border-radius:
-			999px;
-
-		background:
-			#102b46;
-	}
-
-
-	.speaking-slider-dot:focus-visible {
-		outline:
-			2px solid
-			#6fa7ef;
-
-		outline-offset:
-			4px;
-	}
-
-
-	/* =========================================================
-	   CLOSING THESIS
-	========================================================= */
-
-	.speaking-closing {
-		width:
-			min(
-				1120px,
-				calc(100% - 48px)
-			);
-
-		margin:
-			14px
-			auto
-			24px;
-
-		text-align: center;
-	}
-
-
-	main
-	.speaking-closing
-	.speaking-closing-title {
-		width:
-			100% !important;
-
-		max-width:
-			1120px !important;
-
-		margin:
-			0
-			auto;
-
-		color:
-			#102b46;
-
-		font-size:
-			clamp(
-				2rem,
-				3.1vw,
-				3.25rem
-			);
-
-		font-weight:
-			700;
-
-		line-height:
-			1.08;
-
-		letter-spacing:
-			-0.05em;
-
-		white-space:
-			nowrap;
-	}
-
-
-	.speaking-closing-title::before,
-	.speaking-closing-title::after {
-		display:
-			none !important;
-
-		content:
-			none !important;
-	}
-
-
-	.speaking-closing-link {
-		margin:
-			22px
-			0
-			0;
-	}
-	/* =========================================================
-	   DIVIDER
-	========================================================= */
-
-	.speaking-divider {
-		width:
-			min(
-				1120px,
-				calc(100% - 48px)
-			);
-
-		height:
-			1px;
-
-		margin:
-			0
-			auto
-			34px;
-
-		background:
-			rgba(
-				16,
-				43,
-				70,
-				0.12
-			);
-	}
-
-
-	/* =========================================================
-	   COMPACT APPEARANCE TITLES
-	========================================================= */
-
-	.media-item
-	.media-title-compact {
-		font-size:
-			clamp(
-				1rem,
-				1.45vw,
-				1.25rem
-			) !important;
-
-		line-height:
-			1.16;
-
-		letter-spacing:
-			-0.035em;
-
-		white-space:
-			nowrap !important;
-	}
-
-
-	/* =========================================================
-	   REVEALS
-	========================================================= */
-
-	.js
-	.reveal-section
-	.reveal-item {
-		opacity: 0;
-
-		transform:
-			translateY(14px);
-
-		transition:
-			opacity 600ms ease,
-			transform
-			600ms
-			cubic-bezier(
-				0.22,
-				1,
-				0.36,
-				1
-			);
-
-		transition-delay:
-			var(
-				--delay,
-				0ms
-			);
-	}
-
-
-	.js
-	.reveal-section.is-visible
-	.reveal-item {
-		opacity: 1;
-
-		transform:
-			translateY(0);
-	}
-
-
-	.js
-	.reveal-delay-1 {
-		transition-delay:
-			90ms !important;
-	}
-
-
-	/* =========================================================
-	   TABLET
-	========================================================= */
-
-	@media (
-		max-width: 1020px
-	) {
-
-		.speaking-showcase {
-			width:
-				min(
-					860px,
-					calc(
-						100% - 48px
-					)
-				);
-		}
-
-	}
-
-
-	/* =========================================================
-	   MOBILE
-	========================================================= */
-
-	@media (
-		max-width: 620px
-	) {
-
-		.speaking-centered-link {
-			font-size:
-				1.05rem;
-		}
-
-		.media-item
-		.media-title-compact {
-			font-size:
-				1.08rem !important;
-
-			white-space:
-				normal !important;
-		}
-
-		.speaking-hero-title {
-			max-width:
-				100%;
-
-			font-size:
-				clamp(
-					1.95rem,
-					7.8vw,
-					2.65rem
-				);
-
-			line-height:
-				1.1;
-		}
-
-
-		.speaking-hero-title
-		.hero-line {
-			white-space:
-				normal;
-		}
-
-
-		.speaking-evidence,
-		.speaking-hero,
-		.speaking-talk-link,
-		.speaking-showcase,
-		.speaking-closing,
-		.speaking-divider {
-			width:
-				calc(
-					100% - 32px
-				);
-		}
-
-
-		.speaking-evidence {
-			margin:
-				-12px
-				auto
-				12px;
-		}
-
-		.speaking-evidence-grid {
-			gap: 12px;
-		}
-
-		.speaking-evidence-item {
-			flex:
-				1 1
-				0;
-		}
-
-		.speaking-evidence-value {
-			font-size: 1.35rem;
-		}
-
-		.speaking-evidence-label {
-			font-size: 0.78rem;
-		}
-
-		.speaking-evidence-source {
-			font-size: 0.58rem;
-		}
-
-		.speaking-talk-link {
-			margin:
-				-2px
-				auto
-				14px;
-		}
-
-
-		.speaking-slider-stage {
-			border-radius:
-				10px;
-		}
-
-
-		.speaking-slide {
-			inset:
-				15px;
-		}
-
-
-		.speaking-slider-nav {
-			height:
-				26px;
-
-			margin-top:
-				2px;
-		}
-
-
-		.speaking-closing {
-			margin:
-				12px
-				auto
-				22px;
-		}
-
-
-		main
-		.speaking-closing
-		.speaking-closing-title {
-			max-width:
-				100%;
-
-			font-size:
-				clamp(
-					1.9rem,
-					7.4vw,
-					2.5rem
-				);
-
-			font-weight:
-				700;
-
-			line-height:
-				1.08;
-
-			white-space:
-				normal;
-		}
-
-
-		.speaking-closing-link {
-			margin-top:
-				18px;
-		}
-		.speaking-divider {
-			margin:
-				0
-				auto
-				28px;
-		}
-
-	}
-
-
-	/* =========================================================
-	   REDUCED MOTION
-	========================================================= */
-
-	@media (
-		prefers-reduced-motion:
-		reduce
-	) {
-
-		.speaking-hero-accent {
-			opacity: 1;
-
-			transform: none;
-
-			animation:
-				none !important;
-		}
-
-
-		.speaking-slide,
-		.speaking-slider-dot,
-		.speaking-centered-link-arrow,
-		.reveal-item {
-			transition:
-				none !important;
-		}
-
-	}
-
-</style>
-
-
