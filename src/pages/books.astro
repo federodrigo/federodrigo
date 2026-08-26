@@ -7,11 +7,11 @@ const papers = [
 	{
 		status: 'Under Review',
 		date: 'Submitted · August 2026',
-		title: 'When Success Hides Dependence',
+		title: 'When Fixes Become the System',
 		subtitle:
-			'Why a system that works can make it harder to know what would happen if the safeguards behind that performance were removed',
+			'How Successful Accommodations Build Technology Lock-In',
 		description:
-			'An examination of how apparent operational success can conceal structural dependence and weaken the ability to evaluate credible alternatives'
+			'An examination of how successful fixes can preserve an already-binding technology choice, become embedded over time, and reduce credible alternatives'
 	},
 	{
 		status: 'Under Review',
@@ -140,6 +140,7 @@ const papers = [
 
 			.paper-row:last-child {
 				padding-bottom: 0;
+
 				border-bottom: 0;
 			}
 
@@ -148,7 +149,7 @@ const papers = [
 				min-width: 0;
 			}
 
-			.paper-type {
+			.paper-content > .books-page-label {
 				margin: 0 0 0.8rem;
 			}
 
@@ -320,6 +321,7 @@ const papers = [
 			}
 		</style>
 	</head>
+
 
 	<body>
 		<Header />
@@ -547,6 +549,7 @@ const papers = [
 										{paper.status}
 									</p>
 
+
 									<p class="paper-date">
 										{paper.date}
 									</p>
@@ -556,7 +559,7 @@ const papers = [
 
 								<div class="paper-content">
 
-									<p class="books-page-label paper-type">
+									<p class="books-page-label">
 										Paper
 									</p>
 
