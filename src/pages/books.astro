@@ -149,8 +149,20 @@ const papers = [
 				min-width: 0;
 			}
 
+			/*
+				Paper must visually match Featured Book / Forthcoming Book.
+
+				The global .books-page-label is .74rem, but book labels
+				receive .97rem from .books-page-content > p.
+				Paper lives outside .books-page-content, so we explicitly
+				match the effective book-label size here.
+			*/
+
 			.paper-content > .books-page-label {
 				margin: 0 0 0.8rem;
+
+				font-size: 0.97rem;
+				line-height: 1.2;
 			}
 
 			.paper-status {
@@ -304,6 +316,11 @@ const papers = [
 					gap: 1rem;
 
 					padding: 28px 0;
+				}
+
+				.paper-content > .books-page-label {
+					font-size: 0.94rem;
+					line-height: 1.2;
 				}
 
 				.paper-title {
