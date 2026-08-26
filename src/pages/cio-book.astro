@@ -17,20 +17,314 @@ import Footer from '../components/Footer.astro';
 			description="How to Become CIO and Succeed is a practical CIO leadership book for aspiring and current CIOs, focused on people, business, strategy, IT leadership, and creating value through technology"
 			lang="en"
 		/>
+
+		<style>
+			/* =========================================================
+			   CIO BOOK PAGE
+			========================================================= */
+
+			.cio-book-page {
+				padding-top: 46px;
+			}
+
+
+			/* =========================================================
+			   FEATURED BOOK
+			========================================================= */
+
+			.cio-book-page .books-page-book-featured {
+				margin: 0;
+				padding-top: 0;
+				padding-bottom: 0;
+			}
+
+			.cio-book-page .books-page-cover-wrapper {
+				position: relative;
+				z-index: 2;
+			}
+
+			.cio-book-page .books-page-content {
+				position: relative;
+				z-index: 1;
+			}
+
+
+			/* =========================================================
+			   CONTENT SECTIONS
+			========================================================= */
+
+			.cio-book-page .books-page-other {
+				margin-top: var(--divider-space-before);
+				margin-bottom: 0;
+
+				padding-top: var(--divider-space-after);
+				padding-bottom: 0;
+
+				border-top: 1px solid var(--line);
+			}
+
+			.cio-book-page
+				.books-page-other
+				> .reveal-item:first-child {
+				margin-bottom: 22px;
+			}
+
+			.cio-book-page
+				.books-page-other
+				> .reveal-item:first-child
+				h2 {
+				margin-bottom: 0;
+			}
+
+			.cio-book-page .books-page-other p {
+				max-width: 740px;
+			}
+
+
+			/* =========================================================
+			   DUCK
+			========================================================= */
+
+			.cio-duck {
+				position: absolute;
+				right: -3rem;
+				bottom: -1.5rem;
+				z-index: 3;
+
+				width: clamp(5rem, 8vw, 7rem);
+
+				cursor: default;
+				outline: none;
+			}
+
+			.cio-duck img {
+				display: block;
+
+				width: 100%;
+				height: auto;
+
+				border-radius: 0;
+
+				transition:
+					transform 180ms ease,
+					filter 180ms ease;
+			}
+
+
+			/* =========================================================
+			   DUCK TOOLTIP
+			========================================================= */
+
+			.cio-duck-tooltip {
+				position: absolute;
+				left: 50%;
+				bottom: calc(100% + 0.75rem);
+				z-index: 20;
+
+				width: max-content;
+				max-width: 15rem;
+
+				padding: 0.55rem 0.75rem;
+
+				border: 2px solid #ffffff;
+				border-radius: 0.4rem;
+
+				background: #102a46;
+				color: #ffffff;
+				-webkit-text-fill-color: #ffffff;
+
+				font-size: 0.85rem;
+				font-weight: 600;
+				line-height: 1.3;
+				text-align: center;
+				white-space: nowrap;
+
+				opacity: 0;
+				visibility: hidden;
+
+				transform: translate(-50%, 0.4rem);
+
+				pointer-events: none;
+
+				transition:
+					opacity 160ms ease,
+					transform 160ms ease,
+					visibility 160ms ease;
+			}
+
+			.cio-duck-tooltip::after {
+				content: "";
+
+				position: absolute;
+				top: 100%;
+				left: 50%;
+
+				border: 0.4rem solid transparent;
+				border-top-color: #102a46;
+
+				transform: translateX(-50%);
+			}
+
+
+			/* =========================================================
+			   DUCK INTERACTION
+			========================================================= */
+
+			.cio-duck:hover img,
+			.cio-duck:focus-visible img {
+				transform: translateY(-0.2rem) rotate(-2deg);
+
+				filter:
+					drop-shadow(
+						0 0.5rem 0.6rem rgb(16 42 70 / 20%)
+					);
+			}
+
+			.cio-duck:hover .cio-duck-tooltip,
+			.cio-duck:focus-visible .cio-duck-tooltip {
+				opacity: 1;
+				visibility: visible;
+
+				transform: translate(-50%, 0);
+			}
+
+
+			/* =========================================================
+			   MOBILE
+			========================================================= */
+
+			@media (max-width: 720px) {
+				.cio-book-page {
+					padding-top: 42px;
+				}
+
+				.cio-book-page .books-page-book {
+					grid-template-columns: 1fr;
+					gap: 24px;
+				}
+
+				.cio-book-page .books-page-book-featured {
+					padding-top: 0;
+					padding-bottom: 0;
+				}
+
+				.cio-book-page .books-page-cover-wrapper,
+				.cio-book-page .books-page-cover-link {
+					width: 180px;
+				}
+
+				.cio-book-page .books-page-cover {
+					width: 180px;
+					max-width: 100%;
+
+					border-radius: 8px;
+				}
+
+				.cio-book-page .books-page-content h2 {
+					font-size: 1.55rem;
+				}
+
+				.cio-book-page .books-page-subtitle {
+					margin-bottom: 18px;
+
+					font-size: 0.92rem;
+				}
+
+				.cio-book-page .books-page-content > p {
+					margin-bottom: 15px;
+
+					font-size: 0.94rem;
+					line-height: 1.58;
+				}
+
+				.cio-book-page .books-page-action {
+					margin-top: 18px;
+				}
+
+
+				/* CONTENT SECTIONS */
+
+				.cio-book-page .books-page-other {
+					margin-top: var(--divider-space-mobile);
+
+					padding-top: var(--divider-space-mobile);
+					padding-bottom: 0;
+				}
+
+				.cio-book-page
+					.books-page-other
+					> .reveal-item:first-child {
+					margin-bottom: 20px;
+				}
+
+
+				/* DUCK */
+
+				.cio-duck {
+					right: -0.75rem;
+					bottom: -1rem;
+
+					width: 5rem;
+				}
+
+				.cio-duck-tooltip {
+					left: auto;
+					right: 0;
+
+					width: 12rem;
+
+					white-space: normal;
+
+					transform: translateY(0.4rem);
+				}
+
+				.cio-duck:hover .cio-duck-tooltip,
+				.cio-duck:focus-visible .cio-duck-tooltip {
+					transform: translateY(0);
+				}
+
+				.cio-duck-tooltip::after {
+					left: auto;
+					right: 1.5rem;
+
+					transform: none;
+				}
+			}
+
+
+			/* =========================================================
+			   REDUCED MOTION
+			========================================================= */
+
+			@media (prefers-reduced-motion: reduce) {
+				.cio-duck img,
+				.cio-duck-tooltip {
+					transition: none;
+				}
+			}
+		</style>
 	</head>
 
 	<body>
 		<Header />
 
-		<main>
+
+		<main class="cio-book-page">
+
+			<!-- =====================================================
+			     BOOK
+			===================================================== -->
+
 			<section
 				id="book"
 				class="books-page-book books-page-book-featured reveal-section"
 				aria-labelledby="cio-book-title"
 			>
+
 				<div
 					class="books-page-cover-wrapper reveal-item reveal-from-left"
 				>
+
 					<a
 						href="https://www.amazon.com/dp/B0F8MVPN4Q"
 						target="_blank"
@@ -44,6 +338,7 @@ import Footer from '../components/Footer.astro';
 							class="books-page-cover animated-book-cover"
 						/>
 					</a>
+
 
 					<div
 						class="cio-duck"
@@ -63,20 +358,28 @@ import Footer from '../components/Footer.astro';
 							He has seen too many IT projects
 						</span>
 					</div>
+
 				</div>
 
-				<div class="books-page-content reveal-item reveal-delay-1">
+
+				<div
+					class="books-page-content reveal-item reveal-delay-1"
+				>
+
 					<p class="books-page-label">
 						CIO Leadership Book
 					</p>
+
 
 					<h2 id="cio-book-title">
 						How to Become CIO and Succeed
 					</h2>
 
+
 					<p class="books-page-subtitle">
 						People, Business, Strategy
 					</p>
+
 
 					<p>
 						The Chief Information Officer role is not about managing
@@ -86,16 +389,19 @@ import Footer from '../components/Footer.astro';
 						advantage
 					</p>
 
+
 					<p>
 						<strong>This is not a textbook.</strong>
 						It is a practical field guide for current and aspiring
 						technology leaders
 					</p>
 
+
 					<p class="books-page-closing">
 						If you are here to maintain the status quo,
 						turn back now
 					</p>
+
 
 					<p class="books-page-action">
 						<a
@@ -104,7 +410,9 @@ import Footer from '../components/Footer.astro';
 							rel="noopener noreferrer"
 							class="animated-link"
 						>
-							<span>Buy the book on Amazon</span>
+							<span>
+								Buy the book on Amazon
+							</span>
 
 							<span
 								class="animated-link-arrow"
@@ -114,21 +422,31 @@ import Footer from '../components/Footer.astro';
 							</span>
 						</a>
 					</p>
+
 				</div>
+
 			</section>
+
+
+			<!-- =====================================================
+			     WHAT YOU WILL LEARN
+			===================================================== -->
 
 			<section
 				id="what-you-will-learn"
 				class="books-page-other reveal-section"
 				aria-labelledby="what-you-will-learn-title"
 			>
+
 				<div class="reveal-item">
 					<h2 id="what-you-will-learn-title">
 						What You Will Learn
 					</h2>
 				</div>
 
+
 				<div class="reveal-item reveal-delay-1">
+
 					<p>
 						How to build effective teams, create a service-oriented
 						culture, earn credibility, influence executive decisions,
@@ -141,46 +459,69 @@ import Footer from '../components/Footer.astro';
 						modern IT, from infrastructure and enterprise systems to
 						cybersecurity, transformation, and continuous change
 					</p>
+
 				</div>
+
 			</section>
+
+
+			<!-- =====================================================
+			     WHO THIS BOOK IS FOR
+			===================================================== -->
 
 			<section
 				id="who-is-this-book-for"
 				class="books-page-other reveal-section"
 				aria-labelledby="who-is-this-book-for-title"
 			>
+
 				<div class="reveal-item">
 					<h2 id="who-is-this-book-for-title">
 						Who This CIO Book Is For
 					</h2>
 				</div>
 
+
 				<div class="reveal-item reveal-delay-1">
+
 					<p>
 						This practical book for aspiring CIOs is also written for
 						current ones, IT managers, technology directors, and
 						business leaders who want to understand and strengthen
 						the modern CIO role
 					</p>
+
 				</div>
+
 			</section>
+
+
+			<!-- =====================================================
+			     GET THE BOOK
+			===================================================== -->
 
 			<section
 				id="buy"
 				class="books-page-other reveal-section"
 				aria-labelledby="get-the-book-title"
 			>
+
 				<div class="reveal-item">
 					<h2 id="get-the-book-title">
 						Get the Book
 					</h2>
 				</div>
 
-				<div class="books-page-content reveal-item reveal-delay-1">
+
+				<div
+					class="books-page-content reveal-item reveal-delay-1"
+				>
+
 					<p>
 						Discover a practical approach to CIO leadership built
 						around people, business and IT strategy
 					</p>
+
 
 					<p class="books-page-action">
 						<a
@@ -189,7 +530,9 @@ import Footer from '../components/Footer.astro';
 							rel="noopener noreferrer"
 							class="animated-link"
 						>
-							<span>Buy How to Become CIO on Amazon</span>
+							<span>
+								Buy How to Become CIO on Amazon
+							</span>
 
 							<span
 								class="animated-link-arrow"
@@ -199,145 +542,71 @@ import Footer from '../components/Footer.astro';
 							</span>
 						</a>
 					</p>
+
 				</div>
+
 			</section>
+
 		</main>
+
 
 		<Footer />
 
+
+		<!-- =====================================================
+		     REVEAL
+		===================================================== -->
+
 		<script>
-			const sections = document.querySelectorAll('.reveal-section');
+			const sections =
+				document.querySelectorAll('.reveal-section');
 
-			const revealObserver = new IntersectionObserver(
-				(entries, observer) => {
-					entries.forEach((entry) => {
-						if (!entry.isIntersecting) return;
 
-						entry.target.classList.add('is-visible');
-						observer.unobserve(entry.target);
-					});
-				},
-				{
-					threshold: 0.12,
-					rootMargin: '0px 0px -60px 0px'
-				}
-			);
+			if ('IntersectionObserver' in window) {
 
-			sections.forEach((section) => {
-				revealObserver.observe(section);
-			});
+				const revealObserver =
+					new IntersectionObserver(
+						(entries, observer) => {
+
+							entries.forEach((entry) => {
+
+								if (!entry.isIntersecting) {
+									return;
+								}
+
+								entry.target.classList.add(
+									'is-visible'
+								);
+
+								observer.unobserve(
+									entry.target
+								);
+
+							});
+
+						},
+						{
+							threshold: 0.12,
+							rootMargin:
+								'0px 0px -60px 0px'
+						}
+					);
+
+
+				sections.forEach((section) => {
+					revealObserver.observe(section);
+				});
+
+			} else {
+
+				sections.forEach((section) => {
+					section.classList.add(
+						'is-visible'
+					);
+				});
+
+			}
 		</script>
 
-		<style>
-			.books-page-cover-wrapper {
-	position: relative;
-	z-index: 10;
-}
-
-.books-page-content {
-	position: relative;
-	z-index: 1;
-}
-
-			.cio-duck {
-				position: absolute;
-				right: -3rem;
-				bottom: -1.5rem;
-				width: clamp(5rem, 8vw, 7rem);
-				z-index: 2;
-				cursor: default;
-				outline: none;
-			}
-
-			.cio-duck img {
-				display: block;
-				width: 100%;
-				height: auto;
-				transition:
-					transform 180ms ease,
-					filter 180ms ease;
-			}
-
-			.cio-duck-tooltip {
-				position: absolute;
-				z-index: 9999;
-				left: 50%;
-				bottom: calc(100% + 0.75rem);
-				width: max-content;
-				max-width: 15rem;
-				padding: 0.55rem 0.75rem;
-				border-radius: 0.4rem;
-				background: #102a46;
-				border: 2px solid white;
-				color: #fff;
-				font-size: 0.85rem;
-				font-weight: 600;
-				line-height: 1.3;
-				text-align: center;
-				opacity: 0;
-				visibility: hidden;
-				transform: translate(-50%, 0.4rem);
-				transition:
-					opacity 160ms ease,
-					transform 160ms ease,
-					visibility 160ms ease;
-				pointer-events: none;
-				white-space: nowrap;
-				color: #fff;
-				-webkit-text-fill-color: #fff;
-			}
-
-			.cio-duck-tooltip::after {
-				content: '';
-				position: absolute;
-				top: 100%;
-				left: 50%;
-				border: 0.4rem solid transparent;
-				border-top-color: #102a46;
-				transform: translateX(-50%);
-			}
-
-			.cio-duck:hover img,
-			.cio-duck:focus-visible img {
-				transform: translateY(-0.2rem) rotate(-2deg);
-				filter: drop-shadow(
-					0 0.5rem 0.6rem rgb(16 42 70 / 20%)
-				);
-			}
-
-			.cio-duck:hover .cio-duck-tooltip,
-			.cio-duck:focus-visible .cio-duck-tooltip {
-				opacity: 1;
-				visibility: visible;
-				transform: translate(-50%, 0);
-			}
-
-			@media (max-width: 768px) {
-				.cio-duck {
-					right: -0.75rem;
-					bottom: -1rem;
-					width: 5rem;
-				}
-
-				.cio-duck-tooltip {
-					left: auto;
-					right: 0;
-					white-space: normal;
-					width: 12rem;
-					transform: translateY(0.4rem);
-				}
-
-				.cio-duck:hover .cio-duck-tooltip,
-				.cio-duck:focus-visible .cio-duck-tooltip {
-					transform: translateY(0);
-				}
-
-				.cio-duck-tooltip::after {
-					left: auto;
-					right: 1.5rem;
-					transform: none;
-				}
-			}
-		</style>
 	</body>
 </html>
