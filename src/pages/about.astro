@@ -26,17 +26,46 @@ const profileTags = [
 			description="Learn more about Fede Rodrigo, Chief Information Officer, technology executive, MBA, and author"
 			lang="en"
 		/>
+
+		<style>
+			/* =========================================================
+			   ABOUT PAGE
+			========================================================= */
+
+			.about-page .about-profile {
+				padding-top: 0;
+				padding-bottom: 0;
+			}
+
+
+			/* =========================================================
+			   MOBILE
+			========================================================= */
+
+			@media (max-width: 720px) {
+				.about-page .about-profile {
+					padding-top: 0;
+					padding-bottom: 0;
+				}
+			}
+		</style>
 	</head>
 
 	<body>
 		<Header />
 
-		<main>
+		<main class="about-page">
+
+			<!-- =====================================================
+			     PROFILE
+			===================================================== -->
+
 			<section
 				class="about-profile reveal-section"
 				aria-labelledby="about-profile-title"
 			>
 				<div class="about-profile-layout">
+
 					<div
 						class="about-profile-image-wrapper reveal-item reveal-from-left"
 					>
@@ -47,12 +76,15 @@ const profileTags = [
 						/>
 					</div>
 
+
 					<div class="about-profile-content">
+
 						<p
 							class="about-profile-eyebrow reveal-item reveal-delay-1"
 						>
 							About Fede Rodrigo
 						</p>
+
 
 						<h1
 							id="about-profile-title"
@@ -61,18 +93,22 @@ const profileTags = [
 							Fede Rodrigo
 						</h1>
 
+
 						<div
 							class="about-profile-tags reveal-item reveal-delay-2"
 							aria-label="Professional profile"
 						>
 							{
 								profileTags.map((tag, index) => (
+
 									<span style={`--tag-index: ${index};`}>
 										{tag}
 									</span>
+
 								))
 							}
 						</div>
+
 
 						<div
 							class="about-profile-text reveal-item reveal-delay-2"
@@ -118,11 +154,18 @@ const profileTags = [
 							</p>
 						</div>
 
+
 						<p
 							class="about-profile-action reveal-item reveal-delay-2"
 						>
-							<a href="/contact/" class="animated-link">
-								<span>Contact me</span>
+							<a
+								href="/contact/"
+								class="animated-link"
+							>
+								<span>
+									Contact me
+								</span>
+
 								<span
 									class="animated-link-arrow"
 									aria-hidden="true"
@@ -131,34 +174,71 @@ const profileTags = [
 								</span>
 							</a>
 						</p>
+
 					</div>
+
 				</div>
 			</section>
+
 		</main>
+
 
 		<Footer />
 
+
+		<!-- =====================================================
+		     REVEAL
+		===================================================== -->
+
 		<script>
-			const sections = document.querySelectorAll('.reveal-section');
+			const sections =
+				document.querySelectorAll('.reveal-section');
 
-			const revealObserver = new IntersectionObserver(
-				(entries, observer) => {
-					entries.forEach((entry) => {
-						if (!entry.isIntersecting) return;
+			if ('IntersectionObserver' in window) {
 
-						entry.target.classList.add('is-visible');
-						observer.unobserve(entry.target);
-					});
-				},
-				{
-					threshold: 0.12,
-					rootMargin: '0px 0px -60px 0px'
-				}
-			);
+				const revealObserver =
+					new IntersectionObserver(
+						(entries, observer) => {
 
-			sections.forEach((section) => {
-				revealObserver.observe(section);
-			});
+							entries.forEach((entry) => {
+
+								if (!entry.isIntersecting) {
+									return;
+								}
+
+								entry.target.classList.add(
+									'is-visible'
+								);
+
+								observer.unobserve(
+									entry.target
+								);
+
+							});
+
+						},
+						{
+							threshold: 0.12,
+							rootMargin:
+								'0px 0px -60px 0px'
+						}
+					);
+
+
+				sections.forEach((section) => {
+					revealObserver.observe(section);
+				});
+
+			} else {
+
+				sections.forEach((section) => {
+					section.classList.add(
+						'is-visible'
+					);
+				});
+
+			}
 		</script>
+
 	</body>
 </html>
