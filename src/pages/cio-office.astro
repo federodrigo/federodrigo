@@ -50,6 +50,109 @@ const capabilities = [
 			description="Independent CIO-level advisory for ERP, infrastructure, cloud, cybersecurity, data, AI, and critical technology decisions"
 			lang="en"
 		/>
+
+		<style>
+			/* =========================================================
+			   CIO OFFICE TITLE
+			========================================================= */
+
+			.cio-office-capabilities-tagline {
+				margin: 0;
+
+				font-size: clamp(1.85rem, 2.7vw, 2.25rem);
+				font-weight: 650;
+				line-height: 1.12;
+				letter-spacing: -0.035em;
+
+				color: var(--navy);
+			}
+
+			.cio-office-capabilities-tagline::after {
+				content: none;
+				display: none;
+			}
+
+			.cio-office-capabilities-tagline span {
+				display: inline-block;
+			}
+
+
+			/* =========================================================
+			   TAGLINE ANIMATION
+			========================================================= */
+
+			.js .cio-office-capabilities-tagline span {
+				opacity: 0;
+				transform: translateY(12px);
+			}
+
+			.cio-office-capabilities.is-visible
+				.cio-office-capabilities-tagline
+				span {
+				animation:
+					tagline-reveal
+					0.7s
+					cubic-bezier(0.22, 1, 0.36, 1)
+					forwards;
+			}
+
+			.cio-office-capabilities.is-visible
+				.tagline-part-1 {
+				animation-delay: 0.15s;
+			}
+
+			.cio-office-capabilities.is-visible
+				.tagline-part-2 {
+				animation-delay: 0.25s;
+			}
+
+			.cio-office-capabilities.is-visible
+				.tagline-part-3 {
+				animation-delay: 0.35s;
+			}
+
+			.cio-office-capabilities.is-visible
+				.tagline-part-4 {
+				animation-delay: 0.45s;
+			}
+
+			.cio-office-capabilities.is-visible
+				.tagline-part-5 {
+				animation-delay: 0.55s;
+			}
+
+			@keyframes tagline-reveal {
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+
+
+			/* =========================================================
+			   MOBILE
+			========================================================= */
+
+			@media (max-width: 720px) {
+				.cio-office-capabilities-tagline {
+					font-size: 1.6rem;
+					line-height: 1.15;
+				}
+			}
+
+
+			/* =========================================================
+			   REDUCED MOTION
+			========================================================= */
+
+			@media (prefers-reduced-motion: reduce) {
+				.js .cio-office-capabilities-tagline span {
+					opacity: 1;
+					transform: none;
+					animation: none;
+				}
+			}
+		</style>
 	</head>
 
 	<body>
@@ -227,72 +330,6 @@ const capabilities = [
 				revealObserver.observe(section);
 			});
 		</script>
-
-
-		<!-- =====================================================
-		     TAGLINE ANIMATION
-		===================================================== -->
-
-		<style>
-			.cio-office-capabilities-tagline span {
-				display: inline-block;
-			}
-
-			.js .cio-office-capabilities-tagline span {
-				opacity: 0;
-				transform: translateY(12px);
-			}
-
-			.cio-office-capabilities.is-visible
-				.cio-office-capabilities-tagline
-				span {
-				animation:
-					tagline-reveal
-					0.7s
-					cubic-bezier(0.22, 1, 0.36, 1)
-					forwards;
-			}
-
-			.cio-office-capabilities.is-visible
-				.tagline-part-1 {
-				animation-delay: 0.15s;
-			}
-
-			.cio-office-capabilities.is-visible
-				.tagline-part-2 {
-				animation-delay: 0.25s;
-			}
-
-			.cio-office-capabilities.is-visible
-				.tagline-part-3 {
-				animation-delay: 0.35s;
-			}
-
-			.cio-office-capabilities.is-visible
-				.tagline-part-4 {
-				animation-delay: 0.45s;
-			}
-
-			.cio-office-capabilities.is-visible
-				.tagline-part-5 {
-				animation-delay: 0.55s;
-			}
-
-			@keyframes tagline-reveal {
-				to {
-					opacity: 1;
-					transform: translateY(0);
-				}
-			}
-
-			@media (prefers-reduced-motion: reduce) {
-				.js .cio-office-capabilities-tagline span {
-					opacity: 1;
-					transform: none;
-					animation: none;
-				}
-			}
-		</style>
 
 	</body>
 </html>
