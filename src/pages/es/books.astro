@@ -7,11 +7,11 @@ const papers = [
 	{
 		status: 'En revisión',
 		date: 'Enviado · Agosto 2026',
-		title: 'When Success Hides Dependence',
+		title: 'When Fixes Become the System',
 		subtitle:
-			'Por qué un sistema que funciona puede hacer más difícil saber qué ocurriría si se eliminaran las salvaguardas que sostienen ese desempeño',
+			'Cómo las soluciones exitosas construyen lock-in tecnológico',
 		description:
-			'Un análisis de cómo el éxito operacional aparente puede ocultar dependencias estructurales y debilitar la capacidad de evaluar alternativas creíbles'
+			'Un análisis de cómo soluciones exitosas pueden preservar una elección tecnológica ya vinculante, incorporarse con el tiempo y reducir las alternativas creíbles'
 	},
 	{
 		status: 'En revisión',
@@ -20,7 +20,7 @@ const papers = [
 		subtitle:
 			'Cómo el éxito sostenido puede hacer más difícil determinar si una intervención sigue siendo necesaria',
 		description:
-			'Un análisis de cómo las organizaciones pueden perder la capacidad de probar una retirada segura incluso mientras el desempeño operacional sigue siendo sólido'
+			'Un análisis de cómo las organizaciones pueden perder la capacidad de probar una retirada segura incluso mientras el desempeño operacional se mantiene sólido'
 	}
 ];
 ---
@@ -50,20 +50,6 @@ const papers = [
 
 
 			/* =========================================================
-			   SHARED LABELS
-			========================================================= */
-
-			.books-index-page .books-page-label,
-			.books-index-page .paper-type {
-				font-size: 0.74rem;
-				font-weight: 800;
-				line-height: 1.2;
-				letter-spacing: 0.13em;
-				text-transform: uppercase;
-			}
-
-
-			/* =========================================================
 			   FEATURED BOOK
 			========================================================= */
 
@@ -74,15 +60,8 @@ const papers = [
 				padding-bottom: 0;
 			}
 
-			.books-index-page
-				.books-page-book-featured
-				.books-page-action {
-				margin-bottom: 0;
-			}
-
 			.books-page-secondary-action {
 				margin-top: 10px;
-				margin-bottom: 0;
 			}
 
 
@@ -127,7 +106,6 @@ const papers = [
 				width: 100%;
 
 				margin-top: var(--divider-space-before);
-
 				padding-top: var(--divider-space-after);
 				padding-bottom: 0;
 
@@ -171,8 +149,21 @@ const papers = [
 				min-width: 0;
 			}
 
-			.paper-type {
+			/*
+				Paper debe igualar visualmente a
+				Libro Destacado / Próximo Libro.
+
+				El .books-page-label global es .74rem, pero los labels
+				de los libros reciben .97rem desde .books-page-content > p.
+				Paper vive fuera de .books-page-content, así que igualamos
+				explícitamente el tamaño efectivo acá.
+			*/
+
+			.paper-content > .books-page-label {
 				margin: 0 0 0.8rem;
+
+				font-size: 0.97rem;
+				line-height: 1.2;
 			}
 
 			.paper-status {
@@ -328,6 +319,11 @@ const papers = [
 					padding: 28px 0;
 				}
 
+				.paper-content > .books-page-label {
+					font-size: 0.94rem;
+					line-height: 1.2;
+				}
+
 				.paper-title {
 					font-size: 1.45rem;
 				}
@@ -343,6 +339,7 @@ const papers = [
 			}
 		</style>
 	</head>
+
 
 	<body>
 		<Header />
@@ -409,9 +406,9 @@ const papers = [
 
 					<p>
 						El rol del CIO no consiste en gestionar sistemas.
-						<em>No debería haber una “I” en CIO.</em> Se trata de liderar
-						personas, definir la estrategia, influir en el negocio y
-						convertir la tecnología en una ventaja competitiva
+						<em>No debería haber una “I” en CIO.</em> Se trata de
+						liderar personas, definir la estrategia, influir en el
+						negocio y convertir la tecnología en una ventaja competitiva
 					</p>
 
 
@@ -570,6 +567,7 @@ const papers = [
 										{paper.status}
 									</p>
 
+
 									<p class="paper-date">
 										{paper.date}
 									</p>
@@ -579,7 +577,7 @@ const papers = [
 
 								<div class="paper-content">
 
-									<p class="books-page-label paper-type">
+									<p class="books-page-label">
 										Paper
 									</p>
 
@@ -614,6 +612,10 @@ const papers = [
 
 		<Footer />
 
+
+		<!-- =====================================================
+		     REVEAL
+		===================================================== -->
 
 		<script>
 			const sections =
