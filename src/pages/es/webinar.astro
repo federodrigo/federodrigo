@@ -17,15 +17,447 @@ const youtubeEmbedUrl =
 
 		<SEO
 			title="La tecnología nunca es el punto de partida | Fede Rodrigo"
-			description="Las iniciativas tecnológicas suelen comenzar con una solución en lugar de partir de la necesidad real del negocio. Comenzá por las personas y las prioridades del negocio, y luego usá la tecnología para habilitar el resultado."
+			description="Las iniciativas tecnológicas suelen comenzar con una solución en lugar de la necesidad del negocio. Comienza con las personas y las prioridades del negocio, y utiliza la tecnología para habilitar el resultado."
 			lang="es"
 		/>
+
+		<style>
+			/* =========================================================
+			   WEBINAR PAGE
+			========================================================= */
+
+			.webinar-page {
+				padding-top: 46px;
+			}
+
+
+			/* =========================================================
+			   HERO
+			========================================================= */
+
+			.webinar-hero {
+				display: block;
+
+				width: 100%;
+				max-width: none;
+
+				margin: 0 auto;
+
+				padding: 0 0 24px;
+
+				border-bottom: 0;
+
+				text-align: center;
+			}
+
+			.webinar-hero-title {
+				width: 100%;
+				max-width: 850px;
+
+				margin: 0 auto;
+
+				font-size: clamp(2.4rem, 4.8vw, 4.7rem);
+				font-weight: 800;
+				line-height: 1.03;
+				letter-spacing: -0.055em;
+
+				text-align: center;
+			}
+
+			.webinar-hero-title .hero-line {
+				display: block;
+				width: 100%;
+			}
+
+			.webinar-never {
+				color: #6fa7ef;
+			}
+
+
+			/* =========================================================
+			   PRINCIPLES
+			========================================================= */
+
+			.webinar-principles {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-wrap: wrap;
+
+				gap: 8px;
+
+				width: 100%;
+				max-width: 850px;
+
+				margin: 22px auto 0;
+
+				color: #6f7d8f;
+
+				font-size: 0.82rem;
+				font-weight: 650;
+				line-height: 1.4;
+				letter-spacing: 0.045em;
+
+				text-align: center;
+				text-transform: uppercase;
+			}
+
+			.webinar-principles span:nth-child(2),
+			.webinar-principles span:nth-child(4) {
+				color: #b3bdc7;
+			}
+
+
+			/* =========================================================
+			   INTRO
+			========================================================= */
+
+			.webinar-intro {
+				width: 100%;
+
+				margin: 12px auto 30px;
+				padding: 0;
+			}
+
+			.webinar-intro-inner {
+				display: grid;
+
+				grid-template-columns:
+					minmax(0, 0.92fr)
+					minmax(0, 1.08fr);
+
+				align-items: start;
+
+				gap: 54px;
+
+				width: 100%;
+			}
+
+			.webinar-lead {
+				max-width: none;
+
+				margin: 0;
+
+				color: #102b46;
+
+				font-size: clamp(1.25rem, 1.75vw, 1.5rem);
+				font-weight: 620;
+				line-height: 1.42;
+				letter-spacing: -0.032em;
+			}
+
+			.webinar-intro-response {
+				padding-top: 2px;
+			}
+
+			.webinar-description {
+				max-width: none;
+
+				margin: 0;
+
+				color: #6f7d8f;
+
+				font-size: clamp(1.02rem, 1.35vw, 1.15rem);
+				line-height: 1.62;
+				letter-spacing: -0.014em;
+			}
+
+			.webinar-description strong {
+				color: #102b46;
+				font-weight: 700;
+			}
+
+
+			/* =========================================================
+			   SECONDARY LINKS
+			========================================================= */
+
+			.webinar-secondary-links {
+				display: flex;
+				align-items: center;
+				flex-wrap: wrap;
+
+				gap: 24px;
+
+				margin-top: 20px;
+			}
+
+
+			/* =========================================================
+			   VIDEO
+			========================================================= */
+
+			.webinar-video-section {
+				margin: 0;
+				padding: 0;
+			}
+
+			.webinar-video {
+				width: 100%;
+
+				aspect-ratio: 16 / 9;
+
+				overflow: hidden;
+
+				border-radius: 14px;
+
+				background: #000000;
+
+				box-shadow:
+					0 14px 34px rgba(16, 42, 67, 0.08);
+			}
+
+			.webinar-video iframe {
+				display: block;
+
+				width: 100%;
+				height: 100%;
+
+				border: 0;
+			}
+
+
+			/* =========================================================
+			   TAKEAWAYS
+			========================================================= */
+
+			.webinar-takeaways {
+				margin-top: 38px;
+				margin-bottom: 0;
+
+				padding-top: 0;
+				padding-bottom: 0;
+			}
+
+			.webinar-takeaways > h2 {
+				margin-bottom: 28px;
+			}
+
+			.webinar-takeaway {
+				display: grid;
+
+				grid-template-columns:
+					150px
+					minmax(0, 1fr);
+
+				align-items: center;
+
+				gap: 28px;
+
+				padding: 30px 0;
+
+				border-bottom: 1px solid var(--line);
+			}
+
+			.webinar-takeaway:first-of-type {
+				padding-top: 4px;
+			}
+
+			.webinar-takeaway:last-of-type {
+				padding-bottom: 30px;
+				border-bottom: 0;
+			}
+
+			.webinar-takeaway-number {
+				color: var(--navy);
+
+				font-size: clamp(4rem, 7vw, 6.5rem);
+				font-weight: 700;
+				line-height: 0.9;
+				letter-spacing: -0.06em;
+
+				opacity: 0.16;
+			}
+
+			.webinar-takeaway .media-content {
+				padding-top: 0;
+			}
+
+			.webinar-takeaway .media-content h3 {
+				margin-bottom: 10px;
+			}
+
+			.webinar-takeaway .media-description {
+				max-width: 650px;
+			}
+
+
+			/* =========================================================
+			   SPEAKING INQUIRIES
+			========================================================= */
+
+			.webinar-contact {
+				margin-top: var(--divider-space-before);
+
+				padding-top: var(--divider-space-after);
+				padding-bottom: 0;
+
+				border-top: 1px solid var(--line);
+			}
+
+			.webinar-contact-title {
+				margin-bottom: 10px;
+			}
+
+			.webinar-contact-copy {
+				max-width: 650px;
+
+				margin: 0;
+
+				color: var(--muted);
+			}
+
+			.webinar-contact-link {
+				margin: 18px 0 0;
+			}
+
+
+			/* =========================================================
+			   TABLET
+			========================================================= */
+
+			@media (max-width: 850px) {
+				.webinar-intro-inner {
+					grid-template-columns: 1fr;
+
+					gap: 22px;
+				}
+
+				.webinar-intro {
+					max-width: 720px;
+				}
+			}
+
+
+			/* =========================================================
+			   MOBILE
+			========================================================= */
+
+			@media (max-width: 720px) {
+				.webinar-page {
+					padding-top: 42px;
+				}
+
+				.webinar-hero {
+					padding-bottom: 22px;
+				}
+
+				.webinar-hero-title {
+					font-size: clamp(2.3rem, 11vw, 3.15rem);
+					line-height: 1.04;
+				}
+
+				.webinar-principles {
+					gap: 6px;
+
+					margin-top: 18px;
+
+					font-size: 0.74rem;
+					line-height: 1.45;
+				}
+
+
+				/* INTRO */
+
+				.webinar-intro {
+					margin-top: 6px;
+					margin-bottom: 28px;
+				}
+
+				.webinar-intro-inner {
+					gap: 20px;
+				}
+
+				.webinar-lead {
+					font-size: 1.2rem;
+					line-height: 1.42;
+				}
+
+				.webinar-description {
+					font-size: 1rem;
+					line-height: 1.58;
+				}
+
+				.webinar-secondary-links {
+					flex-direction: column;
+					align-items: flex-start;
+
+					gap: 10px;
+
+					margin-top: 18px;
+				}
+
+
+				/* VIDEO */
+
+				.webinar-video {
+					border-radius: 10px;
+				}
+
+
+				/* TAKEAWAYS */
+
+				.webinar-takeaways {
+					margin-top: 32px;
+				}
+
+				.webinar-takeaways > h2 {
+					margin-bottom: 22px;
+				}
+
+				.webinar-takeaway {
+					grid-template-columns:
+						72px
+						minmax(0, 1fr);
+
+					align-items: start;
+
+					gap: 18px;
+
+					padding: 26px 0;
+				}
+
+				.webinar-takeaway:first-of-type {
+					padding-top: 2px;
+				}
+
+				.webinar-takeaway:last-of-type {
+					padding-bottom: 26px;
+				}
+
+				.webinar-takeaway-number {
+					padding-top: 4px;
+
+					font-size: 3.4rem;
+				}
+
+				.webinar-takeaway .media-content h3 {
+					font-size: 1.18rem;
+				}
+
+				.webinar-takeaway .media-description {
+					font-size: 0.94rem;
+					line-height: 1.55;
+				}
+
+
+				/* SPEAKING INQUIRIES */
+
+				.webinar-contact {
+					margin-top: var(--divider-space-mobile);
+
+					padding-top: var(--divider-space-mobile);
+				}
+			}
+		</style>
 	</head>
+
 
 	<body>
 		<Header />
 
-		<main>
+
+		<main class="webinar-page">
 
 			<!-- =====================================================
 			     HERO
@@ -37,7 +469,9 @@ const youtubeEmbedUrl =
 
 					<span class="hero-line">
 						La tecnología
-						<span class="webinar-never">nunca</span>
+						<span class="webinar-never">
+							nunca
+						</span>
 					</span>
 
 					<span class="hero-line">
@@ -49,15 +483,25 @@ const youtubeEmbedUrl =
 
 				<div class="webinar-principles">
 
-					<span>Las Personas Primero</span>
+					<span>
+						Personas Primero
+					</span>
 
-					<span aria-hidden="true">·</span>
+					<span aria-hidden="true">
+						·
+					</span>
 
-					<span>Impulsado por el Negocio</span>
+					<span>
+						Orientado al Negocio
+					</span>
 
-					<span aria-hidden="true">·</span>
+					<span aria-hidden="true">
+						·
+					</span>
 
-					<span>Habilitado por la Tecnología</span>
+					<span>
+						Tecnología como Habilitador
+					</span>
 
 				</div>
 
@@ -73,10 +517,8 @@ const youtubeEmbedUrl =
 				<div class="webinar-intro-inner">
 
 					<p class="webinar-lead reveal-item">
-
-						Las iniciativas tecnológicas suelen comenzar con una
-						solución en lugar de partir de la necesidad real del negocio
-
+						Las iniciativas tecnológicas suelen comenzar con una solución
+						en lugar de la necesidad del negocio que existe detrás
 					</p>
 
 
@@ -86,11 +528,16 @@ const youtubeEmbedUrl =
 
 						<p class="webinar-description">
 							<strong>
-								Esta charla propone un enfoque diferente:
+								Esta charla explora un enfoque diferente:
 							</strong>
+
 							<br />
-							comenzar por las personas y las prioridades del negocio,
-							y luego usar la tecnología para habilitar el resultado
+
+							comenzar con las personas y las prioridades del negocio,
+
+							<br />
+
+							y luego utilizar la tecnología para habilitar el resultado
 						</p>
 
 
@@ -100,11 +547,9 @@ const youtubeEmbedUrl =
 								href="/es/about/"
 								class="animated-link"
 							>
-
 								<span>
 									Sobre Federico
 								</span>
-
 							</a>
 
 
@@ -112,7 +557,6 @@ const youtubeEmbedUrl =
 								href="/es/books/"
 								class="animated-link"
 							>
-
 								<span>
 									Explorar el libro
 								</span>
@@ -123,7 +567,6 @@ const youtubeEmbedUrl =
 								>
 									→
 								</span>
-
 							</a>
 
 						</div>
@@ -140,14 +583,13 @@ const youtubeEmbedUrl =
 			===================================================== -->
 
 			<section
-				class="media-list webinar-video-section reveal-section"
-				aria-label="Video La tecnología nunca es el punto de partida"
+				class="webinar-video-section reveal-section"
+				aria-label="Video de La tecnología nunca es el punto de partida"
 			>
 
 				<div
 					class="webinar-video reveal-item"
 				>
-
 					<iframe
 						src={youtubeEmbedUrl}
 						title="Technology is Never the Starting Point"
@@ -155,7 +597,6 @@ const youtubeEmbedUrl =
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 						allowfullscreen
 					></iframe>
-
 				</div>
 
 			</section>
@@ -166,7 +607,7 @@ const youtubeEmbedUrl =
 			===================================================== -->
 
 			<section
-				class="media-list webinar-takeaways reveal-section"
+				class="webinar-takeaways reveal-section"
 				aria-labelledby="takeaways-title"
 			>
 
@@ -174,14 +615,14 @@ const youtubeEmbedUrl =
 					id="takeaways-title"
 					class="reveal-item"
 				>
-					Qué te vas a llevar
+					Qué te llevarás de esta charla
 				</h2>
 
 
 				<!-- 01 -->
 
 				<article
-					class="media-item webinar-takeaway reveal-item reveal-delay-1"
+					class="webinar-takeaway reveal-item reveal-delay-1"
 				>
 
 					<div class="webinar-takeaway-number">
@@ -192,15 +633,13 @@ const youtubeEmbedUrl =
 					<div class="media-content">
 
 						<h3>
-							Por qué fallan las iniciativas tecnológicas
+							Por qué fracasan las iniciativas tecnológicas
 						</h3>
 
-
 						<p class="media-description">
-
-							Por qué tantas iniciativas no logran los resultados
-							esperados y qué pueden hacer diferente los líderes
-
+							Por qué tantas iniciativas no logran entregar
+							lo esperado y qué pueden hacer los líderes
+							de manera diferente
 						</p>
 
 					</div>
@@ -211,7 +650,7 @@ const youtubeEmbedUrl =
 				<!-- 02 -->
 
 				<article
-					class="media-item webinar-takeaway reveal-item reveal-delay-2"
+					class="webinar-takeaway reveal-item reveal-delay-2"
 				>
 
 					<div class="webinar-takeaway-number">
@@ -222,16 +661,13 @@ const youtubeEmbedUrl =
 					<div class="media-content">
 
 						<h3>
-							IT como organización de servicio
+							TI como organización de servicio
 						</h3>
 
-
 						<p class="media-description">
-
-							Cómo enfocar IT en las personas y el negocio al que
-							sirve, usando el valor para el negocio como medida
-							de éxito
-
+							Cómo enfocar TI en las personas y en el
+							negocio al que sirve, utilizando el valor
+							para el negocio como medida del éxito
 						</p>
 
 					</div>
@@ -242,7 +678,7 @@ const youtubeEmbedUrl =
 				<!-- 03 -->
 
 				<article
-					class="media-item webinar-takeaway reveal-item reveal-delay-3"
+					class="webinar-takeaway reveal-item reveal-delay-2"
 				>
 
 					<div class="webinar-takeaway-number">
@@ -256,13 +692,10 @@ const youtubeEmbedUrl =
 							Liderar en la era de la IA
 						</h3>
 
-
 						<p class="media-description">
-
-							Por qué las nuevas herramientas no reemplazan el
-							liderazgo, la estrategia, el criterio ni el
-							entendimiento del negocio
-
+							Por qué las herramientas cambian, pero no reemplazan
+							el liderazgo, la estrategia, el criterio
+							y el entendimiento del negocio
 						</p>
 
 					</div>
@@ -271,23 +704,19 @@ const youtubeEmbedUrl =
 
 
 				<!-- =================================================
-				     CONTACT
+				     SPEAKING INQUIRIES
 				================================================= -->
 
-				<div
-					class="webinar-contact reveal-item reveal-delay-3"
-				>
+				<div class="webinar-contact reveal-item">
 
 					<h2 class="webinar-contact-title">
-						Consultas para conferencias
+						Consultas de Speaking
 					</h2>
 
 
 					<p class="webinar-contact-copy">
-
-						Para conferencias, podcasts u otras oportunidades,
-						ponete en contacto
-
+						Para charlas, podcasts u otras oportunidades,
+						ponte en contacto
 					</p>
 
 
@@ -297,9 +726,8 @@ const youtubeEmbedUrl =
 							href="/es/contact/"
 							class="animated-link"
 						>
-
 							<span>
-								Contactame
+								Contáctame
 							</span>
 
 							<span
@@ -308,7 +736,6 @@ const youtubeEmbedUrl =
 							>
 								→
 							</span>
-
 						</a>
 
 					</p>
@@ -323,6 +750,10 @@ const youtubeEmbedUrl =
 		<Footer />
 
 
+		<!-- =====================================================
+		     REVEAL
+		===================================================== -->
+
 		<script>
 			const sections =
 				document.querySelectorAll(
@@ -330,705 +761,60 @@ const youtubeEmbedUrl =
 				);
 
 
-			const revealObserver =
-				new IntersectionObserver(
+			if ('IntersectionObserver' in window) {
 
-					(entries, observer) => {
+				const revealObserver =
+					new IntersectionObserver(
+						(entries, observer) => {
 
-						entries.forEach((entry) => {
+							entries.forEach((entry) => {
 
-							if (!entry.isIntersecting) {
-								return;
-							}
-
-
-							entry.target.classList.add(
-								'is-visible'
-							);
+								if (!entry.isIntersecting) {
+									return;
+								}
 
 
-							observer.unobserve(
-								entry.target
-							);
-
-						});
-
-					},
-
-					{
-						threshold:
-							0.08,
-
-						rootMargin:
-							'0px 0px -50px 0px',
-					}
-
-				);
+								entry.target.classList.add(
+									'is-visible'
+								);
 
 
-			sections.forEach((section) => {
+								observer.unobserve(
+									entry.target
+								);
 
-				revealObserver.observe(
-					section
-				);
+							});
 
-			});
+						},
+						{
+							threshold: 0.08,
+
+							rootMargin:
+								'0px 0px -50px 0px',
+						}
+					);
+
+
+				sections.forEach((section) => {
+
+					revealObserver.observe(
+						section
+					);
+
+				});
+
+			} else {
+
+				sections.forEach((section) => {
+
+					section.classList.add(
+						'is-visible'
+					);
+
+				});
+
+			}
 		</script>
 
 	</body>
 </html>
-
-
-<style>
-
-	/* =========================================================
-	   HERO
-	========================================================= */
-
-	.webinar-hero {
-		display:
-			block !important;
-
-		width:
-			min(
-				1120px,
-				calc(100% - 48px)
-			) !important;
-
-		margin-left:
-			auto !important;
-
-		margin-right:
-			auto !important;
-
-		padding-left:
-			0 !important;
-
-		padding-right:
-			0 !important;
-
-		box-sizing:
-			border-box;
-
-		text-align:
-			center;
-
-		border-bottom:
-			0 !important;
-	}
-
-
-	main
-	.webinar-hero
-	.webinar-hero-title {
-		width:
-			100% !important;
-
-		max-width:
-			1050px !important;
-
-		margin-left:
-			auto !important;
-
-		margin-right:
-			auto !important;
-
-		padding-left:
-			0 !important;
-
-		padding-right:
-			0 !important;
-
-		font-size:
-			clamp(
-				2.4rem,
-				4.8vw,
-				4.7rem
-			);
-
-		line-height:
-			1.03;
-
-		letter-spacing:
-			-0.055em;
-
-		text-align:
-			center !important;
-	}
-
-
-	.webinar-hero-title
-	.hero-line {
-		display:
-			block;
-
-		width:
-			100%;
-	}
-
-
-	.webinar-never {
-		color:
-			#6fa7ef;
-	}
-
-
-	.webinar-principles {
-		display:
-			flex;
-
-		align-items:
-			center;
-
-		justify-content:
-			center;
-
-		flex-wrap:
-			wrap;
-
-		width:
-			100%;
-
-		max-width:
-			1050px;
-
-		gap:
-			8px;
-
-		margin:
-			22px
-			auto
-			0;
-
-		color:
-			#6f7d8f;
-
-		font-size:
-			0.82rem;
-
-		font-weight:
-			650;
-
-		line-height:
-			1.4;
-
-		letter-spacing:
-			0.045em;
-
-		text-align:
-			center;
-
-		text-transform:
-			uppercase;
-	}
-
-
-	.webinar-principles
-	span:nth-child(2),
-	.webinar-principles
-	span:nth-child(4) {
-		color:
-			#b3bdc7;
-	}
-
-
-	/* =========================================================
-	   INTRO
-	========================================================= */
-
-	.webinar-intro {
-		width:
-			min(
-				1120px,
-				calc(100% - 48px)
-			);
-
-		margin:
-			-18px
-			auto
-			22px;
-	}
-
-
-	.webinar-intro-inner {
-		display:
-			grid;
-
-		grid-template-columns:
-			minmax(
-				0,
-				0.92fr
-			)
-			minmax(
-				0,
-				1.08fr
-			);
-
-		align-items:
-			start;
-
-		gap:
-			clamp(
-				42px,
-				6vw,
-				78px
-			);
-
-		max-width:
-			1040px;
-
-		margin:
-			0
-			auto;
-	}
-
-
-	.webinar-lead {
-		margin:
-			0;
-
-		color:
-			#102b46;
-
-		font-size:
-			clamp(
-				1.25rem,
-				1.75vw,
-				1.5rem
-			);
-
-		font-weight:
-			620;
-
-		line-height:
-			1.42;
-
-		letter-spacing:
-			-0.032em;
-	}
-
-
-	.webinar-intro-response {
-		padding-top:
-			2px;
-	}
-
-
-	.webinar-description {
-		margin:
-			0;
-
-		color:
-			#6f7d8f;
-
-		font-size:
-			clamp(
-				1.02rem,
-				1.35vw,
-				1.15rem
-			);
-
-		line-height:
-			1.62;
-
-		letter-spacing:
-			-0.014em;
-	}
-
-
-	.webinar-description
-	strong {
-		color:
-			#102b46;
-
-		font-weight:
-			700;
-	}
-
-
-	.webinar-secondary-links {
-		display:
-			flex;
-
-		align-items:
-			center;
-
-		flex-wrap:
-			wrap;
-
-		gap:
-			1.5rem;
-
-		margin-top:
-			1.15rem;
-	}
-
-
-	.webinar-secondary-links
-	.animated-link {
-		font-size:
-			0.95rem;
-	}
-
-
-	/* =========================================================
-	   VIDEO
-	========================================================= */
-
-	.webinar-video-section {
-		margin-top:
-			-10px !important;
-
-		margin-bottom:
-			0 !important;
-
-		padding-bottom:
-			0 !important;
-	}
-
-
-	.webinar-video {
-		width:
-			100%;
-
-		aspect-ratio:
-			16 / 9;
-
-		overflow:
-			hidden;
-
-		border-radius:
-			14px;
-	}
-
-
-	.webinar-video
-	iframe {
-		display:
-			block;
-
-		width:
-			100%;
-
-		height:
-			100%;
-
-		border:
-			0;
-	}
-
-
-	/* =========================================================
-	   TAKEAWAYS
-	========================================================= */
-
-	.webinar-takeaways {
-		margin-top:
-			0 !important;
-
-		margin-bottom:
-			0 !important;
-
-		padding-top:
-			clamp(
-				28px,
-				3.5vw,
-				44px
-			) !important;
-
-		padding-bottom:
-			0 !important;
-	}
-
-
-	.webinar-takeaway {
-		align-items:
-			center;
-	}
-
-
-	.webinar-takeaway-number {
-		font-size:
-			clamp(
-				4rem,
-				8vw,
-				7rem
-			);
-
-		font-weight:
-			700;
-
-		line-height:
-			0.9;
-
-		letter-spacing:
-			-0.06em;
-
-		opacity:
-			0.16;
-	}
-
-
-	/* =========================================================
-	   CONTACT
-	========================================================= */
-
-	.webinar-contact {
-		width:
-			100%;
-
-		margin:
-			0;
-
-		padding:
-			36px
-			0
-			8px;
-
-		border-top:
-			1px solid
-			rgba(
-				16,
-				43,
-				70,
-				0.12
-			);
-
-		text-align:
-			left;
-	}
-
-
-	main
-	.webinar-contact
-	.webinar-contact-title {
-		width:
-			100%;
-
-		max-width:
-			none;
-
-		margin:
-			0 !important;
-
-		color:
-			#102b46;
-
-		text-align:
-			left;
-	}
-
-
-	main
-	.webinar-contact
-	.webinar-contact-title::after {
-		display:
-			block;
-
-		width:
-			68px;
-
-		height:
-			3px;
-
-		margin-top:
-			16px;
-
-		background:
-			#b43a37;
-
-		content:
-			'';
-	}
-
-
-	.webinar-contact-copy {
-		max-width:
-			1080px;
-
-		margin:
-			24px
-			0
-			0;
-
-		color:
-			#6f7d8f;
-
-		font-size:
-			clamp(
-				1rem,
-				1.2vw,
-				1.1rem
-			);
-
-		line-height:
-			1.55;
-
-		letter-spacing:
-			-0.015em;
-	}
-
-
-	.webinar-contact-link {
-		display:
-			flex !important;
-
-		align-items:
-			center;
-
-		justify-content:
-			flex-start;
-
-		width:
-			100%;
-
-		margin:
-			26px
-			0
-			0 !important;
-
-		text-align:
-			left !important;
-	}
-
-
-	.webinar-contact-link
-	.animated-link {
-		display:
-			inline-flex !important;
-
-		align-items:
-			center;
-
-		justify-content:
-			flex-start;
-
-		width:
-			max-content !important;
-
-		margin:
-			0 !important;
-
-		font-size:
-			1.08rem;
-	}
-
-
-	/* =========================================================
-	   RESPONSIVE
-	========================================================= */
-
-	@media (
-		max-width: 900px
-	) {
-
-		.webinar-intro-inner {
-			grid-template-columns:
-				1fr;
-
-			gap:
-				18px;
-
-			max-width:
-				760px;
-		}
-
-	}
-
-
-	@media (
-		max-width: 700px
-	) {
-
-		.webinar-hero {
-			width:
-				calc(
-					100% - 32px
-				) !important;
-		}
-
-		.webinar-intro {
-			width:
-				calc(
-					100% - 32px
-				);
-
-			margin:
-				-4px
-				auto
-				20px;
-		}
-
-
-		.webinar-secondary-links {
-			flex-direction:
-				column;
-
-			align-items:
-				flex-start;
-
-			gap:
-				0.75rem;
-		}
-
-
-		.webinar-video-section {
-			margin-top:
-				-4px !important;
-
-			margin-bottom:
-				0 !important;
-		}
-
-
-		.webinar-takeaways {
-			padding-top:
-				24px !important;
-
-			padding-bottom:
-				0 !important;
-		}
-
-
-		.webinar-takeaway-number {
-			font-size:
-				4rem;
-		}
-
-
-		.webinar-contact {
-			padding:
-				28px
-				0
-				24px;
-		}
-
-
-		main
-		.webinar-contact
-		.webinar-contact-title::after {
-			width:
-				56px;
-
-			margin-top:
-				13px;
-		}
-
-
-		.webinar-contact-copy {
-			margin-top:
-				20px;
-
-			font-size:
-				1rem;
-		}
-
-
-		.webinar-contact-link {
-			margin-top:
-				22px !important;
-		}
-
-	}
-
-</style>
