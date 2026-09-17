@@ -114,8 +114,9 @@ const youtubeEmbedUrl =
 
 			.talks-intro {
 				width: 100%;
+				max-width: 1000px;
 
-				margin: 12px auto 30px;
+				margin: 44px auto 42px;
 				padding: 0;
 			}
 
@@ -123,48 +124,55 @@ const youtubeEmbedUrl =
 				display: grid;
 
 				grid-template-columns:
-					minmax(0, 0.92fr)
-					minmax(0, 1.08fr);
+					minmax(0, 0.9fr)
+					minmax(0, 1.1fr);
 
 				align-items: start;
 
-				gap: 54px;
+				gap: 80px;
 
 				width: 100%;
 			}
 
 			.talks-lead {
-				max-width: none;
+				max-width: 390px;
 
 				margin: 0;
 
 				color: #102b46;
 
-				font-size: clamp(1.25rem, 1.75vw, 1.5rem);
-				font-weight: 620;
-				line-height: 1.42;
-				letter-spacing: -0.032em;
+				font-size: clamp(1.35rem, 2vw, 1.7rem);
+				font-weight: 650;
+				line-height: 1.35;
+				letter-spacing: -0.035em;
 			}
 
 			.talks-intro-response {
+				max-width: 500px;
 				padding-top: 2px;
 			}
 
 			.talks-description {
-				max-width: none;
+				max-width: 500px;
 
 				margin: 0;
 
 				color: #6f7d8f;
 
-				font-size: clamp(1.02rem, 1.35vw, 1.15rem);
-				line-height: 1.62;
+				font-size: clamp(1rem, 1.25vw, 1.12rem);
+				line-height: 1.6;
 				letter-spacing: -0.014em;
 			}
 
 			.talks-description strong {
+				display: block;
+
+				margin-bottom: 8px;
+
 				color: #102b46;
+				font-size: 1.05em;
 				font-weight: 700;
+				line-height: 1.4;
 			}
 
 
@@ -179,7 +187,7 @@ const youtubeEmbedUrl =
 
 				gap: 24px;
 
-				margin-top: 20px;
+				margin-top: 22px;
 			}
 
 
@@ -569,18 +577,15 @@ const youtubeEmbedUrl =
 					>
 
 						<p class="talks-description">
+
 							<strong>
 								Sometimes, they are the ones that work
 							</strong>
 
-							<br />
+							They get adopted, dependencies grow around them,
+							and eventually the organization is choosing among
+							the options that remain possible
 
-							They get adopted and dependencies grow around them
-
-							<br />
-
-							Eventually, the organization is no longer choosing freely —
-							only among the options that remain possible
 						</p>
 
 
