@@ -21,16 +21,16 @@ type MediaItem = {
 
 const mediaItems: MediaItem[] = [
 	{
-		type: 'Webinar',
-		status: 'upcoming',
-		title: 'Technology is Never the Starting Point — Xseed',
-		date: 'August 2026',
+		type: 'Featured Talk',
+		status: 'published',
+		title: 'Technology is Never the Starting Point',
+		date: '2026',
 		image: '/images/xseed-webinar.png',
 		imageAlt:
-			'Technology is Never the Starting Point webinar with Federico Rodrigo',
+			'Technology is Never the Starting Point — featured talk by Fede Rodrigo',
 		description:
-			'A practical session on how to start with people and business priorities, and use technology to enable the outcome',
-		url: '/webinar/',
+			'A talk about how reasonable technology decisions can become dependencies, create lock-in, and quietly reduce the options available to the business',
+		url: '/talks/',
 		linkLabel: 'Explore the talk',
 		internal: true,
 		compactTitle: true,
@@ -101,7 +101,7 @@ const mediaItems: MediaItem[] = [
 
 		<SEO
 			title="Speaking | Fede Rodrigo"
-			description="Speaking engagements, webinars, executive sessions, podcasts, interviews, and conversations on technology, business, leadership, and execution"
+			description="Speaking on technology decisions, business value, leadership, lock-in, and why technology should never be the starting point"
 			lang="en"
 		/>
 
@@ -159,70 +159,6 @@ const mediaItems: MediaItem[] = [
 				}
 			}
 
-
-			/* =========================================================
-			   EDITORIAL EVIDENCE
-			========================================================= */
-
-			.speaking-evidence {
-				width: 100%;
-				max-width: 400px;
-				margin: -34px auto 12px;
-			}
-
-			.speaking-evidence-grid {
-				display: flex;
-				align-items: flex-start;
-				justify-content: center;
-				gap: 20px;
-			}
-
-			.speaking-evidence-item {
-				flex: 0 1 190px;
-				text-align: center;
-			}
-
-			.speaking-evidence-value {
-				display: inline-block;
-				margin: 0 0 4px;
-
-				color: #102b46;
-				font-size: clamp(1.35rem, 2vw, 1.7rem);
-				font-weight: 700;
-				line-height: 1;
-				letter-spacing: -0.04em;
-				font-variant-numeric: tabular-nums;
-			}
-
-			.speaking-evidence-number,
-			.speaking-evidence-symbol {
-				display: inline-block;
-			}
-
-			.speaking-evidence-symbol {
-				margin-right: 0.04em;
-			}
-
-			.speaking-evidence-label {
-				margin: 0;
-
-				color: #102b46;
-				font-size: 0.9rem;
-				font-weight: 550;
-				line-height: 1.35;
-				letter-spacing: -0.015em;
-			}
-
-			.speaking-evidence-source {
-				margin: 6px 0 0;
-
-				color: #8b97a4;
-				font-size: 0.68rem;
-				font-weight: 700;
-				line-height: 1.2;
-				letter-spacing: 0.07em;
-				text-transform: uppercase;
-			}
 
 
 			/* =========================================================
@@ -468,30 +404,6 @@ const mediaItems: MediaItem[] = [
 					white-space: normal;
 				}
 
-				.speaking-evidence {
-					margin: -12px auto 12px;
-				}
-
-				.speaking-evidence-grid {
-					gap: 12px;
-				}
-
-				.speaking-evidence-item {
-					flex: 1 1 0;
-				}
-
-				.speaking-evidence-value {
-					font-size: 1.35rem;
-				}
-
-				.speaking-evidence-label {
-					font-size: 0.78rem;
-				}
-
-				.speaking-evidence-source {
-					font-size: 0.58rem;
-				}
-
 				.speaking-talk-link {
 					margin: -2px auto 14px;
 				}
@@ -581,56 +493,13 @@ const mediaItems: MediaItem[] = [
 
 
 			<section
-				class="speaking-evidence reveal-section"
-				aria-label="Why this matters"
-			>
-				<div class="speaking-evidence-grid">
-
-					<div class="speaking-evidence-item reveal-item">
-						<p class="speaking-evidence-value">
-							<span class="speaking-evidence-symbol">~</span>
-							<span class="speaking-evidence-number">70%</span>
-						</p>
-
-						<p class="speaking-evidence-label">
-							of transformation efforts fail
-						</p>
-
-						<p class="speaking-evidence-source">
-							McKinsey · 2020
-						</p>
-					</div>
-
-
-					<div
-						class="speaking-evidence-item reveal-item reveal-delay-1"
-					>
-						<p class="speaking-evidence-value">
-							<span class="speaking-evidence-symbol">&gt;</span>
-							<span class="speaking-evidence-number">80%</span>
-						</p>
-
-						<p class="speaking-evidence-label">
-							of AI projects fail
-						</p>
-
-						<p class="speaking-evidence-source">
-							RAND · 2024
-						</p>
-					</div>
-
-				</div>
-			</section>
-
-
-			<section
 				class="speaking-talk-link reveal-section"
 				aria-label="Explore the talk"
 			>
 				<p class="speaking-centered-action reveal-item">
 
 					<a
-						href="/webinar/"
+						href="/talks/"
 						class="animated-link speaking-centered-link"
 					>
 						<span>Explore the talk</span>
@@ -665,8 +534,8 @@ const mediaItems: MediaItem[] = [
 						>
 							<img
 								class="speaking-slide-image"
-								src="/images/slide1.png"
-								alt="People First · Busines Driven · Technology Enabled?"
+								src="/images/talk-slide-1.png"
+								alt="Technology as the starting point creates dependencies and fewer options"
 								loading="eager"
 							/>
 						</figure>
@@ -678,8 +547,8 @@ const mediaItems: MediaItem[] = [
 						>
 							<img
 								class="speaking-slide-image"
-								src="/images/slide2.png"
-								alt="Why does IT exist? To create business value?"
+								src="/images/talk-slide-2.png"
+								alt="People First · Business Driven · Technology Enabled"
 								loading="lazy"
 							/>
 						</figure>
@@ -691,8 +560,8 @@ const mediaItems: MediaItem[] = [
 						>
 							<img
 								class="speaking-slide-image"
-								src="/images/slide3.png"
-								alt="AI changes everything except..."
+								src="/images/talk-slide-3.png"
+								alt="Technology is part of the work. Leading is the work."
 								loading="lazy"
 							/>
 						</figure>
@@ -750,7 +619,7 @@ const mediaItems: MediaItem[] = [
 					class="speaking-closing-link reveal-item reveal-delay-1"
 				>
 					<a
-						href="/webinar/"
+						href="/talks/"
 						class="animated-link speaking-centered-link"
 					>
 						<span>Explore the talk</span>
