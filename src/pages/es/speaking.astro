@@ -21,16 +21,16 @@ type MediaItem = {
 
 const mediaItems: MediaItem[] = [
 	{
-		type: 'Webinar',
-		status: 'upcoming',
-		title: 'Technology is Never the Starting Point — Xseed',
-		date: 'Agosto 2026',
+		type: 'Charla destacada',
+		status: 'published',
+		title: 'La tecnología nunca es el punto de partida',
+		date: '2026',
 		image: '/images/xseed-webinar.png',
 		imageAlt:
-			'Webinar Technology is Never the Starting Point con Federico Rodrigo',
+			'La tecnología nunca es el punto de partida — charla destacada de Fede Rodrigo',
 		description:
-			'Una sesión práctica sobre cómo comenzar con las personas y las prioridades del negocio, y utilizar la tecnología para habilitar el resultado',
-		url: '/es/webinar/',
+			'Una charla sobre cómo decisiones tecnológicas razonables pueden convertirse en dependencias, generar lock-in y reducir silenciosamente las opciones disponibles para el negocio',
+		url: '/es/talks/',
 		linkLabel: 'Explorar la charla',
 		internal: true,
 		compactTitle: true,
@@ -49,7 +49,7 @@ const mediaItems: MediaItem[] = [
 		linkLabel: 'Ver la conversación',
 	},
 	{
-		type: 'Entrevista Escrita',
+		type: 'Entrevista escrita',
 		status: 'published',
 		title: 'Turning Cloud Investment into Business Value — Nublit',
 		date: 'Enero 2026',
@@ -78,7 +78,7 @@ const mediaItems: MediaItem[] = [
 		linkLabel: 'Ver reconocimiento',
 	},
 	{
-		type: 'Mesa Ejecutiva',
+		type: 'Mesa ejecutiva',
 		status: 'published',
 		title: 'Industrial Reinvention — The Economist',
 		date: 'Septiembre 2024',
@@ -101,7 +101,7 @@ const mediaItems: MediaItem[] = [
 
 		<SEO
 			title="Speaking | Fede Rodrigo"
-			description="Charlas, webinars, sesiones ejecutivas, podcasts, entrevistas y conversaciones sobre tecnología, negocio, liderazgo y ejecución"
+			description="Charlas sobre decisiones tecnológicas, valor de negocio, liderazgo, lock-in y por qué la tecnología nunca debería ser el punto de partida"
 			lang="es"
 		/>
 
@@ -120,21 +120,17 @@ const mediaItems: MediaItem[] = [
 			.speaking-hero-title {
 				width: 100%;
 				max-width: 100%;
-
 				margin-left: auto;
 				margin-right: auto;
 
 				font-size: clamp(2rem, 3.65vw, 3.75rem);
 				line-height: 1.08;
-
 				text-align: center;
 			}
 
 			.speaking-hero-title .hero-line {
 				display: block;
-
 				width: 100%;
-
 				white-space: nowrap;
 			}
 
@@ -145,9 +141,7 @@ const mediaItems: MediaItem[] = [
 
 			.speaking-hero-accent {
 				display: inline-block;
-
 				opacity: 0;
-
 				transform: translateY(6px);
 
 				animation:
@@ -165,79 +159,6 @@ const mediaItems: MediaItem[] = [
 				}
 			}
 
-
-			/* =========================================================
-			   EDITORIAL EVIDENCE
-			========================================================= */
-
-			.speaking-evidence {
-				width: 100%;
-				max-width: 400px;
-
-				margin: -34px auto 12px;
-			}
-
-			.speaking-evidence-grid {
-				display: flex;
-				align-items: flex-start;
-				justify-content: center;
-
-				gap: 20px;
-			}
-
-			.speaking-evidence-item {
-				flex: 0 1 190px;
-
-				text-align: center;
-			}
-
-			.speaking-evidence-value {
-				display: inline-block;
-
-				margin: 0 0 4px;
-
-				color: #102b46;
-
-				font-size: clamp(1.35rem, 2vw, 1.7rem);
-				font-weight: 700;
-				line-height: 1;
-				letter-spacing: -0.04em;
-
-				font-variant-numeric: tabular-nums;
-			}
-
-			.speaking-evidence-number,
-			.speaking-evidence-symbol {
-				display: inline-block;
-			}
-
-			.speaking-evidence-symbol {
-				margin-right: 0.04em;
-			}
-
-			.speaking-evidence-label {
-				margin: 0;
-
-				color: #102b46;
-
-				font-size: 0.9rem;
-				font-weight: 550;
-				line-height: 1.35;
-				letter-spacing: -0.015em;
-			}
-
-			.speaking-evidence-source {
-				margin: 6px 0 0;
-
-				color: #8b97a4;
-
-				font-size: 0.68rem;
-				font-weight: 700;
-				line-height: 1.2;
-				letter-spacing: 0.07em;
-
-				text-transform: uppercase;
-			}
 
 
 			/* =========================================================
@@ -270,17 +191,13 @@ const mediaItems: MediaItem[] = [
 
 			.speaking-talk-link {
 				width: 100%;
-
 				margin: -6px auto 16px;
-
 				text-align: center;
 			}
 
 			.speaking-centered-action {
 				max-width: none;
-
 				margin: 0;
-
 				text-align: center;
 			}
 
@@ -296,7 +213,6 @@ const mediaItems: MediaItem[] = [
 			.speaking-showcase {
 				width: 100%;
 				max-width: 100%;
-
 				margin: 0 auto;
 			}
 
@@ -308,7 +224,6 @@ const mediaItems: MediaItem[] = [
 				position: relative;
 
 				width: 100%;
-
 				aspect-ratio: 16 / 9;
 
 				overflow: hidden;
@@ -324,7 +239,6 @@ const mediaItems: MediaItem[] = [
 
 			.speaking-slide {
 				position: absolute;
-
 				inset: clamp(24px, 3vw, 42px);
 
 				display: flex;
@@ -334,7 +248,6 @@ const mediaItems: MediaItem[] = [
 				margin: 0;
 
 				opacity: 0;
-
 				pointer-events: none;
 
 				transition: opacity 650ms ease;
@@ -342,9 +255,7 @@ const mediaItems: MediaItem[] = [
 
 			.speaking-slide.is-active {
 				z-index: 2;
-
 				opacity: 1;
-
 				pointer-events: auto;
 			}
 
@@ -361,7 +272,6 @@ const mediaItems: MediaItem[] = [
 				object-position: center;
 
 				border-radius: 0;
-
 				background: #ffffff;
 			}
 
@@ -378,7 +288,6 @@ const mediaItems: MediaItem[] = [
 				gap: 8px;
 
 				height: 28px;
-
 				margin-top: 3px;
 			}
 
@@ -387,7 +296,6 @@ const mediaItems: MediaItem[] = [
 				height: 7px;
 
 				padding: 0;
-
 				border: 0;
 				border-radius: 50%;
 
@@ -403,9 +311,7 @@ const mediaItems: MediaItem[] = [
 
 			.speaking-slider-dot.is-active {
 				width: 23px;
-
 				border-radius: 999px;
-
 				background: #102b46;
 			}
 
@@ -421,9 +327,7 @@ const mediaItems: MediaItem[] = [
 
 			.speaking-closing {
 				width: 100%;
-
 				margin: 14px auto 0;
-
 				padding-bottom: 0;
 
 				text-align: center;
@@ -432,7 +336,6 @@ const mediaItems: MediaItem[] = [
 			.speaking-closing-title {
 				width: 100%;
 				max-width: 100%;
-
 				margin: 0 auto;
 
 				color: #102b46;
@@ -452,9 +355,7 @@ const mediaItems: MediaItem[] = [
 
 			.speaking-closing-link {
 				max-width: none;
-
 				margin: 22px 0 0;
-
 				text-align: center;
 			}
 
@@ -471,7 +372,6 @@ const mediaItems: MediaItem[] = [
 				font-size: clamp(1rem, 1.45vw, 1.25rem);
 				line-height: 1.16;
 				letter-spacing: -0.035em;
-
 				white-space: nowrap;
 			}
 
@@ -504,30 +404,6 @@ const mediaItems: MediaItem[] = [
 					white-space: normal;
 				}
 
-				.speaking-evidence {
-					margin: -12px auto 12px;
-				}
-
-				.speaking-evidence-grid {
-					gap: 12px;
-				}
-
-				.speaking-evidence-item {
-					flex: 1 1 0;
-				}
-
-				.speaking-evidence-value {
-					font-size: 1.35rem;
-				}
-
-				.speaking-evidence-label {
-					font-size: 0.78rem;
-				}
-
-				.speaking-evidence-source {
-					font-size: 0.58rem;
-				}
-
 				.speaking-talk-link {
 					margin: -2px auto 14px;
 				}
@@ -553,7 +429,6 @@ const mediaItems: MediaItem[] = [
 					font-size: clamp(1.9rem, 7.4vw, 2.5rem);
 					font-weight: 700;
 					line-height: 1.08;
-
 					white-space: normal;
 				}
 
@@ -567,7 +442,6 @@ const mediaItems: MediaItem[] = [
 
 				.media-item .media-title-compact {
 					font-size: 1.08rem;
-
 					white-space: normal;
 				}
 			}
@@ -580,9 +454,7 @@ const mediaItems: MediaItem[] = [
 			@media (prefers-reduced-motion: reduce) {
 				.speaking-hero-accent {
 					opacity: 1;
-
 					transform: none;
-
 					animation: none;
 				}
 
@@ -597,15 +469,9 @@ const mediaItems: MediaItem[] = [
 	<body>
 		<Header />
 
-
 		<main class="speaking-page">
 
-			<!-- =====================================================
-			     HERO
-			===================================================== -->
-
 			<section class="hero speaking-hero">
-
 				<h1 class="hero-title speaking-hero-title">
 
 					<span class="hero-line">
@@ -623,96 +489,20 @@ const mediaItems: MediaItem[] = [
 					</span>
 
 				</h1>
-
 			</section>
 
-
-			<!-- =====================================================
-			     EDITORIAL EVIDENCE
-			===================================================== -->
-
-			<section
-				class="speaking-evidence reveal-section"
-				aria-label="Por qué importa"
-			>
-
-				<div class="speaking-evidence-grid">
-
-					<div class="speaking-evidence-item reveal-item">
-
-						<p class="speaking-evidence-value">
-
-							<span class="speaking-evidence-symbol">
-								~
-							</span>
-
-							<span class="speaking-evidence-number">
-								70%
-							</span>
-
-						</p>
-
-						<p class="speaking-evidence-label">
-							de los esfuerzos de transformación fracasan
-						</p>
-
-						<p class="speaking-evidence-source">
-							McKinsey · 2020
-						</p>
-
-					</div>
-
-
-					<div
-						class="speaking-evidence-item reveal-item reveal-delay-1"
-					>
-
-						<p class="speaking-evidence-value">
-
-							<span class="speaking-evidence-symbol">
-								&gt;
-							</span>
-
-							<span class="speaking-evidence-number">
-								80%
-							</span>
-
-						</p>
-
-						<p class="speaking-evidence-label">
-							de los proyectos de IA fracasan
-						</p>
-
-						<p class="speaking-evidence-source">
-							RAND · 2024
-						</p>
-
-					</div>
-
-				</div>
-
-			</section>
-
-
-			<!-- =====================================================
-			     EXPLORE TALK — TOP
-			===================================================== -->
 
 			<section
 				class="speaking-talk-link reveal-section"
 				aria-label="Explorar la charla"
 			>
-
 				<p class="speaking-centered-action reveal-item">
 
 					<a
-						href="/es/webinar/"
+						href="/es/talks/"
 						class="animated-link speaking-centered-link"
 					>
-
-						<span>
-							Explorar la charla
-						</span>
+						<span>Explorar la charla</span>
 
 						<span
 							class="animated-link-arrow"
@@ -720,23 +510,16 @@ const mediaItems: MediaItem[] = [
 						>
 							→
 						</span>
-
 					</a>
 
 				</p>
-
 			</section>
 
-
-			<!-- =====================================================
-			     SPEAKING SLIDES
-			===================================================== -->
 
 			<section
 				class="speaking-showcase reveal-section"
 				aria-label="Slides de la presentación"
 			>
-
 				<div
 					class="speaking-slider reveal-item"
 					data-speaking-slider
@@ -749,46 +532,38 @@ const mediaItems: MediaItem[] = [
 							data-speaking-slide
 							aria-hidden="false"
 						>
-
 							<img
 								class="speaking-slide-image"
-								src="/images/slide1.png"
-								alt="People First · Busines Driven · Technology Enabled?"
+								src="/images/talk-slide-1.png"
+								alt="La tecnología como punto de partida crea dependencias y reduce las opciones"
 								loading="eager"
 							/>
-
 						</figure>
-
 
 						<figure
 							class="speaking-slide"
 							data-speaking-slide
 							aria-hidden="true"
 						>
-
 							<img
 								class="speaking-slide-image"
-								src="/images/slide2.png"
-								alt="Why does IT exist? To create business value?"
+								src="/images/talk-slide-2.png"
+								alt="Primero las personas · Orientado al negocio · Habilitado por la tecnología"
 								loading="lazy"
 							/>
-
 						</figure>
-
 
 						<figure
 							class="speaking-slide"
 							data-speaking-slide
 							aria-hidden="true"
 						>
-
 							<img
 								class="speaking-slide-image"
-								src="/images/slide3.png"
-								alt="AI changes everything except..."
+								src="/images/talk-slide-3.png"
+								alt="La tecnología es parte del trabajo · Liderar es el trabajo"
 								loading="lazy"
 							/>
-
 						</figure>
 
 					</div>
@@ -798,7 +573,6 @@ const mediaItems: MediaItem[] = [
 						class="speaking-slider-nav"
 						aria-label="Elegir slide"
 					>
-
 						<button
 							type="button"
 							class="speaking-slider-dot is-active"
@@ -822,47 +596,33 @@ const mediaItems: MediaItem[] = [
 							aria-label="Mostrar slide 3"
 							aria-current="false"
 						></button>
-
 					</div>
 
 				</div>
-
 			</section>
 
-
-			<!-- =====================================================
-			     CLOSING THESIS
-			===================================================== -->
 
 			<section
 				class="speaking-closing reveal-section"
 				aria-labelledby="speaking-closing-title"
 			>
-
 				<h2
 					id="speaking-closing-title"
 					class="speaking-closing-title reveal-item"
 				>
 					La tecnología
-					<span class="speaking-never">
-						nunca
-					</span>
+					<span class="speaking-never">nunca</span>
 					es el punto de partida
 				</h2>
-
 
 				<p
 					class="speaking-closing-link reveal-item reveal-delay-1"
 				>
-
 					<a
-						href="/es/webinar/"
+						href="/es/talks/"
 						class="animated-link speaking-centered-link"
 					>
-
-						<span>
-							Explorar la charla
-						</span>
+						<span>Explorar la charla</span>
 
 						<span
 							class="animated-link-arrow"
@@ -870,28 +630,20 @@ const mediaItems: MediaItem[] = [
 						>
 							→
 						</span>
-
 					</a>
-
 				</p>
-
 			</section>
 
-
-			<!-- =====================================================
-			     SELECTED APPEARANCES
-			===================================================== -->
 
 			<section
 				class="media-list page-divider reveal-section"
 				aria-labelledby="media-list-title"
 			>
-
 				<h2
 					id="media-list-title"
 					class="reveal-item"
 				>
-					Participaciones Destacadas
+					Participaciones destacadas
 				</h2>
 
 
@@ -925,14 +677,12 @@ const mediaItems: MediaItem[] = [
 												item.title
 											}
 										>
-
 											<img
 												src={item.image}
 												alt={item.imageAlt}
 												class="media-image"
 												loading="lazy"
 											/>
-
 										</a>
 
 									) : (
@@ -954,17 +704,13 @@ const mediaItems: MediaItem[] = [
 
 								<p class="media-meta">
 
-									<span>
-										{item.type}
-									</span>
+									<span>{item.type}</span>
 
 									<span aria-hidden="true">
 										·
 									</span>
 
-									<span>
-										{item.date}
-									</span>
+									<span>{item.date}</span>
 
 								</p>
 
@@ -992,29 +738,27 @@ const mediaItems: MediaItem[] = [
 
 											{
 												item.pdfUrl &&
-												item.pdfLabel && (
+													item.pdfLabel && (
 
-													<a
-														href={item.pdfUrl}
-														target="_blank"
-														rel="noopener noreferrer"
-														class="animated-link"
-													>
-
-														<span>
-															{item.pdfLabel}
-														</span>
-
-														<span
-															class="animated-link-arrow"
-															aria-hidden="true"
+														<a
+															href={item.pdfUrl}
+															target="_blank"
+															rel="noopener noreferrer"
+															class="animated-link"
 														>
-															→
-														</span>
+															<span>
+																{item.pdfLabel}
+															</span>
 
-													</a>
+															<span
+																class="animated-link-arrow"
+																aria-hidden="true"
+															>
+																→
+															</span>
+														</a>
 
-												)
+													)
 											}
 
 
@@ -1032,11 +776,10 @@ const mediaItems: MediaItem[] = [
 												}
 												class="animated-link"
 											>
-
 												<span>
 													{
 														item.linkLabel ??
-														'Conocer más'
+															'Conocer más'
 													}
 												</span>
 
@@ -1046,7 +789,6 @@ const mediaItems: MediaItem[] = [
 												>
 													→
 												</span>
-
 											</a>
 
 										</div>
@@ -1074,10 +816,6 @@ const mediaItems: MediaItem[] = [
 			</section>
 
 
-			<!-- =====================================================
-			     SPEAKING INQUIRIES
-			===================================================== -->
-
 			<section class="page-closing reveal-section">
 
 				<h2 class="reveal-item">
@@ -1088,19 +826,15 @@ const mediaItems: MediaItem[] = [
 
 					<p>
 						Para charlas, podcasts u otras oportunidades,
-						ponte en contacto
+						contáctame
 					</p>
 
 					<p class="speaking-inquiry-action">
-
 						<a
 							href="/es/contact/"
 							class="animated-link"
 						>
-
-							<span>
-								Contáctame
-							</span>
+							<span>Contáctame</span>
 
 							<span
 								class="animated-link-arrow"
@@ -1108,9 +842,7 @@ const mediaItems: MediaItem[] = [
 							>
 								→
 							</span>
-
 						</a>
-
 					</p>
 
 				</div>
@@ -1122,10 +854,6 @@ const mediaItems: MediaItem[] = [
 
 		<Footer />
 
-
-		<!-- =====================================================
-		     REVEAL
-		===================================================== -->
 
 		<script>
 			const sections =
@@ -1163,30 +891,20 @@ const mediaItems: MediaItem[] = [
 
 
 				sections.forEach((section) => {
-
-					revealObserver.observe(
-						section
-					);
-
+					revealObserver.observe(section);
 				});
 
 			} else {
 
 				sections.forEach((section) => {
-
 					section.classList.add(
 						'is-visible'
 					);
-
 				});
 
 			}
 		</script>
 
-
-		<!-- =====================================================
-		     SLIDER
-		===================================================== -->
 
 		<script>
 			const speakingSlider =
@@ -1362,13 +1080,9 @@ const mediaItems: MediaItem[] = [
 											entry.isIntersecting;
 
 										if (sliderVisible) {
-
 											scheduleNextSlide();
-
 										} else {
-
 											stopSlider();
-
 										}
 
 									}
@@ -1388,7 +1102,6 @@ const mediaItems: MediaItem[] = [
 				} else {
 
 					sliderVisible = true;
-
 					scheduleNextSlide();
 
 				}
@@ -1399,13 +1112,9 @@ const mediaItems: MediaItem[] = [
 					() => {
 
 						if (document.hidden) {
-
 							stopSlider();
-
 						} else {
-
 							scheduleNextSlide();
-
 						}
 
 					}
