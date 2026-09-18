@@ -137,14 +137,19 @@ import Footer from '../components/Footer.astro';
 			}
 
 			.speaking-cover-frame {
-				overflow: hidden;
+				/*
+				 * No card behind the Speaking artwork.
+				 * The PNG is transparent, so the site's own page background
+				 * shows through exactly like the CIO Office and book assets.
+				 */
+				overflow: visible;
 
-				border: 1px solid rgba(36, 55, 92, 0.07);
-				border-radius: 20px;
+				border: 0;
+				border-radius: 0;
 
-				background: #ffffff;
+				background: transparent;
 
-				box-shadow: 0 12px 30px rgba(28, 44, 76, 0.06);
+				box-shadow: none;
 			}
 
 			.speaking-cover-image {
@@ -153,7 +158,9 @@ import Footer from '../components/Footer.astro';
 				width: 100%;
 				height: auto;
 
+				border: 0;
 				border-radius: 0;
+				background: transparent;
 			}
 
 
