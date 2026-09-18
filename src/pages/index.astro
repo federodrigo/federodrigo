@@ -61,6 +61,17 @@ import Footer from '../components/Footer.astro';
 				padding-bottom: 0;
 			}
 
+			/*
+				Keep the three main home features on exactly the same
+				two-column grid so every text block starts at the same X.
+			*/
+			#speaking .books-page-book,
+			#cio-office .books-page-book,
+			#books .books-page-book {
+				grid-template-columns: 260px minmax(0, 1fr);
+				column-gap: 53px;
+			}
+
 			.home-feature .books-page-content {
 				align-self: center;
 			}
@@ -400,7 +411,7 @@ import Footer from '../components/Footer.astro';
 						</h2>
 
 						<p>
-						Talks and executive conversations that help leaders make better technology decisions, avoid lock-in, and preserve strategic options as complexity grows
+							Talks and executive conversations that help leaders make better technology decisions, avoid lock-in, and preserve strategic options as complexity grows
 						</p>
 
 						<p class="books-page-action">
