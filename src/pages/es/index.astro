@@ -56,6 +56,18 @@ import Footer from '../../components/Footer.astro';
 				padding-bottom: 0;
 			}
 
+			/*
+				Mantiene las tres secciones principales exactamente
+				en la misma grilla para que todos los textos comiencen
+				en la misma posición horizontal.
+			*/
+			#speaking .books-page-book,
+			#cio-office .books-page-book,
+			#books .books-page-book {
+				grid-template-columns: 260px minmax(0, 1fr);
+				column-gap: 53px;
+			}
+
 			.home-feature .books-page-content {
 				align-self: center;
 			}
