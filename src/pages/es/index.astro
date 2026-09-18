@@ -132,14 +132,19 @@ import Footer from '../../components/Footer.astro';
 			}
 
 			.speaking-cover-frame {
-				overflow: hidden;
+				/*
+				 * Sin tarjeta detrás del artwork de Speaking.
+				 * El PNG es transparente, así que se ve directamente
+				 * el fondo real de la página, igual que en los otros bloques.
+				 */
+				overflow: visible;
 
-				border: 1px solid rgba(36, 55, 92, 0.07);
-				border-radius: 20px;
+				border: 0;
+				border-radius: 0;
 
-				background: #ffffff;
+				background: transparent;
 
-				box-shadow: 0 12px 30px rgba(28, 44, 76, 0.06);
+				box-shadow: none;
 			}
 
 			.speaking-cover-image {
@@ -148,7 +153,9 @@ import Footer from '../../components/Footer.astro';
 				width: 100%;
 				height: auto;
 
+				border: 0;
 				border-radius: 0;
+				background: transparent;
 			}
 
 
