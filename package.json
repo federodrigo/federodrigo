@@ -1,6 +1,6 @@
 {
 	"name": "fede-template",
-	"description": "Build a personal website, blog, or portfolio with Astro.",
+	"description": "Personal website of Fede Rodrigo, technology executive, speaker and author.",
 	"cloudflare": {
 		"label": "Astro Framework Starter",
 		"products": [
