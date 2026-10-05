@@ -39,23 +39,24 @@ const featuredPaper = {
 
 
 			/* =========================================================
-			   SHARED TYPOGRAPHY
-			   Keep book / paper / other work visually consistent
+			   SHARED LABELS
+			   Keep original books-page-label styling/color/font.
+			   Only normalize size and spacing.
 			========================================================= */
 
-			.work-label {
+			.books-index-page .books-page-content > .books-page-label,
+			.research-content > .books-page-label,
+			.other-work-content > .books-page-label {
 				margin: 0 0 0.8rem;
 
-				color: #6d9fdd;
-
-				font-family: inherit;
 				font-size: 0.97rem;
-				font-weight: 600;
 				line-height: 1.2;
-
-				letter-spacing: normal;
-				text-transform: none;
 			}
+
+
+			/* =========================================================
+			   SHARED TITLES
+			========================================================= */
 
 			.books-index-page .books-page-content h2,
 			.research-title,
@@ -82,15 +83,6 @@ const featuredPaper = {
 
 			.books-page-secondary-action {
 				margin-top: 10px;
-			}
-
-			/*
-				Force Featured Book label/title spacing
-				to match Research Paper and Forthcoming Book.
-			*/
-
-			.books-index-page .books-page-content > .work-label {
-				margin: 0 0 0.8rem;
 			}
 
 
@@ -188,10 +180,10 @@ const featuredPaper = {
 			.other-work-heading {
 				margin: 0 0 34px;
 
-				font-size: clamp(1.4rem, 2.2vw, 1.75rem);
+				font-size: clamp(1.55rem, 2.5vw, 2rem);
 				font-weight: 700;
-				line-height: 1.1;
-				letter-spacing: -0.025em;
+				line-height: 1.08;
+				letter-spacing: -0.035em;
 			}
 
 			.other-work-item {
@@ -214,8 +206,6 @@ const featuredPaper = {
 				display: block;
 
 				width: 140px;
-
-				cursor: default;
 			}
 
 			.other-work-cover {
@@ -301,12 +291,20 @@ const featuredPaper = {
 					border-radius: 8px;
 				}
 
-				.work-label {
-					margin-bottom: 0.8rem;
+
+				/* Shared labels */
+
+				.books-index-page .books-page-content > .books-page-label,
+				.research-content > .books-page-label,
+				.other-work-content > .books-page-label {
+					margin: 0 0 0.8rem;
 
 					font-size: 0.94rem;
 					line-height: 1.2;
 				}
+
+
+				/* Shared titles */
 
 				.books-index-page .books-page-content h2,
 				.research-title,
@@ -314,26 +312,20 @@ const featuredPaper = {
 					font-size: 1.45rem;
 				}
 
+
+				/* Featured Book */
+
 				.books-index-page .books-page-subtitle {
 					margin-bottom: 18px;
 
 					font-size: 0.92rem;
 				}
 
-				.books-index-page .books-page-content > p {
+				.books-index-page .books-page-content > p:not(.books-page-label) {
 					margin-bottom: 15px;
 
 					font-size: 0.94rem;
 					line-height: 1.58;
-				}
-
-				/*
-					Override global paragraph spacing so
-					Featured Book keeps the same label/title gap.
-				*/
-
-				.books-index-page .books-page-content > .work-label {
-					margin: 0 0 0.8rem;
 				}
 
 				.books-index-page .books-page-action {
@@ -374,7 +366,7 @@ const featuredPaper = {
 				.other-work-heading {
 					margin-bottom: 28px;
 
-					font-size: 1.4rem;
+					font-size: 1.55rem;
 				}
 
 				.other-work-item {
@@ -461,7 +453,7 @@ const featuredPaper = {
 					class="books-page-content reveal-item reveal-delay-1"
 				>
 
-					<p class="work-label">
+					<p class="books-page-label">
 						Featured Book
 					</p>
 
@@ -583,7 +575,7 @@ const featuredPaper = {
 						class="research-content reveal-item reveal-delay-1"
 					>
 
-						<p class="work-label">
+						<p class="books-page-label">
 							Research Paper
 						</p>
 
@@ -651,7 +643,7 @@ const featuredPaper = {
 
 					<div class="other-work-content">
 
-						<p class="work-label">
+						<p class="books-page-label">
 							Forthcoming Book
 						</p>
 
