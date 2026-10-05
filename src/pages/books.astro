@@ -23,7 +23,7 @@ const featuredPaper = {
 		</script>
 
 		<SEO
-			title="Books & Research | Fede Rodrigo"
+			title="Books | Fede Rodrigo"
 			description="Books and research by Fede Rodrigo about technology leadership, business, incentives, institutions, and the systems that shape organizations"
 			lang="en"
 		/>
@@ -35,6 +35,37 @@ const featuredPaper = {
 
 			.books-index-page {
 				padding-top: 46px;
+			}
+
+
+			/* =========================================================
+			   SHARED TYPOGRAPHY
+			   Keep book / paper / other work visually consistent
+			========================================================= */
+
+			.work-label {
+				margin: 0 0 0.8rem;
+
+				color: #6d9fdd;
+
+				font-family: inherit;
+				font-size: 0.97rem;
+				font-weight: 600;
+				line-height: 1.2;
+
+				letter-spacing: normal;
+				text-transform: none;
+			}
+
+			.books-index-page .books-page-content h2,
+			.research-title,
+			.other-work-title {
+				margin: 0;
+
+				font-size: clamp(1.45rem, 2.4vw, 2.05rem);
+				font-weight: 700;
+				line-height: 1.08;
+				letter-spacing: -0.035em;
 			}
 
 
@@ -51,6 +82,15 @@ const featuredPaper = {
 
 			.books-page-secondary-action {
 				margin-top: 10px;
+			}
+
+			/*
+				Force Featured Book label/title spacing
+				to match Research Paper and Forthcoming Book.
+			*/
+
+			.books-index-page .books-page-content > .work-label {
+				margin: 0 0 0.8rem;
 			}
 
 
@@ -109,30 +149,12 @@ const featuredPaper = {
 				opacity: 0.58;
 			}
 
-			.research-content > .books-page-label {
-				margin: 0 0 0.8rem;
-
-				font-size: 0.97rem;
-				line-height: 1.2;
-			}
-
-			.research-title {
-				max-width: 900px;
-
-				margin: 0;
-
-				font-size: clamp(1.8rem, 3vw, 2.65rem);
-				font-weight: 700;
-				line-height: 1.05;
-				letter-spacing: -0.04em;
-			}
-
 			.research-subtitle {
 				max-width: 800px;
 
-				margin: 0.9rem 0 0;
+				margin: 0.85rem 0 0;
 
-				font-size: clamp(1.05rem, 1.5vw, 1.18rem);
+				font-size: clamp(1rem, 1.4vw, 1.12rem);
 				font-weight: 580;
 				line-height: 1.48;
 			}
@@ -142,10 +164,10 @@ const featuredPaper = {
 
 				margin: 1rem 0 0;
 
-				font-size: 0.97rem;
+				font-size: 0.94rem;
 				line-height: 1.65;
 
-				opacity: 0.68;
+				opacity: 0.66;
 			}
 
 
@@ -164,11 +186,12 @@ const featuredPaper = {
 			}
 
 			.other-work-heading {
-				margin: 0 0 30px;
+				margin: 0 0 34px;
 
-				font-size: 0.97rem;
-				font-weight: 600;
-				line-height: 1.2;
+				font-size: clamp(1.4rem, 2.2vw, 1.75rem);
+				font-weight: 700;
+				line-height: 1.1;
+				letter-spacing: -0.025em;
 			}
 
 			.other-work-item {
@@ -187,6 +210,14 @@ const featuredPaper = {
 				width: 140px;
 			}
 
+			.other-work-cover-link {
+				display: block;
+
+				width: 140px;
+
+				cursor: default;
+			}
+
 			.other-work-cover {
 				display: block;
 
@@ -199,27 +230,6 @@ const featuredPaper = {
 
 			.other-work-content {
 				min-width: 0;
-
-				padding-top: 2px;
-			}
-
-			.other-work-meta {
-				margin: 0 0 0.75rem;
-
-				color: #6d9fdd;
-
-				font-size: 0.8rem;
-				font-weight: 700;
-				line-height: 1.3;
-			}
-
-			.other-work-title {
-				margin: 0;
-
-				font-size: clamp(1.35rem, 2.2vw, 1.85rem);
-				font-weight: 700;
-				line-height: 1.1;
-				letter-spacing: -0.03em;
 			}
 
 			.other-work-description {
@@ -228,7 +238,7 @@ const featuredPaper = {
 				margin: 1rem 0 0;
 
 				font-size: 0.94rem;
-				line-height: 1.62;
+				line-height: 1.65;
 
 				opacity: 0.66;
 			}
@@ -291,8 +301,17 @@ const featuredPaper = {
 					border-radius: 8px;
 				}
 
-				.books-index-page .books-page-content h2 {
-					font-size: 1.55rem;
+				.work-label {
+					margin-bottom: 0.8rem;
+
+					font-size: 0.94rem;
+					line-height: 1.2;
+				}
+
+				.books-index-page .books-page-content h2,
+				.research-title,
+				.other-work-title {
+					font-size: 1.45rem;
 				}
 
 				.books-index-page .books-page-subtitle {
@@ -306,6 +325,15 @@ const featuredPaper = {
 
 					font-size: 0.94rem;
 					line-height: 1.58;
+				}
+
+				/*
+					Override global paragraph spacing so
+					Featured Book keeps the same label/title gap.
+				*/
+
+				.books-index-page .books-page-content > .work-label {
+					margin: 0 0 0.8rem;
 				}
 
 				.books-index-page .books-page-action {
@@ -323,15 +351,6 @@ const featuredPaper = {
 					margin-top: var(--divider-space-mobile);
 
 					padding-top: var(--divider-space-mobile);
-				}
-
-				.research-content > .books-page-label {
-					font-size: 0.94rem;
-					line-height: 1.2;
-				}
-
-				.research-title {
-					font-size: 1.6rem;
 				}
 
 				.research-subtitle {
@@ -353,27 +372,28 @@ const featuredPaper = {
 				}
 
 				.other-work-heading {
-					margin-bottom: 24px;
+					margin-bottom: 28px;
+
+					font-size: 1.4rem;
 				}
 
 				.other-work-item {
-					grid-template-columns: 100px minmax(0, 1fr);
+					grid-template-columns:
+						100px
+						minmax(0, 1fr);
 
 					gap: 20px;
 				}
 
 				.other-work-cover-wrapper,
+				.other-work-cover-link,
 				.other-work-cover {
 					width: 100px;
 				}
 
-				.other-work-title {
-					font-size: 1.3rem;
-				}
-
 				.other-work-description {
-					font-size: 0.92rem;
-					line-height: 1.55;
+					font-size: 0.94rem;
+					line-height: 1.58;
 				}
 			}
 
@@ -386,10 +406,11 @@ const featuredPaper = {
 				.other-work-item {
 					grid-template-columns: 1fr;
 
-					gap: 18px;
+					gap: 20px;
 				}
 
 				.other-work-cover-wrapper,
+				.other-work-cover-link,
 				.other-work-cover {
 					width: 110px;
 				}
@@ -440,7 +461,7 @@ const featuredPaper = {
 					class="books-page-content reveal-item reveal-delay-1"
 				>
 
-					<p class="books-page-label">
+					<p class="work-label">
 						Featured Book
 					</p>
 
@@ -533,7 +554,7 @@ const featuredPaper = {
 
 
 			<!-- =====================================================
-			     FEATURED RESEARCH
+			     RESEARCH
 			===================================================== -->
 
 			<section
@@ -550,6 +571,7 @@ const featuredPaper = {
 							{featuredPaper.status}
 						</p>
 
+
 						<p class="research-date">
 							{featuredPaper.date}
 						</p>
@@ -561,7 +583,7 @@ const featuredPaper = {
 						class="research-content reveal-item reveal-delay-1"
 					>
 
-						<p class="books-page-label">
+						<p class="work-label">
 							Research Paper
 						</p>
 
@@ -599,31 +621,37 @@ const featuredPaper = {
 				aria-labelledby="other-work-heading"
 			>
 
-				<p
+				<h2
 					id="other-work-heading"
 					class="other-work-heading reveal-item"
 				>
 					Other Work
-				</p>
+				</h2>
 
 
-				<article class="other-work-item reveal-item reveal-delay-1">
+				<article
+					class="other-work-item reveal-item reveal-delay-1"
+				>
 
 					<div class="other-work-cover-wrapper">
 
-						<img
-							src="/images/book-cover.jpg"
-							alt="Cover of A Theory of Minimal Tolerance"
-							class="other-work-cover"
-							loading="lazy"
-						/>
+						<div class="other-work-cover-link">
+
+							<img
+								src="/images/book-cover.jpg"
+								alt="Cover of A Theory of Minimal Tolerance"
+								class="other-work-cover animated-book-cover"
+								loading="lazy"
+							/>
+
+						</div>
 
 					</div>
 
 
 					<div class="other-work-content">
 
-						<p class="other-work-meta">
+						<p class="work-label">
 							Forthcoming Book
 						</p>
 
