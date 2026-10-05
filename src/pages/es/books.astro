@@ -3,26 +3,15 @@ import SEO from '../../components/SEO.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 
-const papers = [
-	{
-		status: 'En revisión',
-		date: 'Enviado · Agosto 2026',
-		title: 'When Fixes Become the System',
-		subtitle:
-			'Cómo las soluciones exitosas construyen lock-in tecnológico',
-		description:
-			'Un análisis de cómo soluciones exitosas pueden preservar una elección tecnológica ya vinculante, incorporarse con el tiempo y reducir las alternativas creíbles'
-	},
-	{
-		status: 'En revisión',
-		date: 'Enviado · Agosto 2026',
-		title: 'When Success Erodes the Capacity to Know',
-		subtitle:
-			'Cómo el éxito sostenido puede hacer más difícil determinar si una intervención sigue siendo necesaria',
-		description:
-			'Un análisis de cómo las organizaciones pueden perder la capacidad de probar una retirada segura incluso mientras el desempeño operacional se mantiene sólido'
-	}
-];
+const featuredPaper = {
+	status: 'En revisión',
+	date: 'Enviado · Agosto 2026',
+	title: 'When Fixes Become the System',
+	subtitle:
+		'Cómo las soluciones exitosas construyen lock-in tecnológico',
+	description:
+		'Un análisis de cómo soluciones exitosas pueden preservar una elección tecnológica ya vinculante, incorporarse con el tiempo y reducir las alternativas creíbles'
+};
 ---
 
 <!doctype html>
@@ -34,18 +23,50 @@ const papers = [
 		</script>
 
 		<SEO
-			title="Libros y Papers | Fede Rodrigo"
-			description="Libros y papers de Fede Rodrigo sobre liderazgo tecnológico, negocios, incentivos, instituciones y los sistemas que moldean las organizaciones"
+			title="Libros | Fede Rodrigo"
+			description="Libros e investigación de Fede Rodrigo sobre liderazgo tecnológico, negocios, incentivos, instituciones y los sistemas que moldean las organizaciones"
 			lang="es"
 		/>
 
 		<style>
 			/* =========================================================
-			   BOOKS PAGE
+			   PAGE
 			========================================================= */
 
 			.books-index-page {
 				padding-top: 46px;
+			}
+
+
+			/* =========================================================
+			   SHARED LABELS
+			   Mantiene exactamente el books-page-label original.
+			   Solo normalizamos tamaño y espaciado.
+			========================================================= */
+
+			.books-index-page .books-page-content > .books-page-label,
+			.research-content > .books-page-label,
+			.other-work-content > .books-page-label {
+				margin: 0 0 0.8rem;
+
+				font-size: 0.97rem;
+				line-height: 1.2;
+			}
+
+
+			/* =========================================================
+			   SHARED TITLES
+			========================================================= */
+
+			.books-index-page .books-page-content h2,
+			.research-title,
+			.other-work-title {
+				margin: 0;
+
+				font-size: clamp(1.45rem, 2.4vw, 2.05rem);
+				font-weight: 700;
+				line-height: 1.08;
+				letter-spacing: -0.035em;
 			}
 
 
@@ -66,43 +87,10 @@ const papers = [
 
 
 			/* =========================================================
-			   FORTHCOMING BOOK
+			   FEATURED RESEARCH
 			========================================================= */
 
-			.books-index-page .minimal-tolerance-book {
-				margin-top: var(--divider-space-before);
-				margin-bottom: 0;
-
-				padding-top: var(--divider-space-after);
-				padding-bottom: 0;
-
-				border-top: 1px solid var(--line);
-			}
-
-			.books-page-cover-static {
-				cursor: default;
-			}
-
-			.coming-soon {
-				display: inline-block;
-
-				color: #6d9fdd;
-
-				font-family: inherit;
-				font-size: var(--cta-size);
-				font-weight: var(--cta-weight);
-				line-height: 1.3;
-
-				letter-spacing: normal;
-				text-transform: none;
-			}
-
-
-			/* =========================================================
-			   PAPERS
-			========================================================= */
-
-			.papers-section {
+			.featured-research {
 				width: 100%;
 
 				margin-top: var(--divider-space-before);
@@ -114,11 +102,7 @@ const papers = [
 				scroll-margin-top: 8rem;
 			}
 
-			.papers-list {
-				width: 100%;
-			}
-
-			.paper-row {
+			.featured-research-grid {
 				display: grid;
 
 				grid-template-columns:
@@ -128,45 +112,14 @@ const papers = [
 				align-items: start;
 
 				gap: clamp(1.5rem, 4vw, 3.5rem);
-
-				padding: 34px 0;
-
-				border-bottom: 1px solid var(--line);
 			}
 
-			.paper-row:first-child {
-				padding-top: 0;
-			}
-
-			.paper-row:last-child {
-				padding-bottom: 0;
-
-				border-bottom: 0;
-			}
-
-			.paper-meta,
-			.paper-content {
+			.research-meta,
+			.research-content {
 				min-width: 0;
 			}
 
-			/*
-				Paper debe igualar visualmente a
-				Libro Destacado / Próximo Libro.
-
-				El .books-page-label global es .74rem, pero los labels
-				de los libros reciben .97rem desde .books-page-content > p.
-				Paper vive fuera de .books-page-content, así que igualamos
-				explícitamente el tamaño efectivo acá.
-			*/
-
-			.paper-content > .books-page-label {
-				margin: 0 0 0.8rem;
-
-				font-size: 0.97rem;
-				line-height: 1.2;
-			}
-
-			.paper-status {
+			.research-status {
 				margin: 0;
 
 				color: #8a6b36;
@@ -179,7 +132,7 @@ const papers = [
 				text-transform: uppercase;
 			}
 
-			.paper-date {
+			.research-date {
 				margin: 0.7rem 0 0;
 
 				font-size: 0.86rem;
@@ -188,16 +141,7 @@ const papers = [
 				opacity: 0.58;
 			}
 
-			.paper-title {
-				margin: 0;
-
-				font-size: clamp(1.45rem, 2.4vw, 2.05rem);
-				font-weight: 700;
-				line-height: 1.08;
-				letter-spacing: -0.035em;
-			}
-
-			.paper-subtitle {
+			.research-subtitle {
 				max-width: 800px;
 
 				margin: 0.85rem 0 0;
@@ -207,8 +151,79 @@ const papers = [
 				line-height: 1.48;
 			}
 
-			.paper-description {
+			.research-description {
 				max-width: 780px;
+
+				margin: 1rem 0 0;
+
+				font-size: 0.94rem;
+				line-height: 1.65;
+
+				opacity: 0.66;
+			}
+
+
+			/* =========================================================
+			   OTHER WORK
+			========================================================= */
+
+			.other-work-section {
+				width: 100%;
+
+				margin-top: var(--divider-space-before);
+				padding-top: var(--divider-space-after);
+				padding-bottom: 0;
+
+				border-top: 1px solid var(--line);
+			}
+
+			.other-work-heading {
+				margin: 0 0 34px;
+
+				font-size: clamp(1.55rem, 2.5vw, 2rem);
+				font-weight: 700;
+				line-height: 1.08;
+				letter-spacing: -0.035em;
+			}
+
+			.other-work-item {
+				display: grid;
+
+				grid-template-columns:
+					140px
+					minmax(0, 1fr);
+
+				align-items: start;
+
+				gap: clamp(1.5rem, 4vw, 3rem);
+			}
+
+			.other-work-cover-wrapper {
+				width: 140px;
+			}
+
+			.other-work-cover-link {
+				display: block;
+
+				width: 140px;
+			}
+
+			.other-work-cover {
+				display: block;
+
+				width: 140px;
+				max-width: 100%;
+				height: auto;
+
+				border-radius: 7px;
+			}
+
+			.other-work-content {
+				min-width: 0;
+			}
+
+			.other-work-description {
+				max-width: 680px;
 
 				margin: 1rem 0 0;
 
@@ -224,13 +239,13 @@ const papers = [
 			========================================================= */
 
 			@media (max-width: 850px) {
-				.paper-row {
+				.featured-research-grid {
 					grid-template-columns: 1fr;
 
 					gap: 1.2rem;
 				}
 
-				.paper-meta {
+				.research-meta {
 					display: flex;
 					flex-wrap: wrap;
 					align-items: center;
@@ -238,7 +253,7 @@ const papers = [
 					gap: 0.7rem 1rem;
 				}
 
-				.paper-date {
+				.research-date {
 					margin: 0;
 				}
 			}
@@ -264,12 +279,6 @@ const papers = [
 					padding-bottom: 0;
 				}
 
-				.books-index-page .minimal-tolerance-book {
-					margin-top: var(--divider-space-mobile);
-
-					padding-top: var(--divider-space-mobile);
-				}
-
 				.books-index-page .books-page-cover-wrapper,
 				.books-index-page .books-page-cover-link {
 					width: 180px;
@@ -282,9 +291,29 @@ const papers = [
 					border-radius: 8px;
 				}
 
-				.books-index-page .books-page-content h2 {
-					font-size: 1.55rem;
+
+				/* Shared labels */
+
+				.books-index-page .books-page-content > .books-page-label,
+				.research-content > .books-page-label,
+				.other-work-content > .books-page-label {
+					margin: 0 0 0.8rem;
+
+					font-size: 0.94rem;
+					line-height: 1.2;
 				}
+
+
+				/* Shared titles */
+
+				.books-index-page .books-page-content h2,
+				.research-title,
+				.other-work-title {
+					font-size: 1.45rem;
+				}
+
+
+				/* Featured Book */
 
 				.books-index-page .books-page-subtitle {
 					margin-bottom: 18px;
@@ -292,7 +321,7 @@ const papers = [
 					font-size: 0.92rem;
 				}
 
-				.books-index-page .books-page-content > p {
+				.books-index-page .books-page-content > p:not(.books-page-label) {
 					margin-bottom: 15px;
 
 					font-size: 0.94rem;
@@ -307,34 +336,75 @@ const papers = [
 					margin-top: 10px;
 				}
 
-				.papers-section {
+
+				/* Research */
+
+				.featured-research {
 					margin-top: var(--divider-space-mobile);
 
 					padding-top: var(--divider-space-mobile);
 				}
 
-				.paper-row {
-					gap: 1rem;
-
-					padding: 28px 0;
-				}
-
-				.paper-content > .books-page-label {
-					font-size: 0.94rem;
-					line-height: 1.2;
-				}
-
-				.paper-title {
-					font-size: 1.45rem;
-				}
-
-				.paper-subtitle {
+				.research-subtitle {
 					font-size: 1rem;
 				}
 
-				.paper-description {
+				.research-description {
 					font-size: 0.94rem;
 					line-height: 1.58;
+				}
+
+
+				/* Other Work */
+
+				.other-work-section {
+					margin-top: var(--divider-space-mobile);
+
+					padding-top: var(--divider-space-mobile);
+				}
+
+				.other-work-heading {
+					margin-bottom: 28px;
+
+					font-size: 1.55rem;
+				}
+
+				.other-work-item {
+					grid-template-columns:
+						100px
+						minmax(0, 1fr);
+
+					gap: 20px;
+				}
+
+				.other-work-cover-wrapper,
+				.other-work-cover-link,
+				.other-work-cover {
+					width: 100px;
+				}
+
+				.other-work-description {
+					font-size: 0.94rem;
+					line-height: 1.58;
+				}
+			}
+
+
+			/* =========================================================
+			   SMALL MOBILE
+			========================================================= */
+
+			@media (max-width: 480px) {
+				.other-work-item {
+					grid-template-columns: 1fr;
+
+					gap: 20px;
+				}
+
+				.other-work-cover-wrapper,
+				.other-work-cover-link,
+				.other-work-cover {
+					width: 110px;
 				}
 			}
 		</style>
@@ -476,68 +546,58 @@ const papers = [
 
 
 			<!-- =====================================================
-			     FORTHCOMING BOOK
+			     RESEARCH
 			===================================================== -->
 
 			<section
-				class="books-page-book books-page-book-secondary minimal-tolerance-book reveal-section"
-				aria-labelledby="minimal-tolerance-book-title"
+				id="research"
+				class="featured-research reveal-section"
+				aria-labelledby="featured-research-title"
 			>
 
-				<div
-					class="books-page-cover-wrapper reveal-item reveal-from-left"
-				>
+				<div class="featured-research-grid">
 
-					<div
-						class="books-page-cover-link books-page-cover-static"
-					>
+					<div class="research-meta reveal-item">
 
-						<img
-							src="/images/book-cover.jpg"
-							alt="Portada de A Theory of Minimal Tolerance"
-							class="books-page-cover animated-book-cover"
-							loading="lazy"
-						/>
+						<p class="research-status">
+							{featuredPaper.status}
+						</p>
+
+
+						<p class="research-date">
+							{featuredPaper.date}
+						</p>
 
 					</div>
 
-				</div>
+
+					<div
+						class="research-content reveal-item reveal-delay-1"
+					>
+
+						<p class="books-page-label">
+							Paper de Investigación
+						</p>
 
 
-				<div
-					class="books-page-content reveal-item reveal-delay-1"
-				>
-
-					<p class="books-page-label">
-						Próximo Libro
-					</p>
-
-
-					<h2 id="minimal-tolerance-book-title">
-						A Theory of Minimal Tolerance
-					</h2>
+						<h2
+							id="featured-research-title"
+							class="research-title"
+						>
+							{featuredPaper.title}
+						</h2>
 
 
-					<p>
-						Un trabajo sobre libertad, coerción, incentivos,
-						instituciones y los límites que deberían restringir
-						el poder político
-					</p>
+						<p class="research-subtitle">
+							{featuredPaper.subtitle}
+						</p>
 
 
-					<p>
-						Desarrolla un marco práctico para examinar las condiciones
-						bajo las cuales la coerción estatal puede ser tolerada
-					</p>
+						<p class="research-description">
+							{featuredPaper.description}
+						</p>
 
-
-					<p class="books-page-action">
-
-						<span class="coming-soon">
-							Próximamente
-						</span>
-
-					</p>
+					</div>
 
 				</div>
 
@@ -545,65 +605,65 @@ const papers = [
 
 
 			<!-- =====================================================
-			     PAPERS
+			     OTHER WORK
 			===================================================== -->
 
 			<section
-				id="papers"
-				class="papers-section reveal-section"
-				aria-label="Papers de tecnología"
+				class="other-work-section reveal-section"
+				aria-labelledby="other-work-heading"
 			>
 
-				<div class="papers-list">
-
-					{
-						papers.map((paper) => (
-
-							<article class="paper-row reveal-item">
-
-								<div class="paper-meta">
-
-									<p class="paper-status">
-										{paper.status}
-									</p>
+				<h2
+					id="other-work-heading"
+					class="other-work-heading reveal-item"
+				>
+					Otros trabajos
+				</h2>
 
 
-									<p class="paper-date">
-										{paper.date}
-									</p>
+				<article
+					class="other-work-item reveal-item reveal-delay-1"
+				>
 
-								</div>
+					<div class="other-work-cover-wrapper">
 
+						<div class="other-work-cover-link">
 
-								<div class="paper-content">
+							<img
+								src="/images/book-cover.jpg"
+								alt="Portada de A Theory of Minimal Tolerance"
+								class="other-work-cover animated-book-cover"
+								loading="lazy"
+							/>
 
-									<p class="books-page-label">
-										Paper
-									</p>
+						</div>
 
-
-									<h2 class="paper-title">
-										{paper.title}
-									</h2>
-
-
-									<p class="paper-subtitle">
-										{paper.subtitle}
-									</p>
+					</div>
 
 
-									<p class="paper-description">
-										{paper.description}
-									</p>
+					<div class="other-work-content">
 
-								</div>
+						<p class="books-page-label">
+							Próximo Libro
+						</p>
 
-							</article>
 
-						))
-					}
+						<h2 class="other-work-title">
+							A Theory of Minimal Tolerance
+						</h2>
 
-				</div>
+
+						<p class="other-work-description">
+							Un trabajo sobre libertad, coerción, incentivos,
+							instituciones y los límites que deberían restringir
+							el poder político. Desarrolla un marco para examinar
+							las condiciones bajo las cuales la coerción estatal
+							puede ser tolerada.
+						</p>
+
+					</div>
+
+				</article>
 
 			</section>
 
