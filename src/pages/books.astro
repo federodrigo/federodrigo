@@ -30,43 +30,11 @@ const featuredPaper = {
 
 		<style>
 			/* =========================================================
-			   PAGE
+			   BOOKS PAGE
 			========================================================= */
 
 			.books-index-page {
 				padding-top: 46px;
-			}
-
-
-			/* =========================================================
-			   SHARED LABELS
-			   Keep original books-page-label styling/color/font.
-			   Only normalize size and spacing.
-			========================================================= */
-
-			.books-index-page .books-page-content > .books-page-label,
-			.research-content > .books-page-label,
-			.other-work-content > .books-page-label {
-				margin: 0 0 0.8rem;
-
-				font-size: 0.97rem;
-				line-height: 1.2;
-			}
-
-
-			/* =========================================================
-			   SHARED TITLES
-			========================================================= */
-
-			.books-index-page .books-page-content h2,
-			.research-title,
-			.other-work-title {
-				margin: 0;
-
-				font-size: clamp(1.45rem, 2.4vw, 2.05rem);
-				font-weight: 700;
-				line-height: 1.08;
-				letter-spacing: -0.035em;
 			}
 
 
@@ -87,22 +55,26 @@ const featuredPaper = {
 
 
 			/* =========================================================
-			   FEATURED RESEARCH
+			   CONTENT SECTIONS
+			   Same spacing system as CIO book page
 			========================================================= */
 
-			.featured-research {
-				width: 100%;
-
+			.books-index-page .books-page-other {
 				margin-top: var(--divider-space-before);
+				margin-bottom: 0;
+
 				padding-top: var(--divider-space-after);
 				padding-bottom: 0;
 
 				border-top: 1px solid var(--line);
-
-				scroll-margin-top: 8rem;
 			}
 
-			.featured-research-grid {
+
+			/* =========================================================
+			   RESEARCH
+			========================================================= */
+
+			.research-grid {
 				display: grid;
 
 				grid-template-columns:
@@ -141,25 +113,19 @@ const featuredPaper = {
 				opacity: 0.58;
 			}
 
-			.research-subtitle {
+			/*
+				The content itself uses books-page-content,
+				so label, title, paragraphs, font family,
+				font sizes and spacing come from the same
+				system as the featured book.
+			*/
+
+			.research-content .books-page-subtitle {
 				max-width: 800px;
-
-				margin: 0.85rem 0 0;
-
-				font-size: clamp(1rem, 1.4vw, 1.12rem);
-				font-weight: 580;
-				line-height: 1.48;
 			}
 
 			.research-description {
 				max-width: 780px;
-
-				margin: 1rem 0 0;
-
-				font-size: 0.94rem;
-				line-height: 1.65;
-
-				opacity: 0.66;
 			}
 
 
@@ -167,26 +133,15 @@ const featuredPaper = {
 			   OTHER WORK
 			========================================================= */
 
-			.other-work-section {
-				width: 100%;
-
-				margin-top: var(--divider-space-before);
-				padding-top: var(--divider-space-after);
-				padding-bottom: 0;
-
-				border-top: 1px solid var(--line);
-			}
-
 			.other-work-heading {
-				margin: 0 0 34px;
-
-				font-size: clamp(1.55rem, 2.5vw, 2rem);
-				font-weight: 700;
-				line-height: 1.08;
-				letter-spacing: -0.035em;
+				margin-bottom: 22px;
 			}
 
-			.other-work-item {
+			.other-work-heading h2 {
+				margin-bottom: 0;
+			}
+
+			.other-work-grid {
 				display: grid;
 
 				grid-template-columns:
@@ -199,6 +154,8 @@ const featuredPaper = {
 			}
 
 			.other-work-cover-wrapper {
+				position: relative;
+
 				width: 140px;
 			}
 
@@ -206,6 +163,8 @@ const featuredPaper = {
 				display: block;
 
 				width: 140px;
+
+				cursor: default;
 			}
 
 			.other-work-cover {
@@ -222,15 +181,26 @@ const featuredPaper = {
 				min-width: 0;
 			}
 
-			.other-work-description {
-				max-width: 680px;
+			.other-work-content > p {
+				max-width: 740px;
+			}
 
-				margin: 1rem 0 0;
+			.books-page-cover-static {
+				cursor: default;
+			}
 
-				font-size: 0.94rem;
-				line-height: 1.65;
+			.coming-soon {
+				display: inline-block;
 
-				opacity: 0.66;
+				color: #6d9fdd;
+
+				font-family: inherit;
+				font-size: var(--cta-size);
+				font-weight: var(--cta-weight);
+				line-height: 1.3;
+
+				letter-spacing: normal;
+				text-transform: none;
 			}
 
 
@@ -239,7 +209,7 @@ const featuredPaper = {
 			========================================================= */
 
 			@media (max-width: 850px) {
-				.featured-research-grid {
+				.research-grid {
 					grid-template-columns: 1fr;
 
 					gap: 1.2rem;
@@ -291,29 +261,9 @@ const featuredPaper = {
 					border-radius: 8px;
 				}
 
-
-				/* Shared labels */
-
-				.books-index-page .books-page-content > .books-page-label,
-				.research-content > .books-page-label,
-				.other-work-content > .books-page-label {
-					margin: 0 0 0.8rem;
-
-					font-size: 0.94rem;
-					line-height: 1.2;
+				.books-index-page .books-page-content h2 {
+					font-size: 1.55rem;
 				}
-
-
-				/* Shared titles */
-
-				.books-index-page .books-page-content h2,
-				.research-title,
-				.other-work-title {
-					font-size: 1.45rem;
-				}
-
-
-				/* Featured Book */
 
 				.books-index-page .books-page-subtitle {
 					margin-bottom: 18px;
@@ -321,7 +271,7 @@ const featuredPaper = {
 					font-size: 0.92rem;
 				}
 
-				.books-index-page .books-page-content > p:not(.books-page-label) {
+				.books-index-page .books-page-content > p {
 					margin-bottom: 15px;
 
 					font-size: 0.94rem;
@@ -337,39 +287,30 @@ const featuredPaper = {
 				}
 
 
-				/* Research */
+				/* CONTENT SECTIONS */
 
-				.featured-research {
+				.books-index-page .books-page-other {
 					margin-top: var(--divider-space-mobile);
 
 					padding-top: var(--divider-space-mobile);
-				}
-
-				.research-subtitle {
-					font-size: 1rem;
-				}
-
-				.research-description {
-					font-size: 0.94rem;
-					line-height: 1.58;
+					padding-bottom: 0;
 				}
 
 
-				/* Other Work */
+				/* RESEARCH */
 
-				.other-work-section {
-					margin-top: var(--divider-space-mobile);
-
-					padding-top: var(--divider-space-mobile);
+				.research-grid {
+					gap: 1.2rem;
 				}
+
+
+				/* OTHER WORK */
 
 				.other-work-heading {
-					margin-bottom: 28px;
-
-					font-size: 1.55rem;
+					margin-bottom: 20px;
 				}
 
-				.other-work-item {
+				.other-work-grid {
 					grid-template-columns:
 						100px
 						minmax(0, 1fr);
@@ -382,11 +323,6 @@ const featuredPaper = {
 				.other-work-cover {
 					width: 100px;
 				}
-
-				.other-work-description {
-					font-size: 0.94rem;
-					line-height: 1.58;
-				}
 			}
 
 
@@ -395,7 +331,7 @@ const featuredPaper = {
 			========================================================= */
 
 			@media (max-width: 480px) {
-				.other-work-item {
+				.other-work-grid {
 					grid-template-columns: 1fr;
 
 					gap: 20px;
@@ -469,27 +405,31 @@ const featuredPaper = {
 
 
 					<p>
-						This is the book <strong>I wish I had</strong> when I began
-						my leadership journey
+						This is the book
+						<strong>I wish I had</strong>
+						when I began my leadership journey
 					</p>
 
 
 					<p>
 						The CIO role is not about managing systems.
-						<em>There shouldn’t be an “I” in CIO.</em> It is about
-						leading people, shaping strategy, influencing the business,
-						and turning technology into a competitive advantage
+						<em>There shouldn’t be an “I” in CIO.</em>
+						It is about leading people, shaping strategy,
+						influencing the business, and turning technology
+						into a competitive advantage
 					</p>
 
 
 					<p>
-						<strong>This is not a textbook.</strong> It is a practical
-						field guide for current and aspiring technology leaders
+						<strong>This is not a textbook.</strong>
+						It is a practical field guide for current
+						and aspiring technology leaders
 					</p>
 
 
 					<p class="books-page-closing">
-						If you are here to maintain the status quo, turn back now
+						If you are here to maintain the status quo,
+						turn back now
 					</p>
 
 
@@ -551,18 +491,17 @@ const featuredPaper = {
 
 			<section
 				id="research"
-				class="featured-research reveal-section"
-				aria-labelledby="featured-research-title"
+				class="books-page-other reveal-section"
+				aria-labelledby="research-title"
 			>
 
-				<div class="featured-research-grid">
+				<div class="research-grid">
 
 					<div class="research-meta reveal-item">
 
 						<p class="research-status">
 							{featuredPaper.status}
 						</p>
-
 
 						<p class="research-date">
 							{featuredPaper.date}
@@ -572,7 +511,7 @@ const featuredPaper = {
 
 
 					<div
-						class="research-content reveal-item reveal-delay-1"
+						class="books-page-content research-content reveal-item reveal-delay-1"
 					>
 
 						<p class="books-page-label">
@@ -580,15 +519,12 @@ const featuredPaper = {
 						</p>
 
 
-						<h2
-							id="featured-research-title"
-							class="research-title"
-						>
+						<h2 id="research-title">
 							{featuredPaper.title}
 						</h2>
 
 
-						<p class="research-subtitle">
+						<p class="books-page-subtitle">
 							{featuredPaper.subtitle}
 						</p>
 
@@ -609,25 +545,29 @@ const featuredPaper = {
 			===================================================== -->
 
 			<section
-				class="other-work-section reveal-section"
-				aria-labelledby="other-work-heading"
+				id="other-work"
+				class="books-page-other reveal-section"
+				aria-labelledby="other-work-title"
 			>
 
-				<h2
-					id="other-work-heading"
-					class="other-work-heading reveal-item"
-				>
-					Other Work
-				</h2>
+				<div class="other-work-heading reveal-item">
+
+					<h2 id="other-work-title">
+						Other Work
+					</h2>
+
+				</div>
 
 
-				<article
-					class="other-work-item reveal-item reveal-delay-1"
+				<div
+					class="other-work-grid reveal-item reveal-delay-1"
 				>
 
 					<div class="other-work-cover-wrapper">
 
-						<div class="other-work-cover-link">
+						<div
+							class="other-work-cover-link books-page-cover-static"
+						>
 
 							<img
 								src="/images/book-cover.jpg"
@@ -641,29 +581,43 @@ const featuredPaper = {
 					</div>
 
 
-					<div class="other-work-content">
+					<div class="books-page-content other-work-content">
 
 						<p class="books-page-label">
 							Forthcoming Book
 						</p>
 
 
-						<h2 class="other-work-title">
+						<h2>
 							A Theory of Minimal Tolerance
 						</h2>
 
 
-						<p class="other-work-description">
+						<p>
 							A work exploring freedom, coercion, incentives,
 							institutions, and the limits that should constrain
-							political power. It develops a framework for examining
-							the conditions under which state coercion may be
-							tolerated.
+							political power
+						</p>
+
+
+						<p>
+							It develops a practical framework for examining
+							the conditions under which state coercion may
+							be tolerated
+						</p>
+
+
+						<p class="books-page-action">
+
+							<span class="coming-soon">
+								Coming Soon
+							</span>
+
 						</p>
 
 					</div>
 
-				</article>
+				</div>
 
 			</section>
 
@@ -680,6 +634,7 @@ const featuredPaper = {
 		<script>
 			const sections =
 				document.querySelectorAll('.reveal-section');
+
 
 			if ('IntersectionObserver' in window) {
 
