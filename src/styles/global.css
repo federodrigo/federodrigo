@@ -1016,7 +1016,7 @@ img {
 
 
 /* TEDx card: fixed breathing room; only the logo scales on hover */
-.media-image-wrapper:has(.media-image[src="/images/TEDx-Logo-clean.png"]) {
+.media-image-wrapper:has(.media-image[src="/images/TEDx-Logo-v2.png"]) {
 	display: flex;
 	align-items: center;
 	width: 100%;
@@ -1024,7 +1024,7 @@ img {
 	overflow: visible;
 }
 
-.media-image-wrapper:has(.media-image[src="/images/TEDx-Logo-clean.png"]) > a {
+.media-image-wrapper:has(.media-image[src="/images/TEDx-Logo-v2.png"]) > a {
 	display: flex;
 	align-items: center;
 	width: 230px;
@@ -1033,7 +1033,7 @@ img {
 	border-bottom: 0;
 }
 
-.media-image[src="/images/TEDx-Logo-clean.png"] {
+.media-image[src="/images/TEDx-Logo-v2.png"] {
 	display: block;
 	width: 230px;
 	max-width: 100%;
@@ -1609,7 +1609,7 @@ img {
 	box-shadow: 0 20px 42px rgba(16, 42, 67, 0.15);
 }
 
-.media-item:hover .media-image[src="/images/TEDx-Logo-clean.png"] {
+.media-item:hover .media-image[src="/images/TEDx-Logo-v2.png"] {
 	transform: scale(1.04);
 	box-shadow: none;
 }
