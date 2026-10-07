@@ -28,14 +28,35 @@ import Footer from '../components/Footer.astro';
 			}
 
 			.home-hero {
+				max-width: 100%;
+				margin-inline: auto;
 				padding-bottom: 0;
 				border-bottom: 0;
+				text-align: center;
+			}
+
+			.home-hero .hero-title {
+				max-width: 100%;
+				margin-inline: auto;
+				text-align: center;
+			}
+
+			.home-hero .hero-line:nth-child(2) {
+				animation-delay: 110ms;
+			}
+
+			.home-hero .hero-line:nth-child(3) {
+				animation-delay: 220ms;
+			}
+
+			.home-hero .lead-principles {
+				text-align: center;
 			}
 
 			.home-rotating-word {
 				display: inline-block;
 				position: relative;
-				color: #2563eb;
+				color: #334155;
 				transition: color 180ms ease;
 			}
 
@@ -413,7 +434,11 @@ import Footer from '../components/Footer.astro';
 					aria-label="Technology is never the starting point"
 				>
 					<span class="hero-line" aria-hidden="true">
-						<span class="home-rotating-word" data-rotating-tech>Technology</span> is <span class="accent">never</span>
+						<span class="home-rotating-word" data-rotating-tech>Technology</span>
+					</span>
+
+					<span class="hero-line" aria-hidden="true">
+						is <span class="accent">never</span>
 					</span>
 
 					<span class="hero-line" aria-hidden="true">
@@ -677,10 +702,10 @@ import Footer from '../components/Footer.astro';
 				!window.matchMedia('(prefers-reduced-motion: reduce)').matches
 			) {
 				const words = [
-					{ label: 'Technology', color: '#2563eb' },
+					{ label: 'Technology', color: '#334155' },
 					{ label: 'AI', color: '#7c3aed' },
 					{ label: 'Data', color: '#0f766e' },
-					{ label: 'Cloud', color: '#0284c7' },
+					{ label: 'Cloud', color: '#c53030' },
 					{ label: 'ERP', color: '#b45309' }
 				];
 				const typeDelay = 95;
