@@ -160,31 +160,29 @@ const mediaItems: MediaItem[] = [
 				white-space: nowrap;
 			}
 
-			.speaking-rotating-word {
-				display: inline-block;
-				position: relative;
+			.speaking-hero-accent,
+			.speaking-never {
 				color: #6fa7ef;
-				transition: color 180ms ease;
 			}
 
-			.speaking-rotating-word::after {
-				content: '';
+			.speaking-hero-accent {
 				display: inline-block;
-				width: 0.07em;
-				height: 0.82em;
-				margin-left: 0.07em;
-				vertical-align: -0.02em;
-				background: currentColor;
-				animation: speaking-type-cursor 760ms step-end infinite;
+				opacity: 0;
+				transform: translateY(6px);
+
+				animation:
+					speaking-accent-reveal
+					520ms
+					ease
+					720ms
+					forwards;
 			}
 
-			.speaking-hero-title .hero-line:nth-child(3) {
-				animation-delay: 220ms;
-			}
-
-			@keyframes speaking-type-cursor {
-				0%, 48% { opacity: 1; }
-				49%, 100% { opacity: 0; }
+			@keyframes speaking-accent-reveal {
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
 			}
 
 
@@ -513,8 +511,9 @@ const mediaItems: MediaItem[] = [
 			========================================================= */
 
 			@media (prefers-reduced-motion: reduce) {
-				.speaking-rotating-word::after {
-					display: none;
+				.speaking-hero-accent {
+					opacity: 1;
+					transform: none;
 					animation: none;
 				}
 
@@ -532,21 +531,20 @@ const mediaItems: MediaItem[] = [
 		<main class="speaking-page">
 
 			<section class="hero speaking-hero">
-				<h1
-					class="hero-title speaking-hero-title"
-					aria-label="Technology is never the starting point"
-				>
+				<h1 class="hero-title speaking-hero-title">
 
-					<span class="hero-line" aria-hidden="true">
-						<span class="speaking-rotating-word" data-speaking-rotating>Technology</span>
+					<span class="hero-line">
+						What if your next technology
 					</span>
 
-					<span class="hero-line" aria-hidden="true">
-						is never the
+					<span class="hero-line">
+						decision started with
 					</span>
 
-					<span class="hero-line" aria-hidden="true">
-						starting point
+					<span class="hero-line">
+						<span class="speaking-hero-accent">
+							no technology at all?
+						</span>
 					</span>
 
 				</h1>
@@ -666,8 +664,17 @@ const mediaItems: MediaItem[] = [
 
 			<section
 				class="speaking-closing reveal-section"
-				aria-label="Research behind the speaking work"
+				aria-labelledby="speaking-closing-title"
 			>
+				<h2
+					id="speaking-closing-title"
+					class="speaking-closing-title reveal-item"
+				>
+					Technology is
+					<span class="speaking-never">never</span>
+					the starting point
+				</h2>
+
 				<p class="speaking-research-note reveal-item reveal-delay-1">
 					Speaking built on my research paper
 					<a href="/books/#research"><em>When Fixes Become the System</em></a>.
@@ -911,67 +918,6 @@ const mediaItems: MediaItem[] = [
 
 
 		<Footer />
-
-
-		<script>
-			const speakingRotatingWord =
-				document.querySelector('[data-speaking-rotating]');
-
-			if (
-				speakingRotatingWord &&
-				!window.matchMedia('(prefers-reduced-motion: reduce)').matches
-			) {
-				const words = [
-					{ label: 'Technology', color: '#6fa7ef' },
-					{ label: 'AI', color: '#7c3aed' },
-					{ label: 'Data', color: '#0f766e' },
-					{ label: 'Cloud', color: '#c53030' },
-					{ label: 'ERP', color: '#b45309' }
-				];
-				const typeDelay = 95;
-				const deleteDelay = 55;
-				const holdDelay = 1800;
-				const gapDelay = 260;
-
-				let wordIndex = 0;
-				let characterIndex = words[0].label.length;
-				let deleting = true;
-
-				const step = () => {
-					const word = words[wordIndex].label;
-
-					if (deleting) {
-						characterIndex = Math.max(0, characterIndex - 1);
-						speakingRotatingWord.textContent = word.slice(0, characterIndex);
-
-						if (characterIndex === 0) {
-							wordIndex = (wordIndex + 1) % words.length;
-							speakingRotatingWord.style.color = words[wordIndex].color;
-							deleting = false;
-							window.setTimeout(step, gapDelay);
-							return;
-						}
-
-						window.setTimeout(step, deleteDelay);
-						return;
-					}
-
-					const nextWord = words[wordIndex].label;
-					characterIndex = Math.min(nextWord.length, characterIndex + 1);
-					speakingRotatingWord.textContent = nextWord.slice(0, characterIndex);
-
-					if (characterIndex === nextWord.length) {
-						deleting = true;
-						window.setTimeout(step, holdDelay);
-						return;
-					}
-
-					window.setTimeout(step, typeDelay);
-				};
-
-				window.setTimeout(step, holdDelay);
-			}
-		</script>
 
 
 		<script>
