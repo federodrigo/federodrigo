@@ -28,59 +28,8 @@ import Footer from '../components/Footer.astro';
 			}
 
 			.home-hero {
-				max-width: 100%;
-				margin-inline: auto;
 				padding-bottom: 0;
 				border-bottom: 0;
-				text-align: center;
-			}
-
-			.home-hero .hero-title {
-				max-width: 100%;
-				margin-inline: auto;
-				text-align: center;
-			}
-
-			.home-hero .hero-line:nth-child(2) {
-				animation-delay: 110ms;
-			}
-
-			.home-hero .hero-line:nth-child(3) {
-				animation-delay: 220ms;
-			}
-
-			.home-hero .lead-principles {
-				text-align: center;
-			}
-
-			.home-rotating-word {
-				display: inline-block;
-				position: relative;
-				color: #60a5fa;
-				transition: color 180ms ease;
-			}
-
-			.home-rotating-word::after {
-				content: '';
-				display: inline-block;
-				width: 0.07em;
-				height: 0.82em;
-				margin-left: 0.07em;
-				vertical-align: -0.02em;
-				background: currentColor;
-				animation: home-type-cursor 760ms step-end infinite;
-			}
-
-			@keyframes home-type-cursor {
-				0%, 48% { opacity: 1; }
-				49%, 100% { opacity: 0; }
-			}
-
-			@media (prefers-reduced-motion: reduce) {
-				.home-rotating-word::after {
-					display: none;
-					animation: none;
-				}
 			}
 
 			.home-feature {
@@ -429,20 +378,13 @@ import Footer from '../components/Footer.astro';
 		<main class="home-main">
 
 			<section class="hero home-hero">
-				<h1
-					class="hero-title"
-					aria-label="Technology is never the starting point"
-				>
-					<span class="hero-line" aria-hidden="true">
-						<span class="home-rotating-word" data-rotating-tech>Technology</span>
+				<h1 class="hero-title">
+					<span class="hero-line">
+						Technology is <span class="accent">never</span>
 					</span>
 
-					<span class="hero-line" aria-hidden="true">
-						is never the
-					</span>
-
-					<span class="hero-line" aria-hidden="true">
-						starting point
+					<span class="hero-line">
+						the starting point
 					</span>
 				</h1>
 
@@ -691,67 +633,6 @@ import Footer from '../components/Footer.astro';
 		</main>
 
 		<Footer />
-
-
-		<script>
-			const rotatingTechnology =
-				document.querySelector('[data-rotating-tech]');
-
-			if (
-				rotatingTechnology &&
-				!window.matchMedia('(prefers-reduced-motion: reduce)').matches
-			) {
-				const words = [
-					{ label: 'Technology', color: '#60a5fa' },
-					{ label: 'AI', color: '#7c3aed' },
-					{ label: 'Data', color: '#0f766e' },
-					{ label: 'Cloud', color: '#c53030' },
-					{ label: 'ERP', color: '#b45309' }
-				];
-				const typeDelay = 95;
-				const deleteDelay = 55;
-				const holdDelay = 1800;
-				const gapDelay = 260;
-
-				let wordIndex = 0;
-				let characterIndex = words[0].label.length;
-				let deleting = true;
-
-				const step = () => {
-					const word = words[wordIndex].label;
-
-					if (deleting) {
-						characterIndex = Math.max(0, characterIndex - 1);
-						rotatingTechnology.textContent = word.slice(0, characterIndex);
-
-						if (characterIndex === 0) {
-							wordIndex = (wordIndex + 1) % words.length;
-							rotatingTechnology.style.color = words[wordIndex].color;
-							deleting = false;
-							window.setTimeout(step, gapDelay);
-							return;
-						}
-
-						window.setTimeout(step, deleteDelay);
-						return;
-					}
-
-					const nextWord = words[wordIndex].label;
-					characterIndex = Math.min(nextWord.length, characterIndex + 1);
-					rotatingTechnology.textContent = nextWord.slice(0, characterIndex);
-
-					if (characterIndex === nextWord.length) {
-						deleting = true;
-						window.setTimeout(step, holdDelay);
-						return;
-					}
-
-					window.setTimeout(step, typeDelay);
-				};
-
-				window.setTimeout(step, holdDelay);
-			}
-		</script>
 
 
 		<script>
