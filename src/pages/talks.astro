@@ -186,8 +186,21 @@ const youtubeEmbedUrl =
 			}
 
 			.talks-research-note a {
+				display: block;
+				width: fit-content;
 				color: #102b46;
 				text-decoration: none;
+				border-bottom: 0;
+				white-space: nowrap;
+			}
+
+			.talks-research-note a em {
+				color: inherit;
+			}
+
+			.talks-research-note a:hover {
+				color: var(--blue);
+				border-bottom: 0;
 			}
 
 
@@ -588,8 +601,8 @@ const youtubeEmbedUrl =
 						</p>
 
 						<p class="talks-research-note">
-							Based on my research paper
-							<a href="/books/#research"><em>When Fixes Become the System</em></a>.
+							<span>Based on my research paper</span>
+							<a href="/books/#research"><em>When Fixes Become the System</em></a>
 						</p>
 					</div>
 
