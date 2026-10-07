@@ -92,6 +92,16 @@ import Footer from '../../components/Footer.astro';
 				display: none;
 			}
 
+			#speaking .books-page-content h2 {
+				max-width: 900px;
+				text-wrap: balance;
+			}
+
+			#speaking .books-page-content
+				> p:not(.books-page-subtitle):not(.books-page-action) {
+				max-width: 820px;
+			}
+
 
 			/* =========================================================
 			   FEATURE TEXT
@@ -168,6 +178,10 @@ import Footer from '../../components/Footer.astro';
 				border: 0;
 				border-radius: 0;
 				background: transparent;
+
+				/* El artwork tiene un canvas blanco; multiply deja que
+				   se vea el fondo real de la página en lugar de una caja blanca. */
+				mix-blend-mode: multiply;
 			}
 
 
@@ -403,7 +417,7 @@ import Footer from '../../components/Footer.astro';
 						class="books-page-content reveal-item reveal-delay-2"
 					>
 						<h2 id="home-speaking-title">
-							¿Y si tu próxima decisión tecnológica empezara sin tecnología?
+							¿Y si tu próxima decisión tecnológica empezara con… nada de tecnología?
 						</h2>
 
 						<p>
