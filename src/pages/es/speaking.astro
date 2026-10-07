@@ -450,32 +450,23 @@ const mediaItems: MediaItem[] = [
 
 			.speaking-thesis-intro-inner {
 				width: 100%;
-				max-width: 820px;
+				max-width: 1000px;
 				margin: 0 auto;
 				text-align: center;
 			}
 
 			.speaking-thesis-statement {
-				max-width: 820px;
+				max-width: 1000px;
 				margin: 0 auto;
 			}
 
-			.speaking-thesis-lead,
-			.speaking-thesis-counter {
+			.speaking-thesis-lead {
 				margin: 0;
 				color: #102b46;
+				font-size: clamp(1.25rem, 1.8vw, 1.5rem);
 				font-weight: 700;
+				line-height: 1.42;
 				letter-spacing: -0.035em;
-			}
-
-			.speaking-thesis-lead,
-			.speaking-thesis-counter {
-				font-size: clamp(1.3rem, 1.9vw, 1.58rem);
-				line-height: 1.38;
-			}
-
-			.speaking-thesis-counter {
-				margin-top: 16px;
 			}
 
 			.speaking-thesis-research {
@@ -572,14 +563,9 @@ const mediaItems: MediaItem[] = [
 					margin-top: 24px;
 				}
 
-				.speaking-thesis-lead,
-				.speaking-thesis-counter {
-					font-size: 1.15rem;
-					line-height: 1.42;
-				}
-
-				.speaking-thesis-counter {
-					margin-top: 12px;
+				.speaking-thesis-lead {
+					font-size: 1.12rem;
+					line-height: 1.44;
 				}
 
 				.speaking-thesis-research {
@@ -867,12 +853,7 @@ const mediaItems: MediaItem[] = [
 
 					<div class="speaking-thesis-statement reveal-item">
 						<p class="speaking-thesis-lead">
-							Las decisiones tecnológicas más peligrosas no siempre
-							son las que fracasan
-						</p>
-
-						<p class="speaking-thesis-counter">
-							A veces, son las que funcionan
+							Las decisiones tecnológicas más peligrosas no siempre son las que fracasan. A veces, son las que funcionan.
 						</p>
 					</div>
 
