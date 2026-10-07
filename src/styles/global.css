@@ -1971,6 +1971,14 @@ img {
 		width: 100%;
 	}
 
+	.media-image-wrapper:has(.media-image[src="/images/TEDx-Logo-v2.png"]) {
+		height: auto;
+	}
+
+	.media-image-wrapper:has(.media-image[src="/images/TEDx-Logo-v2.png"]) > a {
+		height: auto;
+	}
+
 	.media-image {
 		display: block;
 		width: 230px;
