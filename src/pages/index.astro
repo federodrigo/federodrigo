@@ -32,6 +32,34 @@ import Footer from '../components/Footer.astro';
 				border-bottom: 0;
 			}
 
+			.home-rotating-word {
+				display: inline-block;
+				position: relative;
+			}
+
+			.home-rotating-word::after {
+				content: '';
+				display: inline-block;
+				width: 0.07em;
+				height: 0.82em;
+				margin-left: 0.07em;
+				vertical-align: -0.02em;
+				background: #60a5fa;
+				animation: home-type-cursor 760ms step-end infinite;
+			}
+
+			@keyframes home-type-cursor {
+				0%, 48% { opacity: 1; }
+				49%, 100% { opacity: 0; }
+			}
+
+			@media (prefers-reduced-motion: reduce) {
+				.home-rotating-word::after {
+					display: none;
+					animation: none;
+				}
+			}
+
 			.home-feature {
 				padding-bottom: 0;
 			}
@@ -378,12 +406,15 @@ import Footer from '../components/Footer.astro';
 		<main class="home-main">
 
 			<section class="hero home-hero">
-				<h1 class="hero-title">
-					<span class="hero-line">
-						Technology is <span class="accent">never</span>
+				<h1
+					class="hero-title"
+					aria-label="Technology is never the starting point"
+				>
+					<span class="hero-line" aria-hidden="true">
+						<span class="home-rotating-word" data-rotating-tech>Technology</span> is <span class="accent">never</span>
 					</span>
 
-					<span class="hero-line">
+					<span class="hero-line" aria-hidden="true">
 						the starting point
 					</span>
 				</h1>
@@ -633,6 +664,60 @@ import Footer from '../components/Footer.astro';
 		</main>
 
 		<Footer />
+
+
+		<script>
+			const rotatingTechnology =
+				document.querySelector('[data-rotating-tech]');
+
+			if (
+				rotatingTechnology &&
+				!window.matchMedia('(prefers-reduced-motion: reduce)').matches
+			) {
+				const words = ['Technology', 'AI', 'Data', 'Cloud', 'ERP'];
+				const typeDelay = 95;
+				const deleteDelay = 55;
+				const holdDelay = 1800;
+				const gapDelay = 260;
+
+				let wordIndex = 0;
+				let characterIndex = words[0].length;
+				let deleting = true;
+
+				const step = () => {
+					const word = words[wordIndex];
+
+					if (deleting) {
+						characterIndex = Math.max(0, characterIndex - 1);
+						rotatingTechnology.textContent = word.slice(0, characterIndex);
+
+						if (characterIndex === 0) {
+							wordIndex = (wordIndex + 1) % words.length;
+							deleting = false;
+							window.setTimeout(step, gapDelay);
+							return;
+						}
+
+						window.setTimeout(step, deleteDelay);
+						return;
+					}
+
+					const nextWord = words[wordIndex];
+					characterIndex = Math.min(nextWord.length, characterIndex + 1);
+					rotatingTechnology.textContent = nextWord.slice(0, characterIndex);
+
+					if (characterIndex === nextWord.length) {
+						deleting = true;
+						window.setTimeout(step, holdDelay);
+						return;
+					}
+
+					window.setTimeout(step, typeDelay);
+				};
+
+				window.setTimeout(step, holdDelay);
+			}
+		</script>
 
 
 		<script>
