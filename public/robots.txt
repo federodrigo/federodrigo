@@ -2,4 +2,4 @@ User-agent: *
 
 Allow: /
 
-Sitemap: https://federodrigo.com/sitemap.xml
+Sitemap: https://federodrigo.com/sitemap-index.xml
