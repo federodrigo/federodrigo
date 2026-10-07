@@ -505,10 +505,12 @@ const mediaItems: MediaItem[] = [
 				text-decoration: none;
 				border-bottom: 0;
 				white-space: nowrap;
+				transition: color 180ms ease;
 			}
 
-			.speaking-thesis-research a:hover {
-				color: var(--blue);
+			.speaking-thesis-research a:hover,
+			.speaking-thesis-research a:focus-visible {
+				color: #6fa7ef;
 				border-bottom: 0;
 			}
 
