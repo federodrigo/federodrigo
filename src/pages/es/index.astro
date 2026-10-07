@@ -153,6 +153,13 @@ import Footer from '../../components/Footer.astro';
 
 				border: 0;
 				text-decoration: none;
+
+				transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+			}
+
+			.speaking-cover-link:hover {
+				transform: translateY(-4px) scale(1.015);
+				border-bottom: 0;
 			}
 
 			.speaking-cover-frame {
@@ -404,7 +411,7 @@ import Footer from '../../components/Footer.astro';
 								<img
 									src="/images/speaking-cover-es.png"
 									alt="Imagen sobre decisiones tecnológicas que comienzan sin tecnología"
-									class="speaking-cover-image animated-image"
+									class="speaking-cover-image"
 								/>
 							</div>
 						</a>
