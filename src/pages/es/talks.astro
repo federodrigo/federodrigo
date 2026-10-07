@@ -186,8 +186,21 @@ const youtubeEmbedUrl =
 			}
 
 			.talks-research-note a {
+				display: block;
+				width: fit-content;
 				color: #102b46;
 				text-decoration: none;
+				border-bottom: 0;
+				white-space: nowrap;
+			}
+
+			.talks-research-note a em {
+				color: inherit;
+			}
+
+			.talks-research-note a:hover {
+				color: var(--blue);
+				border-bottom: 0;
 			}
 
 
@@ -588,8 +601,8 @@ const youtubeEmbedUrl =
 						</p>
 
 						<p class="talks-research-note">
-							Basado en mi paper
-							<a href="/es/books/#research"><em>Cuando las soluciones se convierten en el sistema</em></a>.
+							<span>Basado en mi paper</span>
+							<a href="/es/books/#research"><em>Cuando los arreglos se convierten en el sistema</em></a>
 						</p>
 					</div>
 
