@@ -96,6 +96,16 @@ import Footer from '../components/Footer.astro';
 				display: none;
 			}
 
+			#speaking .books-page-content h2 {
+				max-width: 900px;
+				text-wrap: balance;
+			}
+
+			#speaking .books-page-content
+				> p:not(.books-page-subtitle):not(.books-page-action) {
+				max-width: 820px;
+			}
+
 
 			/* =========================================================
 			   FEATURE TEXT
@@ -172,6 +182,10 @@ import Footer from '../components/Footer.astro';
 				border: 0;
 				border-radius: 0;
 				background: transparent;
+
+				/* The artwork has a white canvas; multiply lets the site's
+				   own light background show through instead of a white box. */
+				mix-blend-mode: multiply;
 			}
 
 
@@ -407,11 +421,11 @@ import Footer from '../components/Footer.astro';
 						class="books-page-content reveal-item reveal-delay-2"
 					>
 						<h2 id="home-speaking-title">
-							What if your next technology decision started without technology?
+							What if your next technology decision started with… no technology at all?
 						</h2>
 
 						<p>
-							Technology-first decisions can work—and still create complexity, dependencies, and lock-in. Start with people and business. Then choose the technology
+							Technology-first decisions can work—and still create complexity, dependencies, and lock-in. Start with people and business. Then choose the technology.
 						</p>
 
 						<p class="books-page-action">
