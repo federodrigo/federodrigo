@@ -444,67 +444,73 @@ const mediaItems: MediaItem[] = [
 			.speaking-thesis-intro {
 				width: 100%;
 				max-width: 1000px;
-				margin: 44px auto 42px;
+				margin: 44px auto 0;
 				padding: 0;
 			}
 
 			.speaking-thesis-intro-inner {
 				display: grid;
-				grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-				align-items: start;
-				gap: 80px;
+				grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+				align-items: center;
+				gap: 72px;
 				width: 100%;
 			}
 
-			.speaking-thesis-lead {
-				max-width: 390px;
+			.speaking-thesis-statement {
+				max-width: 455px;
+			}
+
+			.speaking-thesis-lead,
+			.speaking-thesis-counter {
 				margin: 0;
 				color: #102b46;
-				font-size: clamp(1.35rem, 2vw, 1.7rem);
-				font-weight: 650;
-				line-height: 1.35;
+				font-weight: 700;
 				letter-spacing: -0.035em;
 			}
 
-			.speaking-thesis-response {
-				max-width: 500px;
-				padding-top: 2px;
+			.speaking-thesis-lead {
+				font-size: clamp(1.35rem, 2vw, 1.7rem);
+				line-height: 1.35;
 			}
 
-			.speaking-thesis-description {
-				max-width: 500px;
-				margin: 0;
-				color: #6f7d8f;
-				font-size: clamp(1rem, 1.25vw, 1.12rem);
-				line-height: 1.6;
-				letter-spacing: -0.014em;
-			}
-
-			.speaking-thesis-description strong {
-				display: block;
-				margin-bottom: 8px;
-				color: #102b46;
-				font-size: 1.05em;
-				font-weight: 700;
+			.speaking-thesis-counter {
+				margin-top: 18px;
+				font-size: clamp(1.05rem, 1.5vw, 1.22rem);
 				line-height: 1.4;
 			}
 
+			.speaking-thesis-mechanism {
+				display: flex;
+				align-items: center;
+				justify-content: flex-start;
+				flex-wrap: wrap;
+				gap: 10px 12px;
+				margin: 0;
+				color: #6f7d8f;
+				font-size: clamp(1rem, 1.35vw, 1.12rem);
+				font-weight: 650;
+				line-height: 1.45;
+			}
+
+			.speaking-thesis-arrow {
+				color: #9aa6b2;
+				font-weight: 500;
+			}
+
 			.speaking-thesis-research {
-				max-width: 390px;
-				margin: 14px 0 0;
+				margin: 24px 0 0;
 				color: #8b97a4;
 				font-size: 0.96rem;
 				line-height: 1.5;
 			}
 
 			.speaking-thesis-research a {
-				display: block;
-				width: fit-content;
+				display: inline;
 				color: #102b46;
-				font-size: clamp(0.9rem, 2vw, 0.96rem);
+				font-size: inherit;
+				font-weight: 650;
 				text-decoration: none;
 				border-bottom: 0;
-				white-space: nowrap;
 				transition: color 180ms ease;
 			}
 
@@ -514,18 +520,8 @@ const mediaItems: MediaItem[] = [
 				border-bottom: 0;
 			}
 
-			.speaking-thesis-links {
-				display: flex;
-				align-items: center;
-				flex-wrap: wrap;
-				gap: 24px;
-				margin-top: 22px;
-			}
-
 			.speaking-takeaways {
-				margin-top: 38px;
 				margin-bottom: 0;
-				padding-top: 0;
 				padding-bottom: 0;
 			}
 
@@ -575,18 +571,21 @@ const mediaItems: MediaItem[] = [
 			@media (max-width: 850px) {
 				.speaking-thesis-intro-inner {
 					grid-template-columns: 1fr;
-					gap: 22px;
+					gap: 24px;
 				}
 
 				.speaking-thesis-intro {
 					max-width: 720px;
+				}
+
+				.speaking-thesis-statement {
+					max-width: 620px;
 				}
 			}
 
 			@media (max-width: 720px) {
 				.speaking-thesis-intro {
 					margin-top: 24px;
-					margin-bottom: 28px;
 				}
 
 				.speaking-thesis-intro-inner {
@@ -598,20 +597,18 @@ const mediaItems: MediaItem[] = [
 					line-height: 1.42;
 				}
 
-				.speaking-thesis-description {
+				.speaking-thesis-counter {
+					margin-top: 14px;
+					font-size: 1.05rem;
+				}
+
+				.speaking-thesis-mechanism {
 					font-size: 1rem;
-					line-height: 1.58;
+					gap: 8px 10px;
 				}
 
-				.speaking-thesis-links {
-					flex-direction: column;
-					align-items: flex-start;
-					gap: 10px;
-					margin-top: 18px;
-				}
-
-				.speaking-takeaways {
-					margin-top: 32px;
+				.speaking-thesis-research {
+					margin-top: 20px;
 				}
 
 				.speaking-takeaways > h2 {
@@ -889,54 +886,38 @@ const mediaItems: MediaItem[] = [
 
 				<div class="speaking-thesis-intro-inner">
 
-					<div class="reveal-item">
+					<div class="speaking-thesis-statement reveal-item">
 						<p class="speaking-thesis-lead">
 							The most dangerous technology decisions are not always
 							the ones that fail
 						</p>
 
-						<p class="speaking-thesis-research">
-							<span>Talk built on my research paper</span>
-							<a href="/books/#research"><em>When Fixes Become the System</em></a>
+						<p class="speaking-thesis-counter">
+							Sometimes, they are the ones that work
 						</p>
 					</div>
 
 
-					<div class="speaking-thesis-response reveal-item reveal-delay-1">
-
-						<p class="speaking-thesis-description">
-							<strong>
-								Sometimes, they are the ones that work
-							</strong>
-
-							They get adopted, dependencies grow around them,
-							and eventually the organization is choosing among
-							the options that remain possible
-						</p>
-
-
-						<div class="speaking-thesis-links">
-
-							<a href="/contact/" class="animated-link">
-								<span>Speaking inquiries</span>
-								<span class="animated-link-arrow" aria-hidden="true">→</span>
-							</a>
-
-							<a href="/about/" class="animated-link">
-								<span>About Federico</span>
-							</a>
-
-						</div>
-
-					</div>
+					<p class="speaking-thesis-mechanism reveal-item reveal-delay-1">
+						<span>They get adopted</span>
+						<span class="speaking-thesis-arrow" aria-hidden="true">→</span>
+						<span>Dependencies grow</span>
+						<span class="speaking-thesis-arrow" aria-hidden="true">→</span>
+						<span>Options narrow</span>
+					</p>
 
 				</div>
 
+
+				<p class="speaking-thesis-research reveal-item reveal-delay-1">
+					Based on my research paper
+					<a href="/books/#research"><em>When Fixes Become the System</em></a>
+				</p>
+
 			</section>
 
-
 			<section
-				class="speaking-takeaways reveal-section"
+				class="speaking-takeaways page-divider reveal-section"
 				aria-labelledby="speaking-takeaways-title"
 			>
 
