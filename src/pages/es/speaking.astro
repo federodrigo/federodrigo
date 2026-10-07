@@ -807,8 +807,9 @@ const mediaItems: MediaItem[] = [
 					id="speaking-closing-title"
 					class="speaking-closing-title reveal-item"
 				>
-					<span class="speaking-closing-rotating" data-speaking-closing-rotating>Tecnología</span>
-					nunca es el punto de partida
+					<span data-speaking-closing-article>La</span>
+					<span class="speaking-closing-rotating" data-speaking-closing-rotating>tecnología</span>
+					nunca <span data-speaking-closing-verb>es</span> el punto de partida
 				</h2>
 			</section>
 
@@ -1096,17 +1097,23 @@ const mediaItems: MediaItem[] = [
 		<script>
 			const closingRotatingWord =
 				document.querySelector('[data-speaking-closing-rotating]');
+			const closingArticle =
+				document.querySelector('[data-speaking-closing-article]');
+			const closingVerb =
+				document.querySelector('[data-speaking-closing-verb]');
 
 			if (
 				closingRotatingWord &&
+				closingArticle &&
+				closingVerb &&
 				!window.matchMedia('(prefers-reduced-motion: reduce)').matches
 			) {
 				const words = [
-					{ label: 'Tecnología', color: '#6fa7ef' },
-					{ label: 'AI', color: '#7c3aed' },
-					{ label: 'Data', color: '#0f766e' },
-					{ label: 'Cloud', color: '#c53030' },
-					{ label: 'ERP', color: '#b45309' }
+					{ label: 'tecnología', article: 'La', verb: 'es', color: '#6fa7ef' },
+					{ label: 'IA', article: 'La', verb: 'es', color: '#7c3aed' },
+					{ label: 'datos', article: 'Los', verb: 'son', color: '#0f766e' },
+					{ label: 'nube', article: 'La', verb: 'es', color: '#c53030' },
+					{ label: 'ERP', article: 'El', verb: 'es', color: '#b45309' }
 				];
 				const typeDelay = 125;
 				const deleteDelay = 65;
@@ -1126,6 +1133,8 @@ const mediaItems: MediaItem[] = [
 
 						if (characterIndex === 0) {
 							wordIndex = (wordIndex + 1) % words.length;
+							closingArticle.textContent = words[wordIndex].article;
+							closingVerb.textContent = words[wordIndex].verb;
 							closingRotatingWord.style.color = words[wordIndex].color;
 							deleting = false;
 							window.setTimeout(step, gapDelay);
