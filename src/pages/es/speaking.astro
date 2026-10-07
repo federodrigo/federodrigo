@@ -160,8 +160,7 @@ const mediaItems: MediaItem[] = [
 				white-space: nowrap;
 			}
 
-			.speaking-hero-accent,
-			.speaking-never {
+			.speaking-hero-accent {
 				color: #6fa7ef;
 			}
 
@@ -412,6 +411,28 @@ const mediaItems: MediaItem[] = [
 				display: none;
 			}
 
+			.speaking-closing-rotating {
+				display: inline-block;
+				color: #6fa7ef;
+				transition: color 180ms ease;
+			}
+
+			.speaking-closing-rotating::after {
+				content: '';
+				display: inline-block;
+				width: 0.07em;
+				height: 0.82em;
+				margin-left: 0.07em;
+				vertical-align: -0.02em;
+				background: currentColor;
+				animation: speaking-closing-cursor 760ms step-end infinite;
+			}
+
+			@keyframes speaking-closing-cursor {
+				0%, 48% { opacity: 1; }
+				49%, 100% { opacity: 0; }
+			}
+
 			.speaking-closing-link {
 				max-width: none;
 				margin: 22px 0 0;
@@ -511,6 +532,11 @@ const mediaItems: MediaItem[] = [
 			========================================================= */
 
 			@media (prefers-reduced-motion: reduce) {
+				.speaking-closing-rotating::after {
+					display: none;
+					animation: none;
+				}
+
 				.speaking-hero-accent {
 					opacity: 1;
 					transform: none;
@@ -670,9 +696,8 @@ const mediaItems: MediaItem[] = [
 					id="speaking-closing-title"
 					class="speaking-closing-title reveal-item"
 				>
-					La tecnología
-					<span class="speaking-never">nunca</span>
-					es el punto de partida
+					<span class="speaking-closing-rotating" data-speaking-closing-rotating>Tecnología</span>
+					nunca es el punto de partida
 				</h2>
 
 				<p class="speaking-research-note reveal-item reveal-delay-1">
@@ -918,6 +943,67 @@ const mediaItems: MediaItem[] = [
 
 
 		<Footer />
+
+
+		<script>
+			const closingRotatingWord =
+				document.querySelector('[data-speaking-closing-rotating]');
+
+			if (
+				closingRotatingWord &&
+				!window.matchMedia('(prefers-reduced-motion: reduce)').matches
+			) {
+				const words = [
+					{ label: 'Tecnología', color: '#6fa7ef' },
+					{ label: 'AI', color: '#7c3aed' },
+					{ label: 'Data', color: '#0f766e' },
+					{ label: 'Cloud', color: '#c53030' },
+					{ label: 'ERP', color: '#b45309' }
+				];
+				const typeDelay = 95;
+				const deleteDelay = 55;
+				const holdDelay = 1800;
+				const gapDelay = 260;
+
+				let wordIndex = 0;
+				let characterIndex = words[0].label.length;
+				let deleting = true;
+
+				const step = () => {
+					const word = words[wordIndex].label;
+
+					if (deleting) {
+						characterIndex = Math.max(0, characterIndex - 1);
+						closingRotatingWord.textContent = word.slice(0, characterIndex);
+
+						if (characterIndex === 0) {
+							wordIndex = (wordIndex + 1) % words.length;
+							closingRotatingWord.style.color = words[wordIndex].color;
+							deleting = false;
+							window.setTimeout(step, gapDelay);
+							return;
+						}
+
+						window.setTimeout(step, deleteDelay);
+						return;
+					}
+
+					const nextWord = words[wordIndex].label;
+					characterIndex = Math.min(nextWord.length, characterIndex + 1);
+					closingRotatingWord.textContent = nextWord.slice(0, characterIndex);
+
+					if (characterIndex === nextWord.length) {
+						deleting = true;
+						window.setTimeout(step, holdDelay);
+						return;
+					}
+
+					window.setTimeout(step, typeDelay);
+				};
+
+				window.setTimeout(step, holdDelay);
+			}
+		</script>
 
 
 		<script>
