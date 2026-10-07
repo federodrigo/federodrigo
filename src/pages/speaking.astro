@@ -56,9 +56,6 @@ const mediaItems: MediaItem[] = [
 			'XSeed webinar with Fede Rodrigo',
 		description:
 			'A webinar on technology leadership—why leadership is the job, and why people and the business come before technology',
-		url: '/talks/',
-		linkLabel: 'Explore the talk',
-		internal: true,
 		compactTitle: true,
 	},
 	{
@@ -441,6 +438,216 @@ const mediaItems: MediaItem[] = [
 
 
 			/* =========================================================
+			   TALK THESIS + TAKEAWAYS
+			========================================================= */
+
+			.speaking-thesis-intro {
+				width: 100%;
+				max-width: 1000px;
+				margin: 44px auto 42px;
+				padding: 0;
+			}
+
+			.speaking-thesis-intro-inner {
+				display: grid;
+				grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+				align-items: start;
+				gap: 80px;
+				width: 100%;
+			}
+
+			.speaking-thesis-lead {
+				max-width: 390px;
+				margin: 0;
+				color: #102b46;
+				font-size: clamp(1.35rem, 2vw, 1.7rem);
+				font-weight: 650;
+				line-height: 1.35;
+				letter-spacing: -0.035em;
+			}
+
+			.speaking-thesis-response {
+				max-width: 500px;
+				padding-top: 2px;
+			}
+
+			.speaking-thesis-description {
+				max-width: 500px;
+				margin: 0;
+				color: #6f7d8f;
+				font-size: clamp(1rem, 1.25vw, 1.12rem);
+				line-height: 1.6;
+				letter-spacing: -0.014em;
+			}
+
+			.speaking-thesis-description strong {
+				display: block;
+				margin-bottom: 8px;
+				color: #102b46;
+				font-size: 1.05em;
+				font-weight: 700;
+				line-height: 1.4;
+			}
+
+			.speaking-thesis-research {
+				max-width: 390px;
+				margin: 14px 0 0;
+				color: #8b97a4;
+				font-size: 0.96rem;
+				line-height: 1.5;
+			}
+
+			.speaking-thesis-research a {
+				display: block;
+				width: fit-content;
+				color: #102b46;
+				font-size: clamp(0.9rem, 2vw, 0.96rem);
+				text-decoration: none;
+				border-bottom: 0;
+				white-space: nowrap;
+			}
+
+			.speaking-thesis-research a:hover {
+				color: var(--blue);
+				border-bottom: 0;
+			}
+
+			.speaking-thesis-links {
+				display: flex;
+				align-items: center;
+				flex-wrap: wrap;
+				gap: 24px;
+				margin-top: 22px;
+			}
+
+			.speaking-takeaways {
+				margin-top: 38px;
+				margin-bottom: 0;
+				padding-top: 0;
+				padding-bottom: 0;
+			}
+
+			.speaking-takeaways > h2 {
+				margin-bottom: 28px;
+			}
+
+			.speaking-takeaway {
+				display: grid;
+				grid-template-columns: 150px minmax(0, 1fr);
+				align-items: center;
+				gap: 28px;
+				padding: 30px 0;
+				border-bottom: 1px solid var(--line);
+			}
+
+			.speaking-takeaway:first-of-type {
+				padding-top: 4px;
+			}
+
+			.speaking-takeaway:last-of-type {
+				padding-bottom: 30px;
+				border-bottom: 0;
+			}
+
+			.speaking-takeaway-number {
+				color: var(--navy);
+				font-size: clamp(4rem, 7vw, 6.5rem);
+				font-weight: 700;
+				line-height: 0.9;
+				letter-spacing: -0.06em;
+				opacity: 0.16;
+			}
+
+			.speaking-takeaway .media-content {
+				padding-top: 0;
+			}
+
+			.speaking-takeaway .media-content h3 {
+				margin-bottom: 10px;
+			}
+
+			.speaking-takeaway .media-description {
+				max-width: 690px;
+			}
+
+			@media (max-width: 850px) {
+				.speaking-thesis-intro-inner {
+					grid-template-columns: 1fr;
+					gap: 22px;
+				}
+
+				.speaking-thesis-intro {
+					max-width: 720px;
+				}
+			}
+
+			@media (max-width: 720px) {
+				.speaking-thesis-intro {
+					margin-top: 24px;
+					margin-bottom: 28px;
+				}
+
+				.speaking-thesis-intro-inner {
+					gap: 20px;
+				}
+
+				.speaking-thesis-lead {
+					font-size: 1.2rem;
+					line-height: 1.42;
+				}
+
+				.speaking-thesis-description {
+					font-size: 1rem;
+					line-height: 1.58;
+				}
+
+				.speaking-thesis-links {
+					flex-direction: column;
+					align-items: flex-start;
+					gap: 10px;
+					margin-top: 18px;
+				}
+
+				.speaking-takeaways {
+					margin-top: 32px;
+				}
+
+				.speaking-takeaways > h2 {
+					margin-bottom: 22px;
+				}
+
+				.speaking-takeaway {
+					grid-template-columns: 72px minmax(0, 1fr);
+					align-items: start;
+					gap: 18px;
+					padding: 26px 0;
+				}
+
+				.speaking-takeaway:first-of-type {
+					padding-top: 2px;
+				}
+
+				.speaking-takeaway:last-of-type {
+					padding-bottom: 26px;
+				}
+
+				.speaking-takeaway-number {
+					padding-top: 4px;
+					font-size: 3.4rem;
+				}
+
+				.speaking-takeaway .media-content h3 {
+					font-size: 1.18rem;
+				}
+
+				.speaking-takeaway .media-description {
+					font-size: 0.94rem;
+					line-height: 1.55;
+				}
+			}
+
+
+			/* =========================================================
 			   SELECTED APPEARANCES
 			========================================================= */
 
@@ -578,31 +785,6 @@ const mediaItems: MediaItem[] = [
 
 
 			<section
-				class="speaking-talk-link reveal-section"
-				aria-label="Explore the talk"
-			>
-				<p class="speaking-centered-action reveal-item">
-
-					<a
-						href="/talks/"
-						class="animated-link speaking-centered-link"
-					>
-						<span>Explore the talk</span>
-
-						<span
-							class="animated-link-arrow"
-							aria-hidden="true"
-						>
-							→
-						</span>
-					</a>
-
-				</p>
-
-			</section>
-
-
-			<section
 				class="speaking-showcase reveal-section"
 				aria-label="Speaking presentation slides"
 			>
@@ -699,31 +881,108 @@ const mediaItems: MediaItem[] = [
 					<span class="speaking-closing-rotating" data-speaking-closing-rotating>Technology</span>
 					is never the starting point
 				</h2>
-
-				<p class="speaking-research-note reveal-item reveal-delay-1">
-					Speaking built on my research paper
-					<a href="/books/#research"><em>When Fixes Become the System</em></a>.
-				</p>
-
-				<p
-					class="speaking-closing-link reveal-item reveal-delay-1"
-				>
-					<a
-						href="/talks/"
-						class="animated-link speaking-centered-link"
-					>
-						<span>Explore the talk</span>
-
-						<span
-							class="animated-link-arrow"
-							aria-hidden="true"
-						>
-							→
-						</span>
-					</a>
-				</p>
 			</section>
 
+			<section class="speaking-thesis-intro reveal-section">
+
+				<div class="speaking-thesis-intro-inner">
+
+					<div class="reveal-item">
+						<p class="speaking-thesis-lead">
+							The most dangerous technology decisions are not always
+							the ones that fail
+						</p>
+
+						<p class="speaking-thesis-research">
+							<span>Talk built on my research paper</span>
+							<a href="/books/#research"><em>When Fixes Become the System</em></a>
+						</p>
+					</div>
+
+
+					<div class="speaking-thesis-response reveal-item reveal-delay-1">
+
+						<p class="speaking-thesis-description">
+							<strong>
+								Sometimes, they are the ones that work
+							</strong>
+
+							They get adopted, dependencies grow around them,
+							and eventually the organization is choosing among
+							the options that remain possible
+						</p>
+
+
+						<div class="speaking-thesis-links">
+
+							<a href="/contact/" class="animated-link">
+								<span>Speaking inquiries</span>
+								<span class="animated-link-arrow" aria-hidden="true">→</span>
+							</a>
+
+							<a href="/about/" class="animated-link">
+								<span>About Federico</span>
+							</a>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</section>
+
+
+			<section
+				class="speaking-takeaways reveal-section"
+				aria-labelledby="speaking-takeaways-title"
+			>
+
+				<h2 id="speaking-takeaways-title" class="reveal-item">
+					What You'll Take Away
+				</h2>
+
+
+				<article class="speaking-takeaway reveal-item reveal-delay-1">
+					<div class="speaking-takeaway-number">01</div>
+
+					<div class="media-content">
+						<h3>When a Solution Works, It Can Become the System</h3>
+						<p class="media-description">
+							Why successful fixes and reasonable technology choices can quietly
+							create dependencies that become part of the system itself
+						</p>
+					</div>
+				</article>
+
+
+				<article class="speaking-takeaway reveal-item reveal-delay-2">
+					<div class="speaking-takeaway-number">02</div>
+
+					<div class="media-content">
+						<h3>Lock-In Happens Before Anything Looks Broken</h3>
+						<p class="media-description">
+							How a system can keep working for years while the cost, complexity,
+							and risk of changing it continue to grow — and future options slowly disappear
+						</p>
+					</div>
+				</article>
+
+
+				<article class="speaking-takeaway reveal-item reveal-delay-2">
+					<div class="speaking-takeaway-number">03</div>
+
+					<div class="media-content">
+						<h3>Start With People and the Business Problem</h3>
+						<p class="media-description">
+							Why leaders should keep the decision open long enough to understand
+							the people, the problem, and the outcome before deciding what role
+							technology should play
+						</p>
+					</div>
+				</article>
+
+			</section>
 
 			<section
 				class="media-list page-divider reveal-section"
@@ -915,8 +1174,8 @@ const mediaItems: MediaItem[] = [
 				<div class="reveal-item reveal-delay-1">
 
 					<p>
-						For speaking engagements, podcasts, or other opportunities,
-						please get in touch
+						For conferences, leadership events, executive sessions,
+						podcasts, or other speaking opportunities, please get in touch
 					</p>
 
 					<p class="speaking-inquiry-action">
