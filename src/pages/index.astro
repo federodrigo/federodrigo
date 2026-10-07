@@ -35,6 +35,8 @@ import Footer from '../components/Footer.astro';
 			.home-rotating-word {
 				display: inline-block;
 				position: relative;
+				color: #2563eb;
+				transition: color 180ms ease;
 			}
 
 			.home-rotating-word::after {
@@ -44,7 +46,7 @@ import Footer from '../components/Footer.astro';
 				height: 0.82em;
 				margin-left: 0.07em;
 				vertical-align: -0.02em;
-				background: #60a5fa;
+				background: currentColor;
 				animation: home-type-cursor 760ms step-end infinite;
 			}
 
@@ -674,18 +676,24 @@ import Footer from '../components/Footer.astro';
 				rotatingTechnology &&
 				!window.matchMedia('(prefers-reduced-motion: reduce)').matches
 			) {
-				const words = ['Technology', 'AI', 'Data', 'Cloud', 'ERP'];
+				const words = [
+					{ label: 'Technology', color: '#2563eb' },
+					{ label: 'AI', color: '#7c3aed' },
+					{ label: 'Data', color: '#0f766e' },
+					{ label: 'Cloud', color: '#0284c7' },
+					{ label: 'ERP', color: '#b45309' }
+				];
 				const typeDelay = 95;
 				const deleteDelay = 55;
 				const holdDelay = 1800;
 				const gapDelay = 260;
 
 				let wordIndex = 0;
-				let characterIndex = words[0].length;
+				let characterIndex = words[0].label.length;
 				let deleting = true;
 
 				const step = () => {
-					const word = words[wordIndex];
+					const word = words[wordIndex].label;
 
 					if (deleting) {
 						characterIndex = Math.max(0, characterIndex - 1);
@@ -693,6 +701,7 @@ import Footer from '../components/Footer.astro';
 
 						if (characterIndex === 0) {
 							wordIndex = (wordIndex + 1) % words.length;
+							rotatingTechnology.style.color = words[wordIndex].color;
 							deleting = false;
 							window.setTimeout(step, gapDelay);
 							return;
@@ -702,7 +711,7 @@ import Footer from '../components/Footer.astro';
 						return;
 					}
 
-					const nextWord = words[wordIndex];
+					const nextWord = words[wordIndex].label;
 					characterIndex = Math.min(nextWord.length, characterIndex + 1);
 					rotatingTechnology.textContent = nextWord.slice(0, characterIndex);
 
