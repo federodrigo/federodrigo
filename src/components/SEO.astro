@@ -54,6 +54,44 @@ const canonicalURL = new URL(canonicalPath, siteUrl);
 const englishURL = new URL(englishPath, siteUrl);
 const spanishURL = new URL(spanishPath, siteUrl);
 const imageURL = new URL(image, siteUrl);
+
+const structuredData = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'WebSite',
+			'@id': new URL('/#website', siteUrl).href,
+			url: new URL('/', siteUrl).href,
+			name: 'Fede Rodrigo',
+			description:
+				'Personal website of Fede Rodrigo, Chief Information Officer, author, speaker, and technology leader.',
+			inLanguage: ['en', 'es'],
+			publisher: {
+				'@id': new URL('/#person', siteUrl).href,
+			},
+		},
+		{
+			'@type': 'Person',
+			'@id': new URL('/#person', siteUrl).href,
+			name: 'Fede Rodrigo',
+			url: new URL('/', siteUrl).href,
+			image: new URL('/fede.png', siteUrl).href,
+			jobTitle: 'Chief Information Officer',
+			description:
+				'Chief Information Officer, author, speaker, and technology leader focused on business value, leadership, technology strategy, operational excellence, and transformation.',
+			sameAs: [
+				'https://www.linkedin.com/in/fede-rodrigo/',
+			],
+			knowsAbout: [
+				'Technology strategy',
+				'IT leadership',
+				'Business value',
+				'Digital transformation',
+				'Technology operations',
+			],
+		},
+	],
+};
 ---
 
 <!-- Global metadata -->
@@ -195,3 +233,10 @@ const imageURL = new URL(image, siteUrl);
 	name="twitter:image"
 	content={imageURL}
 />
+
+<!-- Structured data -->
+<script
+	type="application/ld+json"
+	set:html={JSON.stringify(structuredData)}
+	is:inline
+></script>
