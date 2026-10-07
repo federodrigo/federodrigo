@@ -1014,6 +1014,18 @@ img {
 	box-shadow: 0 14px 34px rgba(16, 42, 67, 0.1);
 }
 
+
+/* TEDx card image: preserve the original transparent logo, add breathing room */
+.media-image[src="/images/TEDx-Logo.png"] {
+	width: 230px;
+	max-width: 100%;
+	height: 170px;
+	object-fit: contain;
+	background: transparent;
+	border-radius: 0;
+	box-shadow: none;
+}
+
 .media-content {
 	padding-top: 2px;
 }
