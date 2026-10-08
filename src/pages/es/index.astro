@@ -361,6 +361,44 @@ import Footer from '../../components/Footer.astro';
 					margin: 0;
 				}
 			}
+
+			/* Upcoming TEDx appearance */
+			.tedx-announcement {
+				display: flex;
+				align-items: center;
+				gap: clamp(18px, 3vw, 38px);
+				padding: 22px 0;
+				border-top: 1px solid rgba(16, 42, 67, 0.12);
+			}
+			.tedx-announcement img {
+				display: block;
+				width: 112px;
+				height: auto;
+				flex-shrink: 0;
+			}
+			.tedx-announcement-content { flex: 1; min-width: 0; }
+			.tedx-announcement-label {
+				margin: 0 0 6px;
+				font-size: 0.73rem;
+				font-weight: 700;
+				letter-spacing: 0.1em;
+				text-transform: uppercase;
+				color: var(--accent-color, #a33b32);
+			}
+			.tedx-announcement h2 {
+				margin: 0 0 5px;
+				font-size: clamp(1.15rem, 1.65vw, 1.45rem);
+				font-weight: 550;
+				line-height: 1.25;
+			}
+			.tedx-announcement-date { margin: 0; font-size: 0.95rem; }
+			.tedx-announcement .animated-link { white-space: nowrap; }
+			@media (max-width: 720px) {
+				.tedx-announcement { flex-wrap: wrap; gap: 12px 18px; padding: 22px 0; }
+				.tedx-announcement img { width: 86px; }
+				.tedx-announcement-content { flex-basis: calc(100% - 104px); }
+				.tedx-announcement-action { margin-left: 104px; }
+			}
 		</style>
 	</head>
 
@@ -389,6 +427,20 @@ import Footer from '../../components/Footer.astro';
 				</div>
 			</section>
 
+
+
+			<aside class="tedx-announcement" aria-labelledby="tedx-announcement-title">
+				<img src="/images/TEDx-Logo-v2.png" alt="TEDx" loading="lazy" />
+				<div class="tedx-announcement-content">
+					<p class="tedx-announcement-label">PRÓXIMA CHARLA TEDx</p>
+					<h2 id="tedx-announcement-title">Nos vemos en TEDx Ciudad de la Costa</h2>
+					<p class="tedx-announcement-date">26 de noviembre de 2026 · 19:00 h</p>
+				</div>
+				<a class="animated-link tedx-announcement-action" href="https://www.ted.com/tedx/events/69348" target="_blank" rel="noopener noreferrer">
+					<span>Ver evento</span>
+					<span class="animated-link-arrow" aria-hidden="true">→</span>
+				</a>
+			</aside>
 
 			<section
 				id="speaking"
