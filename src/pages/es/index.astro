@@ -49,6 +49,7 @@ import Footer from '../../components/Footer.astro';
 			   FEATURE LAYOUT
 			========================================================= */
 
+			#tedx.home-feature .books-page-book-featured,
 			#speaking.home-feature .books-page-book-featured,
 			#cio-office.home-feature .books-page-book-featured,
 			#books.home-feature .books-page-book-featured {
@@ -61,6 +62,7 @@ import Footer from '../../components/Footer.astro';
 				en la misma grilla para que todos los textos comiencen
 				en la misma posición horizontal.
 			*/
+			#tedx .books-page-book,
 			#speaking .books-page-book,
 			#cio-office .books-page-book,
 			#books .books-page-book {
@@ -128,10 +130,12 @@ import Footer from '../../components/Footer.astro';
 			   SPEAKING
 			========================================================= */
 
+			#tedx .books-page-book,
 			#speaking .books-page-book {
 				align-items: center;
 			}
 
+			#tedx .books-page-cover-wrapper,
 			#speaking .books-page-cover-wrapper {
 				display: flex;
 				align-items: center;
@@ -305,7 +309,8 @@ import Footer from '../../components/Footer.astro';
 					margin-top: var(--divider-space-mobile);
 				}
 
-				#speaking .books-page-book,
+				#tedx .books-page-book,
+			#speaking .books-page-book,
 				#cio-office .books-page-book,
 				#books .books-page-book {
 					grid-template-columns: 1fr;
@@ -394,6 +399,29 @@ import Footer from '../../components/Footer.astro';
 
 
 
+
+			<section id="tedx" class="page-divider home-feature reveal-section">
+				<article class="books-page-book books-page-book-featured" aria-labelledby="home-tedx-title">
+					<div class="books-page-cover-wrapper reveal-item reveal-from-left reveal-delay-1">
+						<a href="https://www.ted.com/tedx/events/69348" class="speaking-cover-link" target="_blank" rel="noopener noreferrer" aria-label="Ver evento: TEDx Ciudad de la Costa">
+							<div class="speaking-cover-frame">
+								<img src="/images/TEDx-Logo-v2.png" alt="TEDx" class="speaking-cover-image" />
+							</div>
+						</a>
+					</div>
+					<div class="books-page-content reveal-item reveal-delay-2">
+						<h2 id="home-tedx-title">Nos vemos en TEDx Ciudad de la Costa</h2>
+						<p>26 de noviembre de 2026 · 19:00 h</p>
+						<p class="books-page-action">
+							<a href="https://www.ted.com/tedx/events/69348" class="animated-link" target="_blank" rel="noopener noreferrer">
+								<span>Ver evento</span>
+								<span class="animated-link-arrow" aria-hidden="true">→</span>
+							</a>
+						</p>
+					</div>
+				</article>
+			</section>
+
 			<section
 				id="speaking"
 				class="page-divider home-feature reveal-section"
@@ -407,16 +435,14 @@ import Footer from '../../components/Footer.astro';
 						class="books-page-cover-wrapper reveal-item reveal-from-left reveal-delay-1"
 					>
 						<a
-							href="https://www.ted.com/tedx/events/69348"
-							target="_blank"
-							rel="noopener noreferrer"
+							href="/es/speaking/"
 							class="speaking-cover-link"
-							aria-label="Ver evento TEDx Ciudad de la Costa"
+							aria-label="Explorar speaking"
 						>
 							<div class="speaking-cover-frame">
 								<img
-									src="/images/TEDx-Logo-v2.png"
-									alt="TEDx Ciudad de la Costa"
+									src="/images/speaking-cover-es.png"
+									alt="Imagen sobre decisiones tecnológicas que comienzan sin tecnología"
 									class="speaking-cover-image"
 								/>
 							</div>
@@ -435,10 +461,6 @@ import Footer from '../../components/Footer.astro';
 							Incluso cuando funciona, empezar por el lugar equivocado puede crear complejidad, dependencias y lock-in
 						</p>
 
-						<p class="books-page-subtitle">
-							Voy a estar en TEDx Ciudad de la Costa el 26 de noviembre de 2026 a las 19:00 h.
-							<a href="https://www.ted.com/tedx/events/69348" target="_blank" rel="noopener noreferrer">Ver evento TEDx →</a>
-						</p>
 
 						<p class="books-page-action">
 							<a
