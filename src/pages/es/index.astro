@@ -49,7 +49,6 @@ import Footer from '../../components/Footer.astro';
 			   FEATURE LAYOUT
 			========================================================= */
 
-			#tedx.home-feature .books-page-book-featured,
 			#speaking.home-feature .books-page-book-featured,
 			#cio-office.home-feature .books-page-book-featured,
 			#books.home-feature .books-page-book-featured {
@@ -62,7 +61,6 @@ import Footer from '../../components/Footer.astro';
 				en la misma grilla para que todos los textos comiencen
 				en la misma posición horizontal.
 			*/
-			#tedx .books-page-book,
 			#speaking .books-page-book,
 			#cio-office .books-page-book,
 			#books .books-page-book {
@@ -130,12 +128,10 @@ import Footer from '../../components/Footer.astro';
 			   SPEAKING
 			========================================================= */
 
-			#tedx .books-page-book,
 			#speaking .books-page-book {
 				align-items: center;
 			}
 
-			#tedx .books-page-cover-wrapper,
 			#speaking .books-page-cover-wrapper {
 				display: flex;
 				align-items: center;
@@ -193,6 +189,97 @@ import Footer from '../../components/Footer.astro';
 				background: transparent;
 			}
 
+
+
+			/* Two upcoming talks, without pushing the permanent sections down. */
+			#upcoming-events .home-events-heading {
+				margin: 0 0 20px;
+				color: var(--muted);
+				font-size: 0.75rem;
+				font-weight: 700;
+				letter-spacing: 0.09em;
+				line-height: 1.4;
+				text-transform: uppercase;
+			}
+
+			#upcoming-events .home-events-grid {
+				display: grid;
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+				column-gap: 40px;
+				row-gap: 28px;
+			}
+
+			#upcoming-events .home-event {
+				display: flex;
+				min-width: 0;
+				flex-direction: column;
+				align-items: flex-start;
+			}
+
+			#upcoming-events .home-event-image-link {
+				display: flex;
+				width: 100%;
+				height: 126px;
+				align-items: center;
+				justify-content: center;
+				border: 0;
+				text-decoration: none;
+				transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+			}
+
+			#upcoming-events .home-event-image-link:hover {
+				transform: translateY(-4px) scale(1.015);
+				border: 0;
+			}
+
+			#upcoming-events .home-event-image {
+				display: block;
+				width: auto;
+				height: auto;
+				max-width: 100%;
+				max-height: 120px;
+				object-fit: contain;
+			}
+
+			#upcoming-events .home-event-image--tedx {
+				max-width: 260px;
+			}
+
+			#upcoming-events .home-event-details {
+				display: flex;
+				flex: 1;
+				flex-direction: column;
+				align-items: flex-start;
+			}
+
+			#upcoming-events .home-event-title {
+				margin: 14px 0 7px;
+				font-size: 1.3rem;
+				font-weight: 500;
+				letter-spacing: -0.015em;
+				line-height: 1.25;
+			}
+
+			#upcoming-events .home-event-date {
+				margin: 0;
+				color: var(--muted);
+				font-size: 0.95rem;
+				line-height: 1.4;
+			}
+
+			#upcoming-events .home-event-action {
+				margin: 16px 0 0;
+			}
+
+			#upcoming-events .home-event-action a {
+				color: var(--blue);
+				font-size: var(--cta-size);
+				font-weight: var(--cta-weight);
+			}
+
+			#upcoming-events .home-event-action a:hover {
+				color: var(--red);
+			}
 
 			/* =========================================================
 			   CIO OFFICE
@@ -309,8 +396,7 @@ import Footer from '../../components/Footer.astro';
 					margin-top: var(--divider-space-mobile);
 				}
 
-				#tedx .books-page-book,
-			#speaking .books-page-book,
+				#speaking .books-page-book,
 				#cio-office .books-page-book,
 				#books .books-page-book {
 					grid-template-columns: 1fr;
@@ -365,17 +451,48 @@ import Footer from '../../components/Footer.astro';
 					max-width: 100%;
 					margin: 0;
 				}
+
+
+				#upcoming-events .home-events-grid {
+					grid-template-columns: 1fr;
+					gap: 24px;
+				}
+
+				#upcoming-events .home-event {
+					display: grid;
+					grid-template-columns: 100px minmax(0, 1fr);
+					column-gap: 18px;
+					align-items: center;
+				}
+
+				#upcoming-events .home-event-image-link {
+					height: auto;
+					min-height: 88px;
+				}
+
+				#upcoming-events .home-event-image {
+					max-height: 88px;
+				}
+
+				#upcoming-events .home-event-title {
+					margin: 0 0 6px;
+					font-size: 1.125rem;
+				}
+
+				#upcoming-events .home-event-date {
+					font-size: 0.85rem;
+				}
+
+				#upcoming-events .home-event-action {
+					margin-top: 10px;
+				}
+
+				#upcoming-events .home-event-action a {
+					font-size: 0.9rem;
+				}
+
 			}
 
-			/* Small editorial label for the temporary TEDx event */
-			#tedx .tedx-eyebrow {
-				margin: 0 0 0.5rem;
-				font-size: 0.75rem;
-				font-weight: 700;
-				letter-spacing: 0.09em;
-				text-transform: uppercase;
-				color: #68758a;
-			}
 		</style>
 	</head>
 
@@ -409,27 +526,52 @@ import Footer from '../../components/Footer.astro';
 
 
 
-			<section id="tedx" class="page-divider home-feature reveal-section">
-				<article class="books-page-book books-page-book-featured" aria-labelledby="home-tedx-title">
-					<div class="books-page-cover-wrapper reveal-item reveal-from-left reveal-delay-1">
-						<a href="https://redtickets.uy/evento/TEDx-Ciudad-de-la-Costa/34038/" class="speaking-cover-link" target="_blank" rel="noopener noreferrer" aria-label="Ver evento: TEDx Ciudad de la Costa">
-							<div class="speaking-cover-frame">
-								<img src="/images/TEDx-Logo-v2.png" alt="TEDx" class="speaking-cover-image" />
-							</div>
+			<section id="upcoming-events" class="page-divider home-feature reveal-section" aria-labelledby="home-events-title">
+				<h2 id="home-events-title" class="home-events-heading reveal-item">PRÓXIMOS EVENTOS</h2>
+				<div class="home-events-grid">
+					<article class="home-event reveal-item reveal-delay-1" aria-labelledby="home-event-tedx-title">
+						<a
+							href="https://redtickets.uy/evento/TEDx-Ciudad-de-la-Costa/34038/"
+							class="home-event-image-link"
+							target="_blank"
+							rel="noopener noreferrer"
+							aria-label="Entradas e información de TEDx Ciudad de la Costa"
+						>
+							<img src="/images/TEDx-Logo-v2.png" alt="TEDx" class="home-event-image home-event-image--tedx" loading="lazy" decoding="async" />
 						</a>
-					</div>
-					<div class="books-page-content reveal-item reveal-delay-2">
-						<p class="tedx-eyebrow">PRÓXIMO EVENTO</p>
-						<h2 id="home-tedx-title">Nos vemos en TEDx Ciudad de la Costa</h2>
-						<p>26 de noviembre de 2026 · 19:00 h</p>
-						<p class="books-page-action">
-							<a href="https://redtickets.uy/evento/TEDx-Ciudad-de-la-Costa/34038/" class="animated-link" target="_blank" rel="noopener noreferrer">
-								<span>Entradas e información</span>
-								<span class="animated-link-arrow" aria-hidden="true">→</span>
-							</a>
-						</p>
-					</div>
-				</article>
+						<div class="home-event-details">
+							<h3 id="home-event-tedx-title" class="home-event-title">TEDx Ciudad de la Costa</h3>
+							<p class="home-event-date">26 de noviembre de 2026 · 19:00 h</p>
+							<p class="home-event-action">
+								<a href="https://redtickets.uy/evento/TEDx-Ciudad-de-la-Costa/34038/" class="animated-link" target="_blank" rel="noopener noreferrer">
+									<span>Entradas e información</span>
+									<span class="animated-link-arrow" aria-hidden="true">→</span>
+								</a>
+							</p>
+						</div>
+					</article>
+					<article class="home-event reveal-item reveal-delay-2" aria-labelledby="home-event-llmday-title">
+						<a
+							href="https://llmday.com/2026-montevideo-q4/"
+							class="home-event-image-link"
+							target="_blank"
+							rel="noopener noreferrer"
+							aria-label="Entradas e información de LLMday Montevideo 2026"
+						>
+							<img src="https://llmday.com/assets/images/events/llmday-2026-montevideo-q4.png" alt="LLMday Montevideo 2026" class="home-event-image" loading="lazy" decoding="async" />
+						</a>
+						<div class="home-event-details">
+							<h3 id="home-event-llmday-title" class="home-event-title">LLMday Montevideo 2026</h3>
+							<p class="home-event-date">5 de diciembre de 2026</p>
+							<p class="home-event-action">
+								<a href="https://llmday.com/2026-montevideo-q4/" class="animated-link" target="_blank" rel="noopener noreferrer">
+									<span>Entradas e información</span>
+									<span class="animated-link-arrow" aria-hidden="true">→</span>
+								</a>
+							</p>
+						</div>
+					</article>
+				</div>
 			</section>
 
 			<section
