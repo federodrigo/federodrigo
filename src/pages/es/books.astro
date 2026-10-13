@@ -1,30 +1,30 @@
 
 ---
-import SEO from '../components/SEO.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import SEO from '../../components/SEO.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
 
 const featuredPaper = {
-  status: 'Under Review',
-  date: 'Submitted · August 2026',
-  title: 'When Fixes Become the System',
-  subtitle: "How Today's Fixes Can Make Tomorrow's Changes Harder",
+  status: 'En revisión',
+  date: 'Enviado · Agosto 2026',
+  title: 'Cuando los arreglos se convierten en el sistema',
+  subtitle: 'Por qué las soluciones de hoy pueden complicarnos mañana',
   description:
-    "A fix can solve today's problem and still make tomorrow's decisions harder. This paper explains how small fixes add up, become permanent, and make it increasingly difficult to change systems or choose a different solution."
+    'Cada arreglo que funciona refuerza el camino elegido. Con el tiempo, esas decisiones se acumulan y hacen cada vez más difícil cambiar de tecnología, incluso cuando existen mejores alternativas'
 };
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <script is:inline>
       document.documentElement.classList.add('js');
     </script>
 
     <SEO
-      title="Books | Fede Rodrigo"
-      description="Books and research by Fede Rodrigo about technology leadership, business, incentives, institutions, and the systems that shape organizations"
-      lang="en"
+      title="Libros | Fede Rodrigo"
+      description="Libros e investigación de Fede Rodrigo sobre liderazgo tecnológico, negocios, incentivos, instituciones y los sistemas que moldean las organizaciones"
+      lang="es"
     />
 
     <style>
@@ -186,7 +186,8 @@ const featuredPaper = {
     <Header />
 
     <main class="books-index-page">
-      <!-- Featured book -->
+
+      <!-- Libro CIO -->
       <section
         class="books-page-book books-page-book-featured reveal-section"
         aria-labelledby="cio-book-title"
@@ -197,39 +198,42 @@ const featuredPaper = {
             target="_blank"
             rel="noopener noreferrer"
             class="books-page-cover-link"
-            aria-label="Buy How to Become CIO and Succeed on Amazon"
+            aria-label="Comprar How to Become CIO and Succeed en Amazon"
           >
             <img
               src="/images/cio-book-cover.png"
-              alt="Cover of How to Become CIO and Succeed"
+              alt="Portada de How to Become CIO and Succeed"
               class="books-page-cover animated-book-cover"
             />
           </a>
         </div>
 
         <div class="books-page-content reveal-item reveal-delay-1">
-          <p class="books-page-label">Featured Book</p>
+          <p class="books-page-label">Libro destacado</p>
           <h2 id="cio-book-title">How to Become CIO and Succeed</h2>
-          <p class="books-page-subtitle">People, Business, Strategy</p>
+          <p class="books-page-subtitle">Personas, Negocio, Estrategia</p>
 
           <p>
-            This is the book <strong>I wish I had</strong>
-            when I began my leadership journey
+            Este es el libro <strong>que me habría gustado tener</strong>
+            cuando comencé mi camino en el liderazgo
           </p>
+
           <p>
-            The CIO role is not about managing systems.
-            <em>There shouldn’t be an “I” in CIO.</em>
-            It is about leading people, shaping strategy,
-            influencing the business, and turning technology
-            into a competitive advantage
+            El rol del CIO no consiste en gestionar sistemas.
+            <em>No debería haber una “I” en CIO.</em>
+            Se trata de liderar personas, definir la estrategia,
+            influir en el negocio y convertir la tecnología
+            en una ventaja competitiva
           </p>
+
           <p>
-            <strong>This is not a textbook.</strong>
-            It is a practical field guide for current
-            and aspiring technology leaders
+            <strong>Este no es un libro de texto.</strong>
+            Es una guía práctica para líderes tecnológicos
+            actuales y futuros
           </p>
+
           <p class="books-page-closing">
-            If you are here to maintain the status quo, turn back now
+            Si estás acá para mantener el status quo, mejor da la vuelta
           </p>
 
           <p class="books-page-action">
@@ -239,21 +243,21 @@ const featuredPaper = {
               rel="noopener noreferrer"
               class="animated-link"
             >
-              <span>Buy on Amazon</span>
+              <span>Comprar en Amazon</span>
               <span class="animated-link-arrow" aria-hidden="true">→</span>
             </a>
           </p>
 
           <p class="books-page-secondary-action">
-            <a href="/cio-book/" class="animated-link">
-              <span>Explore the book</span>
+            <a href="/es/cio-book/" class="animated-link">
+              <span>Explorar el libro</span>
               <span class="animated-link-arrow" aria-hidden="true">→</span>
             </a>
           </p>
         </div>
       </section>
 
-      <!-- Forthcoming book -->
+      <!-- Nuevo libro 2027 -->
       <section
         class="books-page-book books-page-other reveal-section"
         aria-labelledby="funciona-book-title"
@@ -262,7 +266,7 @@ const featuredPaper = {
           <div class="books-page-cover-link books-page-cover-static">
             <img
               src="/images/funciona-cover-es.webp"
-              alt="Cover of Funciona. Ese es el problema (Spanish edition)"
+              alt="Portada de Funciona. Ese es el problema"
               class="books-page-cover animated-book-cover"
               loading="lazy"
             />
@@ -270,26 +274,32 @@ const featuredPaper = {
         </div>
 
         <div class="books-page-content reveal-item reveal-delay-1">
-          <p class="books-page-label">Forthcoming Book</p>
-          <h2 id="funciona-book-title">It Works. That's the Problem</h2>
-          <p class="books-page-subtitle">How Technology Solutions Can Trap Us</p>
-          <p>
-            Sometimes the biggest risk does not appear when something fails, but when it works.
-            This book explores how well-intentioned technology decisions, short-term fixes,
-            and operational successes can harden into complexity, dependence, and lock-in over time.
+          <p class="books-page-label">Próximo libro</p>
+          <h2 id="funciona-book-title">Funciona. Ese es el problema</h2>
+          <p class="books-page-subtitle">
+            Cómo las soluciones tecnológicas pueden atraparnos
           </p>
+
           <p>
-            Through stories, examples, and a practical leadership lens, it shows why technology
-            is never the starting point and how organizations can preserve their ability to choose
-            before their systems choose for them.
+            A veces el mayor riesgo no aparece cuando algo falla, sino cuando algo funciona.
+            Este libro explora cómo decisiones tecnológicas bien intencionadas, soluciones que
+            resuelven urgencias y éxitos operativos pueden convertirse con el tiempo en
+            complejidad, dependencia y lock-in.
           </p>
+
+          <p>
+            Con historias, ejemplos y un enfoque práctico, muestra por qué la tecnología nunca
+            es el punto de partida y cómo recuperar la capacidad de decidir antes de quedar
+            atrapados por sistemas que parecen funcionar.
+          </p>
+
           <p class="books-page-action">
-            <span class="coming-soon">Coming 2027</span>
+            <span class="coming-soon">Próximamente · 2027</span>
           </p>
         </div>
       </section>
 
-      <!-- Research paper -->
+      <!-- Paper -->
       <section
         id="research"
         class="books-page-other reveal-section"
@@ -302,13 +312,14 @@ const featuredPaper = {
           </div>
 
           <div class="books-page-content research-content reveal-item reveal-delay-1">
-            <p class="books-page-label">Research Paper</p>
+            <p class="books-page-label">Paper de investigación</p>
             <h2 id="research-title">{featuredPaper.title}</h2>
             <p class="books-page-subtitle">{featuredPaper.subtitle}</p>
             <p class="research-description">{featuredPaper.description}</p>
           </div>
         </div>
       </section>
+
     </main>
 
     <Footer />
@@ -335,3 +346,4 @@ const featuredPaper = {
     </script>
   </body>
 </html>
+
