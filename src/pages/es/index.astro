@@ -474,6 +474,35 @@ import Footer from '../../components/Footer.astro';
 					max-height: 88px;
 				}
 
+				/*
+				 * TEDx artwork is much wider than the mobile image column.
+				 * Give it its own row to prevent the logo overlapping the text.
+				 * Desktop and the other event keep their existing layout.
+				 */
+				#upcoming-events .home-event--tedx {
+					grid-template-columns: minmax(0, 1fr);
+					row-gap: 12px;
+				}
+
+				#upcoming-events .home-event--tedx .home-event-image-link {
+					width: min(260px, 100%);
+					min-height: 0;
+					height: auto;
+				}
+
+				#upcoming-events .home-event--tedx .home-event-image--tedx {
+					display: block;
+					width: 100%;
+					max-width: 100%;
+					height: auto;
+					max-height: none;
+				}
+
+				#upcoming-events .home-event--tedx .home-event-details {
+					width: 100%;
+					min-width: 0;
+				}
+
 				#upcoming-events .home-event-title {
 					margin: 0 0 6px;
 					font-size: 1.125rem;
@@ -529,7 +558,7 @@ import Footer from '../../components/Footer.astro';
 			<section id="upcoming-events" class="page-divider home-feature reveal-section" aria-labelledby="home-events-title">
 				<h2 id="home-events-title" class="home-events-heading reveal-item">PRÓXIMOS EVENTOS</h2>
 				<div class="home-events-grid">
-					<article class="home-event reveal-item reveal-delay-1" aria-labelledby="home-event-tedx-title">
+					<article class="home-event home-event--tedx reveal-item reveal-delay-1" aria-labelledby="home-event-tedx-title">
 						<a
 							href="https://redtickets.uy/evento/TEDx-Ciudad-de-la-Costa/34038/"
 							class="home-event-image-link"
