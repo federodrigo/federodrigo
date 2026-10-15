@@ -201,12 +201,6 @@ import Footer from '../../components/Footer.astro';
 
 
 
-			/* Small service links below the permanent hero statement. */
-			.home-offerings { display: flex; flex-wrap: wrap; gap: 0.3rem 0.55rem; align-items: center; margin: 10px 0 0; font-size: 0.85rem; font-weight: 600; line-height: 1.5; }
-			.home-offerings a { color: var(--muted); font-weight: inherit; border-bottom: 0; }
-			.home-offerings a:hover, .home-offerings a:focus-visible { color: var(--blue); }
-			.home-offerings-separator { color: #a6b2c2; }
-
 			/* Consistent labels for speaking, advisory and books. */
 			.home-section-label { margin: 0 0 20px; color: var(--muted); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.09em; line-height: 1.4; text-transform: uppercase; }
 			.home-section-label::after { content: ""; display: block; width: 38px; height: 2px; margin-top: 8px; background: var(--red); border-radius: 3px; }
@@ -427,7 +421,6 @@ import Footer from '../../components/Footer.astro';
 					padding-top: var(--divider-space-mobile);
 				}
 
-				.home-offerings { gap: 0.25rem 0.45rem; font-size: 0.8rem; }
 				.home-section-label { margin-bottom: 18px; }
 				.home-speaking-events { margin-top: 24px; padding-top: 20px; }
 				.home-events-grid { grid-template-columns: 1fr; gap: 20px; }
@@ -465,13 +458,6 @@ import Footer from '../../components/Footer.astro';
 					<div>Negocio</div>
 					<div>Tecnología</div>
 				</div>
-				<nav class="home-offerings" aria-label="Explorá mis actividades">
-					<a href="#speaking">Charlas</a>
-					<span class="home-offerings-separator" aria-hidden="true">·</span>
-					<a href="#cio-office">Oficina del CIO</a>
-					<span class="home-offerings-separator" aria-hidden="true">·</span>
-					<a href="#books">Libros</a>
-				</nav>
 			</section>
 
 
