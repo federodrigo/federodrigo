@@ -29,6 +29,7 @@ const featuredPaper = {
     <style>
       .books-index-page {
         padding-top: 46px;
+        --books-divider-gap: var(--divider-space-before);
       }
 
       .books-index-page .books-page-book-featured {
@@ -41,12 +42,18 @@ const featuredPaper = {
         margin-top: 10px;
       }
 
-      .books-index-page .books-page-other {
-        margin-top: var(--divider-space-before);
+      /* Keep the same space before and after each divider. */
+      .books-index-page .books-page-book + .books-page-book {
+        margin-top: var(--books-divider-gap);
         margin-bottom: 0;
-        padding-top: var(--divider-space-after);
+        padding-top: var(--books-divider-gap);
         padding-bottom: 0;
         border-top: 1px solid var(--line);
+      }
+
+      /* Avoid extra trailing paragraph margins below the first book. */
+      .books-index-page .books-page-content > :last-child {
+        margin-bottom: 0;
       }
 
       .research-content .books-page-subtitle {
@@ -65,23 +72,12 @@ const featuredPaper = {
         margin-top: 1.6rem;
       }
 
-      .research-status {
-        margin: 0;
-        color: #8a6b36;
-        font-size: 0.8rem;
-        font-weight: 750;
-        line-height: 1.3;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-      }
-
-      .books-page-cover-static {
-        cursor: default;
-      }
-
-      .coming-soon {
-        display: inline-block;
-        color: #6d9fdd;
+      /* All actions and publication statuses share one typographic style. */
+      .books-index-page .books-page-action a,
+      .books-index-page .books-page-secondary-action a,
+      .books-index-page .coming-soon,
+      .books-index-page .research-status {
+        color: var(--blue);
         font-family: inherit;
         font-size: var(--cta-size);
         font-weight: var(--cta-weight);
@@ -90,9 +86,22 @@ const featuredPaper = {
         text-transform: none;
       }
 
+      .books-index-page .research-status {
+        margin: 0;
+      }
+
+      .books-page-cover-static {
+        cursor: default;
+      }
+
+      .books-index-page .coming-soon {
+        display: inline-block;
+      }
+
       @media (max-width: 720px) {
         .books-index-page {
           padding-top: 42px;
+          --books-divider-gap: var(--divider-space-mobile);
         }
 
         .books-index-page .books-page-book {
@@ -137,12 +146,6 @@ const featuredPaper = {
 
         .books-page-secondary-action {
           margin-top: 10px;
-        }
-
-        .books-index-page .books-page-other {
-          margin-top: var(--divider-space-mobile);
-          padding-top: var(--divider-space-mobile);
-          padding-bottom: 0;
         }
 
       }
