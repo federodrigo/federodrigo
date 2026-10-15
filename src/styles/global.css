@@ -257,42 +257,88 @@ h1 {
 	letter-spacing: 0.01em;
 }
 
-.lead-principles--sequenced .principles-line {
-	display: inline-block;
-	max-width: 100%;
+.lead-principles div {
+	display: inline;
+	padding: 0;
+	background: transparent;
+	border: none;
+	border-radius: 0;
+}
+
+.lead-principles div:not(:last-child)::after {
+	content: " · ";
+	color: #94a3b8;
+	font-weight: 700;
+}
+
+/* Keep each word at its final bold width, with no movement or reflow. */
+.lead-principles--sequenced .principle-word {
+	display: inline-grid;
+	vertical-align: baseline;
+	white-space: nowrap;
+}
+
+.lead-principles--sequenced .principle-word::before,
+.lead-principles--sequenced .principle-word-label {
+	grid-area: 1 / 1 / 2 / 2;
+}
+
+.lead-principles--sequenced .principle-word::before {
+	content: attr(data-word);
+	visibility: hidden;
 	font-weight: 800;
+}
+
+.lead-principles--sequenced .principle-word-label {
 	color: var(--navy);
+	font-weight: 800;
 }
 
 /*
- * Two quick, gently eased color passes across the whole phrase.
- * Avoids word-by-word stepping and keeps the final state dark,
- * without moving the text or changing its weight.
+ * Two short, overlapping color-emphasis passes, word by word.
+ * Original colors: muted #64748b and navy #102a43 (not the title's light blue).
+ * Pass one moves the highlight across and fades; pass two settles to navy.
+ * Only color changes: no discrete weight shifts, moving text or gradient sweep.
  */
 @media (prefers-reduced-motion: no-preference) {
-	.lead-principles--sequenced .principles-line {
-		background-image: linear-gradient(
-			90deg,
-			var(--navy) 0%,
-			var(--navy) 19%,
-			var(--muted) 24%,
-			var(--muted) 42%,
-			var(--navy) 47%,
-			var(--navy) 67%,
-			var(--muted) 72%,
-			var(--muted) 100%
-		);
-		background-size: 650% 100%;
-		background-repeat: no-repeat;
-		-webkit-background-clip: text;
-		background-clip: text;
-		-webkit-text-fill-color: transparent;
-		animation: principle-wave 3000ms cubic-bezier(0.42, 0, 0.2, 1) both;
+	.lead-principles--sequenced .principle-word-label {
+		animation-duration: 3250ms;
+		animation-delay: 550ms;
+		animation-timing-function: ease-in-out;
+		animation-fill-mode: both;
 	}
 
-	@keyframes principle-wave {
-		from { background-position: 100% 0; }
-		to { background-position: 0% 0; }
+	.lead-principles--sequenced > div:nth-child(1) .principle-word-label {
+		animation-name: principle-emphasis-people;
+	}
+
+	.lead-principles--sequenced > div:nth-child(2) .principle-word-label {
+		animation-name: principle-emphasis-business;
+	}
+
+	.lead-principles--sequenced > div:nth-child(3) .principle-word-label {
+		animation-name: principle-emphasis-technology;
+	}
+
+	@keyframes principle-emphasis-people {
+		0%, 8% { color: var(--muted); }
+		17%, 22% { color: var(--navy); }
+		31%, 50% { color: var(--muted); }
+		59%, 100% { color: var(--navy); }
+	}
+
+	@keyframes principle-emphasis-business {
+		0%, 16% { color: var(--muted); }
+		25%, 30% { color: var(--navy); }
+		39%, 58% { color: var(--muted); }
+		67%, 100% { color: var(--navy); }
+	}
+
+	@keyframes principle-emphasis-technology {
+		0%, 24% { color: var(--muted); }
+		33%, 38% { color: var(--navy); }
+		47%, 66% { color: var(--muted); }
+		75%, 100% { color: var(--navy); }
 	}
 }
 
