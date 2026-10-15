@@ -290,19 +290,18 @@ h1 {
 }
 
 .lead-principles--sequenced .principle-word-label {
-	color: var(--navy);
+	color: var(--muted);
 	font-weight: 800;
 }
 
 /*
- * Two short, overlapping color-emphasis passes, word by word.
- * Original colors: muted #64748b and navy #102a43 (not the title's light blue).
- * Pass one moves the highlight across and fades; pass two settles to navy.
- * Only color changes: no discrete weight shifts, moving text or gradient sweep.
+ * Two overlapping color passes, moving between words with gradual fades.
+ * Highlight in the original navy (#102a43), then settle on the original
+ * muted gray (#64748b). Only color animates: no movement or weight changes.
  */
 @media (prefers-reduced-motion: no-preference) {
 	.lead-principles--sequenced .principle-word-label {
-		animation-duration: 3250ms;
+		animation-duration: 5200ms;
 		animation-delay: 550ms;
 		animation-timing-function: ease-in-out;
 		animation-fill-mode: both;
@@ -321,24 +320,27 @@ h1 {
 	}
 
 	@keyframes principle-emphasis-people {
-		0%, 8% { color: var(--muted); }
-		17%, 22% { color: var(--navy); }
-		31%, 50% { color: var(--muted); }
-		59%, 100% { color: var(--navy); }
+		0%, 6% { color: var(--muted); }
+		18%, 23% { color: var(--navy); }
+		35%, 49% { color: var(--muted); }
+		61%, 67% { color: var(--navy); }
+		79%, 100% { color: var(--muted); }
 	}
 
 	@keyframes principle-emphasis-business {
-		0%, 16% { color: var(--muted); }
-		25%, 30% { color: var(--navy); }
-		39%, 58% { color: var(--muted); }
-		67%, 100% { color: var(--navy); }
+		0%, 15% { color: var(--muted); }
+		27%, 32% { color: var(--navy); }
+		44%, 58% { color: var(--muted); }
+		70%, 76% { color: var(--navy); }
+		88%, 100% { color: var(--muted); }
 	}
 
 	@keyframes principle-emphasis-technology {
 		0%, 24% { color: var(--muted); }
-		33%, 38% { color: var(--navy); }
-		47%, 66% { color: var(--muted); }
-		75%, 100% { color: var(--navy); }
+		36%, 41% { color: var(--navy); }
+		53%, 67% { color: var(--muted); }
+		79%, 85% { color: var(--navy); }
+		97%, 100% { color: var(--muted); }
 	}
 }
 
