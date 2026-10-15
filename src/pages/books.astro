@@ -6,7 +6,6 @@ import Footer from '../components/Footer.astro';
 
 const featuredPaper = {
   status: 'Under Review',
-  date: 'Submitted · August 2026',
   title: 'When Fixes Become the System',
   subtitle: "How Today's Fixes Narrow Tomorrow's Choices",
   description:
@@ -56,7 +55,13 @@ const featuredPaper = {
         max-width: 100%;
         height: auto;
         border-radius: 10px;
-        box-shadow: 0 14px 34px rgba(16, 42, 67, 0.1);
+        /* Blend the PNG's white background into the site's #f6f7f9 background. */
+        mix-blend-mode: multiply;
+        box-shadow: none;
+      }
+
+      .research-illustration.animated-book-cover:hover {
+        box-shadow: none;
       }
 
       .research-content .books-page-subtitle {
@@ -83,13 +88,6 @@ const featuredPaper = {
         line-height: 1.3;
         letter-spacing: 0.12em;
         text-transform: uppercase;
-      }
-
-      .research-date {
-        margin: 0;
-        font-size: 0.86rem;
-        line-height: 1.45;
-        opacity: 0.58;
       }
 
       .books-page-cover-static {
@@ -287,7 +285,7 @@ const featuredPaper = {
           <img
             src="/images/spaguetti-en.png"
             alt="Tangled spaghetti illustrating accumulated technology dependencies"
-            class="research-illustration"
+            class="research-illustration animated-book-cover"
             loading="lazy"
             decoding="async"
           />
@@ -300,7 +298,6 @@ const featuredPaper = {
           <p class="research-description">{featuredPaper.description}</p>
           <div class="research-meta">
             <p class="research-status">{featuredPaper.status}</p>
-            <p class="research-date">{featuredPaper.date}</p>
           </div>
         </div>
       </section>
