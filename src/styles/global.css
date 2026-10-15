@@ -271,6 +271,59 @@ h1 {
 	font-weight: 700;
 }
 
+/* Reserve the width of bold text so the sequence never shifts its neighbors. */
+.lead-principles--sequenced .principle-word {
+	display: inline-grid;
+	vertical-align: baseline;
+	white-space: nowrap;
+}
+
+.lead-principles--sequenced .principle-word::before,
+.lead-principles--sequenced .principle-word-label {
+	grid-area: 1 / 1 / 2 / 2;
+}
+
+.lead-principles--sequenced .principle-word::before {
+	content: attr(data-word);
+	visibility: hidden;
+	font-weight: 800;
+}
+
+.lead-principles--sequenced .principle-word-label {
+	color: var(--navy);
+	font-weight: 800;
+}
+
+/* Let the existing hero entrance finish, then emphasize each word once. */
+@media (prefers-reduced-motion: no-preference) {
+	.lead-principles--sequenced .principle-word-label {
+		animation: principle-emphasis 420ms ease-out both;
+	}
+
+	.lead-principles--sequenced > div:nth-child(1) .principle-word-label {
+		animation-delay: 1160ms;
+	}
+
+	.lead-principles--sequenced > div:nth-child(2) .principle-word-label {
+		animation-delay: 1590ms;
+	}
+
+	.lead-principles--sequenced > div:nth-child(3) .principle-word-label {
+		animation-delay: 2020ms;
+	}
+
+	@keyframes principle-emphasis {
+		from {
+			color: var(--muted);
+			font-weight: 500;
+		}
+		to {
+			color: var(--navy);
+			font-weight: 800;
+		}
+	}
+}
+
 .hero-text {
 	max-width: 660px;
 	margin: 0;
