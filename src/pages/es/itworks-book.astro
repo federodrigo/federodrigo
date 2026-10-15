@@ -1,1 +1,222 @@
+---
+import SEO from '../../components/SEO.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
 
+<!doctype html>
+<html lang="es">
+  <head>
+    <script is:inline>
+      document.documentElement.classList.add('js');
+    </script>
+
+    <SEO
+      title="Funciona. Ese es el problema | Fede Rodrigo"
+      description="Próximo libro de Fede Rodrigo sobre cómo los arreglos tecnológicos que funcionan pueden acumular dependencias, complejidad y lock-in."
+      lang="es"
+      image="/images/funciona-book-cover-es.png"
+    />
+
+    <style>
+      .itworks-book-page {
+        padding-top: 46px;
+      }
+
+      .itworks-book-page .books-page-book-featured {
+        margin: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+
+      .itworks-book-page .books-page-other {
+        margin-top: var(--divider-space-before);
+        margin-bottom: 0;
+        padding-top: var(--divider-space-after);
+        padding-bottom: 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .itworks-book-page .books-page-other > .reveal-item:first-child {
+        margin-bottom: 22px;
+      }
+
+      .itworks-book-page .books-page-other > .reveal-item:first-child h2 {
+        margin-bottom: 0;
+      }
+
+      .itworks-book-page .books-page-other p {
+        max-width: 740px;
+      }
+
+      .itworks-book-page .coming-soon {
+        display: inline-block;
+        color: var(--blue);
+        font-family: inherit;
+        font-size: var(--cta-size);
+        font-weight: var(--cta-weight);
+        line-height: 1.3;
+        letter-spacing: normal;
+        text-transform: none;
+      }
+
+      @media (max-width: 720px) {
+        .itworks-book-page {
+          padding-top: 42px;
+        }
+
+        .itworks-book-page .books-page-book {
+          grid-template-columns: 1fr;
+          gap: 24px;
+        }
+
+        .itworks-book-page .books-page-book-featured {
+          padding-top: 0;
+          padding-bottom: 0;
+        }
+
+        .itworks-book-page .books-page-cover-wrapper,
+        .itworks-book-page .books-page-cover-link {
+          width: 180px;
+        }
+
+        .itworks-book-page .books-page-cover {
+          width: 180px;
+          max-width: 100%;
+          border-radius: 8px;
+        }
+
+        .itworks-book-page .books-page-content h2 {
+          font-size: 1.55rem;
+        }
+
+        .itworks-book-page .books-page-subtitle {
+          margin-bottom: 18px;
+          font-size: 0.92rem;
+        }
+
+        .itworks-book-page .books-page-content > p {
+          margin-bottom: 15px;
+          font-size: 0.94rem;
+          line-height: 1.58;
+        }
+
+        .itworks-book-page .books-page-action {
+          margin-top: 18px;
+        }
+
+        .itworks-book-page .books-page-other {
+          margin-top: var(--divider-space-mobile);
+          padding-top: var(--divider-space-mobile);
+          padding-bottom: 0;
+        }
+
+        .itworks-book-page .books-page-other > .reveal-item:first-child {
+          margin-bottom: 20px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <Header />
+
+    <main class="itworks-book-page">
+      <section
+        id="book"
+        class="books-page-book books-page-book-featured reveal-section"
+        aria-labelledby="itworks-book-title"
+      >
+        <div class="books-page-cover-wrapper reveal-item reveal-from-left">
+          <div class="books-page-cover-link">
+            <img
+              src="/images/funciona-book-cover-es.png"
+              alt="Portada de Funciona. Ese es el problema, de Fede Rodrigo"
+              class="books-page-cover animated-book-cover"
+            />
+          </div>
+        </div>
+
+        <div class="books-page-content reveal-item reveal-delay-1">
+          <p class="books-page-label">Próximo libro</p>
+          <h2 id="itworks-book-title">Funciona. Ese es el problema</h2>
+          <p class="books-page-subtitle">Cómo las soluciones tecnológicas pueden atraparnos</p>
+          <p>A veces el mayor riesgo aparece después de que una solución tecnológica funciona. Un arreglo resuelve el problema de hoy, se incorpora a la operación y vuelve más difícil el próximo cambio. A medida que esas decisiones se acumulan, la organización depende cada vez más del sistema que ya tiene.</p>
+
+          <p>Este libro explora cómo decisiones tecnológicas bien intencionadas pueden convertirse en complejidad y lock-in, y cómo preservar la capacidad de elegir cuando aparecen mejores alternativas.</p>
+
+          <p class="books-page-action">
+            <span class="coming-soon">Disponible en 2027</span>
+          </p>
+        </div>
+      </section>
+
+      <section
+        id="que-explora-el-libro"
+        class="books-page-other reveal-section"
+        aria-labelledby="que-explora-el-libro-title"
+      >
+        <div class="reveal-item">
+          <h2 id="que-explora-el-libro-title">Qué explora el libro</h2>
+        </div>
+
+        <div class="reveal-item reveal-delay-1">
+          <p>Cómo los arreglos de corto plazo generan dependencias duraderas, cómo el éxito operativo puede ocultar el costo de la complejidad acumulada y por qué reemplazar una tecnología suele exigir cambiar los procesos y las decisiones construidos a su alrededor.</p>
+
+          <p>A través de ejemplos y una perspectiva práctica de liderazgo, el libro analiza cómo decisiones razonables, tomadas una por una, pueden terminar limitando las opciones de una organización.</p>
+        </div>
+      </section>
+
+      <section
+        id="a-quien-esta-dirigido"
+        class="books-page-other reveal-section"
+        aria-labelledby="a-quien-esta-dirigido-title"
+      >
+        <div class="reveal-item">
+          <h2 id="a-quien-esta-dirigido-title">A quién está dirigido</h2>
+        </div>
+
+        <div class="reveal-item reveal-delay-1">
+          <p>Líderes tecnológicos, gerentes y responsables de decisiones de negocio que necesitan mantener los sistemas funcionando hoy sin perder la libertad de cambiarlos mañana.</p>
+        </div>
+      </section>
+
+      <section
+        id="publicacion"
+        class="books-page-other reveal-section"
+        aria-labelledby="publicacion-title"
+      >
+        <div class="reveal-item">
+          <h2 id="publicacion-title">Publicación</h2>
+        </div>
+
+        <div class="reveal-item reveal-delay-1">
+          <p>Su publicación está prevista para 2027.</p>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+
+    <script>
+      const sections = document.querySelectorAll('.reveal-section');
+
+      if ('IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          });
+        }, {
+          threshold: 0.12,
+          rootMargin: '0px 0px -60px 0px'
+        });
+
+        sections.forEach((section) => revealObserver.observe(section));
+      } else {
+        sections.forEach((section) => section.classList.add('is-visible'));
+      }
+    </script>
+  </body>
+</html>
