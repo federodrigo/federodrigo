@@ -5,7 +5,8 @@
 		"@astrojs/cloudflare": "12.6.12",
 		"@astrojs/sitemap": "3.6.1",
 		"astro": "5.16.9",
-		"typescript": "5.9.3"
+		"typescript": "5.9.3",
+		"sharp": "0.34.5"
 	},
 	"devDependencies": {
 		"wrangler": "4.88.0"
@@ -25,4 +26,3 @@
 	},
 	"type": "module"
 }
-

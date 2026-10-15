@@ -2,6 +2,9 @@
 import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import cloudflare from "@astrojs/cloudflare";
+import { prepareResearchImages } from "./scripts/prepare-research-images.mjs";
+
+await prepareResearchImages();
 
 export default defineConfig({
 	site: "https://federodrigo.com",
