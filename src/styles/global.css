@@ -257,80 +257,42 @@ h1 {
 	letter-spacing: 0.01em;
 }
 
-.lead-principles div {
-	display: inline;
-	padding: 0;
-	background: transparent;
-	border: none;
-	border-radius: 0;
-}
-
-.lead-principles div:not(:last-child)::after {
-	content: " · ";
-	color: #94a3b8;
-	font-weight: 700;
-}
-
-/* Reserve the width of bold text so the sequence never shifts its neighbors. */
-.lead-principles--sequenced .principle-word {
-	display: inline-grid;
-	vertical-align: baseline;
-	white-space: nowrap;
-}
-
-.lead-principles--sequenced .principle-word::before,
-.lead-principles--sequenced .principle-word-label {
-	grid-area: 1 / 1 / 2 / 2;
-}
-
-.lead-principles--sequenced .principle-word::before {
-	content: attr(data-word);
-	visibility: hidden;
+.lead-principles--sequenced .principles-line {
+	display: inline-block;
+	max-width: 100%;
 	font-weight: 800;
-}
-
-.lead-principles--sequenced .principle-word-label {
 	color: var(--navy);
-	font-weight: 800;
 }
 
 /*
- * Two soft emphasis passes, with a gradual shared fade between them.
- * The words enter in sequence, settle, and then repeat once.
- * No font-weight animation or layout shifts; the final emphasis remains.
+ * One continuous horizontal color wave, travelling across the entire phrase
+ * twice in the same direction. There are no word-by-word steps, weight changes,
+ * vertical movements or abrupt resets. The final state remains dark.
  */
 @media (prefers-reduced-motion: no-preference) {
-	.lead-principles--sequenced .principle-word-label {
-		animation-duration: 7000ms;
-		animation-timing-function: ease-in-out;
-		animation-fill-mode: both;
+	.lead-principles--sequenced .principles-line {
+		background-image: linear-gradient(
+			90deg,
+			var(--navy) 0%,
+			var(--navy) 19%,
+			var(--muted) 24%,
+			var(--muted) 42%,
+			var(--navy) 47%,
+			var(--navy) 67%,
+			var(--muted) 72%,
+			var(--muted) 100%
+		);
+		background-size: 650% 100%;
+		background-repeat: no-repeat;
+		-webkit-background-clip: text;
+		background-clip: text;
+		-webkit-text-fill-color: transparent;
+		animation: principle-wave 7800ms linear both;
 	}
 
-	.lead-principles--sequenced > div:nth-child(1) .principle-word-label {
-		animation-name: principle-twice-first;
-	}
-
-	.lead-principles--sequenced > div:nth-child(2) .principle-word-label {
-		animation-name: principle-twice-second;
-	}
-
-	.lead-principles--sequenced > div:nth-child(3) .principle-word-label {
-		animation-name: principle-twice-third;
-	}
-
-	@keyframes principle-twice-first {
-		0%, 14%, 60%, 64% { color: var(--muted); opacity: 0.7; transform: translateY(2px); }
-		27%, 45%, 77%, 100% { color: var(--navy); opacity: 1; transform: translateY(0); }
-	}
-
-	@keyframes principle-twice-second {
-		0%, 20%, 60%, 70% { color: var(--muted); opacity: 0.7; transform: translateY(2px); }
-		33%, 45%, 83%, 100% { color: var(--navy); opacity: 1; transform: translateY(0); }
-	}
-
-	@keyframes principle-twice-third {
-		0%, 26%, 60%, 76% { color: var(--muted); opacity: 0.7; transform: translateY(2px); }
-		39%, 45%, 89%, 100% { color: var(--navy); opacity: 1; transform: translateY(0); }
+	@keyframes principle-wave {
+		from { background-position: 100% 0; }
+		to { background-position: 0% 0; }
 	}
 }
 
@@ -1475,23 +1437,9 @@ img {
 	animation-delay: 110ms;
 }
 
-.hero .lead-principles div {
+.hero .lead-principles {
 	opacity: 0;
-	transform: translateY(14px);
-	animation: hero-principle-in 600ms cubic-bezier(0.22, 1, 0.36, 1)
-		forwards;
-}
-
-.hero .lead-principles div:nth-child(1) {
-	animation-delay: 330ms;
-}
-
-.hero .lead-principles div:nth-child(2) {
-	animation-delay: 420ms;
-}
-
-.hero .lead-principles div:nth-child(3) {
-	animation-delay: 510ms;
+	animation: hero-principles-appear 600ms ease-out 320ms forwards;
 }
 
 @keyframes hero-line-in {
@@ -1501,11 +1449,8 @@ img {
 	}
 }
 
-@keyframes hero-principle-in {
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
+@keyframes hero-principles-appear {
+	to { opacity: 1; }
 }
 
 /* SCROLL REVEALS */
@@ -1609,7 +1554,7 @@ img {
 
 @media (prefers-reduced-motion: reduce) {
 	.hero-line,
-	.hero .lead-principles div {
+	.hero .lead-principles {
 		opacity: 1;
 		transform: none;
 		animation: none;
