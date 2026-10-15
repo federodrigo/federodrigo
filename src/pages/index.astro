@@ -11,6 +11,40 @@ import Footer from '../components/Footer.astro';
 		<script is:inline>
 			document.documentElement.classList.add('js');
 		</script>
+		<script is:inline>
+			// Determine the language only once, when someone enters the homepage.
+			(function () {
+				const storageKey = 'federodrigo-language';
+				let preference = null;
+
+				try {
+					preference = window.localStorage.getItem(storageKey);
+				} catch (_) {
+					// Private browsing or restrictive settings may block storage.
+				}
+
+				if (preference !== 'es' && preference !== 'en') {
+					const browserLanguage =
+						(navigator.languages && navigator.languages.length
+							? navigator.languages[0]
+							: navigator.language) || '';
+
+					preference = /^es(?:[-_]|$)/i.test(browserLanguage) ? 'es' : 'en';
+
+					try {
+						window.localStorage.setItem(storageKey, preference);
+					} catch (_) {
+						// Language detection still works for this visit.
+					}
+				}
+
+				if (preference === 'es') {
+					window.location.replace(
+						'/es/' + window.location.search + window.location.hash
+					);
+				}
+			})();
+		</script>
 
 		<SEO
 			title="Fede Rodrigo | CIO, Author, Speaker & Technology Leader"
