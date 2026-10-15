@@ -466,47 +466,34 @@ import Footer from '../components/Footer.astro';
 					gap: 24px;
 				}
 
+				/* Mobile: give both events the same logo area and keep their text below. */
 				#upcoming-events .home-event {
 					display: grid;
-					grid-template-columns: 100px minmax(0, 1fr);
-					column-gap: 18px;
-					align-items: center;
+					grid-template-columns: minmax(0, 1fr);
+					row-gap: 12px;
+					align-items: start;
 				}
 
 				#upcoming-events .home-event-image-link {
-					height: auto;
-					min-height: 88px;
-				}
-
-				#upcoming-events .home-event-image {
-					max-height: 88px;
-				}
-
-				/*
-				 * TEDx artwork is much wider than the mobile image column.
-				 * Give it its own row to prevent the logo overlapping the text.
-				 * Desktop and the other event keep their existing layout.
-				 */
-				#upcoming-events .home-event--tedx {
-					grid-template-columns: minmax(0, 1fr);
-					row-gap: 12px;
-				}
-
-				#upcoming-events .home-event--tedx .home-event-image-link {
-					width: min(260px, 100%);
+					display: flex;
+					width: min(200px, 100%);
+					height: 110px;
 					min-height: 0;
-					height: auto;
+					align-items: center;
+					justify-content: flex-start;
 				}
 
-				#upcoming-events .home-event--tedx .home-event-image--tedx {
+				#upcoming-events .home-event-image,
+				#upcoming-events .home-event-image--tedx {
 					display: block;
-					width: 100%;
-					max-width: 100%;
+					width: auto;
 					height: auto;
-					max-height: none;
+					max-width: 100%;
+					max-height: 110px;
+					object-fit: contain;
 				}
 
-				#upcoming-events .home-event--tedx .home-event-details {
+				#upcoming-events .home-event-details {
 					width: 100%;
 					min-width: 0;
 				}
