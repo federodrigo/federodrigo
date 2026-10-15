@@ -226,6 +226,11 @@ import Footer from '../../components/Footer.astro';
 			   CIO OFFICE
 			========================================================= */
 
+			/* Compensate for whitespace inside the CIO Office logo artwork. */
+			#cio-office .books-page-cover-wrapper {
+				margin-left: -12px;
+			}
+
 			#cio-office .cio-office-capabilities-logo {
 				transform: none;
 			}
@@ -251,7 +256,8 @@ import Footer from '../../components/Footer.astro';
 				max-width: 85%;
 				height: auto;
 
-				margin-left: auto;
+				/* Align the book's visible edge with the section label. */
+				margin-left: 0;
 				margin-right: auto;
 			}
 
@@ -394,6 +400,11 @@ import Footer from '../../components/Footer.astro';
 				#cio-office .books-page-cover-wrapper,
 				#cio-office .books-page-cover-link {
 					width: 170px;
+				}
+
+				/* Scale the optical alignment adjustment with the smaller logo. */
+				#cio-office .books-page-cover-wrapper {
+					margin-left: -8px;
 				}
 
 				#cio-office .cio-office-capabilities-logo {
