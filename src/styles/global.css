@@ -294,30 +294,79 @@ h1 {
 	font-weight: 800;
 }
 
-/* Let the existing hero entrance finish, then emphasize each word once. */
+/*
+ * Two one-time emphasis passes after the existing hero entrance.
+ * Pass 1: 1.16–2.44s; pause; gently reset: 3.36–3.76s;
+ * pass 2: 3.78–5.06s. Final state remains bold.
+ *
+ * A shared 5.6s timeline keeps all three words synchronized without a loop.
+ * The bold-width placeholders above prevent any text reflow.
+ */
 @media (prefers-reduced-motion: no-preference) {
 	.lead-principles--sequenced .principle-word-label {
-		animation: principle-emphasis 420ms ease-out both;
-	}
-
-	.lead-principles--sequenced > div:nth-child(1) .principle-word-label {
-		animation-delay: 1160ms;
+		animation: principle-emphasis-first 5600ms ease-out both;
 	}
 
 	.lead-principles--sequenced > div:nth-child(2) .principle-word-label {
-		animation-delay: 1590ms;
+		animation-name: principle-emphasis-second;
 	}
 
 	.lead-principles--sequenced > div:nth-child(3) .principle-word-label {
-		animation-delay: 2020ms;
+		animation-name: principle-emphasis-third;
 	}
 
-	@keyframes principle-emphasis {
-		from {
+	@keyframes principle-emphasis-first {
+		0%, 20.714% {
 			color: var(--muted);
 			font-weight: 500;
 		}
-		to {
+		28.214%, 60% {
+			color: var(--navy);
+			font-weight: 800;
+		}
+		67.143%, 67.5% {
+			color: var(--muted);
+			font-weight: 500;
+		}
+		75%, 100% {
+			color: var(--navy);
+			font-weight: 800;
+		}
+	}
+
+	@keyframes principle-emphasis-second {
+		0%, 28.393% {
+			color: var(--muted);
+			font-weight: 500;
+		}
+		35.893%, 60% {
+			color: var(--navy);
+			font-weight: 800;
+		}
+		67.143%, 75.179% {
+			color: var(--muted);
+			font-weight: 500;
+		}
+		82.679%, 100% {
+			color: var(--navy);
+			font-weight: 800;
+		}
+	}
+
+	@keyframes principle-emphasis-third {
+		0%, 36.071% {
+			color: var(--muted);
+			font-weight: 500;
+		}
+		43.571%, 60% {
+			color: var(--navy);
+			font-weight: 800;
+		}
+		67.143%, 82.857% {
+			color: var(--muted);
+			font-weight: 500;
+		}
+		90.357%, 100% {
 			color: var(--navy);
 			font-weight: 800;
 		}
