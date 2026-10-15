@@ -55,8 +55,9 @@ const featuredPaper = {
         max-width: 100%;
         height: auto;
         border-radius: 10px;
-        /* Blend the PNG's white background into the site's #f6f7f9 background. */
-        mix-blend-mode: multiply;
+        /* Remove the opaque white baked into the original artwork. */
+        mix-blend-mode: normal;
+        filter: url(#research-remove-white);
         box-shadow: none;
       }
 
@@ -289,6 +290,20 @@ const featuredPaper = {
         class="books-page-book books-page-other reveal-section"
         aria-labelledby="research-title"
       >
+        <!-- Convert bright near-white pixels to transparency so the page background shows through. -->
+        <svg width="0" height="0" aria-hidden="true" focusable="false" style="position: absolute">
+          <defs>
+            <filter id="research-remove-white" color-interpolation-filters="sRGB">
+              <feColorMatrix
+                type="matrix"
+                values="1 0 0 0 0
+                        0 1 0 0 0
+                        0 0 1 0 0
+                        -2.8 -2.8 -2.8 0 8.2"
+              />
+            </filter>
+          </defs>
+        </svg>
         <div class="books-page-cover-wrapper reveal-item reveal-from-left">
           <img
             src="/images/spaguetti-es.png"
