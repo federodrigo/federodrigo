@@ -250,7 +250,7 @@ h1 {
 .lead-principles {
 	margin-top: 16px;
 	display: block;
-	font-size: 1rem;
+	font-size: 1.15rem;
 	font-weight: 750;
 	line-height: 1.4;
 	color: var(--muted);
@@ -295,80 +295,37 @@ h1 {
 }
 
 /*
- * Two one-time emphasis passes after the existing hero entrance.
- * Pass 1: 1.16–2.44s; pause; gently reset: 3.36–3.76s;
- * pass 2: 3.78–5.06s. Final state remains bold.
- *
- * A shared 5.6s timeline keeps all three words synchronized without a loop.
- * The bold-width placeholders above prevent any text reflow.
+ * One soft, staggered emphasis after the hero entrance.
+ * Words settle into their final color without flashing, resetting,
+ * or changing weight. Keep the bold-width placeholders above.
  */
 @media (prefers-reduced-motion: no-preference) {
 	.lead-principles--sequenced .principle-word-label {
-		animation: principle-emphasis-first 5600ms ease-out both;
+		animation: principle-settle 850ms cubic-bezier(0.22, 1, 0.36, 1) both;
+	}
+
+	.lead-principles--sequenced > div:nth-child(1) .principle-word-label {
+		animation-delay: 1050ms;
 	}
 
 	.lead-principles--sequenced > div:nth-child(2) .principle-word-label {
-		animation-name: principle-emphasis-second;
+		animation-delay: 1260ms;
 	}
 
 	.lead-principles--sequenced > div:nth-child(3) .principle-word-label {
-		animation-name: principle-emphasis-third;
+		animation-delay: 1470ms;
 	}
 
-	@keyframes principle-emphasis-first {
-		0%, 20.714% {
+	@keyframes principle-settle {
+		from {
 			color: var(--muted);
-			font-weight: 500;
+			opacity: 0.7;
+			transform: translateY(2px);
 		}
-		28.214%, 60% {
+		to {
 			color: var(--navy);
-			font-weight: 800;
-		}
-		67.143%, 67.5% {
-			color: var(--muted);
-			font-weight: 500;
-		}
-		75%, 100% {
-			color: var(--navy);
-			font-weight: 800;
-		}
-	}
-
-	@keyframes principle-emphasis-second {
-		0%, 28.393% {
-			color: var(--muted);
-			font-weight: 500;
-		}
-		35.893%, 60% {
-			color: var(--navy);
-			font-weight: 800;
-		}
-		67.143%, 75.179% {
-			color: var(--muted);
-			font-weight: 500;
-		}
-		82.679%, 100% {
-			color: var(--navy);
-			font-weight: 800;
-		}
-	}
-
-	@keyframes principle-emphasis-third {
-		0%, 36.071% {
-			color: var(--muted);
-			font-weight: 500;
-		}
-		43.571%, 60% {
-			color: var(--navy);
-			font-weight: 800;
-		}
-		67.143%, 82.857% {
-			color: var(--muted);
-			font-weight: 500;
-		}
-		90.357%, 100% {
-			color: var(--navy);
-			font-weight: 800;
+			opacity: 1;
+			transform: translateY(0);
 		}
 	}
 }
@@ -1909,7 +1866,7 @@ img {
 	}
 
 	.lead-principles {
-		font-size: 0.96rem;
+		font-size: 1.10rem;
 		margin-top: 20px;
 	}
 
