@@ -265,9 +265,9 @@ h1 {
 }
 
 /*
- * One continuous horizontal color wave, travelling across the entire phrase
- * twice in the same direction. There are no word-by-word steps, weight changes,
- * vertical movements or abrupt resets. The final state remains dark.
+ * Two quick, gently eased color passes across the whole phrase.
+ * Avoids word-by-word stepping and keeps the final state dark,
+ * without moving the text or changing its weight.
  */
 @media (prefers-reduced-motion: no-preference) {
 	.lead-principles--sequenced .principles-line {
@@ -287,7 +287,7 @@ h1 {
 		-webkit-background-clip: text;
 		background-clip: text;
 		-webkit-text-fill-color: transparent;
-		animation: principle-wave 7800ms linear both;
+		animation: principle-wave 3000ms cubic-bezier(0.42, 0, 0.2, 1) both;
 	}
 
 	@keyframes principle-wave {
