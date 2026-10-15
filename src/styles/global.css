@@ -295,38 +295,42 @@ h1 {
 }
 
 /*
- * One soft, staggered emphasis after the hero entrance.
- * Words settle into their final color without flashing, resetting,
- * or changing weight. Keep the bold-width placeholders above.
+ * Two soft emphasis passes, with a gradual shared fade between them.
+ * The words enter in sequence, settle, and then repeat once.
+ * No font-weight animation or layout shifts; the final emphasis remains.
  */
 @media (prefers-reduced-motion: no-preference) {
 	.lead-principles--sequenced .principle-word-label {
-		animation: principle-settle 850ms cubic-bezier(0.22, 1, 0.36, 1) both;
+		animation-duration: 7000ms;
+		animation-timing-function: ease-in-out;
+		animation-fill-mode: both;
 	}
 
 	.lead-principles--sequenced > div:nth-child(1) .principle-word-label {
-		animation-delay: 1050ms;
+		animation-name: principle-twice-first;
 	}
 
 	.lead-principles--sequenced > div:nth-child(2) .principle-word-label {
-		animation-delay: 1260ms;
+		animation-name: principle-twice-second;
 	}
 
 	.lead-principles--sequenced > div:nth-child(3) .principle-word-label {
-		animation-delay: 1470ms;
+		animation-name: principle-twice-third;
 	}
 
-	@keyframes principle-settle {
-		from {
-			color: var(--muted);
-			opacity: 0.7;
-			transform: translateY(2px);
-		}
-		to {
-			color: var(--navy);
-			opacity: 1;
-			transform: translateY(0);
-		}
+	@keyframes principle-twice-first {
+		0%, 14%, 60%, 64% { color: var(--muted); opacity: 0.7; transform: translateY(2px); }
+		27%, 45%, 77%, 100% { color: var(--navy); opacity: 1; transform: translateY(0); }
+	}
+
+	@keyframes principle-twice-second {
+		0%, 20%, 60%, 70% { color: var(--muted); opacity: 0.7; transform: translateY(2px); }
+		33%, 45%, 83%, 100% { color: var(--navy); opacity: 1; transform: translateY(0); }
+	}
+
+	@keyframes principle-twice-third {
+		0%, 26%, 60%, 76% { color: var(--muted); opacity: 0.7; transform: translateY(2px); }
+		39%, 45%, 89%, 100% { color: var(--navy); opacity: 1; transform: translateY(0); }
 	}
 }
 
