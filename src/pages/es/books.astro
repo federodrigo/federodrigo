@@ -64,6 +64,13 @@ const featuredPaper = {
         margin-top: 24px;
       }
 
+      /* Keep the research underline visually consistent with the English page
+         without changing the layout spacing. */
+      .research-content #research-title::after {
+        transform: scaleY(1.5);
+        transform-origin: top;
+      }
+
       .research-meta {
         display: flex;
         flex-wrap: wrap;
