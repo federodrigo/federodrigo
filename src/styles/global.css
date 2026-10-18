@@ -924,6 +924,8 @@ img {
    including mobile where generic paragraph margins would override it. */
 .books-page-book .books-page-content > p.books-page-label {
 	margin: 0 0 4px;
+	font-size: 0.74rem;
+	line-height: 1.2;
 }
 
 .books-page-content em {
