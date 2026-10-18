@@ -920,6 +920,12 @@ img {
 	line-height: 1.62;
 }
 
+/* Keep the category label close to its title on all book pages,
+   including mobile where generic paragraph margins would override it. */
+.books-page-book .books-page-content > p.books-page-label {
+	margin: 0 0 4px;
+}
+
 .books-page-content em {
 	color: inherit;
 }
