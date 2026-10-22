@@ -1,0 +1,402 @@
+{
+  "chapters": [
+    {
+      "id": "understand",
+      "nav": {
+        "en": "Understand",
+        "es": "Entender"
+      },
+      "title": {
+        "en": "Understand the problem before choosing a solution",
+        "es": "Entender el problema antes de elegir una solución"
+      },
+      "intro": {
+        "en": "Tools and convincing answers can feel like progress before the need is clear. We start by examining what we are trying to achieve and what the evidence actually establishes",
+        "es": "Las herramientas y las respuestas convincentes pueden dar sensación de avance antes de entender la necesidad. El recorrido empieza por examinar qué queremos lograr y qué permite concluir la evidencia"
+      }
+    },
+    {
+      "id": "choose",
+      "nav": {
+        "en": "Choose",
+        "es": "Elegir"
+      },
+      "title": {
+        "en": "Choices depend on conditions that can change",
+        "es": "Las condiciones de una decisión pueden cambiar"
+      },
+      "intro": {
+        "en": "Once we choose a solution, its usefulness depends on costs, definitions and conditions that may change. These stories examine what we take for granted when we expect a technology to keep working for the business",
+        "es": "Una vez elegida una solución, su utilidad depende de costos, definiciones y condiciones que pueden cambiar. Estas historias examinan qué damos por sentado cuando esperamos que una tecnología siga respondiendo a lo que el negocio necesita"
+      }
+    },
+    {
+      "id": "evaluate",
+      "nav": {
+        "en": "Evaluate",
+        "es": "Evaluar"
+      },
+      "title": {
+        "en": "Success goes beyond delivery",
+        "es": "El éxito va más allá de la entrega"
+      },
+      "intro": {
+        "en": "A launch can satisfy a plan while leaving difficult questions about risk, people and continuity. The result includes the capacity to operate, recover and keep moving after the project team has finished",
+        "es": "Un lanzamiento puede cumplir el plan y dejar preguntas pendientes sobre riesgos, personas y continuidad. El resultado incluye la capacidad de operar, recuperarse y seguir avanzando después de que termine el proyecto"
+      }
+    },
+    {
+      "id": "value",
+      "nav": {
+        "en": "Create value",
+        "es": "Crear valor"
+      },
+      "title": {
+        "en": "Start with the value the business needs",
+        "es": "Partir del valor que el negocio necesita"
+      },
+      "intro": {
+        "en": "The final stories bring the decision back to what people need and the outcomes that matter. Technology can change as the business develops new products, capabilities and ways to create value",
+        "es": "Las últimas historias devuelven la decisión a lo que las personas necesitan y a los resultados que importan. La tecnología puede cambiar mientras el negocio desarrolla productos, capacidades y nuevas formas de crear valor"
+      }
+    }
+  ],
+  "stories": [
+    {
+      "id": "coffee",
+      "file": "Agile.png",
+      "chapter": "understand",
+      "type": {
+        "en": "Illustrative scenario",
+        "es": "Caso ilustrativo"
+      },
+      "title": {
+        "en": "Start with the coffee",
+        "es": "Empezar por el café"
+      },
+      "copy": {
+        "en": "Start by defining the need: two coffees each morning, little space and a modest budget. That changes how we judge the available solutions, even when each was built with a different method",
+        "es": "La necesidad es preparar dos cafés cada mañana, con poco espacio y un presupuesto limitado. Eso cambia cómo evaluamos las soluciones disponibles, aunque cada una se haya construido con un método diferente"
+      },
+      "alt": {
+        "en": "Waterfall, Agile and AI produce sophisticated coffee machines; a small moka pot meets a need for two coffees in a small kitchen",
+        "es": "Waterfall, Agile e IA producen cafeteras sofisticadas; una cafetera italiana alcanza para preparar dos cafés en una cocina pequeña"
+      }
+    },
+    {
+      "id": "hans",
+      "file": "Hans.png",
+      "chapter": "understand",
+      "type": {
+        "en": "History and interpretation",
+        "es": "Historia e interpretación"
+      },
+      "title": {
+        "en": "An answer still needs judgment",
+        "es": "Una respuesta requiere criterio"
+      },
+      "copy": {
+        "en": "The correct answers persuaded spectators that Hans could calculate, until controlled tests revealed the cues behind his performance. With AI, an answer can arrive before we have understood the problem; our judgment determines what it is useful for",
+        "es": "Las respuestas correctas convencieron al público de que Hans sabía calcular, hasta que las pruebas controladas revelaron las señales que seguía. Con IA, una respuesta puede llegar antes de que hayamos entendido el problema; nuestro criterio determina para qué sirve"
+      },
+      "alt": {
+        "en": "Clever Hans answers by tapping his hoof, controlled tests uncover involuntary human signals, and an AI analogy emphasizes the problem, purpose and value",
+        "es": "Clever Hans responde golpeando con el casco; las pruebas revelan señales humanas involuntarias y el paralelo con IA pone el foco en problema, propósito y valor"
+      }
+    },
+    {
+      "id": "bermuda",
+      "file": "Bermuda.png",
+      "chapter": "understand",
+      "type": {
+        "en": "Myths and evidence",
+        "es": "Mitos y evidencia"
+      },
+      "title": {
+        "en": "Familiar claims deserve a closer look",
+        "es": "Revisar lo que damos por cierto"
+      },
+      "copy": {
+        "en": "A familiar story can feel established before we examine its evidence. Claims that cloud is always cheaper, automation reduces costs or AI improves productivity also depend on conditions that a slogan leaves out",
+        "es": "Una historia conocida puede parecer demostrada antes de que examinemos la evidencia. Afirmar que la nube siempre es más barata, que automatizar reduce costos o que la IA mejora la productividad también depende de condiciones que un eslogan deja afuera"
+      },
+      "alt": {
+        "en": "Brick-built map of Florida, Bermuda and Puerto Rico, alongside questions about claims concerning cloud cost, automation and AI productivity",
+        "es": "Mapa de Florida, Bermudas y Puerto Rico construido con bloques, junto a preguntas sobre costos de nube, automatización y productividad con IA"
+      }
+    },
+    {
+      "id": "cargo-cult",
+      "file": "Cargo Cult.png",
+      "chapter": "understand",
+      "type": {
+        "en": "Feynman’s analogy",
+        "es": "Analogía de Feynman"
+      },
+      "title": {
+        "en": "The form does not explain the result",
+        "es": "La forma no explica el resultado"
+      },
+      "copy": {
+        "en": "Feynman’s runway analogy describes people reproducing visible practices while missing the conditions that made them effective. It gives us a way to examine the ceremonies and tools we adopt when we expect the appearance of a method to reproduce its results",
+        "es": "La analogía de las pistas de Feynman describe cómo se reproducen prácticas visibles sin comprender las condiciones que las hacían efectivas. Permite examinar las ceremonias y herramientas que adoptamos esperando reproducir los resultados de un método"
+      },
+      "alt": {
+        "en": "Supplies arrive by aircraft, people reproduce a runway and control tower, and the planes do not return despite the copied structures",
+        "es": "Los suministros llegan en avión; se reproducen una pista y una torre de control, pero los aviones no regresan"
+      }
+    },
+    {
+      "id": "oak-trees",
+      "file": "Oak Trees.png",
+      "chapter": "choose",
+      "type": {
+        "en": "Historical account",
+        "es": "Relato histórico"
+      },
+      "title": {
+        "en": "The plan outlived its technology",
+        "es": "El plan sobrevivió a su tecnología"
+      },
+      "copy": {
+        "en": "Sweden planted oaks for future warships, and by the time the first trees were ready in 1975, naval construction had moved to metal. We make a similar bet when we expect a chosen tool to keep meeting the business’s needs throughout our plans",
+        "es": "Suecia plantó robles para futuros buques de guerra y, cuando los primeros estuvieron listos en 1975, la construcción naval ya había pasado al metal. Hacemos una apuesta parecida cuando esperamos que una herramienta siga respondiendo a las necesidades del negocio durante todo el plan"
+      },
+      "alt": {
+        "en": "Sweden plants about 300,000 oaks beginning in 1831; shipbuilding changes to iron and steel, and the navy declines the timber in 1975",
+        "es": "Suecia comienza a plantar unos 300.000 robles en 1831; la construcción naval pasa al hierro y al acero, y la marina rechaza la madera en 1975"
+      }
+    },
+    {
+      "id": "ariane-5",
+      "file": "ariane5.png",
+      "chapter": "choose",
+      "type": {
+        "en": "Historical account",
+        "es": "Relato histórico"
+      },
+      "title": {
+        "en": "It worked in another context",
+        "es": "Funcionaba en otro contexto"
+      },
+      "copy": {
+        "en": "The software had worked on Ariane 4, which gave the team a reason to reuse it. Ariane 5’s flight conditions exceeded a built-in assumption, and both reference systems failed. Previous success still needs to be examined against the conditions of the next decision",
+        "es": "El software había funcionado en Ariane 4, lo que daba una razón para reutilizarlo. Las condiciones de vuelo de Ariane 5 superaron un supuesto incorporado al programa y fallaron los dos sistemas de referencia. El éxito anterior debe evaluarse frente a las condiciones de la próxima decisión"
+      },
+      "alt": {
+        "en": "Ariane 5 reuses reference software from Ariane 4, encounters different flight conditions, loses both reference systems and prompts a review against new business requirements",
+        "es": "Ariane 5 reutiliza software de Ariane 4, encuentra condiciones de vuelo diferentes y pierde ambos sistemas de referencia; el paralelo invita a revisar los nuevos requisitos del negocio"
+      }
+    },
+    {
+      "id": "full-circle",
+      "file": "Full Circle(2).png",
+      "chapter": "choose",
+      "type": {
+        "en": "Illustrative scenario",
+        "es": "Caso ilustrativo"
+      },
+      "title": {
+        "en": "Follow the cost of the outcome",
+        "es": "Seguir el costo del resultado"
+      },
+      "copy": {
+        "en": "A team adopts an AI tool for simple coding work, then revisits the decision as its costs become clearer. The comparison needs to include what it takes to produce an acceptable result: tools, people, review and the work that remains",
+        "es": "Un equipo adopta IA para tareas simples de programación y revisa la decisión cuando sus costos se vuelven más claros. La comparación debe incluir lo necesario para producir un resultado aceptable: herramientas, personas, revisión y el trabajo que queda por hacer"
+      },
+      "alt": {
+        "en": "An illustrative team uses AI for simple coding, sees costs accumulate and reconsiders assigning the work to a junior developer",
+        "es": "En un caso ilustrativo, un equipo usa IA para programación simple, ve acumularse los costos y reconsidera asignar el trabajo a un desarrollador junior"
+      }
+    },
+    {
+      "id": "mars",
+      "file": "mars.png",
+      "chapter": "choose",
+      "type": {
+        "en": "Historical account",
+        "es": "Relato histórico"
+      },
+      "title": {
+        "en": "A shared goal needs shared definitions",
+        "es": "Un objetivo común necesita definiciones comunes"
+      },
+      "copy": {
+        "en": "The orbiter was lost after a mismatch between the units supplied by one software system and those expected by another distorted navigation calculations. Shared goals still require agreement on what the exchanged information means",
+        "es": "La sonda se perdió después de que una diferencia entre las unidades que entregaba un sistema y las que esperaba otro distorsionara los cálculos de navegación. Compartir el objetivo también exige acordar qué significa la información que se intercambia"
+      },
+      "alt": {
+        "en": "Mars Climate Orbiter is lost after ground software supplies pound-force seconds and navigation software expects newton-seconds",
+        "es": "Mars Climate Orbiter se pierde después de que un software entregue libras-fuerza segundo y el software de navegación espere newton-segundo"
+      }
+    },
+    {
+      "id": "vasa",
+      "file": "Vasa.png",
+      "chapter": "evaluate",
+      "type": {
+        "en": "Historical account",
+        "es": "Relato histórico"
+      },
+      "title": {
+        "en": "Warnings have to change decisions",
+        "es": "Las advertencias deben cambiar decisiones"
+      },
+      "copy": {
+        "en": "An interrupted stability test warned of the ship’s instability before its maiden voyage, which went ahead under pressure to sail. The case helps us examine whether evidence of a serious risk can change a decision that already has momentum",
+        "es": "Una prueba de estabilidad interrumpida advirtió sobre la inestabilidad del barco antes de su viaje inaugural, que siguió adelante bajo presión por zarpar. El caso permite examinar si la evidencia de un riesgo serio puede cambiar una decisión que ya está en marcha"
+      },
+      "alt": {
+        "en": "The Vasa becomes an impressive warship, stability warnings are ignored, and it takes on water and sinks on its maiden voyage",
+        "es": "El Vasa se convierte en un buque imponente, se ignoran las advertencias de estabilidad y el barco se hunde en su viaje inaugural"
+      }
+    },
+    {
+      "id": "project-nightmare",
+      "file": "Fail Project.png",
+      "chapter": "evaluate",
+      "type": {
+        "en": "Satire",
+        "es": "Sátira"
+      },
+      "title": {
+        "en": "The shortcuts become the system",
+        "es": "Los atajos se convierten en el sistema"
+      },
+      "copy": {
+        "en": "The checklist turns familiar shortcuts into a deliberately bad project plan: unclear ownership, inherited processes, dirty data and exceptions that accumulate. Each workaround can keep progress moving while increasing what the organization will depend on afterward",
+        "es": "La lista convierte atajos conocidos en un plan deliberadamente malo: responsabilidades difusas, procesos heredados, datos sucios y excepciones que se acumulan. Cada arreglo puede mantener el avance y aumentar aquello de lo que la organización dependerá después"
+      },
+      "alt": {
+        "en": "Ten satirical steps to derail a project include premature launch, unclear ownership, excessive customization, dirty data, ignored risks and repeated workarounds",
+        "es": "Diez pasos satíricos para arruinar un proyecto incluyen lanzar antes de tiempo, responsabilidades difusas, personalización excesiva, datos sucios, riesgos ignorados y arreglos sucesivos"
+      }
+    },
+    {
+      "id": "pyrrhus",
+      "file": "Pyrrus.png",
+      "chapter": "evaluate",
+      "type": {
+        "en": "Historical account",
+        "es": "Relato histórico"
+      },
+      "title": {
+        "en": "Count what the victory consumed",
+        "es": "Contar lo que consumió la victoria"
+      },
+      "copy": {
+        "en": "Pyrrhus’s victory came with losses his army could not easily replace, reducing its capacity for the battles ahead. In a project, the cost of delivery includes the strength, trust and capacity that remain in the organization afterward",
+        "es": "La victoria de Pirro dejó pérdidas que su ejército no podía reponer fácilmente y redujo su capacidad para las próximas batallas. En un proyecto, el costo de entregar también se refleja en la fuerza, la confianza y la capacidad que quedan en la organización"
+      },
+      "alt": {
+        "en": "Pyrrhus wins at Asculum but suffers difficult-to-replace losses; a modern project analogy shows a delivered project and an exhausted team",
+        "es": "Pirro gana en Asculum y sufre pérdidas difíciles de reponer; el paralelo muestra un proyecto entregado y un equipo agotado"
+      }
+    },
+    {
+      "id": "scott-amundsen",
+      "file": "scott-amundsen.png",
+      "chapter": "evaluate",
+      "type": {
+        "en": "Historical account",
+        "es": "Relato histórico"
+      },
+      "title": {
+        "en": "Evaluate the whole journey",
+        "es": "Evaluar el recorrido completo"
+      },
+      "copy": {
+        "en": "Both polar teams planned to return from the South Pole; Amundsen’s party returned safely and Scott’s five-man party died on the way back. The comparison invites us to evaluate the full journey, including what happens after reaching a milestone",
+        "es": "Los dos equipos polares planificaron volver del Polo Sur; el de Amundsen regresó y los cinco hombres del grupo polar de Scott murieron durante el retorno. La comparación invita a evaluar el recorrido completo, incluyendo lo que ocurre después de alcanzar un hito"
+      },
+      "alt": {
+        "en": "Amundsen and Scott reach the South Pole, their return outcomes differ, and the business parallel includes ongoing operations after a launch",
+        "es": "Amundsen y Scott llegan al Polo Sur y tienen desenlaces diferentes en el regreso; el paralelo empresarial incluye la operación posterior al lanzamiento"
+      }
+    },
+    {
+      "id": "recovery",
+      "file": "pixar.png",
+      "chapter": "evaluate",
+      "type": {
+        "en": "Illustrative scenario",
+        "es": "Caso ilustrativo"
+      },
+      "title": {
+        "en": "The work has to resume",
+        "es": "El trabajo tiene que poder continuar"
+      },
+      "copy": {
+        "en": "The studio’s work becomes unavailable and its backup cannot restore a usable project, until a separate copy helps the team resume production. Recovery testing should demonstrate that people can continue the work before that capability is urgently needed",
+        "es": "El trabajo del estudio queda inaccesible y el respaldo no permite recuperar un proyecto utilizable, hasta que otra copia ayuda al equipo a retomar la producción. Las pruebas de recuperación deben demostrar que las personas pueden seguir trabajando antes de que esa capacidad sea urgente"
+      },
+      "alt": {
+        "en": "A fictional animation studio cannot restore its production files from backup; a separate working copy allows production to resume",
+        "es": "Un estudio de animación ficticio no puede recuperar sus archivos desde el respaldo; otra copia de trabajo permite retomar la producción"
+      }
+    },
+    {
+      "id": "nintendo",
+      "file": "nintendo.png",
+      "chapter": "value",
+      "type": {
+        "en": "Business history",
+        "es": "Historia empresarial"
+      },
+      "title": {
+        "en": "The business can evolve",
+        "es": "El negocio puede evolucionar"
+      },
+      "copy": {
+        "en": "From hanafuda cards to toys and video games, Nintendo developed different products through changing technologies. Its history offers a way to think about business evolution: the experience people value can lead to new products, capabilities and ways of creating value",
+        "es": "Desde las cartas hanafuda hasta los juguetes y los videojuegos, Nintendo desarrolló productos diferentes mediante tecnologías que fueron cambiando. Su historia permite pensar la evolución del negocio a partir de las experiencias que las personas valoran y de nuevas formas de ofrecerlas"
+      },
+      "alt": {
+        "en": "Nintendo develops from playing cards in 1889 to toys, electronic games, Wii and Switch, illustrating business evolution through different technologies",
+        "es": "Nintendo pasa de fabricar cartas en 1889 a juguetes, juegos electrónicos, Wii y Switch, ilustrando la evolución del negocio mediante distintas tecnologías"
+      }
+    },
+    {
+      "id": "words",
+      "file": "Words(1).png",
+      "chapter": "value",
+      "type": {
+        "en": "Point of view",
+        "es": "Punto de vista"
+      },
+      "title": {
+        "en": "The words frame the responsibility",
+        "es": "Las palabras definen la responsabilidad"
+      },
+      "copy": {
+        "en": "The language used to describe IT shapes what we expect it to accomplish and who is responsible for the result. Cost, risk, customer experience and growth make those expectations concrete and give us a basis for judging the work",
+        "es": "El lenguaje que usamos para describir TI influye en lo que esperamos que logre y en quién se hace responsable del resultado. Los costos, el riesgo, la experiencia del cliente y el crecimiento permiten concretar esas expectativas y evaluar el trabajo"
+      },
+      "alt": {
+        "en": "What is IT for? An illustrated argument to assess IT through business outcomes such as cost, risk, execution, customer experience, revenue and capabilities",
+        "es": "¿Para qué existe TI? Una propuesta para evaluarla por resultados como costos, riesgo, ejecución, experiencia del cliente, ingresos y capacidades"
+      }
+    },
+    {
+      "id": "business-value",
+      "file": "Value.png",
+      "chapter": "value",
+      "type": {
+        "en": "Business framework",
+        "es": "Marco de negocio"
+      },
+      "title": {
+        "en": "Define the value before the technology",
+        "es": "Definir el valor antes de la tecnología"
+      },
+      "copy": {
+        "en": "Efficiency, trust and growth describe outcomes that matter to the business, with measures such as cost, speed, risk, customer experience and revenue. The next technology decision begins by choosing what needs to improve, who benefits and how the improvement will be assessed",
+        "es": "La eficiencia, la confianza y el crecimiento expresan resultados que importan al negocio, con medidas como costos, velocidad, riesgo, experiencia del cliente e ingresos. La próxima decisión tecnológica empieza por definir qué debe mejorar, a quién beneficia y cómo se evaluará esa mejora"
+      },
+      "alt": {
+        "en": "The role of IT is illustrated through efficiency, trust and growth, linked to lower costs, faster execution, lower risks, customer experience, new capabilities and revenue",
+        "es": "El rol de TI se ilustra mediante eficiencia, confianza y crecimiento, vinculados a costos, ejecución, riesgos, experiencia del cliente, capacidades e ingresos"
+      }
+    }
+  ]
+}

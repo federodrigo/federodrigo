@@ -2,6 +2,7 @@
 import SEO from '../components/SEO.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Inquiry from '../components/Inquiry.astro';
 
 type MediaItem = {
 	type: string;
@@ -124,607 +125,31 @@ const mediaItems: MediaItem[] = [
 			'Invited participant in Industrial Reinvention: New Business Models and Jobs for Tomorrow’s Technology, hosted by The Economist Impact, with fellow CIOs in Houston, Texas',
 	},
 ];
+
+import SiteEffects from '../components/SiteEffects.astro';
 ---
-
 <!doctype html>
-
-<html lang="en">
-	<head>
-		<script is:inline>
-			document.documentElement.classList.add('js');
-		</script>
-
-		<SEO
+<html lang="en"><head><SEO
 			title="Speaking | Fede Rodrigo"
 			description="Speaking on technology decisions, business value, leadership, lock-in, and why technology should never be the starting point"
 			lang="en"
-		/>
-
-		<style>
-			/* =========================================================
-			   SPEAKING HERO
-			========================================================= */
-
-			.speaking-hero {
-				max-width: none;
-				padding: 10px 0 24px;
-				border-bottom: 0;
-				text-align: center;
-			}
-
-			.speaking-hero-title {
-				width: 100%;
-				max-width: 100%;
-				margin-left: auto;
-				margin-right: auto;
-
-				font-size: clamp(2rem, 3.65vw, 3.75rem);
-				line-height: 1.08;
-				text-align: center;
-			}
-
-			.speaking-hero-title .hero-line {
-				display: block;
-				width: 100%;
-				white-space: nowrap;
-			}
-
-			.speaking-hero-accent {
-				color: #6fa7ef;
-			}
-
-			.speaking-hero-accent {
-				display: inline-block;
-				opacity: 0;
-				transform: translateY(6px);
-
-				animation:
-					speaking-accent-reveal
-					520ms
-					ease
-					720ms
-					forwards;
-			}
-
-			@keyframes speaking-accent-reveal {
-				to {
-					opacity: 1;
-					transform: translateY(0);
-				}
-			}
-
-
-
-			/* =========================================================
-			   ALL SPEAKING LINKS
-			   Same typography everywhere
-			========================================================= */
-
-			.speaking-page
-				.speaking-talk-link
-				.animated-link,
-			.speaking-page
-				.speaking-closing-link
-				.animated-link,
-			.speaking-page
-				.media-action
-				.animated-link,
-			.speaking-page
-				.speaking-inquiry-action
-				.animated-link {
-				font-family: inherit;
-				font-size: var(--cta-size);
-				font-weight: var(--cta-weight);
-				line-height: 1.3;
-			}
-
-
-			/* =========================================================
-			   CENTERED TALK LINKS
-			========================================================= */
-
-			.speaking-talk-link {
-				width: 100%;
-				margin: -6px auto 16px;
-				text-align: center;
-			}
-
-			.speaking-centered-action {
-				max-width: none;
-				margin: 0;
-				text-align: center;
-			}
-
-			.speaking-centered-link {
-				justify-content: center;
-			}
-
-			.speaking-research-note {
-				max-width: 760px;
-				margin: 10px auto 0;
-
-				color: #8b97a4;
-
-				font-size: 0.96rem;
-				line-height: 1.5;
-			}
-
-			.speaking-research-note a {
-				color: #102b46;
-				text-decoration: none;
-				border-bottom: 0;
-			}
-
-			.speaking-research-note a em {
-				color: inherit;
-			}
-
-			.speaking-research-note a:hover {
-				color: var(--blue);
-				border-bottom: 0;
-			}
-
-
-			/* =========================================================
-			   SPEAKING SLIDER
-			========================================================= */
-
-			.speaking-showcase {
-				width: 100%;
-				max-width: 100%;
-				margin: 0 auto;
-			}
-
-			.speaking-slider {
-				width: 100%;
-			}
-
-			.speaking-slider-stage {
-				position: relative;
-
-				width: 100%;
-				aspect-ratio: 16 / 9;
-
-				overflow: hidden;
-
-				border: 1px solid rgba(16, 43, 70, 0.06);
-				border-radius: 14px;
-
-				background: #ffffff;
-
-				box-shadow:
-					0 16px 40px rgba(16, 43, 70, 0.065);
-			}
-
-			.speaking-slide {
-				position: absolute;
-
-				/*
-				 * Keep only a slim white frame around the artwork.
-				 * The previous 24–42px inset made the image look
-				 * unnecessarily small inside the card.
-				 */
-				inset: clamp(10px, 1.1vw, 16px);
-
-				display: flex;
-				align-items: center;
-				justify-content: center;
-
-				margin: 0;
-
-				opacity: 0;
-				pointer-events: none;
-
-				transition: opacity 650ms ease;
-			}
-
-			.speaking-slide.is-active {
-				z-index: 2;
-				opacity: 1;
-				pointer-events: auto;
-			}
-
-			.speaking-slide-image {
-				display: block;
-
-				width: 100%;
-				height: 100%;
-
-				/*
-				 * Fill the available slide area so the artwork has
-				 * more presence. Because the source images are 16:9,
-				 * cover only trims a negligible amount at the edges.
-				 */
-				object-fit: cover;
-				object-position: center;
-
-				border-radius: 8px;
-				background: transparent;
-			}
-
-
-			/* =========================================================
-			   SLIDER DOTS
-			========================================================= */
-
-			.speaking-slider-nav {
-				display: flex;
-				align-items: center;
-				justify-content: center;
-
-				gap: 8px;
-
-				height: 28px;
-				margin-top: 3px;
-			}
-
-			.speaking-slider-dot {
-				width: 7px;
-				height: 7px;
-
-				padding: 0;
-				border: 0;
-				border-radius: 50%;
-
-				background: rgba(16, 43, 70, 0.23);
-
-				cursor: pointer;
-
-				transition:
-					width 200ms ease,
-					background 200ms ease,
-					border-radius 200ms ease;
-			}
-
-			.speaking-slider-dot.is-active {
-				width: 23px;
-				border-radius: 999px;
-				background: #102b46;
-			}
-
-			.speaking-slider-dot:focus-visible {
-				outline: 2px solid #6fa7ef;
-				outline-offset: 4px;
-			}
-
-
-			/* =========================================================
-			   CLOSING THESIS
-			========================================================= */
-
-			.speaking-closing {
-				width: 100%;
-				margin: 14px auto 0;
-				padding-bottom: 0;
-
-				text-align: center;
-			}
-
-			.speaking-closing-title {
-				width: 100%;
-				max-width: 100%;
-				margin: 0 auto;
-
-				color: #102b46;
-
-				font-size: clamp(2rem, 3.1vw, 3.25rem);
-				font-weight: 700;
-				line-height: 1.08;
-				letter-spacing: -0.05em;
-
-				white-space: nowrap;
-			}
-
-			.speaking-closing-title::after {
-				content: none;
-				display: none;
-			}
-
-			.speaking-closing-rotating {
-				display: inline-block;
-				color: #6fa7ef;
-				transition: color 180ms ease;
-			}
-
-			.speaking-closing-rotating::after {
-				content: '';
-				display: inline-block;
-				width: 0.07em;
-				height: 0.82em;
-				margin-left: 0.07em;
-				vertical-align: -0.02em;
-				background: currentColor;
-				animation: speaking-closing-cursor 760ms step-end infinite;
-			}
-
-			@keyframes speaking-closing-cursor {
-				0%, 48% { opacity: 1; }
-				49%, 100% { opacity: 0; }
-			}
-
-			.speaking-closing-link {
-				max-width: none;
-				margin: 22px 0 0;
-				text-align: center;
-			}
-
-
-			/* =========================================================
-			   TALK THESIS + TAKEAWAYS
-			========================================================= */
-
-			.speaking-thesis-intro {
-				width: 100%;
-				max-width: 1000px;
-				margin: 24px auto 0;
-				padding: 0;
-			}
-
-			.speaking-thesis-research {
-				margin: 0 auto;
-				text-align: center;
-				color: #8b97a4;
-				font-size: 0.96rem;
-				line-height: 1.5;
-			}
-
-			.speaking-thesis-research a {
-				display: inline;
-				color: #102b46;
-				font-size: inherit;
-				font-weight: 650;
-				text-decoration: none;
-				border-bottom: 0;
-				transition: color 180ms ease;
-			}
-
-			.speaking-thesis-research a em {
-				color: inherit;
-				transition: color 180ms ease;
-			}
-
-			.speaking-thesis-research a:hover,
-			.speaking-thesis-research a:focus-visible {
-				color: #6fa7ef;
-				border-bottom: 0;
-			}
-
-			.speaking-takeaways.page-divider {
-				margin-top: calc(var(--divider-space-before) + 30px);
-				margin-bottom: 0;
-				padding-bottom: 0;
-			}
-
-			.speaking-takeaways > h2 {
-				margin-bottom: 28px;
-			}
-
-			.speaking-takeaway {
-				display: grid;
-				grid-template-columns: 150px minmax(0, 1fr);
-				align-items: center;
-				gap: 28px;
-				padding: 30px 0;
-				border-bottom: 1px solid var(--line);
-			}
-
-			.speaking-takeaway:first-of-type {
-				padding-top: 4px;
-			}
-
-			.speaking-takeaway:last-of-type {
-				padding-bottom: 30px;
-				border-bottom: 0;
-			}
-
-			.speaking-takeaway-number {
-				color: var(--navy);
-				font-size: clamp(4rem, 7vw, 6.5rem);
-				font-weight: 700;
-				line-height: 0.9;
-				letter-spacing: -0.06em;
-				opacity: 0.16;
-			}
-
-			.speaking-takeaway .media-content {
-				padding-top: 0;
-			}
-
-			.speaking-takeaway .media-content h3 {
-				margin-bottom: 10px;
-			}
-
-			.speaking-takeaway .media-description {
-				max-width: 690px;
-			}
-
-			@media (max-width: 850px) {
-				.speaking-thesis-intro {
-					max-width: 720px;
-				}
-			}
-
-			@media (max-width: 720px) {
-				.speaking-thesis-intro {
-					margin-top: 24px;
-				}
-
-				.speaking-takeaways.page-divider {
-					margin-top: calc(var(--divider-space-mobile) + 26px);
-				}
-
-				.speaking-takeaways > h2 {
-					margin-bottom: 22px;
-				}
-
-				.speaking-takeaway {
-					grid-template-columns: 72px minmax(0, 1fr);
-					align-items: start;
-					gap: 18px;
-					padding: 26px 0;
-				}
-
-				.speaking-takeaway:first-of-type {
-					padding-top: 2px;
-				}
-
-				.speaking-takeaway:last-of-type {
-					padding-bottom: 26px;
-				}
-
-				.speaking-takeaway-number {
-					padding-top: 4px;
-					font-size: 3.4rem;
-				}
-
-				.speaking-takeaway .media-content h3 {
-					font-size: 1.18rem;
-				}
-
-				.speaking-takeaway .media-description {
-					font-size: 0.94rem;
-					line-height: 1.55;
-				}
-			}
-
-
-			/* =========================================================
-			   SELECTED APPEARANCES
-			========================================================= */
-
-			.media-list.page-divider {
-				padding-top: var(--divider-space-after);
-			}
-
-			.media-item .media-title-compact {
-				font-size: clamp(1rem, 1.45vw, 1.25rem);
-				line-height: 1.16;
-				letter-spacing: -0.035em;
-				white-space: nowrap;
-			}
-
-
-			/* =========================================================
-			   SPEAKING INQUIRIES
-			========================================================= */
-
-			.speaking-inquiry-action {
-				margin: 18px 0 0;
-			}
-
-
-			/* =========================================================
-			   MOBILE
-			========================================================= */
-
-			@media (max-width: 720px) {
-				.speaking-hero {
-					padding-top: 8px;
-					padding-bottom: 22px;
-				}
-
-				.speaking-hero-title {
-					font-size: clamp(1.95rem, 7.8vw, 2.65rem);
-					line-height: 1.1;
-				}
-
-				.speaking-hero-title .hero-line {
-					white-space: normal;
-				}
-
-				.speaking-talk-link {
-					margin: -2px auto 14px;
-				}
-
-				.speaking-slider-stage {
-					border-radius: 10px;
-				}
-
-				.speaking-slide {
-					inset: 8px;
-				}
-
-				.speaking-slider-nav {
-					height: 26px;
-					margin-top: 2px;
-				}
-
-				.speaking-closing {
-					margin-top: 12px;
-				}
-
-				.speaking-closing-title {
-					font-size: clamp(1.9rem, 7.4vw, 2.5rem);
-					font-weight: 700;
-					line-height: 1.08;
-					white-space: normal;
-				}
-
-				.speaking-closing-link {
-					margin-top: 18px;
-				}
-
-				.media-list.page-divider {
-					padding-top: var(--divider-space-mobile);
-				}
-
-				.media-item .media-title-compact {
-					font-size: 1.08rem;
-					white-space: normal;
-				}
-			}
-
-
-			/* =========================================================
-			   REDUCED MOTION
-			========================================================= */
-
-			@media (prefers-reduced-motion: reduce) {
-				.speaking-closing-rotating::after {
-					display: none;
-					animation: none;
-				}
-
-				.speaking-hero-accent {
-					opacity: 1;
-					transform: none;
-					animation: none;
-				}
-
-				.speaking-slide,
-				.speaking-slider-dot {
-					transition: none;
-				}
-			}
-		</style>
-	</head>
-
-	<body>
-		<Header />
-
-		<main class="speaking-page">
-
+		/></head><body><Header />
+<main id="main-content" class="speaking-page">
 			<section class="hero speaking-hero">
 				<h1 class="hero-title speaking-hero-title">
-
 					<span class="hero-line">
 						What if your next technology
 					</span>
-
 					<span class="hero-line">
 						decision started with
 					</span>
-
 					<span class="hero-line">
 						<span class="speaking-hero-accent">
 							no technology at all?
 						</span>
 					</span>
-
 				</h1>
 			</section>
-
-
 			<section
 				class="speaking-showcase reveal-section"
 				aria-label="Speaking presentation slides"
@@ -733,9 +158,7 @@ const mediaItems: MediaItem[] = [
 					class="speaking-slider reveal-item"
 					data-speaking-slider
 				>
-
 					<div class="speaking-slider-stage">
-
 						<figure
 							class="speaking-slide is-active"
 							data-speaking-slide
@@ -748,7 +171,6 @@ const mediaItems: MediaItem[] = [
 								loading="eager"
 							/>
 						</figure>
-
 						<figure
 							class="speaking-slide"
 							data-speaking-slide
@@ -761,7 +183,6 @@ const mediaItems: MediaItem[] = [
 								loading="lazy"
 							/>
 						</figure>
-
 						<figure
 							class="speaking-slide"
 							data-speaking-slide
@@ -774,10 +195,7 @@ const mediaItems: MediaItem[] = [
 								loading="lazy"
 							/>
 						</figure>
-
 					</div>
-
-
 					<div
 						class="speaking-slider-nav"
 						aria-label="Choose slide"
@@ -789,7 +207,6 @@ const mediaItems: MediaItem[] = [
 							aria-label="Show slide 1"
 							aria-current="true"
 						></button>
-
 						<button
 							type="button"
 							class="speaking-slider-dot"
@@ -797,7 +214,6 @@ const mediaItems: MediaItem[] = [
 							aria-label="Show slide 2"
 							aria-current="false"
 						></button>
-
 						<button
 							type="button"
 							class="speaking-slider-dot"
@@ -806,11 +222,8 @@ const mediaItems: MediaItem[] = [
 							aria-current="false"
 						></button>
 					</div>
-
 				</div>
 			</section>
-
-
 			<section
 				class="speaking-closing reveal-section"
 				aria-labelledby="speaking-closing-title"
@@ -823,27 +236,21 @@ const mediaItems: MediaItem[] = [
 					is never the starting point
 				</h2>
 			</section>
-
 			<section class="speaking-thesis-intro reveal-section">
 				<p class="speaking-thesis-research reveal-item">
 					Based on my research paper
 					<a href="/books/#research"><em>How Organizations Become Locked into Working Technologies</em></a>
 				</p>
 			</section>
-
 			<section
 				class="speaking-takeaways page-divider reveal-section"
 				aria-labelledby="speaking-takeaways-title"
 			>
-
 				<h2 id="speaking-takeaways-title" class="reveal-item">
 					What You'll Take Away
 				</h2>
-
-
 				<article class="speaking-takeaway reveal-item reveal-delay-1">
 					<div class="speaking-takeaway-number">01</div>
-
 					<div class="media-content">
 						<h3>When a Solution Works, It Can Become the System</h3>
 						<p class="media-description">
@@ -853,11 +260,8 @@ const mediaItems: MediaItem[] = [
 						</p>
 					</div>
 				</article>
-
-
 				<article class="speaking-takeaway reveal-item reveal-delay-2">
 					<div class="speaking-takeaway-number">02</div>
-
 					<div class="media-content">
 						<h3>Lock-In Happens Before Anything Looks Broken</h3>
 						<p class="media-description">
@@ -867,11 +271,8 @@ const mediaItems: MediaItem[] = [
 						</p>
 					</div>
 				</article>
-
-
 				<article class="speaking-takeaway reveal-item reveal-delay-2">
 					<div class="speaking-takeaway-number">03</div>
-
 					<div class="media-content">
 						<h3>Start With People and the Business Problem</h3>
 						<p class="media-description">
@@ -881,9 +282,7 @@ const mediaItems: MediaItem[] = [
 						</p>
 					</div>
 				</article>
-
 			</section>
-
 			<section
 				class="media-list page-divider reveal-section"
 				aria-labelledby="media-list-title"
@@ -894,21 +293,15 @@ const mediaItems: MediaItem[] = [
 				>
 					Selected Appearances
 				</h2>
-
-
 				{
 					mediaItems.map((item, index) => (
-
 						<article
 							class="media-item"
 							style={`--media-index: ${index};`}
 						>
-
 							<div class="media-image-wrapper">
-
 								{
 									item.url ? (
-
 										<a
 											href={item.url}
 											target={
@@ -933,37 +326,24 @@ const mediaItems: MediaItem[] = [
 												loading="lazy"
 											/>
 										</a>
-
 									) : (
-
 										<img
 											src={item.image}
 											alt={item.imageAlt}
 											class="media-image"
 											loading="lazy"
 										/>
-
 									)
 								}
-
 							</div>
-
-
 							<div class="media-content">
-
 								<p class="media-meta">
-
 									<span>{item.type}</span>
-
 									<span aria-hidden="true">
 										·
 									</span>
-
 									<span>{item.date}</span>
-
 								</p>
-
-
 								<h3
 									class={
 										item.compactTitle
@@ -973,22 +353,15 @@ const mediaItems: MediaItem[] = [
 								>
 									{item.title}
 								</h3>
-
-
 								<p class="media-description">
 									{item.description}
 								</p>
-
-
 								{
 									item.url ? (
-
 										<div class="media-action">
-
 											{
 												item.pdfUrl &&
 													item.pdfLabel && (
-
 														<a
 															href={item.pdfUrl}
 															target="_blank"
@@ -998,7 +371,6 @@ const mediaItems: MediaItem[] = [
 															<span>
 																{item.pdfLabel}
 															</span>
-
 															<span
 																class="animated-link-arrow"
 																aria-hidden="true"
@@ -1006,11 +378,8 @@ const mediaItems: MediaItem[] = [
 																→
 															</span>
 														</a>
-
 													)
 											}
-
-
 											<a
 												href={item.url}
 												target={
@@ -1031,7 +400,6 @@ const mediaItems: MediaItem[] = [
 															'Learn more'
 													}
 												</span>
-
 												<span
 													class="animated-link-arrow"
 													aria-hidden="true"
@@ -1039,399 +407,19 @@ const mediaItems: MediaItem[] = [
 													→
 												</span>
 											</a>
-
 										</div>
-
 									) : (
-
 										item.status === 'upcoming' && (
-
 											<p class="media-coming-soon">
 												Coming soon
 											</p>
-
 										)
-
 									)
 								}
-
 							</div>
-
 						</article>
-
 					))
 				}
-
 			</section>
-
-
-			<section class="page-closing reveal-section">
-
-				<h2 class="reveal-item">
-					Speaking Inquiries
-				</h2>
-
-				<div class="reveal-item reveal-delay-1">
-
-					<p>
-						For conferences, leadership events, executive sessions,
-						podcasts, or other speaking opportunities, please get in touch
-					</p>
-
-					<p class="speaking-inquiry-action">
-						<a
-							href="/contact/"
-							class="animated-link"
-						>
-							<span>Contact me</span>
-
-							<span
-								class="animated-link-arrow"
-								aria-hidden="true"
-							>
-								→
-							</span>
-						</a>
-					</p>
-
-				</div>
-
-			</section>
-
 		</main>
-
-
-		<Footer />
-
-
-		<script>
-			const closingRotatingWord =
-				document.querySelector('[data-speaking-closing-rotating]');
-
-			if (
-				closingRotatingWord &&
-				!window.matchMedia('(prefers-reduced-motion: reduce)').matches
-			) {
-				const words = [
-					{ label: 'Technology', color: '#6fa7ef' },
-					{ label: 'AI', color: '#7c3aed' },
-					{ label: 'Data', color: '#0f766e' },
-					{ label: 'Cloud', color: '#c53030' },
-					{ label: 'ERP', color: '#b45309' }
-				];
-				const typeDelay = 125;
-				const deleteDelay = 65;
-				const holdDelay = 2000;
-				const gapDelay = 300;
-
-				let wordIndex = 0;
-				let characterIndex = words[0].label.length;
-				let deleting = true;
-
-				const step = () => {
-					const word = words[wordIndex].label;
-
-					if (deleting) {
-						characterIndex = Math.max(0, characterIndex - 1);
-						closingRotatingWord.textContent = word.slice(0, characterIndex);
-
-						if (characterIndex === 0) {
-							wordIndex = (wordIndex + 1) % words.length;
-							closingRotatingWord.style.color = words[wordIndex].color;
-							deleting = false;
-							window.setTimeout(step, gapDelay);
-							return;
-						}
-
-						window.setTimeout(step, deleteDelay);
-						return;
-					}
-
-					const nextWord = words[wordIndex].label;
-					characterIndex = Math.min(nextWord.length, characterIndex + 1);
-					closingRotatingWord.textContent = nextWord.slice(0, characterIndex);
-
-					if (characterIndex === nextWord.length) {
-						deleting = true;
-						window.setTimeout(step, holdDelay);
-						return;
-					}
-
-					window.setTimeout(step, typeDelay);
-				};
-
-				window.setTimeout(step, holdDelay);
-			}
-		</script>
-
-
-		<script>
-			const sections =
-				document.querySelectorAll('.reveal-section');
-
-			if ('IntersectionObserver' in window) {
-
-				const revealObserver =
-					new IntersectionObserver(
-						(entries, observer) => {
-
-							entries.forEach((entry) => {
-
-								if (!entry.isIntersecting) {
-									return;
-								}
-
-								entry.target.classList.add(
-									'is-visible'
-								);
-
-								observer.unobserve(
-									entry.target
-								);
-
-							});
-
-						},
-						{
-							threshold: 0.08,
-							rootMargin:
-								'0px 0px -50px 0px'
-						}
-					);
-
-
-				sections.forEach((section) => {
-					revealObserver.observe(section);
-				});
-
-			} else {
-
-				sections.forEach((section) => {
-					section.classList.add(
-						'is-visible'
-					);
-				});
-
-			}
-		</script>
-
-
-		<script>
-			const speakingSlider =
-				document.querySelector(
-					'[data-speaking-slider]'
-				);
-
-			if (speakingSlider) {
-
-				const slides = Array.from(
-					speakingSlider.querySelectorAll(
-						'[data-speaking-slide]'
-					)
-				);
-
-				const dots = Array.from(
-					speakingSlider.querySelectorAll(
-						'[data-speaking-dot]'
-					)
-				);
-
-				const reducedMotion =
-					window.matchMedia(
-						'(prefers-reduced-motion: reduce)'
-					).matches;
-
-				let currentSlide = 0;
-				let slideTimer = null;
-				let sliderVisible = false;
-
-				const durations = [
-					7000,
-					5200,
-					5200
-				];
-
-
-				function showSlide(index) {
-
-					currentSlide =
-						(index + slides.length) %
-						slides.length;
-
-
-					slides.forEach(
-						(slide, slideIndex) => {
-
-							const active =
-								slideIndex ===
-								currentSlide;
-
-							slide.classList.toggle(
-								'is-active',
-								active
-							);
-
-							slide.setAttribute(
-								'aria-hidden',
-								active
-									? 'false'
-									: 'true'
-							);
-
-						}
-					);
-
-
-					dots.forEach(
-						(dot, dotIndex) => {
-
-							const active =
-								dotIndex ===
-								currentSlide;
-
-							dot.classList.toggle(
-								'is-active',
-								active
-							);
-
-							dot.setAttribute(
-								'aria-current',
-								active
-									? 'true'
-									: 'false'
-							);
-
-						}
-					);
-
-				}
-
-
-				function stopSlider() {
-
-					if (!slideTimer) {
-						return;
-					}
-
-					window.clearTimeout(
-						slideTimer
-					);
-
-					slideTimer = null;
-				}
-
-
-				function scheduleNextSlide() {
-
-					if (
-						reducedMotion ||
-						!sliderVisible
-					) {
-						return;
-					}
-
-					stopSlider();
-
-					slideTimer =
-						window.setTimeout(
-							() => {
-
-								showSlide(
-									currentSlide + 1
-								);
-
-								scheduleNextSlide();
-
-							},
-							durations[currentSlide]
-						);
-
-				}
-
-
-				dots.forEach(
-					(dot, index) => {
-
-						dot.addEventListener(
-							'click',
-							() => {
-
-								showSlide(index);
-								scheduleNextSlide();
-
-							}
-						);
-
-					}
-				);
-
-
-				speakingSlider.addEventListener(
-					'mouseenter',
-					stopSlider
-				);
-
-				speakingSlider.addEventListener(
-					'mouseleave',
-					scheduleNextSlide
-				);
-
-
-				if ('IntersectionObserver' in window) {
-
-					const sliderObserver =
-						new IntersectionObserver(
-							(entries) => {
-
-								entries.forEach(
-									(entry) => {
-
-										sliderVisible =
-											entry.isIntersecting;
-
-										if (sliderVisible) {
-											scheduleNextSlide();
-										} else {
-											stopSlider();
-										}
-
-									}
-								);
-
-							},
-							{
-								threshold: 0.35
-							}
-						);
-
-
-					sliderObserver.observe(
-						speakingSlider
-					);
-
-				} else {
-
-					sliderVisible = true;
-					scheduleNextSlide();
-
-				}
-
-
-				document.addEventListener(
-					'visibilitychange',
-					() => {
-
-						if (document.hidden) {
-							stopSlider();
-						} else {
-							scheduleNextSlide();
-						}
-
-					}
-				);
-
-			}
-		</script>
-
-	</body>
-</html>
+<Inquiry lang="en" context="speaking" /><Footer /><SiteEffects /></body></html>

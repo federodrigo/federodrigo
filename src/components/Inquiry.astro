@@ -1,0 +1,11 @@
+---
+import Arrow from './Arrow.astro';
+const { lang = 'en', context = 'general' } = Astro.props;
+const es = lang === 'es';
+const base = es ? '/es' : '';
+const speaking = context === 'speaking';
+const books = context === 'books';
+const title = speaking ? (es ? 'Consultas sobre charlas' : 'Speaking inquiries') : context === 'advisory' ? (es ? 'Consultas de consultoría' : 'Advisory inquiries') : (es ? 'Conversemos' : 'Let’s talk');
+const copy = speaking ? (es ? 'Para conferencias, eventos de liderazgo, sesiones ejecutivas y podcasts' : 'For conferences, leadership events, executive sessions and podcasts') : context === 'advisory' ? (es ? 'Asesoramiento independiente para decisiones de tecnología, transformación y liderazgo ejecutivo' : 'Independent advice on technology decisions, transformation and executive leadership') : (es ? 'Para charlas, sesiones ejecutivas y asesoramiento independiente' : 'For speaking engagements, executive sessions and independent advisory');
+---
+<section class="inquiry-band" aria-label={title}><div class="wrap inquiry-inner"><div class="inquiry-copy"><h2>{title}</h2><p>{copy}</p></div><div class="inquiry-actions"><a class="button button-light" href={`${base}/${speaking || context === 'advisory' ? 'contact' : 'speaking'}/`}>{es ? 'Llevá la conversación a tu equipo' : 'Bring the conversation to your team'}<Arrow /></a><a class="inquiry-secondary" href={`${base}/${books ? 'cio-office' : 'books'}/`}>{books ? (es ? 'Conocer la consultoría' : 'Explore advisory') : (es ? 'Explorar los libros' : 'Explore the books')}<Arrow /></a></div></div></section>

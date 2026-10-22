@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import '../styles/redesign.css';
 
 interface Props {
 	title: string;
@@ -13,7 +14,7 @@ const {
 	title,
 	description,
 	lang = 'en',
-	image = '/fede.png',
+	image = '/images/fede.png',
 	type = 'website',
 } = Astro.props;
 
@@ -76,7 +77,7 @@ const structuredData = {
 			name: 'Federico Rodrigo',
 			alternateName: 'Fede Rodrigo',
 			url: new URL('/', siteUrl).href,
-			image: new URL('/fede.png', siteUrl).href,
+			image: new URL('/images/fede.png', siteUrl).href,
 			jobTitle: 'Chief Information Officer',
 			description:
 				'Chief Information Officer, advisor, speaker, and author focused on business value, leadership, technology strategy, and operational excellence.',
@@ -114,24 +115,6 @@ const structuredData = {
 	content={Astro.generator}
 />
 
-<!-- Font preloads -->
-<link
-	rel="preload"
-	href="/fonts/atkinson-regular.woff"
-	as="font"
-	type="font/woff"
-	crossorigin
-/>
-
-<link
-	rel="preload"
-	href="/fonts/atkinson-bold.woff"
-	as="font"
-	type="font/woff"
-	crossorigin
-/>
-
-<!-- Primary metadata -->
 <title>{title}</title>
 
 <meta

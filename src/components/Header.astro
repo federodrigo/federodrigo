@@ -1,130 +1,31 @@
 ---
-const isSpanish = Astro.url.pathname.startsWith('/es');
-const base = isSpanish ? '/es' : '';
-
-const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
-
-const enPath = isSpanish
-	? pathname.replace(/^\/es/, '') || '/'
-	: pathname;
-
-const esPath = isSpanish
-	? pathname
-	: `/es${pathname === '/' ? '/' : pathname}`;
-
-const isActive = (path: string) => {
-	const normalizedCurrent = pathname.replace(/\/$/, '') || '/';
-	const normalizedTarget = path.replace(/\/$/, '') || '/';
-
-	return normalizedCurrent === normalizedTarget;
-};
+const es = Astro.url.pathname.startsWith('/es');
+const base = es ? '/es' : '';
+const path = Astro.url.pathname.replace(/\/+$/, '') || '/';
+const enPath = es ? path.replace(/^\/es/, '') || '/' : path;
+const esPath = es ? path : `/es${path === '/' ? '/' : path}`;
+const items = [
+  { slug: 'speaking', en: 'Speaking', es: 'Charlas' },
+  { slug: 'cio-office', en: 'Advisory', es: 'Consultoría' },
+  { slug: 'stories', en: 'Stories', es: 'Historias' },
+  { slug: 'books', en: 'Books', es: 'Libros' },
+  { slug: 'about', en: 'About', es: 'Sobre mí' },
+  { slug: 'contact', en: 'Contact', es: 'Contacto' },
+];
 ---
-
-<header class="site-header">
-	<div class="header-inner">
-		<a
-			href={isSpanish ? '/es/' : '/'}
-			class="brand"
-			aria-label={isSpanish ? 'Página de inicio' : 'Home'}
-		>
-			<span class="brand-name">Fede Rodrigo</span>
-
-		</a>
-
-		<nav
-			class="main-nav"
-			aria-label={isSpanish ? 'Navegación principal' : 'Main navigation'}
-		>
-		
-
-			<a
-				href={`${base}/cio-office`}
-				class:list={{ 'nav-active': isActive(`${base}/cio-office`) }}
-				aria-current={isActive(`${base}/cio-office`) ? 'page' : undefined}
-			>
-				{isSpanish ? 'Oficina del CIO' : 'CIO Office'}
-			</a>
-
-			
-			<a
-				href={`${base}/speaking`}
-				class:list={{ 'nav-active': isActive(`${base}/speaking`) }}
-				aria-current={isActive(`${base}/speaking`) ? 'page' : undefined}
-			>
-				{isSpanish ? 'Charlas' : 'Speaking'}
-			</a>
-
-			<a
-				href={`${base}/books`}
-				class:list={{ 'nav-active': isActive(`${base}/books`) }}
-				aria-current={isActive(`${base}/books`) ? 'page' : undefined}
-			>
-				{isSpanish ? 'Libros' : 'Books'}
-			</a>			
-
-			<a
-				href={`${base}/about`}
-				class:list={{ 'nav-active': isActive(`${base}/about`) }}
-				aria-current={isActive(`${base}/about`) ? 'page' : undefined}
-			>
-				{isSpanish ? 'Sobre mí' : 'About'}
-			</a>
-
-			<a
-				href={`${base}/contact`}
-				class:list={{
-					'contact-link': true,
-					'nav-active': isActive(`${base}/contact`),
-				}}
-				aria-current={isActive(`${base}/contact`) ? 'page' : undefined}
-			>
-				{isSpanish ? 'Contacto' : 'Contact'}
-			</a>
-
-			<span
-				class="lang-switch"
-				aria-label={isSpanish ? 'Selector de idioma' : 'Language selector'}
-			>
-				<a
-					href={enPath}
-					class={isSpanish ? '' : 'active'}
-					lang="en"
-					aria-current={isSpanish ? undefined : 'page'}
-				>
-					EN
-				</a>
-
-				<span aria-hidden="true">|</span>
-
-				<a
-					href={esPath}
-					class={isSpanish ? 'active' : ''}
-					lang="es"
-					aria-current={isSpanish ? 'page' : undefined}
-				>
-					ES
-				</a>
-			</span>
-		</nav>
-	</div>
+<a class="skip-link" href="#main-content">{es ? 'Ir al contenido' : 'Skip to content'}</a>
+<header class="site-header" id="top">
+  <div class="wrap header-inner">
+    <a class="wordmark" href={es ? '/es/' : '/'} aria-label={es ? 'Fede Rodrigo, inicio' : 'Fede Rodrigo, home'}>fede<span>rodrigo</span><span class="wordmark-dot" aria-hidden="true">.</span></a>
+    <nav class="main-nav" id="primary-navigation" aria-label={es ? 'Navegación principal' : 'Main navigation'}>
+      {items.map(item => <a href={`${base}/${item.slug}/`} class:list={{ 'nav-active': path === `${base}/${item.slug}` || (item.slug === 'books' && /\/(cio-book|itworks-book)$/.test(path)) }} aria-current={path === `${base}/${item.slug}` ? 'page' : undefined}>{es ? item.es : item.en}</a>)}
+    </nav>
+    <div class="header-tools">
+      <div class="language-switch" role="group" aria-label={es ? 'Idioma' : 'Language'}>
+        <a href={enPath === '/' ? '/' : enPath + '/'} lang="en" data-language="en" aria-current={!es ? 'page' : undefined}>EN</a><span aria-hidden="true">/</span><a href={esPath.endsWith('/') ? esPath : esPath + '/'} lang="es" data-language="es" aria-current={es ? 'page' : undefined}>ES</a>
+      </div>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label={es ? 'Abrir menú' : 'Open menu'}><span class="menu-toggle-label">{es ? 'Menú' : 'Menu'}</span><span class="menu-icon" aria-hidden="true"><i></i><i></i></span></button>
+    </div>
+  </div>
 </header>
-
-<script is:inline>
-	// A manual choice takes precedence on future visits to federodrigo.com.
-	(function () {
-		const links = document.querySelectorAll('.lang-switch a[lang]');
-
-		links.forEach(function (link) {
-			link.addEventListener('click', function () {
-				const language = link.getAttribute('lang');
-				if (language !== 'es' && language !== 'en') return;
-
-				try {
-					window.localStorage.setItem('federodrigo-language', language);
-				} catch (_) {
-					// Switching pages continues to work without storage.
-				}
-			});
-		});
-	})();
-</script>
+<button class="menu-backdrop" tabindex="-1" aria-label={es ? 'Cerrar menú' : 'Close menu'} hidden></button>

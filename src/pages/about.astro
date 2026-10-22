@@ -2,6 +2,7 @@
 import SEO from '../components/SEO.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Inquiry from '../components/Inquiry.astro';
 
 const profileTags = [
 	'Business Value',
@@ -11,137 +12,21 @@ const profileTags = [
 	'Speaker',
 	'Author',
 ];
+
+import SiteEffects from '../components/SiteEffects.astro';
 ---
-
 <!doctype html>
-
-<html lang="en">
-	<head>
-		<script is:inline>
-			document.documentElement.classList.add('js');
-		</script>
-
-		<SEO
+<html lang="en"><head><SEO
 			title="About | Fede Rodrigo"
 			description="Learn more about Fede Rodrigo, Chief Information Officer, technology executive, MBA, and author"
 			lang="en"
-		/>
-
-		<style>
-			/* =========================================================
-			   ABOUT PAGE
-			========================================================= */
-
-			.about-page {
-				padding-top: 46px;
-			}
-
-			.about-page .about-profile {
-				padding-top: 0;
-				padding-bottom: 0;
-			}
-
-
-			/* =========================================================
-			   PROFILE LAYOUT
-			========================================================= */
-
-			.about-page .about-profile-layout {
-				grid-template-columns: 290px minmax(0, 1fr);
-				gap: 48px;
-			}
-
-
-			/* =========================================================
-			   PROFILE LABEL
-			   Optical match with Books labels
-			========================================================= */
-
-			.about-page .about-profile-eyebrow {
-				margin: 0 0 4px;
-
-				color: var(--red);
-
-				font-size: 0.97rem;
-				font-weight: 800;
-				line-height: 1.2;
-				letter-spacing: 0.13em;
-
-				text-transform: uppercase;
-			}
-
-
-			/* =========================================================
-			   PROFILE IMAGE
-			========================================================= */
-
-			.about-page .about-profile-image-wrapper {
-				width: 290px;
-			}
-
-			.about-page .about-profile-image {
-				display: block;
-
-				width: 290px;
-				max-width: 100%;
-				height: auto;
-
-				margin: 0;
-
-				border-radius: 10px;
-			}
-
-
-			/* =========================================================
-			   MOBILE
-			========================================================= */
-
-			@media (max-width: 720px) {
-				.about-page {
-					padding-top: 42px;
-				}
-
-				.about-page .about-profile {
-					padding-top: 0;
-					padding-bottom: 0;
-				}
-
-				.about-page .about-profile-layout {
-					grid-template-columns: 1fr;
-					gap: 30px;
-				}
-
-				.about-page .about-profile-image-wrapper {
-					width: 205px;
-				}
-
-				.about-page .about-profile-image {
-					width: 205px;
-					max-width: 100%;
-				}
-
-				.about-page .about-profile-eyebrow {
-					font-size: 0.94rem;
-				}
-			}
-		</style>
-	</head>
-
-	<body>
-		<Header />
-
-		<main class="about-page">
-
-			<!-- =====================================================
-			     PROFILE
-			===================================================== -->
-
+		/></head><body><Header />
+<main id="main-content" class="about-page">
 			<section
 				class="about-profile reveal-section"
 				aria-labelledby="about-profile-title"
 			>
 				<div class="about-profile-layout">
-
 					<div
 						class="about-profile-image-wrapper reveal-item reveal-from-left"
 					>
@@ -151,41 +36,30 @@ const profileTags = [
 							class="about-profile-image animated-image"
 						/>
 					</div>
-
-
 					<div class="about-profile-content">
-
 						<p
 							class="about-profile-eyebrow reveal-item reveal-delay-1"
 						>
 							About Fede Rodrigo
 						</p>
-
-
 						<h1
 							id="about-profile-title"
 							class="reveal-item reveal-delay-1"
 						>
 							Fede Rodrigo
 						</h1>
-
-
 						<div
 							class="about-profile-tags reveal-item reveal-delay-2"
 							aria-label="Professional profile"
 						>
 							{
 								profileTags.map((tag, index) => (
-
 									<span style={`--tag-index: ${index};`}>
 										{tag}
 									</span>
-
 								))
 							}
 						</div>
-
-
 						<div
 							class="about-profile-text reveal-item reveal-delay-2"
 						>
@@ -194,7 +68,6 @@ const profileTags = [
 									I am a Chief Information Officer (CIO) with more than 15 years of IT leadership experience across the US, Europe, and Latin America
 								</strong>
 							</p>
-
 							<p>
 								<strong>My approach:</strong> create
 								business value through technology. Stay hands-on,
@@ -202,113 +75,30 @@ const profileTags = [
 								service, operational excellence, and continuous
 								improvement
 							</p>
-
 							<p>
-								I believe technology leadership goes beyond managing IT. 
+								I believe technology leadership goes beyond managing IT.
 								Its purpose is to help the business move faster, make better
 								decisions, and execute its strategy
 							</p>
-
 							<p>
 								I wrote <strong
 									><em>How to Become CIO and Succeed</em></strong
 								> to share the lessons I wish I had when I began my leadership journey
 							</p>
-
 							<p>
-								I hold an MBA from the University of Illinois 
-								Urbana-Champaign and a Computer Science degree 
+								I hold an MBA from the University of Illinois
+								Urbana-Champaign and a Computer Science degree
 								from the Catholic University of Uruguay
 							</p>
-
 							<p>
-								Beyond technology, I write about freedom, incentives, 
-								institutions, and why complex systems—technological, 
+								Beyond technology, I write about freedom, incentives,
+								institutions, and why complex systems—technological,
 								economic, or political—fail when they ignore reality
 							</p>
 						</div>
 
-
-						<p
-							class="about-profile-action reveal-item reveal-delay-2"
-						>
-							<a
-								href="/contact/"
-								class="animated-link"
-							>
-								<span>
-									Contact me
-								</span>
-
-								<span
-									class="animated-link-arrow"
-									aria-hidden="true"
-								>
-									→
-								</span>
-							</a>
-						</p>
-
 					</div>
-
 				</div>
 			</section>
-
 		</main>
-
-
-		<Footer />
-
-
-		<script>
-			const sections =
-				document.querySelectorAll('.reveal-section');
-
-			if ('IntersectionObserver' in window) {
-
-				const revealObserver =
-					new IntersectionObserver(
-						(entries, observer) => {
-
-							entries.forEach((entry) => {
-
-								if (!entry.isIntersecting) {
-									return;
-								}
-
-								entry.target.classList.add(
-									'is-visible'
-								);
-
-								observer.unobserve(
-									entry.target
-								);
-
-							});
-
-						},
-						{
-							threshold: 0.12,
-							rootMargin:
-								'0px 0px -60px 0px'
-						}
-					);
-
-
-				sections.forEach((section) => {
-					revealObserver.observe(section);
-				});
-
-			} else {
-
-				sections.forEach((section) => {
-					section.classList.add(
-						'is-visible'
-					);
-				});
-
-			}
-		</script>
-
-	</body>
-</html>
+<Inquiry lang="en" context="general" /><Footer /><SiteEffects /></body></html>

@@ -1,0 +1,98 @@
+[
+  {
+    "id": "coffee",
+    "width": 1122,
+    "height": 1402,
+    "bytes": 362188
+  },
+  {
+    "id": "hans",
+    "width": 1122,
+    "height": 1402,
+    "bytes": 396078
+  },
+  {
+    "id": "bermuda",
+    "width": 1122,
+    "height": 1402,
+    "bytes": 482206
+  },
+  {
+    "id": "cargo-cult",
+    "width": 1254,
+    "height": 1201,
+    "bytes": 418630
+  },
+  {
+    "id": "oak-trees",
+    "width": 1122,
+    "height": 1402,
+    "bytes": 509486
+  },
+  {
+    "id": "ariane-5",
+    "width": 1122,
+    "height": 1402,
+    "bytes": 417524
+  },
+  {
+    "id": "full-circle",
+    "width": 1122,
+    "height": 1402,
+    "bytes": 264252
+  },
+  {
+    "id": "mars",
+    "width": 1122,
+    "height": 1402,
+    "bytes": 414120
+  },
+  {
+    "id": "vasa",
+    "width": 1106,
+    "height": 1422,
+    "bytes": 509494
+  },
+  {
+    "id": "project-nightmare",
+    "width": 1113,
+    "height": 1372,
+    "bytes": 410610
+  },
+  {
+    "id": "pyrrhus",
+    "width": 1122,
+    "height": 1402,
+    "bytes": 441950
+  },
+  {
+    "id": "scott-amundsen",
+    "width": 1122,
+    "height": 1402,
+    "bytes": 404482
+  },
+  {
+    "id": "recovery",
+    "width": 1122,
+    "height": 1402,
+    "bytes": 375920
+  },
+  {
+    "id": "nintendo",
+    "width": 1122,
+    "height": 1402,
+    "bytes": 429080
+  },
+  {
+    "id": "words",
+    "width": 1024,
+    "height": 1536,
+    "bytes": 331326
+  },
+  {
+    "id": "business-value",
+    "width": 1122,
+    "height": 1402,
+    "bytes": 288866
+  }
+]

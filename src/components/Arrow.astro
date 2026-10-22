@@ -1,0 +1,5 @@
+---
+const { direction = 'right' } = Astro.props;
+const paths = { right: 'M4 12h16M13 5l7 7-7 7', up: 'M5 19 19 5M5 5h14v14', down: 'M12 4v16M5 13l7 7 7-7', left: 'M20 12H4M11 5l-7 7 7 7' };
+---
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={paths[direction as keyof typeof paths] || paths.right} /></svg>

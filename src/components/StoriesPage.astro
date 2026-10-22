@@ -1,0 +1,46 @@
+---
+import SEO from './SEO.astro';
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+import SiteEffects from './SiteEffects.astro';
+import Arrow from './Arrow.astro';
+import Inquiry from './Inquiry.astro';
+import data from '../data/stories.json';
+import images from '../data/story-images.json';
+import ui from '../data/story-ui.json';
+import sources from '../data/story-sources.json';
+const { lang = 'en' } = Astro.props;
+const language = lang as 'en'|'es';
+const base = language === 'es' ? '/es' : '';
+const tr = (key: keyof typeof ui) => ui[key][language];
+const manifest = Object.fromEntries(images.map(image => [image.id,image]));
+const payload = { ...data, ui };
+---
+<!doctype html><html lang={lang}><head><SEO title={`${language === 'es' ? 'Historias' : 'Stories'} | Fede Rodrigo`} description={language === 'es' ? 'Historias ilustradas sobre criterio, decisiones y valor para el negocio, conectadas en cuatro capítulos' : 'Illustrated stories about judgment, decisions and business value, connected in four chapters'} lang={language} /></head><body>
+<Header />
+<main class="stories-main" id="main-content">
+<nav class="chapter-nav" id="chapters" aria-label={tr('chapterNavLabel')}><div class="wrap chapter-nav-inner"><div class="chapter-tabs">{data.chapters.map((chapter,i)=><a href={`#${chapter.id}`} class="chapter-tab" data-chapter-link={chapter.id}><span class="tab-number">0{i+1}</span><span>{chapter.nav[language]}</span></a>)}</div><span class="reading-counter"><span id="reading-current">01</span><span>/ 16</span></span></div><div class="reading-track"><span id="reading-progress"></span></div></nav>
+<section class="hero stories-hero"><div class="wrap hero-inner"><div class="hero-copy"><h1 set:html={tr('heroTitle')} /><p class="hero-description">{tr('heroCopy')}</p><div class="hero-actions"><a class="button button-dark" href="#understand">{tr('heroCta')}<Arrow /></a><p class="hero-note">{language === 'es' ? 'Primero las personas · Impulsado por el negocio · Habilitado por la tecnología' : tr('heroNote')}</p></div></div></div></section>
+{data.chapters.map((chapter,chapterIndex)=>{
+ const chapterStories=data.stories.filter(story=>story.chapter===chapter.id);
+ const next=data.chapters[chapterIndex+1];
+ return <section class="chapter-section" id={chapter.id} aria-labelledby={`chapter-title-${chapter.id}`} data-chapter={chapter.id}>
+  <div class="chapter-intro"><div class="wrap chapter-intro-inner"><span class="chapter-large-number" aria-hidden="true">0{chapterIndex+1}</span><div class="chapter-heading"><div class="eyebrow">{tr('chapter')} 0{chapterIndex+1}<span class="chapter-count">/ {chapterStories.length} {tr('storiesCount')}</span></div><h2 id={`chapter-title-${chapter.id}`}>{chapter.title[language]}</h2></div><p>{chapter.intro[language]}</p></div></div>
+  <div class="wrap stories-list">{chapterStories.map(story=>{
+   const number=data.stories.findIndex(item=>item.id===story.id)+1;
+   const source=sources[story.id as keyof typeof sources];
+   return <article class:list={['story-row',{'story-reverse':number%2===0}]} id={`story-${story.id}`} data-story={story.id} data-story-number={number}>
+    <figure class="story-visual"><button type="button" class="poster-button" data-open-image={story.id} aria-label={`${tr('openImage')}: ${story.title[language]}`}><img src={`/images/stories/${story.id}.webp`} width={manifest[story.id].width} height={manifest[story.id].height} alt={story.alt[language]} loading="lazy" decoding="async" /><span class="poster-open"><Arrow /></span></button><figcaption><span class="story-image-number">{String(number).padStart(2,'0')} / 16</span><button type="button" class="text-button" data-open-image={story.id}>{tr('openImage')}<Arrow /></button></figcaption></figure>
+    <div class="story-copy"><div class="story-kicker"><span class="story-number">{String(number).padStart(2,'0')}</span><span>{story.type[language]}</span></div><h3>{story.title[language]}</h3><p>{story.copy[language]}</p>{source&&<a class="source-link" href={source} target="_blank" rel="noopener noreferrer">{tr('source')}<Arrow /></a>}</div>
+   </article>;
+  })}{next&&<div class="chapter-bridge"><a href={`#${next.id}`}>{tr('nextChapter')}<Arrow direction="down" /></a></div>}</div>
+ </section>;
+})}
+
+</main>
+<Inquiry lang={lang} /><Footer />
+<dialog class="image-dialog" id="image-viewer" aria-labelledby="viewer-title"><div class="viewer-top"><div class="viewer-heading"><span class="viewer-count" id="viewer-count">01 / 16</span><h2 id="viewer-title"></h2></div><button type="button" class="icon-button viewer-close" id="viewer-close" aria-label={tr('close')}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" /></svg></button></div><div class="viewer-body" id="viewer-body"><button class="viewer-image-button" id="viewer-zoom" aria-label={tr('zoom')}><img id="viewer-image" alt="" /></button></div><div class="viewer-bottom"><div class="viewer-controls"><button class="icon-button" id="viewer-prev" aria-label={tr('previous')}><Arrow direction="left" /></button><button class="icon-button" id="viewer-next" aria-label={tr('next')}><Arrow /></button></div><span class="viewer-language">{tr('imageLanguage')}</span><a class="viewer-full" id="viewer-full" target="_blank" rel="noopener">{tr('fullImage')}<Arrow /></a></div></dialog>
+<script id="stories-data" type="application/json" is:inline set:html={JSON.stringify(payload).replace(/</g,'\u003c')} />
+<script src="/scripts/stories.js" is:inline defer></script>
+<SiteEffects />
+</body></html>

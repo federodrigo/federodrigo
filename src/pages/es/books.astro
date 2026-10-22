@@ -1,8 +1,8 @@
-
 ---
 import SEO from '../../components/SEO.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import Inquiry from '../../components/Inquiry.astro';
 
 const featuredPaper = {
   status: 'En revisión',
@@ -10,171 +10,16 @@ const featuredPaper = {
   description:
     'Las decisiones tecnológicas tempranas pueden resolver problemas reales y dar buenos resultados durante años. A medida que se construyen sobre ellas nuevos sistemas, procesos y formas de trabajar, se acumulan dependencias. Cada adaptación queda más condicionada por lo existente, cambiar se vuelve más costoso y las opciones futuras de la organización se reducen.'
 };
+
+import SiteEffects from '../../components/SiteEffects.astro';
 ---
-
 <!doctype html>
-<html lang="es">
-  <head>
-    <script is:inline>
-      document.documentElement.classList.add('js');
-    </script>
-
-    <SEO
+<html lang="es"><head><SEO
       title="Libros | Fede Rodrigo"
       description="Libros e investigación de Fede Rodrigo sobre liderazgo tecnológico, negocios, incentivos, instituciones y los sistemas que moldean las organizaciones"
       lang="es"
-    />
-
-    <style>
-      .books-index-page {
-        padding-top: 46px;
-        --books-divider-gap: var(--divider-space-before);
-      }
-
-      .books-index-page .books-page-book-featured {
-        margin: 0;
-        padding-top: 0;
-        padding-bottom: 0;
-      }
-
-      .books-page-secondary-action {
-        margin-top: 10px;
-      }
-
-      /* Keep the same space before and after each divider. */
-      .books-index-page .books-page-book + .books-page-book {
-        margin-top: var(--books-divider-gap);
-        margin-bottom: 0;
-        padding-top: var(--books-divider-gap);
-        padding-bottom: 0;
-        border-top: 1px solid var(--line);
-      }
-
-      /* Avoid extra trailing paragraph margins below the first book. */
-      .books-index-page .books-page-content > :last-child {
-        margin-bottom: 0;
-      }
-
-      .research-content .books-page-subtitle {
-        max-width: 800px;
-      }
-
-      .research-description {
-        max-width: 780px;
-        margin-top: 24px;
-      }
-
-      /* Keep the research underline visually consistent with the English page
-         without changing the layout spacing. */
-      .research-content #research-title::after {
-        transform: scaleY(1.5);
-        transform-origin: top;
-      }
-
-      .research-meta {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: baseline;
-        gap: 0.35rem 1.2rem;
-        margin-top: 1.6rem;
-      }
-
-      /* All actions and publication statuses share one typographic style. */
-      .books-index-page .books-page-action a,
-      .books-index-page .books-page-secondary-action a,
-      .books-index-page .coming-soon,
-      .books-index-page .research-status {
-        color: var(--blue);
-        font-family: inherit;
-        font-size: var(--cta-size);
-        font-weight: var(--cta-weight);
-        line-height: 1.3;
-        letter-spacing: normal;
-        text-transform: none;
-      }
-
-      .books-index-page .research-status {
-        margin: 0;
-      }
-
-      .books-page-cover-static {
-        cursor: default;
-      }
-
-      .books-index-page .coming-soon {
-        display: inline-block;
-      }
-
-      @media (max-width: 720px) {
-        .books-index-page {
-          padding-top: 42px;
-          --books-divider-gap: var(--divider-space-mobile);
-        }
-
-        .books-index-page .books-page-book {
-          grid-template-columns: 1fr;
-          gap: 24px;
-        }
-
-        .books-index-page .books-page-book-featured {
-          padding-top: 0;
-          padding-bottom: 0;
-        }
-
-        .books-index-page .books-page-cover-wrapper,
-        .books-index-page .books-page-cover-link {
-          width: 180px;
-        }
-
-        .books-index-page .books-page-cover {
-          width: 180px;
-          max-width: 100%;
-          border-radius: 8px;
-        }
-
-        .books-index-page .books-page-content h2 {
-          font-size: 1.55rem;
-        }
-
-        .books-index-page .books-page-subtitle {
-          margin-bottom: 18px;
-          font-size: 0.92rem;
-        }
-
-        .books-index-page .research-description {
-          margin-top: 18px;
-        }
-
-        .books-index-page .books-page-content > p {
-          margin-bottom: 15px;
-          font-size: 0.94rem;
-          line-height: 1.58;
-        }
-
-        /* Keep mobile paragraph styles from expanding the label-to-title gap. */
-        .books-index-page .books-page-content > p.books-page-label {
-          margin: 0 0 4px;
-          line-height: 1.2;
-        }
-
-        .books-index-page .books-page-action {
-          margin-top: 18px;
-        }
-
-        .books-page-secondary-action {
-          margin-top: 10px;
-        }
-
-      }
-    </style>
-  </head>
-
-  <body>
-    <Header />
-
-    <main class="books-index-page">
-
-      <!-- Libro CIO -->
+    /></head><body><Header />
+<main id="main-content" class="books-index-page"><section class="page-intro"><h1>Libros e investigación</h1><p>Liderazgo y creación de valor para el negocio</p></section>
       <section
         class="books-page-book books-page-book-featured reveal-section"
         aria-labelledby="cio-book-title"
@@ -194,17 +39,14 @@ const featuredPaper = {
             />
           </a>
         </div>
-
         <div class="books-page-content reveal-item reveal-delay-1">
           <p class="books-page-label">Libro destacado</p>
           <h2 id="cio-book-title">How to Become CIO and Succeed</h2>
           <p class="books-page-subtitle">Personas, Negocio, Estrategia</p>
-
           <p>
             Este es el libro <strong>que me habría gustado tener</strong>
             cuando comencé mi camino en el liderazgo
           </p>
-
           <p>
             El rol del CIO no consiste en gestionar sistemas.
             <em>No debería haber una “I” en CIO.</em>
@@ -212,17 +54,14 @@ const featuredPaper = {
             influir en el negocio y convertir la tecnología
             en una ventaja competitiva
           </p>
-
           <p>
             <strong>Este no es un libro de texto.</strong>
             Es una guía práctica para líderes tecnológicos
             actuales y futuros
           </p>
-
           <p class="books-page-closing">
             Si estás acá para mantener el status quo, mejor da la vuelta
           </p>
-
           <p class="books-page-action">
             <a
               href="https://www.amazon.com/dp/B0F8MVPN4Q"
@@ -234,7 +73,6 @@ const featuredPaper = {
               <span class="animated-link-arrow" aria-hidden="true">→</span>
             </a>
           </p>
-
           <p class="books-page-secondary-action">
             <a href="/es/cio-book/" class="animated-link">
               <span>Explorar el libro</span>
@@ -243,8 +81,6 @@ const featuredPaper = {
           </p>
         </div>
       </section>
-
-      <!-- Nuevo libro 2027 -->
       <section
         class="books-page-book books-page-other reveal-section"
         aria-labelledby="funciona-book-title"
@@ -259,27 +95,23 @@ const featuredPaper = {
             />
           </a>
         </div>
-
         <div class="books-page-content reveal-item reveal-delay-1">
           <p class="books-page-label">Próximo libro</p>
           <h2 id="funciona-book-title">Funciona. Ese es el problema</h2>
           <p class="books-page-subtitle">
             Cómo las soluciones tecnológicas pueden atraparnos
           </p>
-
           <p>
             A veces el mayor riesgo no aparece cuando algo falla, sino cuando algo funciona.
             Este libro explora cómo decisiones tecnológicas bien intencionadas, soluciones que
             resuelven urgencias y éxitos operativos pueden convertirse con el tiempo en
             complejidad, dependencia y lock-in
           </p>
-
           <p>
             A través de historias, ejemplos y una perspectiva práctica de liderazgo, muestra por qué la tecnología nunca es el punto de partida y cómo las organizaciones pueden preservar su capacidad de decidir antes de que sus sistemas terminen decidiendo por ellas
           </p>
-
           <p class="books-page-action">
-            <span class="coming-soon">Disponible en 2027</span>
+            <span class="coming-soon">Disponible a principios de 2027</span>
           </p>
           <p class="books-page-secondary-action">
             <a href="/es/itworks-book/" class="animated-link">
@@ -289,8 +121,6 @@ const featuredPaper = {
           </p>
         </div>
       </section>
-
-      <!-- Paper -->
       <section
         id="research"
         class="books-page-book books-page-other reveal-section"
@@ -305,7 +135,6 @@ const featuredPaper = {
             decoding="async"
           />
         </div>
-
         <div class="books-page-content research-content reveal-item reveal-delay-1">
           <p class="books-page-label">Paper de investigación</p>
           <h2 id="research-title">{featuredPaper.title}</h2>
@@ -316,29 +145,4 @@ const featuredPaper = {
         </div>
       </section>
     </main>
-
-    <Footer />
-
-    <script>
-      const sections = document.querySelectorAll('.reveal-section');
-
-      if ('IntersectionObserver' in window) {
-        const revealObserver = new IntersectionObserver((entries, observer) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
-          });
-        }, {
-          threshold: 0.12,
-          rootMargin: '0px 0px -60px 0px'
-        });
-
-        sections.forEach((section) => revealObserver.observe(section));
-      } else {
-        sections.forEach((section) => section.classList.add('is-visible'));
-      }
-    </script>
-  </body>
-</html>
-
+<Inquiry lang="es" context="books" /><Footer /><SiteEffects /></body></html>

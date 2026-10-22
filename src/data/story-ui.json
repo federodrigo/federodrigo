@@ -1,0 +1,150 @@
+{
+  "skip": {
+    "en": "Skip to the stories",
+    "es": "Ir a las historias"
+  },
+  "stories": {
+    "en": "Stories",
+    "es": "Historias"
+  },
+  "speaking": {
+    "en": "Speaking",
+    "es": "Conferencias"
+  },
+  "books": {
+    "en": "Books",
+    "es": "Libros"
+  },
+  "contact": {
+    "en": "Contact",
+    "es": "Contacto"
+  },
+  "heroTitle": {
+    "en": "<span class=\"hero-line\">Technology is <em>never</em> </span><span class=\"hero-line\">the starting point</span>",
+    "es": "<span class=\"hero-line\">La tecnología <em>nunca</em> </span><span class=\"hero-line\">es el punto de partida</span>"
+  },
+  "heroCopy": {
+    "en": "A journey through the decisions we make, the things we take for granted and the value we want to create",
+    "es": "Un recorrido por las decisiones que tomamos, lo que damos por sentado y el valor que queremos crear"
+  },
+  "heroCta": {
+    "en": "Start the journey",
+    "es": "Empezar el recorrido"
+  },
+  "heroNote": {
+    "en": "People First · Business Driven · Technology Enabled",
+    "es": "People First · Business Driven · Technology Enabled"
+  },
+  "openImage": {
+    "en": "View illustration",
+    "es": "Ver ilustración"
+  },
+  "chapter": {
+    "en": "Chapter",
+    "es": "Capítulo"
+  },
+  "storiesCount": {
+    "en": "stories",
+    "es": "historias"
+  },
+  "chapterNavLabel": {
+    "en": "Story chapters",
+    "es": "Capítulos de las historias"
+  },
+  "reading": {
+    "en": "Reading",
+    "es": "Leyendo"
+  },
+  "story": {
+    "en": "Story",
+    "es": "Historia"
+  },
+  "nextChapter": {
+    "en": "Next chapter",
+    "es": "Próximo capítulo"
+  },
+  "source": {
+    "en": "Read the account",
+    "es": "Leer el relato"
+  },
+  "lastEyebrow": {
+    "en": "The question that stays with us",
+    "es": "La pregunta que nos acompaña"
+  },
+  "lastTitle": {
+    "en": "What value are we creating?",
+    "es": "¿Qué valor estamos creando?"
+  },
+  "lastCopy": {
+    "en": "The stories change. This is the question I bring to conversations about leadership, business and technology",
+    "es": "Las historias cambian. Esta es la pregunta que llevo a las conversaciones sobre liderazgo, negocio y tecnología"
+  },
+  "lastCta": {
+    "en": "Bring the conversation to your team",
+    "es": "Llevar la conversación a tu equipo"
+  },
+  "lastBooks": {
+    "en": "Explore the books",
+    "es": "Explorar los libros"
+  },
+  "peopleTitle": {
+    "en": "People First",
+    "es": "People First"
+  },
+  "peopleCopy": {
+    "en": "Understand who needs something to change",
+    "es": "Entender quién necesita que algo cambie"
+  },
+  "businessTitle": {
+    "en": "Business Driven",
+    "es": "Business Driven"
+  },
+  "businessCopy": {
+    "en": "Decide what needs to improve and why",
+    "es": "Definir qué debe mejorar y para qué"
+  },
+  "techTitle": {
+    "en": "Technology Enabled",
+    "es": "Technology Enabled"
+  },
+  "techCopy": {
+    "en": "Choose the means that serve that purpose",
+    "es": "Elegir los medios que sirvan a ese propósito"
+  },
+  "footerNote": {
+    "en": "Leadership, business & technology",
+    "es": "Liderazgo, negocio y tecnología"
+  },
+  "backTop": {
+    "en": "Back to the start",
+    "es": "Volver al inicio"
+  },
+  "close": {
+    "en": "Close illustration",
+    "es": "Cerrar ilustración"
+  },
+  "previous": {
+    "en": "Previous illustration",
+    "es": "Ilustración anterior"
+  },
+  "next": {
+    "en": "Next illustration",
+    "es": "Ilustración siguiente"
+  },
+  "fullImage": {
+    "en": "Open full image",
+    "es": "Abrir imagen completa"
+  },
+  "imageLanguage": {
+    "en": "Illustrations in English",
+    "es": "Ilustraciones en inglés"
+  },
+  "zoom": {
+    "en": "Zoom in",
+    "es": "Ampliar"
+  },
+  "zoomOut": {
+    "en": "Fit image",
+    "es": "Ajustar imagen"
+  }
+}

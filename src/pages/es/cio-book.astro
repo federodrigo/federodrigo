@@ -2,335 +2,25 @@
 import SEO from '../../components/SEO.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import Inquiry from '../../components/Inquiry.astro';
+
+import SiteEffects from '../../components/SiteEffects.astro';
 ---
-
 <!doctype html>
-
-<html lang="es">
-	<head>
-		<script is:inline>
-			document.documentElement.classList.add('js');
-		</script>
-
-		<SEO
+<html lang="es"><head><SEO
 			title="Libro CIO | How to Become CIO and Succeed"
 			description="How to Become CIO and Succeed es un libro práctico sobre liderazgo CIO para futuros y actuales CIOs, enfocado en personas, negocio, estrategia, liderazgo de TI y creación de valor a través de la tecnología"
 			lang="es"
-		/>
-
-		<style>
-			/* =========================================================
-			   CIO BOOK PAGE
-			========================================================= */
-
-			.cio-book-page {
-				padding-top: 46px;
-			}
-
-
-			/* =========================================================
-			   FEATURED BOOK
-			========================================================= */
-
-			.cio-book-page .books-page-book-featured {
-				margin: 0;
-				padding-top: 0;
-				padding-bottom: 0;
-			}
-
-			.cio-book-page .books-page-cover-wrapper {
-				position: relative;
-				z-index: 2;
-			}
-
-			.cio-book-page .books-page-content {
-				position: relative;
-				z-index: 1;
-			}
-
-
-			/* =========================================================
-			   CONTENT SECTIONS
-			========================================================= */
-
-			.cio-book-page .books-page-other {
-				margin-top: var(--divider-space-before);
-				margin-bottom: 0;
-
-				padding-top: var(--divider-space-after);
-				padding-bottom: 0;
-
-				border-top: 1px solid var(--line);
-			}
-
-			.cio-book-page
-				.books-page-other
-				> .reveal-item:first-child {
-				margin-bottom: 22px;
-			}
-
-			.cio-book-page
-				.books-page-other
-				> .reveal-item:first-child
-				h2 {
-				margin-bottom: 0;
-			}
-
-			.cio-book-page .books-page-other p {
-				max-width: 740px;
-			}
-
-
-			/* =========================================================
-			   DUCK
-			========================================================= */
-
-			.cio-duck {
-				position: absolute;
-				right: -3rem;
-				bottom: -1.5rem;
-				z-index: 3;
-
-				width: clamp(5rem, 8vw, 7rem);
-
-				cursor: default;
-				outline: none;
-			}
-
-			.cio-duck img {
-				display: block;
-
-				width: 100%;
-				height: auto;
-
-				border-radius: 0;
-
-				transition:
-					transform 180ms ease,
-					filter 180ms ease;
-			}
-
-
-			/* =========================================================
-			   DUCK TOOLTIP
-			========================================================= */
-
-			.cio-duck-tooltip {
-				position: absolute;
-				left: 50%;
-				bottom: calc(100% + 0.75rem);
-				z-index: 20;
-
-				width: max-content;
-				max-width: 15rem;
-
-				padding: 0.55rem 0.75rem;
-
-				border: 2px solid #ffffff;
-				border-radius: 0.4rem;
-
-				background: #102a46;
-				color: #ffffff;
-				-webkit-text-fill-color: #ffffff;
-
-				font-size: 0.85rem;
-				font-weight: 600;
-				line-height: 1.3;
-				text-align: center;
-				white-space: nowrap;
-
-				opacity: 0;
-				visibility: hidden;
-
-				transform: translate(-50%, 0.4rem);
-
-				pointer-events: none;
-
-				transition:
-					opacity 160ms ease,
-					transform 160ms ease,
-					visibility 160ms ease;
-			}
-
-			.cio-duck-tooltip::after {
-				content: "";
-
-				position: absolute;
-				top: 100%;
-				left: 50%;
-
-				border: 0.4rem solid transparent;
-				border-top-color: #102a46;
-
-				transform: translateX(-50%);
-			}
-
-
-			/* =========================================================
-			   DUCK INTERACTION
-			========================================================= */
-
-			.cio-duck:hover img,
-			.cio-duck:focus-visible img {
-				transform: translateY(-0.2rem) rotate(-2deg);
-
-				filter:
-					drop-shadow(
-						0 0.5rem 0.6rem rgb(16 42 70 / 20%)
-					);
-			}
-
-			.cio-duck:hover .cio-duck-tooltip,
-			.cio-duck:focus-visible .cio-duck-tooltip {
-				opacity: 1;
-				visibility: visible;
-
-				transform: translate(-50%, 0);
-			}
-
-
-			/* =========================================================
-			   MOBILE
-			========================================================= */
-
-			@media (max-width: 720px) {
-				.cio-book-page {
-					padding-top: 42px;
-				}
-
-				.cio-book-page .books-page-book {
-					grid-template-columns: 1fr;
-					gap: 24px;
-				}
-
-				.cio-book-page .books-page-book-featured {
-					padding-top: 0;
-					padding-bottom: 0;
-				}
-
-				.cio-book-page .books-page-cover-wrapper,
-				.cio-book-page .books-page-cover-link {
-					width: 180px;
-				}
-
-				.cio-book-page .books-page-cover {
-					width: 180px;
-					max-width: 100%;
-
-					border-radius: 8px;
-				}
-
-				.cio-book-page .books-page-content h2 {
-					font-size: 1.55rem;
-				}
-
-				.cio-book-page .books-page-subtitle {
-					margin-bottom: 18px;
-
-					font-size: 0.92rem;
-				}
-
-				.cio-book-page .books-page-content > p {
-					margin-bottom: 15px;
-
-					font-size: 0.94rem;
-					line-height: 1.58;
-				}
-
-				/* Keep mobile paragraph styles from expanding the label-to-title gap. */
-				.cio-book-page .books-page-content > p.books-page-label {
-				  margin: 0 0 4px;
-				  line-height: 1.2;
-				}
-
-				.cio-book-page .books-page-action {
-					margin-top: 18px;
-				}
-
-
-				/* CONTENT SECTIONS */
-
-				.cio-book-page .books-page-other {
-					margin-top: var(--divider-space-mobile);
-
-					padding-top: var(--divider-space-mobile);
-					padding-bottom: 0;
-				}
-
-				.cio-book-page
-					.books-page-other
-					> .reveal-item:first-child {
-					margin-bottom: 20px;
-				}
-
-
-				/* DUCK */
-
-				.cio-duck {
-					right: -0.75rem;
-					bottom: -1rem;
-
-					width: 5rem;
-				}
-
-				.cio-duck-tooltip {
-					left: auto;
-					right: 0;
-
-					width: 12rem;
-
-					white-space: normal;
-
-					transform: translateY(0.4rem);
-				}
-
-				.cio-duck:hover .cio-duck-tooltip,
-				.cio-duck:focus-visible .cio-duck-tooltip {
-					transform: translateY(0);
-				}
-
-				.cio-duck-tooltip::after {
-					left: auto;
-					right: 1.5rem;
-
-					transform: none;
-				}
-			}
-
-
-			/* =========================================================
-			   REDUCED MOTION
-			========================================================= */
-
-			@media (prefers-reduced-motion: reduce) {
-				.cio-duck img,
-				.cio-duck-tooltip {
-					transition: none;
-				}
-			}
-		</style>
-	</head>
-
-	<body>
-		<Header />
-
-
-		<main class="cio-book-page">
-
-			<!-- =====================================================
-			     BOOK
-			===================================================== -->
-
+		/></head><body><Header />
+<main id="main-content" class="cio-book-page">
 			<section
 				id="book"
 				class="books-page-book books-page-book-featured reveal-section"
 				aria-labelledby="cio-book-title"
 			>
-
 				<div
 					class="books-page-cover-wrapper reveal-item reveal-from-left"
 				>
-
 					<a
 						href="https://www.amazon.com/dp/B0F8MVPN4Q"
 						target="_blank"
@@ -344,8 +34,6 @@ import Footer from '../../components/Footer.astro';
 							class="books-page-cover animated-book-cover"
 						/>
 					</a>
-
-
 					<div
 						class="cio-duck"
 						tabindex="0"
@@ -355,7 +43,6 @@ import Footer from '../../components/Footer.astro';
 							src="/images/duckcio.png"
 							alt="Un pato amarillo escéptico usando lentes"
 						/>
-
 						<span
 							id="cio-duck-tooltip"
 							class="cio-duck-tooltip"
@@ -364,29 +51,19 @@ import Footer from '../../components/Footer.astro';
 							Ha visto demasiados proyectos de TI
 						</span>
 					</div>
-
 				</div>
-
-
 				<div
 					class="books-page-content reveal-item reveal-delay-1"
 				>
-
 					<p class="books-page-label">
 						Libro de Liderazgo CIO
 					</p>
-
-
-					<h2 id="cio-book-title">
+					<h1 id="cio-book-title">
 						How to Become CIO and Succeed
-					</h2>
-
-
+					</h1>
 					<p class="books-page-subtitle">
 						Personas, Negocio, Estrategia
 					</p>
-
-
 					<p>
 						El rol del Chief Information Officer no consiste en
 						gestionar sistemas. <em>No debería haber una “I” en CIO.</em>
@@ -394,21 +71,15 @@ import Footer from '../../components/Footer.astro';
 						en el negocio y convertir la tecnología en una ventaja
 						competitiva
 					</p>
-
-
 					<p>
 						<strong>Este no es un libro de texto.</strong>
 						Es una guía práctica para líderes tecnológicos actuales
 						y futuros
 					</p>
-
-
 					<p class="books-page-closing">
 						Si estás acá para mantener el status quo,
 						mejor da la vuelta
 					</p>
-
-
 					<p class="books-page-action">
 						<a
 							href="https://www.amazon.com/dp/B0F8MVPN4Q"
@@ -419,7 +90,6 @@ import Footer from '../../components/Footer.astro';
 							<span>
 								Comprar el libro en Amazon
 							</span>
-
 							<span
 								class="animated-link-arrow"
 								aria-hidden="true"
@@ -428,107 +98,68 @@ import Footer from '../../components/Footer.astro';
 							</span>
 						</a>
 					</p>
-
 				</div>
-
 			</section>
-
-
-			<!-- =====================================================
-			     WHAT YOU WILL LEARN
-			===================================================== -->
-
 			<section
 				id="what-you-will-learn"
 				class="books-page-other reveal-section"
 				aria-labelledby="what-you-will-learn-title"
 			>
-
 				<div class="reveal-item">
 					<h2 id="what-you-will-learn-title">
 						Qué Aprenderás
 					</h2>
 				</div>
-
-
 				<div class="reveal-item reveal-delay-1">
-
 					<p>
 						Cómo construir equipos efectivos, crear una cultura orientada
 						al servicio, generar credibilidad, influir en decisiones
 						ejecutivas, mejorar las operaciones, definir la estrategia
 						tecnológica y crear valor para el negocio de manera consistente
 					</p>
-
 					<p>
 						También aprenderás a liderar todo el alcance de la TI moderna,
 						desde infraestructura y sistemas empresariales hasta
 						ciberseguridad, transformación y cambio continuo
 					</p>
-
 				</div>
-
 			</section>
-
-
-			<!-- =====================================================
-			     WHO THIS BOOK IS FOR
-			===================================================== -->
-
 			<section
 				id="who-is-this-book-for"
 				class="books-page-other reveal-section"
 				aria-labelledby="who-is-this-book-for-title"
 			>
-
 				<div class="reveal-item">
 					<h2 id="who-is-this-book-for-title">
 						Para Quién Es Este Libro
 					</h2>
 				</div>
-
-
 				<div class="reveal-item reveal-delay-1">
-
 					<p>
 						Este libro práctico para futuros CIOs también está dirigido
 						a CIOs actuales, gerentes de TI, directores de tecnología
 						y líderes de negocio que quieran comprender y fortalecer
 						el rol moderno del CIO
 					</p>
-
 				</div>
-
 			</section>
-
-
-			<!-- =====================================================
-			     GET THE BOOK
-			===================================================== -->
-
 			<section
 				id="buy"
 				class="books-page-other reveal-section"
 				aria-labelledby="get-the-book-title"
 			>
-
 				<div class="reveal-item">
 					<h2 id="get-the-book-title">
 						Obtén el Libro
 					</h2>
 				</div>
-
-
 				<div
 					class="books-page-content reveal-item reveal-delay-1"
 				>
-
 					<p>
 						Descubre un enfoque práctico del liderazgo CIO construido
 						en torno a las personas, el negocio y la estrategia de TI
 					</p>
-
-
 					<p class="books-page-action">
 						<a
 							href="https://www.amazon.com/dp/B0F8MVPN4Q"
@@ -539,7 +170,6 @@ import Footer from '../../components/Footer.astro';
 							<span>
 								Comprar How to Become CIO en Amazon
 							</span>
-
 							<span
 								class="animated-link-arrow"
 								aria-hidden="true"
@@ -548,71 +178,7 @@ import Footer from '../../components/Footer.astro';
 							</span>
 						</a>
 					</p>
-
 				</div>
-
 			</section>
-
 		</main>
-
-
-		<Footer />
-
-
-		<!-- =====================================================
-		     REVEAL
-		===================================================== -->
-
-		<script>
-			const sections =
-				document.querySelectorAll('.reveal-section');
-
-
-			if ('IntersectionObserver' in window) {
-
-				const revealObserver =
-					new IntersectionObserver(
-						(entries, observer) => {
-
-							entries.forEach((entry) => {
-
-								if (!entry.isIntersecting) {
-									return;
-								}
-
-								entry.target.classList.add(
-									'is-visible'
-								);
-
-								observer.unobserve(
-									entry.target
-								);
-
-							});
-
-						},
-						{
-							threshold: 0.12,
-							rootMargin:
-								'0px 0px -60px 0px'
-						}
-					);
-
-
-				sections.forEach((section) => {
-					revealObserver.observe(section);
-				});
-
-			} else {
-
-				sections.forEach((section) => {
-					section.classList.add(
-						'is-visible'
-					);
-				});
-
-			}
-		</script>
-
-	</body>
-</html>
+<Inquiry lang="es" context="books" /><Footer /><SiteEffects /></body></html>
