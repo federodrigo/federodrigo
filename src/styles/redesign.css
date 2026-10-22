@@ -130,3 +130,15 @@
 .speaking-page .speaking-takeaway-number{font-size:clamp(4rem,7vw,6.5rem);font-weight:700;line-height:.9;letter-spacing:-.06em;color:var(--ink);opacity:.18}
 @media(max-width:900px){.speaking-page .speaking-takeaway{grid-template-columns:110px minmax(0,1fr);gap:21px}.speaking-page .speaking-takeaway-number{font-size:clamp(4rem,8vw,5.5rem)}}
 @media(max-width:600px){.speaking-page .speaking-takeaway{grid-template-columns:78px minmax(0,1fr);gap:17px}.speaking-page .speaking-takeaway-number{font-size:3.4rem}.speaking-page .speaking-audience{margin-top:30px;padding-top:32px}.speaking-page .speaking-audience p{font-size:16px}}
+
+/* Supporting talk sections reuse the site's eyebrow hierarchy. */
+.speaking-page .speaking-takeaways{border-top:0;padding-top:12px;margin-top:8px}
+.speaking-page .speaking-audience{border-top:0;padding-top:0;margin-top:24px}
+.speaking-page :is(.speaking-takeaways,.speaking-audience)>h2{font-size:18px;font-weight:700;line-height:1.5;letter-spacing:.065em;color:var(--blue);margin-bottom:18px;text-transform:uppercase}
+.speaking-page .media-list{margin-top:32px}
+.speaking-closing-rotating{display:inline-block;color:#6fa7ef}
+.speaking-closing-rotating:after{content:'';display:inline-block;width:.06em;height:.8em;margin-left:.06em;vertical-align:-.02em;background:currentColor;animation:speaking-topic-cursor 760ms step-end infinite}
+.speaking-closing-emphasis[hidden]{display:none}
+@keyframes speaking-topic-cursor{0%,48%{opacity:1}49%,100%{opacity:0}}
+.stories-hero .hero-note{font-size:20px;line-height:1.5;font-weight:650;color:var(--ink)}
+@media(prefers-reduced-motion:reduce){.speaking-closing-rotating:after{display:none;animation:none}}

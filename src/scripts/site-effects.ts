@@ -22,6 +22,58 @@ if (storyLink && storyOptionsElement) {
   }
 }
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+// Preserve the original Speaking typewriter, including the affirmative leadership topic.
+const speakingTopic = document.querySelector<HTMLElement>('[data-speaking-closing-rotating]');
+if (speakingTopic) {
+  const title = speakingTopic.closest('h2');
+  const emphasis = title?.querySelector<HTMLElement>('[data-speaking-closing-emphasis]');
+  const article = title?.querySelector<HTMLElement>('[data-speaking-closing-article]');
+  const verb = title?.querySelector<HTMLElement>('[data-speaking-closing-verb]');
+  const topics = es ? [
+    { label: 'tecnología', article: 'La', verb: 'es' },
+    { label: 'IA', article: 'La', verb: 'es' },
+    { label: 'datos', article: 'Los', verb: 'son' },
+    { label: 'nube', article: 'La', verb: 'es' },
+    { label: 'ERP', article: 'El', verb: 'es' },
+    { label: 'liderazgo', article: 'El', verb: 'es' }
+  ] : ['Technology', 'AI', 'Data', 'Cloud', 'ERP', 'Leadership'].map(label => ({ label, article: '', verb: 'is' }));
+  title?.setAttribute('aria-label', es
+    ? 'La tecnología, la IA, los datos, la nube y el ERP nunca son el punto de partida; el liderazgo es el punto de partida'
+    : 'Technology, AI, data, cloud and ERP are never the starting point; leadership is the starting point');
+  if (!reduceMotion.matches) {
+    let index = 0;
+    let characters = topics[0].label.length;
+    let deleting = true;
+    let timer: number;
+    const schedule = (delay: number) => { timer = window.setTimeout(step, delay); };
+    const step = () => {
+      if (document.hidden) { schedule(500); return; }
+      const topic = topics[index];
+      if (deleting) {
+        characters = Math.max(0, characters - 1);
+        speakingTopic.textContent = topic.label.slice(0, characters);
+        if (characters === 0) {
+          index = (index + 1) % topics.length;
+          const next = topics[index];
+          if (article) article.textContent = next.article;
+          if (verb) verb.textContent = next.verb;
+          if (emphasis) emphasis.hidden = index === topics.length - 1;
+          deleting = false;
+          schedule(300);
+        } else schedule(65);
+      } else {
+        characters = Math.min(topic.label.length, characters + 1);
+        speakingTopic.textContent = topic.label.slice(0, characters);
+        if (characters === topic.label.length) { deleting = true; schedule(2000); }
+        else schedule(125);
+      }
+    };
+    schedule(2000);
+    window.addEventListener('pagehide', () => window.clearTimeout(timer), { once: true });
+  }
+}
+
 const header = document.querySelector<HTMLElement>('.site-header');
 const menu = document.querySelector<HTMLElement>('#primary-navigation');
 const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
