@@ -109,3 +109,8 @@
 .story-kicker{font-size:16px;line-height:1.5;gap:12px}
 .story-kicker .story-number{font-size:17px;font-weight:700;width:35px;height:35px;flex-shrink:0}
 @media(max-width:600px){.home-hero .hero-inner{padding-top:20px}.story-kicker{font-size:16px}.story-kicker .story-number{font-size:17px;width:33px;height:33px}}
+
+/* Chapter navigation stays compact while remaining easy to read. */
+.chapter-tab{font-size:18px;color:var(--muted)}
+.chapter-tab .tab-number{font-size:16px;font-weight:650;color:#62768e}
+.chapter-tab:is(:hover,:focus-visible){color:var(--blue)}
