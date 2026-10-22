@@ -25,7 +25,7 @@ const payload = { ...data, ui };
  const chapterStories=data.stories.filter(story=>story.chapter===chapter.id);
  const next=data.chapters[chapterIndex+1];
  return <section class="chapter-section" id={chapter.id} aria-labelledby={`chapter-title-${chapter.id}`} data-chapter={chapter.id}>
-  <div class="chapter-intro"><div class="wrap chapter-intro-inner"><span class="chapter-large-number" aria-hidden="true">0{chapterIndex+1}</span><div class="chapter-heading"><div class="eyebrow">{tr('chapter')} 0{chapterIndex+1}<span class="chapter-count">/ {chapterStories.length} {tr('storiesCount')}</span></div><h2 id={`chapter-title-${chapter.id}`}>{chapter.title[language]}</h2></div><p>{chapter.intro[language]}</p></div></div>
+  <div class="chapter-intro"><div class="wrap chapter-intro-inner"><div class="chapter-heading"><div class="eyebrow">{tr('chapter')} 0{chapterIndex+1}<span class="chapter-count">/ {chapterStories.length} {tr('storiesCount')}</span></div><h2 id={`chapter-title-${chapter.id}`}>{chapter.title[language]}</h2></div><p>{chapter.intro[language]}</p></div></div>
   <div class="wrap stories-list">{chapterStories.map(story=>{
    const number=data.stories.findIndex(item=>item.id===story.id)+1;
    const source=sources[story.id as keyof typeof sources];
