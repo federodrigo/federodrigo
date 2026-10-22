@@ -119,3 +119,13 @@
 .chapter-intro-inner{grid-template-columns:minmax(0,1fr) minmax(0,410px);gap:32px 48px}
 .chapter-intro-inner>p{grid-column:auto}
 @media(max-width:820px){.chapter-intro-inner{grid-template-columns:1fr;gap:14px}.chapter-intro-inner>p{grid-column:auto;max-width:650px}}
+
+/* Speaking refinements: restore original large numbers and clarify the audience. */
+.speaking-page .speaking-closing-emphasis{color:#6fa7ef}
+.speaking-page .speaking-audience{max-width:810px;margin:0 auto 24px;text-align:center}
+.speaking-page .speaking-audience h2{font-size:16px;font-weight:700;letter-spacing:.08em;color:var(--blue)}
+.speaking-page .speaking-audience p{margin-top:9px;font-size:17px;line-height:1.7;color:var(--muted)}
+.speaking-page .speaking-takeaway{grid-template-columns:150px minmax(0,1fr);align-items:center;gap:28px}
+.speaking-page .speaking-takeaway-number{font-size:clamp(4rem,7vw,6.5rem);font-weight:700;line-height:.9;letter-spacing:-.06em;color:var(--ink);opacity:.18}
+@media(max-width:900px){.speaking-page .speaking-takeaway{grid-template-columns:110px minmax(0,1fr);gap:21px}.speaking-page .speaking-takeaway-number{font-size:clamp(4rem,8vw,5.5rem)}}
+@media(max-width:600px){.speaking-page .speaking-takeaway{grid-template-columns:78px minmax(0,1fr);gap:17px}.speaking-page .speaking-takeaway-number{font-size:3.4rem}.speaking-page .speaking-audience{margin-bottom:18px}.speaking-page .speaking-audience p{font-size:16px}}
