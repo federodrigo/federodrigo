@@ -30,6 +30,8 @@ if (speakingTopic) {
   const emphasis = title?.querySelector<HTMLElement>('[data-speaking-closing-emphasis]');
   const article = title?.querySelector<HTMLElement>('[data-speaking-closing-article]');
   const verb = title?.querySelector<HTMLElement>('[data-speaking-closing-verb]');
+  const topicColors = ['#8b8897', '#9b7ab7', '#729984', '#b7798c', '#aa8a50', '#b27e64'];
+  speakingTopic.style.color = topicColors[0];
   const topics = es ? [
     { label: 'tecnología', article: 'La', verb: 'es' },
     { label: 'IA', article: 'La', verb: 'es' },
@@ -57,7 +59,11 @@ if (speakingTopic) {
           index = (index + 1) % topics.length;
           const next = topics[index];
           if (article) article.textContent = next.article;
-          if (verb) verb.textContent = next.verb;
+          speakingTopic.style.color = topicColors[index];
+          if (verb) {
+            verb.textContent = next.verb;
+            verb.classList.toggle('speaking-closing-emphasis', index === topics.length - 1);
+          }
           if (emphasis) emphasis.hidden = index === topics.length - 1;
           deleting = false;
           schedule(300);

@@ -136,7 +136,7 @@
 .speaking-page .speaking-audience{border-top:0;padding-top:0;margin-top:24px}
 .speaking-page :is(.speaking-takeaways,.speaking-audience)>h2{font-size:18px;font-weight:700;line-height:1.5;letter-spacing:.065em;color:var(--blue);margin-bottom:18px;text-transform:uppercase}
 .speaking-page .media-list{margin-top:32px}
-.speaking-closing-rotating{display:inline-block;color:#6fa7ef}
+.speaking-closing-rotating{display:inline-block;color:#8b8897}
 .speaking-closing-rotating:after{content:'';display:inline-block;width:.06em;height:.8em;margin-left:.06em;vertical-align:-.02em;background:currentColor;animation:speaking-topic-cursor 760ms step-end infinite}
 .speaking-closing-emphasis[hidden]{display:none}
 @keyframes speaking-topic-cursor{0%,48%{opacity:1}49%,100%{opacity:0}}
