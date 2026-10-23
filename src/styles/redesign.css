@@ -147,3 +147,6 @@
 .stories-hero .stories-brick-heading{width:76.5%;max-width:765px;line-height:1}.stories-brick-lettering{display:block;width:100%;height:auto}.stories-brick-heading .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
 .stories-main .story-kicker{font-size:18px;font-weight:650;line-height:1.45}
+
+/* Let the Speaking glow fade into the white page without a rectangular edge. */
+.speaking-page .speaking-hero{background:radial-gradient(ellipse at center,#f0f6ff 0%,#f8fbff 45%,#fff 75%)}
