@@ -144,6 +144,6 @@
 @media(prefers-reduced-motion:reduce){.speaking-closing-rotating:after{display:none;animation:none}}
 
 /* Brick lettering gives Stories its own visual identity. */
-.stories-hero .stories-brick-heading{width:85%;max-width:850px;line-height:1}.stories-brick-lettering{display:block;width:100%;height:auto}.stories-brick-heading .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.stories-hero .stories-brick-heading{width:76.5%;max-width:765px;line-height:1}.stories-brick-lettering{display:block;width:100%;height:auto}.stories-brick-heading .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
 .stories-main .story-kicker{font-size:18px;font-weight:650;line-height:1.45}
