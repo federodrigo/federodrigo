@@ -104,8 +104,8 @@
 
 /* Final readability and interaction adjustments. */
 .home-hero .hero-inner{padding-top:32px}
-.home-advisory .advisory-service h3{transition:color .2s}
-.home-advisory .advisory-service:is(:hover,:focus-visible) h3{color:var(--blue)}
+
+
 .story-kicker{font-size:16px;line-height:1.5;gap:12px}
 .story-kicker .story-number{font-size:17px;font-weight:700;width:35px;height:35px;flex-shrink:0}
 @media(max-width:600px){.home-hero .hero-inner{padding-top:20px}.story-kicker{font-size:16px}.story-kicker .story-number{font-size:17px;width:33px;height:33px}}
@@ -150,3 +150,5 @@
 
 /* Let the Speaking glow fade into the white page without a rectangular edge. */
 .speaking-page .speaking-hero{background:radial-gradient(ellipse at center,#f0f6ff 0%,#f8fbff 45%,#fff 75%)}
+
+.stories-hero .hero-actions>.text-action{font-size:var(--font-action);color:var(--action-color);line-height:1.5;font-weight:650}
