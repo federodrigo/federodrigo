@@ -357,24 +357,24 @@
       }
     },
     {
-      "id": "words",
-      "file": "Words(1).png",
+      "id": "leadership",
+      "file": "Leader Beyond The Title.png",
       "chapter": "value",
       "type": {
-        "en": "Point of view",
-        "es": "Punto de vista"
+        "en": "Leadership reflection",
+        "es": "Reflexión sobre liderazgo"
       },
       "title": {
-        "en": "The words frame the responsibility",
-        "es": "Las palabras definen la responsabilidad"
+        "en": "What remains after you leave",
+        "es": "Lo que permanece cuando te vas"
       },
       "copy": {
-        "en": "The language used to describe IT shapes what we expect it to accomplish and who is responsible for the result. Cost, risk, customer experience and growth make those expectations concrete and give us a basis for judging the work",
-        "es": "El lenguaje que usamos para describir TI influye en lo que esperamos que logre y en quién se hace responsable del resultado. Los costos, el riesgo, la experiencia del cliente y el crecimiento permiten concretar esas expectativas y evaluar el trabajo"
+        "en": "While you hold a role, people attend meetings and follow direction. Some do it because they trust you; others because the organization requires it. Years after you leave, the former colleagues who still call, share achievements and grow into leaders themselves show what remains when authority is gone",
+        "es": "Mientras ocupás un cargo, las personas asisten a reuniones y siguen indicaciones. Algunas lo hacen porque confían en vos; otras, porque así funciona la organización. Años después, quienes siguen llamando, comparten sus logros y se convierten en líderes muestran qué permanece cuando desaparece la autoridad"
       },
       "alt": {
-        "en": "What is IT for? An illustrated argument to assess IT through business outcomes such as cost, risk, execution, customer experience, revenue and capabilities",
-        "es": "¿Para qué existe TI? Una propuesta para evaluarla por resultados como costos, riesgo, ejecución, experiencia del cliente, ingresos y capacidades"
+        "en": "Three LEGO scenes: colleagues work with a manager, the manager leaves the office, and years later former colleagues reconnect and share their progress",
+        "es": "Tres escenas LEGO: un equipo trabaja con su responsable, este deja la oficina y años después sus antiguos colegas siguen en contacto y comparten sus logros"
       }
     },
     {
