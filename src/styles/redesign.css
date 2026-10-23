@@ -156,3 +156,6 @@
 
 /* The phrase of the brand uses the slide typography; all other site type stays unchanged. */
 .home-hero .hero-title,.speaking-closing h2{font-family:"Segoe UI Black","Segoe UI",Inter,Arial,sans-serif;font-weight:900}
+
+/* Keep the Speaking introduction in balanced lines without a lone final word. */
+.home-speaking .home-editorial-copy>p:not(.eyebrow){max-width:62ch;text-wrap:balance}
