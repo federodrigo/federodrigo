@@ -6,7 +6,6 @@ interface Props {
 	title: string;
 	description: string;
 	lang?: 'en' | 'es';
-	image?: string;
 	type?: 'website' | 'article';
 }
 
@@ -14,7 +13,6 @@ const {
 	title,
 	description,
 	lang = 'en',
-	image = '/images/fede-rodrigo-social.png',
 	type = 'website',
 } = Astro.props;
 
@@ -54,7 +52,7 @@ const canonicalPath =
 const canonicalURL = new URL(canonicalPath, siteUrl);
 const englishURL = new URL(englishPath, siteUrl);
 const spanishURL = new URL(spanishPath, siteUrl);
-const imageURL = new URL(image, siteUrl);
+const imageURL = new URL('/images/fede-rodrigo-share-logo.png', siteUrl);
 
 const structuredData = {
 	'@context': 'https://schema.org',
@@ -177,6 +175,13 @@ const structuredData = {
 	content={imageURL}
 />
 
+<meta property="og:image:secure_url" content={imageURL} />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Fede Rodrigo" />
+<link rel="image_src" href={imageURL} />
+
 <meta
 	property="og:site_name"
 	content="Fede Rodrigo"
@@ -217,6 +222,8 @@ const structuredData = {
 	name="twitter:image"
 	content={imageURL}
 />
+
+<meta name="twitter:image:alt" content="Fede Rodrigo" />
 
 <!-- Structured data -->
 <script
