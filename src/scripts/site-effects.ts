@@ -31,6 +31,7 @@ if (speakingTopic) {
   const article = title?.querySelector<HTMLElement>('[data-speaking-closing-article]');
   const verb = title?.querySelector<HTMLElement>('[data-speaking-closing-verb]');
   const part = title?.querySelector<HTMLElement>('[data-speaking-closing-part]');
+  const partTail = title?.querySelector<HTMLElement>('[data-speaking-closing-part-tail]');
   const determiner = title?.querySelector<HTMLElement>('[data-speaking-closing-determiner]');
   // Keep each existing topic's color and give cybersecurity its own muted pastel blue.
   const topicColors = ['#8b8897', '#9b7ab7', '#729984', '#b7798c', '#aa8a50', '#76a6b8', '#b27e64'];
@@ -75,6 +76,7 @@ if (speakingTopic) {
             emphasis.hidden = next.mode !== 'never';
           }
           if (part) part.hidden = next.mode !== 'part';
+          if (partTail) partTail.hidden = next.mode !== 'part';
           if (determiner) determiner.hidden = next.mode === 'part';
           deleting = false;
           schedule(300);
