@@ -166,3 +166,6 @@
 .home-hero .brand-outline-title .hero-line img{display:block;max-width:100%;height:auto}
 
 @media(prefers-reduced-motion:reduce){.home-book-image,.home-main :is(.home-editorial-image,.home-about-photo)>img{transition:none;transform:none}}
+
+/* Keep the landing About photo closer to its text on desktop, without changing hover or mobile layout. */
+@media (min-width:901px){.home-about-grid .home-about-photo{margin-right:42px}}
