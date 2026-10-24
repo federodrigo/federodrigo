@@ -167,5 +167,5 @@
 
 @media(prefers-reduced-motion:reduce){.home-book-image,.home-main :is(.home-editorial-image,.home-about-photo)>img{transition:none;transform:none}}
 
-/* Keep the landing About photo closer to its text on desktop, without changing hover or mobile layout. */
-@media (min-width:901px){.home-about-grid .home-about-photo{margin-right:42px}}
+/* Keep the landing About photo closer to the copy rather than at the outer right edge. */
+@media (min-width:901px){.home-about-grid .home-about-photo{justify-self:start;margin-left:40px;margin-right:0}}
