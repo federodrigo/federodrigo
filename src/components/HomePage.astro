@@ -26,7 +26,7 @@ const services = es ? ['Asesoramiento a directorios y equipos ejecutivos', 'ERP 
   <section class="hero home-hero">
     <div class="wrap hero-inner">
       <div class="hero-copy">
-        <h1 class="hero-title"><span class="hero-line">{es ? 'La tecnología ' : 'Technology is '}<em>{es ? 'nunca' : 'never'}</em>{' '}</span><span class="hero-line">{es ? 'es el punto de partida' : 'the starting point'}</span></h1>
+        <h1 class="hero-title brand-outline-title" aria-label={es ? 'La tecnología nunca es el punto de partida' : 'Technology is never the starting point'}><span class="hero-line"><img src={`/images/brand/starting-point-${lang}-1.svg`} alt="" aria-hidden="true" width={es ? 19294 : 19430} height="2253" style={`width:${es ? 9.4209 : 9.4873}em`} fetchpriority="high" /></span><span class="hero-line"><img src={`/images/brand/starting-point-${lang}-2.svg`} alt="" aria-hidden="true" width={es ? 21137 : 17062} height="2253" style={`width:${es ? 10.3208 : 8.33105}em`} fetchpriority="high" /></span></h1>
         <p class="hero-description">{es ? 'Ayudo a las organizaciones a tomar decisiones tecnológicas que creen valor para el negocio, con más de 15 años de experiencia de liderazgo en Estados Unidos, Europa y Latinoamérica' : 'I help organizations make technology decisions that create business value, drawing on more than 15 years of leadership across the US, Europe and Latin America'}</p>
         <ol class="framework-flow reveal-item" aria-label={es ? 'Personas, negocio, tecnología, en ese orden' : 'People, business, technology, in that order'}>{(es ? ['Personas','Negocio','Tecnología'] : ['People','Business','Technology']).map((label,i)=><li style={`--step:${i}`}><span>{label}</span>{i<2&&<Arrow />}</li>)}</ol>
       </div>

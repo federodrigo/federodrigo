@@ -159,3 +159,6 @@
 
 /* Keep the Speaking introduction in balanced lines without a lone final word. */
 .home-speaking .home-editorial-copy>p:not(.eyebrow){max-width:62ch;text-wrap:balance}
+
+/* The brand phrase uses original Segoe UI Black outlines on every device. */
+.home-hero .brand-outline-title .hero-line img{display:block;max-width:100%;height:auto}
