@@ -29,11 +29,11 @@
 
   function updateViewer() {
     const story = stories[openIndex];
-    image.src = `/images/stories/${story.id}.webp`;
+    image.src = `/images/stories/${story.id}.webp?v=${story.imageVersion}`;
     image.alt = story.alt[language];
     document.getElementById('viewer-title').textContent = story.title[language];
     document.getElementById('viewer-count').textContent = `${String(openIndex + 1).padStart(2, '0')} / ${stories.length}`;
-    document.getElementById('viewer-full').href = `/images/stories/${story.id}.webp`;
+    document.getElementById('viewer-full').href = `/images/stories/${story.id}.webp?v=${story.imageVersion}`;
     previousButton.disabled = openIndex === 0;
     nextButton.disabled = openIndex === stories.length - 1;
     resetZoom();

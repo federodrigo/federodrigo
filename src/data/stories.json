@@ -64,7 +64,7 @@
   "stories": [
     {
       "id": "coffee",
-      "file": "Agile.png",
+      "file": "Agile(1).png",
       "chapter": "understand",
       "type": {
         "en": "Illustrative scenario",
@@ -81,11 +81,12 @@
       "alt": {
         "en": "Waterfall, Agile and AI produce sophisticated coffee machines; a small moka pot meets a need for two coffees in a small kitchen",
         "es": "Waterfall, Agile e IA producen cafeteras sofisticadas; una cafetera italiana alcanza para preparar dos cafés en una cocina pequeña"
-      }
+      },
+      "imageVersion": "3c1bad31a8"
     },
     {
       "id": "hans",
-      "file": "Hans.png",
+      "file": "Hans(1).png",
       "chapter": "understand",
       "type": {
         "en": "History and interpretation",
@@ -102,32 +103,34 @@
       "alt": {
         "en": "Clever Hans answers by tapping his hoof, controlled tests uncover involuntary human signals, and an AI analogy emphasizes the problem, purpose and value",
         "es": "Clever Hans responde golpeando con el casco; las pruebas revelan señales humanas involuntarias y el paralelo con IA pone el foco en problema, propósito y valor"
-      }
+      },
+      "imageVersion": "a2076c6324"
     },
     {
-      "id": "bermuda",
-      "file": "Bermuda.png",
+      "id": "data-bi",
+      "file": "DataBI.png",
       "chapter": "understand",
       "type": {
-        "en": "Myths and evidence",
-        "es": "Mitos y evidencia"
+        "en": "Illustrative scenario",
+        "es": "Caso ilustrativo"
       },
       "title": {
-        "en": "Familiar claims deserve a closer look",
-        "es": "Revisar lo que damos por cierto"
+        "en": "Understand how the information will be used",
+        "es": "Entender para qué se usará la información"
       },
       "copy": {
-        "en": "A familiar story can feel established before we examine its evidence. Claims that cloud is always cheaper, automation reduces costs or AI improves productivity also depend on conditions that a slogan leaves out",
-        "es": "Una historia conocida puede parecer demostrada antes de que examinemos la evidencia. Afirmar que la nube siempre es más barata, que automatizar reduce costos o que la IA mejora la productividad también depende de condiciones que un eslogan deja afuera"
+        "en": "A team celebrates its BI platform, yet its most requested feature is exporting to Excel. The request invites us to examine what people need to do with the information, which decisions it should support and whether the chosen tool fits that work",
+        "es": "Un equipo celebra su plataforma de BI, pero la función más solicitada es exportar a Excel. El pedido invita a examinar qué necesitan hacer las personas con la información, qué decisiones debe apoyar y si la herramienta elegida sirve para ese trabajo"
       },
       "alt": {
-        "en": "Brick-built map of Florida, Bermuda and Puerto Rico, alongside questions about claims concerning cloud cost, automation and AI productivity",
-        "es": "Mapa de Florida, Bermudas y Puerto Rico construido con bloques, junto a preguntas sobre costos de nube, automatización y productividad con IA"
-      }
+        "en": "A team praises its BI platform until asked which feature people request most: exporting to Excel; the story asks how the information needs to be used",
+        "es": "Un equipo elogia su plataforma de BI hasta que le preguntan por la función más solicitada: exportar a Excel; la historia invita a entender cómo se necesita usar la información"
+      },
+      "imageVersion": "5e7bc9bd5d"
     },
     {
       "id": "cargo-cult",
-      "file": "Cargo Cult.png",
+      "file": "Cargo Cult(1).png",
       "chapter": "understand",
       "type": {
         "en": "Feynman’s analogy",
@@ -144,11 +147,12 @@
       "alt": {
         "en": "Supplies arrive by aircraft, people reproduce a runway and control tower, and the planes do not return despite the copied structures",
         "es": "Los suministros llegan en avión; se reproducen una pista y una torre de control, pero los aviones no regresan"
-      }
+      },
+      "imageVersion": "a429657de1"
     },
     {
       "id": "oak-trees",
-      "file": "Oak Trees.png",
+      "file": "Oak Trees(2).png",
       "chapter": "choose",
       "type": {
         "en": "Historical account",
@@ -165,11 +169,12 @@
       "alt": {
         "en": "Sweden plants about 300,000 oaks beginning in 1831; shipbuilding changes to iron and steel, and the navy declines the timber in 1975",
         "es": "Suecia comienza a plantar unos 300.000 robles en 1831; la construcción naval pasa al hierro y al acero, y la marina rechaza la madera en 1975"
-      }
+      },
+      "imageVersion": "433de01eb7"
     },
     {
       "id": "ariane-5",
-      "file": "ariane5.png",
+      "file": "ariane5(1).png",
       "chapter": "choose",
       "type": {
         "en": "Historical account",
@@ -186,53 +191,56 @@
       "alt": {
         "en": "Ariane 5 reuses reference software from Ariane 4, encounters different flight conditions, loses both reference systems and prompts a review against new business requirements",
         "es": "Ariane 5 reutiliza software de Ariane 4, encuentra condiciones de vuelo diferentes y pierde ambos sistemas de referencia; el paralelo invita a revisar los nuevos requisitos del negocio"
-      }
+      },
+      "imageVersion": "a27bbe8256"
     },
     {
-      "id": "full-circle",
-      "file": "Full Circle(2).png",
+      "id": "security",
+      "file": "SecStarts(1).png",
+      "chapter": "choose",
+      "type": {
+        "en": "Security by design",
+        "es": "Seguridad desde el diseño"
+      },
+      "title": {
+        "en": "Security belongs in the first conversation",
+        "es": "La seguridad forma parte de la primera conversación"
+      },
+      "copy": {
+        "en": "What must be protected, who should have access and what could go wrong help define the solution from the start. Security requirements shape a process change, a policy or a new system, and need a place in the first conversation about the problem",
+        "es": "Definir qué debemos proteger, quién necesita acceso y qué podría salir mal ayuda a elegir la solución desde el comienzo. La seguridad influye en un cambio de proceso, una política o un sistema nuevo, y debe formar parte de la primera conversación sobre el problema"
+      },
+      "alt": {
+        "en": "Four LEGO scenes show a team defining the real problem, bringing security in early, considering process, policy or technology changes, and designing access, recovery and visibility controls",
+        "es": "Cuatro escenas LEGO muestran a un equipo definiendo el problema, incorporando la seguridad desde el inicio, considerando cambios de proceso, políticas o tecnología y diseñando controles de acceso, recuperación y visibilidad"
+      },
+      "imageVersion": "5c5d90c9d2"
+    },
+    {
+      "id": "ai-coding",
+      "file": "AICoding.png",
       "chapter": "choose",
       "type": {
         "en": "Illustrative scenario",
         "es": "Caso ilustrativo"
       },
       "title": {
-        "en": "Follow the cost of the outcome",
-        "es": "Seguir el costo del resultado"
+        "en": "Complexity needs a reason",
+        "es": "La complejidad necesita una razón"
       },
       "copy": {
-        "en": "A team adopts an AI tool for simple coding work, then revisits the decision as its costs become clearer. The comparison needs to include what it takes to produce an acceptable result: tools, people, review and the work that remains",
-        "es": "Un equipo adopta IA para tareas simples de programación y revisa la decisión cuando sus costos se vuelven más claros. La comparación debe incluir lo necesario para producir un resultado aceptable: herramientas, personas, revisión y el trabajo que queda por hacer"
+        "en": "A request for a simple calculator becomes an application with services, infrastructure and dozens of files, each adding work to understand, operate and maintain. Faster code generation makes it even more important to decide which complexity the problem actually requires",
+        "es": "El pedido de una calculadora simple termina en una aplicación con servicios, infraestructura y decenas de archivos que después habrá que comprender, operar y mantener. Generar código más rápido vuelve todavía más importante decidir qué complejidad necesita realmente el problema"
       },
       "alt": {
-        "en": "An illustrative team uses AI for simple coding, sees costs accumulate and reconsiders assigning the work to a junior developer",
-        "es": "En un caso ilustrativo, un equipo usa IA para programación simple, ve acumularse los costos y reconsidera asignar el trabajo a un desarrollador junior"
-      }
-    },
-    {
-      "id": "mars",
-      "file": "mars.png",
-      "chapter": "choose",
-      "type": {
-        "en": "Historical account",
-        "es": "Relato histórico"
+        "en": "An AI turns a request for a simple calculator into an application with a database, microservices, Kubernetes and 46 files, illustrating unnecessary complexity",
+        "es": "Una IA convierte el pedido de una calculadora simple en una aplicación con base de datos, microservicios, Kubernetes y 46 archivos, ilustrando la complejidad innecesaria"
       },
-      "title": {
-        "en": "A shared goal needs shared definitions",
-        "es": "Un objetivo común necesita definiciones comunes"
-      },
-      "copy": {
-        "en": "The orbiter was lost after a mismatch between the units supplied by one software system and those expected by another distorted navigation calculations. Shared goals still require agreement on what the exchanged information means",
-        "es": "La sonda se perdió después de que una diferencia entre las unidades que entregaba un sistema y las que esperaba otro distorsionara los cálculos de navegación. Compartir el objetivo también exige acordar qué significa la información que se intercambia"
-      },
-      "alt": {
-        "en": "Mars Climate Orbiter is lost after ground software supplies pound-force seconds and navigation software expects newton-seconds",
-        "es": "Mars Climate Orbiter se pierde después de que un software entregue libras-fuerza segundo y el software de navegación espere newton-segundo"
-      }
+      "imageVersion": "5bb1ff031e"
     },
     {
       "id": "vasa",
-      "file": "Vasa.png",
+      "file": "Vasa(1).png",
       "chapter": "evaluate",
       "type": {
         "en": "Historical account",
@@ -249,11 +257,12 @@
       "alt": {
         "en": "The Vasa becomes an impressive warship, stability warnings are ignored, and it takes on water and sinks on its maiden voyage",
         "es": "El Vasa se convierte en un buque imponente, se ignoran las advertencias de estabilidad y el barco se hunde en su viaje inaugural"
-      }
+      },
+      "imageVersion": "50335b3704"
     },
     {
       "id": "project-nightmare",
-      "file": "Fail Project.png",
+      "file": "Fail Project(1).png",
       "chapter": "evaluate",
       "type": {
         "en": "Satire",
@@ -270,11 +279,12 @@
       "alt": {
         "en": "Ten satirical steps to derail a project include premature launch, unclear ownership, excessive customization, dirty data, ignored risks and repeated workarounds",
         "es": "Diez pasos satíricos para arruinar un proyecto incluyen lanzar antes de tiempo, responsabilidades difusas, personalización excesiva, datos sucios, riesgos ignorados y arreglos sucesivos"
-      }
+      },
+      "imageVersion": "3e2e50cab5"
     },
     {
       "id": "pyrrhus",
-      "file": "Pyrrus.png",
+      "file": "Pyrrus(1).png",
       "chapter": "evaluate",
       "type": {
         "en": "Historical account",
@@ -291,11 +301,12 @@
       "alt": {
         "en": "Pyrrhus wins at Asculum but suffers difficult-to-replace losses; a modern project analogy shows a delivered project and an exhausted team",
         "es": "Pirro gana en Asculum y sufre pérdidas difíciles de reponer; el paralelo muestra un proyecto entregado y un equipo agotado"
-      }
+      },
+      "imageVersion": "4c185303f9"
     },
     {
       "id": "scott-amundsen",
-      "file": "scott-amundsen.png",
+      "file": "scott-amundsen(1).png",
       "chapter": "evaluate",
       "type": {
         "en": "Historical account",
@@ -312,11 +323,12 @@
       "alt": {
         "en": "Amundsen and Scott reach the South Pole, their return outcomes differ, and the business parallel includes ongoing operations after a launch",
         "es": "Amundsen y Scott llegan al Polo Sur y tienen desenlaces diferentes en el regreso; el paralelo empresarial incluye la operación posterior al lanzamiento"
-      }
+      },
+      "imageVersion": "ccc7a430cf"
     },
     {
       "id": "recovery",
-      "file": "pixar.png",
+      "file": "pixar(1).png",
       "chapter": "evaluate",
       "type": {
         "en": "Illustrative scenario",
@@ -333,11 +345,12 @@
       "alt": {
         "en": "A fictional animation studio cannot restore its production files from backup; a separate working copy allows production to resume",
         "es": "Un estudio de animación ficticio no puede recuperar sus archivos desde el respaldo; otra copia de trabajo permite retomar la producción"
-      }
+      },
+      "imageVersion": "9a986420d2"
     },
     {
       "id": "nintendo",
-      "file": "nintendo.png",
+      "file": "nintendo(1).png",
       "chapter": "value",
       "type": {
         "en": "Business history",
@@ -354,11 +367,12 @@
       "alt": {
         "en": "Nintendo develops from playing cards in 1889 to toys, electronic games, Wii and Switch, illustrating business evolution through different technologies",
         "es": "Nintendo pasa de fabricar cartas en 1889 a juguetes, juegos electrónicos, Wii y Switch, ilustrando la evolución del negocio mediante distintas tecnologías"
-      }
+      },
+      "imageVersion": "c4686ca7a0"
     },
     {
       "id": "leadership",
-      "file": "Leader Beyond The Title.png",
+      "file": "Leadership.png",
       "chapter": "value",
       "type": {
         "en": "Leadership reflection",
@@ -375,11 +389,12 @@
       "alt": {
         "en": "Three LEGO scenes: colleagues work with a manager, the manager leaves the office, and years later former colleagues reconnect and share their progress",
         "es": "Tres escenas LEGO: un equipo trabaja con su responsable, este deja la oficina y años después sus antiguos colegas siguen en contacto y comparten sus logros"
-      }
+      },
+      "imageVersion": "e921c8de17"
     },
     {
       "id": "business-value",
-      "file": "Value.png",
+      "file": "Value(1).png",
       "chapter": "value",
       "type": {
         "en": "Business framework",
@@ -396,7 +411,8 @@
       "alt": {
         "en": "The role of IT is illustrated through efficiency, trust and growth, linked to lower costs, faster execution, lower risks, customer experience, new capabilities and revenue",
         "es": "El rol de TI se ilustra mediante eficiencia, confianza y crecimiento, vinculados a costos, ejecución, riesgos, experiencia del cliente, capacidades e ingresos"
-      }
+      },
+      "imageVersion": "8d6ead08e8"
     }
   ]
 }

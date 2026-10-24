@@ -3,96 +3,112 @@
     "id": "coffee",
     "width": 1122,
     "height": 1402,
-    "bytes": 362188
+    "bytes": 166312,
+    "version": "3c1bad31a8"
   },
   {
     "id": "hans",
     "width": 1122,
     "height": 1402,
-    "bytes": 396078
+    "bytes": 178170,
+    "version": "a2076c6324"
   },
   {
-    "id": "bermuda",
+    "id": "data-bi",
     "width": 1122,
-    "height": 1402,
-    "bytes": 482206
+    "height": 1360,
+    "bytes": 99436,
+    "version": "5e7bc9bd5d"
   },
   {
     "id": "cargo-cult",
     "width": 1254,
     "height": 1201,
-    "bytes": 418630
+    "bytes": 195608,
+    "version": "a429657de1"
   },
   {
     "id": "oak-trees",
     "width": 1122,
     "height": 1402,
-    "bytes": 509486
+    "bytes": 242120,
+    "version": "433de01eb7"
   },
   {
     "id": "ariane-5",
     "width": 1122,
     "height": 1402,
-    "bytes": 417524
+    "bytes": 190888,
+    "version": "a27bbe8256"
   },
   {
-    "id": "full-circle",
-    "width": 1122,
-    "height": 1402,
-    "bytes": 202752
+    "id": "security",
+    "width": 1160,
+    "height": 1355,
+    "bytes": 175368,
+    "version": "5c5d90c9d2"
   },
   {
-    "id": "mars",
+    "id": "ai-coding",
     "width": 1122,
     "height": 1402,
-    "bytes": 414120
+    "bytes": 226928,
+    "version": "5bb1ff031e"
   },
   {
     "id": "vasa",
     "width": 1106,
     "height": 1422,
-    "bytes": 509494
+    "bytes": 252390,
+    "version": "50335b3704"
   },
   {
     "id": "project-nightmare",
     "width": 1113,
     "height": 1372,
-    "bytes": 410610
+    "bytes": 200326,
+    "version": "3e2e50cab5"
   },
   {
     "id": "pyrrhus",
     "width": 1122,
     "height": 1402,
-    "bytes": 441950
+    "bytes": 193582,
+    "version": "4c185303f9"
   },
   {
     "id": "scott-amundsen",
     "width": 1122,
     "height": 1402,
-    "bytes": 404482
+    "bytes": 175218,
+    "version": "ccc7a430cf"
   },
   {
     "id": "recovery",
     "width": 1122,
     "height": 1402,
-    "bytes": 375920
+    "bytes": 168170,
+    "version": "9a986420d2"
   },
   {
     "id": "nintendo",
     "width": 1122,
     "height": 1402,
-    "bytes": 429080
+    "bytes": 200362,
+    "version": "c4686ca7a0"
   },
   {
     "id": "leadership",
     "width": 1122,
     "height": 1402,
-    "bytes": 155286
+    "bytes": 129384,
+    "version": "e921c8de17"
   },
   {
     "id": "business-value",
     "width": 1122,
     "height": 1402,
-    "bytes": 288866
+    "bytes": 131192,
+    "version": "8d6ead08e8"
   }
 ]
