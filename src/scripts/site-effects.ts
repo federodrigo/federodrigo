@@ -68,11 +68,11 @@ if (speakingTopic) {
           speakingTopic.style.color = topicColors[index];
           if (verb) {
             verb.textContent = next.verb;
-            verb.classList.toggle('speaking-closing-emphasis', next.mode === 'affirmative');
+            verb.classList.toggle('speaking-closing-emphasis', next.mode === 'affirmative' || next.mode === 'part');
           }
           if (emphasis) {
-            emphasis.textContent = !es && next.mode === 'part' ? 'part of' : 'never';
-            emphasis.hidden = next.mode === 'affirmative' || (es && next.mode === 'part');
+            emphasis.textContent = es ? 'nunca' : 'never';
+            emphasis.hidden = next.mode !== 'never';
           }
           if (part) part.hidden = next.mode !== 'part';
           if (determiner) determiner.hidden = next.mode === 'part';
