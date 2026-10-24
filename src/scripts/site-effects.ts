@@ -23,30 +23,47 @@ if (storyLink && storyOptionsElement) {
 }
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-// Preserve the Speaking typewriter and its different conclusions for leadership and security.
+// All Speaking topics use the same typewriter animation. Only the conclusion changes.
 const speakingTopic = document.querySelector<HTMLElement>('[data-speaking-closing-rotating]');
 if (speakingTopic) {
   const title = speakingTopic.closest('h2');
-  const emphasis = title?.querySelector<HTMLElement>('[data-speaking-closing-emphasis]');
   const article = title?.querySelector<HTMLElement>('[data-speaking-closing-article]');
-  const verb = title?.querySelector<HTMLElement>('[data-speaking-closing-verb]');
-  const part = title?.querySelector<HTMLElement>('[data-speaking-closing-part]');
-  const partTail = title?.querySelector<HTMLElement>('[data-speaking-closing-part-tail]');
-  const determiner = title?.querySelector<HTMLElement>('[data-speaking-closing-determiner]');
-  // Keep each existing topic's color and give cybersecurity its own muted pastel blue.
-  const topicColors = ['#8b8897', '#9b7ab7', '#729984', '#b7798c', '#aa8a50', '#76a6b8', '#b27e64'];
+  const conclusion = title?.querySelector<HTMLElement>('[data-speaking-closing-conclusion]');
+  // Six original pastels plus a similarly muted slate blue for cybersecurity.
+  const topicColors = ['#8b8897', '#9b7ab7', '#729984', '#b7798c', '#aa8a50', '#8196aa', '#b27e64'];
   speakingTopic.style.color = topicColors[0];
   const topics = es ? [
-    { label: 'tecnología', article: 'La', verb: 'es', mode: 'never' },
-    { label: 'IA', article: 'La', verb: 'es', mode: 'never' },
-    { label: 'datos', article: 'Los', verb: 'son', mode: 'never' },
-    { label: 'nube', article: 'La', verb: 'es', mode: 'never' },
-    { label: 'ERP', article: 'El', verb: 'es', mode: 'never' },
-    { label: 'ciberseguridad', article: 'La', verb: 'es', mode: 'part' },
-    { label: 'liderazgo', article: 'El', verb: 'es', mode: 'affirmative' }
+    { label: 'tecnología', article: 'La', mode: 'never' },
+    { label: 'IA', article: 'La', mode: 'never' },
+    { label: 'datos', article: 'Los', mode: 'never' },
+    { label: 'nube', article: 'La', mode: 'never' },
+    { label: 'ERP', article: 'El', mode: 'never' },
+    { label: 'ciberseguridad', article: 'La', mode: 'part' },
+    { label: 'liderazgo', article: 'El', mode: 'affirmative' }
   ] : ['Technology', 'AI', 'Data', 'Cloud', 'ERP', 'Cybersecurity', 'Leadership'].map(label => ({
-    label, article: '', verb: 'is', mode: label === 'Cybersecurity' ? 'part' : label === 'Leadership' ? 'affirmative' : 'never'
+    label, article: '', mode: label === 'Cybersecurity' ? 'part' : label === 'Leadership' ? 'affirmative' : 'never'
   }));
+  const renderConclusion = (mode: string) => {
+    if (!conclusion) return;
+    const accent = document.createElement('span');
+    accent.className = 'speaking-closing-emphasis';
+    const tail = document.createElement('span');
+    tail.className = 'speaking-closing-tail';
+    if (es) {
+      accent.textContent = mode === 'part' ? 'es parte' : mode === 'affirmative' ? 'es' : 'nunca';
+      tail.textContent = mode === 'part' ? ' del punto de partida' : mode === 'affirmative' ? ' el punto de partida' : ' es el punto de partida';
+      // Only "es parte" is highlighted; "del" is always normal text.
+      conclusion.replaceChildren(accent, tail);
+    } else {
+      accent.textContent = mode === 'part' ? 'is part' : mode === 'affirmative' ? 'is' : 'never';
+      tail.textContent = mode === 'part' ? ' of the starting point' : ' the starting point';
+      if (mode === 'never') {
+        conclusion.replaceChildren(document.createTextNode('is '), accent, tail);
+      } else {
+        conclusion.replaceChildren(accent, tail);
+      }
+    }
+  };
   title?.setAttribute('aria-label', es
     ? 'La tecnología, la IA, los datos, la nube y el ERP nunca son el punto de partida; la ciberseguridad es parte del punto de partida; el liderazgo es el punto de partida'
     : 'Technology, AI, data, cloud and ERP are never the starting point; cybersecurity is part of the starting point; leadership is the starting point');
@@ -67,17 +84,7 @@ if (speakingTopic) {
           const next = topics[index];
           if (article) article.textContent = next.article;
           speakingTopic.style.color = topicColors[index];
-          if (verb) {
-            verb.textContent = next.verb;
-            verb.classList.toggle('speaking-closing-emphasis', next.mode === 'affirmative' || next.mode === 'part');
-          }
-          if (emphasis) {
-            emphasis.textContent = es ? 'nunca' : 'never';
-            emphasis.hidden = next.mode !== 'never';
-          }
-          if (part) part.hidden = next.mode !== 'part';
-          if (partTail) partTail.hidden = next.mode !== 'part';
-          if (determiner) determiner.hidden = next.mode === 'part';
+          renderConclusion(next.mode);
           deleting = false;
           schedule(300);
         } else schedule(65);
