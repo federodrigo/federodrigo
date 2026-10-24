@@ -168,4 +168,4 @@
 @media(prefers-reduced-motion:reduce){.home-book-image,.home-main :is(.home-editorial-image,.home-about-photo)>img{transition:none;transform:none}}
 
 /* Keep the landing About photo closer to the copy rather than at the outer right edge. */
-@media (min-width:901px){.home-about-grid .home-about-photo{justify-self:start;margin-left:40px;margin-right:0}}
+@media (min-width:901px){.home-about-grid .home-about-photo{justify-self:start;margin-left:12px;margin-right:0}}
