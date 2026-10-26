@@ -232,7 +232,7 @@
   display:grid;
   grid-template-columns:minmax(0,560px) 219px;
   justify-content:start;
-  gap:64px;
+  gap:82px;
   align-items:center;
 }
 .home-stories .home-story-copy h2{max-width:560px;line-height:1.17;text-wrap:balance}
