@@ -209,9 +209,9 @@
 @media(max-width:600px){.home-about .home-about-photo{max-width:185px}}
 
 /* Upcoming talks: dates and event names already explain themselves. */
-.home-speaking .home-events{display:block;max-width:740px;margin:24px auto 0;padding-top:14px;border-top:1px solid var(--line)}
+.home-speaking .home-events{display:block;max-width:740px;margin:24px auto 0;padding-top:0;border-top:0}
 .home-speaking .home-events-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;max-width:740px;margin-inline:auto;text-align:left;justify-content:center}
-.home-speaking .home-event{padding:14px 12px;border-radius:5px;transition:background-color .2s ease,transform .2s ease}
+.home-speaking .home-event{padding:14px 12px;border-top:0;border-radius:5px;transition:background-color .2s ease,transform .2s ease}
 .home-speaking .home-event :is(.event-date strong,.event-date>span,.event-type,h4){transition:color .2s ease}
 .home-speaking .home-event:is(:hover,:focus-visible){background:#f1f6ff;transform:translateY(-2px)}
 .home-speaking .home-event:is(:hover,:focus-visible) :is(.event-date strong,.event-date>span,.event-type){color:var(--event-accent)}
