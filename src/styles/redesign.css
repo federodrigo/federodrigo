@@ -175,16 +175,23 @@
 .speaking-page .speaking-hero .speaking-hero-accent{font-family:"Segoe UI Black","Segoe UI",Inter,Arial,sans-serif;font-weight:900}
 @media(max-width:600px){.speaking-page .speaking-hero .hero-title{line-height:1.08}}
 
-/* Keep this short advisory teaser compact and visually connected. */
-.home-advisory{padding-block:20px}
-.home-advisory .advisory-grid{grid-template-columns:minmax(0,420px) minmax(0,1fr);gap:clamp(28px,4vw,56px);max-width:1160px;align-items:center}
+/* Advisory: heading left, copy aligned with the heading, action bottom-left. */
+.home-advisory{padding-block:43px 35px}
+.home-advisory .advisory-grid{grid-template-columns:minmax(0,420px) minmax(0,1fr);grid-template-areas:"heading copy" "action copy";column-gap:clamp(28px,4vw,56px);row-gap:17px;max-width:1160px;align-items:start}
+.home-advisory .advisory-heading{grid-area:heading}
+.home-advisory .advisory-copy{grid-area:copy;padding-top:34px}
 .home-advisory .advisory-copy .section-intro{margin-top:0;max-width:600px}
-.home-advisory .advisory-copy .text-action{margin-top:18px}
-@media(max-width:820px){.home-advisory .advisory-grid{grid-template-columns:1fr;gap:18px}}
-@media(max-width:600px){.home-advisory{padding-block:24px}.home-advisory .advisory-grid{gap:14px}}
+.home-advisory .advisory-action{grid-area:action;justify-self:start;margin-top:0}
+@media(max-width:820px){.home-advisory .advisory-grid{grid-template-columns:1fr;grid-template-areas:"heading" "copy" "action";row-gap:14px}.home-advisory .advisory-copy{padding-top:0}}
+@media(max-width:600px){.home-advisory{padding-block:34px 32px}.home-advisory .advisory-grid{row-gap:13px}}
 
-/* The books and their covers need only a short section heading. */
-.home-books .section-heading h2{margin-top:0}
+/* Stories starts at the shared left margin; illustration remains on the right. */
+.home-stories .home-story-feature{max-width:1120px;margin-inline:0;grid-template-columns:minmax(0,600px) minmax(0,219px);justify-content:space-between;gap:32px}
+@media(max-width:900px){.home-stories .home-story-feature{grid-template-columns:minmax(0,1fr) 196px;gap:30px}}
+@media(max-width:600px){.home-stories .home-story-feature{grid-template-columns:1fr;gap:18px}}
+
+/* Books keeps the shared blue eyebrow and a concise title. */
+.home-books .section-heading h2{margin-top:10px}
 
 /* Keep the landing About photo closer to the copy rather than at the outer right edge. */
 @media (min-width:901px){.home-about-grid .home-about-photo{justify-self:start;margin-left:12px;margin-right:0}}
