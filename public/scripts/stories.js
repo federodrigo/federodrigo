@@ -95,7 +95,6 @@
 
   const rows = [...document.querySelectorAll('[data-story-number]')];
   const sections = [...document.querySelectorAll('[data-chapter]')];
-  const progress = document.getElementById('reading-progress');
   const current = document.getElementById('reading-current');
   const tabs = [...document.querySelectorAll('[data-chapter-link]')];
   let pendingFrame = false;
@@ -119,10 +118,6 @@
       else tab.removeAttribute('aria-current');
     });
     current.textContent = String(activeStory).padStart(2, '0');
-    const start = rows[0].offsetTop;
-    const end = rows[rows.length - 1].offsetTop + rows[rows.length - 1].offsetHeight - window.innerHeight;
-    const ratio = Math.max(0, Math.min(1, (window.scrollY - start) / Math.max(1, end - start)));
-    progress.style.width = `${ratio * 100}%`;
   }
 
   function scheduleReading() {
