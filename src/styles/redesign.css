@@ -227,15 +227,18 @@
 /* Shared label-to-heading rhythm in both languages. */
 .home-main :is(.home-speaking,.home-advisory,.home-stories,.home-books,.home-about) .eyebrow + h2{margin-top:8px}
 
-/* Stories: text begins on the editorial rail; the image stays close to it. */
+/* Stories: preserve the left editorial rail, with more separation for the illustration. */
 .home-main .home-stories .home-story-feature{
   display:grid;
   grid-template-columns:minmax(0,560px) 219px;
   justify-content:start;
-  gap:24px;
+  gap:64px;
   align-items:center;
 }
 .home-stories .home-story-copy h2{max-width:560px;line-height:1.17;text-wrap:balance}
+@media(min-width:901px){
+  html[lang="es"] .home-stories .home-story-copy h2{font-size:35px}
+}
 .home-stories .story-title-second-line{display:block}
 .home-stories .home-story-copy .section-intro{max-width:560px;line-height:1.7}
 .home-stories .story-intro-first-line,.home-stories .story-intro-second-line{display:block}
