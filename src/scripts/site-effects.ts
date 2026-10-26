@@ -43,7 +43,7 @@ if (speakingTopic) {
   ] : ['Technology', 'AI', 'Data', 'Cloud', 'ERP', 'Cybersecurity', 'Leadership'].map(label => ({
     label, article: '', mode: label === 'Cybersecurity' ? 'part' : label === 'Leadership' ? 'affirmative' : 'never'
   }));
-  const renderConclusion = (mode: string) => {
+  const renderConclusion = (mode: string, label: string) => {
     if (!conclusion) return;
     const accent = document.createElement('span');
     accent.className = 'speaking-closing-emphasis';
@@ -51,7 +51,7 @@ if (speakingTopic) {
     tail.className = 'speaking-closing-tail';
     if (es) {
       accent.textContent = mode === 'part' ? 'es parte' : mode === 'affirmative' ? 'es' : 'nunca';
-      tail.textContent = mode === 'part' ? ' del punto de partida' : mode === 'affirmative' ? ' el punto de partida' : ' es el punto de partida';
+      tail.textContent = mode === 'part' ? ' del punto de partida' : mode === 'affirmative' ? ' el punto de partida' : label === 'datos' ? ' son el punto de partida' : ' es el punto de partida';
       // Only "es parte" is highlighted; "del" is always normal text.
       conclusion.replaceChildren(accent, tail);
     } else {
@@ -84,7 +84,7 @@ if (speakingTopic) {
           const next = topics[index];
           if (article) article.textContent = next.article;
           speakingTopic.style.color = topicColors[index];
-          renderConclusion(next.mode);
+          renderConclusion(next.mode, next.label);
           deleting = false;
           schedule(300);
         } else schedule(65);
