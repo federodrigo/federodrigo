@@ -285,7 +285,7 @@
 
 /* Compact book actions: navy purchase button and distinct soft-gray Explore buttons. */
 .home-books .home-book-card h3{margin-top:0}
-.home-books .home-book-actions{
+:is(.home-book-actions,.book-actions){
   display:flex;
   flex-direction:column;
   align-items:flex-start;
@@ -296,7 +296,7 @@
   background:transparent;
   border:0;
 }
-.home-books .home-book-actions > a{
+:is(.home-book-actions,.book-actions) > a{
   display:inline-flex;
   width:fit-content;
   max-width:100%;
@@ -315,30 +315,30 @@
   white-space:normal;
   transition:background-color .2s,border-color .2s,color .2s;
 }
-.home-books .home-book-action-primary,
-.home-books .home-book-action-primary:visited{
+:is(.home-book-action-primary,.book-action-primary),
+:is(.home-book-action-primary,.book-action-primary):visited{
   color:#fff;
   background:#254c73;
   border-color:#254c73;
 }
-.home-books .home-book-action-primary:is(:hover,:focus-visible){
+:is(.home-book-action-primary,.book-action-primary):is(:hover,:focus-visible){
   color:#fff;
   background:#32638f;
   border-color:#32638f;
 }
-.home-books .home-book-action-secondary,
-.home-books .home-book-action-secondary:visited{
+:is(.home-book-action-secondary,.book-action-secondary),
+:is(.home-book-action-secondary,.book-action-secondary):visited{
   color:var(--ink);
   background:#eef1f5;
   border-color:#d3dbe5;
 }
-.home-books .home-book-action-secondary:is(:hover,:focus-visible){
+:is(.home-book-action-secondary,.book-action-secondary):is(:hover,:focus-visible){
   color:var(--ink);
   background:#e2e8ef;
   border-color:#afc0d2;
 }
-.home-books .home-book-actions > a:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
-.home-books .home-book-card .home-book-actions p.home-book-availability{
+:is(.home-book-actions,.book-actions) > a:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+:is(.home-book-actions,.book-actions) > :is(.home-book-availability,.book-availability){
   margin:2px 0 0;
   font-size:13px;
   line-height:1.5;
@@ -346,10 +346,28 @@
   text-wrap:auto;
 }
 @media(max-width:600px){
-  .home-books .home-book-actions{gap:8px;margin-top:14px}
-  .home-books .home-book-actions > a{min-height:44px;padding:9px 12px;font-size:15px}
+  :is(.home-book-actions,.book-actions){gap:8px;margin-top:14px}
+  :is(.home-book-actions,.book-actions) > a{min-height:44px;padding:9px 12px;font-size:15px}
 }
-@media(prefers-reduced-motion:reduce){.home-books .home-book-actions > a{transition:none}}
+@media(prefers-reduced-motion:reduce){:is(.home-book-actions,.book-actions) > a{transition:none}}
+
+/* The forthcoming book has a status box, not a nonfunctional purchase button. */
+.book-actions > .book-status-card{
+  display:inline-flex;
+  width:fit-content;
+  max-width:100%;
+  min-height:44px;
+  align-items:center;
+  padding:9px 15px;
+  margin:0;
+  border:1px solid #d3dbe5;
+  border-radius:5px;
+  background:#eef1f5;
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.4;
+}
+@media(max-width:600px){.book-actions > .book-status-card{padding:9px 12px;font-size:14px}}
 
 /* Balance book descriptions without forcing desktop line breaks onto mobile widths. */
 .home-books .home-book-card p:not(.eyebrow){max-width:48ch;text-wrap:balance}
