@@ -108,7 +108,7 @@
 /* Chapter navigation stays compact while remaining easy to read. */
 .chapter-tab{font-size:18px;color:var(--muted)}
 .chapter-tab .tab-number{font-size:16px;font-weight:650;color:#62768e}
-.chapter-tab:is(:hover,:focus-visible){color:var(--blue)}
+.chapter-tab:is(:hover,:focus-visible),.chapter-tab.is-active{color:var(--blue)}
 
 /* Chapter labels already carry their number; keep the introduction in two columns. */
 .chapter-intro-inner{grid-template-columns:minmax(0,1fr) minmax(0,410px);gap:32px 48px}
