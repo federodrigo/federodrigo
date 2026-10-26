@@ -24,8 +24,8 @@
     "es": "<span class=\"hero-line\">La tecnología <em>nunca</em> </span><span class=\"hero-line\">es el punto de partida</span>"
   },
   "heroCopy": {
-    "en": "A journey through the decisions we make, the things we take for granted and the value we want to create",
-    "es": "Un recorrido por las decisiones que tomamos, lo que damos por sentado y el valor que queremos crear"
+    "en": "Sixteen illustrated cases from history, business and technology, exploring the assumptions behind our decisions and the consequences that follow",
+    "es": "Dieciséis casos ilustrados de historia, negocios y tecnología sobre los supuestos que guían nuestras decisiones y las consecuencias que dejan"
   },
   "heroCta": {
     "en": "Start the journey",
@@ -146,5 +146,41 @@
   "zoomOut": {
     "en": "Fit image",
     "es": "Ajustar imagen"
+  },
+  "indexTitle": {
+    "en": "Browse the 16 stories",
+    "es": "Explorar las 16 historias"
+  },
+  "artworkNote": {
+    "en": "",
+    "es": "Las ilustraciones contienen texto en inglés"
+  },
+  "readShare": {
+    "en": "Read & share",
+    "es": "Leer y compartir"
+  },
+  "collection": {
+    "en": "All stories",
+    "es": "Todas las historias"
+  },
+  "share": {
+    "en": "Share this story",
+    "es": "Compartir esta historia"
+  },
+  "copyLink": {
+    "en": "Copy link",
+    "es": "Copiar enlace"
+  },
+  "copiedLink": {
+    "en": "Link copied",
+    "es": "Enlace copiado"
+  },
+  "nextStory": {
+    "en": "Next story",
+    "es": "Siguiente historia"
+  },
+  "previousStory": {
+    "en": "Previous story",
+    "es": "Historia anterior"
   }
 }
