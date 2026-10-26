@@ -110,10 +110,25 @@
 .chapter-tab .tab-number{font-size:16px;font-weight:650;color:#62768e}
 .chapter-tab:is(:hover,:focus-visible),.chapter-tab.is-active{color:var(--blue)}
 
-/* Chapter labels already carry their number; keep the introduction in two columns. */
-.chapter-intro-inner{grid-template-columns:minmax(0,1fr) minmax(0,410px);gap:32px 48px}
-.chapter-intro-inner>p{grid-column:auto}
-@media(max-width:820px){.chapter-intro-inner{grid-template-columns:1fr;gap:14px}.chapter-intro-inner>p{grid-column:auto;max-width:650px}}
+/* Chapter introductions: keep the copy near the heading instead of pushing it to the far right. */
+.stories-main .chapter-intro-inner{
+  grid-template-columns:minmax(0,510px) minmax(0,410px);
+  column-gap:72px;
+  row-gap:16px;
+  justify-content:start;
+  align-items:center;
+}
+.stories-main .chapter-intro-inner>p{grid-column:auto}
+@media (min-width:821px) and (max-width:1100px){
+  .stories-main .chapter-intro-inner{
+    grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);
+    column-gap:clamp(24px,4vw,45px);
+  }
+}
+@media (max-width:820px){
+  .stories-main .chapter-intro-inner{grid-template-columns:1fr;gap:14px}
+  .stories-main .chapter-intro-inner>p{grid-column:auto;max-width:650px}
+}
 
 /* Speaking refinements: restore original large numbers and clarify the audience. */
 .speaking-page .speaking-closing-emphasis{color:var(--blue)}
