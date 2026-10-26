@@ -18,7 +18,7 @@ const items = [
   <div class="wrap header-inner">
     <a class="wordmark" href={es ? '/es/' : '/'} aria-label={es ? 'Fede Rodrigo, inicio' : 'Fede Rodrigo, home'}>fede<span>rodrigo</span><span class="wordmark-dot" aria-hidden="true">.</span></a>
     <nav class="main-nav" id="primary-navigation" aria-label={es ? 'Navegación principal' : 'Main navigation'}>
-      {items.map(item => <a href={`${base}/${item.slug}/`} class:list={{ 'nav-active': path === `${base}/${item.slug}` || (item.slug === 'books' && /\/(cio-book|itworks-book)$/.test(path)) }} aria-current={path === `${base}/${item.slug}` ? 'page' : undefined}>{es ? item.es : item.en}</a>)}
+      {items.map(item => <a href={`${base}/${item.slug}/`} class:list={{ 'nav-active': path === `${base}/${item.slug}` || (item.slug === 'stories' && path.startsWith(`${base}/stories/`)) || (item.slug === 'books' && /\/(cio-book|itworks-book)$/.test(path)) }} aria-current={path === `${base}/${item.slug}` ? 'page' : undefined}>{es ? item.es : item.en}</a>)}
     </nav>
     <div class="header-tools">
       <div class="language-switch" role="group" aria-label={es ? 'Idioma' : 'Language'}>
