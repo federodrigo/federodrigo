@@ -1,0 +1,101 @@
+---
+import SEO from './SEO.astro';
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+import SiteEffects from './SiteEffects.astro';
+import Arrow from './Arrow.astro';
+import data from '../data/stories.json';
+import images from '../data/story-images.json';
+import sources from '../data/story-sources.json';
+import ui from '../data/story-ui.json';
+
+interface Props {
+  lang: 'en' | 'es';
+  story: (typeof data.stories)[number];
+}
+const { lang, story } = Astro.props;
+const tr = (key: keyof typeof ui) => ui[key][lang];
+const base = lang === 'es' ? '/es' : '';
+const index = data.stories.findIndex(item => item.id === story.id);
+const chapter = data.chapters.find(item => item.id === story.chapter);
+const dimensions = images.find(item => item.id === story.id);
+const source = sources[story.id as keyof typeof sources];
+const previous = index > 0 ? data.stories[index - 1] : null;
+const next = index < data.stories.length - 1 ? data.stories[index + 1] : null;
+const imagePath = '/images/stories/' + story.id + '.webp?v=' + story.imageVersion;
+const pagePath = base + '/stories/' + story.id + '/';
+const absoluteUrl = new URL(pagePath, Astro.site ?? new URL('https://federodrigo.com')).href;
+const articleData = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: story.title[lang],
+  description: story.copy[lang],
+  image: new URL(imagePath, Astro.site ?? new URL('https://federodrigo.com')).href,
+  author: { '@type': 'Person', name: 'Fede Rodrigo', url: 'https://federodrigo.com/' },
+  inLanguage: lang,
+  mainEntityOfPage: absoluteUrl
+};
+---
+<!doctype html>
+<html lang={lang}>
+<head>
+  <SEO title={story.title[lang] + ' | Fede Rodrigo'} description={story.copy[lang]} lang={lang} type="article"
+    image={imagePath} imageAlt={story.alt[lang]} imageWidth={dimensions?.width} imageHeight={dimensions?.height} />
+  <script type="application/ld+json" set:html={JSON.stringify(articleData)} is:inline></script>
+</head>
+<body>
+<Header />
+<main class="story-detail-main" id="main-content">
+  <div class="wrap story-detail-wrap">
+    <a class="story-detail-back" href={base + '/stories/#story-' + story.id}><Arrow direction="left" />{tr('collection')}</a>
+    <article class="story-detail-grid">
+      <div class="story-detail-copy">
+        <div class="story-kicker"><span class="story-number">{String(index + 1).padStart(2, '0')}</span><span>{story.type[lang]}</span>{chapter && <span class="story-detail-chapter">{chapter.nav[lang]}</span>}</div>
+        <h1>{story.title[lang]}</h1>
+        <p class="story-detail-summary">{story.copy[lang]}</p>
+        <div class="story-detail-actions">
+          <button type="button" class="story-detail-share" data-story-share data-copied-label={tr('copiedLink')}><span>{tr('share')}</span><Arrow /></button>
+          {source && <a class="source-link" href={source} target="_blank" rel="noopener noreferrer">{tr('source')}<Arrow /></a>}
+        </div>
+        <span class="story-share-status" id="story-share-status" role="status" aria-live="polite"></span>
+      </div>
+      <figure class="story-detail-visual">
+        <img src={imagePath} alt={story.alt[lang]} width={dimensions?.width ?? 1122} height={dimensions?.height ?? 1402} decoding="async" fetchpriority="high" />
+        <figcaption>{lang === 'es' ? tr('artworkNote') : String(index + 1).padStart(2, '0') + ' / ' + data.stories.length}</figcaption>
+      </figure>
+    </article>
+    <nav class="story-detail-pager" aria-label={lang === 'es' ? 'Navegar por las historias' : 'Navigate stories'}>
+      {previous ? <a href={base + '/stories/' + previous.id + '/'}><span>{tr('previousStory')}</span><strong>{previous.title[lang]}</strong></a> : <span></span>}
+      {next ? <a class="story-detail-next" href={base + '/stories/' + next.id + '/'}><span>{tr('nextStory')}</span><strong>{next.title[lang]}</strong></a> : <span></span>}
+    </nav>
+  </div>
+</main>
+<Footer />
+<SiteEffects />
+<script is:inline>
+  (() => {
+    const button = document.querySelector('[data-story-share]');
+    const status = document.getElementById('story-share-status');
+    if (!button || !status) return;
+    button.addEventListener('click', async () => {
+      const url = location.href.split('#')[0];
+      try {
+        if (navigator.share) {
+          await navigator.share({ title: document.title, url });
+          return;
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(url);
+          status.textContent = button.getAttribute('data-copied-label') || 'Link copied';
+        } else {
+          window.prompt('Copy link', url);
+        }
+      } catch (error) {
+        if (error && error.name === 'AbortError') return;
+        window.prompt('Copy link', url);
+      }
+    });
+  })();
+</script>
+</body>
+</html>
