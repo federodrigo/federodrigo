@@ -1,0 +1,9 @@
+---
+import data from '../../data/stories.json';
+import StoryDetailPage from '../../components/StoryDetailPage.astro';
+export function getStaticPaths() {
+  return data.stories.map(story => ({ params: { slug: story.id }, props: { story } }));
+}
+const { story } = Astro.props;
+---
+<StoryDetailPage lang="en" story={story} />
