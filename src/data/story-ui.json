@@ -147,40 +147,8 @@
     "en": "Fit image",
     "es": "Ajustar imagen"
   },
-  "indexTitle": {
-    "en": "Browse the 16 stories",
-    "es": "Explorar las 16 historias"
-  },
   "artworkNote": {
     "en": "",
     "es": "Las ilustraciones contienen texto en inglés"
-  },
-  "readShare": {
-    "en": "Read & share",
-    "es": "Leer y compartir"
-  },
-  "collection": {
-    "en": "All stories",
-    "es": "Todas las historias"
-  },
-  "share": {
-    "en": "Share this story",
-    "es": "Compartir esta historia"
-  },
-  "copyLink": {
-    "en": "Copy link",
-    "es": "Copiar enlace"
-  },
-  "copiedLink": {
-    "en": "Link copied",
-    "es": "Enlace copiado"
-  },
-  "nextStory": {
-    "en": "Next story",
-    "es": "Siguiente historia"
-  },
-  "previousStory": {
-    "en": "Previous story",
-    "es": "Historia anterior"
   }
 }
