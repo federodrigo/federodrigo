@@ -170,5 +170,10 @@
 
 @media(prefers-reduced-motion:reduce){.home-book-image,.home-main :is(.home-editorial-image,.home-about-photo)>img{transition:none;transform:none}}
 
+/* Match the Speaking question's blue ending to the landing brand lettering. */
+.speaking-page .speaking-hero .hero-title{line-height:1.04}
+.speaking-page .speaking-hero .speaking-hero-accent{font-family:"Segoe UI Black","Segoe UI",Inter,Arial,sans-serif;font-weight:900}
+@media(max-width:600px){.speaking-page .speaking-hero .hero-title{line-height:1.08}}
+
 /* Keep the landing About photo closer to the copy rather than at the outer right edge. */
 @media (min-width:901px){.home-about-grid .home-about-photo{justify-self:start;margin-left:12px;margin-right:0}}
