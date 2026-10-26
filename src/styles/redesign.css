@@ -195,7 +195,7 @@
 
 /* About: bring the portrait next to the copy rather than across a wide centered grid. */
 @media(min-width:901px){
-  .home-about .home-about-grid{grid-template-columns:minmax(0,580px) 240px;gap:30px;max-width:900px;margin-inline:0}
+  .home-about .home-about-grid{grid-template-columns:minmax(0,1fr) 240px;gap:30px;max-width:850px;margin-inline:0}
   .home-about .home-about-photo{justify-self:start;margin-left:0;margin-right:0}
 }
 @media(min-width:601px) and (max-width:900px){
@@ -206,7 +206,7 @@
 /* Upcoming speaking engagements form one centered pair, with less empty middle space. */
 .home-speaking .home-events>h3{text-align:center}
 .home-speaking .home-events-grid{grid-template-columns:repeat(2,minmax(0,350px));gap:28px;max-width:728px;margin-inline:auto;justify-content:center}
-@media(max-width:600px){.home-speaking .home-events-grid{grid-template-columns:minmax(0,1fr);gap:6px;max-width:380px}}
+@media(max-width:820px){.home-speaking .home-events-grid{grid-template-columns:minmax(0,1fr);gap:8px;max-width:380px}}
 
 /* Balance book descriptions without forcing desktop line breaks onto mobile widths. */
 .home-books .home-book-card p:not(.eyebrow){max-width:48ch;text-wrap:balance}
