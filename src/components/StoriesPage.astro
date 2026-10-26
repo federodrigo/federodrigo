@@ -31,7 +31,7 @@ const payload = { ...data, ui };
    const source=sources[story.id as keyof typeof sources];
    return <article class:list={['story-row',{'story-reverse':number%2===0}]} id={`story-${story.id}`} data-story={story.id} data-story-number={number}>
     <figure class="story-visual"><button type="button" class="poster-button" data-open-image={story.id} aria-label={`${tr('openImage')}: ${story.title[language]}`}><img src={`/images/stories/${story.id}.webp?v=${story.imageVersion}`} width={manifest[story.id].width} height={manifest[story.id].height} alt={story.alt[language]} loading="lazy" decoding="async" /><span class="poster-open"><Arrow /></span></button><figcaption><span class="story-image-number">{String(number).padStart(2,'0')} / 16</span></figcaption></figure>
-    <div class="story-copy"><div class="story-kicker"><span class="story-number">{String(number).padStart(2,'0')}</span><span>{story.type[language]}</span></div><h3>{story.title[language]}</h3><p>{story.copy[language]}</p><div class="story-actions"><a class="story-permalink" href={`${base}/stories/${story.id}/`}>{tr('readShare')}<Arrow /></a>{source&&<a class="source-link" href={source} target="_blank" rel="noopener noreferrer">{tr('source')}<Arrow /></a>}</div></div>
+    <div class="story-copy"><div class="story-kicker"><span class="story-number">{String(number).padStart(2,'0')}</span><span>{story.type[language]}</span></div><h3>{story.title[language]}</h3><p>{story.copy[language]}</p>{source&&<a class="source-link" href={source} target="_blank" rel="noopener noreferrer">{tr('source')}<Arrow /></a>}</div>
    </article>;
   })}{next&&<div class="chapter-bridge"><a href={`#${next.id}`}>{tr('nextChapter')}<Arrow direction="down" /></a></div>}</div>
  </section>;
