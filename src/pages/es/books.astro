@@ -62,23 +62,10 @@ import SiteEffects from '../../components/SiteEffects.astro';
           <p class="books-page-closing">
             Si estás acá para mantener el status quo, mejor da la vuelta
           </p>
-          <p class="books-page-action">
-            <a
-              href="https://www.amazon.com/dp/B0F8MVPN4Q"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="animated-link"
-            >
-              <span>Comprar en Amazon</span>
-              <span class="animated-link-arrow" aria-hidden="true">→</span>
-            </a>
-          </p>
-          <p class="books-page-secondary-action">
-            <a href="/es/cio-book/" class="animated-link">
-              <span>Explorar el libro</span>
-              <span class="animated-link-arrow" aria-hidden="true">→</span>
-            </a>
-          </p>
+          <div class="book-actions">
+            <a class="book-action-primary" href="https://www.amazon.com/dp/B0F8MVPN4Q" target="_blank" rel="noopener noreferrer">Comprar en Amazon</a>
+            <a class="book-action-secondary" href="/es/cio-book/">Explorar el libro</a>
+          </div>
         </div>
       </section>
       <section
@@ -110,15 +97,10 @@ import SiteEffects from '../../components/SiteEffects.astro';
           <p>
             A través de historias, ejemplos y una perspectiva práctica de liderazgo, muestra por qué la tecnología nunca es el punto de partida y cómo las organizaciones pueden preservar su capacidad de decidir antes de que sus sistemas terminen decidiendo por ellas
           </p>
-          <p class="books-page-action">
-            <span class="coming-soon">Disponible a principios de 2027</span>
-          </p>
-          <p class="books-page-secondary-action">
-            <a href="/es/itworks-book/" class="animated-link">
-              <span>Explorar el libro</span>
-              <span class="animated-link-arrow" aria-hidden="true">→</span>
-            </a>
-          </p>
+          <div class="book-actions">
+            <a class="book-action-secondary" href="/es/itworks-book/">Explorar el libro</a>
+            <p class="book-availability">Disponible a principios de 2027</p>
+          </div>
         </div>
       </section>
       <section
