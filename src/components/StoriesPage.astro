@@ -21,6 +21,20 @@ const payload = { ...data, ui };
 <main class="stories-main" id="main-content">
 <nav class="chapter-nav" id="chapters" aria-label={tr('chapterNavLabel')}><div class="wrap chapter-nav-inner"><div class="chapter-tabs">{data.chapters.map((chapter,i)=><a href={`#${chapter.id}`} class="chapter-tab" data-chapter-link={chapter.id}><span class="tab-number">{i+1}</span><span>{chapter.nav[language]}</span></a>)}</div><span class="reading-counter"><span id="reading-current">01</span><span>/ 16</span></span></div><div class="reading-track"><span id="reading-progress"></span></div></nav>
 <section class="hero stories-hero"><div class="wrap hero-inner"><div class="hero-copy"><h1 class="stories-brick-heading"><span class="sr-only">{language === 'es' ? 'La tecnología nunca es el punto de partida' : 'Technology is never the starting point'}</span><img class="stories-brick-lettering" src={`/images/stories-heading-${language}.webp`} alt="" width="1800" height={language === 'es' ? 405 : 437} fetchpriority="high" /></h1><p class="hero-description">{tr('heroCopy')}</p><div class="hero-actions"><a class="text-action" href="#understand">{tr('heroCta')}<Arrow /></a></div></div></div></section>
+<div class="stories-index-shell wrap">
+  <details class="stories-index" id="stories-index">
+    <summary><span>{tr('indexTitle')}</span><Arrow direction="down" /></summary>
+    <div class="stories-index-grid">
+      {data.chapters.map((chapter, chapterIndex) => <div class="stories-index-chapter">
+        <h2><span>{String(chapterIndex + 1).padStart(2, '0')}</span>{chapter.nav[language]}</h2>
+        <ol>{data.stories.filter(story => story.chapter === chapter.id).map(story =>
+          <li><a href={`#story-${story.id}`}>{story.title[language]}</a></li>
+        )}</ol>
+      </div>)}
+    </div>
+  </details>
+</div>
+{language === 'es' && <p class="stories-artwork-note wrap">{tr('artworkNote')}</p>}
 {data.chapters.map((chapter,chapterIndex)=>{
  const chapterStories=data.stories.filter(story=>story.chapter===chapter.id);
  const next=data.chapters[chapterIndex+1];
@@ -31,7 +45,7 @@ const payload = { ...data, ui };
    const source=sources[story.id as keyof typeof sources];
    return <article class:list={['story-row',{'story-reverse':number%2===0}]} id={`story-${story.id}`} data-story={story.id} data-story-number={number}>
     <figure class="story-visual"><button type="button" class="poster-button" data-open-image={story.id} aria-label={`${tr('openImage')}: ${story.title[language]}`}><img src={`/images/stories/${story.id}.webp?v=${story.imageVersion}`} width={manifest[story.id].width} height={manifest[story.id].height} alt={story.alt[language]} loading="lazy" decoding="async" /><span class="poster-open"><Arrow /></span></button><figcaption><span class="story-image-number">{String(number).padStart(2,'0')} / 16</span><button type="button" class="text-button" data-open-image={story.id}>{tr('openImage')}<Arrow /></button></figcaption></figure>
-    <div class="story-copy"><div class="story-kicker"><span class="story-number">{String(number).padStart(2,'0')}</span><span>{story.type[language]}</span></div><h3>{story.title[language]}</h3><p>{story.copy[language]}</p>{source&&<a class="source-link" href={source} target="_blank" rel="noopener noreferrer">{tr('source')}<Arrow /></a>}</div>
+    <div class="story-copy"><div class="story-kicker"><span class="story-number">{String(number).padStart(2,'0')}</span><span>{story.type[language]}</span></div><h3>{story.title[language]}</h3><p>{story.copy[language]}</p><div class="story-actions"><a class="story-permalink" href={`${base}/stories/${story.id}/`}>{tr('readShare')}<Arrow /></a>{source&&<a class="source-link" href={source} target="_blank" rel="noopener noreferrer">{tr('source')}<Arrow /></a>}</div></div>
    </article>;
   })}{next&&<div class="chapter-bridge"><a href={`#${next.id}`}>{tr('nextChapter')}<Arrow direction="down" /></a></div>}</div>
  </section>;
@@ -39,7 +53,7 @@ const payload = { ...data, ui };
 
 </main>
 <Inquiry lang={lang} /><Footer />
-<dialog class="image-dialog" id="image-viewer" aria-labelledby="viewer-title"><div class="viewer-top"><div class="viewer-heading"><span class="viewer-count" id="viewer-count">01 / 16</span><h2 id="viewer-title"></h2></div><button type="button" class="icon-button viewer-close" id="viewer-close" aria-label={tr('close')}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" /></svg></button></div><div class="viewer-body" id="viewer-body"><button class="viewer-image-button" id="viewer-zoom" aria-label={tr('zoom')}><img id="viewer-image" alt="" /></button></div><div class="viewer-bottom"><div class="viewer-controls"><button class="icon-button" id="viewer-prev" aria-label={tr('previous')}><Arrow direction="left" /></button><button class="icon-button" id="viewer-next" aria-label={tr('next')}><Arrow /></button></div><span class="viewer-language">{tr('imageLanguage')}</span><a class="viewer-full" id="viewer-full" target="_blank" rel="noopener">{tr('fullImage')}<Arrow /></a></div></dialog>
+<dialog class="image-dialog" id="image-viewer" aria-labelledby="viewer-title"><div class="viewer-top"><div class="viewer-heading"><span class="viewer-count" id="viewer-count">01 / 16</span><h2 id="viewer-title"></h2></div><button type="button" class="icon-button viewer-close" id="viewer-close" aria-label={tr('close')}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" /></svg></button></div><div class="viewer-body" id="viewer-body"><button class="viewer-image-button" id="viewer-zoom" aria-label={tr('zoom')}><img id="viewer-image" alt="" /></button></div><div class="viewer-bottom"><div class="viewer-controls"><button class="icon-button" id="viewer-prev" aria-label={tr('previous')}><Arrow direction="left" /></button><button class="icon-button" id="viewer-next" aria-label={tr('next')}><Arrow /></button></div>{language === 'es' && <span class="viewer-language">{tr('artworkNote')}</span>}<a class="viewer-full" id="viewer-full" target="_blank" rel="noopener">{tr('fullImage')}<Arrow /></a></div></dialog>
 <script id="stories-data" type="application/json" is:inline set:html={JSON.stringify(payload).replace(/</g,'\u003c')} />
 <script src="/scripts/stories.js?v=20261024-selection" is:inline defer></script>
 <SiteEffects />
