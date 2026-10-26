@@ -283,71 +283,86 @@
   .about-page .about-profile-image-wrapper{width:210px;max-width:72%}
 }
 
-/* Homepage books: quiet action panels, with a clear buying priority. */
+/* Individual book actions: full-width stacked boxes, no competing outer panel. */
 .home-books .home-book-card h3{margin-top:0}
 .home-books .home-book-actions{
   display:flex;
-  flex-wrap:wrap;
-  align-items:center;
+  flex-direction:column;
+  align-items:stretch;
   gap:9px;
   width:100%;
-  max-width:355px;
-  padding:12px;
-  margin-top:16px;
-  border:1px solid #e0e8f2;
-  border-radius:6px;
-  background:#f6f9fd;
+  max-width:245px;
+  padding:0;
+  margin-top:17px;
+  background:transparent;
+  border:0;
 }
-.home-books .home-book-actions>a{
-  display:inline-flex;
-  justify-content:center;
+.home-books .home-book-actions > a{
+  display:flex;
+  width:100%;
+  min-width:0;
+  min-height:44px;
   align-items:center;
-  min-height:40px;
-  padding:8px 13px;
-  border-radius:4px;
+  justify-content:center;
+  padding:11px 14px;
+  margin:0;
+  border:1px solid transparent;
+  border-radius:5px;
   font-size:14px;
   font-weight:700;
   line-height:1.3;
-  text-decoration:none;
   text-align:center;
-  transition:background-color .2s ease,border-color .2s ease,color .2s ease;
+  text-decoration:none;
+  white-space:normal;
+  transition:background-color .2s,border-color .2s,color .2s;
 }
 .home-books .home-book-action-primary,
 .home-books .home-book-action-primary:visited{
   color:#fff;
   background:var(--ink);
-  border:1px solid var(--ink);
+  border-color:var(--ink);
 }
 .home-books .home-book-action-primary:is(:hover,:focus-visible){
   color:#fff;
   background:#24496c;
   border-color:#24496c;
 }
+/* Familiar Amazon-style purchase color, reserved for the available book. */
+.home-books .home-book-action-amazon,
+.home-books .home-book-action-amazon:visited{
+  color:#0f1111;
+  background:#ffd814;
+  border-color:#f1c40f;
+}
+.home-books .home-book-action-amazon:is(:hover,:focus-visible){
+  color:#0f1111;
+  background:#f7ca00;
+  border-color:#e5b900;
+}
 .home-books .home-book-action-secondary,
 .home-books .home-book-action-secondary:visited{
   color:var(--ink);
-  background:transparent;
-  border:1px solid #bdcddd;
+  background:#fff;
+  border-color:#c5d3e3;
 }
 .home-books .home-book-action-secondary:is(:hover,:focus-visible){
   color:var(--ink);
-  background:#e8f0fa;
-  border-color:#96aec8;
+  background:#f1f6fc;
+  border-color:#8ca6c1;
 }
-.home-books .home-book-actions>a:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.home-books .home-book-actions > a:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
 .home-books .home-book-card .home-book-actions p.home-book-availability{
-  flex-basis:100%;
-  margin:0;
+  margin:1px 0 0;
   font-size:13px;
   line-height:1.5;
   color:var(--muted);
   text-wrap:auto;
 }
 @media(max-width:600px){
-  .home-books .home-book-actions{gap:8px;padding:10px}
-  .home-books .home-book-actions>a{min-height:38px;padding:8px 11px;font-size:13px}
+  .home-books .home-book-actions{max-width:100%;gap:8px;margin-top:14px}
+  .home-books .home-book-actions > a{min-height:44px;padding:10px 8px;font-size:13px}
 }
-@media(prefers-reduced-motion:reduce){.home-books .home-book-actions>a{transition:none}}
+@media(prefers-reduced-motion:reduce){.home-books .home-book-actions > a{transition:none}}
 
 /* Balance book descriptions without forcing desktop line breaks onto mobile widths. */
 .home-books .home-book-card p:not(.eyebrow){max-width:48ch;text-wrap:balance}
