@@ -188,28 +188,28 @@
 /* Keep all eyebrow-to-heading distances consistent across the homepage. */
 .home-main :is(.home-speaking,.home-advisory,.home-stories,.home-books,.home-about) .eyebrow + h2{margin-top:8px}
 
-/* Stories: a wider centered editorial pair, with intentional two-line copy. */
-.home-stories .home-story-feature{max-width:970px;margin-inline:auto;grid-template-columns:minmax(0,710px) 219px;justify-content:start;gap:40px;align-items:center}
-.home-stories .home-story-copy h2{max-width:710px;line-height:1.17;text-wrap:balance}
+/* Stories: center the text-and-art pair with a genuinely small visual gap. */
+.home-stories .home-story-feature{max-width:803px;margin-inline:auto;grid-template-columns:minmax(0,560px) 219px;justify-content:start;gap:24px;align-items:center}
+.home-stories .home-story-copy h2{max-width:560px;line-height:1.17;text-wrap:balance}
 .home-stories .story-title-second-line{display:block}
-.home-stories .home-story-copy .section-intro{max-width:710px;line-height:1.7}
+.home-stories .home-story-copy .section-intro{max-width:560px;line-height:1.7}
 .home-stories .story-intro-first-line,.home-stories .story-intro-second-line{display:block}
 @media(max-width:900px){.home-stories .home-story-feature{grid-template-columns:minmax(0,1fr) 196px;gap:25px;max-width:860px}.home-stories .story-title-second-line{display:inline}}
 @media(max-width:760px){.home-stories .home-story-feature{grid-template-columns:1fr;gap:18px;max-width:620px}.home-stories .home-story-art{justify-self:center}}
 
-/* Center About as a whole while keeping the text and portrait close together. */
+/* About: keep the entire block centered, with a slightly smaller portrait and more air. */
 @media(min-width:901px){
-  .home-about .home-about-grid{grid-template-columns:minmax(0,1fr) 240px;gap:30px;max-width:850px;margin-inline:auto}
-  .home-about .home-about-photo{justify-self:start;margin-left:0;margin-right:0}
+  .home-about .home-about-grid{grid-template-columns:minmax(0,1fr) 218px;gap:52px;max-width:850px;margin-inline:auto}
+  .home-about .home-about-photo{justify-self:start;width:100%;max-width:218px;margin-left:0;margin-right:0}
 }
 @media(min-width:601px) and (max-width:900px){
-  .home-about .home-about-grid{grid-template-columns:minmax(0,1fr) 210px;gap:24px;max-width:760px;margin-inline:auto}
-  .home-about .home-about-photo{justify-self:start;width:100%;max-width:210px}
+  .home-about .home-about-grid{grid-template-columns:minmax(0,1fr) 190px;gap:42px;max-width:760px;margin-inline:auto}
+  .home-about .home-about-photo{justify-self:start;width:100%;max-width:190px}
 }
+@media(max-width:600px){.home-about .home-about-photo{max-width:185px}}
 
-/* Upcoming talks: centered label and a compact, balanced pair. */
-.home-speaking .home-events{display:block;max-width:740px;margin:36px auto 0;padding-top:18px;border-top:1px solid var(--line)}
-.home-speaking .home-events>h3{text-align:center;white-space:normal;margin:0 0 12px}
+/* Upcoming talks: dates and event names already explain themselves. */
+.home-speaking .home-events{display:block;max-width:740px;margin:24px auto 0;padding-top:14px;border-top:1px solid var(--line)}
 .home-speaking .home-events-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;max-width:740px;margin-inline:auto;text-align:left;justify-content:center}
 .home-speaking .home-event{padding:14px 12px;border-radius:5px;transition:background-color .2s ease,transform .2s ease}
 .home-speaking .home-event :is(.event-date strong,.event-date>span,.event-type,h4){transition:color .2s ease}
