@@ -62,23 +62,10 @@ import SiteEffects from '../components/SiteEffects.astro';
           <p class="books-page-closing">
             If you are here to maintain the status quo, turn back now
           </p>
-          <p class="books-page-action">
-            <a
-              href="https://www.amazon.com/dp/B0F8MVPN4Q"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="animated-link"
-            >
-              <span>Buy on Amazon</span>
-              <span class="animated-link-arrow" aria-hidden="true">→</span>
-            </a>
-          </p>
-          <p class="books-page-secondary-action">
-            <a href="/cio-book/" class="animated-link">
-              <span>Explore the book</span>
-              <span class="animated-link-arrow" aria-hidden="true">→</span>
-            </a>
-          </p>
+          <div class="book-actions">
+            <a class="book-action-primary" href="https://www.amazon.com/dp/B0F8MVPN4Q" target="_blank" rel="noopener noreferrer">Buy on Amazon</a>
+            <a class="book-action-secondary" href="/cio-book/">Explore the book</a>
+          </div>
         </div>
       </section>
       <section
@@ -109,15 +96,10 @@ import SiteEffects from '../components/SiteEffects.astro';
             is never the starting point and how organizations can preserve their ability to choose
             before their systems choose for them
           </p>
-          <p class="books-page-action">
-            <span class="coming-soon">Coming early 2027</span>
-          </p>
-          <p class="books-page-secondary-action">
-            <a href="/itworks-book/" class="animated-link">
-              <span>Explore the book</span>
-              <span class="animated-link-arrow" aria-hidden="true">→</span>
-            </a>
-          </p>
+          <div class="book-actions">
+            <a class="book-action-secondary" href="/itworks-book/">Explore the book</a>
+            <p class="book-availability">Coming early 2027</p>
+          </div>
         </div>
       </section>
       <section
