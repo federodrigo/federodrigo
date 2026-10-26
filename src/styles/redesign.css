@@ -219,5 +219,18 @@
 @media(max-width:700px){.home-speaking .home-events-grid{grid-template-columns:minmax(0,1fr);gap:8px;max-width:440px}}
 @media(prefers-reduced-motion:reduce){.home-speaking .home-event:is(:hover,:focus-visible){transform:none}}
 
+/* About page portrait: keep focus on the profile text at every breakpoint. */
+@media(min-width:901px){
+  .about-page .about-profile-layout{grid-template-columns:250px minmax(0,1fr);gap:50px}
+  .about-page .about-profile-image-wrapper{width:250px}
+}
+@media(min-width:601px) and (max-width:900px){
+  .about-page .about-profile-layout{grid-template-columns:210px minmax(0,1fr);gap:32px}
+  .about-page .about-profile-image-wrapper{width:210px}
+}
+@media(max-width:600px){
+  .about-page .about-profile-image-wrapper{width:210px;max-width:72%}
+}
+
 /* Balance book descriptions without forcing desktop line breaks onto mobile widths. */
 .home-books .home-book-card p:not(.eyebrow){max-width:48ch;text-wrap:balance}
