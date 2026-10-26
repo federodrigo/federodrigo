@@ -175,5 +175,15 @@
 .speaking-page .speaking-hero .speaking-hero-accent{font-family:"Segoe UI Black","Segoe UI",Inter,Arial,sans-serif;font-weight:900}
 @media(max-width:600px){.speaking-page .speaking-hero .hero-title{line-height:1.08}}
 
+/* Editorial-style advisory introduction: brief copy alongside the main heading. */
+.home-advisory .advisory-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(36px,6vw,96px);align-items:center}
+.home-advisory .advisory-copy .section-intro{margin-top:0;max-width:600px}
+.home-advisory .advisory-copy .text-action{margin-top:18px}
+@media(max-width:820px){.home-advisory .advisory-grid{grid-template-columns:1fr;gap:18px}}
+@media(max-width:600px){.home-advisory .advisory-grid{gap:14px}}
+
+/* The books and their covers need only a short section heading. */
+.home-books .section-heading h2{margin-top:0}
+
 /* Keep the landing About photo closer to the copy rather than at the outer right edge. */
 @media (min-width:901px){.home-about-grid .home-about-photo{justify-self:start;margin-left:12px;margin-right:0}}
