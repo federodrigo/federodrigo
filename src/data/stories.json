@@ -119,8 +119,8 @@
         "es": "Entender para qué se usará la información"
       },
       "copy": {
-        "en": "A team celebrates its BI platform, yet its most requested feature is exporting to Excel. The request invites us to examine what people need to do with the information, which decisions it should support and whether the chosen tool fits that work",
-        "es": "Un equipo celebra su plataforma de BI, pero la función más solicitada es exportar a Excel. El pedido invita a examinar qué necesitan hacer las personas con la información, qué decisiones debe apoyar y si la herramienta elegida sirve para ese trabajo"
+        "en": "A team celebrates its BI platform, yet its most requested feature is exporting to Excel. Before adding another dashboard, it is worth asking what people actually need to do with the data",
+        "es": "Un equipo celebra su plataforma de BI, pero la función más solicitada es exportar a Excel. Antes de sumar otro tablero, conviene entender qué hacen las personas con esos datos"
       },
       "alt": {
         "en": "A team praises its BI platform until asked which feature people request most: exporting to Excel; the story asks how the information needs to be used",
@@ -141,8 +141,8 @@
         "es": "La forma no explica el resultado"
       },
       "copy": {
-        "en": "Feynman’s runway analogy describes people reproducing visible practices while missing the conditions that made them effective. It gives us a way to examine the ceremonies and tools we adopt when we expect the appearance of a method to reproduce its results",
-        "es": "La analogía de las pistas de Feynman describe cómo se reproducen prácticas visibles sin comprender las condiciones que las hacían efectivas. Permite examinar las ceremonias y herramientas que adoptamos esperando reproducir los resultados de un método"
+        "en": "Feynman described people reproducing the visible parts of an airstrip without the conditions that made aircraft arrive. Organizations do something similar when they copy meetings, rituals and tools without asking what made the original method work",
+        "es": "Feynman describió a personas que reproducían las partes visibles de una pista sin las condiciones que hacían llegar a los aviones. En las organizaciones pasa algo parecido cuando copiamos reuniones, rituales y herramientas sin entender por qué funcionaba el método original"
       },
       "alt": {
         "en": "Supplies arrive by aircraft, people reproduce a runway and control tower, and the planes do not return despite the copied structures",
@@ -185,8 +185,8 @@
         "es": "Funcionaba en otro contexto"
       },
       "copy": {
-        "en": "The software had worked on Ariane 4, which gave the team a reason to reuse it. Ariane 5’s flight conditions exceeded a built-in assumption, and both reference systems failed. Previous success still needs to be examined against the conditions of the next decision",
-        "es": "El software había funcionado en Ariane 4, lo que daba una razón para reutilizarlo. Las condiciones de vuelo de Ariane 5 superaron un supuesto incorporado al programa y fallaron los dos sistemas de referencia. El éxito anterior debe evaluarse frente a las condiciones de la próxima decisión"
+        "en": "Ariane 5 reused software proven on Ariane 4, but its different flight conditions exceeded an assumption built into the code. Both inertial reference systems failed. Reusing something that worked requires checking whether its assumptions still hold",
+        "es": "Ariane 5 reutilizó software probado en Ariane 4, pero sus condiciones de vuelo superaron un supuesto incorporado al código. Fallaron ambos sistemas de referencia inercial. Reutilizar algo que funcionó exige comprobar que sus supuestos siguen siendo válidos"
       },
       "alt": {
         "en": "Ariane 5 reuses reference software from Ariane 4, encounters different flight conditions, loses both reference systems and prompts a review against new business requirements",
@@ -251,8 +251,8 @@
         "es": "Las advertencias deben cambiar decisiones"
       },
       "copy": {
-        "en": "An interrupted stability test warned of the ship’s instability before its maiden voyage, which went ahead under pressure to sail. The case helps us examine whether evidence of a serious risk can change a decision that already has momentum",
-        "es": "Una prueba de estabilidad interrumpida advirtió sobre la inestabilidad del barco antes de su viaje inaugural, que siguió adelante bajo presión por zarpar. El caso permite examinar si la evidencia de un riesgo serio puede cambiar una decisión que ya está en marcha"
+        "en": "The Vasa's stability test was stopped after the ship showed signs of rolling dangerously. Pressure to sail prevailed, and it sank on its maiden voyage. The warning was there; the decision did not change",
+        "es": "La prueba de estabilidad del Vasa se interrumpió cuando el barco mostró señales de que podía volcar. Prevaleció la presión por zarpar y se hundió en su viaje inaugural. La advertencia existía; la decisión no cambió"
       },
       "alt": {
         "en": "The Vasa becomes an impressive warship, stability warnings are ignored, and it takes on water and sinks on its maiden voyage",
@@ -317,8 +317,8 @@
         "es": "Evaluar el recorrido completo"
       },
       "copy": {
-        "en": "Both polar teams planned to return from the South Pole; Amundsen’s party returned safely and Scott’s five-man party died on the way back. The comparison invites us to evaluate the full journey, including what happens after reaching a milestone",
-        "es": "Los dos equipos polares planificaron volver del Polo Sur; el de Amundsen regresó y los cinco hombres del grupo polar de Scott murieron durante el retorno. La comparación invita a evaluar el recorrido completo, incluyendo lo que ocurre después de alcanzar un hito"
+        "en": "Amundsen and Scott both planned to reach the South Pole and return. Amundsen's team came back; the five men in Scott's polar party died on the return journey. Reaching the milestone was only part of the plan",
+        "es": "Amundsen y Scott planearon llegar al Polo Sur y regresar. El equipo de Amundsen volvió; los cinco integrantes del grupo polar de Scott murieron en el camino de vuelta. Llegar a la meta era apenas una parte del plan"
       },
       "alt": {
         "en": "Amundsen and Scott reach the South Pole, their return outcomes differ, and the business parallel includes ongoing operations after a launch",
@@ -361,8 +361,8 @@
         "es": "El negocio puede evolucionar"
       },
       "copy": {
-        "en": "From hanafuda cards to toys and video games, Nintendo developed different products through changing technologies. Its history offers a way to think about business evolution: the experience people value can lead to new products, capabilities and ways of creating value",
-        "es": "Desde las cartas hanafuda hasta los juguetes y los videojuegos, Nintendo desarrolló productos diferentes mediante tecnologías que fueron cambiando. Su historia permite pensar la evolución del negocio a partir de las experiencias que las personas valoran y de nuevas formas de ofrecerlas"
+        "en": "Nintendo began with playing cards and moved through toys, electronic games and consoles as technologies changed. The products changed repeatedly; the ability to create experiences people wanted kept opening new possibilities",
+        "es": "Nintendo empezó con cartas y pasó por juguetes, juegos electrónicos y consolas mientras cambiaban las tecnologías. Los productos cambiaron muchas veces; la capacidad de crear experiencias que las personas querían siguió abriendo nuevas posibilidades"
       },
       "alt": {
         "en": "Nintendo develops from playing cards in 1889 to toys, electronic games, Wii and Switch, illustrating business evolution through different technologies",
