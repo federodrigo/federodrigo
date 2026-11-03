@@ -240,7 +240,7 @@
     },
     {
       "id": "vasa",
-      "file": "Vasa(1).png",
+      "file": "Vasa(2).png",
       "chapter": "evaluate",
       "type": {
         "en": "Historical account",
@@ -258,7 +258,7 @@
         "en": "The Vasa becomes an impressive warship, stability warnings are ignored, and it takes on water and sinks on its maiden voyage",
         "es": "El Vasa se convierte en un buque imponente, se ignoran las advertencias de estabilidad y el barco se hunde en su viaje inaugural"
       },
-      "imageVersion": "50335b3704"
+      "imageVersion": "afe25108dd"
     },
     {
       "id": "project-nightmare",
