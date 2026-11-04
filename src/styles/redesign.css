@@ -424,3 +424,6 @@
 /* Header wordmark: smaller, consistent across the landing and Stories. */
 .site-header .wordmark{font-size:24px;letter-spacing:-1.2px}
 @media(max-width:400px){.site-header .wordmark{font-size:22px}}
+
+/* Avoid isolated final words in the research paper descriptions. */
+.books-index-page .research-description{text-wrap:pretty}
