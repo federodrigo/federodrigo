@@ -427,3 +427,5 @@
 
 /* Avoid isolated final words in the research paper descriptions. */
 .books-index-page .research-description{text-wrap:pretty}
+
+.home-books .home-book-title-line{display:block}
