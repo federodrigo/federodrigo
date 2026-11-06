@@ -4,7 +4,7 @@ const base = es ? '/es' : '';
 const path = Astro.url.pathname.replace(/\/+$/, '') || '/';
 const enPath = es ? path.replace(/^\/es/, '') || '/' : path;
 const esPath = es ? path : `/es${path === '/' ? '/' : path}`;
-const links = [['speaking','Speaking','Charlas'],['cio-office','Advisory','Consultoría'],['stories','Stories','Historias'],['books','Books','Libros'],['about','About','Sobre mí'],['contact','Contact','Contacto']];
+const links = [['speaking','Speaking','Charlas'],['cio-office','Advisory','Consultoría'],['books','Books','Libros'],['stories','Stories','Historias'],['about','About','Sobre mí'],['contact','Contact','Contacto']];
 ---
 <footer class="site-footer"><div class="wrap">
   <div class="footer-main">
