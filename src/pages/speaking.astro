@@ -453,10 +453,10 @@ import SiteEffects from '../components/SiteEffects.astro';
 <style>
 	/* Reuse the identical eyebrow/vertical rhythm of Audience and Format */
 	.speaking-page .speaking-story { margin-top: 24px; padding-top: 0; border-top: 0; }
-	.speaking-story-poster { display: block; width: 100%; max-width: 560px; margin: 0 auto; padding: 0; border: 1px solid var(--line); border-radius: 5px; background: #f5f8fc; text-align: left; overflow: hidden; cursor: zoom-in; transition: box-shadow .2s, transform .2s; }
+	.speaking-story-poster { display: block; width: 100%; max-width: 560px; margin: 0; padding: 0; border: 1px solid var(--line); border-radius: 5px; background: #f5f8fc; text-align: left; overflow: hidden; cursor: zoom-in; transition: box-shadow .2s, transform .2s; }
 	.speaking-story-poster:hover { box-shadow: 0 14px 35px -20px #183e7080; transform: translateY(-2px); }
 	.speaking-story-poster img { display: block; width: 100%; height: auto; }
-	.speaking-page .speaking-story .speaking-story-hint { color: var(--muted); font-size: 13px; line-height: 1.5; margin: 10px auto 0; text-align: center; }
+	.speaking-page .speaking-story .speaking-story-hint { color: var(--muted); font-size: 13px; line-height: 1.5; margin: 10px 0 0; text-align: left; }
 	.speaking-story-dialog { border: 0; border-radius: 7px; padding: 45px 16px 16px; margin: auto; max-width: min(96vw, 1640px); max-height: 96dvh; background: #f5f8fc; box-shadow: 0 24px 80px #0008; }
 	.speaking-story-dialog::backdrop { background: #04172ce8; }
 	.speaking-story-dialog img { display: block; width: auto; max-width: 100%; max-height: calc(96dvh - 70px); height: auto; object-fit: contain; margin-inline: auto; }
