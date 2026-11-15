@@ -449,8 +449,7 @@ import SiteEffects from '../components/SiteEffects.astro';
 				}
 			</section>
 		</main>
-<Inquiry lang="en" context="speaking" /><Footer /><SiteEffects /></body></html>
-
+<Inquiry lang="en" context="speaking" /><Footer /><SiteEffects />
 <style>
 	/* Reuse the identical eyebrow/vertical rhythm of Audience and Format */
 	.speaking-page .speaking-story { margin-top: 24px; padding-top: 0; border-top: 0; }
@@ -471,3 +470,5 @@ import SiteEffects from '../components/SiteEffects.astro';
 	document.querySelector<HTMLButtonElement>('[data-speaking-story-close]')?.addEventListener('click', () => storyDialog?.close());
 	storyDialog?.addEventListener('click', (event) => { if (event.target === storyDialog) storyDialog.close(); });
 </script>
+
+</body></html>
