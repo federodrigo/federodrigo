@@ -280,6 +280,28 @@ import SiteEffects from '../components/SiteEffects.astro';
 					</div>
 				</article>
 			</section>
+			<section class="speaking-audience speaking-story page-divider reveal-section" aria-labelledby="speaking-story-title">
+				<h2 id="speaking-story-title" class="eyebrow reveal-item">The Story Behind the Talk</h2>
+				<button class="speaking-story-poster reveal-item" type="button" data-speaking-story-open aria-label="Enlarge the illustrated story">
+					<img
+						src="/images/speaking-lock-in-story.webp"
+						alt="Nine-panel illustrated story showing how reasonable technology decisions can lead through working fixes and accumulating dependencies to lock-in, and three questions for better decisions"
+						width="1536"
+						height="1024"
+						loading="lazy"
+					/>
+				</button>
+				<p class="speaking-story-hint">Click the illustration to enlarge</p>
+			</section>
+			<dialog id="speaking-story-dialog" class="speaking-story-dialog" aria-label="The Story Behind the Talk">
+				<button type="button" class="speaking-story-close" data-speaking-story-close aria-label="Close illustration">Close ×</button>
+				<img
+					src="/images/speaking-lock-in-story.webp"
+					alt="Technology is never the starting point — illustrated story about decisions, dependencies, lock-in and business value"
+					width="1536"
+					height="1024"
+				/>
+			</dialog>
 			<section class="speaking-audience page-divider reveal-section" aria-labelledby="speaking-audience-title">
 				<h2 id="speaking-audience-title" class="eyebrow reveal-item">Audience</h2>
 				<p class="reveal-item">Open to everyone, especially leaders across the organization, including CEOs, CFOs, CIOs, and executives outside technology</p>
@@ -427,4 +449,26 @@ import SiteEffects from '../components/SiteEffects.astro';
 				}
 			</section>
 		</main>
-<Inquiry lang="en" context="speaking" /><Footer /><SiteEffects /></body></html>
+<Inquiry lang="en" context="speaking" /><Footer /><SiteEffects />
+<style>
+	/* Reuse the identical eyebrow/vertical rhythm of Audience and Format */
+	.speaking-page .speaking-story { margin-top: 24px; padding-top: 0; border-top: 0; }
+	.speaking-story-poster { display: block; width: 100%; padding: 0; border: 1px solid var(--line); border-radius: 5px; background: #f5f8fc; text-align: left; overflow: hidden; cursor: zoom-in; transition: box-shadow .2s, transform .2s; }
+	.speaking-story-poster:hover { box-shadow: 0 14px 35px -20px #183e7080; transform: translateY(-2px); }
+	.speaking-story-poster img { display: block; width: 100%; height: auto; }
+	.speaking-page .speaking-story .speaking-story-hint { color: var(--muted); font-size: 13px; margin-top: 9px; }
+	.speaking-story-dialog { border: 0; border-radius: 7px; padding: 45px 16px 16px; margin: auto; max-width: min(96vw, 1640px); max-height: 96dvh; background: #f5f8fc; box-shadow: 0 24px 80px #0008; }
+	.speaking-story-dialog::backdrop { background: #04172ce8; }
+	.speaking-story-dialog img { display: block; width: auto; max-width: 100%; max-height: calc(96dvh - 70px); height: auto; object-fit: contain; margin-inline: auto; }
+	.speaking-story-close { position: absolute; top: 8px; right: 12px; border: 0; padding: 5px 10px; background: transparent; cursor: pointer; color: var(--ink); font-size: 16px; }
+	.speaking-story-close:focus-visible,.speaking-story-poster:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+	@media(max-width:600px) { .speaking-page .speaking-story { margin-top: 24px; padding-top: 0; } }
+</style>
+<script>
+	const storyDialog = document.querySelector<HTMLDialogElement>('#speaking-story-dialog');
+	document.querySelector<HTMLButtonElement>('[data-speaking-story-open]')?.addEventListener('click', () => storyDialog?.showModal());
+	document.querySelector<HTMLButtonElement>('[data-speaking-story-close]')?.addEventListener('click', () => storyDialog?.close());
+	storyDialog?.addEventListener('click', (event) => { if (event.target === storyDialog) storyDialog.close(); });
+</script>
+
+</body></html>
