@@ -431,3 +431,6 @@
 .books-index-page .research-description{text-wrap:pretty}
 
 .home-books .home-book-title-line{display:block}
+
+/* Keep the full vertical TEDx speaker poster, including the date, visible in both languages. */
+.speaking-page .media-list > .media-item:nth-of-type(2) .media-image{display:block;width:100%;max-width:270px;max-height:none;height:auto;object-fit:contain;object-position:center}
